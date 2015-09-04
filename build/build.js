@@ -46,12 +46,16 @@
 
 	var Vue = __webpack_require__(2)
 	var alert = __webpack_require__(69)
+	var accordion = __webpack_require__(77)
+	var panel = __webpack_require__(88)
 	
 	var alertBasic = new Vue({
-	  el: '#alert-basic',
+	  el: '#app',
 	
 	  components: {
-	    'alert': alert
+	    'alert': alert,
+	    'accordion': accordion,
+	    'panel': panel
 	  }
 	})
 
@@ -10217,7 +10221,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".fade-transition {\n  transition: opacity .5s ease;\n}\n.fade-enter,\n.fade-leave {\n  opacity: 0;\n}", ""]);
+	exports.push([module.id, ".fade-transition {\n  transition: opacity .3s ease;\n}\n.fade-enter,\n.fade-leave {\n  opacity: 0;\n}", ""]);
 	
 	// exports
 
@@ -10536,6 +10540,55 @@
 /***/ function(module, exports) {
 
 	module.exports = "<div \n    v-show=\"showAlert\" \n    class=\"alert\"\n    v-class=\"\n      alert-success:type == 'success',\n      alert-warning:type == 'warning',\n      alert-info:type == 'info',\n      alert-danger:type == 'danger',\n    \"\n    v-transition=\"fade\"\n    role=\"alert\">\n    <button v-show=\"dismiss\" type=\"button\" class=\"close\" \n      v-on=\"click:showAlert = false\">\n      <span >&times;</span>\n    </button>\n    <content>\n    </content>\n  </div>";
+
+/***/ },
+/* 76 */,
+/* 77 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports.template = __webpack_require__(79)
+
+
+/***/ },
+/* 78 */,
+/* 79 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"panel-group\">\n  <content></content>\n</div>";
+
+/***/ },
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(89)
+	module.exports.template = __webpack_require__(90)
+
+
+/***/ },
+/* 89 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports["default"] = {};
+	module.exports = exports["default"];
+
+/***/ },
+/* 90 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n      <h4 class=\"panel-title\">\n        <a class=\"accordion-toggle\" >\n           Collapsible Group Item #2 \n        </a>\n      </h4>\n    </div>\n    <div id=\"collapseTwo\" class=\"panel-collapse collapse\">\n      <div class=\"panel-body\">\n      </div>\n    </div>\n  </div>\n  <div class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n      <h4 class=\"panel-title\">\n        <a class=\"accordion-toggle\" >\n          Collapsible Group Item #3 \n        </a>\n      </h4>\n    </div>\n    <div id=\"collapseThree\" class=\"panel-collapse collapse\">\n      <div class=\"panel-body\">\n      </div>\n    </div>\n  </div>";
 
 /***/ }
 /******/ ]);
