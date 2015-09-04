@@ -5,6 +5,8 @@
   <title>VueStrap - Bootstrap 3 components built with Vue.js</title>
   <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="styles/docs.css">
+    <script src="scripts/prism.js"></script>
+
 </head>
 <body>
 <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
@@ -39,7 +41,42 @@
 <div class="container bs-docs-container">
   <div class="row">
     <div class="col-md-9">
-      
+    <h1> Alert</h1>
+    <h2>Basic Alert</h2>
+    <div class="bs-example" id="#app">
+      <div id="alert-basic">
+      <alert type="success" >
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+      </alert>
+      <alert type="info" >
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+      </alert>
+      <alert type="danger" >
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+      </alert>
+      <alert type="warning" >
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+      </alert>
+      </div>
+    </div>
+
+    <pre class="language-markup"><code class="language-markup"><script type="language-mark-up"><alert type="success" >
+  <strong>Warning!</strong> Better check yourself, you're not looking too good.
+</alert>
+
+<alert type="info" >
+  <strong>Warning!</strong> Better check yourself, you're not looking too good.
+</alert>
+
+<alert type="danger" >
+  <strong>Warning!</strong> Better check yourself, you're not looking too good.
+</alert>
+
+<alert type="warning" >
+  <strong>Warning!</strong> Better check yourself, you're not looking too good.
+</alert></script></code></pre>
+
+
     </div>
     <div class="col-md-3">
       <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm ">
@@ -55,6 +92,7 @@
     </div>
   </div>
 </div>
-  <script src="scripts/bootstrap.min.js"></script>
+    <script src="build/build.js"></script>
+
 </body>
 </html>
