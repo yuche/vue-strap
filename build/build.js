@@ -10546,11 +10546,30 @@
 /* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__(78)
 	module.exports.template = __webpack_require__(79)
 
 
 /***/ },
-/* 78 */,
+/* 78 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports["default"] = {
+	  props: {
+	    oneAtATime: {
+	      type: Boolean,
+	      "default": false
+	    }
+	  }
+	};
+	module.exports = exports["default"];
+
+/***/ },
 /* 79 */
 /***/ function(module, exports) {
 
@@ -10568,6 +10587,7 @@
 /* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
+	__webpack_require__(91)
 	module.exports = __webpack_require__(89)
 	module.exports.template = __webpack_require__(90)
 
@@ -10581,14 +10601,78 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports["default"] = {};
+	exports["default"] = {
+	  props: {
+	    isOpen: {
+	      type: Boolean,
+	      "default": false
+	    },
+	    header: {
+	      type: String
+	    }
+	  },
+	  methods: {
+	    toggleIsOpen: function toggleIsOpen() {
+	      var _this = this;
+	
+	      this.isOpen = !this.isOpen;
+	      var oneAtATime = this.$parent.$data.oneAtATime;
+	
+	      this.$parent.$children.forEach(function (BrotherComponent) {
+	        if (BrotherComponent !== _this && oneAtATime) {
+	          BrotherComponent.$data.isOpen = false;
+	        }
+	      });
+	    }
+	  }
+	};
 	module.exports = exports["default"];
 
 /***/ },
 /* 90 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n      <h4 class=\"panel-title\">\n        <a class=\"accordion-toggle\" >\n           Collapsible Group Item #2 \n        </a>\n      </h4>\n    </div>\n    <div id=\"collapseTwo\" class=\"panel-collapse collapse\">\n      <div class=\"panel-body\">\n      </div>\n    </div>\n  </div>\n  <div class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n      <h4 class=\"panel-title\">\n        <a class=\"accordion-toggle\" >\n          Collapsible Group Item #3 \n        </a>\n      </h4>\n    </div>\n    <div id=\"collapseThree\" class=\"panel-collapse collapse\">\n      <div class=\"panel-body\">\n      </div>\n    </div>\n  </div>";
+	module.exports = "<div class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n      <h4 class=\"panel-title\">\n        <a class=\"accordion-toggle\"\n          v-on=\"click:toggleIsOpen\">\n           {{ header }}\n        </a>\n      </h4>\n    </div>\n    <div class=\"panel-collapse\" \n      v-show=\"isOpen\"\n      v-transition=\"collapse\">\n      <div class=\"panel-body\">\n        <content></content>\n      </div>\n    </div>\n  </div>";
+
+/***/ },
+/* 91 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(92);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(73)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 92 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(72)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".accordion-toggle {\n  cursor: pointer;\n}\n.collapse-transition {\ntransition: max-height .5s ease;\nmax-height: 150px;\noverflow: hidden;\n}\n.collapse-enter, .collapse-leave {\n  max-height: 0;\n}", ""]);
+	
+	// exports
+
 
 /***/ }
 /******/ ]);
