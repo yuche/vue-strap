@@ -3,7 +3,7 @@
     <div class="panel-heading">
       <h4 class="panel-title">
         <a class="accordion-toggle"
-          v-on="click:toggleIsOpen">
+          v-on="click:toggleIsOpen(this)">
            {{ header }}
         </a>
       </h4>
@@ -30,7 +30,7 @@
       }
     },
     methods: {
-      toggleIsOpen() {
+      toggleIsOpen(el) {
         this.isOpen = !this.isOpen
         const oneAtATime = this.$parent.$data.oneAtATime
 

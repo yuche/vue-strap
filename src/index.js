@@ -1,14 +1,22 @@
-var Vue = require('vue')
-var alert = require('./Alert.vue')
-var accordion = require('./Accordion.vue')
-var panel = require('./Panel.vue')
+import alert from './Alert.vue'
+import accordion from './Accordion.vue'
+import panel from './Panel.vue'
+import datepicker from './Datepicker.vue'
+import dropdown from './Dropdown.vue'
 
-var alertBasic = new Vue({
+
+const demo = new Vue({
   el: '#app',
 
+  data: {
+    accordionChecked: true
+  },
+
   components: {
-    'alert': alert,
-    'accordion': accordion,
-    'panel': panel
+    alert,
+    accordion,
+    panel,
+    datepicker,
+    dropdown
   }
 })

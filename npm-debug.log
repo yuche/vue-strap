@@ -1,0 +1,36 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'run', 'dev' ]
+2 info using npm@2.10.1
+3 info using node@v0.12.4
+4 verbose node symlink /usr/local/bin/node
+5 verbose run-script [ 'predev', 'dev', 'postdev' ]
+6 info predev vue-strap@0.1.0
+7 info dev vue-strap@0.1.0
+8 verbose unsafe-perm in lifecycle true
+9 info vue-strap@0.1.0 Failed to exec dev script
+10 verbose stack Error: vue-strap@0.1.0 dev: `webpack --watch`
+10 verbose stack Exit status 1
+10 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
+10 verbose stack     at EventEmitter.emit (events.js:110:17)
+10 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+10 verbose stack     at ChildProcess.emit (events.js:110:17)
+10 verbose stack     at maybeClose (child_process.js:1015:16)
+10 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1087:5)
+11 verbose pkgid vue-strap@0.1.0
+12 verbose cwd /Users/yuche/GitHub/vue-strap
+13 error Darwin 15.0.0
+14 error argv "node" "/usr/local/bin/npm" "run" "dev"
+15 error node v0.12.4
+16 error npm  v2.10.1
+17 error code ELIFECYCLE
+18 error vue-strap@0.1.0 dev: `webpack --watch`
+18 error Exit status 1
+19 error Failed at the vue-strap@0.1.0 dev script 'webpack --watch'.
+19 error This is most likely a problem with the vue-strap package,
+19 error not with npm itself.
+19 error Tell the author that this fails on your system:
+19 error     webpack --watch
+19 error You can get their info via:
+19 error     npm owner ls vue-strap
+19 error There is likely additional logging output above.
+20 verbose exit [ 1, true ]

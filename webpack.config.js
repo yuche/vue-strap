@@ -1,4 +1,5 @@
 var vue = require('vue-loader')
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -6,6 +7,16 @@ module.exports = {
     path: './build',
     filename: 'build.js'
   },
+  resolve: {
+    extensions: ['', '.js', '.vue']
+  },
+  plugins: [
+      new BrowserSyncPlugin({
+        host: 'localhost',
+        port: 3000,
+        server: { baseDir: ['./'] }
+      })
+  ],
   module: {
     loaders: [
       {
@@ -15,6 +26,11 @@ module.exports = {
           // inside *.vue files.
           js: 'babel?optional[]=runtime'
         })
+      },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel'
       }
     ]
   },

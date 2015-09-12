@@ -41,9 +41,67 @@
 <div class="container bs-docs-container" id="app">
   <div class="row">
     <div class="col-md-9">
+    <h1 class="page-header">Dropdown</h1>
+    <div class="bs-example">
+      <dropdown inline-template>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" >
+            Action <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </dropdown>
+      <dropdown inline-template>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" >
+            Action <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </dropdown>
+      <div class="btn-group btn-group-justified" role="group">
+        <a href="#" class="btn btn-default" role="button">Left</a>
+        <a href="#" class="btn btn-default" role="button">Middle</a>
+        <dropdown inline-template>
+          <div class="btn-group" role="group">
+            <a href="#" class="btn btn-default dropdown-toggle">
+              Dropdown <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div>
+        </dropdown>
+      </div>
+    </div>
+
+    <h1 class="page-header">DatePicker</h1>
+    <div class="bs-example">
+      <datepicker value="09/17/2015"></datepicker>
+    </div>
     <h1>Accordion</h1>
     <div class="bs-example">
-      <accordion one-at-atime="true">
+      <p>
+        <input type="checkbox" v-model="accordionChecked">
+        Open only one at a time.
+      </p>
+      <accordion one-at-atime="{{accordionChecked}}">
         <panel header="fuck" is-open="true">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -124,7 +182,8 @@
   <strong>Warning!</strong> Better check yourself, you're not looking too good.
 </alert></script></code></pre>
     
-    <br>
+
+
     </div>
     <div class="col-md-3">
       <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm ">
@@ -140,6 +199,7 @@
     </div>
   </div>
 </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
     <script src="build/build.js"></script>
 
 </body>
