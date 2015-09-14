@@ -12,9 +12,9 @@
       }
     },
     ready() {
-      const targets = this.$el.querySelector('.dropdown-toggle')
+      const toggleTarget = this.$el.querySelector('.dropdown-toggle')
       this.$el.querySelector('.dropdown-toggle').addEventListener('click', this.toggleDropdown)
-      Utils.detectClickOutside(targets, () => targets.parentNode.classList.remove('open'))
+      Utils.detectClickOutside(toggleTarget, () => toggleTarget.parentNode.classList.remove('open'))
     }
   }
 </script>

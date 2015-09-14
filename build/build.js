@@ -68,11 +68,16 @@
 	
 	var _DropdownVue2 = _interopRequireDefault(_DropdownVue);
 	
+	var _ModalVue = __webpack_require__(32);
+	
+	var _ModalVue2 = _interopRequireDefault(_ModalVue);
+	
 	var demo = new Vue({
 	  el: '#app',
 	
 	  data: {
-	    accordionChecked: true
+	    accordionChecked: true,
+	    showModal: false
 	  },
 	
 	  components: {
@@ -80,7 +85,8 @@
 	    accordion: _AccordionVue2['default'],
 	    panel: _PanelVue2['default'],
 	    datepicker: _DatepickerVue2['default'],
-	    dropdown: _DropdownVue2['default']
+	    dropdown: _DropdownVue2['default'],
+	    modal: _ModalVue2['default']
 	  }
 	});
 
@@ -916,10 +922,10 @@
 	    }
 	  },
 	  ready: function ready() {
-	    var targets = this.$el.querySelector('.dropdown-toggle');
+	    var toggleTarget = this.$el.querySelector('.dropdown-toggle');
 	    this.$el.querySelector('.dropdown-toggle').addEventListener('click', this.toggleDropdown);
-	    _utilsJs2['default'].detectClickOutside(targets, function () {
-	      return targets.parentNode.classList.remove('open');
+	    _utilsJs2['default'].detectClickOutside(toggleTarget, function () {
+	      return toggleTarget.parentNode.classList.remove('open');
 	    });
 	  }
 	};
@@ -967,11 +973,169 @@
 	      }
 	      callback();
 	    });
+	  },
+	  //  code from http://www.alexandre-gomes.com/?p=115
+	  getScrollBarWidth: function getScrollBarWidth() {
+	    var inner = document.createElement('p');
+	    inner.style.width = "100%";
+	    inner.style.height = "200px";
+	
+	    var outer = document.createElement('div');
+	    outer.style.position = "absolute";
+	    outer.style.top = "0px";
+	    outer.style.left = "0px";
+	    outer.style.visibility = "hidden";
+	    outer.style.width = "200px";
+	    outer.style.height = "150px";
+	    outer.style.overflow = "hidden";
+	    outer.appendChild(inner);
+	
+	    document.body.appendChild(outer);
+	    var w1 = inner.offsetWidth;
+	    outer.style.overflow = 'scroll';
+	    var w2 = inner.offsetWidth;
+	    if (w1 == w2) w2 = outer.clientWidth;
+	
+	    document.body.removeChild(outer);
+	
+	    return w1 - w2;
 	  }
 	};
 	
 	exports['default'] = Utils;
 	module.exports = exports['default'];
+
+/***/ },
+/* 31 */,
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(35)
+	module.exports = __webpack_require__(33)
+	module.exports.template = __webpack_require__(34)
+
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _interopRequireDefault = __webpack_require__(29)['default'];
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _utilsJs = __webpack_require__(30);
+	
+	var _utilsJs2 = _interopRequireDefault(_utilsJs);
+	
+	exports['default'] = {
+	  props: {
+	    title: {
+	      'default': ''
+	    },
+	    footer: {
+	      'default': true
+	    },
+	    show: {
+	      require: true,
+	      type: Boolean,
+	      twoWay: true
+	    },
+	    width: {
+	      type: Number,
+	      'default': 600
+	    },
+	    callback: {
+	      type: Function,
+	      'default': function _default() {}
+	    },
+	    effect: {
+	      type: String,
+	      'default': 'fade'
+	    }
+	  },
+	  watch: {
+	    show: function show(val) {
+	      var el = this.$el;
+	      var body = document.querySelector('body');
+	      var scrollBarWidth = _utilsJs2['default'].getScrollBarWidth();
+	      function addClassIn() {
+	        el.classList.add('in');
+	      }
+	      function setDisplayNone() {
+	        el.style.display = 'none';
+	        body.classList.remove('modal-open');
+	        body.style.paddingRight = '0';
+	      }
+	      if (val) {
+	        el.style.display = 'block';
+	        setTimeout(addClassIn, 0);
+	        if (scrollBarWidth !== 0) {
+	          body.classList.add('modal-open');
+	          body.style.paddingRight = scrollBarWidth + 'px';
+	        }
+	      } else {
+	        setTimeout(setDisplayNone, 150);
+	        el.classList.remove('in');
+	      }
+	    }
+	  },
+	  methods: {
+	    close: function close() {
+	      this.show = false;
+	    }
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 34 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"modal fade\" role=\"dialog\"\n    v-class=\"\n    fade:effect === 'fade',\n    zoom:effect === 'zoom'\"\n    >\n    <div class=\"modal-dialog\" role=\"document\"\n      v-style=\"width: width + 'px'\n      \">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" v-on='click:close'><span>&times;</span></button>\n          <h4 class=\"modal-title\" >{{title}}</h4>\n        </div>\n        <div class=\"modal-body\">\n          <content></content>\n        </div>\n        <div class=\"modal-footer\" v-show=\"footer\">\n          <button type=\"button\" class=\"btn btn-default\" v-on='click:close'>Close</button>\n          <button type=\"button\" class=\"btn btn-primary\" v-on='click:callback'>Save changes</button>\n        </div>\n      </div>\n    </div>\n  </div>";
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(36);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(9)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(8)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".modal {\n  transition: all 0.15s ease;\n}\n.modal.in {\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\n    -webkit-transform: scale(0.1);\n    -moz-transform: scale(0.1);\n    -ms-transform: scale(0.1);\n    transform: scale(0.1);\n    top: 300px;\n    opacity: 0;\n    -webkit-transition: all 0.3s;\n    -moz-transition: all 0.3s;\n    transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\n    -webkit-transform: scale(1);\n    -moz-transform: scale(1);\n    -ms-transform: scale(1);\n    transform: scale(1);\n    -webkit-transform: translate3d(0, -300px, 0);\n    transform: translate3d(0, -300px, 0);\n    opacity: 1;\n}", ""]);
+	
+	// exports
+
 
 /***/ }
 /******/ ]);

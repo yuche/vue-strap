@@ -3,13 +3,15 @@ import accordion from './Accordion.vue'
 import panel from './Panel.vue'
 import datepicker from './Datepicker.vue'
 import dropdown from './Dropdown.vue'
+import modal from './Modal.vue'
 
 
 const demo = new Vue({
   el: '#app',
 
   data: {
-    accordionChecked: true
+    accordionChecked: true,
+    showModal: false
   },
 
   components: {
@@ -17,6 +19,7 @@ const demo = new Vue({
     accordion,
     panel,
     datepicker,
-    dropdown
+    dropdown,
+    modal
   }
 })

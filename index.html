@@ -41,6 +41,19 @@
 <div class="container bs-docs-container" id="app">
   <div class="row">
     <div class="col-md-9">
+    <h1 class="page-header">Modal</h1>
+        <modal title="Modal" show="{{@showModal}}" effect="zoom" width="400">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </modal>
+
+    <div class="bs-example">
+      <button class="btn btn-danger btn-lg" v-on="click:showModal = true">Show Modal</button>
+    </div>
     <h1 class="page-header">Dropdown</h1>
     <div class="bs-example">
       <dropdown inline-template>
