@@ -3,7 +3,6 @@
     <input class="form-control datepicker-input" type="text" 
     v-on="click:inputClick" 
     v-model="value"/> 
-    <div class="datepicker-container">
       <div class="datepicker-popup" v-show="displayDayView"> 
           <div class="datepicker-inner"> 
               <div class="datepicker-body"> 
@@ -59,14 +58,13 @@
                     <span v-repeat="decade:decadeRange" 
                     v-class="datepicker-dateRange-item-active:
                     this.parse(this.value).getFullYear() === decade.text" 
-                    v-on="click:yearSelect(this)">
+                    v-on="click:yearSelect(this,$event)">
                       {{decade.text}}
                     </span> 
                 </div> 
             </div> 
         </div> 
       </div>
-    </div>
 </div>
 </template>
 
@@ -148,7 +146,8 @@ import Utils from './utils.js'
             this.currDate = new Date(year + 1, mouths, date)
           }
         },
-        yearSelect(el) {
+        yearSelect(el, e) {
+          e.stopPropagation()
           this.displayYearView = false
           this.displayMouthView = true
           this.currDate = new Date(el.$el.innerHTML, this.currDate.getMonth(), this.currDate.getDate())
@@ -314,9 +313,7 @@ import Utils from './utils.js'
     },
     ready() {
       this.currDate = this.parse(this.value) || this.stringify(this.currDate)
-      Utils.detectClickOutside(this.$el, () => {
-        this.displayDayView = this.displayMouthView = this.displayYearView = false
-      })
+      Utils.detectClickOutside(this.$el, () => this.displayDayView = this.displayMouthView = this.displayMouthView = false)
     }
   }
 </script>

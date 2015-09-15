@@ -72,12 +72,21 @@
 	
 	var _ModalVue2 = _interopRequireDefault(_ModalVue);
 	
+	var _AsideVue = __webpack_require__(38);
+	
+	var _AsideVue2 = _interopRequireDefault(_AsideVue);
+	
+	var _PopoverVue = __webpack_require__(44);
+	
+	var _PopoverVue2 = _interopRequireDefault(_PopoverVue);
+	
 	var demo = new Vue({
 	  el: '#app',
 	
 	  data: {
 	    accordionChecked: true,
-	    showModal: false
+	    showModal: false,
+	    showAside: false
 	  },
 	
 	  components: {
@@ -86,7 +95,9 @@
 	    panel: _PanelVue2['default'],
 	    datepicker: _DatepickerVue2['default'],
 	    dropdown: _DropdownVue2['default'],
-	    modal: _ModalVue2['default']
+	    modal: _ModalVue2['default'],
+	    fuck: _AsideVue2['default'],
+	    popover: _PopoverVue2['default']
 	  }
 	});
 
@@ -716,7 +727,8 @@
 	        this.currDate = new Date(year + 1, mouths, date);
 	      }
 	    },
-	    yearSelect: function yearSelect(el) {
+	    yearSelect: function yearSelect(el, e) {
+	      e.stopPropagation();
 	      this.displayYearView = false;
 	      this.displayMouthView = true;
 	      this.currDate = new Date(el.$el.innerHTML, this.currDate.getMonth(), this.currDate.getDate());
@@ -877,7 +889,7 @@
 	
 	    this.currDate = this.parse(this.value) || this.stringify(this.currDate);
 	    _utilsJs2['default'].detectClickOutside(this.$el, function () {
-	      _this2.displayDayView = _this2.displayMouthView = _this2.displayYearView = false;
+	      return _this2.displayDayView = _this2.displayMouthView = _this2.displayMouthView = false;
 	    });
 	  }
 	};
@@ -887,7 +899,7 @@
 /* 24 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"datepicker\"> \n    <input class=\"form-control datepicker-input\" type=\"text\" \n    v-on=\"click:inputClick\" \n    v-model=\"value\"/> \n    <div class=\"datepicker-container\">\n      <div class=\"datepicker-popup\" v-show=\"displayDayView\"> \n          <div class=\"datepicker-inner\"> \n              <div class=\"datepicker-body\"> \n                  <div class=\"datepicker-ctrl\"> \n                      <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextMonthClick(0)\">&lt;</i> \n                      <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextMonthClick(1)\">&gt;</i> \n                      <p v-on=\"click:switchMouthView\">&nbsp;&nbsp;\n                      {{stringifyDayHeader(currDate)}}\n                      &nbsp;&nbsp;</p>\n                  </div> \n                  <div class=\"datepicker-weekRange\"> \n                      <span v-repeat=\"w:weekRange\">{{w}}</span> \n                  </div> \n                  <div class=\"datepicker-dateRange\"> \n                      <span v-repeat=\"d:dateRange\" v-class=\"d.sclass\" v-on=\"click:daySelect(d.date,this)\">{{d.text}}</span> \n                  </div> \n              </div> \n          </div> \n      </div>\n      <div class=\"datepicker-popup\" v-show=\"displayMouthView\">\n        <div class=\"datepicker-inner\"> \n            <div class=\"datepicker-body\"> \n                <div class=\"datepicker-ctrl\"> \n                    <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextYearClick(0)\">&lt;</i> \n                    <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextYearClick(1)\">&gt;</i> \n                    <p v-on=\"click:switchDecadeView\">&nbsp;&nbsp;&nbsp;&nbsp;\n                    {{stringifyYearHeader(currDate)}}\n                    &nbsp;&nbsp;&nbsp;&nbsp;</p>\n                </div> \n                <div class=\"datepicker-mouthRange\"> \n                    <span v-repeat=\"m:mouthNames\" \n                    v-class=\"datepicker-dateRange-item-active:\n                    (this.mouthNames[this.parse(this.value).getMonth()]  === m) && \n                    this.currDate.getFullYear() === this.parse(this.value).getFullYear()\"\n                    v-on=\"click:mouthSelect($index)\">\n                      {{m.substr(0,3)}}\n                    </span> \n                </div> \n            </div> \n        </div> \n      </div>\n      <div class=\"datepicker-popup\" v-show=\"displayYearView\">\n        <div class=\"datepicker-inner\"> \n            <div class=\"datepicker-body\"> \n                <div class=\"datepicker-ctrl\"> \n                    <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextDecadeClick(0)\">&lt;</i> \n                    <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextDecadeClick(1)\">&gt;</i> \n                    <p>&nbsp;&nbsp;&nbsp;&nbsp;\n                    {{stringifyDecadeHeader(currDate)}}\n                    &nbsp;&nbsp;</p>\n                </div> \n                <div class=\"datepicker-mouthRange decadeRange\">\n                    <span v-repeat=\"decade:decadeRange\" \n                    v-class=\"datepicker-dateRange-item-active:\n                    this.parse(this.value).getFullYear() === decade.text\" \n                    v-on=\"click:yearSelect(this)\">\n                      {{decade.text}}\n                    </span> \n                </div> \n            </div> \n        </div> \n      </div>\n    </div>\n</div>";
+	module.exports = "<div class=\"datepicker\"> \n    <input class=\"form-control datepicker-input\" type=\"text\" \n    v-on=\"click:inputClick\" \n    v-model=\"value\"/> \n      <div class=\"datepicker-popup\" v-show=\"displayDayView\"> \n          <div class=\"datepicker-inner\"> \n              <div class=\"datepicker-body\"> \n                  <div class=\"datepicker-ctrl\"> \n                      <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextMonthClick(0)\">&lt;</i> \n                      <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextMonthClick(1)\">&gt;</i> \n                      <p v-on=\"click:switchMouthView\">&nbsp;&nbsp;\n                      {{stringifyDayHeader(currDate)}}\n                      &nbsp;&nbsp;</p>\n                  </div> \n                  <div class=\"datepicker-weekRange\"> \n                      <span v-repeat=\"w:weekRange\">{{w}}</span> \n                  </div> \n                  <div class=\"datepicker-dateRange\"> \n                      <span v-repeat=\"d:dateRange\" v-class=\"d.sclass\" v-on=\"click:daySelect(d.date,this)\">{{d.text}}</span> \n                  </div> \n              </div> \n          </div> \n      </div>\n      <div class=\"datepicker-popup\" v-show=\"displayMouthView\">\n        <div class=\"datepicker-inner\"> \n            <div class=\"datepicker-body\"> \n                <div class=\"datepicker-ctrl\"> \n                    <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextYearClick(0)\">&lt;</i> \n                    <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextYearClick(1)\">&gt;</i> \n                    <p v-on=\"click:switchDecadeView\">&nbsp;&nbsp;&nbsp;&nbsp;\n                    {{stringifyYearHeader(currDate)}}\n                    &nbsp;&nbsp;&nbsp;&nbsp;</p>\n                </div> \n                <div class=\"datepicker-mouthRange\"> \n                    <span v-repeat=\"m:mouthNames\" \n                    v-class=\"datepicker-dateRange-item-active:\n                    (this.mouthNames[this.parse(this.value).getMonth()]  === m) && \n                    this.currDate.getFullYear() === this.parse(this.value).getFullYear()\"\n                    v-on=\"click:mouthSelect($index)\">\n                      {{m.substr(0,3)}}\n                    </span> \n                </div> \n            </div> \n        </div> \n      </div>\n      <div class=\"datepicker-popup\" v-show=\"displayYearView\">\n        <div class=\"datepicker-inner\"> \n            <div class=\"datepicker-body\"> \n                <div class=\"datepicker-ctrl\"> \n                    <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextDecadeClick(0)\">&lt;</i> \n                    <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextDecadeClick(1)\">&gt;</i> \n                    <p>&nbsp;&nbsp;&nbsp;&nbsp;\n                    {{stringifyDecadeHeader(currDate)}}\n                    &nbsp;&nbsp;</p>\n                </div> \n                <div class=\"datepicker-mouthRange decadeRange\">\n                    <span v-repeat=\"decade:decadeRange\" \n                    v-class=\"datepicker-dateRange-item-active:\n                    this.parse(this.value).getFullYear() === decade.text\" \n                    v-on=\"click:yearSelect(this,$event)\">\n                      {{decade.text}}\n                    </span> \n                </div> \n            </div> \n        </div> \n      </div>\n</div>";
 
 /***/ },
 /* 25 */,
@@ -965,7 +977,7 @@
 	    document.addEventListener('click', function (e) {
 	      var level = 0;
 	      for (var element = e.target; element; element = element.parentNode) {
-	        if (element === targetDom) {
+	        if (element == targetDom) {
 	          // console.log('insie')
 	          return;
 	        }
@@ -1061,7 +1073,7 @@
 	    show: function show(val) {
 	      var el = this.$el;
 	      var body = document.querySelector('body');
-	      var scrollBarWidth = _utilsJs2['default'].getScrollBarWidth();
+	      var scrollBarWidth = _utilsJs2['default'].getScrollBarWidth && _utilsJs2['default'].getScrollBarWidth();
 	      function addClassIn() {
 	        el.classList.add('in');
 	      }
@@ -1136,6 +1148,144 @@
 	
 	// exports
 
+
+/***/ },
+/* 37 */,
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(39)
+	module.exports = __webpack_require__(41)
+	module.exports.template = __webpack_require__(42)
+
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(40);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(9)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(8)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".aside-open {\n    transition: transform 0.3s;\n  }\n  .aside-open.has-push-right {\n    transform: translateX(-300px);\n  }\n  .aside {\n      position: fixed;\n      top: 0;\n      bottom: 0;\n      z-index: 1049;\n      overflow: auto;\n      background: #fff;\n  }\n  .aside.left {\n    left: 0;\n    right: auto;\n  }\n  .aside.right {\n    left: auto;\n    right: 0;\n  }\n\n  .slideleft-enter {\n    animation:slideleft-in .3s;\n  }\n  .slideleft-leave {\n    animation:slideleft-out .3s;\n  }\n  @keyframes slideleft-in {\n    0% {\n      transform: translateX(-100%);\n      opacity: 0;\n    }\n    100% {\n      transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @keyframes slideleft-out {\n    0% {\n      transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      transform: translateX(-100%);\n      opacity: 0;\n    }\n  }\n  .slideright-enter {\n    animation:slideright-in .3s;\n  }\n  .slideright-leave {\n    animation:slideright-out .3s;\n  }\n  @keyframes slideright-in {\n    0% {\n      transform: translateX(100%);\n      opacity: 0;\n    }\n    100% {\n      transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @keyframes slideright-out {\n    0% {\n      transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      transform: translateX(100%);\n      opacity: 0;\n    }\n  }\n\n  .aside:focus {\n      outline: 0\n  }\n\n  @media (max-width: 991px) {\n      .aside {\n          min-width:240px\n      }\n  }\n\n  .aside.left {\n      right: auto;\n      left: 0\n  }\n\n  .aside.right {\n      right: 0;\n      left: auto\n  }\n\n  .aside .aside-dialog .aside-header {\n      border-bottom: 1px solid #e5e5e5;\n      min-height: 16.43px;\n      padding: 6px 15px;\n      background: #337ab7;\n      color: #fff\n  }\n\n  .aside .aside-dialog .aside-header .close {\n      margin-right: -8px;\n      padding: 4px 8px;\n      color: #fff;\n      font-size: 25px;\n      opacity: .8\n  }\n\n  .aside .aside-dialog .aside-body {\n      position: relative;\n      padding: 15px\n  }\n\n  .aside .aside-dialog .aside-footer {\n      padding: 15px;\n      text-align: right;\n      border-top: 1px solid #e5e5e5\n  }\n\n  .aside .aside-dialog .aside-footer .btn+.btn {\n      margin-left: 5px;\n      margin-bottom: 0\n  }\n\n  .aside .aside-dialog .aside-footer .btn-group .btn+.btn {\n      margin-left: -1px\n  }\n\n  .aside .aside-dialog .aside-footer .btn-block+.btn-block {\n      margin-left: 0\n  }\n\n  .aside-backdrop {\n      position: fixed;\n      top: 0;\n      right: 0;\n      bottom: 0;\n      left: 0;\n      z-index: 1040;\n      opacity: 0;\n      transition: opacity .3s ease;\n      background-color: #000\n  }\n\n\n  .aside-backdrop.in {\n      opacity: .5;\n      filter: alpha(opacity=50)\n  }", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 41 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = {
+	  props: {
+	    show: {
+	      type: Boolean,
+	      require: true,
+	      twoWay: true
+	    },
+	    placement: {
+	      type: String,
+	      'default': 'right'
+	    },
+	    header: {
+	      type: String
+	    },
+	    width: {
+	      type: Number,
+	      'default': '320'
+	    }
+	  },
+	  computed: {
+	    transition: function transition() {
+	      if (this.placement === 'left') {
+	        return 'slideleft';
+	      } else {
+	        return 'slideright';
+	      }
+	    }
+	  },
+	  watch: {
+	    show: function show(val) {
+	      var backdrop = document.createElement('div');
+	      backdrop.className = 'aside-backdrop';
+	      if (val) {
+	        document.body.appendChild(backdrop);
+	        // request property that requires layout to force a layout
+	        var x = backdrop.clientHeight;
+	        backdrop.className += ' in';
+	        backdrop.addEventListener('click', this.close);
+	        if (this.effect === 'push') {
+	          document.body.className = 'aside-open has-push-right';
+	        }
+	      } else {
+	        backdrop = document.querySelector('.aside-backdrop');
+	        backdrop.className = 'aside-backdrop';
+	        backdrop.removeEventListener('click', this.close);
+	        setTimeout(function () {
+	          return document.body.removeChild(backdrop);
+	        }, 300);
+	      }
+	    }
+	  },
+	  methods: {
+	    close: function close() {
+	      this.show = false;
+	    }
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 42 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"aside\"\n    v-style=\"width:width + 'px'\"\n    v-class=\"\n    left:placement === 'left',\n    right:placement === 'right'\n    \"\n    v-show=\"show\"\n    v-transition=\"{{transition}}\">\n    <div class=\"aside-dialog\">\n      <div class=\"aside-content\">\n        <div class=\"aside-header\">\n          <button type=\"button\" class=\"close\" v-on='click:close'><span>&times;</span></button>\n          <h4 class=\"aside-title\">{{header}}</h4>\n        </div>\n        <div class=\"aside-body\">\n          <content></content>\n        </div>\n      </div>\n    </div>\n  </div>";
+
+/***/ },
+/* 43 */,
+/* 44 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports.template = __webpack_require__(45)
+
+
+/***/ },
+/* 45 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"popover top\">\n      <div class=\"arrow\"></div>\n      <h3 class=\"popover-title\">Popover top</h3>\n      <div class=\"popover-content\">\n        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>\n      </div>\n    </div>";
 
 /***/ }
 /******/ ]);

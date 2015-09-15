@@ -4,6 +4,8 @@ import panel from './Panel.vue'
 import datepicker from './Datepicker.vue'
 import dropdown from './Dropdown.vue'
 import modal from './Modal.vue'
+import fuck from './Aside.vue'
+import popover from './Popover.vue'
 
 
 const demo = new Vue({
@@ -11,7 +13,8 @@ const demo = new Vue({
 
   data: {
     accordionChecked: true,
-    showModal: false
+    showModal: false,
+    showAside: false
   },
 
   components: {
@@ -20,6 +23,8 @@ const demo = new Vue({
     panel,
     datepicker,
     dropdown,
-    modal
+    modal,
+    fuck,
+    popover
   }
 })

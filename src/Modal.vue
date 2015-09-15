@@ -57,7 +57,7 @@ import Utils from './utils.js'
       show(val) {
         const el = this.$el
         const body = document.querySelector('body')
-        const scrollBarWidth = Utils.getScrollBarWidth()
+        const scrollBarWidth = Utils.getScrollBarWidth && Utils.getScrollBarWidth()
         function addClassIn() {
           el.classList.add('in')
         }

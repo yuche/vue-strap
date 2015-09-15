@@ -41,6 +41,24 @@
 <div class="container bs-docs-container" id="app">
   <div class="row">
     <div class="col-md-9">
+    <h1 class="page-header">
+      Aside
+    </h1>
+    <fuck show="{{@showAside}}" placement="right" header="Title" width="350">
+      <h4>Text in aside</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p> Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat.</p>
+      <pre><code>if (talk === cheap){
+  code.style.display = 'block'
+}</code></pre>
+<div class="aside-footer"><button type="button" class="btn btn-default" v-on="click:showAside=false">Close</button></div>
+    </fuck>
+    <div class="bs-example">
+      <button class="btn btn-success btn-lg" v-on="click:showAside = true">Show Aside</button>
+    </div>
     <h1 class="page-header">Modal</h1>
         <modal title="Modal" show="{{@showModal}}" effect="zoom" width="400">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

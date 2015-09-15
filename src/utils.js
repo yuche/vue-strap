@@ -3,7 +3,7 @@ const Utils = {
     document.addEventListener('click', e => {
       let level = 0
       for (let element = e.target; element; element = element.parentNode) {
-        if (element === targetDom) {
+        if (element == targetDom) {
           // console.log('insie')
           return
         }
