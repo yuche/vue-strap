@@ -41,10 +41,25 @@
 <div class="container bs-docs-container" id="app">
   <div class="row">
     <div class="col-md-9">
+    <h1 class="page-header">Popover</h1>
+    <div class="bs-example">
+      <popover effect="scale" header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="top">
+        <button id="thing" class="btn btn-primary ">Popover on right</button>
+      </popover>
+      <popover effect="scale" header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="left">
+        <button id="thing" class="btn btn-primary ">Popover on right</button>
+      </popover>
+      <popover effect="scale" header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="right">
+        <button id="thing" class="btn btn-primary ">Popover on left</button>
+      </popover>
+      <popover effect="scale" placement="bottom" header="true" title="Title" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
+        <button class="btn btn-primary ">Popover on bottom</button>
+      </popover>
+    </div>
     <h1 class="page-header">
       Aside
     </h1>
-    <fuck show="{{@showAside}}" placement="right" header="Title" width="350">
+    <fuck show="{{@showAside}}" placement="left" header="Title" width="350">
       <h4>Text in aside</h4>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -54,7 +69,9 @@
       <pre><code>if (talk === cheap){
   code.style.display = 'block'
 }</code></pre>
-<div class="aside-footer"><button type="button" class="btn btn-default" v-on="click:showAside=false">Close</button></div>
+      <div class="aside-footer">
+        <button type="button" class="btn btn-default" v-on="click:showAside=false">Close</button>
+      </div>
     </fuck>
     <div class="bs-example">
       <button class="btn btn-success btn-lg" v-on="click:showAside = true">Show Aside</button>

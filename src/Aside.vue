@@ -6,7 +6,7 @@
     right:placement === 'right'
     "
     v-show="show"
-    v-transition="{{transition}}">
+    v-transition="{{this.placement === 'left' ? 'slideleft' : 'slideright'}}">
     <div class="aside-dialog">
       <div class="aside-content">
         <div class="aside-header">
@@ -41,15 +41,6 @@
         default: '320'
       }
     },
-    computed: {
-      transition() {
-        if (this.placement === 'left') {
-          return 'slideleft'
-        } else {
-          return 'slideright'
-        }
-      }
-    },
     watch: {
       show(val) {
         let backdrop = document.createElement('div')
@@ -60,9 +51,6 @@
           var x = backdrop.clientHeight
           backdrop.className += ' in'
           backdrop.addEventListener('click', this.close)
-          if (this.effect === 'push') {
-            document.body.className = 'aside-open has-push-right'
-          }
         } else {
           backdrop = document.querySelector('.aside-backdrop')
           backdrop.className = 'aside-backdrop'

@@ -1227,15 +1227,6 @@
 	      'default': '320'
 	    }
 	  },
-	  computed: {
-	    transition: function transition() {
-	      if (this.placement === 'left') {
-	        return 'slideleft';
-	      } else {
-	        return 'slideright';
-	      }
-	    }
-	  },
 	  watch: {
 	    show: function show(val) {
 	      var backdrop = document.createElement('div');
@@ -1246,9 +1237,6 @@
 	        var x = backdrop.clientHeight;
 	        backdrop.className += ' in';
 	        backdrop.addEventListener('click', this.close);
-	        if (this.effect === 'push') {
-	          document.body.className = 'aside-open has-push-right';
-	        }
 	      } else {
 	        backdrop = document.querySelector('.aside-backdrop');
 	        backdrop.className = 'aside-backdrop';
@@ -1271,13 +1259,15 @@
 /* 42 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"aside\"\n    v-style=\"width:width + 'px'\"\n    v-class=\"\n    left:placement === 'left',\n    right:placement === 'right'\n    \"\n    v-show=\"show\"\n    v-transition=\"{{transition}}\">\n    <div class=\"aside-dialog\">\n      <div class=\"aside-content\">\n        <div class=\"aside-header\">\n          <button type=\"button\" class=\"close\" v-on='click:close'><span>&times;</span></button>\n          <h4 class=\"aside-title\">{{header}}</h4>\n        </div>\n        <div class=\"aside-body\">\n          <content></content>\n        </div>\n      </div>\n    </div>\n  </div>";
+	module.exports = "<div class=\"aside\"\n    v-style=\"width:width + 'px'\"\n    v-class=\"\n    left:placement === 'left',\n    right:placement === 'right'\n    \"\n    v-show=\"show\"\n    v-transition=\"{{this.placement === 'left' ? 'slideleft' : 'slideright'}}\">\n    <div class=\"aside-dialog\">\n      <div class=\"aside-content\">\n        <div class=\"aside-header\">\n          <button type=\"button\" class=\"close\" v-on='click:close'><span>&times;</span></button>\n          <h4 class=\"aside-title\">{{header}}</h4>\n        </div>\n        <div class=\"aside-body\">\n          <content></content>\n        </div>\n      </div>\n    </div>\n  </div>";
 
 /***/ },
 /* 43 */,
 /* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
+	__webpack_require__(47)
+	module.exports = __webpack_require__(46)
 	module.exports.template = __webpack_require__(45)
 
 
@@ -1285,7 +1275,169 @@
 /* 45 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"popover top\">\n      <div class=\"arrow\"></div>\n      <h3 class=\"popover-title\">Popover top</h3>\n      <div class=\"popover-content\">\n        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>\n      </div>\n    </div>";
+	module.exports = "<span v-el=\"trigger\">\n    <content>\n    </content>\n  </span>\n  <div class=\"popover\"\n    v-class=\"\n    top:placement === 'top',\n    left:placement === 'left',\n    right:placement === 'right',\n    bottom:placement === 'bottom'\n    \"\n    v-el=\"popover\"\n    v-show=\"show\"\n    v-transition=\"{{effect}}\">\n      <div class=\"arrow\"></div>\n      <h3 class=\"popover-title\" v-show=\"header\">{{title}}</h3>\n      <div class=\"popover-content\">\n        {{{content}}}\n      </div>\n  </div>";
+
+/***/ },
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _interopRequireDefault = __webpack_require__(29)['default'];
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _popoverMixinsJs = __webpack_require__(50);
+	
+	var _popoverMixinsJs2 = _interopRequireDefault(_popoverMixinsJs);
+	
+	exports['default'] = {
+	  mixins: [_popoverMixinsJs2['default']]
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 47 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(48);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(9)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 48 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(8)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".scale-transition,\n.fade-transition {\n  display: block;\n}\n.scale-enter {\n  animation:scale-in 0.15s ease-in;\n}\n.scale-leave {\n  animation:scale-out 0.15s ease-out;\n}\n@keyframes scale-in {\n  0% {\n    transform: scale(0);\n    opacity: 0;\n  }\n  100% {\n    transform: scale(1);\n    opacity: 1;\n  }\n}\n@keyframes scale-out {\n  0% {\n    transform: scale(1);\n    opacity: 1;\n  }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n  }\n}", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 49 */,
+/* 50 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	var PopoverMixin = {
+	  props: {
+	    trigger: {
+	      type: String,
+	      'default': 'click'
+	    },
+	    effect: {
+	      type: String,
+	      'default': 'fade'
+	    },
+	    title: {
+	      type: String
+	    },
+	    content: {
+	      type: String
+	    },
+	    header: {
+	      type: Boolean,
+	      'default': true
+	    },
+	    placement: {
+	      type: String
+	    }
+	  },
+	  data: function data() {
+	    return {
+	      position: {
+	        top: 0,
+	        left: 0
+	      },
+	      show: true
+	    };
+	  },
+	  methods: {
+	    toggle: function toggle() {
+	      this.show = !this.show;
+	    }
+	  },
+	  ready: function ready() {
+	    var _this = this;
+	
+	    var popoverTarget = this.$$.popover;
+	    var triggerTarget = this.$$.trigger.children[0];
+	    if (this.trigger === 'hover') {
+	      triggerTarget.addEventListener('mouseenter', function () {
+	        return _this.show = true;
+	      });
+	      triggerTarget.addEventListener('mouseleave', function () {
+	        return _this.show = false;
+	      });
+	    } else if (this.trigger === 'focus') {
+	      triggerTarget.addEventListener('focus', function () {
+	        return _this.show = true;
+	      });
+	      triggerTarget.addEventListener('blur', function () {
+	        return _this.show = false;
+	      });
+	    } else {
+	      triggerTarget.addEventListener('click', this.toggle);
+	    }
+	
+	    switch (this.placement) {
+	      case 'top':
+	        this.position.left = triggerTarget.offsetLeft - popoverTarget.offsetWidth / 2 + triggerTarget.offsetWidth / 2;
+	        this.position.top = triggerTarget.offsetTop - popoverTarget.offsetHeight;
+	        break;
+	      case 'left':
+	        this.position.left = triggerTarget.offsetLeft - popoverTarget.offsetWidth;
+	        this.position.top = triggerTarget.offsetTop + triggerTarget.offsetHeight / 2 - popoverTarget.offsetHeight / 2;
+	        break;
+	      case 'right':
+	        this.position.left = triggerTarget.offsetLeft + triggerTarget.offsetWidth;
+	        this.position.top = triggerTarget.offsetTop + triggerTarget.offsetHeight / 2 - popoverTarget.offsetHeight / 2;
+	        break;
+	      case 'bottom':
+	        this.position.left = triggerTarget.offsetLeft - popoverTarget.offsetWidth / 2 + triggerTarget.offsetWidth / 2;
+	        this.position.top = triggerTarget.offsetTop + triggerTarget.offsetHeight;
+	        break;
+	      default:
+	        console.log('Wrong placement prop');
+	    }
+	    popoverTarget.style.top = this.position.top + 'px';
+	    popoverTarget.style.left = this.position.left + 'px';
+	    popoverTarget.style.display = 'none';
+	    this.show = !this.show;
+	  }
+	};
+	
+	exports['default'] = PopoverMixin;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);

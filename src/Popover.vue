@@ -1,9 +1,63 @@
 <template>
-  <div class="popover top">
+  <span v-el="trigger">
+    <content>
+    </content>
+  </span>
+  <div class="popover"
+    v-class="
+    top:placement === 'top',
+    left:placement === 'left',
+    right:placement === 'right',
+    bottom:placement === 'bottom'
+    "
+    v-el="popover"
+    v-show="show"
+    v-transition="{{effect}}">
       <div class="arrow"></div>
-      <h3 class="popover-title">Popover top</h3>
+      <h3 class="popover-title" v-show="header">{{title}}</h3>
       <div class="popover-content">
-        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+        {{{content}}}
       </div>
-    </div>
+  </div>
 </template>
+
+<script>
+import PopoverMixin from './popoverMixins.js'
+  export default {
+    mixins: [PopoverMixin]
+  }
+</script>
+<style>
+.scale-transition,
+.fade-transition {
+  display: block;
+}
+.scale-enter {
+  animation:scale-in 0.15s ease-in;
+}
+.scale-leave {
+  animation:scale-out 0.15s ease-out;
+}
+@keyframes scale-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+
+</style>
