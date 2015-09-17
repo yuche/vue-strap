@@ -1,0 +1,58 @@
+<template>
+  <span v-el="trigger">
+    <content>
+    </content>
+  </span>
+  <div class="tooltip"
+    v-class="
+    top:placement === 'top',
+    left:placement === 'left',
+    right:placement === 'right',
+    bottom:placement === 'bottom'
+    "
+    v-el="popover"
+    v-show="show"
+    v-transition="{{effect}}"
+    role="tooltip">
+    <div class="tooltip-arrow"></div>
+    <div class="tooltip-inner">
+      {{{content}}}
+    </div>
+  </div>
+</template>
+
+<script>
+import PopoverMixin from './popoverMixins.js'
+  export default {
+    mixins: [PopoverMixin]
+  }
+</script>
+
+<style>
+  .tooltip {
+    opacity: 1
+  }
+.fadein-enter {
+  animation:fadein-in 0.15s ease-in;
+}
+.fadein-leave {
+  animation:fadein-out 0.15s ease-out;
+}
+@keyframes fadein-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadein-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+</style>

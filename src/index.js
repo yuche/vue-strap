@@ -6,7 +6,7 @@ import dropdown from './Dropdown.vue'
 import modal from './Modal.vue'
 import fuck from './Aside.vue'
 import popover from './Popover.vue'
-
+import tooltip from './Tooltip.vue'
 
 const demo = new Vue({
   el: '#app',
@@ -25,6 +25,7 @@ const demo = new Vue({
     dropdown,
     modal,
     fuck,
-    popover
+    popover,
+    tooltip
   }
 })

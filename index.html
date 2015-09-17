@@ -41,16 +41,31 @@
 <div class="container bs-docs-container" id="app">
   <div class="row">
     <div class="col-md-9">
+    <h1 class="page-header">Tooltip</h1>
+    <div class="bs-example">
+      <tooltip trigger="hover" effect="fadein" title="Title" content="Lorem ipsum dolor sit amet" placement="top">
+        <button class="btn btn-primary ">tooltip on right</button>
+      </tooltip>
+      <tooltip trigger="hover" effect="scale" title="Title" content="Lorem ipsum dolor sit amet" placement="left">
+        <button class="btn btn-primary ">tooltip on right</button>
+      </tooltip>
+      <tooltip trigger="hover" effect="scale" title="Title" content="Lorem ipsum dolor sit amet" placement="right">
+        <button class="btn btn-primary ">tooltip on right</button>
+      </tooltip>
+      <tooltip trigger="hover" effect="scale" title="Title" content="Lorem ipsum dolor sit amet" placement="bottom">
+        <button class="btn btn-primary ">tooltip on right</button>
+      </tooltip>
+    </div>
     <h1 class="page-header">Popover</h1>
     <div class="bs-example">
       <popover effect="scale" header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="top">
-        <button id="thing" class="btn btn-primary ">Popover on right</button>
+        <button class="btn btn-primary ">Popover on right</button>
       </popover>
       <popover effect="scale" header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="left">
-        <button id="thing" class="btn btn-primary ">Popover on right</button>
+        <button class="btn btn-primary ">Popover on right</button>
       </popover>
       <popover effect="scale" header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="right">
-        <button id="thing" class="btn btn-primary ">Popover on left</button>
+        <button class="btn btn-primary ">Popover on left</button>
       </popover>
       <popover effect="scale" placement="bottom" header="true" title="Title" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
         <button class="btn btn-primary ">Popover on bottom</button>

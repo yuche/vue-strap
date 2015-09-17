@@ -80,6 +80,10 @@
 	
 	var _PopoverVue2 = _interopRequireDefault(_PopoverVue);
 	
+	var _TooltipVue = __webpack_require__(52);
+	
+	var _TooltipVue2 = _interopRequireDefault(_TooltipVue);
+	
 	var demo = new Vue({
 	  el: '#app',
 	
@@ -97,7 +101,8 @@
 	    dropdown: _DropdownVue2['default'],
 	    modal: _ModalVue2['default'],
 	    fuck: _AsideVue2['default'],
-	    popover: _PopoverVue2['default']
+	    popover: _PopoverVue2['default'],
+	    tooltip: _TooltipVue2['default']
 	  }
 	});
 
@@ -1438,6 +1443,83 @@
 	
 	exports['default'] = PopoverMixin;
 	module.exports = exports['default'];
+
+/***/ },
+/* 51 */,
+/* 52 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(55)
+	module.exports = __webpack_require__(53)
+	module.exports.template = __webpack_require__(54)
+
+
+/***/ },
+/* 53 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _interopRequireDefault = __webpack_require__(29)['default'];
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _popoverMixinsJs = __webpack_require__(50);
+	
+	var _popoverMixinsJs2 = _interopRequireDefault(_popoverMixinsJs);
+	
+	exports['default'] = {
+	  mixins: [_popoverMixinsJs2['default']]
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 54 */
+/***/ function(module, exports) {
+
+	module.exports = "<span v-el=\"trigger\">\n    <content>\n    </content>\n  </span>\n  <div class=\"tooltip\"\n    v-class=\"\n    top:placement === 'top',\n    left:placement === 'left',\n    right:placement === 'right',\n    bottom:placement === 'bottom'\n    \"\n    v-el=\"popover\"\n    v-show=\"show\"\n    v-transition=\"{{effect}}\"\n    role=\"tooltip\">\n    <div class=\"tooltip-arrow\"></div>\n    <div class=\"tooltip-inner\">\n      {{{content}}}\n    </div>\n  </div>";
+
+/***/ },
+/* 55 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(56);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(9)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 56 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(8)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".tooltip {\n    opacity: 1\n  }\n.fadein-enter {\n  animation:fadein-in 0.15s ease-in;\n}\n.fadein-leave {\n  animation:fadein-out 0.15s ease-out;\n}\n@keyframes fadein-in {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@keyframes fadein-out {\n  0% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0;\n  }\n}", ""]);
+	
+	// exports
+
 
 /***/ }
 /******/ ]);
