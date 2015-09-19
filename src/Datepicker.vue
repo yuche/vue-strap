@@ -367,7 +367,7 @@ import Utils from './utils.js'
 }
 .datepicker-item-disable {
   background-color: white!important;
-  cursor: auto!important;
+  cursor: not-allowed!important;
 }
 .decadeRange span:first-child,
 .decadeRange span:last-child,

@@ -30,7 +30,7 @@ import PopoverMixin from './popoverMixins.js'
 
 <style>
   .tooltip {
-    opacity: 1
+    opacity: .9
   }
 .fadein-enter {
   animation:fadein-in 0.15s ease-in;

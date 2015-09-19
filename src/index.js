@@ -7,6 +7,8 @@ import modal from './Modal.vue'
 import fuck from './Aside.vue'
 import popover from './Popover.vue'
 import tooltip from './Tooltip.vue'
+import tabset from './Tabset.vue'
+import tab from './Tab.vue'
 
 const demo = new Vue({
   el: '#app',
@@ -26,6 +28,8 @@ const demo = new Vue({
     modal,
     fuck,
     popover,
-    tooltip
+    tooltip,
+    tabset,
+    tab
   }
 })
