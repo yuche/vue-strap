@@ -9,6 +9,8 @@ import popover from './Popover.vue'
 import tooltip from './Tooltip.vue'
 import tabset from './Tabset.vue'
 import tab from './Tab.vue'
+import carousel from './Carousel.vue'
+import slider from './Slider.vue'
 
 const demo = new Vue({
   el: '#app',
@@ -30,6 +32,8 @@ const demo = new Vue({
     popover,
     tooltip,
     tabset,
-    tab
+    tab,
+    carousel,
+    slider,
   }
 })

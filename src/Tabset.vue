@@ -35,7 +35,7 @@
             e.preventDefault()
             if (!el.disabled) this.activeIndex = index
           }
-        }
+        },
       }
     }
   }
