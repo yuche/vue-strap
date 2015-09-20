@@ -1,6 +1,8 @@
 <template>
   <div role="tabpanel" class="tab-pane"
+  v-class="hide:!show"
   v-show="show"
+  v-transition="{{transition}}"
   >
     <content></content>
   </div>
@@ -26,6 +28,9 @@
     computed: {
       show() {
         return this.$parent.activeIndex === this.index
+      },
+      transition() {
+        return this.$parent.effect
       }
     },
     created() {
@@ -43,5 +48,8 @@
 <style>
   .tab-content > .tab-pane {
     display: block;
+  }
+  .tab-content > .tab-pane.hide {
+    position: absolute;
   }
 </style>

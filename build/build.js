@@ -1603,6 +1603,12 @@
 	  value: true
 	});
 	exports['default'] = {
+	  props: {
+	    effect: {
+	      type: String,
+	      'default': 'fadein'
+	    }
+	  },
 	  data: function data() {
 	    return {
 	      renderData: [],
@@ -1674,7 +1680,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".tab-content > .tab-pane {\n    display: block;\n  }", ""]);
+	exports.push([module.id, ".tab-content > .tab-pane {\n    display: block;\n  }\n  .tab-content > .tab-pane.hide {\n    position: absolute;\n  }", ""]);
 	
 	// exports
 
@@ -1709,6 +1715,9 @@
 	  computed: {
 	    show: function show() {
 	      return this.$parent.activeIndex === this.index;
+	    },
+	    transition: function transition() {
+	      return this.$parent.effect;
 	    }
 	  },
 	  created: function created() {
@@ -2314,7 +2323,7 @@
 /* 108 */
 /***/ function(module, exports) {
 
-	module.exports = "<div role=\"tabpanel\" class=\"tab-pane\"\n  v-show=\"show\"\n  >\n    <content></content>\n  </div>";
+	module.exports = "<div role=\"tabpanel\" class=\"tab-pane\"\n  v-class=\"hide:!show\"\n  v-show=\"show\"\n  v-transition=\"{{transition}}\"\n  >\n    <content></content>\n  </div>";
 
 /***/ },
 /* 109 */
@@ -2412,8 +2421,20 @@
 	    }
 	  },
 	  ready: function ready() {
+	    var _this2 = this;
+	
+	    var intervalID = null;
+	    function intervalManager(flag, func, time) {
+	      flag ? intervalID = setInterval(func, time) : clearInterval(intervalID);
+	    }
 	    if (this.autoplay && this.interval) {
-	      setInterval(this.nextClick, this.interval);
+	      intervalManager(true, this.nextClick, this.interval);
+	      this.$el.addEventListener('mouseenter', function () {
+	        return intervalManager(false);
+	      });
+	      this.$el.addEventListener('mouseleave', function () {
+	        return intervalManager(true, _this2.nextClick, _this2.interval);
+	      });
 	    }
 	  }
 	
@@ -2448,9 +2469,6 @@
 	    };
 	  },
 	  computed: {
-	    activeIndex: function activeIndex() {
-	      return this.$parent.activeIndex;
-	    },
 	    show: function show() {
 	      return this.activeIndex === this.index;
 	    }

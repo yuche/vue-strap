@@ -15,6 +15,12 @@
 
 <script>
   export default {
+    props: {
+      effect: {
+        type: String,
+        default: 'fadein'
+      }
+    },
     data() {
       return {
         renderData: [],

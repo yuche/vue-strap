@@ -96,8 +96,14 @@
       }
     },
     ready() {
+      let intervalID = null
+      function intervalManager(flag, func, time) {
+        flag ? intervalID =  setInterval(func, time) : clearInterval(intervalID)
+      }
       if (this.autoplay && this.interval) {
-        setInterval(this.nextClick, this.interval)
+        intervalManager(true, this.nextClick, this.interval)
+        this.$el.addEventListener('mouseenter', ()=> intervalManager(false))
+        this.$el.addEventListener('mouseleave', ()=> intervalManager(true, this.nextClick, this.interval))
       }
     },
 

@@ -13,9 +13,6 @@
       }
     },
     computed: {
-      activeIndex() {
-        return this.$parent.activeIndex
-      },
       show() {
         return this.activeIndex === this.index
       }
