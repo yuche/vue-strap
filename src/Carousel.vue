@@ -4,14 +4,11 @@
   <ol class="carousel-indicators" v-show="indicators">
     <indicator v-repeat="indicator"></indicator>
   </ol>
-
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <content>
-      
     </content>
   </div>
-
   <!-- Controls -->
   <a v-show="controls" class="left carousel-control" v-on="click:prevClick">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -34,6 +31,14 @@
       controls: {
         type: Boolean,
         default: true
+      },
+      autoplay: {
+        type: Boolean,
+        default: true
+      },
+      interval: {
+        type: Number,
+        default: 5000
       }
     },
     components: {
@@ -91,7 +96,9 @@
       }
     },
     ready() {
-      // console.log(this.slider.length)
+      if (this.autoplay && this.interval) {
+        setInterval(this.nextClick, this.interval)
+      }
     },
 
   }

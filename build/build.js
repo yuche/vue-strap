@@ -2345,6 +2345,14 @@
 	    controls: {
 	      type: Boolean,
 	      'default': true
+	    },
+	    autoplay: {
+	      type: Boolean,
+	      'default': true
+	    },
+	    interval: {
+	      type: Number,
+	      'default': 5000
 	    }
 	  },
 	  components: {
@@ -2404,7 +2412,9 @@
 	    }
 	  },
 	  ready: function ready() {
-	    // console.log(this.slider.length)
+	    if (this.autoplay && this.interval) {
+	      setInterval(this.nextClick, this.interval);
+	    }
 	  }
 	
 	};
@@ -2445,24 +2455,6 @@
 	      return this.activeIndex === this.index;
 	    }
 	  },
-	  // watch: {
-	  //   activeIndex(newVal, oldVal) {
-	  //     const sibling = this.$el.parentNode.children
-	  //     console.log(sibling)
-	  //     const prevSelectedElement = sibling[oldVal]
-	  //     const selectedElement = sibling[newVal]
-	  //     if (newVal > oldVal) {
-	  //       selectedElement.classList.add('next')
-	  //       var x = selectedElement.clientHeight
-	  //       prevSelectedElement.classList.add('left')
-	  //       selectedElement.classList.add('left')
-	  //       setTimeout(()=> {
-	  //         [...sibling].forEach((el)=> el.className = 'item')
-	  //         selectedElement.classList.add('active')
-	  //       }, 650)
-	  //     }
-	  //   }
-	  // },
 	  ready: function ready() {
 	    this.index = [].concat(_toConsumableArray(this.$el.parentNode.children)).indexOf(this.$el);
 	    this.$parent.indicator.push(this.index);
@@ -2527,7 +2519,7 @@
 /* 121 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"carousel slide v-2949497a\" data-ride=\"carousel\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\">\n    <indicator v-repeat=\"indicator\"></indicator>\n  </ol>\n\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\">\n    <content>\n      \n    </content>\n  </div>\n\n  <!-- Controls -->\n  <a v-show=\"controls\" class=\"left carousel-control\" v-on=\"click:prevClick\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a v-show=\"controls\" class=\"right carousel-control\" v-on=\"click:nextClick\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>";
+	module.exports = "<div class=\"carousel slide v-2949497a\" data-ride=\"carousel\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\">\n    <indicator v-repeat=\"indicator\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\">\n    <content>\n    </content>\n  </div>\n  <!-- Controls -->\n  <a v-show=\"controls\" class=\"left carousel-control\" v-on=\"click:prevClick\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a v-show=\"controls\" class=\"right carousel-control\" v-on=\"click:nextClick\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>";
 
 /***/ }
 /******/ ]);
