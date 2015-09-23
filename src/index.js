@@ -11,6 +11,7 @@ import tabset from './Tabset.vue'
 import tab from './Tab.vue'
 import carousel from './Carousel.vue'
 import slider from './Slider.vue'
+import affix from './Affix.vue'
 
 const demo = new Vue({
   el: '#app',
@@ -35,5 +36,6 @@ const demo = new Vue({
     tab,
     carousel,
     slider,
+    affix
   }
 })

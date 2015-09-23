@@ -58,23 +58,19 @@ import Utils from './utils.js'
         const el = this.$el
         const body = document.querySelector('body')
         const scrollBarWidth = Utils.getScrollBarWidth && Utils.getScrollBarWidth()
-        function addClassIn() {
-          el.classList.add('in')
-        }
-        function setDisplayNone() {
-          el.style.display = 'none'
-          body.classList.remove('modal-open')
-          body.style.paddingRight = '0'
-        }
         if (val) {
           el.style.display = 'block'
-          setTimeout(addClassIn, 0)
+          setTimeout(()=> el.classList.add('in'), 0)
           if (scrollBarWidth !== 0) {
             body.classList.add('modal-open')
             body.style.paddingRight = scrollBarWidth + 'px'
           }
         } else {
-          setTimeout(setDisplayNone, 150)
+          setTimeout(()=> {
+            el.style.display = 'none'
+            body.classList.remove('modal-open')
+            body.style.paddingRight = '0'
+          }, 150)
           el.classList.remove('in')
         }
       }

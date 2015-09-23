@@ -100,6 +100,10 @@
 	
 	var _SliderVue2 = _interopRequireDefault(_SliderVue);
 	
+	var _AffixVue = __webpack_require__(126);
+	
+	var _AffixVue2 = _interopRequireDefault(_AffixVue);
+	
 	var demo = new Vue({
 	  el: '#app',
 	
@@ -122,7 +126,8 @@
 	    tabset: _TabsetVue2['default'],
 	    tab: _TabVue2['default'],
 	    carousel: _CarouselVue2['default'],
-	    slider: _SliderVue2['default']
+	    slider: _SliderVue2['default'],
+	    affix: _AffixVue2['default']
 	  }
 	});
 
@@ -671,7 +676,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".datepicker{\n    position: relative;\n    display: inline-block;\n}\n.datepicker-input{\n    width: 186px;\n}\n.datepicker-popup{\n    position: absolute;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    background: #fff;\n    margin-top: 2px;\n    z-index: 1000;\n    box-shadow: 0 6px 12px rgba(0,0,0,0.175);\n}\n.datepicker-inner{\n    width: 218px;\n\n}\n.datepicker-body{\n    padding: 10px 10px;\n}\n.datepicker-ctrl p,\n.datepicker-ctrl i,\n.datepicker-body span{\n    display: inline-block;\n    width: 28px;\n    line-height: 28px;\n    height: 28px;\n    border-radius: 4px;\n}\n.datepicker-ctrl p {\n    width: auto;\n}\n.datepicker-ctrl i {\n  position: absolute;\n}\n.datepicker-body span {\n  text-align: center;\n}\n.datepicker-mouthRange span{\n  width: 48px;\n  height: 50px;\n  line-height: 45px;\n}\n.datepicker-item-disable {\n  background-color: white!important;\n  cursor: not-allowed!important;\n}\n.decadeRange span:first-child,\n.decadeRange span:last-child,\n.datepicker-item-disable,\n.datepicker-item-gray{\n    color: #999;\n}\n\n.datepicker-dateRange-item-active:hover,\n.datepicker-dateRange-item-active {\n    background: rgb(50, 118, 177)!important;\n    color: white!important;\n} \n.datepicker-mouthRange {\n  margin-top: 10px\n}\n.datepicker-mouthRange span,\n.datepicker-ctrl i,\n.datepicker-ctrl p,\n.datepicker-dateRange span {\n  cursor: pointer;\n}\n.datepicker-mouthRange span:hover,\n.datepicker-ctrl p:hover,\n.datepicker-ctrl i:hover,\n.datepicker-dateRange span:hover,\n.datepicker-dateRange-item-hover {\n    background-color : #eeeeee;\n}\n\n.datepicker-weekRange span{\n    font-weight: bold;\n}\n.datepicker-label{\n    background-color: #f8f8f8;\n    font-weight: 700;\n    padding: 7px 0;\n    text-align: center;\n}\n.datepicker-ctrl{\n    position: relative;\n    height: 30px;\n    line-height: 30px;\n    font-weight: bold;\n    text-align: center;\n}\n.month-btn{\n  font-weight: bold;\n  -webkit-user-select:none;\n    -moz-user-select:none;\n    -ms-user-select:none;\n    user-select:none;\n}\n.datepicker-preBtn{\n    left: 2px;\n}\n.datepicker-nextBtn{\n    right: 2px;\n}", ""]);
+	exports.push([module.id, ".datepicker{\n    position: relative;\n    display: inline-block;\n}\n.datepicker-input{\n    width: 186px;\n}\n.datepicker-popup{\n    position: absolute;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    background: #fff;\n    margin-top: 2px;\n    z-index: 1000;\n    box-shadow: 0 6px 12px rgba(0,0,0,0.175);\n}\n.datepicker-inner{\n    width: 218px;\n\n}\n.datepicker-body{\n    padding: 10px 10px;\n}\n.datepicker-ctrl p,\n.datepicker-ctrl i,\n.datepicker-body span{\n    display: inline-block;\n    width: 28px;\n    line-height: 28px;\n    height: 28px;\n    border-radius: 4px;\n}\n.datepicker-ctrl p {\n    width: 65%;\n}\n.datepicker-ctrl i {\n  position: absolute;\n}\n.datepicker-body span {\n  text-align: center;\n}\n.datepicker-mouthRange span{\n  width: 48px;\n  height: 50px;\n  line-height: 45px;\n}\n.datepicker-item-disable {\n  background-color: white!important;\n  cursor: not-allowed!important;\n}\n.decadeRange span:first-child,\n.decadeRange span:last-child,\n.datepicker-item-disable,\n.datepicker-item-gray{\n    color: #999;\n}\n\n.datepicker-dateRange-item-active:hover,\n.datepicker-dateRange-item-active {\n    background: rgb(50, 118, 177)!important;\n    color: white!important;\n} \n.datepicker-mouthRange {\n  margin-top: 10px\n}\n.datepicker-mouthRange span,\n.datepicker-ctrl i,\n.datepicker-ctrl p,\n.datepicker-dateRange span {\n  cursor: pointer;\n}\n.datepicker-mouthRange span:hover,\n.datepicker-ctrl p:hover,\n.datepicker-ctrl i:hover,\n.datepicker-dateRange span:hover,\n.datepicker-dateRange-item-hover {\n    background-color : #eeeeee;\n}\n\n.datepicker-weekRange span{\n    font-weight: bold;\n}\n.datepicker-label{\n    background-color: #f8f8f8;\n    font-weight: 700;\n    padding: 7px 0;\n    text-align: center;\n}\n.datepicker-ctrl{\n    position: relative;\n    height: 30px;\n    line-height: 30px;\n    font-weight: bold;\n    text-align: center;\n}\n.month-btn{\n  font-weight: bold;\n  -webkit-user-select:none;\n    -moz-user-select:none;\n    -ms-user-select:none;\n    user-select:none;\n}\n.datepicker-preBtn{\n    left: 2px;\n}\n.datepicker-nextBtn{\n    right: 2px;\n}", ""]);
 	
 	// exports
 
@@ -1001,7 +1006,7 @@
 /* 35 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"datepicker\"> \n    <input class=\"form-control datepicker-input\" type=\"text\" \n    v-on=\"click:inputClick\" \n    v-model=\"value\"/> \n      <div class=\"datepicker-popup\" v-show=\"displayDayView\"> \n          <div class=\"datepicker-inner\"> \n              <div class=\"datepicker-body\"> \n                  <div class=\"datepicker-ctrl\"> \n                      <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextMonthClick(0)\">&lt;</i> \n                      <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextMonthClick(1)\">&gt;</i> \n                      <p v-on=\"click:switchMouthView\">&nbsp;&nbsp;\n                      {{stringifyDayHeader(currDate)}}\n                      &nbsp;&nbsp;</p>\n                  </div> \n                  <div class=\"datepicker-weekRange\"> \n                      <span v-repeat=\"w:weekRange\">{{w}}</span> \n                  </div> \n                  <div class=\"datepicker-dateRange\"> \n                      <span v-repeat=\"d:dateRange\" v-class=\"d.sclass\" v-on=\"click:daySelect(d.date,this)\">{{d.text}}</span> \n                  </div> \n              </div> \n          </div> \n      </div>\n      <div class=\"datepicker-popup\" v-show=\"displayMouthView\">\n        <div class=\"datepicker-inner\"> \n            <div class=\"datepicker-body\"> \n                <div class=\"datepicker-ctrl\"> \n                    <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextYearClick(0)\">&lt;</i> \n                    <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextYearClick(1)\">&gt;</i> \n                    <p v-on=\"click:switchDecadeView\">&nbsp;&nbsp;&nbsp;&nbsp;\n                    {{stringifyYearHeader(currDate)}}\n                    &nbsp;&nbsp;&nbsp;&nbsp;</p>\n                </div> \n                <div class=\"datepicker-mouthRange\"> \n                    <span v-repeat=\"m:mouthNames\" \n                    v-class=\"datepicker-dateRange-item-active:\n                    (this.mouthNames[this.parse(this.value).getMonth()]  === m) && \n                    this.currDate.getFullYear() === this.parse(this.value).getFullYear()\"\n                    v-on=\"click:mouthSelect($index)\">\n                      {{m.substr(0,3)}}\n                    </span> \n                </div> \n            </div> \n        </div> \n      </div>\n      <div class=\"datepicker-popup\" v-show=\"displayYearView\">\n        <div class=\"datepicker-inner\"> \n            <div class=\"datepicker-body\"> \n                <div class=\"datepicker-ctrl\"> \n                    <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextDecadeClick(0)\">&lt;</i> \n                    <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextDecadeClick(1)\">&gt;</i> \n                    <p>&nbsp;&nbsp;&nbsp;&nbsp;\n                    {{stringifyDecadeHeader(currDate)}}\n                    &nbsp;&nbsp;</p>\n                </div> \n                <div class=\"datepicker-mouthRange decadeRange\">\n                    <span v-repeat=\"decade:decadeRange\" \n                    v-class=\"datepicker-dateRange-item-active:\n                    this.parse(this.value).getFullYear() === decade.text\" \n                    v-on=\"click:yearSelect(this,$event)\">\n                      {{decade.text}}\n                    </span> \n                </div> \n            </div> \n        </div> \n      </div>\n</div>";
+	module.exports = "<div class=\"datepicker\"> \n    <input class=\"form-control datepicker-input\" type=\"text\" \n    v-on=\"click:inputClick\" \n    v-model=\"value\"/> \n      <div class=\"datepicker-popup\" v-show=\"displayDayView\"> \n          <div class=\"datepicker-inner\"> \n              <div class=\"datepicker-body\"> \n                  <div class=\"datepicker-ctrl\"> \n                      <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextMonthClick(0)\">&lt;</i> \n                      <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextMonthClick(1)\">&gt;</i> \n                      <p v-on=\"click:switchMouthView\">\n                      {{stringifyDayHeader(currDate)}}\n                      </p>\n                  </div> \n                  <div class=\"datepicker-weekRange\"> \n                      <span v-repeat=\"w:weekRange\">{{w}}</span> \n                  </div> \n                  <div class=\"datepicker-dateRange\"> \n                      <span v-repeat=\"d:dateRange\" v-class=\"d.sclass\" v-on=\"click:daySelect(d.date,this)\">{{d.text}}</span> \n                  </div> \n              </div> \n          </div> \n      </div>\n      <div class=\"datepicker-popup\" v-show=\"displayMouthView\">\n        <div class=\"datepicker-inner\"> \n            <div class=\"datepicker-body\"> \n                <div class=\"datepicker-ctrl\"> \n                    <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextYearClick(0)\">&lt;</i> \n                    <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextYearClick(1)\">&gt;</i> \n                    <p v-on=\"click:switchDecadeView\">&nbsp;&nbsp;&nbsp;&nbsp;\n                    {{stringifyYearHeader(currDate)}}\n                    &nbsp;&nbsp;&nbsp;&nbsp;</p>\n                </div> \n                <div class=\"datepicker-mouthRange\"> \n                    <span v-repeat=\"m:mouthNames\" \n                    v-class=\"datepicker-dateRange-item-active:\n                    (this.mouthNames[this.parse(this.value).getMonth()]  === m) && \n                    this.currDate.getFullYear() === this.parse(this.value).getFullYear()\"\n                    v-on=\"click:mouthSelect($index)\">\n                      {{m.substr(0,3)}}\n                    </span> \n                </div> \n            </div> \n        </div> \n      </div>\n      <div class=\"datepicker-popup\" v-show=\"displayYearView\">\n        <div class=\"datepicker-inner\"> \n            <div class=\"datepicker-body\"> \n                <div class=\"datepicker-ctrl\"> \n                    <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextDecadeClick(0)\">&lt;</i> \n                    <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextDecadeClick(1)\">&gt;</i> \n                    <p>&nbsp;&nbsp;&nbsp;&nbsp;\n                    {{stringifyDecadeHeader(currDate)}}\n                    &nbsp;&nbsp;</p>\n                </div> \n                <div class=\"datepicker-mouthRange decadeRange\">\n                    <span v-repeat=\"decade:decadeRange\" \n                    v-class=\"datepicker-dateRange-item-active:\n                    this.parse(this.value).getFullYear() === decade.text\" \n                    v-on=\"click:yearSelect(this,$event)\">\n                      {{decade.text}}\n                    </span> \n                </div> \n            </div> \n        </div> \n      </div>\n</div>";
 
 /***/ },
 /* 36 */
@@ -1146,23 +1151,21 @@
 	      var el = this.$el;
 	      var body = document.querySelector('body');
 	      var scrollBarWidth = _utilsJs2['default'].getScrollBarWidth && _utilsJs2['default'].getScrollBarWidth();
-	      function addClassIn() {
-	        el.classList.add('in');
-	      }
-	      function setDisplayNone() {
-	        el.style.display = 'none';
-	        body.classList.remove('modal-open');
-	        body.style.paddingRight = '0';
-	      }
 	      if (val) {
 	        el.style.display = 'block';
-	        setTimeout(addClassIn, 0);
+	        setTimeout(function () {
+	          return el.classList.add('in');
+	        }, 0);
 	        if (scrollBarWidth !== 0) {
 	          body.classList.add('modal-open');
 	          body.style.paddingRight = scrollBarWidth + 'px';
 	        }
 	      } else {
-	        setTimeout(setDisplayNone, 150);
+	        setTimeout(function () {
+	          el.style.display = 'none';
+	          body.classList.remove('modal-open');
+	          body.style.paddingRight = '0';
+	        }, 150);
 	        el.classList.remove('in');
 	      }
 	    }
@@ -1512,7 +1515,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".tooltip {\n    opacity: .9\n  }\n.fadein-enter {\n  animation:fadein-in 0.15s ease-in;\n}\n.fadein-leave {\n  animation:fadein-out 0.15s ease-out;\n}\n@keyframes fadein-in {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@keyframes fadein-out {\n  0% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0;\n  }\n}", ""]);
+	exports.push([module.id, ".tooltip {\n    opacity: .9\n  }\n.fadein-enter {\n  animation:fadein-in 0.3s ease-in;\n}\n.fadein-leave {\n  animation:fadein-out 0.3s ease-out;\n}\n@keyframes fadein-in {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@keyframes fadein-out {\n  0% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0;\n  }\n}", ""]);
 	
 	// exports
 
@@ -2370,6 +2373,8 @@
 	      template: '<li v-on="click:handleIndicatorClick($index)"\n        v-class="active:$index === activeIndex"\n        ></li>',
 	      methods: {
 	        handleIndicatorClick: function handleIndicatorClick(index) {
+	          if (this.isAnimating) return false;
+	          this.isAnimating = true;
 	          this.activeIndex = index;
 	        }
 	      }
@@ -2378,7 +2383,8 @@
 	  data: function data() {
 	    return {
 	      indicator: [],
-	      activeIndex: 0
+	      activeIndex: 0,
+	      isAnimating: false
 	    };
 	  },
 	  computed: {
@@ -2388,11 +2394,7 @@
 	  },
 	  watch: {
 	    activeIndex: function activeIndex(newVal, oldVal) {
-	      if (newVal > oldVal) {
-	        this.slide('left', newVal, oldVal);
-	      } else {
-	        this.slide('right', newVal, oldVal);
-	      }
+	      newVal > oldVal ? this.slide('left', newVal, oldVal) : this.slide('right', newVal, oldVal);
 	    }
 	  },
 	  methods: {
@@ -2401,22 +2403,30 @@
 	
 	      var prevSelectedElement = this.slider[prev];
 	      var selectedElement = this.slider[selected];
-	      direction === 'left' ? selectedElement.classList.add('next') : selectedElement.classList.add('prev');
-	      // request property that requires layout to force a layout
-	      var x = selectedElement.clientHeight;
-	      prevSelectedElement.classList.add(direction);
-	      selectedElement.classList.add(direction);
-	      setTimeout(function () {
+	      var transitionendFn = function transitionendFn() {
 	        [].concat(_toConsumableArray(_this.slider)).forEach(function (el) {
 	          return el.className = 'item';
 	        });
 	        selectedElement.classList.add('active');
-	      }, 650);
+	        _this.isAnimating = false;
+	      };
+	
+	      direction === 'left' ? selectedElement.classList.add('next') : selectedElement.classList.add('prev');
+	      // request property that requires layout to force a layout
+	      var x = selectedElement.clientHeight;
+	      selectedElement.addEventListener('transitionend', transitionendFn, false);
+	      prevSelectedElement.addEventListener('transitionend', transitionendFn, false);
+	      prevSelectedElement.classList.add(direction);
+	      selectedElement.classList.add(direction);
 	    },
 	    nextClick: function nextClick() {
+	      if (this.isAnimating) return false;
+	      this.isAnimating = true;
 	      this.activeIndex + 1 < this.slider.length ? this.activeIndex += 1 : this.activeIndex = 0;
 	    },
 	    prevClick: function prevClick() {
+	      if (this.isAnimating) return false;
+	      this.isAnimating = true;
 	      this.activeIndex === 0 ? this.activeIndex = this.slider.length - 1 : this.activeIndex -= 1;
 	    }
 	  },
@@ -2424,15 +2434,16 @@
 	    var _this2 = this;
 	
 	    var intervalID = null;
+	    var el = this.$el;
 	    function intervalManager(flag, func, time) {
 	      flag ? intervalID = setInterval(func, time) : clearInterval(intervalID);
 	    }
 	    if (this.autoplay && this.interval) {
 	      intervalManager(true, this.nextClick, this.interval);
-	      this.$el.addEventListener('mouseenter', function () {
+	      el.addEventListener('mouseenter', function () {
 	        return intervalManager(false);
 	      });
-	      this.$el.addEventListener('mouseleave', function () {
+	      el.addEventListener('mouseleave', function () {
 	        return intervalManager(true, _this2.nextClick, _this2.interval);
 	      });
 	    }
@@ -2538,6 +2549,138 @@
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"carousel slide v-2949497a\" data-ride=\"carousel\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\">\n    <indicator v-repeat=\"indicator\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\">\n    <content>\n    </content>\n  </div>\n  <!-- Controls -->\n  <a v-show=\"controls\" class=\"left carousel-control\" v-on=\"click:prevClick\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a v-show=\"controls\" class=\"right carousel-control\" v-on=\"click:nextClick\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>";
+
+/***/ },
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(127)
+	module.exports = __webpack_require__(129)
+	module.exports.template = __webpack_require__(130)
+
+
+/***/ },
+/* 127 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(128);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(18)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 128 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(17)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".vue-affix {\n    position: fixed;\n  }", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 129 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = {
+	  props: {
+	    offset: {
+	      type: Number,
+	      'default': 0
+	    }
+	  },
+	  data: function data() {
+	    return {
+	      affixed: false,
+	      styles: {}
+	    };
+	  },
+	  methods: {
+	    scrolling: function scrolling() {
+	      var scrollTop = this.getScroll(window, true);
+	      var elementOffset = this.getOffset(this.$el);
+	      if (!this.affixed && scrollTop > elementOffset.top) {
+	        this.affixed = true;
+	        this.styles = {
+	          top: this.offset + 'px',
+	          left: elementOffset.left + 'px',
+	          width: this.$el.offsetWidth + 'px'
+	        };
+	      }
+	      if (this.affixed && scrollTop < elementOffset.top) {
+	        this.affixed = false;
+	        this.styles = {};
+	      }
+	    },
+	    // from https://github.com/ant-design/ant-design/blob/master/components/affix/index.jsx#L20
+	    getScroll: function getScroll(w, top) {
+	      var ret = w['page' + (top ? 'Y' : 'X') + 'Offset'];
+	      var method = 'scroll' + (top ? 'Top' : 'Left');
+	      if (typeof ret !== 'number') {
+	        var d = w.document;
+	        // ie6,7,8 standard mode
+	        ret = d.documentElement[method];
+	        if (typeof ret !== 'number') {
+	          // quirks mode
+	          ret = d.body[method];
+	        }
+	      }
+	      return ret;
+	    },
+	    getOffset: function getOffset(element) {
+	      var rect = element.getBoundingClientRect();
+	      var body = document.body;
+	      var clientTop = element.clientTop || body.clientTop || 0;
+	      var clientLeft = element.clientLeft || body.clientLeft || 0;
+	      var scrollTop = this.getScroll(window, true);
+	      var scrollLeft = this.getScroll(window);
+	      return {
+	        top: rect.top + scrollTop - clientTop,
+	        left: rect.left + scrollLeft - clientLeft
+	      };
+	    }
+	  },
+	  ready: function ready() {
+	    this.scrollEvent = window.addEventListener('scroll', this.scrolling);
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 130 */
+/***/ function(module, exports) {
+
+	module.exports = "<div>\n<div v-class=\"vue-affix:affixed\"\n  v-style=\"styles\">\n  <content></content>\n</div>\n</div>";
 
 /***/ }
 /******/ ]);

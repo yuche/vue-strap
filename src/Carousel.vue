@@ -49,6 +49,8 @@
         ></li>`,
         methods: {
           handleIndicatorClick(index) {
+            if (this.isAnimating) return false
+            this.isAnimating = true
             this.activeIndex = index
           }
         },
@@ -57,7 +59,8 @@
     data() {
       return {
         indicator: [],
-        activeIndex: 0
+        activeIndex: 0,
+        isAnimating: false
       }
     },
     computed: {
@@ -67,43 +70,48 @@
     },
     watch: {
       activeIndex(newVal, oldVal) {
-        if (newVal > oldVal) {
-          this.slide('left', newVal, oldVal)
-        } else {
-          this.slide('right', newVal, oldVal)
-        }
+        newVal > oldVal ? this.slide('left', newVal, oldVal) : this.slide('right', newVal, oldVal)
       }
     },
     methods: {
       slide(direction, selected, prev) {
         const prevSelectedElement = this.slider[prev]
         const selectedElement = this.slider[selected]
+        const transitionendFn = ()=> {
+          [...this.slider].forEach((el)=> el.className = 'item')
+          selectedElement.classList.add('active')
+          this.isAnimating = false
+        }
+
         direction === 'left' ? selectedElement.classList.add('next') : selectedElement.classList.add('prev')
         // request property that requires layout to force a layout
         var x = selectedElement.clientHeight
+        selectedElement.addEventListener('transitionend', transitionendFn, false)
+        prevSelectedElement.addEventListener('transitionend', transitionendFn, false)
         prevSelectedElement.classList.add(direction)
         selectedElement.classList.add(direction)
-        setTimeout(()=> {
-          [...this.slider].forEach((el)=> el.className = 'item')
-          selectedElement.classList.add('active')
-        }, 650)
       },
       nextClick() {
+        if (this.isAnimating) return false
+        this.isAnimating = true
         this.activeIndex + 1 < this.slider.length ? this.activeIndex += 1 : this.activeIndex = 0
       },
       prevClick() {
+        if (this.isAnimating) return false
+        this.isAnimating = true
         this.activeIndex === 0 ? this.activeIndex = this.slider.length - 1 : this.activeIndex -= 1
       }
     },
     ready() {
       let intervalID = null
+      const el = this.$el
       function intervalManager(flag, func, time) {
         flag ? intervalID =  setInterval(func, time) : clearInterval(intervalID)
       }
       if (this.autoplay && this.interval) {
         intervalManager(true, this.nextClick, this.interval)
-        this.$el.addEventListener('mouseenter', ()=> intervalManager(false))
-        this.$el.addEventListener('mouseleave', ()=> intervalManager(true, this.nextClick, this.interval))
+        el.addEventListener('mouseenter', ()=> intervalManager(false))
+        el.addEventListener('mouseleave', ()=> intervalManager(true, this.nextClick, this.interval))
       }
     },
 
@@ -114,4 +122,5 @@
   .carousel-control {
     cursor: pointer;
   }
+
 </style>

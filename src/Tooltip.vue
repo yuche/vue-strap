@@ -33,10 +33,10 @@ import PopoverMixin from './popoverMixins.js'
     opacity: .9
   }
 .fadein-enter {
-  animation:fadein-in 0.15s ease-in;
+  animation:fadein-in 0.3s ease-in;
 }
 .fadein-leave {
-  animation:fadein-out 0.15s ease-out;
+  animation:fadein-out 0.3s ease-out;
 }
 @keyframes fadein-in {
   0% {

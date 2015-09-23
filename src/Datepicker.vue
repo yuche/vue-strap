@@ -9,9 +9,9 @@
                   <div class="datepicker-ctrl"> 
                       <i class="month-btn datepicker-preBtn" v-on="click:preNextMonthClick(0)">&lt;</i> 
                       <i class="month-btn datepicker-nextBtn" v-on="click:preNextMonthClick(1)">&gt;</i> 
-                      <p v-on="click:switchMouthView">&nbsp;&nbsp;
+                      <p v-on="click:switchMouthView">
                       {{stringifyDayHeader(currDate)}}
-                      &nbsp;&nbsp;</p>
+                      </p>
                   </div> 
                   <div class="datepicker-weekRange"> 
                       <span v-repeat="w:weekRange">{{w}}</span> 
@@ -352,7 +352,7 @@ import Utils from './utils.js'
     border-radius: 4px;
 }
 .datepicker-ctrl p {
-    width: auto;
+    width: 65%;
 }
 .datepicker-ctrl i {
   position: absolute;

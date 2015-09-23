@@ -24,18 +24,18 @@
     props: {
       type: {
         type: String,
-        require: true
+        require: true,
       },
       dismiss: {
         type: Boolean,
-        default: false
-      }
+        default: false,
+      },
     },
     data() {
       return {
-        showAlert: true
+        showAlert: true,
       }
-    }
+    },
   }
 </script>
 
