@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import EventListener from './utils/EventListener.js'
   export default {
     props: {
       offset: {
@@ -67,7 +68,16 @@
       }
     },
     ready() {
-      this.scrollEvent = window.addEventListener('scroll', this.scrolling)
+      this._scrollEvent = EventListener.listen(window, 'scroll', this.scrolling)
+      this._resizeEvent = EventListener.listen(window, 'resize', this.scrolling)
+    },
+    beforeDestroy() {
+      if (this._scrollEvent) {
+        this._scrollEvent.remove()
+      }
+      if (this._resizeEvent) {
+        this._resizeEvent.remove()
+      }
     }
   }
 </script>

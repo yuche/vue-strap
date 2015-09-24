@@ -25,7 +25,8 @@
 </template>
 
 <script>
-import Utils from './utils.js'
+import getScrollBarWidth from './utils/getScrollBarWidth.js'
+import EventListener from './utils/EventListener.js'
 
   export default {
     props: {
@@ -56,22 +57,27 @@ import Utils from './utils.js'
     watch: {
       show(val) {
         const el = this.$el
-        const body = document.querySelector('body')
-        const scrollBarWidth = Utils.getScrollBarWidth && Utils.getScrollBarWidth()
+        const body = document.body
+        const scrollBarWidth =  getScrollBarWidth()
         if (val) {
+          el.querySelector('.modal-content').focus()
           el.style.display = 'block'
           setTimeout(()=> el.classList.add('in'), 0)
+          body.classList.add('modal-open')
           if (scrollBarWidth !== 0) {
-            body.classList.add('modal-open')
             body.style.paddingRight = scrollBarWidth + 'px'
           }
+          this._blurModalContentEvent = EventListener.listen(this.$el, 'click', (e)=> {
+            if (e.target === el) this.show = false
+          })
         } else {
+          if (this._blurModalContentEvent) this._blurModalContentEvent.remove()
+          el.classList.remove('in')
           setTimeout(()=> {
             el.style.display = 'none'
             body.classList.remove('modal-open')
             body.style.paddingRight = '0'
-          }, 150)
-          el.classList.remove('in')
+          }, 300)
         }
       }
     },
@@ -84,7 +90,7 @@ import Utils from './utils.js'
 </script>
 <style>
 .modal {
-  transition: all 0.15s ease;
+  transition: all 0.3s ease;
 }
 .modal.in {
   background-color: rgba(0,0,0,0.5);

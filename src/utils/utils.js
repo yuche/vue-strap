@@ -34,7 +34,7 @@ const Utils = {
     var w2 = inner.offsetWidth
     if (w1 == w2) w2 = outer.clientWidth
 
-    document.body.removeChild(outer)
+    document.body.removeChild (outer)
 
     return (w1 - w2)
   }

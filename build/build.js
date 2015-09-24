@@ -1099,7 +1099,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".modal {\n  transition: all 0.15s ease;\n}\n.modal.in {\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\n    -webkit-transform: scale(0.1);\n    -moz-transform: scale(0.1);\n    -ms-transform: scale(0.1);\n    transform: scale(0.1);\n    top: 300px;\n    opacity: 0;\n    -webkit-transition: all 0.3s;\n    -moz-transition: all 0.3s;\n    transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\n    -webkit-transform: scale(1);\n    -moz-transform: scale(1);\n    -ms-transform: scale(1);\n    transform: scale(1);\n    -webkit-transform: translate3d(0, -300px, 0);\n    transform: translate3d(0, -300px, 0);\n    opacity: 1;\n}", ""]);
+	exports.push([module.id, ".modal {\n  transition: all 0.3s ease;\n}\n.modal.in {\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\n    -webkit-transform: scale(0.1);\n    -moz-transform: scale(0.1);\n    -ms-transform: scale(0.1);\n    transform: scale(0.1);\n    top: 300px;\n    opacity: 0;\n    -webkit-transition: all 0.3s;\n    -moz-transition: all 0.3s;\n    transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\n    -webkit-transform: scale(1);\n    -moz-transform: scale(1);\n    -ms-transform: scale(1);\n    transform: scale(1);\n    -webkit-transform: translate3d(0, -300px, 0);\n    transform: translate3d(0, -300px, 0);\n    opacity: 1;\n}", ""]);
 	
 	// exports
 
@@ -1116,9 +1116,13 @@
 	  value: true
 	});
 	
-	var _utilsJs = __webpack_require__(34);
+	var _utilsGetScrollBarWidthJs = __webpack_require__(134);
 	
-	var _utilsJs2 = _interopRequireDefault(_utilsJs);
+	var _utilsGetScrollBarWidthJs2 = _interopRequireDefault(_utilsGetScrollBarWidthJs);
+	
+	var _utilsEventListenerJs = __webpack_require__(132);
+	
+	var _utilsEventListenerJs2 = _interopRequireDefault(_utilsEventListenerJs);
 	
 	exports['default'] = {
 	  props: {
@@ -1148,25 +1152,32 @@
 	  },
 	  watch: {
 	    show: function show(val) {
+	      var _this = this;
+	
 	      var el = this.$el;
-	      var body = document.querySelector('body');
-	      var scrollBarWidth = _utilsJs2['default'].getScrollBarWidth && _utilsJs2['default'].getScrollBarWidth();
+	      var body = document.body;
+	      var scrollBarWidth = (0, _utilsGetScrollBarWidthJs2['default'])();
 	      if (val) {
+	        el.querySelector('.modal-content').focus();
 	        el.style.display = 'block';
 	        setTimeout(function () {
 	          return el.classList.add('in');
 	        }, 0);
+	        body.classList.add('modal-open');
 	        if (scrollBarWidth !== 0) {
-	          body.classList.add('modal-open');
 	          body.style.paddingRight = scrollBarWidth + 'px';
 	        }
+	        this._blurModalContentEvent = _utilsEventListenerJs2['default'].listen(this.$el, 'click', function (e) {
+	          if (e.target === el) _this.show = false;
+	        });
 	      } else {
+	        if (this._blurModalContentEvent) this._blurModalContentEvent.remove();
+	        el.classList.remove('in');
 	        setTimeout(function () {
 	          el.style.display = 'none';
 	          body.classList.remove('modal-open');
 	          body.style.paddingRight = '0';
-	        }, 150);
-	        el.classList.remove('in');
+	        }, 300);
 	      }
 	    }
 	  },
@@ -1235,13 +1246,24 @@
 
 /***/ },
 /* 47 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+	
+	var _interopRequireDefault = __webpack_require__(33)['default'];
 	
 	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
+	
+	var _utilsEventListenerJs = __webpack_require__(132);
+	
+	var _utilsEventListenerJs2 = _interopRequireDefault(_utilsEventListenerJs);
+	
+	var _utilsGetScrollBarWidthJs = __webpack_require__(134);
+	
+	var _utilsGetScrollBarWidthJs2 = _interopRequireDefault(_utilsGetScrollBarWidthJs);
+	
 	exports['default'] = {
 	  props: {
 	    show: {
@@ -1264,19 +1286,27 @@
 	  watch: {
 	    show: function show(val) {
 	      var backdrop = document.createElement('div');
+	      var body = document.body;
 	      backdrop.className = 'aside-backdrop';
+	      var scrollBarWidth = (0, _utilsGetScrollBarWidthJs2['default'])();
 	      if (val) {
-	        document.body.appendChild(backdrop);
+	        body.appendChild(backdrop);
+	        body.classList.add('modal-open');
+	        if (scrollBarWidth !== 0) {
+	          body.style.paddingRight = scrollBarWidth + 'px';
+	        }
 	        // request property that requires layout to force a layout
 	        var x = backdrop.clientHeight;
 	        backdrop.className += ' in';
-	        backdrop.addEventListener('click', this.close);
+	        this._clickEvent = _utilsEventListenerJs2['default'].listen(backdrop, 'click', this.close);
 	      } else {
+	        if (this._clickEvent) this._clickEvent.remove();
 	        backdrop = document.querySelector('.aside-backdrop');
 	        backdrop.className = 'aside-backdrop';
-	        backdrop.removeEventListener('click', this.close);
 	        setTimeout(function () {
-	          return document.body.removeChild(backdrop);
+	          body.classList.remove('modal-open');
+	          body.style.paddingRight = '0';
+	          body.removeChild(backdrop);
 	        }, 300);
 	      }
 	    }
@@ -2605,13 +2635,20 @@
 
 /***/ },
 /* 129 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+	
+	var _interopRequireDefault = __webpack_require__(33)['default'];
 	
 	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
+	
+	var _utilsEventListenerJs = __webpack_require__(132);
+	
+	var _utilsEventListenerJs2 = _interopRequireDefault(_utilsEventListenerJs);
+	
 	exports['default'] = {
 	  props: {
 	    offset: {
@@ -2671,7 +2708,16 @@
 	    }
 	  },
 	  ready: function ready() {
-	    this.scrollEvent = window.addEventListener('scroll', this.scrolling);
+	    this._scrollEvent = _utilsEventListenerJs2['default'].listen(window, 'scroll', this.scrolling);
+	    this._resizeEvent = _utilsEventListenerJs2['default'].listen(window, 'resize', this.scrolling);
+	  },
+	  beforeDestroy: function beforeDestroy() {
+	    if (this._scrollEvent) {
+	      this._scrollEvent.remove();
+	    }
+	    if (this._resizeEvent) {
+	      this._resizeEvent.remove();
+	    }
 	  }
 	};
 	module.exports = exports['default'];
@@ -2681,6 +2727,86 @@
 /***/ function(module, exports) {
 
 	module.exports = "<div>\n<div v-class=\"vue-affix:affixed\"\n  v-style=\"styles\">\n  <content></content>\n</div>\n</div>";
+
+/***/ },
+/* 131 */,
+/* 132 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	var EventListener = {
+	  /**
+	   * Listen to DOM events during the bubble phase.
+	   *
+	   * @param {DOMEventTarget} target DOM element to register listener on.
+	   * @param {string} eventType Event type, e.g. 'click' or 'mouseover'.
+	   * @param {function} callback Callback function.
+	   * @return {object} Object with a `remove` method.
+	   */
+	  listen: function listen(target, eventType, callback) {
+	    if (target.addEventListener) {
+	      target.addEventListener(eventType, callback, false);
+	      return {
+	        remove: function remove() {
+	          target.removeEventListener(eventType, callback, false);
+	        }
+	      };
+	    } else if (target.attachEvent) {
+	      target.attachEvent('on' + eventType, callback);
+	      return {
+	        remove: function remove() {
+	          target.detachEvent('on' + eventType, callback);
+	        }
+	      };
+	    }
+	  }
+	};
+	
+	exports['default'] = EventListener;
+	module.exports = exports['default'];
+
+/***/ },
+/* 133 */,
+/* 134 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	exports['default'] = function () {
+	  var inner = document.createElement('p');
+	  inner.style.width = '100%';
+	  inner.style.height = '200px';
+	
+	  var outer = document.createElement('div');
+	  outer.style.position = 'absolute';
+	  outer.style.top = '0px';
+	  outer.style.left = '0px';
+	  outer.style.visibility = 'hidden';
+	  outer.style.width = '200px';
+	  outer.style.height = '150px';
+	  outer.style.overflow = 'hidden';
+	  outer.appendChild(inner);
+	
+	  document.body.appendChild(outer);
+	  var w1 = inner.offsetWidth;
+	  outer.style.overflow = 'scroll';
+	  var w2 = inner.offsetWidth;
+	  if (w1 == w2) w2 = outer.clientWidth;
+	
+	  document.body.removeChild(outer);
+	
+	  return w1 - w2;
+	};
+	
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);

@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import EventListener from './utils/EventListener.js'
+import getScrollBarWidth from './utils/getScrollBarWidth.js'
   export default {
     props: {
       show: {
@@ -44,18 +46,28 @@
     watch: {
       show(val) {
         let backdrop = document.createElement('div')
+        const body = document.body
         backdrop.className = 'aside-backdrop'
+        const scrollBarWidth =  getScrollBarWidth()
         if (val) {
-          document.body.appendChild(backdrop)
+          body.appendChild(backdrop)
+          body.classList.add('modal-open')
+          if (scrollBarWidth !== 0) {
+            body.style.paddingRight = scrollBarWidth + 'px'
+          }
           // request property that requires layout to force a layout
           var x = backdrop.clientHeight
           backdrop.className += ' in'
-          backdrop.addEventListener('click', this.close)
+          this._clickEvent = EventListener.listen(backdrop, 'click', this.close)
         } else {
+          if (this._clickEvent) this._clickEvent.remove()
           backdrop = document.querySelector('.aside-backdrop')
           backdrop.className = 'aside-backdrop'
-          backdrop.removeEventListener('click', this.close)
-          setTimeout(() => document.body.removeChild(backdrop), 300)
+          setTimeout(() => {
+            body.classList.remove('modal-open')
+            body.style.paddingRight = '0'
+            body.removeChild(backdrop)
+          }, 300)
         }
       }
     },
