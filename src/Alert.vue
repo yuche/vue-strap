@@ -24,7 +24,7 @@
     props: {
       type: {
         type: String,
-        require: true,
+        default: 'success',
       },
       dismiss: {
         type: Boolean,

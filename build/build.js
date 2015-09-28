@@ -104,13 +104,23 @@
 	
 	var _AffixVue2 = _interopRequireDefault(_AffixVue);
 	
+	var _ProgressbarVue = __webpack_require__(136);
+	
+	var _ProgressbarVue2 = _interopRequireDefault(_ProgressbarVue);
+	
+	var _TypeaheadVue = __webpack_require__(140);
+	
+	var _TypeaheadVue2 = _interopRequireDefault(_TypeaheadVue);
+	
 	var demo = new Vue({
 	  el: '#app',
 	
 	  data: {
 	    accordionChecked: true,
 	    showModal: false,
-	    showAside: false
+	    showAside: false,
+	    USstate: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
+	    githubTemp: '<li v-repeat="items"><a>{{ formatted_address }}</a></li>'
 	  },
 	
 	  components: {
@@ -127,7 +137,9 @@
 	    tab: _TabVue2['default'],
 	    carousel: _CarouselVue2['default'],
 	    slider: _SliderVue2['default'],
-	    affix: _AffixVue2['default']
+	    affix: _AffixVue2['default'],
+	    progressbar: _ProgressbarVue2['default'],
+	    typeahead: _TypeaheadVue2['default']
 	  }
 	});
 
@@ -478,20 +490,20 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
+	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
-	exports["default"] = {
+	exports['default'] = {
 	  props: {
 	    type: {
 	      type: String,
-	      require: true
+	      'default': 'success'
 	    },
 	    dismiss: {
 	      type: Boolean,
-	      "default": false
+	      'default': false
 	    }
 	  },
 	  data: function data() {
@@ -500,7 +512,7 @@
 	    };
 	  }
 	};
-	module.exports = exports["default"];
+	module.exports = exports['default'];
 
 /***/ },
 /* 20 */
@@ -693,9 +705,9 @@
 	  value: true
 	});
 	
-	var _utilsJs = __webpack_require__(34);
+	var _utilsEventListenerJs = __webpack_require__(132);
 	
-	var _utilsJs2 = _interopRequireDefault(_utilsJs);
+	var _utilsEventListenerJs2 = _interopRequireDefault(_utilsEventListenerJs);
 	
 	exports['default'] = {
 	  props: {
@@ -724,6 +736,9 @@
 	    }
 	  },
 	  methods: {
+	    close: function close() {
+	      this.displayDayView = this.displayMouthView = this.displayMouthView = false;
+	    },
 	    inputClick: function inputClick() {
 	      if (this.displayMouthView || this.displayYearView) {
 	        this.displayDayView = false;
@@ -818,7 +833,6 @@
 	    },
 	    stringify: function stringify(date, format) {
 	      format = format || this.format;
-	
 	      var year = date.getFullYear();
 	      var month = date.getMonth() + 1;
 	      var day = date.getDate();
@@ -891,7 +905,6 @@
 	        //     sclass = 'datepicker-item-disable'
 	        // }
 	        if (i == time.day) {
-	          //如果value有值
 	          if (this.value) {
 	            var valueDate = this.parse(this.value);
 	            if (valueDate) {
@@ -922,14 +935,16 @@
 	      }
 	    }
 	  },
-	  created: function created() {},
 	  ready: function ready() {
 	    var _this2 = this;
 	
 	    this.currDate = this.parse(this.value) || this.stringify(this.currDate);
-	    _utilsJs2['default'].detectClickOutside(this.$el, function () {
-	      return _this2.displayDayView = _this2.displayMouthView = _this2.displayMouthView = false;
+	    this._closeEvent = _utilsEventListenerJs2['default'].listen(window, 'click', function (e) {
+	      if (!_this2.$el.contains(e.target)) _this2.close;
 	    });
+	  },
+	  beforeDestroy: function beforeDestroy() {
+	    if (this._closeEvent) this._closeEvent.remove();
 	  }
 	};
 	module.exports = exports['default'];
@@ -1006,7 +1021,7 @@
 /* 35 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"datepicker\"> \n    <input class=\"form-control datepicker-input\" type=\"text\" \n    v-on=\"click:inputClick\" \n    v-model=\"value\"/> \n      <div class=\"datepicker-popup\" v-show=\"displayDayView\"> \n          <div class=\"datepicker-inner\"> \n              <div class=\"datepicker-body\"> \n                  <div class=\"datepicker-ctrl\"> \n                      <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextMonthClick(0)\">&lt;</i> \n                      <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextMonthClick(1)\">&gt;</i> \n                      <p v-on=\"click:switchMouthView\">\n                      {{stringifyDayHeader(currDate)}}\n                      </p>\n                  </div> \n                  <div class=\"datepicker-weekRange\"> \n                      <span v-repeat=\"w:weekRange\">{{w}}</span> \n                  </div> \n                  <div class=\"datepicker-dateRange\"> \n                      <span v-repeat=\"d:dateRange\" v-class=\"d.sclass\" v-on=\"click:daySelect(d.date,this)\">{{d.text}}</span> \n                  </div> \n              </div> \n          </div> \n      </div>\n      <div class=\"datepicker-popup\" v-show=\"displayMouthView\">\n        <div class=\"datepicker-inner\"> \n            <div class=\"datepicker-body\"> \n                <div class=\"datepicker-ctrl\"> \n                    <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextYearClick(0)\">&lt;</i> \n                    <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextYearClick(1)\">&gt;</i> \n                    <p v-on=\"click:switchDecadeView\">&nbsp;&nbsp;&nbsp;&nbsp;\n                    {{stringifyYearHeader(currDate)}}\n                    &nbsp;&nbsp;&nbsp;&nbsp;</p>\n                </div> \n                <div class=\"datepicker-mouthRange\"> \n                    <span v-repeat=\"m:mouthNames\" \n                    v-class=\"datepicker-dateRange-item-active:\n                    (this.mouthNames[this.parse(this.value).getMonth()]  === m) && \n                    this.currDate.getFullYear() === this.parse(this.value).getFullYear()\"\n                    v-on=\"click:mouthSelect($index)\">\n                      {{m.substr(0,3)}}\n                    </span> \n                </div> \n            </div> \n        </div> \n      </div>\n      <div class=\"datepicker-popup\" v-show=\"displayYearView\">\n        <div class=\"datepicker-inner\"> \n            <div class=\"datepicker-body\"> \n                <div class=\"datepicker-ctrl\"> \n                    <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextDecadeClick(0)\">&lt;</i> \n                    <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextDecadeClick(1)\">&gt;</i> \n                    <p>&nbsp;&nbsp;&nbsp;&nbsp;\n                    {{stringifyDecadeHeader(currDate)}}\n                    &nbsp;&nbsp;</p>\n                </div> \n                <div class=\"datepicker-mouthRange decadeRange\">\n                    <span v-repeat=\"decade:decadeRange\" \n                    v-class=\"datepicker-dateRange-item-active:\n                    this.parse(this.value).getFullYear() === decade.text\" \n                    v-on=\"click:yearSelect(this,$event)\">\n                      {{decade.text}}\n                    </span> \n                </div> \n            </div> \n        </div> \n      </div>\n</div>";
+	module.exports = "<div class=\"datepicker\"> \n    <input class=\"form-control datepicker-input\" type=\"text\" \n    v-on=\"click:inputClick\" \n    v-model=\"value\"/> \n      <div class=\"datepicker-popup\" v-show=\"displayDayView\"> \n          <div class=\"datepicker-inner\"> \n              <div class=\"datepicker-body\"> \n                  <div class=\"datepicker-ctrl\"> \n                      <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextMonthClick(0)\">&lt;</i> \n                      <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextMonthClick(1)\">&gt;</i> \n                      <p v-on=\"click:switchMouthView\">\n                      {{stringifyDayHeader(currDate)}}\n                      </p>\n                  </div> \n                  <div class=\"datepicker-weekRange\"> \n                      <span v-repeat=\"w:weekRange\">{{w}}</span> \n                  </div> \n                  <div class=\"datepicker-dateRange\"> \n                      <span v-repeat=\"d:dateRange\" v-class=\"d.sclass\" v-on=\"click:daySelect(d.date,this)\">{{d.text}}</span> \n                  </div> \n              </div> \n          </div> \n      </div>\n      <div class=\"datepicker-popup\" v-show=\"displayMouthView\">\n        <div class=\"datepicker-inner\"> \n            <div class=\"datepicker-body\"> \n                <div class=\"datepicker-ctrl\"> \n                    <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextYearClick(0)\">&lt;</i> \n                    <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextYearClick(1)\">&gt;</i> \n                    <p v-on=\"click:switchDecadeView\">\n                    {{stringifyYearHeader(currDate)}}\n                    </p>\n                </div> \n                <div class=\"datepicker-mouthRange\"> \n                    <span v-repeat=\"m:mouthNames\" \n                    v-class=\"datepicker-dateRange-item-active:\n                    (this.mouthNames[this.parse(this.value).getMonth()]  === m) && \n                    this.currDate.getFullYear() === this.parse(this.value).getFullYear()\"\n                    v-on=\"click:mouthSelect($index)\">\n                      {{m.substr(0,3)}}\n                    </span> \n                </div> \n            </div> \n        </div> \n      </div>\n      <div class=\"datepicker-popup\" v-show=\"displayYearView\">\n        <div class=\"datepicker-inner\"> \n            <div class=\"datepicker-body\"> \n                <div class=\"datepicker-ctrl\"> \n                    <i class=\"month-btn datepicker-preBtn\" v-on=\"click:preNextDecadeClick(0)\">&lt;</i> \n                    <i class=\"month-btn datepicker-nextBtn\" v-on=\"click:preNextDecadeClick(1)\">&gt;</i> \n                    <p>\n                    {{stringifyDecadeHeader(currDate)}}\n                    </p>\n                </div> \n                <div class=\"datepicker-mouthRange decadeRange\">\n                    <span v-repeat=\"decade:decadeRange\" \n                    v-class=\"datepicker-dateRange-item-active:\n                    this.parse(this.value).getFullYear() === decade.text\" \n                    v-on=\"click:yearSelect(this,$event)\">\n                      {{decade.text}}\n                    </span> \n                </div> \n            </div> \n        </div> \n      </div>\n</div>";
 
 /***/ },
 /* 36 */
@@ -1397,13 +1412,20 @@
 
 /***/ },
 /* 53 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _utilsEventListenerJs = __webpack_require__(132);
+	
+	var _utilsEventListenerJs2 = _interopRequireDefault(_utilsEventListenerJs);
+	
 	var PopoverMixin = {
 	  props: {
 	    trigger: {
@@ -1445,50 +1467,61 @@
 	  ready: function ready() {
 	    var _this = this;
 	
-	    var popoverTarget = this.$$.popover;
-	    var triggerTarget = this.$$.trigger.children[0];
+	    var popover = this.$$.popover;
+	    var triger = this.$$.trigger.children[0];
 	    if (this.trigger === 'hover') {
-	      triggerTarget.addEventListener('mouseenter', function () {
+	      this._mouseenterEvent = _utilsEventListenerJs2['default'].listen(triger, 'mouseenter', function () {
 	        return _this.show = true;
 	      });
-	      triggerTarget.addEventListener('mouseleave', function () {
+	      this._mouseleaveEvent = _utilsEventListenerJs2['default'].listen(triger, 'mouseleave', function () {
 	        return _this.show = false;
 	      });
 	    } else if (this.trigger === 'focus') {
-	      triggerTarget.addEventListener('focus', function () {
+	      this._focusEvent = _utilsEventListenerJs2['default'].listen(triger, 'focus', function () {
 	        return _this.show = true;
 	      });
-	      triggerTarget.addEventListener('blur', function () {
+	      this._blurEvent = _utilsEventListenerJs2['default'].listen(triger, 'blur', function () {
 	        return _this.show = false;
 	      });
 	    } else {
-	      triggerTarget.addEventListener('click', this.toggle);
+	      this._clickEvent = _utilsEventListenerJs2['default'].listen(triger, 'click', this.toggle);
 	    }
 	
 	    switch (this.placement) {
 	      case 'top':
-	        this.position.left = triggerTarget.offsetLeft - popoverTarget.offsetWidth / 2 + triggerTarget.offsetWidth / 2;
-	        this.position.top = triggerTarget.offsetTop - popoverTarget.offsetHeight;
+	        this.position.left = triger.offsetLeft - popover.offsetWidth / 2 + triger.offsetWidth / 2;
+	        this.position.top = triger.offsetTop - popover.offsetHeight;
 	        break;
 	      case 'left':
-	        this.position.left = triggerTarget.offsetLeft - popoverTarget.offsetWidth;
-	        this.position.top = triggerTarget.offsetTop + triggerTarget.offsetHeight / 2 - popoverTarget.offsetHeight / 2;
+	        this.position.left = triger.offsetLeft - popover.offsetWidth;
+	        this.position.top = triger.offsetTop + triger.offsetHeight / 2 - popover.offsetHeight / 2;
 	        break;
 	      case 'right':
-	        this.position.left = triggerTarget.offsetLeft + triggerTarget.offsetWidth;
-	        this.position.top = triggerTarget.offsetTop + triggerTarget.offsetHeight / 2 - popoverTarget.offsetHeight / 2;
+	        this.position.left = triger.offsetLeft + triger.offsetWidth;
+	        this.position.top = triger.offsetTop + triger.offsetHeight / 2 - popover.offsetHeight / 2;
 	        break;
 	      case 'bottom':
-	        this.position.left = triggerTarget.offsetLeft - popoverTarget.offsetWidth / 2 + triggerTarget.offsetWidth / 2;
-	        this.position.top = triggerTarget.offsetTop + triggerTarget.offsetHeight;
+	        this.position.left = triger.offsetLeft - popover.offsetWidth / 2 + triger.offsetWidth / 2;
+	        this.position.top = triger.offsetTop + triger.offsetHeight;
 	        break;
 	      default:
 	        console.log('Wrong placement prop');
 	    }
-	    popoverTarget.style.top = this.position.top + 'px';
-	    popoverTarget.style.left = this.position.left + 'px';
-	    popoverTarget.style.display = 'none';
+	    popover.style.top = this.position.top + 'px';
+	    popover.style.left = this.position.left + 'px';
+	    popover.style.display = 'none';
 	    this.show = !this.show;
+	  },
+	  beforeDestroy: function beforeDestroy() {
+	    if (this._blurEvent) {
+	      this._blurEvent.remove();
+	      this._focusEvent.remove();
+	    }
+	    if (this._mouseenterEvent) {
+	      this._mouseenterEvent.remove();
+	      this._mouseleaveEvent.remove();
+	    }
+	    if (this._clickEvent) this._clickEvent.remove();
 	  }
 	};
 	
@@ -2375,9 +2408,16 @@
 	
 	var _toConsumableArray = __webpack_require__(69)['default'];
 	
+	var _interopRequireDefault = __webpack_require__(33)['default'];
+	
 	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
+	
+	var _utilsEventListenerJs = __webpack_require__(132);
+	
+	var _utilsEventListenerJs2 = _interopRequireDefault(_utilsEventListenerJs);
+	
 	exports['default'] = {
 	  props: {
 	    indicators: {
@@ -2385,10 +2425,6 @@
 	      'default': true
 	    },
 	    controls: {
-	      type: Boolean,
-	      'default': true
-	    },
-	    autoplay: {
 	      type: Boolean,
 	      'default': true
 	    },
@@ -2400,7 +2436,7 @@
 	  components: {
 	    'indicator': {
 	      inherit: true,
-	      template: '<li v-on="click:handleIndicatorClick($index)"\n        v-class="active:$index === activeIndex"\n        ></li>',
+	      template: '<li v-repeat="indicator" v-on="click:handleIndicatorClick($index)" v-class="active:$index === activeIndex"</li>',
 	      methods: {
 	        handleIndicatorClick: function handleIndicatorClick(index) {
 	          if (this.isAnimating) return false;
@@ -2431,23 +2467,26 @@
 	    slide: function slide(direction, selected, prev) {
 	      var _this = this;
 	
-	      var prevSelectedElement = this.slider[prev];
-	      var selectedElement = this.slider[selected];
+	      if (this._prevSelectedEvent) this._prevSelectedEvent.remove();
+	      if (this._selectedEvent) this._selectedEvent.remove();
+	
+	      var prevSelectedEl = this.slider[prev];
+	      var selectedEl = this.slider[selected];
 	      var transitionendFn = function transitionendFn() {
 	        [].concat(_toConsumableArray(_this.slider)).forEach(function (el) {
 	          return el.className = 'item';
 	        });
-	        selectedElement.classList.add('active');
+	        selectedEl.classList.add('active');
 	        _this.isAnimating = false;
 	      };
 	
-	      direction === 'left' ? selectedElement.classList.add('next') : selectedElement.classList.add('prev');
+	      direction === 'left' ? selectedEl.classList.add('next') : selectedEl.classList.add('prev');
 	      // request property that requires layout to force a layout
-	      var x = selectedElement.clientHeight;
-	      selectedElement.addEventListener('transitionend', transitionendFn, false);
-	      prevSelectedElement.addEventListener('transitionend', transitionendFn, false);
-	      prevSelectedElement.classList.add(direction);
-	      selectedElement.classList.add(direction);
+	      var x = selectedEl.clientHeight;
+	      this._prevSelectedEvent = _utilsEventListenerJs2['default'].listen(prevSelectedEl, 'transitionend', transitionendFn);
+	      this._selectedEvent = _utilsEventListenerJs2['default'].listen(selectedEl, 'transitionend', transitionendFn);
+	      prevSelectedEl.classList.add(direction);
+	      selectedEl.classList.add(direction);
 	    },
 	    nextClick: function nextClick() {
 	      if (this.isAnimating) return false;
@@ -2468,7 +2507,7 @@
 	    function intervalManager(flag, func, time) {
 	      flag ? intervalID = setInterval(func, time) : clearInterval(intervalID);
 	    }
-	    if (this.autoplay && this.interval) {
+	    if (!!this.interval) {
 	      intervalManager(true, this.nextClick, this.interval);
 	      el.addEventListener('mouseenter', function () {
 	        return intervalManager(false);
@@ -2578,7 +2617,7 @@
 /* 121 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"carousel slide v-2949497a\" data-ride=\"carousel\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\">\n    <indicator v-repeat=\"indicator\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\">\n    <content>\n    </content>\n  </div>\n  <!-- Controls -->\n  <a v-show=\"controls\" class=\"left carousel-control\" v-on=\"click:prevClick\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a v-show=\"controls\" class=\"right carousel-control\" v-on=\"click:nextClick\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>";
+	module.exports = "<div class=\"carousel slide v-2949497a\" data-ride=\"carousel\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\">\n    <indicator></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\">\n    <content>\n    </content>\n  </div>\n  <!-- Controls -->\n  <a v-show=\"controls\" class=\"left carousel-control\" v-on=\"click:prevClick\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a v-show=\"controls\" class=\"right carousel-control\" v-on=\"click:nextClick\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>";
 
 /***/ },
 /* 122 */,
@@ -2799,11 +2838,288 @@
 	  var w1 = inner.offsetWidth;
 	  outer.style.overflow = 'scroll';
 	  var w2 = inner.offsetWidth;
-	  if (w1 == w2) w2 = outer.clientWidth;
+	  if (w1 === w2) w2 = outer.clientWidth;
 	
 	  document.body.removeChild(outer);
 	
 	  return w1 - w2;
+	};
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 135 */,
+/* 136 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(137)
+	module.exports.template = __webpack_require__(138)
+
+
+/***/ },
+/* 137 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports["default"] = {
+	  props: {
+	    now: {
+	      type: Number,
+	      require: true
+	    },
+	    label: {
+	      type: Boolean,
+	      "default": false
+	    },
+	    type: {
+	      type: String
+	    },
+	    striped: {
+	      type: Boolean,
+	      "default": false
+	    },
+	    animated: {
+	      type: Boolean,
+	      "default": false
+	    }
+	  }
+	};
+	module.exports = exports["default"];
+
+/***/ },
+/* 138 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"progress-bar\" role=\"progressbar\"\n    v-class=\"\n    progress-bar-success:type == 'success',\n    progress-bar-warning:type == 'warning',\n    progress-bar-info:type == 'info',\n    progress-bar-danger:type == 'danger',\n    progress-bar-striped:striped,\n    active:animated\n    \"\n    v-style=\"width:now + '%'\">\n    {{label ? now + '%':'' }}\n  </div>";
+
+/***/ },
+/* 139 */,
+/* 140 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(143)
+	module.exports = __webpack_require__(141)
+	module.exports.template = __webpack_require__(142)
+
+
+/***/ },
+/* 141 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _toConsumableArray = __webpack_require__(69)['default'];
+	
+	var _interopRequireDefault = __webpack_require__(33)['default'];
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _utilsCallAjaxJs = __webpack_require__(151);
+	
+	var _utilsCallAjaxJs2 = _interopRequireDefault(_utilsCallAjaxJs);
+	
+	var typeahead = {
+	  created: function created() {
+	    this.items = this.primitiveData;
+	  },
+	  components: {
+	    list: {
+	      inherit: true,
+	      template: '',
+	      created: function created() {
+	        console.log(this.template);
+	        this.$options.template = '<li v-repeat="items" v-class="active: isActive($index)"><a v-on="click:hit,mousemove: setActive($index)" v-html="' + this.template + '"></a></li>';
+	      }
+	    }
+	  },
+	  props: {
+	    data: {
+	      type: Array
+	    },
+	    limit: {
+	      type: Number,
+	      'default': 8
+	    },
+	    src: {
+	      type: String
+	    },
+	    template: {
+	      'default': '$value | highlight query'
+	    },
+	    key: {
+	      type: String
+	    },
+	    onHit: {
+	      type: Function,
+	      'default': function _default(items) {
+	        console.log(items);
+	      }
+	    }
+	  },
+	  data: function data() {
+	    return {
+	      query: '',
+	      showDropdown: false,
+	      noResults: true,
+	      current: 0,
+	      items: []
+	    };
+	  },
+	  computed: {
+	    primitiveData: function primitiveData() {
+	      var _this = this;
+	
+	      if (this.data) {
+	        return this.data.filter(function (value) {
+	          return value.toLowerCase().indexOf(_this.query) !== -1;
+	        }).slice(0, this.limit);
+	      }
+	    }
+	  },
+	  methods: {
+	    update: function update() {
+	      var _this2 = this;
+	
+	      if (!this.query) {
+	        this.reset();
+	        return false;
+	      }
+	      if (this.data) {
+	        this.items = this.primitiveData;
+	        if (this.items.length) {
+	          this.showDropdown = true;
+	        } else {
+	          this.showDropdown = false;
+	        }
+	      }
+	      if (this.src) {
+	        (0, _utilsCallAjaxJs2['default'])(this.src + this.query, function (data) {
+	          // todo array or not
+	          _this2.items = data[_this2.key].slice(0, _this2.limit);
+	          if (_this2.items.length) {
+	            _this2.showDropdown = true;
+	          } else {
+	            _this2.showDropdown = false;
+	          }
+	        });
+	      }
+	    },
+	    reset: function reset() {
+	      this.items = [];
+	      this.query = '';
+	      this.loading = false;
+	      this.showDropdown = false;
+	    },
+	    dropdown: function dropdown() {
+	      var dropdown = [].concat(_toConsumableArray(this.$$.dropdown.children));
+	      dropdown.length > 0 ? this.showDropdown = true : this.showDropdown = false;
+	    },
+	    setActive: function setActive(index) {
+	      this.current = index;
+	    },
+	    isActive: function isActive(index) {
+	      return this.current == index;
+	    },
+	    hit: function hit() {
+	      console.log(this.items[this.current]);
+	      this.onHit(this.items[this.current]);
+	    },
+	    up: function up() {
+	      if (this.current > 0) this.current--;
+	    },
+	    down: function down() {
+	      if (this.current < this.items.length - 1) this.current++;
+	    }
+	  },
+	  filters: {
+	    highlight: function highlight(value, phrase) {
+	      return value.replace(new RegExp('(' + phrase + ')', 'gi'), '<strong>$1</strong>');
+	    }
+	  }
+	};
+	exports['default'] = typeahead;
+	module.exports = exports['default'];
+
+/***/ },
+/* 142 */
+/***/ function(module, exports) {
+
+	module.exports = "<div style=\"position: relative\" \n  v-class=\"open:showDropdown\">\n  <input type=\"text\" class=\"form-control\" \n  autocomplete=\"off\"\n  v-model=\"query\"\n  v-on=\"input:update,\n  \"\n  />\n  <ul class=\"dropdown-menu\" v-el=\"dropdown\">\n  <list></list>\n  </ul>\n</div>";
+
+/***/ },
+/* 143 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(144);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(18)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 144 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(17)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".dropdown-menu > li > a {\n  cursor: pointer;\n}", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	exports['default'] = function (url, callback) {
+	    var httpRequest = new XMLHttpRequest();
+	    httpRequest.onreadystatechange = function () {
+	        if (httpRequest.readyState === 4) {
+	            if (httpRequest.status === 200) {
+	                var data = JSON.parse(httpRequest.responseText);
+	                if (callback) callback(data);
+	            }
+	        }
+	    };
+	    httpRequest.open('GET', url);
+	    httpRequest.send();
 	};
 	
 	module.exports = exports['default'];

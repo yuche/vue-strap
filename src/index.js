@@ -12,6 +12,8 @@ import tab from './Tab.vue'
 import carousel from './Carousel.vue'
 import slider from './Slider.vue'
 import affix from './Affix.vue'
+import progressbar from './Progressbar.vue'
+import typeahead from './Typeahead.vue'
 
 const demo = new Vue({
   el: '#app',
@@ -19,7 +21,9 @@ const demo = new Vue({
   data: {
     accordionChecked: true,
     showModal: false,
-    showAside: false
+    showAside: false,
+    USstate: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
+    githubTemp: '<li v-repeat="items"><a>{{ formatted_address }}</a></li>'
   },
 
   components: {
@@ -36,6 +40,8 @@ const demo = new Vue({
     tab,
     carousel,
     slider,
-    affix
+    affix,
+    progressbar,
+    typeahead
   }
 })

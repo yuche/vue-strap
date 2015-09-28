@@ -2,7 +2,7 @@
 <div class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators" v-show="indicators">
-    <indicator v-repeat="indicator"></indicator>
+    <indicator></indicator>
   </ol>
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import EventListener from './utils/EventListener.js'
   export default {
     props: {
       indicators: {
@@ -29,10 +30,6 @@
         default: true
       },
       controls: {
-        type: Boolean,
-        default: true
-      },
-      autoplay: {
         type: Boolean,
         default: true
       },
@@ -44,9 +41,7 @@
     components: {
       'indicator': {
         inherit: true,
-        template: `<li v-on="click:handleIndicatorClick($index)"
-        v-class="active:$index === activeIndex"
-        ></li>`,
+        template: `<li v-repeat="indicator" v-on="click:handleIndicatorClick($index)" v-class="active:$index === activeIndex"</li>`,
         methods: {
           handleIndicatorClick(index) {
             if (this.isAnimating) return false
@@ -75,21 +70,24 @@
     },
     methods: {
       slide(direction, selected, prev) {
-        const prevSelectedElement = this.slider[prev]
-        const selectedElement = this.slider[selected]
+        if (this._prevSelectedEvent) this._prevSelectedEvent.remove()
+        if (this._selectedEvent) this._selectedEvent.remove()
+
+        const prevSelectedEl = this.slider[prev]
+        const selectedEl = this.slider[selected]
         const transitionendFn = ()=> {
           [...this.slider].forEach((el)=> el.className = 'item')
-          selectedElement.classList.add('active')
+          selectedEl.classList.add('active')
           this.isAnimating = false
         }
 
-        direction === 'left' ? selectedElement.classList.add('next') : selectedElement.classList.add('prev')
+        direction === 'left' ? selectedEl.classList.add('next') : selectedEl.classList.add('prev')
         // request property that requires layout to force a layout
-        var x = selectedElement.clientHeight
-        selectedElement.addEventListener('transitionend', transitionendFn, false)
-        prevSelectedElement.addEventListener('transitionend', transitionendFn, false)
-        prevSelectedElement.classList.add(direction)
-        selectedElement.classList.add(direction)
+        var x = selectedEl.clientHeight
+        this._prevSelectedEvent = EventListener.listen(prevSelectedEl, 'transitionend', transitionendFn)
+        this._selectedEvent = EventListener.listen(selectedEl, 'transitionend', transitionendFn)
+        prevSelectedEl.classList.add(direction)
+        selectedEl.classList.add(direction)
       },
       nextClick() {
         if (this.isAnimating) return false
@@ -108,7 +106,7 @@
       function intervalManager(flag, func, time) {
         flag ? intervalID =  setInterval(func, time) : clearInterval(intervalID)
       }
-      if (this.autoplay && this.interval) {
+      if (!!this.interval) {
         intervalManager(true, this.nextClick, this.interval)
         el.addEventListener('mouseenter', ()=> intervalManager(false))
         el.addEventListener('mouseleave', ()=> intervalManager(true, this.nextClick, this.interval))

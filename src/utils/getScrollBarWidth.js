@@ -1,9 +1,9 @@
 export default ()=> {
-  var inner = document.createElement('p')
+  let inner = document.createElement('p')
   inner.style.width = '100%'
   inner.style.height = '200px'
 
-  var outer = document.createElement('div')
+  let outer = document.createElement('div')
   outer.style.position = 'absolute'
   outer.style.top = '0px'
   outer.style.left = '0px'
@@ -14,10 +14,10 @@ export default ()=> {
   outer.appendChild(inner)
 
   document.body.appendChild(outer)
-  var w1 = inner.offsetWidth
+  let w1 = inner.offsetWidth
   outer.style.overflow = 'scroll'
-  var w2 = inner.offsetWidth
-  if (w1 == w2) w2 = outer.clientWidth
+  let w2 = inner.offsetWidth
+  if (w1 === w2) w2 = outer.clientWidth
 
   document.body.removeChild(outer)
 

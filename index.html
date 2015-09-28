@@ -41,6 +41,20 @@
 <div class="container bs-docs-container">
   <div class="row">
     <div class="col-md-9">
+    <h1 class="page-header">Typeahead</h1>
+    <div class="bs-example">
+      <typeahead data="{{USstate}}"></typeahead>
+      <hr>
+      <typeahead key="results" src="http://maps.googleapis.com/maps/api/geocode/json?address=" template="formatted_address"></typeahead>
+    </div>
+    <h1 class="page-header">Progresbar</h1>
+    <div class="bs-example">
+      <div class="progress">
+        <progressbar now="20" striped animated label></progressbar>
+        <progressbar now="30" type="success"></progressbar>
+        <progressbar now="40" type="warning"></progressbar>
+      </div>
+    </div>
     <h1 class="page-header">Affix</h1>
     <h1 class="page-header">Carousels</h1>
     <div class="bs-example">

@@ -28,9 +28,9 @@
                 <div class="datepicker-ctrl"> 
                     <i class="month-btn datepicker-preBtn" v-on="click:preNextYearClick(0)">&lt;</i> 
                     <i class="month-btn datepicker-nextBtn" v-on="click:preNextYearClick(1)">&gt;</i> 
-                    <p v-on="click:switchDecadeView">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p v-on="click:switchDecadeView">
                     {{stringifyYearHeader(currDate)}}
-                    &nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </p>
                 </div> 
                 <div class="datepicker-mouthRange"> 
                     <span v-repeat="m:mouthNames" 
@@ -50,9 +50,9 @@
                 <div class="datepicker-ctrl"> 
                     <i class="month-btn datepicker-preBtn" v-on="click:preNextDecadeClick(0)">&lt;</i> 
                     <i class="month-btn datepicker-nextBtn" v-on="click:preNextDecadeClick(1)">&gt;</i> 
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p>
                     {{stringifyDecadeHeader(currDate)}}
-                    &nbsp;&nbsp;</p>
+                    </p>
                 </div> 
                 <div class="datepicker-mouthRange decadeRange">
                     <span v-repeat="decade:decadeRange" 
@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import Utils from './utils.js'
+import EventListener from './utils/EventListener.js'
 
   export default {
     props: {
@@ -103,6 +103,9 @@ import Utils from './utils.js'
       }
     },
     methods: {
+        close() {
+          this.displayDayView = this.displayMouthView = this.displayMouthView = false
+        },
         inputClick() {
           if (this.displayMouthView || this.displayYearView) {
             this.displayDayView = false
@@ -189,7 +192,6 @@ import Utils from './utils.js'
           const firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0
           const lastYearOfDecade = parseInt(firstYearOfDecade) + 10
           return firstYearOfDecade + '-' + lastYearOfDecade
-
         },
         stringifyDayHeader(date) {
           return this.mouthNames[date.getMonth()] + ' ' + date.getFullYear()
@@ -199,7 +201,6 @@ import Utils from './utils.js'
         },
         stringify(date, format) {
           format = format || this.format
-
           const year = date.getFullYear()
           const month = date.getMonth() + 1
           const day = date.getDate()
@@ -277,7 +278,6 @@ import Utils from './utils.js'
                 //     sclass = 'datepicker-item-disable'
                 // }
                 if (i == time.day) {
-                  //如果value有值
                   if (this.value) {
                     const valueDate = this.parse(this.value)
                     if (valueDate) {
@@ -308,12 +308,14 @@ import Utils from './utils.js'
             }
         }
     },
-    created() {
-
-    },
     ready() {
       this.currDate = this.parse(this.value) || this.stringify(this.currDate)
-      Utils.detectClickOutside(this.$el, () => this.displayDayView = this.displayMouthView = this.displayMouthView = false)
+      this._closeEvent = EventListener.listen(window, 'click', (e)=> {
+        if (!this.$el.contains(e.target)) this.close
+      })
+    },
+    beforeDestroy() {
+      if (this._closeEvent) this._closeEvent.remove()
     }
   }
 </script>
