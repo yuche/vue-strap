@@ -23,7 +23,20 @@ const demo = new Vue({
     showModal: false,
     showAside: false,
     USstate: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
-    githubTemp: '<li v-repeat="items"><a>{{ formatted_address }}</a></li>'
+    asynchronous: '{{formatted_address}}',
+    customTemplate: '<img width="18px" height="18px" v-attr="src:avatar_url"/> <span>{{login}}</span>'
+  },
+  methods: {
+    googleCallback(items, targetVM) {
+      const that = targetVM.$parent
+      that.reset()
+      that.query = items.formatted_address
+    },
+    githubCallback(items, targetVM) {
+      const that = targetVM.$parent
+      that.reset()
+      that.query = items.login
+    }
   },
 
   components: {

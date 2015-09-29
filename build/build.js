@@ -120,7 +120,20 @@
 	    showModal: false,
 	    showAside: false,
 	    USstate: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
-	    githubTemp: '<li v-repeat="items"><a>{{ formatted_address }}</a></li>'
+	    asynchronous: '{{formatted_address}}',
+	    customTemplate: '<img width="18px" height="18px" v-attr="src:avatar_url"/> <span>{{login}}</span>'
+	  },
+	  methods: {
+	    googleCallback: function googleCallback(items, targetVM) {
+	      var that = targetVM.$parent;
+	      that.reset();
+	      that.query = items.formatted_address;
+	    },
+	    githubCallback: function githubCallback(items, targetVM) {
+	      var that = targetVM.$parent;
+	      that.reset();
+	      that.query = items.login;
+	    }
 	  },
 	
 	  components: {
@@ -2912,8 +2925,6 @@
 
 	'use strict';
 	
-	var _toConsumableArray = __webpack_require__(69)['default'];
-	
 	var _interopRequireDefault = __webpack_require__(33)['default'];
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -2933,8 +2944,7 @@
 	      inherit: true,
 	      template: '',
 	      created: function created() {
-	        console.log(this.template);
-	        this.$options.template = '<li v-repeat="items" v-class="active: isActive($index)"><a v-on="click:hit,mousemove: setActive($index)" v-html="' + this.template + '"></a></li>';
+	        this.$options.template = '<li v-repeat="items" v-class="active: isActive($index)"><a v-on="click:hit,mousemove: setActive($index)">' + this.template + '</a></li>';
 	      }
 	    }
 	  },
@@ -2950,15 +2960,20 @@
 	      type: String
 	    },
 	    template: {
-	      'default': '$value | highlight query'
+	      'default': '<span v-html="$value | highlight query"></span>'
 	    },
 	    key: {
 	      type: String
 	    },
+	    matchCase: {
+	      type: Boolean,
+	      'default': false
+	    },
 	    onHit: {
 	      type: Function,
 	      'default': function _default(items) {
-	        console.log(items);
+	        this.reset();
+	        this.query = items;
 	      }
 	    }
 	  },
@@ -2977,7 +2992,8 @@
 	
 	      if (this.data) {
 	        return this.data.filter(function (value) {
-	          return value.toLowerCase().indexOf(_this.query) !== -1;
+	          value = _this.matchCase ? value : value.toLowerCase();
+	          return value.indexOf(_this.query) !== -1;
 	        }).slice(0, this.limit);
 	      }
 	    }
@@ -2992,21 +3008,12 @@
 	      }
 	      if (this.data) {
 	        this.items = this.primitiveData;
-	        if (this.items.length) {
-	          this.showDropdown = true;
-	        } else {
-	          this.showDropdown = false;
-	        }
+	        this.showDropdown = this.items.length ? true : false;
 	      }
 	      if (this.src) {
 	        (0, _utilsCallAjaxJs2['default'])(this.src + this.query, function (data) {
-	          // todo array or not
 	          _this2.items = data[_this2.key].slice(0, _this2.limit);
-	          if (_this2.items.length) {
-	            _this2.showDropdown = true;
-	          } else {
-	            _this2.showDropdown = false;
-	          }
+	          _this2.showDropdown = _this2.items.length ? true : false;
 	        });
 	      }
 	    },
@@ -3016,19 +3023,14 @@
 	      this.loading = false;
 	      this.showDropdown = false;
 	    },
-	    dropdown: function dropdown() {
-	      var dropdown = [].concat(_toConsumableArray(this.$$.dropdown.children));
-	      dropdown.length > 0 ? this.showDropdown = true : this.showDropdown = false;
-	    },
 	    setActive: function setActive(index) {
 	      this.current = index;
 	    },
 	    isActive: function isActive(index) {
-	      return this.current == index;
+	      return this.current === index;
 	    },
-	    hit: function hit() {
-	      console.log(this.items[this.current]);
-	      this.onHit(this.items[this.current]);
+	    hit: function hit(e) {
+	      this.onHit(this.items[this.current], e.targetVM);
 	    },
 	    up: function up() {
 	      if (this.current > 0) this.current--;
@@ -3050,7 +3052,7 @@
 /* 142 */
 /***/ function(module, exports) {
 
-	module.exports = "<div style=\"position: relative\" \n  v-class=\"open:showDropdown\">\n  <input type=\"text\" class=\"form-control\" \n  autocomplete=\"off\"\n  v-model=\"query\"\n  v-on=\"input:update,\n  \"\n  />\n  <ul class=\"dropdown-menu\" v-el=\"dropdown\">\n  <list></list>\n  </ul>\n</div>";
+	module.exports = "<div style=\"position: relative\" \n  v-class=\"open:showDropdown\">\n  <input type=\"text\" class=\"form-control\" \n  autocomplete=\"off\"\n  v-model=\"query\"\n  v-on=\"\n  input: update,\n  keydown: up|key 'up',\n  keydown: down | key 'down',\n  keydown: hit|key 'enter',\n  keydown: reset|key 'esc', \n  \"\n  />\n  <ul class=\"dropdown-menu\" v-el=\"dropdown\">\n  <list></list>\n  </ul>\n</div>";
 
 /***/ },
 /* 143 */

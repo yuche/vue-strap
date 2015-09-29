@@ -4,7 +4,12 @@
   <input type="text" class="form-control" 
   autocomplete="off"
   v-model="query"
-  v-on="input:update,
+  v-on="
+  input: update,
+  keydown: up|key 'up',
+  keydown: down | key 'down',
+  keydown: hit|key 'enter',
+  keydown: reset|key 'esc', 
   "
   />
   <ul class="dropdown-menu" v-el="dropdown">
@@ -25,8 +30,7 @@ const typeahead = {
         inherit: true,
         template: '',
         created() {
-          console.log(this.template)
-          this.$options.template = `<li v-repeat="items" v-class="active: isActive($index)"><a v-on="click:hit,mousemove: setActive($index)" v-html="${this.template}"></a></li>`
+          this.$options.template = `<li v-repeat="items" v-class="active: isActive($index)"><a v-on="click:hit,mousemove: setActive($index)">${this.template}</a></li>`
         }
       }
     },
@@ -42,15 +46,20 @@ const typeahead = {
         type: String
       },
       template: {
-        default: '$value | highlight query'
+        default: '<span v-html="$value | highlight query"></span>'
       },
       key: {
         type: String
       },
+      matchCase: {
+        type: Boolean,
+        default: false
+      },
       onHit: {
         type: Function,
         default(items) {
-          console.log(items)
+          this.reset()
+          this.query = items
         }
       }
     },
@@ -67,7 +76,8 @@ const typeahead = {
       primitiveData() {
         if (this.data) {
           return this.data.filter(value=> {
-            return value.toLowerCase().indexOf(this.query) !== -1
+            value = this.matchCase ? value : value.toLowerCase()
+            return value.indexOf(this.query) !== -1
           }).slice(0, this.limit)
         }
       }
@@ -80,21 +90,12 @@ const typeahead = {
         }
         if (this.data) {
           this.items = this.primitiveData
-          if (this.items.length) {
-            this.showDropdown = true
-          } else {
-            this.showDropdown = false
-          }
+          this.showDropdown = this.items.length ? true : false
         }
         if (this.src) {
           callAjax(this.src + this.query, (data)=> {
-            // todo array or not
             this.items = data[this.key].slice(0, this.limit)
-            if (this.items.length) {
-              this.showDropdown = true
-            } else {
-              this.showDropdown = false
-            }
+            this.showDropdown = this.items.length ? true : false
           })
         }
       },
@@ -104,25 +105,20 @@ const typeahead = {
         this.loading = false
         this.showDropdown = false
       },
-      dropdown() {
-        const dropdown = [...this.$$.dropdown.children]
-        dropdown.length > 0 ? this.showDropdown = true : this.showDropdown = false
-      },
-      setActive: function (index) {
+      setActive(index) {
         this.current = index
       },
-      isActive: function (index) {
-        return this.current == index
+      isActive(index) {
+        return this.current === index
       },
-      hit: function () {
-        console.log(this.items[this.current])
-        this.onHit(this.items[this.current])
+      hit(e) {
+        this.onHit(this.items[this.current], e.targetVM)
       },
-      up: function () {
+      up() {
         if (this.current > 0) this.current--
       },
-      down: function () {
-        if (this.current < this.items.length-1) this.current++
+      down() {
+        if (this.current < this.items.length - 1) this.current++
       }
     },
     filters: {

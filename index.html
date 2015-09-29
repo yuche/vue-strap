@@ -43,9 +43,24 @@
     <div class="col-md-9">
     <h1 class="page-header">Typeahead</h1>
     <div class="bs-example">
+      <h4>
+        Static arrays
+      </h4>
       <typeahead data="{{USstate}}"></typeahead>
       <hr>
-      <typeahead key="results" src="http://maps.googleapis.com/maps/api/geocode/json?address=" template="formatted_address"></typeahead>
+      <h4>
+      Asynchronous results
+      <small>(Address, async via maps.googleapis.com)</small>
+      </h4>
+      <typeahead key="results" src="https://maps.googleapis.com/maps/api/geocode/json?address=" template="{{asynchronous}}"
+      on-hit="{{googleCallback}}"></typeahead>
+      <hr>
+      <h4>
+      Custom templates for results
+      <small>(Github users, async via api.github.com)</small>
+      </h4>
+      <typeahead key="items" src="https://api.github.com/search/users?q=" template="{{customTemplate}}"
+      on-hit="{{githubCallback}}"></typeahead>
     </div>
     <h1 class="page-header">Progresbar</h1>
     <div class="bs-example">
