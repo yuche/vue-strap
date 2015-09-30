@@ -14,6 +14,8 @@ import slider from './Slider.vue'
 import affix from './Affix.vue'
 import progressbar from './Progressbar.vue'
 import typeahead from './Typeahead.vue'
+import vSelect from './Select.vue'
+import vOption from './Option.vue'
 
 const demo = new Vue({
   el: '#app',
@@ -55,6 +57,8 @@ const demo = new Vue({
     slider,
     affix,
     progressbar,
-    typeahead
+    typeahead,
+    vSelect,
+    vOption
   }
 })

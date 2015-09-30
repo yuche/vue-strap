@@ -112,6 +112,14 @@
 	
 	var _TypeaheadVue2 = _interopRequireDefault(_TypeaheadVue);
 	
+	var _SelectVue = __webpack_require__(156);
+	
+	var _SelectVue2 = _interopRequireDefault(_SelectVue);
+	
+	var _OptionVue = __webpack_require__(159);
+	
+	var _OptionVue2 = _interopRequireDefault(_OptionVue);
+	
 	var demo = new Vue({
 	  el: '#app',
 	
@@ -152,7 +160,9 @@
 	    slider: _SliderVue2['default'],
 	    affix: _AffixVue2['default'],
 	    progressbar: _ProgressbarVue2['default'],
-	    typeahead: _TypeaheadVue2['default']
+	    typeahead: _TypeaheadVue2['default'],
+	    vSelect: _SelectVue2['default'],
+	    vOption: _OptionVue2['default']
 	  }
 	});
 
@@ -2944,7 +2954,7 @@
 	      inherit: true,
 	      template: '',
 	      created: function created() {
-	        this.$options.template = '<li v-repeat="items" v-class="active: isActive($index)"><a v-on="click:hit,mousemove: setActive($index)">' + this.template + '</a></li>';
+	        this.$options.template = '<li v-repeat="items" v-class="active: isActive($index)"><a v-on="mousedown:hit,mousemove: setActive($index)">' + this.template + '</a></li>';
 	      }
 	    }
 	  },
@@ -2975,6 +2985,9 @@
 	        this.reset();
 	        this.query = items;
 	      }
+	    },
+	    placeholder: {
+	      type: String
 	    }
 	  },
 	  data: function data() {
@@ -3030,6 +3043,7 @@
 	      return this.current === index;
 	    },
 	    hit: function hit(e) {
+	      e.preventDefault();
 	      this.onHit(this.items[this.current], e.targetVM);
 	    },
 	    up: function up() {
@@ -3052,7 +3066,7 @@
 /* 142 */
 /***/ function(module, exports) {
 
-	module.exports = "<div style=\"position: relative\" \n  v-class=\"open:showDropdown\">\n  <input type=\"text\" class=\"form-control\" \n  autocomplete=\"off\"\n  v-model=\"query\"\n  v-on=\"\n  input: update,\n  keydown: up|key 'up',\n  keydown: down | key 'down',\n  keydown: hit|key 'enter',\n  keydown: reset|key 'esc', \n  \"\n  />\n  <ul class=\"dropdown-menu\" v-el=\"dropdown\">\n  <list></list>\n  </ul>\n</div>";
+	module.exports = "<div style=\"position: relative\" \n  v-class=\"open:showDropdown\"\n  >\n  <input type=\"text\" class=\"form-control\"\n  placeholder=\"{{placeholder}}\"\n  autocomplete=\"off\"\n  v-model=\"query\"\n  v-on=\"\n  input: update,\n  keydown: up|key 'up',\n  keydown: down | key 'down',\n  keydown: hit|key 'enter',\n  keydown: reset|key 'esc',\n  blur:showDropdown = false\n  \"\n  />\n  <ul class=\"dropdown-menu\" v-el=\"dropdown\">\n  <list></list>\n  </ul>\n</div>";
 
 /***/ },
 /* 143 */
@@ -3125,6 +3139,226 @@
 	};
 	
 	module.exports = exports['default'];
+
+/***/ },
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(164)
+	module.exports = __webpack_require__(157)
+	module.exports.template = __webpack_require__(158)
+
+
+/***/ },
+/* 157 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = {
+	  props: {
+	    value: {
+	      type: Array,
+	      'default': function _default() {
+	        return [];
+	      }
+	    },
+	    placeholder: {
+	      type: String,
+	      'default': 'Nothing Selected'
+	    },
+	    multiple: {
+	      type: Boolean,
+	      'default': false
+	    },
+	    limit: {
+	      type: Number,
+	      'default': 1024
+	    }
+	  },
+	  data: function data() {
+	    return {
+	      show: false,
+	      showNotify: false
+	    };
+	  },
+	  computed: {
+	    showPlaceholder: function showPlaceholder() {
+	      return this.value.length <= 0;
+	    }
+	  },
+	  watch: {
+	    value: function value(val) {
+	      var _this = this;
+	
+	      var timeout = undefined;
+	      if (timeout) clearTimeout(timeout);
+	      if (val.length > this.limit) {
+	        this.showNotify = true;
+	        this.value.pop();
+	        timeout = setTimeout(function () {
+	          return _this.showNotify = false;
+	        }, 1000);
+	      }
+	    }
+	  },
+	  methods: {
+	    toggleDropdown: function toggleDropdown() {
+	      this.show = !this.show;
+	    }
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 158 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"btn-group\" v-class=\"open:show\">\n    <button v-el=\"btn\" type=\"button\" class=\"btn btn-default dropdown-toggle\" v-on=\"click:toggleDropdown,blur:this.show = false\">\n          <span class=\"placeholder\" v-show=\"showPlaceholder\">\n            {{placeholder}}\n          </span>\n          <span class=\"content\">\n            {{value.join(', ')}}\n          </span>\n          <span class=\"caret\"></span>\n    </button>\n    <ul class=\"dropdown-menu\">\n      <content></content>\n      <div class=\"notify\" v-show=\"showNotify\" v-transition=\"fadein\">Limit reached ({{limit}} items max).</div>\n    </ul>\n  </div>";
+
+/***/ },
+/* 159 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(160)
+	module.exports = __webpack_require__(162)
+	module.exports.template = __webpack_require__(163)
+
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(161);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(18)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(17)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "a span.check-mark {\n    position: absolute;\n    display: inline-block;\n    right: 15px;\n    margin-top: 5px;\n  }", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 162 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports["default"] = {
+	  props: {
+	    value: {
+	      type: String
+	    }
+	  },
+	  data: function data() {
+	    return {
+	      chosen: false
+	    };
+	  },
+	  computed: {
+	    chosen: function chosen() {
+	      return this.$parent.value.indexOf(this.value) !== -1 ? true : false;
+	    }
+	  },
+	  methods: {
+	    handleClick: function handleClick(e) {
+	      e.preventDefault();
+	      var parent = this.$parent;
+	      var index = parent.value.indexOf(this.value);
+	      if (parent.multiple) {
+	        index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1);
+	      } else {
+	        parent.value = [];
+	        parent.value.push(this.value);
+	        parent.show = false;
+	      }
+	    }
+	  }
+	};
+	module.exports = exports["default"];
+
+/***/ },
+/* 163 */
+/***/ function(module, exports) {
+
+	module.exports = "<li>\n    <a v-on='mousedown:handleClick' style=\"position:relative\">\n      <content></content>\n      <content select=\"span.text\">\n        {{value}}\n      </content>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\"></span>\n    </a>\n  </li>";
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(165);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(18)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(17)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".btn-group .dropdown-menu .notify {\n  position: absolute;\n  bottom: 5px;\n  width: 96%;\n  margin: 0 2%;\n  min-height: 26px;\n  padding: 3px 5px;\n  background: #f5f5f5;\n  border: 1px solid #e3e3e3;\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\n   pointer-events: none; \n  opacity: .9;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n}", ""]);
+	
+	// exports
+
 
 /***/ }
 /******/ ]);

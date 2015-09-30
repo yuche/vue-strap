@@ -41,12 +41,47 @@
 <div class="container bs-docs-container">
   <div class="row">
     <div class="col-md-9">
+    <h1 class="page-header">
+      Select
+    </h1>
+    <div class="bs-example">
+      <v-select>
+        <v-option value="Apple"></v-option>
+        <v-option value="Banana"></v-option>
+        <v-option value="Cherry"></v-option>
+        <v-option value="Orange"></v-option>
+        <v-option value="Grape"></v-option>
+      </v-select>
+      <hr>
+      <v-select multiple>
+        <v-option value="Apple"></v-option>
+        <v-option value="Banana"></v-option>
+        <v-option value="Cherry"></v-option>
+        <v-option value="Orange"></v-option>
+        <v-option value="Grape"></v-option>
+      </v-select>
+      <hr>
+      <v-select multiple limit="2">
+        <v-option value="Apple"></v-option>
+        <v-option value="Banana"></v-option>
+        <v-option value="Cherry"></v-option>
+        <v-option value="Orange"></v-option>
+        <v-option value="Grape"></v-option>
+      </v-select>
+      <hr>
+      <v-select multiple>
+        <v-option value="Star"><span class="glyphicon glyphicon-star"></span> Star</v-option>
+        <v-option value="Heart"><span class="glyphicon glyphicon-heart"></span> Heart</v-option>
+        <v-option value="Film"><span class="glyphicon glyphicon-film"></span> Film</v-option>
+        <v-option value="Inbox"><span class="glyphicon glyphicon-inbox"></span> Inbox</v-option>
+      </v-select>
+    </div>
     <h1 class="page-header">Typeahead</h1>
     <div class="bs-example">
       <h4>
         Static arrays
       </h4>
-      <typeahead data="{{USstate}}"></typeahead>
+      <typeahead data="{{USstate}}" placeholder="fyck"></typeahead>
       <hr>
       <h4>
       Asynchronous results

@@ -1,7 +1,9 @@
 <template>
 <div style="position: relative" 
-  v-class="open:showDropdown">
-  <input type="text" class="form-control" 
+  v-class="open:showDropdown"
+  >
+  <input type="text" class="form-control"
+  placeholder="{{placeholder}}"
   autocomplete="off"
   v-model="query"
   v-on="
@@ -9,7 +11,8 @@
   keydown: up|key 'up',
   keydown: down | key 'down',
   keydown: hit|key 'enter',
-  keydown: reset|key 'esc', 
+  keydown: reset|key 'esc',
+  blur:showDropdown = false
   "
   />
   <ul class="dropdown-menu" v-el="dropdown">
@@ -30,7 +33,7 @@ const typeahead = {
         inherit: true,
         template: '',
         created() {
-          this.$options.template = `<li v-repeat="items" v-class="active: isActive($index)"><a v-on="click:hit,mousemove: setActive($index)">${this.template}</a></li>`
+          this.$options.template = `<li v-repeat="items" v-class="active: isActive($index)"><a v-on="mousedown:hit,mousemove: setActive($index)">${this.template}</a></li>`
         }
       }
     },
@@ -61,6 +64,9 @@ const typeahead = {
           this.reset()
           this.query = items
         }
+      },
+      placeholder: {
+        type: String
       }
     },
     data() {
@@ -112,6 +118,7 @@ const typeahead = {
         return this.current === index
       },
       hit(e) {
+        e.preventDefault()
         this.onHit(this.items[this.current], e.targetVM)
       },
       up() {
