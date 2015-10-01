@@ -1,7 +1,7 @@
 {
   "name": "vue-strap",
   "version": "0.1.0",
-  "description": "Bootstrap 3 components built with Vue.js ",
+  "description": "Bootstrap components built with Vue.js ",
   "main": "index.js",
   "dependencies": {
     "vue": "^0.12.10"

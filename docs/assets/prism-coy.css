@@ -4,11 +4,40 @@
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
  */
+ @font-face {
+ 	font-family: 'icomoon';
+ 	src:url('fonts/icomoon.eot?lhzob4');
+ 	src:url('fonts/icomoon.eot?lhzob4#iefix') format('embedded-opentype'),
+ 		url('fonts/icomoon.ttf?lhzob4') format('truetype'),
+ 		url('fonts/icomoon.woff?lhzob4') format('woff'),
+ 		url('fonts/icomoon.svg?lhzob4#icomoon') format('svg');
+ 	font-weight: normal;
+ 	font-style: normal;
+ }
+
+ [class^="icon-"], [class*=" icon-"] {
+ 	font-family: 'icomoon';
+ 	speak: none;
+ 	font-style: normal;
+ 	font-weight: normal;
+ 	font-variant: normal;
+ 	text-transform: none;
+ 	line-height: 1;
+
+ 	/* Better Font Rendering =========== */
+ 	-webkit-font-smoothing: antialiased;
+ 	-moz-osx-font-smoothing: grayscale;
+ }
+
+ .icon-github:before {
+ 	content: "\e600";
+ }
+
 
 code[class*="language-"],
 pre[class*="language-"] {
     color: black;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: 'Source Code Pro',Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     direction: ltr;
     text-align: left;
     white-space: pre;
@@ -480,4 +509,33 @@ pre .line-highlight {
 
 .css .nt+.nt,.css .o,.css .o+.nt {
     color: #999
+}
+pre[class*='language-'] {
+	position: relative;
+}
+pre[class*='language-'][data-language]::before {
+	content: attr(data-language);
+	color: black;
+	background-color: #CFCFCF;
+	display: inline-block;
+	position: absolute;
+	bottom: auto;
+	left: auto;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: auto;
+	font-size: 0.9em;
+	border-radius: 0 0 0 5px;
+	padding: 0 0.5em;
+	text-shadow: none;
+	z-index: 1;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-ms-transform: none;
+	-o-transform: none;
+	transform: none;
 }

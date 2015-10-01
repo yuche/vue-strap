@@ -1,10 +1,12 @@
 {
+  "ecmaVersion": 6,
   "libs": [
-    "browser",
-    "ecma5",
-    "ecma6"
+    "browser"
+  ],
+  "loadEagerly": [
+    "/Users/yuche/GitHub/vue-strap/src/"
   ],
   "dontLoad": [
-    "node_modules"
+    "/Users/yuche/GitHub/vue-strap/node-modules"
   ]
 }

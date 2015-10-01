@@ -1,5 +1,6 @@
 import './assets/style.css'
 import 'prismjs'
+import './js/showLanguage'
 
 import affix from '../src/Affix.vue'
 import container from './example/container.vue'
