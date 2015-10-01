@@ -4,19 +4,6 @@
  * Based on the Bootstrap Documentation styles and overridden as necessary.
  */
 
-body {
-  background-color: #f9f9f9;
-}
-
-.bs-docs-nav {
-  background-color: #222;
-}
-
-.bs-docs-nav .navbar-nav>li>a {
-  color: #aaa;
-  font-weight: normal;
-}
-
 .bs-docs-nav .navbar-nav>li>a:hover,.bs-docs-nav .navbar-nav>.active>a, .bs-docs-nav .navbar-nav>.active>a:hover {
   background: #333;
   color: #fafafa;
@@ -37,7 +24,7 @@ body {
 }
 
 .bs-docs-nav .navbar-brand {
-  color: #00d8ff;
+  color: green;
 }
 
 .bs-docs-masthead, .bs-docs-header {
@@ -91,7 +78,6 @@ body {
 }
 
 .bs-docs-booticon {
-  background: url('./logo.png') 0 0 no-repeat;
   background-size: contain;
   border: 0;
   width: 200px;

@@ -13,6 +13,7 @@
     "browser-sync": "^2.9.1",
     "browser-sync-webpack-plugin": "^1.0.0",
     "css-loader": "^0.15.4",
+    "eslint-plugin-html": "^1.0.4",
     "html-loader": "^0.3.0",
     "style-loader": "^0.12.3",
     "template-html-loader": "0.0.3",
