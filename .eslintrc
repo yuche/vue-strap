@@ -1,6 +1,6 @@
 {
   "plugins": [
-    "html"                          // https://github.com/yannickcr/eslint-pconstlugin-react
+    "html"                          // https://github.com/BenoitZugmeyer/eslint-plugin-html
   ],
   "env": {                           // http://eslint.org/docs/user-guide/configuring.html#specifying-environments
     "browser": true,                 // browser global variables
@@ -51,11 +51,11 @@
 /**
  * Possible errors
  */
-//    "comma-dangle": [2, "always-multiline"],    // http://eslint.org/docs/rules/comma-dangle
+    "comma-dangle": 0,
     "no-cond-assign": [2, "always"], // http://eslint.org/docs/rules/no-cond-assign
-//    "no-console": 1,                 // http://eslint.org/docs/rules/no-console
-//    "no-debugger": 1,                // http://eslint.org/docs/rules/no-debugger
-//    "no-alert": 1,                   // http://eslint.org/docs/rules/no-alert
+    "no-console": 1,                 // http://eslint.org/docs/rules/no-console
+    "no-debugger": 1,                // http://eslint.org/docs/rules/no-debugger
+    "no-alert": 1,                   // http://eslint.org/docs/rules/no-alert
     "no-constant-condition": 1,      // http://eslint.org/docs/rules/no-constant-condition
     "no-dupe-keys": 2,               // http://eslint.org/docs/rules/no-dupe-keys
     "no-duplicate-case": 2,          // http://eslint.org/docs/rules/no-duplicate-case
@@ -97,7 +97,7 @@
     "no-loop-func": 2,               // http://eslint.org/docs/rules/no-loop-func
     "no-multi-str": 2,               // http://eslint.org/docs/rules/no-multi-str
     "no-native-reassign": 2,         // http://eslint.org/docs/rules/no-native-reassign
-    "no-new": 2,                     // http://eslint.org/docs/rules/no-new
+    "no-new": 0,                     
     "no-new-func": 2,                // http://eslint.org/docs/rules/no-new-func
     "no-new-wrappers": 2,            // http://eslint.org/docs/rules/no-new-wrappers
     "no-octal": 2,                   // http://eslint.org/docs/rules/no-octal
@@ -119,7 +119,6 @@
 /**
  * Style
  */
- //   "indent": [2, 2],                // http://eslint.org/docs/rules/indent
     "brace-style": [2,               // http://eslint.org/docs/rules/brace-style
       "1tbs", {
       "allowSingleLine": true
@@ -144,9 +143,7 @@
     "new-cap": [2, {                 // http://eslint.org/docs/rules/new-cap
       "newIsCap": true
     }],
-    "no-multiple-empty-lines": [2, { // http://eslint.org/docs/rules/no-multiple-empty-lines
-      "max": 2
-    }],
+    "no-multiple-empty-lines": 0,
     "no-nested-ternary": 2,          // http://eslint.org/docs/rules/no-nested-ternary
     "no-new-object": 2,              // http://eslint.org/docs/rules/no-new-object
     "no-spaced-func": 2,             // http://eslint.org/docs/rules/no-spaced-func
@@ -168,27 +165,6 @@
     "spaced-comment": [2, "always",  {// http://eslint.org/docs/rules/spaced-comment
       "exceptions": ["-", "+"],
       "markers": ["=", "!"]           // space here to support sprockets directives
-    }],
-
-/**
- * JSX style
- */
-//     "react/display-name": 0,         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
-//     "react/jsx-boolean-value": 2,    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
-//     "react/jsx-quotes": [2, "double"], // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-quotes.md
-//     "react/jsx-no-undef": 2,         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-undef.md
-//     "react/jsx-sort-props": 0,       // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
-//     "react/jsx-sort-prop-types": 0,  // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-prop-types.md
-//     "react/jsx-uses-react": 2,       // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
-//     "react/jsx-uses-vars": 2,        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
-//     "react/no-did-mount-set-state": [2, "allow-in-func"], // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
-//     "react/no-did-update-set-state": 2, // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-update-set-state.md
-//     "react/no-multi-comp": 2,        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
-//     "react/no-unknown-property": 2,  // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
-// //    "react/prop-types": 2,           // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
-//     "react/react-in-jsx-scope": 2,   // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
-//     "react/self-closing-comp": 2,    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
-//     "react/wrap-multilines": 2,      // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md
-//     "react/sort-comp": 1,
+    }]
   }
 }
