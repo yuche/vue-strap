@@ -8,6 +8,10 @@ body {
   font-family: 'Source Sans Pro', 'helvetica neue', 'Avenir Next', 'Avenir',Arial, sans-serif;
 }
 
+.bs-docs-section h1 {
+  font-size: 42px
+}
+
 .bs-docs-nav .navbar-nav > li > a {
   color: #333;
 }
@@ -65,12 +69,12 @@ body {
 }
 
 .bs-docs-sidebar .nav>li>a:hover, .bs-docs-sidebar .nav>li>a:focus {
-  color: #cc7a6f;
-  border-left: 1px solid #cc7a6f;
+  color: #42b983;
+  border-left: 1px solid #42b983;
 }
 
 .back-to-top:hover {
-  color: #cc7a6f;
+  color: #42b983;
 }
 
 

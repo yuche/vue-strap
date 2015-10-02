@@ -2,6 +2,7 @@
   "plugins": [
     "html"                          // https://github.com/BenoitZugmeyer/eslint-plugin-html
   ],
+  "parser": "babel-eslint",
   "env": {                           // http://eslint.org/docs/user-guide/configuring.html#specifying-environments
     "browser": true,                 // browser global variables
     "node": true                     // Node.js global variables and Node.js-specific rules
@@ -97,7 +98,7 @@
     "no-loop-func": 2,               // http://eslint.org/docs/rules/no-loop-func
     "no-multi-str": 2,               // http://eslint.org/docs/rules/no-multi-str
     "no-native-reassign": 2,         // http://eslint.org/docs/rules/no-native-reassign
-    "no-new": 0,                     
+    "no-new": 0,
     "no-new-func": 2,                // http://eslint.org/docs/rules/no-new-func
     "no-new-wrappers": 2,            // http://eslint.org/docs/rules/no-new-wrappers
     "no-octal": 2,                   // http://eslint.org/docs/rules/no-octal

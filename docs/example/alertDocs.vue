@@ -4,12 +4,12 @@
       <a href="#alert" class="anchor">Alert</a>
     </h1>
     <div class="bs-example" >
-      <button class="btn btn-default btn-lg"
+      <button class="btn btn-success btn-lg"
         v-on="click:showRight = !showRight">
         Click to toggle alert on right
       </button>
 
-      <button class="btn btn-default btn-lg"
+      <button class="btn btn-danger btn-lg"
         v-on="click:showTop = !showTop">
         Click to toggle alert on top
       </button>
@@ -46,7 +46,7 @@
       <alert
         show="{{@showTop}}"
         duration="3000"
-        type="info"
+        type="danger"
         width="400px"
         placement="top"
         dismissable>
@@ -157,7 +157,7 @@
           <td>placement</td>
           <td><code>String</code>. one of <code>top</code>, <code>top-right</code></td>
           <td></td>
-          <td></td>
+          <td>how to position the component.</td>
         </tr>
       </tbody>
     </table>
