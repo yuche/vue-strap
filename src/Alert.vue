@@ -1,17 +1,20 @@
 <template>
-  <div 
-    v-show="showAlert" 
+  <div
+    v-show="show"
     class="alert"
     v-class="
       alert-success:type == 'success',
       alert-warning:type == 'warning',
       alert-info:type == 'info',
       alert-danger:type == 'danger',
+      top: placement === 'top',
+      top-right: placement === 'top-right'
     "
     v-transition="fade"
+    v-style="width:width"
     role="alert">
-    <button v-show="dismiss" type="button" class="close" 
-      v-on="click:showAlert = false">
+    <button v-show="dismissable" type="button" class="close"
+      v-on="click:show = false">
       <span >&times;</span>
     </button>
     <content>
@@ -23,28 +26,57 @@
   export default {
     props: {
       type: {
-        type: String,
-        default: 'success',
+        type: String
       },
-      dismiss: {
+      dismissable: {
         type: Boolean,
         default: false,
       },
-    },
-    data() {
-      return {
-        showAlert: true,
+      show: {
+        type: Boolean,
+        default: true,
+        twoWay: true
+      },
+      duration: {
+        type: Number,
+        default: 0
+      },
+      width: {
+        type: String
+      },
+      placement: {
+        type: String
       }
     },
+    watch: {
+      show(val) {
+        if (this._timeout) clearTimeout(this._timeout)
+        if (val && !!this.duration) {
+          this._timeout = setTimeout(()=> this.show = false, this.duration)
+        }
+      }
+    }
   }
 </script>
 
 <style>
 .fade-transition {
-  transition: opacity .15s ease;
+  transition: opacity .3s ease;
 }
 .fade-enter,
 .fade-leave {
   opacity: 0;
+}
+.alert.top {
+  position: fixed;
+  top: 30px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+.alert.top-right {
+  position: fixed;
+  top: 30px;
+  right: 50px;
 }
 </style>

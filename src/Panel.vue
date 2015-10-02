@@ -8,7 +8,7 @@
         </a>
       </h4>
     </div>
-    <div class="panel-collapse" 
+    <div class="panel-collapse"
       v-show="isOpen"
       v-transition="collapse">
       <div class="panel-body">
@@ -30,7 +30,7 @@
       }
     },
     methods: {
-      toggleIsOpen(el) {
+      toggleIsOpen() {
         this.isOpen = !this.isOpen
         const oneAtATime = this.$parent.$data.oneAtATime
 

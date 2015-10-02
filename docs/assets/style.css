@@ -39,7 +39,6 @@ body {
 }
 
 .bs-docs-masthead, .bs-docs-header {
-  margin-top: 50px;
   background:         linear-gradient(90deg, #1D976C 10%, #93F9B9 90%); /* W3C */
 
   filter: none;
