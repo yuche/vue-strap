@@ -109,8 +109,8 @@
 
 </script></code></pre>
 
-    <h2>Props</h2>
-    <table class="table table-bordered table-stripe">
+    <h2>Options</h2>
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th>Name</th>

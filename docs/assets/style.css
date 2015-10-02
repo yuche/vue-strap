@@ -11,7 +11,10 @@ body {
 .bs-docs-nav .navbar-nav > li > a {
   color: #333;
 }
-
+.bs-docs-footer {
+  padding-top: 20px;
+  text-align: left;
+}
 .bs-docs-nav .navbar-collapse {
   overflow: hidden;
 }

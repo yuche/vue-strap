@@ -28,12 +28,14 @@
   </div>
   <container>
     <div class="col-md-9">
+      <accordion-docs></accordion-docs>
+
       <alert-docs></alert-docs>
     </div>
     <div class="col-md-3">
     <affix>
       <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm ">
-        <ul class="nav bs-docs-sidenav">
+        <ul class="nav bs-docs-sidenav" id="sidenav">
           <li class="active"><a href="#">Lorem ipsum dolor .</a></li>
           <li><a href="#">rest</a></li>
           <li><a href="#">rest</a></li>
@@ -46,6 +48,19 @@
     </div>
   </container>
 </div>
+<footer class="bs-docs-footer">
+  <div class="container">
+    <p>
+      Designed and built by <a href="https://github.com/yuche/">yuche</a>.
+    </p>
+    <p>
+      Using Twitter Bootstrap and the Bootstrap's docs styles designed and built by @mdo and @fat.
+    </p>
+    <p>
+      Code licensed under The MIT License, documentation under CC BY 3.0.
+    </p>
+  </div>
+</footer>
 <script src="node_modules/vue/dist/vue.js"></script>
 <script src="build/build-docs.js"></script>
 
