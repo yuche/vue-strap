@@ -9,6 +9,8 @@ import alertDocs from './example/alertDocs.vue'
 import accordionDocs from './example/accordionDocs.vue'
 import affixDocs from './example/affixDocs.vue'
 import asideDocs from './example/asideDocs.vue'
+import carouselDocs from './example/carouselDocs.vue'
+import buttonsDocs  from './example/buttonsDocs.vue'
 
 new Vue({
   el: '#wrapper',
@@ -19,6 +21,8 @@ new Vue({
     accordionDocs,
     affixDocs,
     asideDocs,
+    carouselDocs,
+    buttonsDocs,
     container,
     list: {
       inherit: true,

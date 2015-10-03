@@ -64,8 +64,14 @@ body {
   color: #ffffff;
 }
 
+a.back-to-top {
+  font-size: 13px;
+  margin-top: 0;
+}
+
 .bs-docs-sidebar .nav>li>a {
-  color: #666;
+  color: #767676;
+  font-size: 14px;
 }
 
 .bs-docs-sidebar .nav>li>a:hover, .bs-docs-sidebar .nav>li>a:focus {

@@ -571,9 +571,9 @@ body {
 .bs-docs-sidebar .nav > .active:focus > a {
   padding-left: 18px;
   font-weight: bold;
-  color: #563d7c;
+  color: #1D976C;
   background-color: transparent;
-  border-left: 2px solid #563d7c;
+  border-left: 2px solid #1D976C;
 }
 
 /* Nav: second level (shown on .active) */

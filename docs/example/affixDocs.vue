@@ -4,7 +4,7 @@
     <div class="bs-example">
       <h3>
         The sub-navigation on the RIGHT is a live demo of the affix.
-        <tooltip trigger="hover" effect="fadein" content="I'm not jerking off!" placement="left">
+        <tooltip trigger="hover" effect="fadein" content="I'm a direction, not jerking off!" placement="left">
           <span class="glyphicon glyphicon-hand-right pull-right animated shake"></span>
         </tooltip>
       </h3>
