@@ -1,69 +1,70 @@
 <template>
-  <div class="datepicker"> 
-    <input class="form-control datepicker-input" type="text" 
-    v-on="click:inputClick" 
-    v-model="value"/> 
-      <div class="datepicker-popup" v-show="displayDayView"> 
-          <div class="datepicker-inner"> 
-              <div class="datepicker-body"> 
-                  <div class="datepicker-ctrl"> 
-                      <i class="month-btn datepicker-preBtn" v-on="click:preNextMonthClick(0)">&lt;</i> 
-                      <i class="month-btn datepicker-nextBtn" v-on="click:preNextMonthClick(1)">&gt;</i> 
+  <div class="datepicker">
+    <input class="form-control datepicker-input" type="text"
+    v-style="width:width"
+    v-on="click:inputClick"
+    v-model="value"/>
+      <div class="datepicker-popup" v-show="displayDayView">
+          <div class="datepicker-inner">
+              <div class="datepicker-body">
+                  <div class="datepicker-ctrl">
+                      <span class="month-btn datepicker-preBtn" v-on="click:preNextMonthClick(0)">&lt;</span>
+                      <span class="month-btn datepicker-nextBtn" v-on="click:preNextMonthClick(1)">&gt;</span>
                       <p v-on="click:switchMouthView">
                       {{stringifyDayHeader(currDate)}}
                       </p>
-                  </div> 
-                  <div class="datepicker-weekRange"> 
-                      <span v-repeat="w:weekRange">{{w}}</span> 
-                  </div> 
-                  <div class="datepicker-dateRange"> 
-                      <span v-repeat="d:dateRange" v-class="d.sclass" v-on="click:daySelect(d.date,this)">{{d.text}}</span> 
-                  </div> 
-              </div> 
-          </div> 
+                  </div>
+                  <div class="datepicker-weekRange">
+                      <span v-repeat="w:weekRange">{{w}}</span>
+                  </div>
+                  <div class="datepicker-dateRange">
+                      <span v-repeat="d:dateRange" v-class="d.sclass" v-on="click:daySelect(d.date,this)">{{d.text}}</span>
+                  </div>
+              </div>
+          </div>
       </div>
       <div class="datepicker-popup" v-show="displayMouthView">
-        <div class="datepicker-inner"> 
-            <div class="datepicker-body"> 
-                <div class="datepicker-ctrl"> 
-                    <i class="month-btn datepicker-preBtn" v-on="click:preNextYearClick(0)">&lt;</i> 
-                    <i class="month-btn datepicker-nextBtn" v-on="click:preNextYearClick(1)">&gt;</i> 
+        <div class="datepicker-inner">
+            <div class="datepicker-body">
+                <div class="datepicker-ctrl">
+                    <span class="month-btn datepicker-preBtn" v-on="click:preNextYearClick(0)">&lt;</span>
+                    <span class="month-btn datepicker-nextBtn" v-on="click:preNextYearClick(1)">&gt;</span>
                     <p v-on="click:switchDecadeView">
                     {{stringifyYearHeader(currDate)}}
                     </p>
-                </div> 
-                <div class="datepicker-mouthRange"> 
-                    <span v-repeat="m:mouthNames" 
+                </div>
+                <div class="datepicker-mouthRange">
+                    <span v-repeat="m:mouthNames"
                     v-class="datepicker-dateRange-item-active:
-                    (this.mouthNames[this.parse(this.value).getMonth()]  === m) && 
+                    (this.mouthNames[this.parse(this.value).getMonth()]  === m) &&
                     this.currDate.getFullYear() === this.parse(this.value).getFullYear()"
                     v-on="click:mouthSelect($index)">
                       {{m.substr(0,3)}}
-                    </span> 
-                </div> 
-            </div> 
-        </div> 
+                    </span>
+                </div>
+            </div>
+        </div>
       </div>
       <div class="datepicker-popup" v-show="displayYearView">
-        <div class="datepicker-inner"> 
-            <div class="datepicker-body"> 
-                <div class="datepicker-ctrl"> 
-                    <i class="month-btn datepicker-preBtn" v-on="click:preNextDecadeClick(0)">&lt;</i> 
-                    <i class="month-btn datepicker-nextBtn" v-on="click:preNextDecadeClick(1)">&gt;</i> 
+        <div class="datepicker-inner">
+            <div class="datepicker-body">
+                <div class="datepicker-ctrl">
+                    <span class="month-btn datepicker-preBtn" v-on="click:preNextDecadeClick(0)">&lt;</span>
+                    <span class="month-btn datepicker-nextBtn" v-on="click:preNextDecadeClick(1)">&gt;</span>
                     <p>
                     {{stringifyDecadeHeader(currDate)}}
                     </p>
-                </div> 
+                </div>
                 <div class="datepicker-mouthRange decadeRange">
-                    <span v-repeat="decade:decadeRange" 
+                    <span v-repeat="decade:decadeRange"
                     v-class="datepicker-dateRange-item-active:
-                    this.parse(this.value).getFullYear() === decade.text" 
+                    this.parse(this.value).getFullYear() === decade.text"
                     v-on="click:yearSelect(this,$event)">
                       {{decade.text}}
-                    </span> 
-                </div> 
-            </div> 
-        </div> 
+                    </span>
+                </div>
+            </div>
+        </div>
       </div>
 </div>
 </template>
@@ -74,10 +75,21 @@ import EventListener from './utils/EventListener.js'
   export default {
     props: {
       value: {
+        type: String,
         twoWay: true
       },
       format: {
-        default: 'MM/dd/yyyy'
+        default: 'MMMM/dd/yyyy'
+      },
+      disabledDaysOfWeek: {
+        type: Array,
+        default() {
+          return []
+        }
+      },
+      width: {
+        type: String,
+        default: '200px'
       }
     },
     data() {
@@ -157,7 +169,7 @@ import EventListener from './utils/EventListener.js'
         },
         daySelect(date, el) {
           if (el.$el.classList[0] === 'datepicker-item-disable') {
-            return
+            return false
           } else {
             this.currDate = date
             this.value = this.stringify(this.currDate)
@@ -190,27 +202,32 @@ import EventListener from './utils/EventListener.js'
         stringifyDecadeHeader(date) {
           const yearStr = date.getFullYear().toString()
           const firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0
-          const lastYearOfDecade = parseInt(firstYearOfDecade) + 10
+          const lastYearOfDecade = parseInt(firstYearOfDecade, 10) + 10
           return firstYearOfDecade + '-' + lastYearOfDecade
         },
         stringifyDayHeader(date) {
           return this.mouthNames[date.getMonth()] + ' ' + date.getFullYear()
         },
+        parseMouth(date) {
+          return this.mouthNames[date.getMonth()]
+        },
         stringifyYearHeader(date) {
           return date.getFullYear()
         },
-        stringify(date, format) {
-          format = format || this.format
+        stringify(date, format = this.format) {
           const year = date.getFullYear()
           const month = date.getMonth() + 1
           const day = date.getDate()
+          const mouthName = this.parseMouth(date)
 
           return format
             .replace(/yyyy/g, year)
+            .replace(/MMMM/g, mouthName)
+            .replace(/MMM/g, mouthName.substring(0, 3))
             .replace(/MM/g, ('0' + month).slice(-2))
             .replace(/dd/g, ('0' + day).slice(-2))
             .replace(/yy/g, year)
-            .replace(/M/g, month)
+            .replace(/M(?!a)/g, month)
             .replace(/d/g, day)
         },
         parse(str) {
@@ -219,7 +236,6 @@ import EventListener from './utils/EventListener.js'
         },
         getDayCount(year, month) {
           const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
 
           if (month === 1) {
               if ( (year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0) ) {
@@ -245,15 +261,10 @@ import EventListener from './utils/EventListener.js'
                 text: firstYearOfDecade + i
               })
             }
-            this.decadeRange.forEach( (ary, index) => {
-              if (ary.text === this.parse(this.value).getFullYear()) {
-                this.decadeRange[index].sclass = 'fuck'
-              }
-            })
 
             const currMonthFirstDay = new Date(time.year, time.month, 1)
             let firstDayWeek = currMonthFirstDay.getDay() + 1
-            if (firstDayWeek == 0) {
+            if (firstDayWeek === 0) {
                 firstDayWeek = 7
             }
             const dayCount = this.getDayCount(time.year, time.month)
@@ -274,14 +285,15 @@ import EventListener from './utils/EventListener.js'
                 const date = new Date(time.year, time.month, i)
                 const week = date.getDay()
                 let sclass = ''
-                // if (week == 6 || week == 0){
-                //     sclass = 'datepicker-item-disable'
-                // }
-                if (i == time.day) {
+                this.disabledDaysOfWeek.forEach((el)=> {
+                  if (week === parseInt(el, 10)) sclass = 'datepicker-item-disable'
+                })
+
+                if (i === time.day) {
                   if (this.value) {
                     const valueDate = this.parse(this.value)
                     if (valueDate) {
-                      if (valueDate.getFullYear() == time.year && valueDate.getMonth() == time.month) {
+                      if (valueDate.getFullYear() === time.year && valueDate.getMonth() === time.month) {
                         sclass = 'datepicker-dateRange-item-active'
                       }
                     }
@@ -309,9 +321,10 @@ import EventListener from './utils/EventListener.js'
         }
     },
     ready() {
-      this.currDate = this.parse(this.value) || this.stringify(this.currDate)
+      this.$dispatch('child-created', this)
+      this.currDate = this.parse(this.value) || this.parse(new Date())
       this._closeEvent = EventListener.listen(window, 'click', (e)=> {
-        if (!this.$el.contains(e.target)) this.close
+        if (!this.$el.contains(e.target)) this.close()
       })
     },
     beforeDestroy() {
@@ -325,9 +338,7 @@ import EventListener from './utils/EventListener.js'
     position: relative;
     display: inline-block;
 }
-.datepicker-input{
-    width: 186px;
-}
+
 .datepicker-popup{
     position: absolute;
     border: 1px solid #ccc;
@@ -345,7 +356,7 @@ import EventListener from './utils/EventListener.js'
     padding: 10px 10px;
 }
 .datepicker-ctrl p,
-.datepicker-ctrl i,
+.datepicker-ctrl span,
 .datepicker-body span{
     display: inline-block;
     width: 28px;
@@ -356,7 +367,7 @@ import EventListener from './utils/EventListener.js'
 .datepicker-ctrl p {
     width: 65%;
 }
-.datepicker-ctrl i {
+.datepicker-ctrl span {
   position: absolute;
 }
 .datepicker-body span {
@@ -382,12 +393,12 @@ import EventListener from './utils/EventListener.js'
 .datepicker-dateRange-item-active {
     background: rgb(50, 118, 177)!important;
     color: white!important;
-} 
+}
 .datepicker-mouthRange {
   margin-top: 10px
 }
 .datepicker-mouthRange span,
-.datepicker-ctrl i,
+.datepicker-ctrl span,
 .datepicker-ctrl p,
 .datepicker-dateRange span {
   cursor: pointer;

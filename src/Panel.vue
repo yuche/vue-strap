@@ -32,13 +32,7 @@
     methods: {
       toggleIsOpen() {
         this.isOpen = !this.isOpen
-        const oneAtATime = this.$parent.$data.oneAtATime
-
-        this.$parent.$children.forEach( BrotherComponent => {
-          if (BrotherComponent !== this && oneAtATime) {
-            BrotherComponent.$data.isOpen = false
-          }
-        })
+        this.$dispatch('isOpenEvent', this)
       }
     }
   }

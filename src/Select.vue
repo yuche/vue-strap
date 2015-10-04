@@ -20,10 +20,8 @@
   export default {
     props: {
       value: {
-        type: Array,
-        default() {
-          return []
-        }
+        twoWay: true,
+        type: Array
       },
       placeholder: {
         type: String,
@@ -78,7 +76,7 @@
   background: #f5f5f5;
   border: 1px solid #e3e3e3;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-   pointer-events: none; 
+   pointer-events: none;
   opacity: .9;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

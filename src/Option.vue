@@ -1,6 +1,6 @@
 <template>
-  <li>
-    <a v-on='mousedown:handleClick' style="position:relative">
+  <li style="position:relative">
+    <a v-on='mousedown:handleClick' style="cursor:pointer">
       <content></content>
       <content select="span.text">
         {{value}}

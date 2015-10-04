@@ -11,6 +11,17 @@
         type: Boolean,
         default: false
       }
+    },
+    created() {
+      this.$on('isOpenEvent', (child)=> {
+        if (this.oneAtATime) {
+          this.$children.forEach((item) => {
+            if (child !== item ) {
+              item.isOpen = false
+            }
+          })
+        }
+      })
     }
   }
 
