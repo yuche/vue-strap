@@ -1,5 +1,6 @@
 var vue = require('vue-loader')
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+var path = require('path')
 
 module.exports = {
   entry: './docs/index.js',
@@ -8,6 +9,7 @@ module.exports = {
     filename: 'build-docs.js'
   },
   resolve: {
+    root: path.resolve('./'),
     extensions: ['', '.js', '.vue']
   },
   plugins: [

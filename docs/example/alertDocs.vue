@@ -166,7 +166,7 @@
 </template>
 
 <script>
-  import alert from '../../src/Alert.vue'
+  import alert from 'src/Alert.vue'
   export default {
     data() {
       return {

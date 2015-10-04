@@ -2,7 +2,7 @@ import './assets/style.css'
 import 'prismjs'
 import './js/showLanguage'
 
-import affix from '../src/Affix.vue'
+import affix from 'src/Affix.vue'
 import container from './example/container.vue'
 import headerDocs from './example/headerDocs.vue'
 import alertDocs from './example/alertDocs.vue'
@@ -13,10 +13,12 @@ import carouselDocs from './example/carouselDocs.vue'
 import buttonsDocs  from './example/buttonsDocs.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
 import dropdownDocs from './example/dropdownDocs.vue'
+import modalDocs from './example/modalDocs.vue'
 
 new Vue({
   el: '#wrapper',
   components: {
+    container,
     affix,
     alertDocs,
     headerDocs,
@@ -27,7 +29,7 @@ new Vue({
     buttonsDocs,
     datepickerDocs,
     dropdownDocs,
-    container,
+    modalDocs,
     list: {
       inherit: true,
       template: `<li v-repeat="anchor"><a href="#{{$value.toLowerCase()}}">{{$value}}</a></li>`

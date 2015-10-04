@@ -98,7 +98,7 @@ v-on="click:showLeft = true">Show Aside on left</button>
 </template>
 
 <script>
-  import sidebar from '../../src/Aside.vue'
+  import sidebar from 'src/Aside.vue'
   export default {
     components: {
       sidebar

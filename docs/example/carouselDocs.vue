@@ -80,8 +80,8 @@
 </template>
 
 <script>
-  import carousel from '../../src/Carousel.vue'
-  import slider from '../../src/Slider.vue'
+  import carousel from 'src/Carousel.vue'
+  import slider from 'src/Slider.vue'
   export default {
     components: {
       carousel,

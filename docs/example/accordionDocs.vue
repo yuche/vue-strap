@@ -108,8 +108,8 @@
 </template>
 
 <script>
-import accordion from '../../src/Accordion.vue'
-import panel from '../../src/Panel.vue'
+import accordion from 'src/Accordion.vue'
+import panel from 'src/Panel.vue'
   export default {
     data() {
       return {
