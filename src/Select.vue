@@ -21,7 +21,10 @@
     props: {
       value: {
         twoWay: true,
-        type: Array
+        type: Array,
+        default() {
+          return []
+        }
       },
       placeholder: {
         type: String,
@@ -78,8 +81,5 @@
   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
    pointer-events: none;
   opacity: .9;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 </style>
