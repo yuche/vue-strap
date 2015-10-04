@@ -14,6 +14,7 @@ import buttonsDocs  from './example/buttonsDocs.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
 import dropdownDocs from './example/dropdownDocs.vue'
 import modalDocs from './example/modalDocs.vue'
+import popoverDocs from './example/popoverDocs.vue'
 
 new Vue({
   el: '#wrapper',
@@ -30,6 +31,7 @@ new Vue({
     datepickerDocs,
     dropdownDocs,
     modalDocs,
+    popoverDocs,
     list: {
       inherit: true,
       template: `<li v-repeat="anchor"><a href="#{{$value.toLowerCase()}}">{{$value}}</a></li>`
