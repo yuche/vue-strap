@@ -16,7 +16,7 @@
         </ul>
       </dropdown>
       <dropdown>
-        <button type="button" class="btn btn-primary" data-toggle="dropdown">
+        <button type="button" class="btn btn-success" data-toggle="dropdown">
           Action <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
@@ -28,7 +28,7 @@
         </ul>
       </dropdown>
       <dropdown>
-        <button type="button" class="btn btn-success" data-toggle="dropdown">
+        <button type="button" class="btn btn-primary" data-toggle="dropdown">
           Action <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">

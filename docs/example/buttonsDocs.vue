@@ -51,7 +51,7 @@ Radio value: {{radioValue}}
   <radio value="middle" checked>Middle</radio>
   <radio value="right">Right</radio>
 </radio-group>
-    </script></code></pre>
+</script></code></pre>
 
     <h2>Group options</h2>
     <table class="table table-bordered">

@@ -31,9 +31,11 @@ import EventListener from './utils/EventListener.js'
   export default {
     props: {
       title: {
+        type: String,
         default: ''
       },
       footer: {
+        type: Boolean,
         default: true
       },
       show: {
