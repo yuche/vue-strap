@@ -12,6 +12,7 @@ import asideDocs from './example/asideDocs.vue'
 import carouselDocs from './example/carouselDocs.vue'
 import buttonsDocs  from './example/buttonsDocs.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
+import dropdownDocs from './example/dropdownDocs.vue'
 
 new Vue({
   el: '#wrapper',
@@ -25,6 +26,7 @@ new Vue({
     carouselDocs,
     buttonsDocs,
     datepickerDocs,
+    dropdownDocs,
     container,
     list: {
       inherit: true,

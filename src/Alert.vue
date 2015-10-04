@@ -73,10 +73,12 @@
   margin: 0 auto;
   left: 0;
   right: 0;
+  z-index: 2;
 }
 .alert.top-right {
   position: fixed;
   top: 30px;
   right: 50px;
+  z-index: 2;
 }
 </style>

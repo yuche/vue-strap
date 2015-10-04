@@ -1,20 +1,29 @@
 <template>
-    <content select=".dropdown-toggle"></content>
+  <div class="btn-group">
+    <content select="[data-toggle='dropdown']" ></content>
     <content select="ul.dropdown-menu"></content>
+  </div>
 </template>
 <script>
-  import Utils from './utils.js'
+  import EventListener from './utils/EventListener'
   export default {
     methods: {
       toggleDropdown(e) {
         e.preventDefault()
-        e.target.parentNode.classList.toggle('open')
+        this.$el.classList.toggle('open')
       }
     },
     ready() {
-      const toggleTarget = this.$el.querySelector('.dropdown-toggle')
-      this.$el.querySelector('.dropdown-toggle').addEventListener('click', this.toggleDropdown)
-      Utils.detectClickOutside(toggleTarget, () => toggleTarget.parentNode.classList.remove('open'))
+      const el = this.$el
+      const toggle = el.querySelector('[data-toggle="dropdown"]')
+      toggle.style.borderRadius = '4px'
+      toggle.addEventListener('click', this.toggleDropdown)
+      this._closeEvent = EventListener.listen(window, 'click', (e)=> {
+        if (!el.contains(e.target)) el.classList.remove('open')
+      })
+    },
+    beforeDestroy() {
+      if (this._closeEvent) this._closeEvent.remove()
     }
   }
 </script>

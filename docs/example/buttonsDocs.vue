@@ -47,7 +47,7 @@ Radio value: {{radioValue}}
 </radio-group>
 
 <radio-group value="{{@radioValue}}" type="success">
-  <radio value="left" checked>Left</radio>
+  <radio value="left">Left</radio>
   <radio value="middle" checked>Middle</radio>
   <radio value="right">Right</radio>
 </radio-group>

@@ -37,6 +37,7 @@
         type="success"
         width="400px"
         placement="top-right"
+        dismissable
       >
         <span class="icon-ok-circled alert-icon-float-left"></span>
         <strong>Well Done!</strong>
