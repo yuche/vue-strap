@@ -24,7 +24,17 @@
 <script>
 import PopoverMixin from './popoverMixins.js'
   export default {
-    mixins: [PopoverMixin]
+    mixins: [PopoverMixin],
+    props: {
+      trigger: {
+        type: String,
+        default: 'hover'
+      },
+      effect: {
+        type: String,
+        default: 'scale'
+      }
+    }
   }
 </script>
 

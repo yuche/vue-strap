@@ -17,6 +17,8 @@ import modalDocs from './example/modalDocs.vue'
 import popoverDocs from './example/popoverDocs.vue'
 import progressbarDocs from './example/progressbar-docs.vue'
 import selectDocs from './example/selectDocs.vue'
+import tabsDocs from './example/tabsDocs.vue'
+import tooltipDocs from './example/tooltipDocs.vue'
 
 new Vue({
   el: '#wrapper',
@@ -36,6 +38,8 @@ new Vue({
     popoverDocs,
     progressbarDocs,
     selectDocs,
+    tabsDocs,
+    tooltipDocs,
     list: {
       inherit: true,
       template: `<li v-repeat="anchor"><a href="#{{$value.toLowerCase()}}">{{$value}}</a></li>`
@@ -62,7 +66,7 @@ new Vue({
       })
     }
 
-    window.onscroll = ()=> {
+    function scrollSpy() {
       const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop
 
       for (i in sections) {
@@ -73,6 +77,10 @@ new Vue({
           navbar.querySelector('a[href*=' + i + ']').parentNode.className = 'active'
         }
       }
+    }
+
+    window.onscroll = ()=> {
+      scrollSpy()
     }
   }
 })
