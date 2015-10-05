@@ -28,19 +28,19 @@
         <button type="button" class="btn btn-default" v-on="click:dynamicClick">Randomize</button>
       </h4>
       <div class="progress">
-        <progressbar now="{{dynamicData[0] * 2}}" label type="info"></progressbar>
+        <progressbar now="{{dynamicData[0] * 2}}" type="info"></progressbar>
       </div>
       <div class="progress">
-        <progressbar now="{{dynamicData[1] * 2}}" label type="warning"></progressbar>
+        <progressbar now="{{dynamicData[1] * 2}}" type="warning"></progressbar>
       </div>
       <div class="progress">
-        <progressbar now="{{dynamicData[2] * 2}}" label type="danger"></progressbar>
+        <progressbar now="{{dynamicData[2] * 2}}" type="danger"></progressbar>
       </div>
       <div class="progress">
-        <progressbar now="{{dynamicData[3] * 2}}" label type="success" striped></progressbar>
+        <progressbar now="{{dynamicData[3] * 2}}" type="success" striped></progressbar>
       </div>
       <div class="progress">
-        <progressbar now="{{dynamicData[4] * 2}}" label type="success" striped animated></progressbar>
+        <progressbar now="{{dynamicData[4] * 2}}" type="success" striped animated></progressbar>
       </div>
 
       <hr>

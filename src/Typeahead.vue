@@ -1,5 +1,5 @@
 <template>
-<div style="position: relative" 
+<div style="position: relative"
   v-class="open:showDropdown"
   >
   <input type="text" class="form-control"
@@ -45,7 +45,7 @@ const typeahead = {
         type: Number,
         default: 8
       },
-      src: {
+      async: {
         type: String
       },
       template: {
@@ -98,8 +98,8 @@ const typeahead = {
           this.items = this.primitiveData
           this.showDropdown = this.items.length ? true : false
         }
-        if (this.src) {
-          callAjax(this.src + this.query, (data)=> {
+        if (this.async) {
+          callAjax(this.async + this.query, (data)=> {
             this.items = data[this.key].slice(0, this.limit)
             this.showDropdown = this.items.length ? true : false
           })

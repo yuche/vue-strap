@@ -19,6 +19,7 @@ import progressbarDocs from './example/progressbar-docs.vue'
 import selectDocs from './example/selectDocs.vue'
 import tabsDocs from './example/tabsDocs.vue'
 import tooltipDocs from './example/tooltipDocs.vue'
+import typeaheadDocs from './example/typeaheadDocs.vue'
 
 new Vue({
   el: '#wrapper',
@@ -40,6 +41,7 @@ new Vue({
     selectDocs,
     tabsDocs,
     tooltipDocs,
+    typeaheadDocs,
     list: {
       inherit: true,
       template: `<li v-repeat="anchor"><a href="#{{$value.toLowerCase()}}">{{$value}}</a></li>`
