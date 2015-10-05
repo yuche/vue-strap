@@ -68,7 +68,7 @@ Radio value: {{radioValue}}
           <td>value</td>
           <td>Checkbox Group: <code>Array</code>, Raido Group: <code>String</code></td>
           <td></td>
-          <td>the value of checkbox group</td>
+          <td></td>
         </tr>
         <tr>
           <td>type</td>
@@ -79,7 +79,7 @@ Radio value: {{radioValue}}
           <code>warning</code>
           <code>success</code></td>
           <td><code>default</code></td>
-          <td>style of the checkbox button</td>
+          <td></td>
         </tr>
       </tbody>
     </table>

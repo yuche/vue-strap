@@ -79,7 +79,7 @@
 </template>
 
 <script>
-  import tooltip from 'src/tooltip'
+  import tooltip from 'src/Tooltip'
   export default {
     data() {
       return {
