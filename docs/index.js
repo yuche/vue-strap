@@ -3,6 +3,7 @@ import './assets/style.css'
 import 'prismjs'
 import './js/showLanguage'
 
+import gettingStarted from './example/gettingStarted.vue'
 import affix from 'src/Affix.vue'
 import container from './example/container.vue'
 import headerDocs from './example/headerDocs.vue'
@@ -25,6 +26,7 @@ import typeaheadDocs from './example/typeaheadDocs.vue'
 new Vue({
   el: '#wrapper',
   components: {
+    gettingStarted,
     container,
     affix,
     alertDocs,
@@ -45,7 +47,7 @@ new Vue({
     typeaheadDocs,
     list: {
       inherit: true,
-      template: `<li v-repeat="anchor"><a href="#{{$value.toLowerCase()}}">{{$value}}</a></li>`
+      template: `<li v-repeat="anchor"><a href="#{{$value.toLowerCase()}}">{{$value | space}}</a></li>`
     }
   },
   data() {
@@ -53,10 +55,15 @@ new Vue({
       anchor: []
     }
   },
+  filters: {
+    space(val) {
+      return val.replace('-', ' ')
+    }
+  },
   ready() {
     // add h1.anchor.innerHTML to sidebar list
     const anchor = document.querySelectorAll('.anchor')
-    this.anchor = [...anchor].map(el=> el.innerHTML)
+    this.anchor = [...anchor].map(el=> el.innerHTML.replace(' ', '-'))
     // Scrollspy
     const section = document.querySelectorAll('.bs-docs-section')
     const sections = {}

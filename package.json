@@ -2,15 +2,31 @@
   "name": "vue-strap",
   "version": "0.1.0",
   "description": "Bootstrap components built with Vue.js ",
-  "main": "index.js",
+  "main": "src/main.js",
+  "directories": {
+    "src": "src/"
+  },
   "dependencies": {
-    "extract-text-webpack-plugin": "^0.8.2",
     "vue": "^0.12.10"
   },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "lib",
+    "dist"
+  ],
+  "keywords": [
+    "vue",
+    "vue-bootstrap",
+    "vue-component",
+    "bootstrap"
+  ],
   "devDependencies": {
     "babel-core": "^5.5.8",
     "babel-eslint": "^4.1.3",
     "babel-loader": "^5.1.4",
+    "bootstrap": "^3.3.5",
     "babel-runtime": "^5.8.20",
     "browser-sync": "^2.9.1",
     "browser-sync-webpack-plugin": "^1.0.0",

@@ -13,11 +13,11 @@
       <nav id="bs-navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li>
-            <a href="../getting-started/">Components</a>
+            <a href="#accordion" style="color:#19986B">Components</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://themes.getbootstrap.com">
+          <li><a href="https://github.com/yuche/vue-strap">
             <span class="icon-github-circled"></span>
             GitHub
           </a></li>
