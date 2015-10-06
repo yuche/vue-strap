@@ -3,7 +3,9 @@ var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 var path = require('path')
 
 module.exports = {
-  entry: './docs/index.js',
+  entry: {
+    entry: './docs/index.js',
+  },
   output: {
     path: './build',
     filename: 'build-docs.js'
@@ -34,8 +36,9 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel'
       },
-      { test: /\.css/,
-        loader: 'style-loader!css-loader' },
+      { test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      }
     ]
   },
   devtool: 'source-map'

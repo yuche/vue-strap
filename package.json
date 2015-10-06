@@ -4,6 +4,7 @@
   "description": "Bootstrap components built with Vue.js ",
   "main": "index.js",
   "dependencies": {
+    "extract-text-webpack-plugin": "^0.8.2",
     "vue": "^0.12.10"
   },
   "devDependencies": {
@@ -24,7 +25,8 @@
     "webpack": "^1.9.11"
   },
   "scripts": {
-    "dev": "webpack --watch"
+    "dev": "webpack --watch",
+    "build": "webpack --config webpack.build.js && webpack --config webpack.build.min.js"
   },
   "author": "yuche",
   "license": "MIT"

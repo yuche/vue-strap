@@ -1,3 +1,4 @@
+import './assets/docs.css'
 import './assets/style.css'
 import 'prismjs'
 import './js/showLanguage'

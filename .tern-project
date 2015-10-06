@@ -4,9 +4,9 @@
     "browser"
   ],
   "loadEagerly": [
-    "/Users/yuche/GitHub/vue-strap/src/"
+    "./src/"
   ],
   "dontLoad": [
-    "/Users/yuche/GitHub/vue-strap/node-modules"
+    "./node-modules"
   ]
 }

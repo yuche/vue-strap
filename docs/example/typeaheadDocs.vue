@@ -9,6 +9,9 @@
       <hr>
       <h4>
       Asynchronous results
+      <tooltip trigger="click" content="The suggestions via a Google Map API, are you behind a FireWall?" placement="top">
+        <small style="cursor:pointer">(not working?)</small>
+      </tooltip>
       </h4>
       <typeahead placeholder="Address, async via maps.googleapis.com"
       key="results" async="https://maps.googleapis.com/maps/api/geocode/json?address=" template="{{asynchronous}}"
@@ -22,54 +25,54 @@
       on-hit="{{githubCallback}}"></typeahead>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
-  <h4>Static arrays</h4>
+<h4>Static arrays</h4>
+<typeahead
+  data="{{USstate}}"
+  placeholder="USA states">
+</typeahead>
+
+<h4>Asynchronous results</h4>
   <typeahead
-    data="{{USstate}}"
-    placeholder="USA states">
-  </typeahead>
+    placeholder="Address, async via maps.googleapis.com"
+    key="results"
+    src="https://maps.googleapis.com/maps/api/geocode/json?address="
+    template="{{asynchronous}}"
+    on-hit="{{googleCallback}}">
+</typeahead>
 
-  <h4>Asynchronous results</h4>
-    <typeahead
-      placeholder="Address, async via maps.googleapis.com"
-      key="results"
-      src="https://maps.googleapis.com/maps/api/geocode/json?address="
-      template="{{asynchronous}}"
-      on-hit="{{googleCallback}}">
-  </typeahead>
-
-  <h4>Custom templates for results</h4>
-    <typeahead
-      placeholder="Github users, async via api.github.com"
-      key="items"
-      src="https://api.github.com/search/users?q="
-      template="{{customTemplate}}"
-      on-hit="{{githubCallback}}">
-  </typeahead>
-    </script></code></pre>
+<h4>Custom templates for results</h4>
+  <typeahead
+    placeholder="Github users, async via api.github.com"
+    key="items"
+    src="https://api.github.com/search/users?q="
+    template="{{customTemplate}}"
+    on-hit="{{githubCallback}}">
+</typeahead>
+  </script></code></pre>
     <pre><code class="language-javascript"><script type="language-javascript">
-  new Vue {
-    components: {
-      typeahead
+new Vue {
+  components: {
+    typeahead
+  },
+  data() {
+    return {
+      USstate: ['Alabama', 'Alaska', 'Arizona',...],
+      asynchronous: '{{formatted_address}}',
+      customTemplate: '<img width="18px" height="18px" v-attr="src:avatar_url"/>' +
+      '<span>{{login}}</span>'
+    }
+  },
+  methods: {
+    googleCallback(items, targetVM) {
+      const that = targetVM.$parent
+      that.reset()
+      that.query = items.formatted_address
     },
-    data() {
-      return {
-        USstate: ['Alabama', 'Alaska', 'Arizona',...],
-        asynchronous: '{{formatted_address}}',
-        customTemplate: '<img width="18px" height="18px" v-attr="src:avatar_url"/>' +
-        '<span>{{login}}</span>'
-      }
-    },
-    methods: {
-      googleCallback(items, targetVM) {
-        const that = targetVM.$parent
-        that.reset()
-        that.query = items.formatted_address
-      },
-      githubCallback(items) {
-        window.open(items.html_url, '_blank')
-      }
+    githubCallback(items) {
+      window.open(items.html_url, '_blank')
     }
   }
+}
     </script></code></pre>
 
     <h2>Options</h2>
@@ -91,7 +94,7 @@
         </tr>
         <tr>
           <td>async</td>
-          <td><code>Array</code></td>
+          <td><code>String</code></td>
           <td></td>
           <td>A HTTP URL for asynchronous suggestions. Expected return a JSON object.</td>
         </tr>
@@ -132,9 +135,11 @@
 
 <script>
   import typeahead from 'src/Typeahead'
+  import tooltip from 'src/Tooltip'
   export default {
     components: {
-      typeahead
+      typeahead,
+      tooltip
     },
     data() {
       return {

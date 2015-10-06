@@ -66,13 +66,13 @@ Radio value: {{radioValue}}
       <tbody>
         <tr>
           <td>value</td>
-          <td>Checkbox Group: <code>Array</code>, Raido Group: <code>String</code></td>
+          <td>Array</td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>type</td>
-          <td><code>default</code>, one of <code>default</code>
+          <td><code>String</code>, one of <code>default</code>
           <code>primary</code>
           <code>danger</code>
           <code>info</code>
