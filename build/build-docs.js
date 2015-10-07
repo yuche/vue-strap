@@ -171,12 +171,6 @@
 	    var _this = this;
 	
 	    // add h1.anchor.innerHTML to sidebar list
-	    document.addEventListener('DOMContentLoaded', function () {
-	      var anchor = document.querySelectorAll('.anchor');
-	      _this.anchor = [].concat(_toConsumableArray(anchor)).map(function (el) {
-	        return el.innerHTML.replace(' ', '-');
-	      });
-	    });
 	
 	    // Scrollspy
 	    var section = document.querySelectorAll('.bs-docs-section');
@@ -185,6 +179,10 @@
 	    var i = 0;
 	
 	    window.onload = function () {
+	      var anchor = document.querySelectorAll('.anchor');
+	      _this.anchor = [].concat(_toConsumableArray(anchor)).map(function (el) {
+	        return el.innerHTML.replace(' ', '-');
+	      });
 	      Array.prototype.forEach.call(section, function (e) {
 	        sections[e.id] = e.offsetTop;
 	      });
