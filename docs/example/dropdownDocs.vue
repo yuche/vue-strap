@@ -71,7 +71,7 @@
   </ul>
 </dropdown>
 </script></code></pre>
-    <h2>Usege</h2>
+    <h2>Usage</h2>
     <p>
       Just use as <a target="_blank" href="http://getbootstrap.com/javascript/#dropdowns">original Bootstrap way</a>.
       Working on progress, considered refactoring with directive. Currently the other components(Select, etc..) not depend on this component.
