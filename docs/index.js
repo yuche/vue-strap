@@ -60,8 +60,11 @@ new Vue({
   },
   ready() {
     // add h1.anchor.innerHTML to sidebar list
-    const anchor = document.querySelectorAll('.anchor')
-    this.anchor = [...anchor].map(el=> el.innerHTML.replace(' ', '-'))
+    document.addEventListener('DOMContentLoaded', () => {
+      const anchor = document.querySelectorAll('.anchor')
+      this.anchor = [...anchor].map(el=> el.innerHTML.replace(' ', '-'))
+    })
+
     // Scrollspy
     const section = document.querySelectorAll('.bs-docs-section')
     const sections = {}
