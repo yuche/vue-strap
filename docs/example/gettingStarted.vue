@@ -56,6 +56,6 @@ new Vue({
 &lt;script&gt;
   var alert = VueStrap.alert
 &lt;/script&gt;
-    </code></pre>
+</code></pre>
   </div>
 </template>
