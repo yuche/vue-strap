@@ -19,17 +19,17 @@
     </div>
     <h2>CommonJS</h2>
     <pre><code class="language-javascript">
-$ npm install vue-strap
+      $ npm install vue-strap
 
-var alert = require('vue-strap/lib/alert');
-// or
-var alert = require('vue-strap').alert;
+      var alert = require('vue-strap/src/alert');
+      // or
+      var alert = require('vue-strap').alert;
 
-new Vue({
-  components: {
-    'alert': alert
-  }
-})
+      new Vue({
+        components: {
+          'alert': alert
+        }
+      })
 </code></pre>
     <h2>ES6</h2>
     <pre><code class="language-javascript">
@@ -42,12 +42,12 @@ import { alert } from 'vue-strap'
 new Vue({
   components: {
     alert
-  }
+  }``
 })
 </code></pre>
     <h2>Browser globals</h2>
     <p>
-      The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.js</code> with
+      The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.min.js</code> with
       all components exported in the <code>window.VueStrap</code> object.
     </p>
     <pre><code class="language-markup">
