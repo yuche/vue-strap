@@ -7,6 +7,7 @@
     "src": "src/"
   },
   "dependencies": {
+    "babel": "^5.8.23",
     "vue": "^0.12.10"
   },
   "files": [

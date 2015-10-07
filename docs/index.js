@@ -1,3 +1,4 @@
+import 'babel/polyfill'
 import 'prismjs'
 import './js/showLanguage'
 
@@ -60,7 +61,8 @@ new Vue({
   },
   ready() {
     // add h1.anchor.innerHTML to sidebar list
-
+    const anchor = document.querySelectorAll('.anchor')
+    this.anchor = [...anchor].map(el=> el.innerHTML.replace(' ', '-'))
 
     // Scrollspy
     const section = document.querySelectorAll('.bs-docs-section')
@@ -69,8 +71,6 @@ new Vue({
     let i = 0
 
     window.onload = ()=> {
-      const anchor = document.querySelectorAll('.anchor')
-      this.anchor = [...anchor].map(el=> el.innerHTML.replace(' ', '-'))
       Array.prototype.forEach.call(section, (e)=> {
         sections[e.id] = e.offsetTop
       })
