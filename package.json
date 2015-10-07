@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "description": "Bootstrap components built with Vue.js ",
   "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "yuche/vue-strap"
+  },
+  "homepage": "http://yuche.github.io/vue-strap/",
   "directories": {
     "src": "src/"
   },
@@ -13,7 +18,7 @@
     "LICENSE",
     "README.md",
     "CHANGELOG.md",
-    "lib",
+    "src",
     "dist"
   ],
   "keywords": [
