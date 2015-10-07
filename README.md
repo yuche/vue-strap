@@ -2,7 +2,7 @@
 Bootstrap components built with Vue.js
 
 ## Docs
-See the (documentation)[http://yuche.github.io/vue-strap/] with live editable examples.
+See the [documentation](http://yuche.github.io/vue-strap/) with live editable examples.
 
 ## Local Setup
 * Install with `npm install`
