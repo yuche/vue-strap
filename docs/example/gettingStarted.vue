@@ -30,7 +30,7 @@ new Vue({
     'alert': alert
   }
 })
-    </code></pre>
+</code></pre>
     <h2>ES6</h2>
     <pre><code class="language-javascript">
 $ npm install vue-strap
@@ -44,7 +44,7 @@ new Vue({
     alert
   }
 })
-    </code></pre>
+</code></pre>
     <h2>Browser globals</h2>
     <p>
       The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.js</code> with
