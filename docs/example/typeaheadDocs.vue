@@ -96,7 +96,7 @@ new Vue {
           <td>async</td>
           <td><code>String</code></td>
           <td></td>
-          <td>A HTTP URL for asynchronous suggestions. Expected return a JSON object.</td>
+          <td>An HTTP URL for asynchronous suggestions. Expected to return a JSON object.</td>
         </tr>
         <tr>
           <td>limit</td>
@@ -114,7 +114,7 @@ new Vue {
           <td>match-case</td>
           <td><code>Boolean</code></td>
           <td><code>false</code></td>
-          <td>Case sensitive for suggestions</td>
+          <td>Case sensitive for suggestions.</td>
         </tr>
         <tr>
           <td>on-hit</td>

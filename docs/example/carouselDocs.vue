@@ -58,13 +58,13 @@
         <td>indicators</td>
         <td><code>Boolean</code></td>
         <td><code>true</code></td>
-        <td>Whether show the indicators.</td>
+        <td>Whether to show the indicators.</td>
       </tr>
       <tr>
         <td>controls</td>
         <td><code>Boolean</code></td>
         <td><code>true</code></td>
-        <td>Whether show the direction controls.</td>
+        <td>Whether to show the direction controls.</td>
       </tr>
       <tr>
         <td>interval</td>
