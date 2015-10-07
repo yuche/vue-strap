@@ -61,8 +61,8 @@ See the [documentation](http://yuche.github.io/vue-strap/) with live editable ex
 - [ ] Bootstrap 4 suport. (When Bootstrap 4.0 final release.)
 - [ ] Tests and travis-CI.
 - [ ] Refatoring Datepicker.
-- [ ] So much things....
+- [ ] So many things....
 
 ## License
-MIT.
+[MIT]().
 
