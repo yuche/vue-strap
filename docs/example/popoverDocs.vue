@@ -66,7 +66,7 @@
         <code>focus</code>
         <code>hover</code></td>
         <td><code>click</code></td>
-        <td>how popover is triggered.</td>
+        <td>How the popover is triggered.</td>
       </tr>
       <tr>
         <td>effect</td>
@@ -90,7 +90,7 @@
         <td>header</td>
         <td><code>Boolean</code></td>
         <td><code>true</code></td>
-        <td>Whether show the header</td>
+        <td>Whether to show the header.</td>
       </tr>
       <tr>
         <td>placement</td>
