@@ -7,10 +7,15 @@ This repository contains a set of native Vue.js components based on Bootstrap's 
 * [Bootstrap CSS](http://getbootstrap.com/) (required 3.x.x, test with 3.3.5). VueStrap doesn't depend on a very precise version of Bootstrap.
 
 ## Installation
-### CommonJS
-```
-$ npm install vue-strap
 
+### NPM
+
+```bash
+$ npm install vue-strap
+```
+
+### CommonJS
+```js
 var alert = require('vue-strap/src/alert');
 // or
 var alert = require('vue-strap').alert;
@@ -23,9 +28,7 @@ new Vue({
 ```
 
 ### ES6
-```
-$ npm install vue-strap
-
+```js
 import alert from 'vue-strap/src/alert'
 // or
 import { alert } from 'vue-strap'
@@ -40,7 +43,7 @@ new Vue({
 ### Browser globals
 The `dist` folder contains `vue-strap.js` and `vue-strap.min.js` with all components exported in the <code>window.VueStrap</code> object.
 
-```
+```html
 <script src="path/to/vue.js"></script>
 <script src="path/to/vue-strap.js"></script>
 <script>
