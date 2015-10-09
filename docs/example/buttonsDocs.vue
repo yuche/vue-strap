@@ -4,9 +4,9 @@
     <div class="bs-example">
       <h4>Checkbox</h4>
       <checkbox-group value="{{checkboxValue}}">
-        <chekcbox value="left">Left</chekcbox>
-        <chekcbox value="middle" checked>Middle</chekcbox>
-        <chekcbox value="right">Right</chekcbox>
+        <checkbox value="left">Left</checkbox>
+        <checkbox value="middle" checked>Middle</checkbox>
+        <checkbox value="right">Right</checkbox>
       </checkbox-group>
       <p>
         <pre>
@@ -35,9 +35,9 @@ Radio value: {{radioValue}}
 
     <pre><code class="language-markup"><script type="language-mark-up">
 <checkbox-group value="{{checkboxValue}}">
-  <chekcbox value="left">Left</chekcbox>
-  <chekcbox value="middle" checked>Middle</chekcbox>
-  <chekcbox value="right">Right</chekcbox>
+  <checkbox value="left">Left</checkbox>
+  <checkbox value="middle" checked>Middle</checkbox>
+  <checkbox value="right">Right</checkbox>
 </checkbox-group>
 
 <radio-group value="{{@radioValue}}" type="primary">
@@ -90,14 +90,14 @@ Radio value: {{radioValue}}
   import radioGroup from 'src/radioGroup.vue'
   import radio from 'src/radioBtn.vue'
   import checkboxGroup from 'src/checkboxGroup.vue'
-  import chekcbox from 'src/chekboxBtn.vue'
+  import checkbox from 'src/checkboxBtn.vue'
 
   export default {
     components: {
       radio,
       radioGroup,
       checkboxGroup,
-      chekcbox
+      checkbox
     },
     data() {
       return {
