@@ -47,7 +47,7 @@ define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
 ```
 
 ### Browser globals
-The `dist` folder contains `vue-strap.js` and `vue-strap.min.js` with all components exported in the <code>window.VueStrap</code> object.
+The `dist` folder contains `vue-strap.js` and `vue-strap.min.js` with all components exported in the <code>window.VueStrap</code> object. These bundles are also available on both the Bower and NPM packages.
 
 ```html
 <script src="path/to/vue.js"></script>
