@@ -45,6 +45,13 @@
     "vue-loader": "^3.0.3",
     "webpack": "^1.9.11"
   },
+  "browserify": {
+    "transform": [
+      [
+        "vueify"
+      ]
+    ]
+  },
   "scripts": {
     "dev": "webpack --watch",
     "build": "webpack --config webpack.build.js && webpack --config webpack.build.min.js"
