@@ -45,10 +45,18 @@ new Vue({
   }``
 })
 </code></pre>
+
+    <h2>AMD</h2>
+    <pre><code class="language-markup"><script type="language-mark-up">
+$ bower install vue-strap
+
+define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
+</script></code></pre>
     <h2>Browser globals</h2>
     <p>
       The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.min.js</code> with
-      all components exported in the <code>window.VueStrap</code> object.
+      all components exported in the <code>window.VueStrap</code> object. These bundles are also available on both the
+      Bower and NPM packages.
     </p>
     <pre><code class="language-markup">
 &lt;script src=&quot;path/to/vue.js&quot;&gt;&lt;/script&gt;
