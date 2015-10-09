@@ -40,6 +40,12 @@ new Vue({
 })
 ```
 
+### AMD
+```js
+$ bower install vue-strap
+define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
+```
+
 ### Browser globals
 The `dist` folder contains `vue-strap.js` and `vue-strap.min.js` with all components exported in the <code>window.VueStrap</code> object.
 
