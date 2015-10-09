@@ -52,7 +52,7 @@
         <code>focus</code>
         <code>hover</code></td>
         <td><code>click</code></td>
-        <td>how tooltip is triggered.</td>
+        <td>How the tooltip is triggered.</td>
       </tr>
       <tr>
         <td>effect</td>

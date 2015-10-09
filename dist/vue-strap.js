@@ -2557,7 +2557,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".accordion-toggle {\n  cursor: pointer;\n}\n.collapse-transition {\ntransition: max-height .5s ease;\nmax-height: 150px;\noverflow: hidden;\n}\n.collapse-enter, .collapse-leave {\n  max-height: 0;\n}", ""]);
+	exports.push([module.id, ".accordion-toggle {\n  cursor: pointer;\n}\n\n.collapse-transition {\ntransition: max-height .5s ease;\noverflow: hidden;\n}\n\n.collapse-enter, .collapse-leave {\n  max-height: 0!important;\n}", ""]);
 	
 	// exports
 
@@ -2581,11 +2581,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	      type: String
 	    }
 	  },
+	  data: function data() {
+	    return {
+	      height: 0
+	    };
+	  },
 	  methods: {
 	    toggleIsOpen: function toggleIsOpen() {
 	      this.isOpen = !this.isOpen;
 	      this.$dispatch('isOpenEvent', this);
 	    }
+	  },
+	  ready: function ready() {
+	    var panel = this.$$.panel;
+	    panel.style.display = 'block';
+	    this.height = panel.offsetHeight;
+	    panel.style.maxHeight = this.height + 'px';
+	    if (!this.isOpen) panel.style.display = 'none';
 	  }
 	};
 	module.exports = exports['default'];
@@ -2594,7 +2606,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 120 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n      <h4 class=\"panel-title\">\n        <a class=\"accordion-toggle\"\n          v-on=\"click:toggleIsOpen(this)\">\n           {{ header }}\n        </a>\n      </h4>\n    </div>\n    <div class=\"panel-collapse\"\n      v-show=\"isOpen\"\n      v-transition=\"collapse\">\n      <div class=\"panel-body\">\n        <content></content>\n      </div>\n    </div>\n  </div>";
+	module.exports = "<div class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n      <h4 class=\"panel-title\">\n        <a class=\"accordion-toggle\"\n          v-on=\"click:toggleIsOpen(this)\">\n           {{ header }}\n        </a>\n      </h4>\n    </div>\n    <div class=\"panel-collapse\"\n      v-el=\"panel\"\n      v-show=\"isOpen\"\n      v-transition=\"collapse\"\n    >\n      <div class=\"panel-body\">\n        <content></content>\n      </div>\n    </div>\n  </div>";
 
 /***/ },
 /* 121 */

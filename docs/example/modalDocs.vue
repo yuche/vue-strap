@@ -76,7 +76,7 @@
         <td>footer</td>
         <td><code>Boolean</code></td>
         <td><code>true</code></td>
-        <td>Whether show footer of the modal.</td>
+        <td>Whether to show the footer of the modal.</td>
       </tr>
       <tr>
         <td>width</td>

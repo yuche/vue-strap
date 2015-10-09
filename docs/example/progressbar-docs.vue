@@ -105,7 +105,7 @@
           <td>label</td>
           <td><code>Boolean</code></td>
           <td>false</td>
-          <td>Whether show the label.</td>
+          <td>Whether to show the label.</td>
         </tr>
         <tr>
           <td>striped</td>

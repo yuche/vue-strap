@@ -60,7 +60,7 @@
   </panel>
 </accordion>
 </script></code></pre>
-    <h2>Accordion Opotions</h2>
+    <h2>Accordion Options</h2>
     <table class="table table-bordered">
       <thead>
         <tr>
