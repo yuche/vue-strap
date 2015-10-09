@@ -47,11 +47,11 @@ new Vue({
 </code></pre>
 
     <h2>AMD</h2>
-    <pre><code class="language-markup"><script type="language-mark-up">
+    <pre><code class="language-javascript">
 $ bower install vue-strap
 
 define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
-</script></code></pre>
+</code></pre>
     <h2>Browser globals</h2>
     <p>
       The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.min.js</code> with
