@@ -43,6 +43,7 @@ new Vue({
 ### AMD
 ```js
 $ bower install vue-strap
+
 define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
 ```
 
