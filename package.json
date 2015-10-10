@@ -53,7 +53,7 @@
     ]
   },
   "scripts": {
-    "dev": "webpack --watch",
+    "docs": "webpack --watch",
     "build": "webpack --config webpack.build.js && webpack --config webpack.build.min.js"
   },
   "author": "yuche",
