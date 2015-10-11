@@ -78,7 +78,7 @@ See the [documentation](http://yuche.github.io/vue-strap/) with live editable ex
 vue-strap is licensed under [The MIT License](LICENSE).
 
 ## 我现在没有工作了
-(Don't bother if you can't read this, it's irrelevant to this repository.)
+(Don't bother if you can't read this, it's irrelevant to the project.)
 
 如果你觉得我还行，你们又缺前端或者有朋友缺前端的话，
 不妨和我[联系一下](mailto:i@yuche.me)。
