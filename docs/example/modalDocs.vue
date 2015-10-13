@@ -3,31 +3,58 @@
     <h1 class="page-header"><a href="#modal" class="anchor">Modal</a></h1>
     <div class="bs-example">
       <button class="btn btn-default btn-lg" v-on="click:showModal = true">Show modal</button>
-      <modal title="Modal" show="{{@showModal}}" effect="fade" width="400">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <modal title="Modal title" show="{{@showModal}}" effect="fade" width="400">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal <b>Title</b></h4>
+        </div>
+        <div class="modal-body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
       </modal>
       <button class="btn btn-success btn-lg" v-on="click:bigModal = true">Big modal</button>
       <modal title="Big Modal" show="{{@bigModal}}" effect="fade" width="800">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <div class="modal-body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
       </modal>
       <button class="btn btn-primary btn-lg" v-on="click:zoomModal = true">Zoom modal</button>
       <modal title="Zoom Modal" show="{{@zoomModal}}" effect="zoom" width="400">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <div class="modal-body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </modal>
+      <button class="btn btn-default btn-lg" v-on="click:showCustomModal = true">Show custom modal</button>
+      <modal show="{{@showCustomModal}}" effect="fade" width="400">
+        <div class="modal-header">
+          <h4 class="modal-title"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>
+        </div>
+        <div class="modal-body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" v-on='click:showCustomModal = false'>Exit</button>
+          <button type="button" class="btn btn-success" v-on='click:showCustomModal = false'>Custom Save</button>
+        </div>
       </modal>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
@@ -35,8 +62,11 @@
   v-on="click:showModal = true"
   >Show modal
 </button>
-<modal title="Modal" show="{{@showModal}}" effect="fade" width="400">
-  ...
+<modal show="{{@showModal}}" effect="fade" width="400">
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+  </div>
+  <div class="modal-body">...</div>
 </modal>
 
 <button class="btn btn-primary btn-lg"
@@ -44,7 +74,7 @@
   Big modal
 </button>
 <modal title="Big Modal" show="{{@bigModal}}" effect="fade" width="800">
-  ...
+  <div class="modal-body">...</div>
 </modal>
 
 <button class="btn btn-success btn-lg"
@@ -52,7 +82,24 @@
   Zoom modal
 </button>
 <modal title="Zoom Modal" show="{{@zoomModal}}" effect="zoom" width="400">
-  ...
+  <div class="modal-body">...</div>
+</modal>
+
+<button class="btn btn-default btn-lg"
+  v-on="click:showCustomModal = true">
+  Show custom modal
+</button>
+<modal show="{{@showCustomModal}}" effect="fade" width="400">
+  <div class="modal-header">
+    <h4 class="modal-title">
+      <i>Custom</i> <code>Modal</code> <b>Title</b>
+    </h4>
+  </div>
+  <div class="modal-body">...</div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" v-on='click:showCustomModal = false'>Exit</button>
+    <button type="button" class="btn btn-success" v-on='click:showCustomModal = false'>Custom Save</button>
+  </div>
 </modal>
   </script></code></pre>
   <h2>Options</h2>
@@ -67,16 +114,10 @@
     </thead>
     <tbody>
       <tr>
-        <td>Title</td>
+        <td>title</td>
         <td><code>String</code></td>
         <td></td>
         <td>Title of the modal component.</td>
-      </tr>
-      <tr>
-        <td>footer</td>
-        <td><code>Boolean</code></td>
-        <td><code>true</code></td>
-        <td>Whether to show the footer of the modal.</td>
       </tr>
       <tr>
         <td>width</td>
@@ -92,6 +133,13 @@
       </tr>
     </tbody>
   </table>
+  <h2>Usage</h2>
+  <p>
+    If you just need a simple modal, you can use the <code>title</code> prop and the default footer. However, if you
+    need to put custom HTML or a custom footer, you can override the header or footer block by using
+    <code>&lt;div class="modal-title"&gt;...&lt;/div&gt;</code> and
+    <code>&lt;div class="modal-footer"&gt;...&lt;/div&gt;</code>.
+  </p>
   </div>
 </template>
 
@@ -102,7 +150,8 @@
       return {
         showModal: false,
         bigModal: false,
-        zoomModal: false
+        zoomModal: false,
+        showCustomModal: false
       }
     },
     components: {
