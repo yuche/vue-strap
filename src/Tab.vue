@@ -45,7 +45,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .tab-content > .tab-pane {
     display: block;
   }
