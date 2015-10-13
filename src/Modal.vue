@@ -8,17 +8,21 @@
       v-style="width: width + 'px'
       ">
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" v-on='click:close'><span>&times;</span></button>
-          <h4 class="modal-title" >{{title}}</h4>
-        </div>
-        <div class="modal-body">
-          <content></content>
-        </div>
-        <div class="modal-footer" v-show="footer">
-          <button type="button" class="btn btn-default" v-on='click:close'>Close</button>
-          <button type="button" class="btn btn-primary" v-on='click:callback'>Save changes</button>
-        </div>
+        <content select=".modal-header">
+          <div class="modal-header">
+            <button type="button" class="close" v-on='click:close'><span>&times;</span></button>
+            <h4 class="modal-title" >{{title}}</h4>
+          </div>
+        </content>
+        <content select=".modal-body">
+          <div class="modal-body"></div>
+        </content>
+        <content select=".modal-footer">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" v-on='click:close'>Close</button>
+            <button type="button" class="btn btn-primary" v-on='click:callback'>Save changes</button>
+          </div>
+        </content>
       </div>
     </div>
   </div>
@@ -33,10 +37,6 @@ import EventListener from './utils/EventListener.js'
       title: {
         type: String,
         default: ''
-      },
-      footer: {
-        type: Boolean,
-        default: true
       },
       show: {
         require: true,
