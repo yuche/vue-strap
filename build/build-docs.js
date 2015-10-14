@@ -4151,7 +4151,8 @@
 	    return {
 	      showModal: false,
 	      bigModal: false,
-	      zoomModal: false
+	      zoomModal: false,
+	      showCustomModal: false
 	    };
 	  },
 	  components: {
@@ -4235,10 +4236,6 @@
 	      type: String,
 	      'default': ''
 	    },
-	    footer: {
-	      type: Boolean,
-	      'default': true
-	    },
 	    show: {
 	      require: true,
 	      type: Boolean,
@@ -4300,13 +4297,13 @@
 /* 197 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"modal fade\" role=\"dialog\"\n    v-class=\"\n    fade:effect === 'fade',\n    zoom:effect === 'zoom'\"\n    >\n    <div class=\"modal-dialog\" role=\"document\"\n      v-style=\"width: width + 'px'\n      \">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" v-on='click:close'><span>&times;</span></button>\n          <h4 class=\"modal-title\" >{{title}}</h4>\n        </div>\n        <div class=\"modal-body\">\n          <content></content>\n        </div>\n        <div class=\"modal-footer\" v-show=\"footer\">\n          <button type=\"button\" class=\"btn btn-default\" v-on='click:close'>Close</button>\n          <button type=\"button\" class=\"btn btn-primary\" v-on='click:callback'>Save changes</button>\n        </div>\n      </div>\n    </div>\n  </div>";
+	module.exports = "<div class=\"modal fade\" role=\"dialog\"\n    v-class=\"\n    fade:effect === 'fade',\n    zoom:effect === 'zoom'\"\n    >\n    <div class=\"modal-dialog\" role=\"document\"\n      v-style=\"width: width + 'px'\n      \">\n      <div class=\"modal-content\">\n        <content select=\".modal-header\">\n          <div class=\"modal-header\">\n            <button type=\"button\" class=\"close\" v-on='click:close'><span>&times;</span></button>\n            <h4 class=\"modal-title\" >{{title}}</h4>\n          </div>\n        </content>\n        <content select=\".modal-body\">\n          <div class=\"modal-body\"></div>\n        </content>\n        <content select=\".modal-footer\">\n          <div class=\"modal-footer\">\n            <button type=\"button\" class=\"btn btn-default\" v-on='click:close'>Close</button>\n            <button type=\"button\" class=\"btn btn-primary\" v-on='click:callback'>Save changes</button>\n          </div>\n        </content>\n      </div>\n    </div>\n  </div>";
 
 /***/ },
 /* 198 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"bs-docs-section\" id=\"modal\">\n    <h1 class=\"page-header\"><a href=\"#modal\" class=\"anchor\">Modal</a></h1>\n    <div class=\"bs-example\">\n      <button class=\"btn btn-default btn-lg\" v-on=\"click:showModal = true\">Show modal</button>\n      <modal title=\"Modal\" show=\"{{@showModal}}\" effect=\"fade\" width=\"400\">\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n      </modal>\n      <button class=\"btn btn-success btn-lg\" v-on=\"click:bigModal = true\">Big modal</button>\n      <modal title=\"Big Modal\" show=\"{{@bigModal}}\" effect=\"fade\" width=\"800\">\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n      </modal>\n      <button class=\"btn btn-primary btn-lg\" v-on=\"click:zoomModal = true\">Zoom modal</button>\n      <modal title=\"Zoom Modal\" show=\"{{@zoomModal}}\" effect=\"zoom\" width=\"400\">\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n      </modal>\n    </div>\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\n<button class=\"btn btn-default btn-lg\"\n  v-on=\"click:showModal = true\"\n  >Show modal\n</button>\n<modal title=\"Modal\" show=\"{{@showModal}}\" effect=\"fade\" width=\"400\">\n  ...\n</modal>\n\n<button class=\"btn btn-primary btn-lg\"\n  v-on=\"click:bigModal = true\">\n  Big modal\n</button>\n<modal title=\"Big Modal\" show=\"{{@bigModal}}\" effect=\"fade\" width=\"800\">\n  ...\n</modal>\n\n<button class=\"btn btn-success btn-lg\"\n  v-on=\"click:zoomModal = true\">\n  Zoom modal\n</button>\n<modal title=\"Zoom Modal\" show=\"{{@zoomModal}}\" effect=\"zoom\" width=\"400\">\n  ...\n</modal>\n  </script></code></pre>\n  <h2>Options</h2>\n  <table class=\"table table-bordered\">\n    <thead>\n      <tr>\n        <th>Name</th>\n        <th>Type</th>\n        <th>Default</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td>Title</td>\n        <td><code>String</code></td>\n        <td></td>\n        <td>Title of the modal component.</td>\n      </tr>\n      <tr>\n        <td>footer</td>\n        <td><code>Boolean</code></td>\n        <td><code>true</code></td>\n        <td>Whether to show the footer of the modal.</td>\n      </tr>\n      <tr>\n        <td>width</td>\n        <td><code>Number</code></td>\n        <td><code>600</code></td>\n        <td></td>\n      </tr>\n      <tr>\n        <td>callback</td>\n        <td><code>Function</code></td>\n        <td></td>\n        <td>A callback Function when you click the modal primary button.</td>\n      </tr>\n    </tbody>\n  </table>\n  </div>";
+	module.exports = "<div class=\"bs-docs-section\" id=\"modal\">\n    <h1 class=\"page-header\"><a href=\"#modal\" class=\"anchor\">Modal</a></h1>\n    <div class=\"bs-example\">\n      <button class=\"btn btn-default btn-lg\" v-on=\"click:showModal = true\">Show modal</button>\n      <modal title=\"Modal title\" show=\"{{@showModal}}\" effect=\"fade\" width=\"400\">\n        <div class=\"modal-header\">\n          <h4 class=\"modal-title\">Modal <b>Title</b></h4>\n        </div>\n        <div class=\"modal-body\">\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        </div>\n      </modal>\n      <button class=\"btn btn-success btn-lg\" v-on=\"click:bigModal = true\">Big modal</button>\n      <modal title=\"Big Modal\" show=\"{{@bigModal}}\" effect=\"fade\" width=\"800\">\n        <div class=\"modal-body\">\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        </div>\n      </modal>\n      <button class=\"btn btn-primary btn-lg\" v-on=\"click:zoomModal = true\">Zoom modal</button>\n      <modal title=\"Zoom Modal\" show=\"{{@zoomModal}}\" effect=\"zoom\" width=\"400\">\n        <div class=\"modal-body\">\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        </div>\n      </modal>\n      <button class=\"btn btn-default btn-lg\" v-on=\"click:showCustomModal = true\">Show custom modal</button>\n      <modal show=\"{{@showCustomModal}}\" effect=\"fade\" width=\"400\">\n        <div class=\"modal-header\">\n          <h4 class=\"modal-title\"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>\n        </div>\n        <div class=\"modal-body\">\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-default\" v-on='click:showCustomModal = false'>Exit</button>\n          <button type=\"button\" class=\"btn btn-success\" v-on='click:showCustomModal = false'>Custom Save</button>\n        </div>\n      </modal>\n    </div>\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\n<button class=\"btn btn-default btn-lg\"\n  v-on=\"click:showModal = true\"\n  >Show modal\n</button>\n<modal show=\"{{@showModal}}\" effect=\"fade\" width=\"400\">\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title\">Modal title</h4>\n  </div>\n  <div class=\"modal-body\">...</div>\n</modal>\n\n<button class=\"btn btn-primary btn-lg\"\n  v-on=\"click:bigModal = true\">\n  Big modal\n</button>\n<modal title=\"Big Modal\" show=\"{{@bigModal}}\" effect=\"fade\" width=\"800\">\n  <div class=\"modal-body\">...</div>\n</modal>\n\n<button class=\"btn btn-success btn-lg\"\n  v-on=\"click:zoomModal = true\">\n  Zoom modal\n</button>\n<modal title=\"Zoom Modal\" show=\"{{@zoomModal}}\" effect=\"zoom\" width=\"400\">\n  <div class=\"modal-body\">...</div>\n</modal>\n\n<button class=\"btn btn-default btn-lg\"\n  v-on=\"click:showCustomModal = true\">\n  Show custom modal\n</button>\n<modal show=\"{{@showCustomModal}}\" effect=\"fade\" width=\"400\">\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title\">\n      <i>Custom</i> <code>Modal</code> <b>Title</b>\n    </h4>\n  </div>\n  <div class=\"modal-body\">...</div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-default\" v-on='click:showCustomModal = false'>Exit</button>\n    <button type=\"button\" class=\"btn btn-success\" v-on='click:showCustomModal = false'>Custom Save</button>\n  </div>\n</modal>\n  </script></code></pre>\n  <h2>Options</h2>\n  <table class=\"table table-bordered\">\n    <thead>\n      <tr>\n        <th>Name</th>\n        <th>Type</th>\n        <th>Default</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td>title</td>\n        <td><code>String</code></td>\n        <td></td>\n        <td>Title of the modal component.</td>\n      </tr>\n      <tr>\n        <td>width</td>\n        <td><code>Number</code></td>\n        <td><code>600</code></td>\n        <td></td>\n      </tr>\n      <tr>\n        <td>callback</td>\n        <td><code>Function</code></td>\n        <td></td>\n        <td>A callback Function when you click the modal primary button.</td>\n      </tr>\n    </tbody>\n  </table>\n  <h2>Usage</h2>\n  <p>\n    If you just need a simple modal, you can use the <code>title</code> prop and the default footer. However, if you\n    need to put custom HTML or a custom footer, you can override the header or footer block by using\n    <code>&lt;div class=\"modal-title\"&gt;...&lt;/div&gt;</code> and\n    <code>&lt;div class=\"modal-footer\"&gt;...&lt;/div&gt;</code>.\n  </p>\n  </div>";
 
 /***/ },
 /* 199 */
@@ -4715,14 +4712,52 @@
 /* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(430)
+	__webpack_require__(224)
 	module.exports = __webpack_require__(226)
-	module.exports.template = __webpack_require__(432)
+	module.exports.template = __webpack_require__(227)
 
 
 /***/ },
-/* 224 */,
-/* 225 */,
+/* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(225);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(44)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(43)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".v-903c5e2a .tab-content > .tab-pane {\n    display: block;\n}\n.v-903c5e2a .tab-content > .tab-pane.hide {\n    position: absolute;\n}", ""]);
+	
+	// exports
+
+
+/***/ },
 /* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -4770,7 +4805,12 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 227 */,
+/* 227 */
+/***/ function(module, exports) {
+
+	module.exports = "<div role=\"tabpanel\" class=\"tab-pane v-903c5e2a\" v-class=\"hide:!show\" v-show=\"show\" v-transition=\"{{transition}}\">\n    <content></content>\n  </div>";
+
+/***/ },
 /* 228 */
 /***/ function(module, exports) {
 
@@ -10199,52 +10239,6 @@
 	};
 	process.umask = function() { return 0; };
 
-
-/***/ },
-/* 430 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(431);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(44)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 431 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(43)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, ".tab-content > .tab-pane {\n    display: block;\n  }\n  .tab-content > .tab-pane.hide {\n    position: absolute;\n  }", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 432 */
-/***/ function(module, exports) {
-
-	module.exports = "<div role=\"tabpanel\" class=\"tab-pane\"\n  v-class=\"hide:!show\"\n  v-show=\"show\"\n  v-transition=\"{{transition}}\"\n  >\n    <content></content>\n  </div>";
 
 /***/ }
 /******/ ]);

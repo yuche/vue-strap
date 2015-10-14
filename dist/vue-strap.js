@@ -90,9 +90,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _checkboxGroupVue2 = _interopRequireDefault(_checkboxGroupVue);
 	
-	var _chekboxBtnVue = __webpack_require__(95);
+	var _checkboxBtnVue = __webpack_require__(95);
 	
-	var _chekboxBtnVue2 = _interopRequireDefault(_chekboxBtnVue);
+	var _checkboxBtnVue2 = _interopRequireDefault(_checkboxBtnVue);
 	
 	var _DatepickerVue = __webpack_require__(98);
 	
@@ -157,7 +157,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  accordion: _AccordionVue2['default'],
 	  affix: _AffixVue2['default'],
 	  aside: _AsideVue2['default'],
-	  checkboxBtn: _chekboxBtnVue2['default'],
+	  checkboxBtn: _checkboxBtnVue2['default'],
 	  checkboxGroup: _checkboxGroupVue2['default'],
 	  datepicker: _DatepickerVue2['default'],
 	  dropdown: _DropdownVue2['default'],
@@ -2349,10 +2349,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      type: String,
 	      'default': ''
 	    },
-	    footer: {
-	      type: Boolean,
-	      'default': true
-	    },
 	    show: {
 	      require: true,
 	      type: Boolean,
@@ -2414,7 +2410,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 110 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"modal fade\" role=\"dialog\"\n    v-class=\"\n    fade:effect === 'fade',\n    zoom:effect === 'zoom'\"\n    >\n    <div class=\"modal-dialog\" role=\"document\"\n      v-style=\"width: width + 'px'\n      \">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" v-on='click:close'><span>&times;</span></button>\n          <h4 class=\"modal-title\" >{{title}}</h4>\n        </div>\n        <div class=\"modal-body\">\n          <content></content>\n        </div>\n        <div class=\"modal-footer\" v-show=\"footer\">\n          <button type=\"button\" class=\"btn btn-default\" v-on='click:close'>Close</button>\n          <button type=\"button\" class=\"btn btn-primary\" v-on='click:callback'>Save changes</button>\n        </div>\n      </div>\n    </div>\n  </div>";
+	module.exports = "<div class=\"modal fade\" role=\"dialog\"\n    v-class=\"\n    fade:effect === 'fade',\n    zoom:effect === 'zoom'\"\n    >\n    <div class=\"modal-dialog\" role=\"document\"\n      v-style=\"width: width + 'px'\n      \">\n      <div class=\"modal-content\">\n        <content select=\".modal-header\">\n          <div class=\"modal-header\">\n            <button type=\"button\" class=\"close\" v-on='click:close'><span>&times;</span></button>\n            <h4 class=\"modal-title\" >{{title}}</h4>\n          </div>\n        </content>\n        <content select=\".modal-body\">\n          <div class=\"modal-body\"></div>\n        </content>\n        <content select=\".modal-footer\">\n          <div class=\"modal-footer\">\n            <button type=\"button\" class=\"btn btn-default\" v-on='click:close'>Close</button>\n            <button type=\"button\" class=\"btn btn-primary\" v-on='click:callback'>Save changes</button>\n          </div>\n        </content>\n      </div>\n    </div>\n  </div>";
 
 /***/ },
 /* 111 */
@@ -3084,8 +3080,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3103,7 +3099,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".tab-content > .tab-pane {\n    display: block;\n  }\n  .tab-content > .tab-pane.hide {\n    position: absolute;\n  }", ""]);
+	exports.push([module.id, ".v-903c5e2a .tab-content > .tab-pane {\n    display: block;\n}\n.v-903c5e2a .tab-content > .tab-pane.hide {\n    position: absolute;\n}", ""]);
 	
 	// exports
 
@@ -3159,7 +3155,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 145 */
 /***/ function(module, exports) {
 
-	module.exports = "<div role=\"tabpanel\" class=\"tab-pane\"\n  v-class=\"hide:!show\"\n  v-show=\"show\"\n  v-transition=\"{{transition}}\"\n  >\n    <content></content>\n  </div>";
+	module.exports = "<div role=\"tabpanel\" class=\"tab-pane v-903c5e2a\" v-class=\"hide:!show\" v-show=\"show\" v-transition=\"{{transition}}\">\n    <content></content>\n  </div>";
 
 /***/ },
 /* 146 */
