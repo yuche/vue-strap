@@ -54,7 +54,7 @@
   },
   "scripts": {
     "docs": "webpack --watch",
-    "build": "webpack --config webpack.build.js && webpack --config webpack.build.min.js"
+    "build": "webpack --config webpack.build.min.js"
   },
   "author": "yuche",
   "license": "MIT"
