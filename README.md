@@ -1,3 +1,55 @@
+# vue-strap FORK amanpatel
+
+This is a form of the excelent vue-strap library from yuche. I've updated the
+following components to work with VueJS 1.0.0 as a dependency without causing
+any warnings or errors to show up. You don't have to use the migration build
+of Vue if you are using the following componetns in this fork
+
+- Aside
+- Datepicker
+
+I'm hoping this work will be integrated in the vue-strap official library
+soon. Perhaps after all other components are updated as well.
+
+
+# INSTALL/USAGE
+
+Install using: 
+
+```bash
+npm install "amanpatel/vue-strap"
+```
+
+Since only a few components are available, you probably should be using
+webpack or include only those. Here's an example of how I'm using the
+Datepicker component in one of my .vue files:
+
+```js
+<template>
+     <date-picker :value.sync="value" format="MM/dd/yyyy"></date-picker>
+</template>
+
+<script>
+import {datepicker as DatePicker} from 'vue-strap/src';
+export default {
+    props: {
+        value: { },
+    },
+    components: {
+        DatePicker
+    }
+}
+</script>
+```
+
+
+Notice the "import" line, which tells the webpack compiler to look for and
+include the datepicker component (and only that one) from the vue-strap/src/
+folder in your node_modules folder.
+
+
+---
+
 # vue-strap
 Bootstrap components built with Vue.js.
 
