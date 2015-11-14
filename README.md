@@ -68,11 +68,7 @@ See the [documentation](http://yuche.github.io/vue-strap/) with live editable ex
 * Build with `npm run build`.
 
 ## TODO
-- [ ] Vue.js 1.0 support. (When Vue.js 1.0 stable is released.)
-- [ ] Bootstrap 4 support. (When Bootstrap 4.0 final is released.)
-- [ ] Tests and Travis-CI.
-- [ ] Refactoring Datepicker.
-- [ ] So many things....
+See [Roadmap](https://github.com/yuche/vue-strap/issues/41)
 
 ## License
 vue-strap is licensed under [The MIT License](LICENSE).
