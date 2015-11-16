@@ -2,14 +2,20 @@
   <div>
     <!-- Nav tabs -->
      <ul class="nav nav-tabs" role="tablist">
-       <tablist v-repeat="renderData"></tablist>
+            <li 
+                v-for="r in renderData" 
+                v-bind:class="{ 'active': ($index === activeIndex) }"
+                @click.prevent="handleTabListClick($index, r)"
+                :disabled="disabled === true"
+            >
+                <a href="#">{{r.header}}</a>
+            </li>       
      </ul>
 
      <!-- Tab panes -->
      <div class="tab-content" v-el="tabContent">
-       <content></content>
+        <slot></slot>
      </div>
-
   </div>
 </template>
 
@@ -27,22 +33,10 @@
         activeIndex: 0
       }
     },
-    components: {
-      'tablist': {
-        inherit: true,
-        template: `<li v-on="click:handleTablistClick($event,$index,this)"
-        v-class="active:$index === activeIndex,
-        disabled:disabled === true">
-        <a href="#">
-        {{{header}}}
-        </a></li>`,
-        methods: {
-          handleTablistClick(e, index, el) {
-            e.preventDefault()
+    methods: {
+        handleTabListClick(index, el) {
             if (!el.disabled) this.activeIndex = index
-          }
-        },
-      }
+        }
     }
   }
 </script>
