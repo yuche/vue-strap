@@ -10,7 +10,7 @@
     <div class="aside-dialog">
       <div class="aside-content">
         <div class="aside-header">
-          <button type="button" class="close" v-on='click:close'><span>&times;</span></button>
+          <button type="button" class="close" @click='close'><span>&times;</span></button>
           <h4 class="aside-title">{{header}}</h4>
         </div>
         <div class="aside-body">
@@ -233,6 +233,4 @@ import getScrollBarWidth from './utils/getScrollBarWidth.js'
       opacity: .5;
       filter: alpha(opacity=50)
   }
-
-
 </style>
