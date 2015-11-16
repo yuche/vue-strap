@@ -61,7 +61,7 @@
                 	<template v-for="decade in decadeRange">
                 		<span v-bind:class="{'datepicker-dateRange-item-active':
 		                    this.parse(this.value).getFullYear() === decade.text}"
-	                    @click="yearSelect(this,$event)">
+	                    @click.stop="yearSelect(decade.text)">
 	                      {{decade.text}}
 	                    </span>
 					</template>
@@ -164,11 +164,10 @@ import EventListener from './utils/EventListener.js'
             this.currDate = new Date(year + 1, mouths, date)
           }
         },
-        yearSelect(el, e) {
-          e.stopPropagation()
+        yearSelect(year) {
           this.displayYearView = false
           this.displayMouthView = true
-          this.currDate = new Date(el.$el.innerHTML, this.currDate.getMonth(), this.currDate.getDate())
+          this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())
         },
         daySelect(date, el) {
           if (el.$el.classList[0] === 'datepicker-item-disable') {
