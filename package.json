@@ -12,7 +12,7 @@
     "src": "src/"
   },
   "dependencies": {
-    "vue": "^0.12.10"
+    "vue": "^1.0.0"
   },
   "files": [
     "LICENSE",

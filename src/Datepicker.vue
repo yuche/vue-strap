@@ -1,24 +1,24 @@
 <template>
   <div class="datepicker">
     <input class="form-control datepicker-input" type="text"
-    v-style="width:width"
-    v-on="click:inputClick"
+    v-bind:style="{width:width}"
+    @click="inputClick"
     v-model="value"/>
       <div class="datepicker-popup" v-show="displayDayView">
           <div class="datepicker-inner">
               <div class="datepicker-body">
                   <div class="datepicker-ctrl">
-                      <span class="month-btn datepicker-preBtn" v-on="click:preNextMonthClick(0)">&lt;</span>
-                      <span class="month-btn datepicker-nextBtn" v-on="click:preNextMonthClick(1)">&gt;</span>
-                      <p v-on="click:switchMouthView">
+                      <span class="month-btn datepicker-preBtn" @click="preNextMonthClick(0)">&lt;</span>
+                      <span class="month-btn datepicker-nextBtn" @click="preNextMonthClick(1)">&gt;</span>
+                      <p @click="switchMouthView">
                       {{stringifyDayHeader(currDate)}}
                       </p>
                   </div>
                   <div class="datepicker-weekRange">
-                      <span v-repeat="w:weekRange">{{w}}</span>
+                      <span v-for="w in weekRange">{{w}}</span>
                   </div>
                   <div class="datepicker-dateRange">
-                      <span v-repeat="d:dateRange" v-class="d.sclass" v-on="click:daySelect(d.date,this)">{{d.text}}</span>
+                      <span v-for="d in dateRange" v-bind:class="d.sclass" @click="daySelect(d.date,this)">{{d.text}}</span>
                   </div>
               </div>
           </div>
@@ -27,20 +27,22 @@
         <div class="datepicker-inner">
             <div class="datepicker-body">
                 <div class="datepicker-ctrl">
-                    <span class="month-btn datepicker-preBtn" v-on="click:preNextYearClick(0)">&lt;</span>
-                    <span class="month-btn datepicker-nextBtn" v-on="click:preNextYearClick(1)">&gt;</span>
-                    <p v-on="click:switchDecadeView">
+                    <span class="month-btn datepicker-preBtn" @click="preNextYearClick(0)">&lt;</span>
+                    <span class="month-btn datepicker-nextBtn" @click="preNextYearClick(1)">&gt;</span>
+                    <p @click="switchDecadeView">
                     {{stringifyYearHeader(currDate)}}
                     </p>
                 </div>
                 <div class="datepicker-mouthRange">
-                    <span v-repeat="m:mouthNames"
-                    v-class="datepicker-dateRange-item-active:
-                    (this.mouthNames[this.parse(this.value).getMonth()]  === m) &&
-                    this.currDate.getFullYear() === this.parse(this.value).getFullYear()"
-                    v-on="click:mouthSelect($index)">
-                      {{m.substr(0,3)}}
-                    </span>
+                	<template v-for="m in mouthNames">
+	                    <span   v-bind:class="{'datepicker-dateRange-item-active':
+			                    (this.mouthNames[this.parse(this.value).getMonth()]  === m) &&
+			                    this.currDate.getFullYear() === this.parse(this.value).getFullYear()}"
+			                    @click="mouthSelect($index)"
+	                    >
+	                      {{m.substr(0,3)}}
+	                    </span>
+                    </template>
                 </div>
             </div>
         </div>
@@ -49,19 +51,20 @@
         <div class="datepicker-inner">
             <div class="datepicker-body">
                 <div class="datepicker-ctrl">
-                    <span class="month-btn datepicker-preBtn" v-on="click:preNextDecadeClick(0)">&lt;</span>
-                    <span class="month-btn datepicker-nextBtn" v-on="click:preNextDecadeClick(1)">&gt;</span>
+                    <span class="month-btn datepicker-preBtn" @click="preNextDecadeClick(0)">&lt;</span>
+                    <span class="month-btn datepicker-nextBtn" @click="preNextDecadeClick(1)">&gt;</span>
                     <p>
                     {{stringifyDecadeHeader(currDate)}}
                     </p>
                 </div>
                 <div class="datepicker-mouthRange decadeRange">
-                    <span v-repeat="decade:decadeRange"
-                    v-class="datepicker-dateRange-item-active:
-                    this.parse(this.value).getFullYear() === decade.text"
-                    v-on="click:yearSelect(this,$event)">
-                      {{decade.text}}
-                    </span>
+                	<template v-for="decade in decadeRange">
+                		<span v-bind:class="{'datepicker-dateRange-item-active':
+		                    this.parse(this.value).getFullYear() === decade.text}"
+	                    @click.stop="yearSelect(decade.text)">
+	                      {{decade.text}}
+	                    </span>
+					</template>
                 </div>
             </div>
         </div>
@@ -161,11 +164,10 @@ import EventListener from './utils/EventListener.js'
             this.currDate = new Date(year + 1, mouths, date)
           }
         },
-        yearSelect(el, e) {
-          e.stopPropagation()
+        yearSelect(year) {
           this.displayYearView = false
           this.displayMouthView = true
-          this.currDate = new Date(el.$el.innerHTML, this.currDate.getMonth(), this.currDate.getDate())
+          this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())
         },
         daySelect(date, el) {
           if (el.$el.classList[0] === 'datepicker-item-disable') {
@@ -440,5 +442,4 @@ import EventListener from './utils/EventListener.js'
 .datepicker-nextBtn{
     right: 2px;
 }
-
 </style>
