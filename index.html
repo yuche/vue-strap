@@ -48,7 +48,7 @@
     <affix>
       <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm ">
         <ul class="nav bs-docs-sidenav" id="sidenav">
-          <list></list>
+          <li v-for="a in anchor"><a href="#{{ a.toLowerCase() }}">{{ a | space}}</a></li>
         </ul>
         <a href="#top" class="back-to-top">Back to top</a>
         <a href="https://github.com/yuche/vue-strap" class="back-to-top">GitHub</a>

@@ -10,7 +10,7 @@
 Select data : {{single}}
         </pre>
       </p>
-      <v-select value="{{@single}}">
+      <v-select :value.sync="single">
         <v-option value="Apple"></v-option>
         <v-option value="Banana"></v-option>
         <v-option value="Cherry"></v-option>
@@ -24,7 +24,7 @@ Select data : {{single}}
 Select data : {{multiple.join(', ')}}
         </pre>
       </p>
-      <v-select multiple value="{{@multiple}}">
+      <v-select multiple :value.sync="multiple">
         <v-option value="Apple"></v-option>
         <v-option value="Banana"></v-option>
         <v-option value="Cherry"></v-option>
@@ -38,7 +38,7 @@ Select data : {{multiple.join(', ')}}
 Select data : {{multipleLimit.join(', ')}}
         </pre>
       </p>
-      <v-select multiple limit="2" value="{{@multipleLimit}}">
+      <v-select multiple :limit="2" :value.sync="multipleLimit">
         <v-option value="Apple"></v-option>
         <v-option value="Banana"></v-option>
         <v-option value="Cherry"></v-option>
@@ -52,11 +52,11 @@ Select data : {{multipleLimit.join(', ')}}
 Select data : {{custom.join(', ')}}
         </pre>
       </p>
-      <v-select multiple value="{{@custom}}">
-        <v-option value="Star"><span class="glyphicon glyphicon-star"></span> Star</v-option>
-        <v-option value="Heart"><span class="glyphicon glyphicon-heart"></span> Heart</v-option>
-        <v-option value="Film"><span class="glyphicon glyphicon-film"></span> Film</v-option>
-        <v-option value="Inbox"><span class="glyphicon glyphicon-inbox"></span> Inbox</v-option>
+      <v-select multiple :value.sync="custom">
+        <v-option value="Star"><span slot="span" class="glyphicon glyphicon-star"></span> Star</v-option>
+        <v-option value="Heart"><span slot="span" class="glyphicon glyphicon-heart"></span> Heart</v-option>
+        <v-option value="Film"><span slot="span" class="glyphicon glyphicon-film"></span> Film</v-option>
+        <v-option value="Inbox"><span slot="span" class="glyphicon glyphicon-inbox"></span> Inbox</v-option>
       </v-select>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
@@ -76,7 +76,7 @@ Select data : {{custom.join(', ')}}
   <v-option value="Grape"></v-option>
 </v-select>
 <hr>
-<v-select multiple limit="2">
+<v-select multiple :limit="2">
   <v-option value="Apple"></v-option>
   <v-option value="Banana"></v-option>
   <v-option value="Cherry"></v-option>
@@ -85,10 +85,10 @@ Select data : {{custom.join(', ')}}
 </v-select>
 <hr>
 <v-select multiple>
-  <v-option value="Star"><span class="glyphicon glyphicon-star"></span> Star</v-option>
-  <v-option value="Heart"><span class="glyphicon glyphicon-heart"></span> Heart</v-option>
-  <v-option value="Film"><span class="glyphicon glyphicon-film"></span> Film</v-option>
-  <v-option value="Inbox"><span class="glyphicon glyphicon-inbox"></span> Inbox</v-option>
+  <v-option value="Star"><span slot="span" class="glyphicon glyphicon-star"></span> Star</v-option>
+  <v-option value="Heart"><span slot="span" class="glyphicon glyphicon-heart"></span> Heart</v-option>
+  <v-option value="Film"><span slot="span" class="glyphicon glyphicon-film"></span> Film</v-option>
+  <v-option value="Inbox"><span slot="span" class="glyphicon glyphicon-inbox"></span> Inbox</v-option>
 </v-select>
     </script></code></pre>
     <h2>Select Options</h2>
@@ -133,8 +133,8 @@ Select data : {{custom.join(', ')}}
 </template>
 
 <script>
-  import vSelect from 'src/Select'
-  import vOption from 'src/Option'
+  import vSelect from 'src/Select.vue'
+  import vOption from 'src/Option.vue'
   export default {
     components: {
       vSelect,

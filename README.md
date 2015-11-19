@@ -1,23 +1,28 @@
-# vue-strap FORK amanpatel
+# vue-strap v1 branch
 
-This is a form of the excelent vue-strap library from yuche. I've updated the
-following components to work with VueJS 1.0.0 as a dependency without causing
-any warnings or errors to show up. You don't have to use the migration build
-of Vue if you are using the following componetns in this fork
+Work on VueJS 1.0.0 support has begun. The following components are now available to be used under VueJS
 
 - Aside
 - Datepicker
+- Tabset
+- Tab
+- Alert
+- Select/Option
+- Tooltip
+- Affix
 
-I'm hoping this work will be integrated in the vue-strap official library
-soon. Perhaps after all other components are updated as well.
 
+Next in line to be tackled:
+- Button
+- Typeahead
+- Popover
 
 # INSTALL/USAGE
 
-Install using: 
+Install this branch using: 
 
 ```bash
-npm install "amanpatel/vue-strap"
+npm install "yuche/vue-strap#v1"
 ```
 
 Since only a few components are available, you probably should be using
@@ -30,7 +35,7 @@ Datepicker component in one of my .vue files:
 </template>
 
 <script>
-import {datepicker as DatePicker} from 'vue-strap/src';
+import DatePicker from 'vue-strap/src/Datepicker.vue';
 export default {
     props: {
         value: { },
@@ -41,7 +46,6 @@ export default {
 }
 </script>
 ```
-
 
 Notice the "import" line, which tells the webpack compiler to look for and
 include the datepicker component (and only that one) from the vue-strap/src/
@@ -120,7 +124,7 @@ See the [documentation](http://yuche.github.io/vue-strap/) with live editable ex
 * Build with `npm run build`.
 
 ## TODO
-- [ ] Vue.js 1.0 support. (When Vue.js 1.0 stable is released.)
+- [ ] Vue.js 1.0 support. (Work underway in v1 branch)
 - [ ] Bootstrap 4 support. (When Bootstrap 4.0 final is released.)
 - [ ] Tests and Travis-CI.
 - [ ] Refactoring Datepicker.
