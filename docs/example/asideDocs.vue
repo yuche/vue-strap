@@ -4,7 +4,7 @@
     <div class="bs-example">
       <button class="btn btn-success btn-lg" @click="showRight = true">Show Aside on right</button>
 
-      <sidebar :show.sync="showRight" placement="right" header="Title" width="350">
+      <sidebar :show.sync="showRight" placement="right" header="Title" :width="350">
         <h4>Text in aside</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -23,7 +23,7 @@ if (talk === cheap){
 
       <button class="btn btn-danger btn-lg" @click="showLeft = true">Show Aside on left</button>
 
-      <sidebar  :show.sync="showLeft" placement="left" header="Title" width="350">
+      <sidebar  :show.sync="showLeft" placement="left" header="Title" :width="350">
         <h4>Text in aside</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -45,7 +45,7 @@ if (talk === cheap){
 class="btn btn-success btn-lg"
 @click="showRight = true">Show Aside on right</button>
 
-<sidebar :show.sync="showRight" placement="right" header="Title" width="350">
+<sidebar :show.sync="showRight" placement="right" header="Title" :width="350">
 ...
 </sidebar>
 
@@ -53,7 +53,7 @@ class="btn btn-success btn-lg"
 class="btn btn-danger btn-lg"
 @click="showLeft = true">Show Aside on left</button>
 
-<sidebar :show.sync="showLeft" placement="left" header="Title" width="350">
+<sidebar :show.sync="showLeft" placement="left" header="Title" :width="350">
 ...
 </sidebar></script></code></pre>
 
