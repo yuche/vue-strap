@@ -13,7 +13,7 @@
     checked="{{checked}}"
     v-on="click:handleClick">
 
-    <content></content>
+    <slot></slot>
 
   </label>
 </template>

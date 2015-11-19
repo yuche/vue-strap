@@ -8,21 +8,21 @@
       v-style="width: width + 'px'
       ">
       <div class="modal-content">
-        <content select=".modal-header">
+        <slot select=".modal-header">
           <div class="modal-header">
             <button type="button" class="close" v-on='click:close'><span>&times;</span></button>
             <h4 class="modal-title" >{{title}}</h4>
           </div>
-        </content>
-        <content select=".modal-body">
+        </slot>
+        <slot select=".modal-body">
           <div class="modal-body"></div>
-        </content>
-        <content select=".modal-footer">
+        </slot>
+        <slot select=".modal-footer">
           <div class="modal-footer">
             <button type="button" class="btn btn-default" v-on='click:close'>Close</button>
             <button type="button" class="btn btn-primary" v-on='click:callback'>Save changes</button>
           </div>
-        </content>
+        </slot>
       </div>
     </div>
   </div>

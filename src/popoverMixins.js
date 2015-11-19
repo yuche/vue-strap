@@ -38,8 +38,9 @@ const PopoverMixin = {
     }
   },
   ready() {
-    const popover = this.$$.popover
-    const triger = this.$$.trigger.children[0]
+    if (!this.$els.popover) return console.error("Couldn't find popover v-el in your component that uses popoverMixin.");
+    const popover = this.$els.popover
+    const triger = this.$els.trigger.children[0]
     if (this.trigger === 'hover') {
       this._mouseenterEvent = EventListener.listen(triger, 'mouseenter', ()=> this.show = true)
       this._mouseleaveEvent = EventListener.listen(triger, 'mouseleave', ()=> this.show = false)

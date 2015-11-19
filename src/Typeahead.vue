@@ -15,7 +15,7 @@
   blur:showDropdown = false
   "
   />
-  <ul class="dropdown-menu" v-el="dropdown">
+  <ul class="dropdown-menu" v-el:dropdown>
   <list></list>
   </ul>
 </div>
