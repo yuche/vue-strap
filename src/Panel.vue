@@ -9,12 +9,12 @@
       </h4>
     </div>
     <div class="panel-collapse"
-      v-el="panel"
+      v-el:panel
       v-show="isOpen"
-      v-transition="collapse"
+      transition="collapse"
     >
       <div class="panel-body">
-        <content></content>
+        <slot></slot>
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@
       }
     },
     ready() {
-      const panel = this.$$.panel
+      const panel = this.$els.panel
       panel.style.display = 'block'
       this.height = panel.offsetHeight
       panel.style.maxHeight = this.height + 'px'

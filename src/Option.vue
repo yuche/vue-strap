@@ -1,10 +1,10 @@
 <template>
   <li style="position:relative">
-    <a v-on='mousedown:handleClick' style="cursor:pointer">
-      <content></content>
-      <content select="span.text">
+    <a @mousedown.prevent="handleClick" style="cursor:pointer">
+      <slot></slot>
+      <slot name="span">
         {{value}}
-      </content>
+      </slot>
       <span class="glyphicon glyphicon-ok check-mark" v-show="chosen"></span>
     </a>
   </li>
@@ -28,8 +28,7 @@
       }
     },
     methods: {
-      handleClick(e) {
-        e.preventDefault()
+      handleClick() {
         const parent = this.$parent
         const index = parent.value.indexOf(this.value)
         if (parent.multiple) {

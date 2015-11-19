@@ -1,7 +1,7 @@
 <template>
   <span v-el="trigger">
-    <content>
-    </content>
+    <slot>
+    </slot>
   </span>
   <div class="popover"
     v-class="
@@ -10,9 +10,9 @@
     right:placement === 'right',
     bottom:placement === 'bottom'
     "
-    v-el="popover"
+    v-el:popover
     v-show="show"
-    v-transition="{{effect}}">
+    :transition="{{effect}}">
       <div class="arrow"></div>
       <h3 class="popover-title" v-show="header">{{title}}</h3>
       <div class="popover-content">

@@ -1,7 +1,7 @@
 <template>
   <div class="btn-group">
-    <content select="[data-toggle='dropdown']" ></content>
-    <content select="ul.dropdown-menu"></content>
+    <slot select="[data-toggle='dropdown']" ></slot>
+    <slot select="ul.dropdown-menu"></slot>
   </div>
 </template>
 <script>

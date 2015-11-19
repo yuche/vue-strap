@@ -2,7 +2,7 @@
   <div class="bs-docs-section" id="modal">
     <h1 class="page-header"><a href="#modal" class="anchor">Modal</a></h1>
     <div class="bs-example">
-      <button class="btn btn-default btn-lg" v-on="click:showModal = true">Show modal</button>
+      <button class="btn btn-default btn-lg" @click="showModal = true">Show modal</button>
       <modal title="Modal title" show="{{@showModal}}" effect="fade" width="400">
         <div class="modal-header">
           <h4 class="modal-title">Modal <b>Title</b></h4>
@@ -16,7 +16,7 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
       </modal>
-      <button class="btn btn-success btn-lg" v-on="click:bigModal = true">Big modal</button>
+      <button class="btn btn-success btn-lg" @click="bigModal = true">Big modal</button>
       <modal title="Big Modal" show="{{@bigModal}}" effect="fade" width="800">
         <div class="modal-body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -27,7 +27,7 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
       </modal>
-      <button class="btn btn-primary btn-lg" v-on="click:zoomModal = true">Zoom modal</button>
+      <button class="btn btn-primary btn-lg" @click="zoomModal = true">Zoom modal</button>
       <modal title="Zoom Modal" show="{{@zoomModal}}" effect="zoom" width="400">
         <div class="modal-body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -38,7 +38,7 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
       </modal>
-      <button class="btn btn-default btn-lg" v-on="click:showCustomModal = true">Show custom modal</button>
+      <button class="btn btn-default btn-lg" @click="showCustomModal = true">Show custom modal</button>
       <modal show="{{@showCustomModal}}" effect="fade" width="400">
         <div class="modal-header">
           <h4 class="modal-title"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>
@@ -59,7 +59,7 @@
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
 <button class="btn btn-default btn-lg"
-  v-on="click:showModal = true"
+  @click="showModal = true"
   >Show modal
 </button>
 <modal show="{{@showModal}}" effect="fade" width="400">
@@ -70,7 +70,7 @@
 </modal>
 
 <button class="btn btn-primary btn-lg"
-  v-on="click:bigModal = true">
+  @click="bigModal = true">
   Big modal
 </button>
 <modal title="Big Modal" show="{{@bigModal}}" effect="fade" width="800">
@@ -78,7 +78,7 @@
 </modal>
 
 <button class="btn btn-success btn-lg"
-  v-on="click:zoomModal = true">
+  @click="zoomModal = true">
   Zoom modal
 </button>
 <modal title="Zoom Modal" show="{{@zoomModal}}" effect="zoom" width="400">
@@ -86,7 +86,7 @@
 </modal>
 
 <button class="btn btn-default btn-lg"
-  v-on="click:showCustomModal = true">
+  @click="showCustomModal = true">
   Show custom modal
 </button>
 <modal show="{{@showCustomModal}}" effect="fade" width="400">

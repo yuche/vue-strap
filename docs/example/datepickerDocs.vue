@@ -7,35 +7,37 @@
 Selected date is: {{new Date(value).toString().slice(0, -23)}}
         </pre>
       </p>
-      <datepicker v-ref="dp" value="{{@value}}" disabled-days-of-Week="{{disabled}}"
-      format="{{format.toString()}}"></datepicker>
+      <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled"
+      :format="format.toString()"></datepicker>
       <h4>Disabled days of week</h4>
-      <select multiple value="{{@disabled}}">
-        <option value="{{(0).toString()}}"></option>
-        <option value="{{(1).toString()}}"></option>
-        <option value="{{(2).toString()}}"></option>
-        <option value="{{(3).toString()}}"></option>
-        <option value="{{(4).toString()}}"></option>
-        <option value="{{(5).toString()}}"></option>
-        <option value="{{(6).toString()}}"></option>
-      </select>
+
+      <v-select multiple :value.sync="disabled">
+  <v-option value="0"></v-option>
+  <v-option value="1"></v-option>
+  <v-option value="2"></v-option>
+  <v-option value="3"></v-option>
+  <v-option value="4"></v-option>
+  <v-option value="5"></v-option>
+  <v-option value="6"></v-option>
+      </v-select>
+
       <h4>Format</h4>
-      <select  value="{{@format}}">
-        <option value="yyyy,MM,dd"></option>
-        <option value="yyyy-MM-dd"></option>
-        <option value="yyyy.MM.dd"></option>
-        <option value="MMM/dd/yyyy"></option>
-        <option value="MMMM/dd/yyyy"></option>
-      </select>
+      <v-select :value.sync="format" >
+        <v-option value="yyyy,MM,dd"></v-option>
+        <v-option value="yyyy-MM-dd"></v-option>
+        <v-option value="yyyy.MM.dd"></v-option>
+        <v-option value="MMM/dd/yyyy"></v-option>
+        <v-option value="MMMM/dd/yyyy"></v-option>
+      </v-select>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
 <datepicker
-  value="{{@value}}"
-  disabled-days-of-Week="{{disabled}}"
-  format="{{format}}">
+  :value.sync="value"
+  :disabled-days-of-Week="disabled"
+  :format="format">
 </datepicker>
 
-<select multiple value="{{@disabled}}">
+<select multiple :value.sync="disabled" size=5>
   <option value="0"></option>
   <option value="1"></option>
   <option value="2"></option>
@@ -44,7 +46,7 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
   <option value="5"></option>
   <option value="6"></option>
 </select>
-<select  value="{{@format}}">
+<select  :value.sync="format">
   <option value="yyyy,MM,dd"></option>
   <option value="yyyy-MM-dd"></option>
   <option value="yyyy.MM.dd"></option>
@@ -100,8 +102,8 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
   export default {
     components: {
       datepicker,
-      select,
-      option
+      'v-select': select,
+      'v-option': option
     },
     data() {
       return {
@@ -112,10 +114,10 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
     },
     watch: {
       disabled() {
-        this.$.dp.getDateRange()
+        this.$refs.dp.getDateRange()
       },
-      format() {
-        this.value = this.$.dp.stringify(new Date(this.value))
+      format(newV) {
+        this.value = this.$refs.dp.stringify(new Date(this.value))
       }
     }
   }

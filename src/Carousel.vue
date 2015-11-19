@@ -6,8 +6,8 @@
   </ol>
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <content>
-    </content>
+    <slot>
+    </slot>
   </div>
   <!-- Controls -->
   <a v-show="controls" class="left carousel-control" v-on="click:prevClick">
