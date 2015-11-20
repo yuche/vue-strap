@@ -7,7 +7,7 @@
           Action
           <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu">
+        <ul name="dropdown-menu" class="dropdown-menu">
           <li><a href="#">Action</a></li>
           <li><a href="#">Another action</a></li>
           <li><a href="#">Something else here</a></li>
@@ -19,7 +19,7 @@
         <button type="button" class="btn btn-success" data-toggle="dropdown">
           Action <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu">
+        <ul name="dropdown-menu" class="dropdown-menu">
           <li><a href="#">Action</a></li>
           <li><a href="#">Another action</a></li>
           <li><a href="#">Something else here</a></li>
@@ -31,7 +31,7 @@
         <button type="button" class="btn btn-primary" data-toggle="dropdown">
           Action <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu">
+        <ul name="dropdown-menu" class="dropdown-menu">
           <li><a href="#">Action</a></li>
           <li><a href="#">Another action</a></li>
           <li><a href="#">Something else here</a></li>
@@ -46,7 +46,7 @@
           <a href="#" class="btn btn-default" data-toggle="dropdown">
             Dropdown <span class="caret"></span>
           </a>
-          <ul class="dropdown-menu">
+          <ul name="dropdown-menu" class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
@@ -62,7 +62,7 @@
     Action
     <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu">
+  <ul name="dropdown-menu" class="dropdown-menu">
     <li><a href="#">Action</a></li>
     <li><a href="#">Another action</a></li>
     <li><a href="#">Something else here</a></li>

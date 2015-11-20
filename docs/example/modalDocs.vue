@@ -3,7 +3,7 @@
     <h1 class="page-header"><a href="#modal" class="anchor">Modal</a></h1>
     <div class="bs-example">
       <button class="btn btn-default btn-lg" @click="showModal = true">Show modal</button>
-      <modal title="Modal title" show="{{@showModal}}" effect="fade" width="400">
+      <modal title="Modal title" :show.sync="showModal" effect="fade" :width="400">
         <div class="modal-header">
           <h4 class="modal-title">Modal <b>Title</b></h4>
         </div>
@@ -17,7 +17,7 @@
         </div>
       </modal>
       <button class="btn btn-success btn-lg" @click="bigModal = true">Big modal</button>
-      <modal title="Big Modal" show="{{@bigModal}}" effect="fade" width="800">
+      <modal title="Big Modal" :show.sync="bigModal" effect="fade" :width="800">
         <div class="modal-body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -28,7 +28,7 @@
         </div>
       </modal>
       <button class="btn btn-primary btn-lg" @click="zoomModal = true">Zoom modal</button>
-      <modal title="Zoom Modal" show="{{@zoomModal}}" effect="zoom" width="400">
+      <modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" :width="400">
         <div class="modal-body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -39,7 +39,7 @@
         </div>
       </modal>
       <button class="btn btn-default btn-lg" @click="showCustomModal = true">Show custom modal</button>
-      <modal show="{{@showCustomModal}}" effect="fade" width="400">
+      <modal :show.sync="showCustomModal" effect="fade" :width="400">
         <div class="modal-header">
           <h4 class="modal-title"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>
         </div>
@@ -52,8 +52,8 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" v-on='click:showCustomModal = false'>Exit</button>
-          <button type="button" class="btn btn-success" v-on='click:showCustomModal = false'>Custom Save</button>
+          <button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit</button>
+          <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
         </div>
       </modal>
     </div>
@@ -62,7 +62,7 @@
   @click="showModal = true"
   >Show modal
 </button>
-<modal show="{{@showModal}}" effect="fade" width="400">
+<modal :show.sync="showModal" effect="fade" :width="400">
   <div class="modal-header">
     <h4 class="modal-title">Modal title</h4>
   </div>
@@ -73,7 +73,7 @@
   @click="bigModal = true">
   Big modal
 </button>
-<modal title="Big Modal" show="{{@bigModal}}" effect="fade" width="800">
+<modal title="Big Modal" :show.sync="bigModal" effect="fade" :width="800">
   <div class="modal-body">...</div>
 </modal>
 
@@ -81,7 +81,7 @@
   @click="zoomModal = true">
   Zoom modal
 </button>
-<modal title="Zoom Modal" show="{{@zoomModal}}" effect="zoom" width="400">
+<modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" :width="400">
   <div class="modal-body">...</div>
 </modal>
 
@@ -89,7 +89,7 @@
   @click="showCustomModal = true">
   Show custom modal
 </button>
-<modal show="{{@showCustomModal}}" effect="fade" width="400">
+<modal :show.sync="showCustomModal" effect="fade" :width="400">
   <div class="modal-header">
     <h4 class="modal-title">
       <i>Custom</i> <code>Modal</code> <b>Title</b>
@@ -97,8 +97,8 @@
   </div>
   <div class="modal-body">...</div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" v-on='click:showCustomModal = false'>Exit</button>
-    <button type="button" class="btn btn-success" v-on='click:showCustomModal = false'>Custom Save</button>
+    <button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit</button>
+    <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
   </div>
 </modal>
   </script></code></pre>
@@ -144,7 +144,7 @@
 </template>
 
 <script>
-  import modal from 'src/modal.vue'
+  import modal from 'src/Modal.vue'
   export default {
     data() {
       return {

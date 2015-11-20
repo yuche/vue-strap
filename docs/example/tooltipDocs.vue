@@ -2,13 +2,13 @@
   <div class="bs-docs-section" id="tooltip">
     <h1 class="page-header"><a href="#tooltip" class="anchor">Tooltip</a></h1>
     <div class="bs-example">
-      <tooltip  header="true" content="Lorem ipsum dolor sit amet" placement="top">
+      <tooltip  :header="true" content="Lorem ipsum dolor sit amet" placement="top">
         <button class="btn btn-default ">tooltip on top</button>
       </tooltip>
-      <tooltip  header="true" content="Lorem ipsum dolor sit amet" placement="left">
+      <tooltip  :header="true" content="Lorem ipsum dolor sit amet" placement="left">
         <button class="btn btn-default ">tooltip on left</button>
       </tooltip>
-      <tooltip  header="true" content="Lorem ipsum dolor sit amet" placement="right">
+      <tooltip  :header="true" content="Lorem ipsum dolor sit amet" placement="right">
         <button class="btn btn-default ">tooltip on right</button>
       </tooltip>
       <tooltip  placement="bottom" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">

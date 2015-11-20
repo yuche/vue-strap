@@ -6,8 +6,8 @@
         <input type="checkbox" v-model="checked">
         Open only one at a time.
       </p>
-      <accordion one-at-atime="{{checked}}">
-        <panel header="Panel #1" is-open="true">
+      <accordion :one-at-atime="checked">
+        <panel header="Panel #1" :is-open="true">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -45,8 +45,8 @@
 <input type="checkbox" v-model="checked">
 <label for="checked">Open only one at a time.</label>
 
-<accordion one-at-atime="{{checked}}">
-  <panel header="Panel #1" is-open="true">
+<accordion :one-at-atime="checked">
+  <panel header="Panel #1" :is-open="true">
     ...
   </panel>
   <panel header="Panel #2">
