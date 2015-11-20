@@ -1,6 +1,6 @@
 <template>
 <div class="panel-group">
-  <content></content>
+  <slot></slot>
 </div>
 </template>
 <script>

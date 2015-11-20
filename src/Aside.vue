@@ -1,12 +1,12 @@
 <template>
   <div class="aside"
-    v-style="width:width + 'px'"
-    v-class="
+    v-bind:style="{width:width + 'px'}"
+    v-bind:class="{
     left:placement === 'left',
     right:placement === 'right'
-    "
+    }"
     v-show="show"
-    v-transition="{{this.placement === 'left' ? 'slideleft' : 'slideright'}}">
+    :transition="(this.placement === 'left') ? 'slideleft' : 'slideright'">
     <div class="aside-dialog">
       <div class="aside-content">
         <div class="aside-header">
