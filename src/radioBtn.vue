@@ -1,17 +1,19 @@
 <template>
   <label class="btn"
-  v-class="active:active,
-  btn-success:type == 'success',
-  btn-warning:type == 'warning',
-  btn-info:type == 'info',
-  btn-danger:type == 'danger',
-  btn-default:type == 'default',
-  btn-primary:type == 'primary',
-  ">
+  v-bind:class="{
+    'active':active,
+    'btn-success':type == 'success',
+    'btn-warning':type == 'warning',
+    'btn-info':type == 'info',
+    'btn-danger':type == 'danger',
+    'btn-default':type == 'default',
+    'btn-primary':type == 'primary'
+  }">
 
     <input type="radio" autocomplete="off"
-    checked="{{checked}}"
-    v-on="click:handleClick">
+      :checked="checked"
+      @click="handleClick"
+    />
 
     <slot></slot>
 

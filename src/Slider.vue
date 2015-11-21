@@ -1,5 +1,5 @@
 <template>
-    <div class="item">
+  <div class="item">
     <slot></slot>
   </div>
 </template>
@@ -14,11 +14,19 @@
     },
     computed: {
       show() {
-        return this.activeIndex === this.index
+        return this.$parent.activeIndex === this.index
       }
     },
     ready() {
-      this.index = [...this.$el.parentNode.children].indexOf(this.$el)
+      for (var c in this.$parent.$children)
+      {
+        if (this.$parent.$children[c].$el == this.$el)
+        {
+            this.index= c;
+            break;
+        }
+      }
+      //this.index = [...this.$el.parentNode.children].indexOf(this.$el)
       this.$parent.indicator.push(this.index)
       if (this.index === 0)  {
         this.$el.classList.add('active')

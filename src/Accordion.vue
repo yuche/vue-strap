@@ -1,10 +1,10 @@
 <template>
-<div class="panel-group">
-  <slot></slot>
-</div>
+  <div class="panel-group">
+    <slot></slot>
+  </div>
 </template>
-<script>
 
+<script>
   export default {
     props: {
       oneAtATime: {
@@ -24,5 +24,4 @@
       })
     }
   }
-
 </script>

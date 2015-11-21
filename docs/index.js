@@ -8,20 +8,20 @@ import affix from 'src/Affix.vue'
 import container from './example/container.vue'
 import headerDocs from './example/headerDocs.vue'
 import alertDocs from './example/alertDocs.vue'
-//import accordionDocs from './example/accordionDocs.vue'
+import accordionDocs from './example/accordionDocs.vue'
 import affixDocs from './example/affixDocs.vue'
 import asideDocs from './example/asideDocs.vue'
-//import carouselDocs from './example/carouselDocs.vue'
-//import buttonsDocs  from './example/buttonsDocs.vue'
+import carouselDocs from './example/carouselDocs.vue'
+import buttonsDocs  from './example/buttonsDocs.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
-//import dropdownDocs from './example/dropdownDocs.vue'
-//import modalDocs from './example/modalDocs.vue'
-//import popoverDocs from './example/popoverDocs.vue'
-//import progressbarDocs from './example/progressbar-docs.vue'
+import dropdownDocs from './example/dropdownDocs.vue'
+import modalDocs from './example/modalDocs.vue'
+import popoverDocs from './example/popoverDocs.vue'
+import progressbarDocs from './example/progressbar-docs.vue'
 import selectDocs from './example/selectDocs.vue'
 import tabsDocs from './example/tabsDocs.vue'
 import tooltipDocs from './example/tooltipDocs.vue'
-//import typeaheadDocs from './example/typeaheadDocs.vue'
+import typeaheadDocs from './example/typeaheadDocs.vue'
 //Vue.config.debug = true;
 
 new Vue({
@@ -32,20 +32,20 @@ new Vue({
     affix,
     alertDocs,
     headerDocs,
-    //accordionDocs,
+    accordionDocs,
     affixDocs,
     asideDocs,
-    //carouselDocs,
-    //buttonsDocs,
+    carouselDocs,
+    buttonsDocs,
     datepickerDocs,
-    //dropdownDocs,
-    //modalDocs,
-    //popoverDocs,
-    //progressbarDocs,
+    dropdownDocs,
+    modalDocs,
+    popoverDocs,
+    progressbarDocs,
     selectDocs,
     tabsDocs,
     tooltipDocs,
-    //typeaheadDocs,
+    typeaheadDocs,
     list: {
       inherit: true,
       template: ''

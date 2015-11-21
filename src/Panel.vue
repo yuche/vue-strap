@@ -3,7 +3,7 @@
     <div class="panel-heading">
       <h4 class="panel-title">
         <a class="accordion-toggle"
-          v-on="click:toggleIsOpen(this)">
+          @click="toggleIsOpen()">
            {{ header }}
         </a>
       </h4>

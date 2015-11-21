@@ -1,22 +1,24 @@
 <template>
 <div style="position: relative"
-  v-class="open:showDropdown"
+  v-bind:class="{'open':showDropdown}"
   >
   <input type="text" class="form-control"
-  placeholder="{{placeholder}}"
-  autocomplete="off"
-  v-model="query"
-  v-on="
-  input: update,
-  keydown: up|key 'up',
-  keydown: down | key 'down',
-  keydown: hit|key 'enter',
-  keydown: reset|key 'esc',
-  blur:showDropdown = false
-  "
+    :placeholder="placeholder"
+    autocomplete="off"
+    v-model="query"
+    @input="update"
+    @keydown.up="up"
+    @keydown.down="down"
+    @keydown.enter= "hit"
+    @keydown.esc="reset"
+    @blur="showDropdown = false"
   />
   <ul class="dropdown-menu" v-el:dropdown>
-  <list></list>
+    <li v-for="item in items" v-bind:class="{'active': isActive($index)}">
+      <a @mousedown.prevent="hit" @mousemove="setActive($index)">
+        <partial :name="templateName"></partial>
+      </a>
+    </li> 
   </ul>
 </div>
 
@@ -28,14 +30,8 @@ const typeahead = {
     created() {
       this.items = this.primitiveData
     },
-    components: {
-      list: {
-        inherit: true,
-        template: '',
-        created() {
-          this.$options.template = `<li v-repeat="items" v-class="active: isActive($index)"><a v-on="mousedown:hit,mousemove: setActive($index)">${this.template}</a></li>`
-        }
-      }
+    partials: {
+      'default': 'asdf<span v-html="item | highlight query"></span>',
     },
     props: {
       data: {
@@ -49,7 +45,11 @@ const typeahead = {
         type: String
       },
       template: {
-        default: '<span v-html="$value | highlight query"></span>'
+        type:String
+      },
+      templateName: {
+        type:String,
+        default: 'default'
       },
       key: {
         type: String
@@ -88,6 +88,13 @@ const typeahead = {
         }
       }
     },
+    ready() {
+      // register a partial:
+      if (this.templateName && this.templateName!=='default')
+      {
+        Vue.partial(this.templateName, this.template)
+      }
+    },
     methods: {
       update() {
         if (!this.query) {
@@ -118,8 +125,9 @@ const typeahead = {
         return this.current === index
       },
       hit(e) {
+        console.log("e", e, "e.targetVm", e.targetVM);
         e.preventDefault()
-        this.onHit(this.items[this.current], e.targetVM)
+        this.onHit(this.items[this.current], this);
       },
       up() {
         if (this.current > 0) this.current--

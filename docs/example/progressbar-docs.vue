@@ -6,17 +6,17 @@
       <div class="row">
         <div class="col-md-4">
           <div class="progress">
-            <progressbar now="20" type="success"></progressbar>
+            <progressbar :now="20" type="success"></progressbar>
           </div>
         </div>
         <div class="col-md-4">
           <div class="progress">
-            <progressbar now="40" type="info"></progressbar>
+            <progressbar :now="40" type="info"></progressbar>
           </div>
         </div>
         <div class="col-md-4">
           <div class="progress">
-            <progressbar now="60" type="primary"></progressbar>
+            <progressbar :now="60" type="primary"></progressbar>
           </div>
         </div>
       </div>
@@ -28,19 +28,19 @@
         <button type="button" class="btn btn-default" @click="dynamicClick">Randomize</button>
       </h4>
       <div class="progress">
-        <progressbar now="{{dynamicData[0] * 2}}" type="info"></progressbar>
+        <progressbar :now="dynamicData[0] * 2" type="info"></progressbar>
       </div>
       <div class="progress">
-        <progressbar now="{{dynamicData[1] * 2}}" type="warning"></progressbar>
+        <progressbar :now="dynamicData[1] * 2" type="warning"></progressbar>
       </div>
       <div class="progress">
-        <progressbar now="{{dynamicData[2] * 2}}" type="danger"></progressbar>
+        <progressbar :now="dynamicData[2] * 2" type="danger"></progressbar>
       </div>
       <div class="progress">
-        <progressbar now="{{dynamicData[3] * 2}}" type="success" striped></progressbar>
+        <progressbar :now="dynamicData[3] * 2" type="success" striped></progressbar>
       </div>
       <div class="progress">
-        <progressbar now="{{dynamicData[4] * 2}}" type="success" striped animated></progressbar>
+        <progressbar :now="dynamicData[4] * 2" type="success" striped animated></progressbar>
       </div>
 
       <hr>
@@ -51,30 +51,30 @@
       </h4>
 
       <div class="progress">
-        <progressbar now="{{stackedData[0]}}" label type="warning" striped></progressbar>
+        <progressbar :now="stackedData[0]" label type="warning" striped></progressbar>
 
-        <progressbar now="{{stackedData[1]}}" label type="success" ></progressbar>
+        <progressbar :now="stackedData[1]" label type="success" ></progressbar>
 
-        <progressbar now="{{stackedData[2]}}" label type="danger"></progressbar>
+        <progressbar :now="stackedData[2]" label type="danger"></progressbar>
 
-        <progressbar now="{{stackedData[3]}}" label type="primary" striped animated></progressbar>
+        <progressbar :now="stackedData[3]" label type="primary" striped animated></progressbar>
       </div>
 
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
 <!-- Stacked -->
 <div class="progress">
-  <progressbar now="" label type="warning" striped></progressbar>
+  <progressbar :now="" label type="warning" striped></progressbar>
 
-  <progressbar now="" label type="success" ></progressbar>
+  <progressbar :now="" label type="success" ></progressbar>
 
-  <progressbar now="" label type="danger"></progressbar>
+  <progressbar :now="" label type="danger"></progressbar>
 
-  <progressbar now="" label type="primary" striped animated></progressbar>
+  <progressbar :now="" label type="primary" striped animated></progressbar>
 </div>
 <!-- Single -->
 <div class="progress">
-  <progressbar now="" label type="warning" striped></progressbar>
+  <progressbar :now="" label type="warning" striped></progressbar>
 </div>
 </script></code></pre>
 
@@ -119,7 +119,7 @@
 </template>
 
 <script>
-  import progressbar from 'src/Progressbar'
+  import progressbar from 'src/Progressbar.vue'
   export default {
     data() {
       return {

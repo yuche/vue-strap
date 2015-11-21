@@ -1,21 +1,13 @@
 # vue-strap v1 branch
 
-Work on VueJS 1.0.0 support has begun. The following components are now available to be used under VueJS
+Work on VueJS 1.0.0 support is now considered to be in **alpha**. All components
+except for Carousel should be working. Report any issues in the issues section
+of this github.
 
-- Aside
-- Datepicker
-- Tabset
-- Tab
-- Alert
-- Select/Option
-- Tooltip
-- Affix
+Ported to Vue 1.0.0, but are currently not working: (fails to render properly, but causes no Vue warnings)
+- Carousel
+- Slider (sub component of carousel)
 
-
-Next in line to be tackled:
-- Button
-- Typeahead
-- Popover
 
 # INSTALL/USAGE
 
