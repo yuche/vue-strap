@@ -1,32 +1,30 @@
-var webpack = require('webpack');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+var webpack = require('webpack')
 var path = require('path')
 
 module.exports = {
   entry: './docs/index.js',
   output: {
-    path: './build',
-    filename: 'build-docs.js'
+    path: './static',
+    publicPath: '/static/',
+    filename: 'build.js'
   },
   resolve: {
     root: path.resolve('./')
   },
-  plugins: [
-      new BrowserSyncPlugin({
-        host: 'localhost',
-        port: 3000,
-        server: { baseDir: ['./'] }
-      })
-  ],
   module: {
     loaders: [
       {test: /\.vue$/, loader: 'vue' },
-      { 
+      {
       	test: /\.js$/,
-      	loader: 'babel?optional[]=runtime'
+        exclude: /node_modules|vue\/src|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
+      	loader: 'babel'
       },
       { test: /\.css$/, loader: "style-loader!css-loader?root=./docs/" }
     ]
   },
+  babel: {
+  presets: ['es2015'],
+  plugins: ['transform-runtime']
+},
   devtool: 'source-map'
 };
