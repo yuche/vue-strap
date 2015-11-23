@@ -11,7 +11,7 @@ Ported to Vue 1.0.0, but are currently not working: (fails to render properly, b
 
 # INSTALL/USAGE
 
-Install this branch using: 
+Install this branch using:
 
 ```bash
 npm install "yuche/vue-strap#v1"
@@ -116,11 +116,7 @@ See the [documentation](http://yuche.github.io/vue-strap/) with live editable ex
 * Build with `npm run build`.
 
 ## TODO
-- [ ] Vue.js 1.0 support. (Work underway in v1 branch)
-- [ ] Bootstrap 4 support. (When Bootstrap 4.0 final is released.)
-- [ ] Tests and Travis-CI.
-- [ ] Refactoring Datepicker.
-- [ ] So many things....
+See [Roadmap](https://github.com/yuche/vue-strap/issues/41)
 
 ## License
 vue-strap is licensed under [The MIT License](LICENSE).
