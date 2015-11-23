@@ -1,57 +1,9 @@
-# vue-strap v1 branch
-
-Work on VueJS 1.0.0 support is now considered to be in **alpha**. All components
-except for Carousel should be working. Report any issues in the issues section
-of this github.
-
-Ported to Vue 1.0.0, but are currently not working: (fails to render properly, but causes no Vue warnings)
-- Carousel
-- Slider (sub component of carousel)
-
-
-# INSTALL/USAGE
-
-Install this branch using:
-
-```bash
-npm install "yuche/vue-strap#v1"
-```
-
-Since only a few components are available, you probably should be using
-webpack or include only those. Here's an example of how I'm using the
-Datepicker component in one of my .vue files:
-
-```js
-<template>
-     <date-picker :value.sync="value" format="MM/dd/yyyy"></date-picker>
-</template>
-
-<script>
-import DatePicker from 'vue-strap/src/Datepicker.vue';
-export default {
-    props: {
-        value: { },
-    },
-    components: {
-        DatePicker
-    }
-}
-</script>
-```
-
-Notice the "import" line, which tells the webpack compiler to look for and
-include the datepicker component (and only that one) from the vue-strap/src/
-folder in your node_modules folder.
-
-
----
-
 # vue-strap
 Bootstrap components built with Vue.js.
 
 This repository contains a set of native Vue.js components based on Bootstrap's markup and CSS. As a result no dependency on jQuery or Bootstrap's JavaScript is required. The only required dependencies are:
 
-* [Vue.js](http://vuejs.org/) (required ^0.12, test with 0.12.10).
+* [Vue.js](http://vuejs.org/) (required ^v1.x.x, test with v1.0.8).
 * [Bootstrap CSS](http://getbootstrap.com/) (required 3.x.x, test with 3.3.5). VueStrap doesn't depend on a very precise version of Bootstrap.
 
 ## Installation
