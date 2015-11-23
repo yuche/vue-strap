@@ -56,7 +56,4 @@
   .tab-content > .tab-pane {
     display: block;
   }
-  .tab-content > .tab-pane.hide {
-    position: absolute;
-  }
 </style>

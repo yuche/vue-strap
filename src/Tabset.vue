@@ -2,14 +2,17 @@
   <div>
     <!-- Nav tabs -->
      <ul class="nav nav-tabs" role="tablist">
-            <li 
-                v-for="r in renderData" 
-                v-bind:class="{ 'active': ($index === activeIndex) }"
+            <li
+                v-for="r in renderData"
+                v-bind:class="{
+                  'active': ($index === activeIndex),
+                  'disabled': r.disabled
+                }"
                 @click.prevent="handleTabListClick($index, r)"
-                :disabled="disabled === true"
+                :disabled="r.disabled"
             >
                 <a href="#">{{r.header}}</a>
-            </li>       
+            </li>
      </ul>
 
      <!-- Tab panes -->
