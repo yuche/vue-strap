@@ -14,7 +14,7 @@
           <h4 class="aside-title">{{header}}</h4>
         </div>
         <div class="aside-body">
-          <content></content>
+          <slot></slot>
         </div>
       </div>
     </div>
