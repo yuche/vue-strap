@@ -52,7 +52,7 @@
   },
   "scripts": {
     "docs": "webpack-dev-server --inline --hot --quiet",
-    "build": "webpack --progress --hide-modules --config  webpack.build.min.js"
+    "build": "webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js"
   },
   "author": "yuche",
   "license": "MIT"
