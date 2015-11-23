@@ -1,7 +1,7 @@
-import './assets/docs.css'
-import './assets/style.css'
-import 'prismjs'
-import './js/showLanguage'
+require('./assets/docs.css')
+require('./assets/style.css')
+require('prismjs')
+require('./js/showLanguage')
 
 import gettingStarted from './example/gettingStarted.vue'
 import affix from 'src/Affix.vue'
@@ -22,6 +22,8 @@ import selectDocs from './example/selectDocs.vue'
 import tabsDocs from './example/tabsDocs.vue'
 import tooltipDocs from './example/tooltipDocs.vue'
 import typeaheadDocs from './example/typeaheadDocs.vue'
+
+Vue.config.debug = true
 
 new Vue({
   el: '#wrapper',
@@ -47,7 +49,7 @@ new Vue({
     typeaheadDocs,
     list: {
       inherit: true,
-      template: `<li v-repeat="anchor"><a href="#{{$value.toLowerCase()}}">{{$value | space}}</a></li>`
+      template: ''
     }
   },
   data() {
@@ -83,8 +85,10 @@ new Vue({
         // 420 = firstSection.getBoundingClientRect().top (when body.scrollTop = 0)
         // = nav.height + header.height + firstSection.margin-top - 6 (for offset)
         if (sections[i] + 420 <= scrollPosition) {
-          if (navbar.querySelector('.active')) navbar.querySelector('.active').className = ''
-          navbar.querySelector('a[href*=' + i + ']').parentNode.className = 'active'
+  	      if (navbar) {
+  	        if (navbar.querySelector('.active')) navbar.querySelector('.active').className = ''
+  	        navbar.querySelector('a[href*=' + i + ']').parentNode.className = 'active'
+  	      }
         }
       }
     }

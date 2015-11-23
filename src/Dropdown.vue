@@ -1,7 +1,7 @@
 <template>
   <div class="btn-group">
-    <content select="[data-toggle='dropdown']" ></content>
-    <content select="ul.dropdown-menu"></content>
+    <slot></slot>
+    <slot name="dropdown-menu"></slot>
   </div>
 </template>
 <script>
@@ -16,8 +16,11 @@
     ready() {
       const el = this.$el
       const toggle = el.querySelector('[data-toggle="dropdown"]')
-      toggle.style.borderRadius = '4px'
-      toggle.addEventListener('click', this.toggleDropdown)
+      if (toggle)
+      {
+        toggle.style.borderRadius = '4px'
+        toggle.addEventListener('click', this.toggleDropdown)
+      }
       this._closeEvent = EventListener.listen(window, 'click', (e)=> {
         if (!el.contains(e.target)) el.classList.remove('open')
       })

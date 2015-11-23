@@ -1,14 +1,15 @@
 <template>
-  <div class="progress-bar" role="progressbar"
-    v-class="
-    progress-bar-success:type == 'success',
-    progress-bar-warning:type == 'warning',
-    progress-bar-info:type == 'info',
-    progress-bar-danger:type == 'danger',
-    progress-bar-striped:striped,
-    active:animated
-    "
-    v-style="width:now + '%'">
+  <div role="progressbar"
+    v-bind:class="{
+    'progress-bar' : true,
+    'progress-bar-success':type == 'success',
+    'progress-bar-warning':type == 'warning',
+    'progress-bar-info':type == 'info',
+    'progress-bar-danger':type == 'danger',
+    'progress-bar-striped':striped,
+    'active':animated
+    }"
+    v-bind:style="{width: now + '%'}">
     {{label ? now + '%':'' }}
   </div>
 </template>

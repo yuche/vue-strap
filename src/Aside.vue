@@ -1,20 +1,20 @@
 <template>
   <div class="aside"
-    v-style="width:width + 'px'"
-    v-class="
+    v-bind:style="{width:width + 'px'}"
+    v-bind:class="{
     left:placement === 'left',
     right:placement === 'right'
-    "
+    }"
     v-show="show"
-    v-transition="{{this.placement === 'left' ? 'slideleft' : 'slideright'}}">
+    :transition="(this.placement === 'left') ? 'slideleft' : 'slideright'">
     <div class="aside-dialog">
       <div class="aside-content">
         <div class="aside-header">
-          <button type="button" class="close" v-on='click:close'><span>&times;</span></button>
+          <button type="button" class="close" @click='close'><span>&times;</span></button>
           <h4 class="aside-title">{{header}}</h4>
         </div>
         <div class="aside-body">
-          <content></content>
+          <slot></slot>
         </div>
       </div>
     </div>
@@ -233,6 +233,4 @@ import getScrollBarWidth from './utils/getScrollBarWidth.js'
       opacity: .5;
       filter: alpha(opacity=50)
   }
-
-
 </style>

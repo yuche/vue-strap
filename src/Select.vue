@@ -1,6 +1,8 @@
 <template>
-  <div class="btn-group" v-class="open:show">
-    <button v-el="btn" type="button" class="btn btn-default dropdown-toggle" v-on="click:toggleDropdown,blur:this.show = false">
+  <div class="btn-group" v-bind:class="{open:show}">
+    <button v-el:btn type="button" class="btn btn-default dropdown-toggle" 
+      @click="toggleDropdown"
+      @blur="show = false">
           <span class="placeholder" v-show="showPlaceholder">
             {{placeholder}}
           </span>
@@ -10,8 +12,8 @@
           <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
-      <content></content>
-      <div class="notify" v-show="showNotify" v-transition="fadein">Limit reached ({{limit}} items max).</div>
+      <slot></slot>
+      <div class="notify" v-show="showNotify" transition="fadein">Limit reached ({{limit}} items max).</div>
     </ul>
   </div>
 </template>

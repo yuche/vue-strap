@@ -1,3 +1,51 @@
+# vue-strap v1 branch
+
+Work on VueJS 1.0.0 support is now considered to be in **alpha**. All components
+except for Carousel should be working. Report any issues in the issues section
+of this github.
+
+Ported to Vue 1.0.0, but are currently not working: (fails to render properly, but causes no Vue warnings)
+- Carousel
+- Slider (sub component of carousel)
+
+
+# INSTALL/USAGE
+
+Install this branch using: 
+
+```bash
+npm install "yuche/vue-strap#v1"
+```
+
+Since only a few components are available, you probably should be using
+webpack or include only those. Here's an example of how I'm using the
+Datepicker component in one of my .vue files:
+
+```js
+<template>
+     <date-picker :value.sync="value" format="MM/dd/yyyy"></date-picker>
+</template>
+
+<script>
+import DatePicker from 'vue-strap/src/Datepicker.vue';
+export default {
+    props: {
+        value: { },
+    },
+    components: {
+        DatePicker
+    }
+}
+</script>
+```
+
+Notice the "import" line, which tells the webpack compiler to look for and
+include the datepicker component (and only that one) from the vue-strap/src/
+folder in your node_modules folder.
+
+
+---
+
 # vue-strap
 Bootstrap components built with Vue.js.
 
@@ -68,7 +116,7 @@ See the [documentation](http://yuche.github.io/vue-strap/) with live editable ex
 * Build with `npm run build`.
 
 ## TODO
-- [ ] Vue.js 1.0 support. (When Vue.js 1.0 stable is released.)
+- [ ] Vue.js 1.0 support. (Work underway in v1 branch)
 - [ ] Bootstrap 4 support. (When Bootstrap 4.0 final is released.)
 - [ ] Tests and Travis-CI.
 - [ ] Refactoring Datepicker.

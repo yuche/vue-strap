@@ -1,6 +1,6 @@
 <template>
   <div class="btn-group" data-toggle="buttons">
-    <content></content>
+    <slot></slot>
   </div>
 </template>
 

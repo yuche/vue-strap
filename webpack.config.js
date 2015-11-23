@@ -1,45 +1,47 @@
-var vue = require('vue-loader')
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+var webpack = require('webpack')
 var path = require('path')
 
 module.exports = {
-  entry: {
-    entry: './docs/index.js',
-  },
+  entry: './docs/index.js',
   output: {
-    path: './build',
-    filename: 'build-docs.js'
+    path: './static',
+    publicPath: '/static/',
+    filename: 'build.js'
   },
   resolve: {
-    root: path.resolve('./'),
-    extensions: ['', '.js', '.vue']
+    root: path.resolve('./')
   },
-  plugins: [
-      new BrowserSyncPlugin({
-        host: 'localhost',
-        port: 3000,
-        server: { baseDir: ['./'] }
-      })
-  ],
   module: {
     loaders: [
+      {test: /\.vue$/, loader: 'vue' },
       {
-        test: /\.vue$/,
-        loader: vue.withLoaders({
-          // apply babel transform to all javascript
-          // inside *.vue files.
-          js: 'babel?optional[]=runtime'
-        })
+      	test: /\.js$/,
+        exclude: /node_modules|vue\/src|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
+      	loader: 'babel'
       },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel'
-      },
-      { test: /\.css$/,
-        loader: 'style-loader!css-loader'
-      }
+      { test: /\.css$/, loader: "style-loader!css-loader?root=./docs/" }
     ]
   },
+  babel: {
+  presets: ['es2015'],
+  plugins: ['transform-runtime']
+},
   devtool: 'source-map'
+};
+
+
+if (process.env.NODE_ENV === 'production') {
+  delete module.exports.devtool;
+  module.exports.plugins = [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ];
 }
