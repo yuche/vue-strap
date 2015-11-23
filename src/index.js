@@ -46,4 +46,4 @@ const VueStrap = {
   typeahead
 }
 
-export default VueStrap
+module.exports = VueStrap

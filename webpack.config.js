@@ -28,3 +28,20 @@ module.exports = {
 },
   devtool: 'source-map'
 };
+
+
+if (process.env.NODE_ENV === 'production') {
+  delete module.exports.devtool;
+  module.exports.plugins = [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ];
+}
