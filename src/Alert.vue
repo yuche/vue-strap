@@ -64,6 +64,7 @@
 }
 .fade-enter,
 .fade-leave {
+  height: 0;
   opacity: 0;
 }
 .alert.top {
