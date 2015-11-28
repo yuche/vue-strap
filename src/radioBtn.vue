@@ -6,7 +6,7 @@
     'btn-warning':type == 'warning',
     'btn-info':type == 'info',
     'btn-danger':type == 'danger',
-    'btn-default':type == 'default',
+    'btn-secondary':type == 'default',
     'btn-primary':type == 'primary'
   }">
 

@@ -5,13 +5,13 @@
             <li
                 v-for="r in renderData"
                 v-bind:class="{
-                  'active': ($index === activeIndex),
+                  'nav-item': true,
                   'disabled': r.disabled
                 }"
                 @click.prevent="handleTabListClick($index, r)"
                 :disabled="r.disabled"
             >
-                <a href="#">{{r.header}}</a>
+                <a class="nav-link" v-bind:class="{'active': ($index === activeIndex)}" href="#">{{r.header}}</a>
             </li>
      </ul>
 

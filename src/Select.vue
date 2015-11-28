@@ -1,6 +1,6 @@
 <template>
   <div class="btn-group" v-bind:class="{open:show}">
-    <button v-el:btn type="button" class="btn btn-default dropdown-toggle" 
+    <button v-el:btn type="button" class="btn btn-secondary dropdown-toggle" 
       @click="toggleDropdown"
       @blur="show = false">
           <span class="placeholder" v-show="showPlaceholder">
@@ -9,7 +9,6 @@
           <span class="content">
             {{value.join(', ')}}
           </span>
-          <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
       <slot></slot>

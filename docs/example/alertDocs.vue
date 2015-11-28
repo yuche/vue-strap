@@ -58,12 +58,12 @@
     </div>
 
     <pre><code class="language-markup"><script type="language-mark-up">
-<button class="btn btn-default btn-lg"
+<button class="btn btn-secondary btn-lg"
   @click="showRight = !showRight">
   Click to toggle alert on right
 </button>
  
-<button class="btn btn-default btn-lg"
+<button class="btn btn-secondary btn-lg"
   @click="showTop = !showTop">
   Click to toggle alert on top
 </button>

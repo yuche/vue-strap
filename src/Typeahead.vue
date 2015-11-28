@@ -13,13 +13,16 @@
     @keydown.esc="reset"
     @blur="showDropdown = false"
   />
-  <ul class="dropdown-menu" v-el:dropdown>
-    <li v-for="item in items" v-bind:class="{'active': isActive($index)}">
-      <a @mousedown.prevent="hit" @mousemove="setActive($index)">
-        <partial :name="templateName"></partial>
-      </a>
-    </li> 
-  </ul>
+  <div class="dropdown-menu" v-el:dropdown>
+    <a v-for="item in items" 
+       class="dropdown-item"
+       v-bind:class="{'active': isActive($index)}"
+       @mousedown.prevent="hit"
+       @mousemove="setActive($index)"
+    >
+      <partial :name="templateName"></partial>
+    </a>
+  </div>
 </div>
 
 </template>
@@ -31,7 +34,7 @@ const typeahead = {
       this.items = this.primitiveData
     },
     partials: {
-      'default': 'asdf<span v-html="item | highlight query"></span>',
+      'default': '<span v-html="item | highlight query"></span>',
     },
     props: {
       data: {

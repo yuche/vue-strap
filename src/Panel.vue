@@ -1,19 +1,17 @@
 <template>
-<div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
+<div class="card">
+    <div class="card-header">
         <a class="accordion-toggle"
           @click="toggleIsOpen()">
            {{ header }}
         </a>
-      </h4>
     </div>
     <div class="panel-collapse"
       v-el:panel
       v-show="isOpen"
       transition="collapse"
     >
-      <div class="panel-body">
+      <div class="card-block">
         <slot></slot>
       </div>
     </div>

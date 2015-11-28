@@ -17,7 +17,7 @@ if (talk === cheap){
 }
         </code></pre>
         <div class="aside-footer">
-          <button type="button" class="btn btn-default" @click="showRight=false">Close</button>
+          <button type="button" class="btn btn-secondary" @click="showRight=false">Close</button>
         </div>
       </sidebar>
 
@@ -36,7 +36,7 @@ if (talk === cheap){
 }
         </code></pre>
         <div class="aside-footer">
-          <button type="button" class="btn btn-default" @click="showLeft=false">Close</button>
+          <button type="button" class="btn btn-secondary" @click="showLeft=false">Close</button>
         </div>
       </sidebar>
     </div>

@@ -1,13 +1,11 @@
 <template>
-  <li style="position:relative">
-    <a @mousedown.prevent="handleClick" style="cursor:pointer">
+    <a class="dropdown-item" @mousedown.prevent="handleClick" style="cursor:pointer">
       <slot></slot>
       <slot name="span">
         {{value}}
       </slot>
-      <span class="glyphicon glyphicon-ok check-mark" v-show="chosen"></span>
+      <span v-show="chosen">&#10004;</span>
     </a>
-  </li>
 </template>
 
 <script>

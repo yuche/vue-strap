@@ -13,7 +13,7 @@
     v-el:popover
     v-show="show"
     :transition="effect">
-      <div class="arrow"></div>
+      <div class="popover-arrow"></div>
       <h3 class="popover-title" v-show="header">{{title}}</h3>
       <div class="popover-content">
         {{{content}}}

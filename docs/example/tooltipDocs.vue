@@ -3,23 +3,23 @@
     <h1 class="page-header"><a href="#tooltip" class="anchor">Tooltip</a></h1>
     <div class="bs-example">
       <tooltip  :header="true" content="Lorem ipsum dolor sit amet" placement="top">
-        <button class="btn btn-default ">tooltip on top</button>
+        <button class="btn btn-secondary ">tooltip on top</button>
       </tooltip>
       <tooltip  :header="true" content="Lorem ipsum dolor sit amet" placement="left">
-        <button class="btn btn-default ">tooltip on left</button>
+        <button class="btn btn-secondary ">tooltip on left</button>
       </tooltip>
       <tooltip  :header="true" content="Lorem ipsum dolor sit amet" placement="right">
-        <button class="btn btn-default ">tooltip on right</button>
+        <button class="btn btn-secondary ">tooltip on right</button>
       </tooltip>
       <tooltip  placement="bottom" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-        <button class="btn btn-default ">tooltip on bottom</button>
+        <button class="btn btn-secondary ">tooltip on bottom</button>
       </tooltip>
       <hr>
       <h4>Triger</h4>
       <p>
         <tooltip trigger="click"
         effect="scale" content="Lorem ipsum dolor sit amet" placement="top" trigger="hover">
-            <button class="btn btn-default ">Click</button>
+            <button class="btn btn-secondary ">Click</button>
         </tooltip>
       </p>
       <tooltip effect="scale"
@@ -32,7 +32,7 @@
   effect="scale"
   placement="bottom"
   content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-  <button class="btn btn-default ">tooltip on bottom</button>
+  <button class="btn btn-secondary ">tooltip on bottom</button>
 </tooltip>
 </script></code></pre>
   <h2>Options</h2>

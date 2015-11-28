@@ -1,17 +1,19 @@
 <template>
-  <div role="progressbar"
+  <progress
     v-bind:class="{
-    'progress-bar' : true,
-    'progress-bar-success':type == 'success',
-    'progress-bar-warning':type == 'warning',
-    'progress-bar-info':type == 'info',
-    'progress-bar-danger':type == 'danger',
-    'progress-bar-striped':striped,
-    'active':animated
+    'progress' : true,
+    'progress-success':type == 'success',
+    'progress-warning':type == 'warning',
+    'progress-info':type == 'info',
+    'progress-danger':type == 'danger',
+    'progress-striped':striped,
+    'progress-animated':animated
     }"
-    v-bind:style="{width: now + '%'}">
+    v-bind:value="now"
+    max="100"
+  >
     {{label ? now + '%':'' }}
-  </div>
+  </progress>
 </template>
 
 <script>

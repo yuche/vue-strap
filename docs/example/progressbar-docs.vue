@@ -25,7 +25,7 @@
 
       <h4>
         Dynamic
-        <button type="button" class="btn btn-default" @click="dynamicClick">Randomize</button>
+        <button type="button" class="btn btn-secondary" @click="dynamicClick">Randomize</button>
       </h4>
       <div class="progress">
         <progressbar :now="dynamicData[0] * 2" type="info"></progressbar>
@@ -47,7 +47,7 @@
 
       <h4>
         Stacked
-        <button type="button" class="btn btn-default" @click="stackedClick">Randomize</button>
+        <button type="button" class="btn btn-secondary" @click="stackedClick">Randomize</button>
       </h4>
 
       <div class="progress">

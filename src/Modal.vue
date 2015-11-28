@@ -14,12 +14,12 @@
             <h4 class="modal-title" >{{title}}</h4>
           </div>
         </slot>
-        <slot name="modal-body">
+        <slot>
           <div class="modal-body"></div>
         </slot>
         <slot name="modal-footer">
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" @click="close">Close</button>
+            <button type="button" class="btn btn-secondary" @click="close">Close</button>
             <button type="button" class="btn btn-primary" @click="callback">Save changes</button>
           </div>
         </slot>

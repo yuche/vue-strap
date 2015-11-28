@@ -2,7 +2,7 @@
   <div class="bs-docs-section" id="modal">
     <h1 class="page-header"><a href="#modal" class="anchor">Modal</a></h1>
     <div class="bs-example">
-      <button class="btn btn-default btn-lg" @click="showModal = true">Show modal</button>
+      <button class="btn btn-secondary btn-lg" @click="showModal = true">Show modal</button>
       <modal title="Modal title" :show.sync="showModal" effect="fade" :width="400">
         <div class="modal-header">
           <h4 class="modal-title">Modal <b>Title</b></h4>
@@ -38,7 +38,7 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
       </modal>
-      <button class="btn btn-default btn-lg" @click="showCustomModal = true">Show custom modal</button>
+      <button class="btn btn-secondary btn-lg" @click="showCustomModal = true">Show custom modal</button>
       <modal :show.sync="showCustomModal" effect="fade" :width="400">
         <div class="modal-header">
           <h4 class="modal-title"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>
@@ -52,13 +52,13 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit</button>
+          <button type="button" class="btn btn-secondary" @click='showCustomModal = false'>Exit</button>
           <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
         </div>
       </modal>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
-<button class="btn btn-default btn-lg"
+<button class="btn btn-secondary btn-lg"
   @click="showModal = true"
   >Show modal
 </button>
@@ -85,7 +85,7 @@
   <div class="modal-body">...</div>
 </modal>
 
-<button class="btn btn-default btn-lg"
+<button class="btn btn-secondary btn-lg"
   @click="showCustomModal = true">
   Show custom modal
 </button>
@@ -97,7 +97,7 @@
   </div>
   <div class="modal-body">...</div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit</button>
+    <button type="button" class="btn btn-secondary" @click='showCustomModal = false'>Exit</button>
     <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
   </div>
 </modal>

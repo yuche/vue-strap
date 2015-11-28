@@ -1,8 +1,10 @@
 <template>
-  <div class="panel-group">
+  <div class="card">
     <slot></slot>
   </div>
 </template>
+
+
 
 <script>
   export default {
