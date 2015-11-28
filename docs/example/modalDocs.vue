@@ -1,21 +1,15 @@
 <template>
   <div class="bs-docs-section" id="modal">
+  	<h1>TEST</h1>
+	 <modal :show.sync="showModal"  :width="400" title="modalTitle">
+        <div slot="modal-body">BODY</div>
+        <div slot="modal-footer" class="modal-footer">FOOTER</div>
+    </modal>
+
+
     <h1 class="page-header"><a href="#modal" class="anchor">Modal</a></h1>
     <div class="bs-example">
       <button class="btn btn-secondary btn-lg" @click="showModal = true">Show modal</button>
-      <modal title="Modal title" :show.sync="showModal" effect="fade" :width="400">
-        <div class="modal-header">
-          <h4 class="modal-title">Modal <b>Title</b></h4>
-        </div>
-        <div class="modal-body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-      </modal>
       <button class="btn btn-success btn-lg" @click="bigModal = true">Big modal</button>
       <modal title="Big Modal" :show.sync="bigModal" effect="fade" :width="800">
         <div class="modal-body">
@@ -40,7 +34,7 @@
       </modal>
       <button class="btn btn-secondary btn-lg" @click="showCustomModal = true">Show custom modal</button>
       <modal :show.sync="showCustomModal" effect="fade" :width="400">
-        <div class="modal-header">
+        <div slot="modal-header" name="modal-header">
           <h4 class="modal-title"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>
         </div>
         <div class="modal-body">
@@ -51,7 +45,7 @@
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
-        <div class="modal-footer">
+        <div slot="modal-footer"  class="modal-footer">
           <button type="button" class="btn btn-secondary" @click='showCustomModal = false'>Exit</button>
           <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
         </div>
