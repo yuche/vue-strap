@@ -8,16 +8,16 @@
     <div class="modal-dialog" role="document"
       v-bind:style="{'width': width + 'px'}">
       <div class="modal-content">
-        <slot select=".modal-header">
+        <slot name="modal-header">
           <div class="modal-header">
             <button type="button" class="close" @click="close"><span>&times;</span></button>
             <h4 class="modal-title" >{{title}}</h4>
           </div>
         </slot>
-        <slot select=".modal-body">
+        <slot name="modal-body">
           <div class="modal-body"></div>
         </slot>
-        <slot select=".modal-footer">
+        <slot name="modal-footer">
           <div class="modal-footer">
             <button type="button" class="btn btn-default" @click="close">Close</button>
             <button type="button" class="btn btn-primary" @click="callback">Save changes</button>
