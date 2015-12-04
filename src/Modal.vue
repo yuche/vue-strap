@@ -49,11 +49,15 @@ import EventListener from './utils/EventListener.js'
       },
       callback: {
         type: Function,
-        default: function(){}
+        default() {}
       },
       effect: {
         type: String,
         default: 'fade'
+      },
+      backdrop: {
+        type: Boolean,
+        default: true
       }
     },
     watch: {
@@ -69,9 +73,11 @@ import EventListener from './utils/EventListener.js'
           if (scrollBarWidth !== 0) {
             body.style.paddingRight = scrollBarWidth + 'px'
           }
-          this._blurModalContentEvent = EventListener.listen(this.$el, 'click', (e)=> {
-            if (e.target === el) this.show = false
-          })
+          if (this.backdrop) {
+            this._blurModalContentEvent = EventListener.listen(this.$el, 'click', (e)=> {
+              if (e.target === el) this.show = false
+            })
+          }
         } else {
           if (this._blurModalContentEvent) this._blurModalContentEvent.remove()
           el.classList.remove('in')
