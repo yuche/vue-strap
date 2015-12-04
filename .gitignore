@@ -3,3 +3,7 @@ node_modules
 npm-debug.log
 static
 build
+
+vue-strap.sublime-project
+
+vue-strap.sublime-workspace
