@@ -63,7 +63,7 @@ Select data : {{custom.join(', ')}}
       <p>
         Optionally specify an options (array/collection) which will drive the contents of the property. You can enable search mode in this case.
         <pre>
-          Select data : {{arr}}
+Select data : {{arr}}
         </pre>
       </p>
       <v-select :value.sync="arr" :options="fruitOptions" :search="true">
@@ -101,8 +101,15 @@ Select data : {{custom.join(', ')}}
   <v-option value="Inbox"><span slot="span" class="glyphicon glyphicon-inbox"></span> Inbox</v-option>
 </v-select>
 
-      <v-select :value.sync="arr" :options="fruitOptions" :search="true">
-      </v-select>
+<v-select :value.sync="arr" :options="fruitOptions" :search="true">
+</v-select>
+fruitOptions = [
+  {value:'apple', label:'Apple'},
+  {value:'banana', label:'Banana'},
+  {value:'cherry', label:'Cherry'},
+  {value:'orange', label:'Orange'},
+  {value:'grape', label:'Grape'},
+]
 
     </script></code></pre>
     <h2>Select Options</h2>
