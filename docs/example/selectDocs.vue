@@ -58,6 +58,16 @@ Select data : {{custom.join(', ')}}
         <v-option value="Film"><span slot="span" class="glyphicon glyphicon-film"></span> Film</v-option>
         <v-option value="Inbox"><span slot="span" class="glyphicon glyphicon-inbox"></span> Inbox</v-option>
       </v-select>
+      <hr />
+      <h4>Array/Collection driven w/ search</h4>
+      <p>
+        Optionally specify an options (array/collection) which will drive the contents of the property. You can enable search mode in this case.
+        <pre>
+          Select data : {{arr}}
+        </pre>
+      </p>
+      <v-select :value.sync="arr" :options="fruitOptions" :search="true">
+      </v-select>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
 <v-select>
@@ -90,6 +100,10 @@ Select data : {{custom.join(', ')}}
   <v-option value="Film"><span slot="span" class="glyphicon glyphicon-film"></span> Film</v-option>
   <v-option value="Inbox"><span slot="span" class="glyphicon glyphicon-inbox"></span> Inbox</v-option>
 </v-select>
+
+      <v-select :value.sync="arr" :options="fruitOptions" :search="true">
+      </v-select>
+
     </script></code></pre>
     <h2>Select Options</h2>
     <table class="table table-bordered">
@@ -142,6 +156,14 @@ Select data : {{custom.join(', ')}}
     },
     data() {
       return {
+        fruitOptions: [
+          {value:'apple', label:'Apple'},
+          {value:'banana', label:'Banana'},
+          {value:'cherry', label:'Cherry'},
+          {value:'orange', label:'Orange'},
+          {value:'grape', label:'Grape'},
+        ],
+        arr: [],
         single: [],
         multiple: [],
         multipleLimit: [],
