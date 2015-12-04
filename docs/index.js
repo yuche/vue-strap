@@ -19,6 +19,7 @@ import modalDocs from './example/modalDocs.vue'
 import popoverDocs from './example/popoverDocs.vue'
 import progressbarDocs from './example/progressbar-docs.vue'
 import selectDocs from './example/selectDocs.vue'
+import comboboxDocs from './example/comboboxDocs.vue'
 import tabsDocs from './example/tabsDocs.vue'
 import tooltipDocs from './example/tooltipDocs.vue'
 import typeaheadDocs from './example/typeaheadDocs.vue'
@@ -44,6 +45,7 @@ new Vue({
     popoverDocs,
     progressbarDocs,
     selectDocs,
+    comboboxDocs,
     tabsDocs,
     tooltipDocs,
     typeaheadDocs,
