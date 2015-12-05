@@ -16,6 +16,7 @@ import progressbar from './Progressbar.vue'
 import radioBtn from './radioBtn.vue'
 import radioGroup from './radioGroup.vue'
 import select from './Select.vue'
+import combobox from './Select.vue'
 import tab from './Tab.vue'
 import tabset from './Tabset.vue'
 import tooltip from './Tooltip.vue'
@@ -40,6 +41,7 @@ const VueStrap = {
   radioGroup,
   radioBtn,
   select,
+  combobox,
   tab,
   tabset,
   tooltip,

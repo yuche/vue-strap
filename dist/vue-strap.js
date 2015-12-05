@@ -165,6 +165,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  radioGroup: _radioGroup2.default,
 	  radioBtn: _radioBtn2.default,
 	  select: _Select2.default,
+	  combobox: _Select2.default,
 	  tab: _Tab2.default,
 	  tabset: _Tabset2.default,
 	  tooltip: _Tooltip2.default,
