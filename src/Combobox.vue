@@ -13,7 +13,7 @@
       </a>
     </div>
     <div class="input-group-btn">
-      <button type="button" 
+      <button type="button"
           class="btn btn-secondary dropdown-toggle"
           @click="toggleDropdown"
           aria-haspopup="true" aria-expanded="false"></button>
@@ -88,9 +88,6 @@
           return foundItems.join(', ');
         }
       },
-      showPlaceholder() {
-        return this.value.length <= 0
-      }
     },
     methods: {
       select(v) {
