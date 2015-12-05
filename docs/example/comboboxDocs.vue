@@ -61,12 +61,6 @@ fruitOptions = [ 'Apple', 'Banana', 'Cherry', 'Orange', 'Grape', ]
           <td><code>false</code></td>
           <td>True if you want to allow free text entry. If false the value text box value must match one of the options (case insensitive)</td>
         </tr>
-        <tr>
-          <td>free-text-append</td>
-          <td><code>Boolean</code></td>
-          <td><code>false</code></td>
-          <td>True if you want </td>
-        </tr>
       </tbody>
     </table>
 
