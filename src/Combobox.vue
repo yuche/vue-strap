@@ -1,20 +1,28 @@
 <template>
-	<div class="input-group">
-	  <input type="text" class="form-control">
-	  <div class="input-group-btn">
-	  	<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
-	    <div class="dropdown-menu dropdown-menu-right">
-	      <a class="dropdown-item" href="#">Action</a>
-	      <a class="dropdown-item" href="#">Another action</a>
-	      <a class="dropdown-item" href="#">Something else here</a>
-	      <div role="separator" class="dropdown-divider"></div>
-	      <a class="dropdown-item" href="#">Separated link</a>
-	    </div>
-	  </div>
-	</div>
+  <div class="input-group" v-bind:class="{open: (showDropdown && (filteredOptions.length >0))}">
+    <input type="text"
+        class="form-control"
+        v-model="value"
+        :placeholder="placeholder"
+        @keyup="valueChanged"
+        @blur="blur"
+    >
+    <div class="dropdown-menu">
+      <a v-for="option in filteredOptions" @click.prevent="select(option)" class="dropdown-item">
+        {{ option }}
+      </a>
+    </div>
+    <div class="input-group-btn">
+      <button type="button" 
+          class="btn btn-secondary dropdown-toggle"
+          @click="toggleDropdown"
+          aria-haspopup="true" aria-expanded="false"></button>
+    </div>
+  </div>
 </template>
 
 <script>
+  var filter = Vue.filter('filterBy');
   export default {
     props: {
       options: {
@@ -23,36 +31,45 @@
       },
       value: {
         twoWay: true,
-        type: Array,
         default() {
           return []
         }
       },
       placeholder: {
         type: String,
-        default: 'Nothing Selected'
+        default: 'Select...'
       },
-      multiple: {
+      freeText: {
         type: Boolean,
         default: false
-      },
-      search: { // Allow searching (only works when options are provided)
-      	type: Boolean,
-      	default: false
-      },
-      limit: {
-        type: Number,
-        default: 1024
       }
     },
     data() {
       return {
-        searchText: null,
+        showDropdown: false,
+        searchDisabled: false,
         show: false,
-        showNotify: false
       }
     },
     computed: {
+      filteredOptions() {
+        var results = filter(this.options,this.searchText);
+        return results;
+      },
+      lowerCasedOptions() {
+        console.log(this.options);
+        return this.options.map((val) => {
+          console.log(val);
+          return val.toLowerCase();
+        });
+      },
+      searchText() {
+        // search by the text, unless, we need to disable the search
+        if (this.searchDisabled)
+          return '';
+        else
+          return this.value;
+      },
       selectedItems() {
         if (!this.options.length)
         {
@@ -75,28 +92,43 @@
         return this.value.length <= 0
       }
     },
-    watch: {
-      value(val) {
-        let timeout
-        if (timeout) clearTimeout(timeout)
-        if (val.length > this.limit) {
-          this.showNotify = true
-          this.value.pop()
-          timeout = setTimeout(()=> this.showNotify = false, 1000)
-        }
-      }
-    },
     methods: {
       select(v) {
-        var index = this.value.indexOf(v);
-        if (index === -1)
-          this.value.push(v);
-        else
-          this.value.$remove(v)
+        console.log(v, "selected");
+        this.value = v;
+        this.showDropdown = false;
       },
       toggleDropdown() {
-        this.show = !this.show
-      }
+        if (this.filteredOptions.length == 0)
+        {
+          this.value ="";
+          this.showDropdown = true;
+          return;
+        }
+        this.showDropdown = !this.showDropdown;
+        // if we are showing the dropdown:
+        if (this.showDropdown) // also make sure the search text is null
+          this.searchDisabled = true;
+      },
+      valueChanged() {
+        // They are typing stuff, so we need to:
+        // 1) show the dropdown
+        // 2) enable searching (if it was disabled)
+        this.searchDisabled = false;
+        this.showDropdown = true;
+      },
+      blur() {
+        // reset value if it didn't match (if within freetext)
+        if (!this.freeText)
+        {
+          // does this.value fall in the lowercased options?
+          if ( this.lowerCasedOptions.indexOf(this.value.toLowerCase()) == -1)
+          {
+            this.value = "";
+            this.showDropdown = false;
+          }
+        }
+      },
     }
   }
 </script>
