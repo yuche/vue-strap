@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- '4.1'
+  - '4.1'
 deploy:
   provider: npm
   email: "i@yuche.me"
