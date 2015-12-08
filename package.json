@@ -40,7 +40,7 @@
     "vue-clickaway": "^1.0.0",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
-    "vue-loader": "^7.0.3",
+    "vue-loader": "7.1.7",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.0"
   },
