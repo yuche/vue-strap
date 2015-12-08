@@ -2618,7 +2618,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return format.replace(/yyyy/g, year).replace(/MMMM/g, mouthName).replace(/MMM/g, mouthName.substring(0, 3)).replace(/MM/g, ('0' + month).slice(-2)).replace(/dd/g, ('0' + day).slice(-2)).replace(/yy/g, year).replace(/M(?!a)/g, month).replace(/d/g, day);
 	    },
 	    parse: function parse(str) {
-	      var date = new Date(str);
+	      var date;
+	      if (str) date = new Date(str);else date = new Date();
 	      return isNaN(date.getFullYear()) ? null : date;
 	    },
 	    getDayCount: function getDayCount(year, month) {
