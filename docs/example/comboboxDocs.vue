@@ -63,7 +63,6 @@ fruitOptions = [ 'Apple', 'Banana', 'Cherry', 'Orange', 'Grape', ]
         </tr>
       </tbody>
     </table>
-
   </div>
 </template>
 
