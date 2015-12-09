@@ -1,6 +1,6 @@
 <template>
 <div style="position: relative"
-  v-bind:class="{'open':showDropdown}"
+  v-bind:class="{'open':(showDropdown && (filteredData.length >0))}"
   >
   <input type="text" class="form-control"
     :placeholder="placeholder"
@@ -14,7 +14,7 @@
     @blur="showDropdown = false"
   />
   <div class="dropdown-menu" v-el:dropdown>
-    <a v-for="item in items" 
+    <a v-for="item in filteredData" 
        class="dropdown-item"
        v-bind:class="{'active': isActive($index)}"
        @mousedown.prevent="hit"
@@ -28,11 +28,10 @@
 </template>
 
 <script>
-import callAjax from './utils/callAjax.js'
+import callAjax from './utils/callAjax.js';
+var filter = Vue.filter('filterBy');
+
 const typeahead = {
-    created() {
-      this.items = this.primitiveData
-    },
     partials: {
       'default': '<span v-html="item | highlight query"></span>',
     },
@@ -74,24 +73,18 @@ const typeahead = {
     },
     data() {
       return {
-        query: '',
+        query: '', // this string is bound to the text box (searchbox)
         showDropdown: false,
         noResults: true,
-        current: 0,
-        items: [],
+        current: 0
       }
     },
     computed: {
-      primitiveData() {
-        if (this.data) {
-          return this.data.filter(value=> {
-            value = this.matchCase ? value : value.toLowerCase()
-            return value.indexOf(this.query) !== -1
-          }).slice(0, this.limit)
-        }
-      }
+      filteredData() {
+        return filter(this.data,this.query);
+      },
     },
-    ready() {
+    created() {
       // register a partial:
       if (this.templateName && this.templateName!=='default')
       {
@@ -105,18 +98,16 @@ const typeahead = {
           return false
         }
         if (this.data) {
-          this.items = this.primitiveData
-          this.showDropdown = this.items.length ? true : false
+          this.showDropdown = this.filteredData.length ? true : false
         }
         if (this.async) {
           callAjax(this.async + this.query, (data)=> {
-            this.items = data[this.key].slice(0, this.limit)
-            this.showDropdown = this.items.length ? true : false
+            this.data = data[this.key].slice(0, this.limit)
+            this.showDropdown = this.data.length ? true : false
           })
         }
       },
       reset() {
-        this.items = []
         this.query = ''
         this.loading = false
         this.showDropdown = false
@@ -128,15 +119,14 @@ const typeahead = {
         return this.current === index
       },
       hit(e) {
-        console.log("e", e, "e.targetVm", e.targetVM);
         e.preventDefault()
-        this.onHit(this.items[this.current], this);
+        this.onHit(this.filteredData[this.current], this);
       },
       up() {
         if (this.current > 0) this.current--
       },
       down() {
-        if (this.current < this.items.length - 1) this.current++
+        if (this.current < this.filteredData.length - 1) this.current++
       }
     },
     filters: {
