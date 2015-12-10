@@ -5119,7 +5119,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//     @blur="showDropdown = false"
 	//   />
 	//   <div class="dropdown-menu" v-el:dropdown>
-	//     <a v-for="item in filteredData"
+	//     <a v-for="item in filteredData | limitBy limit"
 	//        class="dropdown-item"
 	//        v-bind:class="{'active': isActive($index)}"
 	//        @mousedown.prevent="hit"
@@ -5127,6 +5127,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	//     >
 	//       <partial :name="templateName"></partial>
 	//     </a>
+	//     <h6 class="dropdown-header" style="font-size:80%;"
+	//       v-if="limit && filteredData.length > limit"
+	//     >
+	//       {{ filteredData.length }} items found (not shown)
+	//     </h6>
 	//   </div>
 	// </div>
 	
@@ -5278,7 +5283,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 175 */
 /***/ function(module, exports) {
 
-	module.exports = "<div style=\"position: relative\"\n  v-bind:class=\"{'open':(showDropdown && (filteredData.length >0))}\"\n  >\n  <input type=\"text\" class=\"form-control\"\n    :placeholder=\"placeholder\"\n    autocomplete=\"off\"\n    v-model=\"query\"\n    @input=\"update\"\n    @keydown.up=\"up\"\n    @keydown.down=\"down\"\n    @keydown.enter= \"hit\"\n    @keydown.esc=\"reset\"\n    @blur=\"showDropdown = false\"\n  />\n  <div class=\"dropdown-menu\" v-el:dropdown>\n    <a v-for=\"item in filteredData\" \n       class=\"dropdown-item\"\n       v-bind:class=\"{'active': isActive($index)}\"\n       @mousedown.prevent=\"hit\"\n       @mousemove=\"setActive($index)\"\n    >\n      <partial :name=\"templateName\"></partial>\n    </a>\n  </div>\n</div>";
+	module.exports = "<div style=\"position: relative\"\n  v-bind:class=\"{'open':(showDropdown && (filteredData.length >0))}\"\n  >\n  <input type=\"text\" class=\"form-control\"\n    :placeholder=\"placeholder\"\n    autocomplete=\"off\"\n    v-model=\"query\"\n    @input=\"update\"\n    @keydown.up=\"up\"\n    @keydown.down=\"down\"\n    @keydown.enter= \"hit\"\n    @keydown.esc=\"reset\"\n    @blur=\"showDropdown = false\"\n  />\n  <div class=\"dropdown-menu\" v-el:dropdown>\n    <a v-for=\"item in filteredData | limitBy limit\" \n       class=\"dropdown-item\"\n       v-bind:class=\"{'active': isActive($index)}\"\n       @mousedown.prevent=\"hit\"\n       @mousemove=\"setActive($index)\"\n    >\n      <partial :name=\"templateName\"></partial>\n    </a>\n    <h6 class=\"dropdown-header\" style=\"font-size:80%;\"\n      v-if=\"limit && filteredData.length > limit\"\n    >\n      {{ filteredData.length }} items found (not shown)\n    </h6>\n  </div>\n</div>";
 
 /***/ }
 /******/ ])

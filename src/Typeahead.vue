@@ -14,7 +14,7 @@
     @blur="showDropdown = false"
   />
   <div class="dropdown-menu" v-el:dropdown>
-    <a v-for="item in filteredData" 
+    <a v-for="item in filteredData | limitBy limit" 
        class="dropdown-item"
        v-bind:class="{'active': isActive($index)}"
        @mousedown.prevent="hit"
@@ -22,6 +22,11 @@
     >
       <partial :name="templateName"></partial>
     </a>
+    <h6 class="dropdown-header" style="font-size:80%;"
+      v-if="limit && filteredData.length > limit"
+    >
+      {{ filteredData.length }} items found (not shown)
+    </h6>
   </div>
 </div>
 
