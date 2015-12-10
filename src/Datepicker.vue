@@ -233,7 +233,11 @@ import EventListener from './utils/EventListener.js'
             .replace(/d/g, day)
         },
         parse(str) {
-          const date = new Date(str)
+			var date;
+			if (str)
+				date = new Date(str)
+			else
+				date = new Date();
           return isNaN(date.getFullYear()) ? null : date
         },
         getDayCount(year, month) {

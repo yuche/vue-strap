@@ -22,112 +22,110 @@
 </template>
 
 <script>
-  var filter = Vue.filter('filterBy');
-  export default {
-    props: {
-      options: {
-        type: Array,
-        default() { return [] },
-      },
-      value: {
-        twoWay: true,
-        default() {
-          return []
-        }
-      },
-      placeholder: {
-        type: String,
-        default: 'Select...'
-      },
-      freeText: {
-        type: Boolean,
-        default: false
+var filter = Vue.filter('filterBy');
+export default {
+  props: {
+    options: {
+      type: Array,
+      default() { return [] },
+    },
+    value: {
+      twoWay: true,
+      default() {
+        return []
       }
     },
-    data() {
-      return {
-        showDropdown: false,
-        searchDisabled: false,
-        show: false,
-      }
+    placeholder: {
+      type: String,
+      default: 'Select...'
     },
-    computed: {
-      filteredOptions() {
-        var results = filter(this.options,this.searchText);
-        return results;
-      },
-      lowerCasedOptions() {
-        console.log(this.options);
-        return this.options.map((val) => {
-          console.log(val);
-          return val.toLowerCase();
-        });
-      },
-      searchText() {
-        // search by the text, unless, we need to disable the search
-        if (this.searchDisabled)
-          return '';
-        else
-          return this.value;
-      },
-      selectedItems() {
-        if (!this.options.length)
-        {
-          return this.value.join(',');
-        }
-        else
-        {
-          // we were given bunch of options, so pluck them out to display
-          var foundItems = [];
-          for (var item of this.options)
-          {
-            if (this.value.indexOf(item.value) !== -1)
-              foundItems.push(item.label);
-          }
-
-          return foundItems.join(', ');
-        }
-      },
-    },
-    methods: {
-      select(v) {
-        console.log(v, "selected");
-        this.value = v;
-        this.showDropdown = false;
-      },
-      toggleDropdown() {
-        if (this.filteredOptions.length == 0)
-        {
-          this.value ="";
-          this.showDropdown = true;
-          return;
-        }
-        this.showDropdown = !this.showDropdown;
-        // if we are showing the dropdown:
-        if (this.showDropdown) // also make sure the search text is null
-          this.searchDisabled = true;
-      },
-      valueChanged() {
-        // They are typing stuff, so we need to:
-        // 1) show the dropdown
-        // 2) enable searching (if it was disabled)
-        this.searchDisabled = false;
-        this.showDropdown = true;
-      },
-      blur() {
-        // reset value if it didn't match (if within freetext)
-        if (!this.freeText)
-        {
-          // does this.value fall in the lowercased options?
-          if ( this.lowerCasedOptions.indexOf(this.value.toLowerCase()) == -1)
-          {
-            this.value = "";
-            this.showDropdown = false;
-          }
-        }
-      },
+    freeText: {
+      type: Boolean,
+      default: false
     }
+  },
+  data() {
+    return {
+      showDropdown: false,
+      searchDisabled: false,
+      show: false,
+    }
+  },
+  computed: {
+    filteredOptions() {
+      var results = filter(this.options,this.searchText);
+      return results;
+    },
+    lowerCasedOptions() {
+      return this.options.map((val) => {
+        console.log(val);
+        return val.toLowerCase();
+      });
+    },
+    searchText() {
+      // search by the text, unless, we need to disable the search
+      if (this.searchDisabled)
+        return '';
+      else
+        return this.value;
+    },
+    selectedItems() {
+      if (!this.options.length)
+      {
+        return this.value.join(',');
+      }
+      else
+      {
+        // we were given bunch of options, so pluck them out to display
+        var foundItems = [];
+        for (var item of this.options)
+        {
+          if (this.value.indexOf(item.value) !== -1)
+            foundItems.push(item.label);
+        }
+
+        return foundItems.join(', ');
+      }
+    },
+  },
+  methods: {
+    select(v) {
+      this.value = v;
+      this.showDropdown = false;
+    },
+    toggleDropdown() {
+      if (this.filteredOptions.length == 0)
+      {
+        this.value ="";
+        this.showDropdown = true;
+        return;
+      }
+      this.showDropdown = !this.showDropdown;
+      // if we are showing the dropdown:
+      if (this.showDropdown) // also make sure the search text is null
+        this.searchDisabled = true;
+    },
+    valueChanged() {
+      // They are typing stuff, so we need to:
+      // 1) show the dropdown
+      // 2) enable searching (if it was disabled)
+      this.searchDisabled = false;
+      this.showDropdown = true;
+    },
+    blur() {
+      // reset value if it didn't match (if within freetext)
+      if (!this.freeText)
+      {
+        // does this.value fall in the lowercased options?
+        if ( this.lowerCasedOptions.indexOf(this.value.toLowerCase()) == -1)
+        {
+          this.value = "";
+          this.showDropdown = false;
+        }
+      }
+    },
   }
+}
 </script>
 <style>
 .bs_searchbox {
