@@ -4,8 +4,8 @@
         class="form-control"
         v-model="value"
         :placeholder="placeholder"
-        @keyup="valueChanged"
-        @blur="blur"
+        @input="valueChanged"
+        @blur.prevent="blur"
     >
     <div class="dropdown-menu">
       <a v-for="option in filteredOptions" @click.prevent="select(option)" class="dropdown-item">
@@ -15,7 +15,7 @@
     <div class="input-group-btn">
       <button type="button"
           class="btn btn-secondary dropdown-toggle"
-          @click="toggleDropdown"
+          @click.prevent="toggleDropdown"
           aria-haspopup="true" aria-expanded="false"></button>
     </div>
   </div>
@@ -58,7 +58,6 @@ export default {
     },
     lowerCasedOptions() {
       return this.options.map((val) => {
-        console.log(val);
         return val.toLowerCase();
       });
     },
@@ -110,19 +109,28 @@ export default {
       // 1) show the dropdown
       // 2) enable searching (if it was disabled)
       this.searchDisabled = false;
-      this.showDropdown = true;
+      if (this.value !=='') // empty value means no dropdown
+        this.showDropdown = true;
+      else
+        this.showDropdown = false;
     },
     blur() {
       // reset value if it didn't match (if within freetext)
       if (!this.freeText)
       {
-        // does this.value fall in the lowercased options?
+        // does this.value fall in the  options?
         if ( this.lowerCasedOptions.indexOf(this.value.toLowerCase()) == -1)
         {
           this.value = "";
           this.showDropdown = false;
         }
       }
+      else
+      {
+        // there is a bug where this event is triggerd and it doesn't triger select event... (must analyze)
+        //this.$nextTick(()=> this.showDropdown = false);
+      }
+      return true;
     },
   }
 }
