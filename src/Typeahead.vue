@@ -34,6 +34,7 @@
 
 <script>
 import callAjax from './utils/callAjax.js';
+import Vue from 'vue';
 var filter = Vue.filter('filterBy');
 
 const typeahead = {

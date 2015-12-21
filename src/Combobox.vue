@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 var filter = Vue.filter('filterBy');
 export default {
   props: {
