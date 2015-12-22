@@ -34,11 +34,7 @@
         default() { return [] },
       },
       value: {
-        twoWay: true,
-        type: Array,
-        default() {
-          return []
-        }
+        twoWay: true
       },
       placeholder: {
         type: String,
@@ -57,6 +53,11 @@
         default: 1024
       }
     },
+    ready(){
+      if(this.multiple){
+        this.value=[]
+      }
+    },
     data() {
       return {
         searchText: null,
@@ -66,25 +67,38 @@
     },
     computed: {
       selectedItems() {
-        if (!this.options.length)
+        if (!this.multiple)
         {
-          return this.value.join(',');
+          for(var c of this.$children){
+              if(c.value==this.value){
+                return c.$els.v.innerText
+              }
+          }
+          return ""
         }
         else
         {
-          // we were given bunch of options, so pluck them out to display
-          var foundItems = [];
-          for (var item of this.options)
-          {
-            if (this.value.indexOf(item.value) !== -1)
-              foundItems.push(item.label);
+          if (!this.options.length){
+			var r=[]
+            for(var c of this.$children){
+              if(this.value.indexOf(c.value)!==-1){
+                  r.push(c.$els.v.innerText)
+              }
+            }
+            return r.join(',');
+          }else{
+			// we were given bunch of options, so pluck them out to display
+			var foundItems = [];
+            for (var item of this.options){
+            	if (this.value.indexOf(item.value) !== -1)
+                	foundItems.push(item.label);
+			}
+            return foundItems.join(', ');
           }
-
-          return foundItems.join(', ');
         }
       },
       showPlaceholder() {
-        return this.value.length <= 0
+      	return this.multiple ? this.value.length <= 0 : (typeof this.value==='undefined' || this.value=='');
       }
     },
     watch: {
@@ -100,11 +114,16 @@
     },
     methods: {
       select(v) {
-        var index = this.value.indexOf(v);
-        if (index === -1)
-          this.value.push(v);
-        else
-          this.value.$remove(v)
+        if(this.multiple!=false){
+          var index = this.value.indexOf(v);
+          if (index === -1)
+            this.value.push(v);
+          else
+            this.value.$remove(v)
+        }else{
+          this.value=v
+        }
+
       },
       toggleDropdown() {
         this.show = !this.show
