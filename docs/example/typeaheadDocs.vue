@@ -17,11 +17,10 @@
       </tooltip>
       </h4>
       <typeahead 
-        placeholder="CCCAddress, async via maps.googleapis.com"
+        placeholder="Address, async via maps.googleapis.com"
         key="results"
         async="https://maps.googleapis.com/maps/api/geocode/json?address="
-        template-name="async"
-        :template="asyncTemplate"
+        template="{{ item.formatted_address }}"
         :on-hit="googleCallback"
       ></typeahead>
       <hr>
@@ -32,7 +31,6 @@
         placeholder="Github users, async via api.github.com"
         key="items"
         async="https://api.github.com/search/users?q=" 
-        template-name="github"
         :template="githubTemplate"
         :on-hit="githubCallback"
       ></typeahead>
@@ -156,13 +154,10 @@ new Vue {
       typeahead,
       tooltip
     },
-    partials: {
-    },
     data() {
       return {
         USstate: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
-        'asyncTemplate': '{{ item.formatted_address }}',
-        'githubTemplate': '<img width="18px" height="18px" :src="item.avatar_url"/> <span>{{item.login}}</span>'
+        'githubTemplate': '<img width="18px" height="18px" src="{{ item.avatar_url }}"/> <span>{{item.login}}</span>'
       }
     },
     methods: {

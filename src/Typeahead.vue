@@ -20,7 +20,7 @@
        @mousedown.prevent="hit"
        @mousemove="setActive($index)"
     >
-      <partial :name="templateName"></partial>
+      <span v-html="$interpolate(template)"></span>
     </a>
     <h6 class="dropdown-header" style="font-size:80%;"
       v-if="limit && filteredData.length > limit"
@@ -38,9 +38,6 @@ import Vue from 'vue';
 var filter = Vue.filter('filterBy');
 
 const typeahead = {
-    partials: {
-      'default': '<span v-html="item | highlight query"></span>',
-    },
     props: {
       data: {
         type: Array
@@ -53,11 +50,8 @@ const typeahead = {
         type: String
       },
       template: {
-        type:String
-      },
-      templateName: {
         type:String,
-        default: 'default'
+        default: '{{item | highlight query}}'
       },
       key: {
         type: String
@@ -89,13 +83,6 @@ const typeahead = {
       filteredData() {
         return filter(this.data,this.query);
       },
-    },
-    created() {
-      // register a partial:
-      if (this.templateName && this.templateName!=='default')
-      {
-        Vue.partial(this.templateName, this.template)
-      }
     },
     methods: {
       update() {
