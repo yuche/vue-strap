@@ -5,10 +5,10 @@
   </span>
   <div class="popover"
     v-bind:class="{
-    'top':placement === 'top',
-    'left':placement === 'left',
-    'right':placement === 'right',
-    'bottom':placement === 'bottom'
+    'popover-top':placement === 'top',
+    'popover-left':placement === 'left',
+    'popover-right':placement === 'right',
+    'popover-bottom':placement === 'bottom'
     }"
     v-el:popover
     v-show="show"

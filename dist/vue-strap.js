@@ -3622,10 +3622,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	//   </span>
 	//   <div class="popover"
 	//     v-bind:class="{
-	//     'top':placement === 'top',
-	//     'left':placement === 'left',
-	//     'right':placement === 'right',
-	//     'bottom':placement === 'bottom'
+	//     'popover-top':placement === 'top',
+	//     'popover-left':placement === 'left',
+	//     'popover-right':placement === 'right',
+	//     'popover-bottom':placement === 'bottom'
 	//     }"
 	//     v-el:popover
 	//     v-show="show"
@@ -3764,7 +3764,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 126 */
 /***/ function(module, exports) {
 
-	module.exports = "<span>\n  <span v-el:trigger>\n    <slot></slot>\n  </span>\n  <div class=\"popover\"\n    v-bind:class=\"{\n    'top':placement === 'top',\n    'left':placement === 'left',\n    'right':placement === 'right',\n    'bottom':placement === 'bottom'\n    }\"\n    v-el:popover\n    v-show=\"show\"\n    :transition=\"effect\">\n      <div class=\"popover-arrow\"></div>\n      <h3 class=\"popover-title\" v-show=\"header\">{{title}}</h3>\n      <div class=\"popover-content\">\n        {{{content}}}\n      </div>\n  </div>\n</span>";
+	module.exports = "<span>\n  <span v-el:trigger>\n    <slot></slot>\n  </span>\n  <div class=\"popover\"\n    v-bind:class=\"{\n    'popover-top':placement === 'top',\n    'popover-left':placement === 'left',\n    'popover-right':placement === 'right',\n    'popover-bottom':placement === 'bottom'\n    }\"\n    v-el:popover\n    v-show=\"show\"\n    :transition=\"effect\">\n      <div class=\"popover-arrow\"></div>\n      <h3 class=\"popover-title\" v-show=\"header\">{{title}}</h3>\n      <div class=\"popover-content\">\n        {{{content}}}\n      </div>\n  </div>\n</span>";
 
 /***/ },
 /* 127 */
