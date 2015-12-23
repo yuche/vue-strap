@@ -16,16 +16,16 @@
       </popover>
       <hr>
       <h4>No title</h4>
-      <popover effect="fade"  title="Title" content="Lorem ipsum dolor sit amet" placement="top">
+      <popover effect="fade"  content="Lorem ipsum dolor sit amet" placement="top">
         <button class="btn btn-secondary ">Popover on top</button>
       </popover>
-      <popover effect="fade"  title="Title" content="Lorem ipsum dolor sit amet" placement="left">
+      <popover effect="fade"  content="Lorem ipsum dolor sit amet" placement="left">
         <button class="btn btn-secondary ">Popover on left</button>
       </popover>
-      <popover effect="fade"  title="Title" content="Lorem ipsum dolor sit amet" placement="right">
+      <popover effect="fade"  content="Lorem ipsum dolor sit amet" placement="right">
         <button class="btn btn-secondary ">Popover on right</button>
       </popover>
-      <popover effect="fade" placement="bottom"  title="Title" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
+      <popover effect="fade" placement="bottom"  content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
         <button class="btn btn-secondary ">Popover on bottom</button>
       </popover>
       <hr>

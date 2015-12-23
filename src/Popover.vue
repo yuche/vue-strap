@@ -1,7 +1,7 @@
 <template>
+<span>
   <span v-el:trigger>
-    <slot>
-    </slot>
+    <slot></slot>
   </span>
   <div class="popover"
     v-bind:class="{
@@ -19,6 +19,7 @@
         {{{content}}}
       </div>
   </div>
+</span>
 </template>
 
 <script>
