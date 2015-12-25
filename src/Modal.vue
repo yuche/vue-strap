@@ -1,12 +1,13 @@
 <template>
-  <div class="modal fade" role="dialog"
+  <div role="dialog"
     v-bind:class="{
+    'modal':true,
     'fade':effect === 'fade',
     'zoom':effect === 'zoom'
     }"
     >
-    <div class="modal-dialog" role="document"
-      v-bind:style="{'width': width + 'px'}">
+    <div v-bind:class="{'modal-dialog':true,'modal-lg':large,'modal-sm':small}" role="document"
+      v-bind:style="{width: optionalWidth}">
       <div class="modal-content">
         <slot name="modal-header">
           <div class="modal-header">
@@ -44,8 +45,7 @@ import EventListener from './utils/EventListener.js'
         twoWay: true
       },
       width: {
-        type: Number,
-        default: 600
+        default: null
       },
       callback: {
         type: Function,
@@ -53,11 +53,19 @@ import EventListener from './utils/EventListener.js'
       },
       effect: {
         type: String,
-        default: 'fade'
+        default: null
       },
       backdrop: {
         type: Boolean,
         default: true
+      },
+      large: {
+        type: Boolean,
+        default: false
+      },
+      small: {
+        type: Boolean,
+        default: false
       }
     },
     watch: {
@@ -88,6 +96,16 @@ import EventListener from './utils/EventListener.js'
           }, 300)
         }
       }
+    },
+    computed: {
+      optionalWidth: function() {
+        if( this.width === null ) {
+          return null;
+        } else if( Number.isInteger(this.width) ) {
+          return this.width + "px";
+        }
+        return this.width;
+      },
     },
     methods: {
       close() {
