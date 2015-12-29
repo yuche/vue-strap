@@ -22,7 +22,7 @@
       {
         if (this.$parent.$children[c].$el == this.$el)
         {
-            this.index= c;
+            this.index = parseInt(c,10);
             break;
         }
       }
