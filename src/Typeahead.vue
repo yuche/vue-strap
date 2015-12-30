@@ -38,6 +38,12 @@ import Vue from 'vue';
 var filter = Vue.filter('filterBy');
 
 const typeahead = {
+    created() {
+      this.items = this.primitiveData
+    },
+    partials: {
+      'default': '<span v-html="item | highlight query"></span>',
+    },
     props: {
       data: {
         type: Array

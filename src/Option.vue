@@ -22,18 +22,21 @@
     },
     computed: {
       chosen() {
-        return this.$parent.value.indexOf(this.value) !== -1 ? true : false
+        if(this.$parent.multiple){
+          return this.$parent.value.indexOf(this.value) !== -1 ? true : false  
+        }
+        return this.$parent.value==this.value
+        
       }
     },
     methods: {
       handleClick() {
         const parent = this.$parent
-        const index = parent.value.indexOf(this.value)
         if (parent.multiple) {
+          const index = parent.value.indexOf(this.value)
           index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1)
         } else {
-          parent.value = []
-          parent.value.push(this.value)
+          parent.value=this.value;
           parent.show = false
         }
       }
