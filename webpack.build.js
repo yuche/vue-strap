@@ -10,6 +10,5 @@ config.output = {
   libraryTarget: 'umd'
 }
 
-delete config.plugins
 
 module.exports = config

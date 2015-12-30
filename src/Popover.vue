@@ -1,20 +1,20 @@
 <template>
-  <span v-el="trigger">
-    <content>
-    </content>
+  <span v-el:trigger>
+    <slot>
+    </slot>
   </span>
   <div class="popover"
-    v-class="
-    top:placement === 'top',
-    left:placement === 'left',
-    right:placement === 'right',
-    bottom:placement === 'bottom'
-    "
-    v-el="popover"
+    v-bind:class="{
+    'top':placement === 'top',
+    'left':placement === 'left',
+    'right':placement === 'right',
+    'bottom':placement === 'bottom'
+    }"
+    v-el:popover
     v-show="show"
-    v-transition="{{effect}}">
+    :transition="effect">
       <div class="arrow"></div>
-      <h3 class="popover-title" v-show="header">{{title}}</h3>
+      <h3 class="popover-title" v-show="title">{{title}}</h3>
       <div class="popover-content">
         {{{content}}}
       </div>

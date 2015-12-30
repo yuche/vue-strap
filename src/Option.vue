@@ -1,10 +1,14 @@
 <template>
   <li style="position:relative">
-    <a v-on='mousedown:handleClick' style="cursor:pointer">
-      <content></content>
-      <content select="span.text">
+    <a @mousedown.prevent="handleClick" style="cursor:pointer">
+<<<<<<< HEAD
+      <slot></slot>
+=======
+      <span v-el:v><slot></slot></span>
+>>>>>>> master
+      <slot name="span">
         {{value}}
-      </content>
+      </slot>
       <span class="glyphicon glyphicon-ok check-mark" v-show="chosen"></span>
     </a>
   </li>
@@ -24,19 +28,21 @@
     },
     computed: {
       chosen() {
-        return this.$parent.value.indexOf(this.value) !== -1 ? true : false
+        if(this.$parent.multiple){
+          return this.$parent.value.indexOf(this.value) !== -1 ? true : false  
+        }
+        return this.$parent.value==this.value
+        
       }
     },
     methods: {
-      handleClick(e) {
-        e.preventDefault()
+      handleClick() {
         const parent = this.$parent
-        const index = parent.value.indexOf(this.value)
         if (parent.multiple) {
+          const index = parent.value.indexOf(this.value)
           index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1)
         } else {
-          parent.value = []
-          parent.value.push(this.value)
+          parent.value=this.value;
           parent.show = false
         }
       }

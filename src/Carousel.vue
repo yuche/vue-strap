@@ -6,15 +6,14 @@
   </ol>
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <content>
-    </content>
+    <slot></slot>
   </div>
   <!-- Controls -->
-  <a v-show="controls" class="left carousel-control" v-on="click:prevClick">
+  <a v-show="controls" class="left carousel-control" @click="prevClick">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a v-show="controls" class="right carousel-control" v-on="click:nextClick">
+  <a v-show="controls" class="right carousel-control" @click="nextClick">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
@@ -41,7 +40,7 @@ import EventListener from './utils/EventListener.js'
     components: {
       'indicator': {
         inherit: true,
-        template: `<li v-repeat="indicator" v-on="click:handleIndicatorClick($index)" v-class="active:$index === activeIndex"</li>`,
+        template: '<li v-for="i in indicator" @click="handleIndicatorClick($index)" v-bind:class="{\'active\':$index === activeIndex}"</li>',
         methods: {
           handleIndicatorClick(index) {
             if (this.isAnimating) return false
@@ -120,5 +119,4 @@ import EventListener from './utils/EventListener.js'
   .carousel-control {
     cursor: pointer;
   }
-
 </style>

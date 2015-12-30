@@ -1,10 +1,10 @@
 <template>
   <div role="tabpanel" class="tab-pane"
-  v-class="hide:!show"
-  v-show="show"
-  v-transition="{{transition}}"
+      v-bind:class="{hide:!show}"
+      v-show="show"
+      :transition="transition"
   >
-    <content></content>
+    <slot></slot>
   </div>
 </template>
 
@@ -27,7 +27,7 @@
     },
     computed: {
       show() {
-        return this.$parent.activeIndex === this.index
+        return (this.$parent.activeIndex == this.index);
       },
       transition() {
         return this.$parent.effect
@@ -40,7 +40,14 @@
       })
     },
     ready() {
-      this.index = [...this.$el.parentNode.children].indexOf(this.$el)
+        for (var c in this.$parent.$children)
+        {
+            if (this.$parent.$children[c].$el == this.$el)
+            {
+                this.index= c;
+                break;
+            }
+        }
     }
   }
 </script>
@@ -48,8 +55,5 @@
 <style scoped>
   .tab-content > .tab-pane {
     display: block;
-  }
-  .tab-content > .tab-pane.hide {
-    position: absolute;
   }
 </style>

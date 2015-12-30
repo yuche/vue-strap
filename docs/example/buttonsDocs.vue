@@ -3,7 +3,7 @@
     <h1 class="page-header"><a href="#buttons" class="anchor">Buttons</a></h1>
     <div class="bs-example">
       <h4>Checkbox</h4>
-      <checkbox-group value="{{checkboxValue}}">
+      <checkbox-group :value.sync="checkboxValue">
         <checkbox value="left">Left</checkbox>
         <checkbox value="middle" checked>Middle</checkbox>
         <checkbox value="right">Right</checkbox>
@@ -15,13 +15,13 @@ Checkbox value: {{checkboxValue | json}}
       </p>
       <hr>
       <h4>Radio</h4>
-      <radio-group value="{{@radioValue}}" type="primary">
+      <radio-group :value.sync="radioValue" type="primary">
         <radio value="left">Left</radio>
         <radio value="middle" checked>Middle</radio>
         <radio value="right">Right</radio>
       </radio-group>
 
-      <radio-group value="{{@radioValue}}" type="success">
+      <radio-group :value.sync="radioValue" type="success">
         <radio value="left">Left</radio>
         <radio value="middle" checked>Middle</radio>
         <radio value="right">Right</radio>
@@ -34,19 +34,19 @@ Radio value: {{radioValue}}
     </div>
 
     <pre><code class="language-markup"><script type="language-mark-up">
-<checkbox-group value="{{checkboxValue}}">
+<checkbox-group :value.sync="checkboxValue">
   <checkbox value="left">Left</checkbox>
   <checkbox value="middle" checked>Middle</checkbox>
   <checkbox value="right">Right</checkbox>
 </checkbox-group>
 
-<radio-group value="{{@radioValue}}" type="primary">
+<radio-group :value.sync="radioValue" type="primary">
   <radio value="left">Left</radio>
   <radio value="middle" checked>Middle</radio>
   <radio value="right">Right</radio>
 </radio-group>
 
-<radio-group value="{{@radioValue}}" type="success">
+<radio-group :value.sync="radioValue" type="success">
   <radio value="left">Left</radio>
   <radio value="middle" checked>Middle</radio>
   <radio value="right">Right</radio>

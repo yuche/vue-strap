@@ -1,8 +1,8 @@
 <template>
 <div>
-<div v-class="vue-affix:affixed"
-  v-style="styles">
-  <content></content>
+<div v-bind:class="{'vue-affix': affixed}"
+  v-bind:style="styles">
+  <slot></slot>
 </div>
 </div>
 </template>

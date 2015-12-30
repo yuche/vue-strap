@@ -1,28 +1,39 @@
 <template>
+<<<<<<< HEAD
   <div class="modal fade" role="dialog"
-    v-class="
-    fade:effect === 'fade',
-    zoom:effect === 'zoom'"
+    v-bind:class="{
+=======
+  <div role="dialog"
+    v-bind:class="{
+    'modal':true,
+>>>>>>> master
+    'fade':effect === 'fade',
+    'zoom':effect === 'zoom'
+    }"
     >
+<<<<<<< HEAD
     <div class="modal-dialog" role="document"
-      v-style="width: width + 'px'
-      ">
+      v-bind:style="{'width': width + 'px'}">
+=======
+    <div v-bind:class="{'modal-dialog':true,'modal-lg':large,'modal-sm':small}" role="document"
+      v-bind:style="{width: optionalWidth}">
+>>>>>>> master
       <div class="modal-content">
-        <content select=".modal-header">
+        <slot name="modal-header">
           <div class="modal-header">
-            <button type="button" class="close" v-on='click:close'><span>&times;</span></button>
+            <button type="button" class="close" @click="close"><span>&times;</span></button>
             <h4 class="modal-title" >{{title}}</h4>
           </div>
-        </content>
-        <content select=".modal-body">
+        </slot>
+        <slot name="modal-body">
           <div class="modal-body"></div>
-        </content>
-        <content select=".modal-footer">
+        </slot>
+        <slot name="modal-footer">
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" v-on='click:close'>Close</button>
-            <button type="button" class="btn btn-primary" v-on='click:callback'>Save changes</button>
+            <button type="button" class="btn btn-default" @click="close">Close</button>
+            <button type="button" class="btn btn-primary" @click="callback">Save changes</button>
           </div>
-        </content>
+        </slot>
       </div>
     </div>
   </div>
@@ -44,16 +55,34 @@ import EventListener from './utils/EventListener.js'
         twoWay: true
       },
       width: {
-        type: Number,
-        default: 600
+        default: null
       },
       callback: {
         type: Function,
-        default: function(){}
+        default() {}
       },
       effect: {
         type: String,
+<<<<<<< HEAD
         default: 'fade'
+=======
+        default: null
+>>>>>>> master
+      },
+      backdrop: {
+        type: Boolean,
+        default: true
+<<<<<<< HEAD
+=======
+      },
+      large: {
+        type: Boolean,
+        default: false
+      },
+      small: {
+        type: Boolean,
+        default: false
+>>>>>>> master
       }
     },
     watch: {
@@ -69,9 +98,11 @@ import EventListener from './utils/EventListener.js'
           if (scrollBarWidth !== 0) {
             body.style.paddingRight = scrollBarWidth + 'px'
           }
-          this._blurModalContentEvent = EventListener.listen(this.$el, 'click', (e)=> {
-            if (e.target === el) this.show = false
-          })
+          if (this.backdrop) {
+            this._blurModalContentEvent = EventListener.listen(this.$el, 'click', (e)=> {
+              if (e.target === el) this.show = false
+            })
+          }
         } else {
           if (this._blurModalContentEvent) this._blurModalContentEvent.remove()
           el.classList.remove('in')
@@ -82,6 +113,16 @@ import EventListener from './utils/EventListener.js'
           }, 300)
         }
       }
+    },
+    computed: {
+      optionalWidth: function() {
+        if( this.width === null ) {
+          return null;
+        } else if( Number.isInteger(this.width) ) {
+          return this.width + "px";
+        }
+        return this.width;
+      },
     },
     methods: {
       close() {

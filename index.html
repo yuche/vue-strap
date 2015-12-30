@@ -50,7 +50,7 @@
     <affix>
       <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm ">
         <ul class="nav bs-docs-sidenav" id="sidenav">
-          <list></list>
+          <li v-for="a in anchor"><a href="#{{ a.toLowerCase() }}">{{ a | space}}</a></li>
         </ul>
         <a href="#top" class="back-to-top">Back to top</a>
         <a href="https://github.com/yuche/vue-strap" class="back-to-top">GitHub</a>
@@ -71,7 +71,13 @@
 <p>Code licensed under <a href="//github.com/mgcrea/angular-strap/blob/master/LICENSE.md" target="_blank">The MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>    </p>
   </div>
 </footer>
+<<<<<<< HEAD
+<<<<<<< HEAD
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.10/vue.min.js"></script>
+=======
+<!-- using cdn version here so it works under gh-pages -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.13/vue.min.js"></script>
+>>>>>>> master
 <script src="build/build-docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -82,7 +88,14 @@
   ga('create', 'UA-68540643-1', 'auto');
   ga('send', 'pageview');
 
+<<<<<<< HEAD
 </script>
+=======
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="static/build.js"></script>
+>>>>>>> master
 
+=======
+>>>>>>> master
 </body>
 </html>

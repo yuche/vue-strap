@@ -1,6 +1,6 @@
 {
   "plugins": [
-    "html"                          // https://github.com/BenoitZugmeyer/eslint-plugin-html
+    "eslint-plugin-html"                          // https://github.com/BenoitZugmeyer/eslint-plugin-html
   ],
   "parser": "babel-eslint",
   "env": {                           // http://eslint.org/docs/user-guide/configuring.html#specifying-environments

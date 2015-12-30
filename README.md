@@ -3,7 +3,7 @@ Bootstrap components built with Vue.js.
 
 This repository contains a set of native Vue.js components based on Bootstrap's markup and CSS. As a result no dependency on jQuery or Bootstrap's JavaScript is required. The only required dependencies are:
 
-* [Vue.js](http://vuejs.org/) (required ^0.12, test with 0.12.10).
+* [Vue.js](http://vuejs.org/) (required ^v1.x.x, test with v1.0.8).
 * [Bootstrap CSS](http://getbootstrap.com/) (required 3.x.x, test with 3.3.5). VueStrap doesn't depend on a very precise version of Bootstrap.
 
 ## Installation
@@ -68,11 +68,7 @@ See the [documentation](http://yuche.github.io/vue-strap/) with live editable ex
 * Build with `npm run build`.
 
 ## TODO
-- [ ] Vue.js 1.0 support. (When Vue.js 1.0 stable is released.)
-- [ ] Bootstrap 4 support. (When Bootstrap 4.0 final is released.)
-- [ ] Tests and Travis-CI.
-- [ ] Refactoring Datepicker.
-- [ ] So many things....
+See [Roadmap](https://github.com/yuche/vue-strap/issues/41)
 
 ## License
 vue-strap is licensed under [The MIT License](LICENSE).

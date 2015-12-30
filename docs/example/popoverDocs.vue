@@ -2,16 +2,16 @@
   <div class="bs-docs-section" id="popover">
     <h1 class="page-header"><a href="#popover" class="anchor">Popover</a></h1>
     <div class="bs-example">
-      <popover effect="fade" header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="top">
+      <popover effect="fade" :header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="top">
         <button class="btn btn-default ">Popover on top</button>
       </popover>
-      <popover effect="fade" header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="left">
+      <popover effect="fade" :header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="left">
         <button class="btn btn-default ">Popover on left</button>
       </popover>
-      <popover effect="fade" header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="right">
+      <popover effect="fade" :header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="right">
         <button class="btn btn-default ">Popover on right</button>
       </popover>
-      <popover effect="fade" placement="bottom" header="true" title="Title" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
+      <popover effect="fade" placement="bottom" :header="true" title="Title" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
         <button class="btn btn-default ">Popover on bottom</button>
       </popover>
       <hr>
@@ -107,7 +107,7 @@
 </template>
 
 <script>
-  import popover from 'src/Popover'
+  import popover from 'src/Popover.vue'
   export default {
     data() {
       return {

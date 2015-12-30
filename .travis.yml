@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - '4.1'
+deploy:
+  provider: npm
+  email: "i@yuche.me"
+  api_key:
+    secure: LJCJj5B+at11PI55rp5xzrbcsE2FvTIPKMR+ZmQ3tlvYIDMChq0zu5kH+oKcBWoVjf9x1xJTMimcSJ85jtd0DpRztiuBIXDhrRpOvGMaZJQZEypzoW0y6Hji/i4Wxc4HZRylDOoJug5VipRlaQwvvZvLhc7uckP1e0dexc0M9ba//I+MrTUDmZGNYKDy5YT1MQY0NdtQd55/ulHy5sNReqBjJ0Rzfo9IHfRge5ZeSoPuQm5lZegB+Z6i6V3XRNixfv4iSMoVysMMufCMTzRkweCJywSZTqJIu4GuJLt4Y2wsSh6b5qNndoTUkI/gJOsTrFDbKromEDulMbR8Xs1r/rzryJ4kZYW2crT8r6yH7S82/S3VmmyVz9liPncNxpKkI4F21izraikSF0qeW1utjd/P0u36D4zltMwMUzKIfHvE0wdIG5tSQOxJRqb5tc/u+++WGEK0nTsRyQpSH/OHKmU/Sj01XVIhSRJrXwbLSSiojFMkUpzhGFPYIHM2wJQ2zBdeqViJvYogUNmcyt0soO1fkU6NKZP312MksUFAZN8nG95t/63c1+NFYlt2M2PtYfbIBbvrTyRkcRGLGX/4CHVX/ZapyKvwGj3p3oFDcuwE0jEqwWFCkEYP3OzannfW11zFy80d6jmY/nfv8jft3er2RbrJGcN4Hqev/fahg28=
+  on:
+    branch: master

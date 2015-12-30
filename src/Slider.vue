@@ -1,6 +1,6 @@
 <template>
-    <div class="item">
-    <content></content>
+  <div class="item">
+    <slot></slot>
   </div>
 </template>
 
@@ -14,11 +14,23 @@
     },
     computed: {
       show() {
-        return this.activeIndex === this.index
+        return this.$parent.activeIndex === this.index
       }
     },
     ready() {
-      this.index = [...this.$el.parentNode.children].indexOf(this.$el)
+      for (var c in this.$parent.$children)
+      {
+        if (this.$parent.$children[c].$el == this.$el)
+        {
+<<<<<<< HEAD
+            this.index= c;
+=======
+            this.index = parseInt(c,10);
+>>>>>>> master
+            break;
+        }
+      }
+      //this.index = [...this.$el.parentNode.children].indexOf(this.$el)
       this.$parent.indicator.push(this.index)
       if (this.index === 0)  {
         this.$el.classList.add('active')
