@@ -1,34 +1,13 @@
 <template>
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <div class="modal fade" role="dialog"
-    v-bind:class="{
-=======
   <div role="dialog"
     v-bind:class="{
     'modal':true,
->>>>>>> master
-=======
-  <div role="dialog"
-    v-bind:class="{
-    'modal':true,
->>>>>>> master
     'fade':effect === 'fade',
     'zoom':effect === 'zoom'
     }"
     >
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div class="modal-dialog" role="document"
-      v-bind:style="{'width': width + 'px'}">
-=======
     <div v-bind:class="{'modal-dialog':true,'modal-lg':large,'modal-sm':small}" role="document"
       v-bind:style="{width: optionalWidth}">
->>>>>>> master
-=======
-    <div v-bind:class="{'modal-dialog':true,'modal-lg':large,'modal-sm':small}" role="document"
-      v-bind:style="{width: optionalWidth}">
->>>>>>> master
       <div class="modal-content">
         <slot name="modal-header">
           <div class="modal-header">
@@ -74,24 +53,11 @@ import EventListener from './utils/EventListener.js'
       },
       effect: {
         type: String,
-<<<<<<< HEAD
-<<<<<<< HEAD
-        default: 'fade'
-=======
         default: null
->>>>>>> master
-=======
-        default: null
->>>>>>> master
       },
       backdrop: {
         type: Boolean,
         default: true
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
       },
       large: {
         type: Boolean,
@@ -100,10 +66,6 @@ import EventListener from './utils/EventListener.js'
       small: {
         type: Boolean,
         default: false
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
       }
     },
     watch: {

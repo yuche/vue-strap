@@ -30,17 +30,6 @@
   export default {
     props: {
       options: {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        type: Array,
-        default() { return [] },
-      },
-      value: {
-        twoWay: true,
-=======
->>>>>>> master
-=======
->>>>>>> master
         type: Array,
         default() { return [] },
       },
@@ -78,26 +67,6 @@
     },
     computed: {
       selectedItems() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!this.options.length)
-        {
-          return this.value.join(',');
-        }
-        else
-        {
-          // we were given bunch of options, so pluck them out to display
-          var foundItems = [];
-          for (var item of this.options)
-          {
-            if (this.value.indexOf(item.value) !== -1)
-              foundItems.push(item.label);
-          }
-
-          return foundItems.join(', ');
-=======
-=======
->>>>>>> master
         if (!this.multiple)
         {
           for(var c of this.$children){
@@ -126,14 +95,10 @@
 			}
             return foundItems.join(', ');
           }
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
         }
       },
       showPlaceholder() {
-      	return this.multiple ? this.value.length <= 0 : (typeof this.value==='undefined' || this.value=='');
+      	return this.multiple ? this.value.length <= 0 : (typeof this.value==='undefined' || this.value=='');
       }
     },
     watch: {
@@ -149,16 +114,6 @@
     },
     methods: {
       select(v) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        var index = this.value.indexOf(v);
-        if (index === -1)
-          this.value.push(v);
-        else
-          this.value.$remove(v)
-=======
-=======
->>>>>>> master
         if(this.multiple!=false){
           var index = this.value.indexOf(v);
           if (index === -1)
@@ -169,10 +124,6 @@
           this.value=v
         }
 
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
       },
       toggleDropdown() {
         this.show = !this.show

@@ -31,15 +31,7 @@ const typeahead = {
       this.items = this.primitiveData
     },
     partials: {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      'default': 'asdf<span v-html="item | highlight query"></span>',
-=======
       'default': '<span v-html="item | highlight query"></span>',
->>>>>>> master
-=======
-      'default': '<span v-html="item | highlight query"></span>',
->>>>>>> master
     },
     props: {
       data: {

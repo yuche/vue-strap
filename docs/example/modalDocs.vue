@@ -2,21 +2,9 @@
   <div class="bs-docs-section" id="modal">
     <h1 class="page-header"><a href="#modal" class="anchor">Modal</a></h1>
     <div class="bs-example">
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <button class="btn btn-default btn-lg" @click="showModal = true">Show modal</button>
-      <modal title="Modal title" :show.sync="showModal" effect="fade" :width="400">
-        <div class="modal-header">
-=======
       <button class="btn btn-default" @click="showModal = true">Show modal</button>
       <modal title="Modal title" :show.sync="showModal">
         <div slot="modal-header" class="modal-header">
->>>>>>> master
-=======
-      <button class="btn btn-default" @click="showModal = true">Show modal</button>
-      <modal title="Modal title" :show.sync="showModal">
-        <div slot="modal-header" class="modal-header">
->>>>>>> master
           <h4 class="modal-title">Modal <b>Title</b></h4>
         </div>
         <div slot="modal-body" class="modal-body">
@@ -28,21 +16,9 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
       </modal>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <button class="btn btn-success btn-lg" @click="bigModal = true">Big modal</button>
-      <modal title="Big Modal" :show.sync="bigModal" effect="fade" :width="800">
-        <div class="modal-body">
-=======
       <button class="btn btn-success" @click="fadeModal = true">Fade modal</button>
       <modal title="Fade Modal" :show.sync="fadeModal" effect="fade" width="800">
         <div slot="modal-body" class="modal-body">
->>>>>>> master
-=======
-      <button class="btn btn-success" @click="fadeModal = true">Fade modal</button>
-      <modal title="Fade Modal" :show.sync="fadeModal" effect="fade" width="800">
-        <div slot="modal-body" class="modal-body">
->>>>>>> master
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -51,21 +27,9 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
       </modal>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <button class="btn btn-primary btn-lg" @click="zoomModal = true">Zoom modal</button>
-      <modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" :width="400">
-        <div class="modal-body">
-=======
       <button class="btn btn-primary" @click="zoomModal = true">Zoom modal</button>
       <modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" width="400">
         <div slot="modal-body" class="modal-body">
->>>>>>> master
-=======
-      <button class="btn btn-primary" @click="zoomModal = true">Zoom modal</button>
-      <modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" width="400">
-        <div slot="modal-body" class="modal-body">
->>>>>>> master
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -74,21 +38,9 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
       </modal>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <button class="btn btn-default btn-lg" @click="showCustomModal = true">Show custom modal</button>
-      <modal :show.sync="showCustomModal" effect="fade" :width="400">
-        <div class="modal-header">
-=======
       <button class="btn btn-default" @click="showCustomModal = true">Show custom modal</button>
       <modal :show.sync="showCustomModal" effect="fade" width="50%">
         <div slot="modal-header" class="modal-header">
->>>>>>> master
-=======
-      <button class="btn btn-default" @click="showCustomModal = true">Show custom modal</button>
-      <modal :show.sync="showCustomModal" effect="fade" width="50%">
-        <div slot="modal-header" class="modal-header">
->>>>>>> master
           <h4 class="modal-title"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>
         </div>
         <div slot="modal-body" class="modal-body">
@@ -99,14 +51,6 @@
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit</button>
-          <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
-=======
-=======
->>>>>>> master
         <div slot="modal-footer" class="modal-footer">
           <button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit</button>
           <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
@@ -142,68 +86,21 @@
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat.
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
         </div>
       </modal>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<button class="btn btn-default btn-lg"
-  @click="showModal = true"
-  >Show modal
-</button>
-<modal :show.sync="showModal" effect="fade" :width="400">
-  <div class="modal-header">
-=======
 <button class="btn btn-default"
   @click="showModal = true"
   >Show modal
 </button>
 <modal :show.sync="showModal">
   <div slot="modal-header" class="modal-header">
->>>>>>> master
-=======
-<button class="btn btn-default"
-  @click="showModal = true"
-  >Show modal
-</button>
-<modal :show.sync="showModal">
-  <div slot="modal-header" class="modal-header">
->>>>>>> master
     <h4 class="modal-title">Modal title</h4>
   </div>
   <div slot="modal-body" class="modal-body">...</div>
 </modal>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<button class="btn btn-primary btn-lg"
-  @click="bigModal = true">
-  Big modal
-</button>
-<modal title="Big Modal" :show.sync="bigModal" effect="fade" :width="800">
-  <div class="modal-body">...</div>
-</modal>
-
-<button class="btn btn-success btn-lg"
-  @click="zoomModal = true">
-  Zoom modal
-</button>
-<modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" :width="400">
-  <div class="modal-body">...</div>
-</modal>
-
-<button class="btn btn-default btn-lg"
-  @click="showCustomModal = true">
-  Show custom modal
-</button>
-<modal :show.sync="showCustomModal" effect="fade" :width="400">
-  <div class="modal-header">
-=======
 <button class="btn btn-primary"
   @click="fadeModal = true">
   Fade modal
@@ -226,47 +123,12 @@
 </button>
 <modal :show.sync="showCustomModal" effect="fade" width="400">
   <div slot="modal-header" class="modal-header">
->>>>>>> master
-=======
-<button class="btn btn-primary"
-  @click="fadeModal = true">
-  Fade modal
-</button>
-<modal title="Fade Modal" :show.sync="fadeModal" effect="fade" width="800">
-  <div slot="modal-body" class="modal-body">...</div>
-</modal>
-
-<button class="btn btn-success"
-  @click="zoomModal = true">
-  Zoom modal
-</button>
-<modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" width="400">
-  <div slot="modal-body" class="modal-body">...</div>
-</modal>
-
-<button class="btn btn-default"
-  @click="showCustomModal = true">
-  Show custom modal
-</button>
-<modal :show.sync="showCustomModal" effect="fade" width="400">
-  <div slot="modal-header" class="modal-header">
->>>>>>> master
     <h4 class="modal-title">
       <i>Custom</i> <code>Modal</code> <b>Title</b>
     </h4>
   </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <div class="modal-body">...</div>
-  <div class="modal-footer">
-=======
   <div slot="modal-body" class="modal-body">...</div>
   <div slot="modal-footer" class="modal-footer">
->>>>>>> master
-=======
-  <div slot="modal-body" class="modal-body">...</div>
-  <div slot="modal-footer" class="modal-footer">
->>>>>>> master
     <button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit</button>
     <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
   </div>

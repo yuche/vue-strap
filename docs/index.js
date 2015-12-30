@@ -1,25 +1,7 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import 'babel/polyfill'
-import 'prismjs'
-import './js/showLanguage'
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 require('./assets/docs.css')
 require('./assets/style.css')
 require('prismjs')
 require('./js/showLanguage')
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 
 import gettingStarted from './example/gettingStarted.vue'
 import affix from 'src/Affix.vue'
@@ -84,7 +66,6 @@ new Vue({
     // add h1.anchor.innerHTML to sidebar list
     const anchor = document.querySelectorAll('.anchor')
     this.anchor = [...anchor].map(el=> el.innerHTML.replace(' ', '-'))
-
     // Scrollspy
     const section = document.querySelectorAll('.bs-docs-section')
     const sections = {}

@@ -1,15 +1,7 @@
 <template>
   <li style="position:relative">
     <a @mousedown.prevent="handleClick" style="cursor:pointer">
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <slot></slot>
-=======
       <span v-el:v><slot></slot></span>
->>>>>>> master
-=======
-      <span v-el:v><slot></slot></span>
->>>>>>> master
       <slot name="span">
         {{value}}
       </slot>
