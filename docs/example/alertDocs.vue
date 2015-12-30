@@ -86,7 +86,7 @@
 </alert>
  
 <alert
-  show="{{@showRight}}"
+  show="{{showRight}}"
   duration="3000"
   type="success"
   width="400px"
@@ -98,7 +98,7 @@
 </alert>
  
 <alert
-  show="{{@showTop}}"
+  show="{{showTop}}"
   duration="3000"
   type="info"
   width="400px"
