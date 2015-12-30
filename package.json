@@ -14,8 +14,13 @@
   "dependencies": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "babel": "^5.8.23",
     "vue": "^0.12.10"
+=======
+    "vue": "^1.0.8",
+    "bootstrap": "^3.3.5"
+>>>>>>> master
 =======
     "vue": "^1.0.8",
     "bootstrap": "^3.3.5"
@@ -63,6 +68,10 @@
   "scripts": {
     "docs": "webpack-dev-server --inline --hot --quiet",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    "builddocs": "webpack --progress --hide-modules && NODE_ENV=production webpack --progress --hide-modules",
+>>>>>>> master
 =======
     "builddocs": "webpack --progress --hide-modules && NODE_ENV=production webpack --progress --hide-modules",
 >>>>>>> master

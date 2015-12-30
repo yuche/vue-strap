@@ -31,11 +31,14 @@
     props: {
       options: {
 <<<<<<< HEAD
+<<<<<<< HEAD
         type: Array,
         default() { return [] },
       },
       value: {
         twoWay: true,
+=======
+>>>>>>> master
 =======
 >>>>>>> master
         type: Array,
@@ -76,6 +79,7 @@
     computed: {
       selectedItems() {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (!this.options.length)
         {
           return this.value.join(',');
@@ -92,6 +96,8 @@
 
           return foundItems.join(', ');
 =======
+=======
+>>>>>>> master
         if (!this.multiple)
         {
           for(var c of this.$children){
@@ -120,6 +126,9 @@
 			}
             return foundItems.join(', ');
           }
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
         }
       },
@@ -141,12 +150,15 @@
     methods: {
       select(v) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         var index = this.value.indexOf(v);
         if (index === -1)
           this.value.push(v);
         else
           this.value.$remove(v)
 =======
+=======
+>>>>>>> master
         if(this.multiple!=false){
           var index = this.value.indexOf(v);
           if (index === -1)
@@ -157,6 +169,9 @@
           this.value=v
         }
 
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
       },
       toggleDropdown() {

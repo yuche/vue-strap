@@ -23,7 +23,11 @@
         if (this.$parent.$children[c].$el == this.$el)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.index= c;
+=======
+            this.index = parseInt(c,10);
+>>>>>>> master
 =======
             this.index = parseInt(c,10);
 >>>>>>> master

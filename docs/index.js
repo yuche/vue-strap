@@ -1,9 +1,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import 'babel/polyfill'
 import 'prismjs'
 import './js/showLanguage'
 =======
+=======
+>>>>>>> master
 =======
 >>>>>>> master
 require('./assets/docs.css')
@@ -11,6 +14,9 @@ require('./assets/style.css')
 require('prismjs')
 require('./js/showLanguage')
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 =======
 >>>>>>> master
