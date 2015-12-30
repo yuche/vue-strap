@@ -4,15 +4,9 @@ var path = require('path')
 module.exports = {
   entry: './docs/index.js',
   output: {
-<<<<<<< HEAD
-    path: './static',
-    publicPath: '/static/',
-    filename: 'build.js'
-=======
     path: './build',
     publicPath: '/build/',
     filename: 'build-docs.js'
->>>>>>> master
   },
   resolve: {
     root: path.resolve('./')
