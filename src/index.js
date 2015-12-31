@@ -7,6 +7,7 @@ import aside from './Aside.vue'
 import checkboxGroup from './checkboxGroup.vue'
 import checkboxBtn from './checkboxBtn.vue'
 import datepicker from './Datepicker.vue'
+import timepicker from './Timepicker.vue'
 import dropdown from './Dropdown.vue'
 import modal from './Modal.vue'
 import option from './Option.vue'
@@ -32,6 +33,7 @@ const VueStrap = {
   checkboxBtn,
   checkboxGroup,
   datepicker,
+  timepicker,
   dropdown,
   modal,
   option,
