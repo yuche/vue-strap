@@ -55,6 +55,10 @@ import EventListener from './utils/EventListener.js'
         type: String,
         twoWay: true
       },
+      format: {
+        type: String,
+        default: "HH:mm" 
+      },
       useFontAwesome: {
         type:Boolean,
         default:true
@@ -64,31 +68,105 @@ import EventListener from './utils/EventListener.js'
     data() {
       return {
         display: false,
-        currTime: new Date,
       }
     },
     computed: {
+      // Takes this.value and parses in to the date object
+      // clears value if it turns out to be invalid time value
+      currTime: {
+        get() {
+          // 
+          var d = new Date('1970-01-01 '+this.value);
+          if (d.toString=="Invalid Date")
+          {
+            this.value = "";
+            return undefined;
+          }
+          else
+          {
+            // some valid date!
+            return d;
+          }
+        },
+        set(newValue) {
+          if (this.format =='HH:mm')
+          {
+            this.value = this.pad(newValue.getHours(),2) + ":" +
+                          this.pad(newValue.getMinutes(),2);
+          }
+          else
+          {
+            console.warn("Invalid format supplied");
+          }
+        }
+      },
+
       // return the current hours
       hours() {
-        return '11';
+        if (this.currTime != undefined)
+          return this.currTime.getHours(); 
+        return '';
       },
       // return the current minutes
       minutes() {
+        if (this.currTime != undefined)
+          return this.currTime.getMinutes(); 
         return '00';
       },
     },
     methods: {
+      pad(n, width, z) {
+        z = z || '0';
+        n = n + '';
+        return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+      },
       incrementHours() {
-        // increase hours
+        if (this.currTime != undefined)
+        {
+          var tm = this.currTime;
+
+          var hr = tm.getHours() + 1;
+          if (hr >= 24) hr = 0;
+          tm.setHours(hr);
+
+          this.currTime = tm;
+        }
       },
       decrementHours() {
-        // increase hours
+        if (this.currTime != undefined)
+        {
+          var tm = this.currTime;
+
+          var hr = tm.getHours() - 1;
+          if (hr <= 0) hr = 23;
+          tm.setHours(hr);
+
+          this.currTime = tm;
+        }
       },
       incrementMinutes() {
-        // increase Minutes
+        if (this.currTime != undefined)
+        {
+          var tm = this.currTime;
+
+          var hr = tm.getMinutes() + 1;
+          if (hr >= 60) hr = 0;
+          tm.setMinutes(hr);
+
+          this.currTime = tm;
+        }
       },
       decrementMinutes() {
-        // increase Minutes
+        if (this.currTime != undefined)
+        {
+          var tm = this.currTime;
+
+          var hr = tm.getMinutes() - 1;
+          if (hr <= 0) hr = 59;
+          tm.setMinutes(hr);
+
+          this.currTime = tm;
+        }
       },
       close() {
         this.display = false
@@ -102,6 +180,7 @@ import EventListener from './utils/EventListener.js'
       },
     },
     ready() {
+      //this.parseTime();
       //this.$dispatch('child-created', this)
       //this.currDate = this.parse(this.value) || this.parse(new Date())
       this._closeEvent = EventListener.listen(window, 'click', (e)=> {
@@ -119,7 +198,6 @@ import EventListener from './utils/EventListener.js'
     position: relative;
     display: inline-block;
 }
-
 .timepicker-popup{
     position: absolute;
     border: 1px solid #ccc;
@@ -154,71 +232,11 @@ import EventListener from './utils/EventListener.js'
 .timepicker-body span {
   text-align: center;
 }
-.timepicker-mouthRange span{
-  width: 48px;
-  height: 50px;
-  line-height: 45px;
-}
-.timepicker-item-disable {
-  background-color: white!important;
-  cursor: not-allowed!important;
-}
-.decadeRange span:first-child,
-.decadeRange span:last-child,
-.timepicker-item-disable,
-.timepicker-item-gray{
-    color: #999;
-}
-
-.timepicker-dateRange-item-active:hover,
-.timepicker-dateRange-item-active {
-    background: rgb(50, 118, 177)!important;
-    color: white!important;
-}
-.timepicker-mouthRange {
-  margin-top: 10px
-}
-.timepicker-mouthRange span,
-.timepicker-ctrl span,
-.timepicker-ctrl p,
-.timepicker-dateRange span {
-  cursor: pointer;
-}
-.timepicker-mouthRange span:hover,
-.timepicker-ctrl p:hover,
-.timepicker-ctrl i:hover,
-.timepicker-dateRange span:hover,
-.timepicker-dateRange-item-hover {
-    background-color : #eeeeee;
-}
-
-.timepicker-weekRange span{
-    font-weight: bold;
-}
-.timepicker-label{
-    background-color: #f8f8f8;
-    font-weight: 700;
-    padding: 7px 0;
-    text-align: center;
-}
 .timepicker-ctrl{
     position: relative;
     height: 30px;
     line-height: 30px;
     font-weight: bold;
     text-align: center;
-}
-.month-btn{
-  font-weight: bold;
-  -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none;
-}
-.timepicker-preBtn{
-    left: 2px;
-}
-.timepicker-nextBtn{
-    right: 2px;
 }
 </style>
