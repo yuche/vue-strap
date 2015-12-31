@@ -14,6 +14,7 @@ import asideDocs from './example/asideDocs.vue'
 import carouselDocs from './example/carouselDocs.vue'
 import buttonsDocs  from './example/buttonsDocs.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
+import timepickerDocs from './example/timepickerDocs.vue'
 import dropdownDocs from './example/dropdownDocs.vue'
 import modalDocs from './example/modalDocs.vue'
 import popoverDocs from './example/popoverDocs.vue'
@@ -40,6 +41,7 @@ new Vue({
     carouselDocs,
     buttonsDocs,
     datepickerDocs,
+    timepickerDocs,
     dropdownDocs,
     modalDocs,
     popoverDocs,
