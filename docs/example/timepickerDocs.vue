@@ -1,6 +1,5 @@
 <template>
   <div class="bs-docs-section" id="timepicker">
-    <label class="label label-danger pull-right">momentJS required</label>
     <label class="label label-warning pull-right">FontAwesome recommended</label>
     <h1 class="page-header"><a href="#timepicker" class="anchor">Timepicker</a></h1>
     <div class="bs-example">
