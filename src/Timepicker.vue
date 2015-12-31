@@ -57,7 +57,7 @@ import EventListener from './utils/EventListener.js'
 			},
 			format: {
 				type: String,
-				default: "HH:mm" 
+				default: "HH:mm"
 			},
 			useFontAwesome: {
 				type:Boolean,
@@ -103,13 +103,13 @@ import EventListener from './utils/EventListener.js'
 			// return the current hours
 			hours() {
 				if (this.currTime != undefined)
-					return this.currTime.getHours(); 
+					return this.currTime.getHours();
 				return '00';
 			},
 			// return the current minutes
 			minutes() {
 				if (this.currTime != undefined)
-					return this.currTime.getMinutes(); 
+					return this.currTime.getMinutes();
 				return '00';
 			},
 		},
@@ -165,7 +165,6 @@ import EventListener from './utils/EventListener.js'
 			},
 			clear() {
 				this.value = "";
-				console.log("cleared value");
 				this.close();
 			},
 			inputClick() {

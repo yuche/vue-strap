@@ -3114,7 +3114,6 @@ return /******/ (function(modules) { // webpackBootstrap
 			},
 			clear: function clear() {
 				this.value = "";
-				console.log("cleared value");
 				this.close();
 			},
 			inputClick: function inputClick() {
