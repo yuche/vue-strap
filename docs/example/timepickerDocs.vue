@@ -29,7 +29,7 @@ Some code
           <td>value</td>
           <td><code>String</code></td>
           <td></td>
-          <td>Value of the input DOM</td>
+          <td>Value of the input DOM. Must be a valid time string.</td>
         </tr>
         <tr>
           <td>Width</td>
@@ -40,15 +40,8 @@ Some code
         <tr>
           <td>format</td>
           <td><code>String</code></td>
-          <td><code>MMMM/dd/yyyy</code></td>
-          <td>The date format, combination of d, dd, M, MM ,MMM , MMMM, yyyy.</td>
-        </tr>
-        <tr>
-          <td>disabledDaysOfWeek</td>
-          <td><code>Array</code></td>
-          <td></td>
-          <td>Days of the week that should be disabled. Values are 0 (Sunday) to 6 (Saturday).
-             Multiple values should be comma-separated.</td>
+          <td><code>HH:mm</code></td>
+          <td>Currently the only format that is supported is HH:mm</td>
         </tr>
       </tbody>
     </table>

@@ -75,11 +75,11 @@ import EventListener from './utils/EventListener.js'
       // clears value if it turns out to be invalid time value
       currTime: {
         get() {
-          // 
           var d = new Date('1970-01-01 '+this.value);
-          if (d.toString=="Invalid Date")
+          if (d.toString()=="Invalid Date")
           {
-            this.value = "";
+            this.clear();
+            //this.value = "";
             return undefined;
           }
           else
@@ -100,12 +100,11 @@ import EventListener from './utils/EventListener.js'
           }
         }
       },
-
       // return the current hours
       hours() {
         if (this.currTime != undefined)
           return this.currTime.getHours(); 
-        return '';
+        return '00';
       },
       // return the current minutes
       minutes() {
@@ -173,6 +172,7 @@ import EventListener from './utils/EventListener.js'
       },
       clear() {
         this.value = "";
+        console.log("cleared value");
         this.close();
       },
       inputClick() {
