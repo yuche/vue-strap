@@ -62,12 +62,12 @@ import getScrollBarWidth from './utils/getScrollBarWidth.js'
         } else {
           if (this._clickEvent) this._clickEvent.remove()
           backdrop = document.querySelector('.aside-backdrop')
-          backdrop.className = 'aside-backdrop'
-          setTimeout(() => {
-            body.classList.remove('modal-open')
-            body.style.paddingRight = '0'
-            body.removeChild(backdrop)
-          }, 300)
+          try {
+              backdrop.className = 'aside-backdrop'
+              body.classList.remove('modal-open')
+              body.style.paddingRight = '0'
+              body.removeChild(backdrop)
+          } catch(e) {}
         }
       }
     },
