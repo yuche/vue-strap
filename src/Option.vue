@@ -2,9 +2,6 @@
   <li style="position:relative">
     <a @mousedown.prevent="handleClick" style="cursor:pointer">
       <span v-el:v><slot></slot></span>
-      <slot name="span">
-        {{value}}
-      </slot>
       <span class="glyphicon glyphicon-ok check-mark" v-show="chosen"></span>
     </a>
   </li>
