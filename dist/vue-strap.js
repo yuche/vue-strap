@@ -2201,6 +2201,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	
 	exports.default = function () {
+	  if (document.documentElement.scrollHeight <= document.documentElement.clientHeight) {
+	    return 0;
+	  }
 	  var inner = document.createElement('p');
 	  inner.style.width = '100%';
 	  inner.style.height = '200px';
@@ -3145,11 +3148,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      default: false
 	    }
 	  },
-	  watch: {
-	    show: function show(val) {
-	      var _this = this;
+	  ready: function ready() {
+	    var _this = this;
 	
-	      var el = this.$el;
+	    this.$watch('show', function (val) {
+	      var el = _this.$el;
 	      var body = document.body;
 	      var scrollBarWidth = (0, _getScrollBarWidth2.default)();
 	      if (val) {
@@ -3162,13 +3165,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (scrollBarWidth !== 0) {
 	          body.style.paddingRight = scrollBarWidth + 'px';
 	        }
-	        if (this.backdrop) {
-	          this._blurModalContentEvent = _EventListener2.default.listen(this.$el, 'click', function (e) {
+	        if (_this.backdrop) {
+	          _this._blurModalContentEvent = _EventListener2.default.listen(_this.$el, 'click', function (e) {
 	            if (e.target === el) _this.show = false;
 	          });
 	        }
 	      } else {
-	        if (this._blurModalContentEvent) this._blurModalContentEvent.remove();
+	        if (_this._blurModalContentEvent) _this._blurModalContentEvent.remove();
 	        el.classList.remove('in');
 	        setTimeout(function () {
 	          el.style.display = 'none';
@@ -3176,8 +3179,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	          body.style.paddingRight = '0';
 	        }, 300);
 	      }
-	    }
+	    }, { immediate: true });
 	  },
+	
 	  computed: {
 	    optionalWidth: function optionalWidth() {
 	      if (this.width === null) {
@@ -3341,9 +3345,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	//   <li style="position:relative">
 	//     <a @mousedown.prevent="handleClick" style="cursor:pointer">
 	//       <span v-el:v><slot></slot></span>
-	//       <slot name="span">
-	//         {{value}}
-	//       </slot>
 	//       <span class="glyphicon glyphicon-ok check-mark" v-show="chosen"></span>
 	//     </a>
 	//   </li>
@@ -3398,7 +3399,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 118 */
 /***/ function(module, exports) {
 
-	module.exports = "<li style=\"position:relative\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\">\n      <span v-el:v><slot></slot></span>\n      <slot name=\"span\">\n        {{value}}\n      </slot>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\"></span>\n    </a>\n  </li>";
+	module.exports = "<li style=\"position:relative\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\">\n      <span v-el:v><slot></slot></span>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\"></span>\n    </a>\n  </li>";
 
 /***/ },
 /* 119 */
