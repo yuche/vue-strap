@@ -12,22 +12,22 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
       <h4>Disabled days of week</h4>
 
       <v-select multiple :value.sync="disabled">
-  <v-option value="0"></v-option>
-  <v-option value="1"></v-option>
-  <v-option value="2"></v-option>
-  <v-option value="3"></v-option>
-  <v-option value="4"></v-option>
-  <v-option value="5"></v-option>
-  <v-option value="6"></v-option>
+  <v-option value="0">0</v-option>
+  <v-option value="1">1</v-option>
+  <v-option value="2">2</v-option>
+  <v-option value="3">3</v-option>
+  <v-option value="4">4</v-option>
+  <v-option value="5">5</v-option>
+  <v-option value="6">6</v-option>
       </v-select>
 
       <h4>Format</h4>
       <v-select :value.sync="format" >
-        <v-option value="yyyy,MM,dd"></v-option>
-        <v-option value="yyyy-MM-dd"></v-option>
-        <v-option value="yyyy.MM.dd"></v-option>
-        <v-option value="MMM/dd/yyyy"></v-option>
-        <v-option value="MMMM/dd/yyyy"></v-option>
+        <v-option value="yyyy,MM,dd">yyyy,MM,dd</v-option>
+        <v-option value="yyyy-MM-dd">yyyy-MM-dd</v-option>
+        <v-option value="yyyy.MM.dd">yyyy.MM.dd</v-option>
+        <v-option value="MMM/dd/yyyy">MMM/dd/yyyy</v-option>
+        <v-option value="MMMM/dd/yyyy">MMMM/dd/yyyy</v-option>
       </v-select>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
@@ -38,20 +38,20 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
 </datepicker>
 
 <select multiple :value.sync="disabled" size=5>
-  <option value="0"></option>
-  <option value="1"></option>
-  <option value="2"></option>
-  <option value="3"></option>
-  <option value="4"></option>
-  <option value="5"></option>
-  <option value="6"></option>
+  <v-option value="0">0</v-option>
+  <v-option value="1">1</v-option>
+  <v-option value="2">2</v-option>
+  <v-option value="3">3</v-option>
+  <v-option value="4">4</v-option>
+  <v-option value="5">5</v-option>
+  <v-option value="6">6</v-option>
 </select>
 <select  :value.sync="format">
-  <option value="yyyy,MM,dd"></option>
-  <option value="yyyy-MM-dd"></option>
-  <option value="yyyy.MM.dd"></option>
-  <option value="MMM/dd/yyyy"></option>
-  <option value="MMMM/dd/yyyy"></option>
+  <v-option value="yyyy,MM,dd">yyyy,MM,dd</v-option>
+  <v-option value="yyyy-MM-dd">yyyy-MM-dd</v-option>
+  <v-option value="yyyy.MM.dd">yyyy.MM.dd</v-option>
+  <v-option value="MMM/dd/yyyy">MMM/dd/yyyy</v-option>
+  <v-option value="MMMM/dd/yyyy">MMMM/dd/yyyy</v-option>
 </select>
     </script></code></pre>
     <h2>Option</h2>
