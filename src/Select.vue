@@ -73,10 +73,18 @@
       selectedItems() {
         if (!this.multiple)
         {
-          for(var c of this.$children){
-              if(c.value==this.value){
+          if(!this.options.length) {
+            for (var c of this.$children) {
+              if (c.value == this.value) {
                 return c.$els.v.innerText
               }
+            }
+          } else {
+            for(var i=0; i<this.options.length; i++) {
+              if(this.options[i].value === this.value) {
+                return this.options[i].label;
+              }
+            }
           }
           return ""
         }
