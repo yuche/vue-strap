@@ -51,6 +51,10 @@
       limit: {
         type: Number,
         default: 1024
+      },
+      closeOnSelect: { // only works when multiple==false
+        type: Boolean,
+        default: false
       }
     },
     ready(){
@@ -122,6 +126,9 @@
             this.value.$remove(v)
         }else{
           this.value=v
+          if(this.closeOnSelect) {
+            this.toggleDropdown();
+          }
         }
 
       },
