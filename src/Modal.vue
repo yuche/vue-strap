@@ -68,8 +68,8 @@ import EventListener from './utils/EventListener.js'
         default: false
       }
     },
-    watch: {
-      show(val) {
+    ready() {
+      this.$watch('show', (val)=> {
         const el = this.$el
         const body = document.body
         const scrollBarWidth =  getScrollBarWidth()
@@ -95,7 +95,7 @@ import EventListener from './utils/EventListener.js'
             body.style.paddingRight = '0'
           }, 300)
         }
-      }
+      }, { immediate: true })
     },
     computed: {
       optionalWidth: function() {
