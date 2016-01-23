@@ -50,7 +50,7 @@
     watch: {
       show(val) {
         if (this._timeout) clearTimeout(this._timeout)
-        if (val && !!this.duration) {
+        if (val && Boolean(this.duration)) {
           this._timeout = setTimeout(()=> this.show = false, this.duration)
         }
       }
@@ -64,6 +64,7 @@
 }
 .fade-enter,
 .fade-leave {
+  height: 0;
   opacity: 0;
 }
 .alert.top {
