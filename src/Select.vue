@@ -51,6 +51,10 @@
       limit: {
         type: Number,
         default: 1024
+      },
+      closeOnSelect: { // only works when multiple==false
+        type: Boolean,
+        default: false
       }
     },
     ready(){
@@ -69,10 +73,18 @@
       selectedItems() {
         if (!this.multiple)
         {
-          for(var c of this.$children){
-              if(c.value==this.value){
+          if(!this.options.length) {
+            for (var c of this.$children) {
+              if (c.value == this.value) {
                 return c.$els.v.innerText
               }
+            }
+          } else {
+            for(var i=0; i<this.options.length; i++) {
+              if(this.options[i].value === this.value) {
+                return this.options[i].label;
+              }
+            }
           }
           return ""
         }
@@ -122,6 +134,9 @@
             this.value.$remove(v)
         }else{
           this.value=v
+          if(this.closeOnSelect) {
+            this.toggleDropdown();
+          }
         }
 
       },
