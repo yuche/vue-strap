@@ -86,21 +86,22 @@
 </alert>
  
 <alert
-  show="{{showRight}}"
-  duration="3000"
+  :show.sync="showRight"
+  :duration="3000"
   type="success"
   width="400px"
   placement="top-right"
-  dismissable>
+  dismissable
+>
   <span class="icon-ok-circled alert-icon-float-left"></span>
   <strong>Well Done!</strong>
   <p>You successfully read this important alert message.</p>
 </alert>
  
 <alert
-  show="{{showTop}}"
-  duration="3000"
-  type="info"
+  :show.sync="showTop"
+  :duration="3000"
+  type="danger"
   width="400px"
   placement="top"
   dismissable>
