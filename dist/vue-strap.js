@@ -255,7 +255,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".fade-transition {\n  -webkit-transition: opacity .3s ease;\n  transition: opacity .3s ease;\n}\n.fade-enter,\n.fade-leave {\n  opacity: 0;\n}\n.alert.top {\n  position: fixed;\n  top: 30px;\n  margin: 0 auto;\n  left: 0;\n  right: 0;\n  z-index: 2;\n}\n.alert.top-right {\n  position: fixed;\n  top: 30px;\n  right: 50px;\n  z-index: 2;\n}", ""]);
+	exports.push([module.id, ".fade-transition {\n  -webkit-transition: opacity .3s ease;\n  transition: opacity .3s ease;\n}\n.fade-enter,\n.fade-leave {\n  height: 0;\n  opacity: 0;\n}\n.alert.top {\n  position: fixed;\n  top: 30px;\n  margin: 0 auto;\n  left: 0;\n  right: 0;\n  z-index: 2;\n}\n.alert.top-right {\n  position: fixed;\n  top: 30px;\n  right: 50px;\n  z-index: 2;\n}", ""]);
 	
 	// exports
 
@@ -633,7 +633,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var _this = this;
 	
 	      if (this._timeout) clearTimeout(this._timeout);
-	      if (val && !!this.duration) {
+	      if (val && Boolean(this.duration)) {
 	        this._timeout = setTimeout(function () {
 	          return _this.show = false;
 	        }, this.duration);
@@ -649,6 +649,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// }
 	// .fade-enter,
 	// .fade-leave {
+	//   height: 0;
 	//   opacity: 0;
 	// }
 	// .alert.top {
@@ -4188,6 +4189,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    limit: {
 	      type: Number,
 	      default: 1024
+	    },
+	    closeOnSelect: { // only works when multiple==false
+	      type: Boolean,
+	      default: false
 	    }
 	  },
 	  ready: function ready() {
@@ -4206,33 +4211,40 @@ return /******/ (function(modules) { // webpackBootstrap
 	  computed: {
 	    selectedItems: function selectedItems() {
 	      if (!this.multiple) {
-	        var _iteratorNormalCompletion = true;
-	        var _didIteratorError = false;
-	        var _iteratorError = undefined;
+	        if (!this.options.length) {
+	          var _iteratorNormalCompletion = true;
+	          var _didIteratorError = false;
+	          var _iteratorError = undefined;
 	
-	        try {
-	          for (var _iterator = (0, _getIterator3.default)(this.$children), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	            var c = _step.value;
+	          try {
+	            for (var _iterator = (0, _getIterator3.default)(this.$children), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	              var c = _step.value;
 	
-	            if (c.value == this.value) {
-	              return c.$els.v.innerText;
+	              if (c.value == this.value) {
+	                return c.$els.v.innerText;
+	              }
+	            }
+	          } catch (err) {
+	            _didIteratorError = true;
+	            _iteratorError = err;
+	          } finally {
+	            try {
+	              if (!_iteratorNormalCompletion && _iterator.return) {
+	                _iterator.return();
+	              }
+	            } finally {
+	              if (_didIteratorError) {
+	                throw _iteratorError;
+	              }
 	            }
 	          }
-	        } catch (err) {
-	          _didIteratorError = true;
-	          _iteratorError = err;
-	        } finally {
-	          try {
-	            if (!_iteratorNormalCompletion && _iterator.return) {
-	              _iterator.return();
-	            }
-	          } finally {
-	            if (_didIteratorError) {
-	              throw _iteratorError;
+	        } else {
+	          for (var i = 0; i < this.options.length; i++) {
+	            if (this.options[i].value === this.value) {
+	              return this.options[i].label;
 	            }
 	          }
 	        }
-	
 	        return "";
 	      } else {
 	        if (!this.options.length) {
@@ -4323,6 +4335,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (index === -1) this.value.push(v);else this.value.$remove(v);
 	      } else {
 	        this.value = v;
+	        if (this.closeOnSelect) {
+	          this.toggleDropdown();
+	        }
 	      }
 	    },
 	    toggleDropdown: function toggleDropdown() {
@@ -4690,7 +4705,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//                 @click.prevent="handleTabListClick($index, r)"
 	//                 :disabled="r.disabled"
 	//             >
-	//                 <a href="#">{{r.header}}</a>
+	//                 <a href="#">{{{r.header}}}</a>
 	//             </li>
 	//      </ul>
 	
@@ -4734,7 +4749,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 162 */
 /***/ function(module, exports) {
 
-	module.exports = "<div _v-4765fae9=\"\">\n    <!-- Nav tabs -->\n     <ul class=\"nav nav-tabs\" role=\"tablist\" _v-4765fae9=\"\">\n            <li v-for=\"r in renderData\" v-bind:class=\"{\n                  'active': ($index === activeIndex),\n                  'disabled': r.disabled\n                }\" @click.prevent=\"handleTabListClick($index, r)\" :disabled=\"r.disabled\" _v-4765fae9=\"\">\n                <a href=\"#\" _v-4765fae9=\"\">{{r.header}}</a>\n            </li>\n     </ul>\n\n     <!-- Tab panes -->\n     <div class=\"tab-content\" v-el:tabcontent=\"\" _v-4765fae9=\"\">\n        <slot _v-4765fae9=\"\"></slot>\n     </div>\n  </div>";
+	module.exports = "<div _v-4765fae9=\"\">\n    <!-- Nav tabs -->\n     <ul class=\"nav nav-tabs\" role=\"tablist\" _v-4765fae9=\"\">\n            <li v-for=\"r in renderData\" v-bind:class=\"{\n                  'active': ($index === activeIndex),\n                  'disabled': r.disabled\n                }\" @click.prevent=\"handleTabListClick($index, r)\" :disabled=\"r.disabled\" _v-4765fae9=\"\">\n                <a href=\"#\" _v-4765fae9=\"\">{{{r.header}}}</a>\n            </li>\n     </ul>\n\n     <!-- Tab panes -->\n     <div class=\"tab-content\" v-el:tabcontent=\"\" _v-4765fae9=\"\">\n        <slot _v-4765fae9=\"\"></slot>\n     </div>\n  </div>";
 
 /***/ },
 /* 163 */
