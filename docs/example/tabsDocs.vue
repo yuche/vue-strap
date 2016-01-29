@@ -24,7 +24,7 @@
       </tabs>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
-<tabs>
+<tabs :active="0">
   <tab header="one">
     ...
   </tab>
@@ -36,6 +36,25 @@
   </tab>
 </tabs>
 </script></code></pre>
+  <h2>Tabs Options</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>active</td>
+        <td><code>Number</code></td>
+        <td></td>
+        <td>Active tab index (0 based)</td>
+      </tr>
+    </tbody>
+  </table>
   <h2>Tab Options (NOT TABS)</h2>
   <table class="table table-bordered">
     <thead>
