@@ -66,9 +66,10 @@ Radio value: {{radioValue}}
       <tbody>
         <tr>
           <td>value</td>
-          <td>Array</td>
+          <td><code>Array</code> or <code>String</code></td>
           <td></td>
-          <td></td>
+          <td>If defined, then the defined values will be checked otherwise the elements with a checked attribute
+          will be checked.</td>
         </tr>
         <tr>
           <td>type</td>
