@@ -21,10 +21,10 @@
     },
     computed: {
       chosen() {
-        if(this.$parent.multiple){
-          return this.$parent.value.indexOf(this.value) !== -1 ? true : false  
+        if (this.$parent.multiple) {
+          return this.$parent.value.indexOf(this.value) !== -1
         }
-        return this.$parent.value==this.value
+        return this.$parent.value === this.value
         
       }
     },
@@ -35,7 +35,7 @@
           const index = parent.value.indexOf(this.value)
           index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1)
         } else {
-          parent.value=this.value;
+          parent.value = this.value
           parent.show = false
         }
       }
@@ -43,7 +43,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   a span.check-mark {
     position: absolute;
     display: inline-block;
