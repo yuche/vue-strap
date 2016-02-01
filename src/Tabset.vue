@@ -5,7 +5,7 @@
             <li
                 v-for="r in renderData"
                 v-bind:class="{
-                  'active': ($index === activeIndex),
+                  'active': ($index === active),
                   'disabled': r.disabled
                 }"
                 @click.prevent="handleTabListClick($index, r)"
@@ -28,17 +28,20 @@
       effect: {
         type: String,
         default: 'fadein'
+      },
+      active: {
+        type: Number,
+        default: 0
       }
     },
     data() {
       return {
-        renderData: [],
-        activeIndex: 0
+        renderData: []
       }
     },
     methods: {
         handleTabListClick(index, el) {
-            if (!el.disabled) this.activeIndex = index
+            if (!el.disabled) this.active = index
         }
     }
   }
