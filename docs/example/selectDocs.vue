@@ -66,12 +66,12 @@ Select data : {{custom.join(', ')}}
 Select data : {{arr}}
         </pre>
       </p>
-      <v-select :value.sync="arr" :options="fruitOptions" :search="true">
+      <v-select :value.sync="arr" :options="fruitOptions" :search="true" :close-on-select="true">
       </v-select>
 
       <hr />
       <h4>Automatically close array driven selects</h4>
-      <p>Using the property :close-on-select="true" array driven selects will auto-close after selecting an entry. Only works for non-multiple selects.</p>
+      <p>Using the property :close-on-select="true" array driven selects will auto-close after selecting an entry.</p>
       <v-select :value.sync="arr2" :options="fruitOptions" :close-on-select="true">
       </v-select>
     </div>
@@ -172,11 +172,11 @@ fruitOptions = [
     data() {
       return {
         fruitOptions: [
-          {value:'apple', label:'Apple'},
-          {value:'banana', label:'Banana'},
-          {value:'cherry', label:'Cherry'},
-          {value:'orange', label:'Orange'},
-          {value:'grape', label:'Grape'},
+          {value:'Apple', label:'Apple'},
+          {value:'Banana', label:'Banana'},
+          {value:'Cherry', label:'Cherry'},
+          {value:'Orange', label:'Orange'},
+          {value:'Grape', label:'Grape'},
         ],
         arr: [],
         arr2: [],
