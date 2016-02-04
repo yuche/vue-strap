@@ -20,7 +20,7 @@
         </slot>
         <slot name="modal-footer">
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" @click="close">Close</button>
+            <button type="button" class="btn btn-default" @click="onClose">Close</button>
             <button type="button" class="btn btn-primary" @click="callback">Save changes</button>
           </div>
         </slot>
@@ -51,6 +51,10 @@ import EventListener from './utils/EventListener.js'
         type: Function,
         default() {}
       },
+      onClose: {
+        type: Function,
+        default() {this.close()}
+      }
       effect: {
         type: String,
         default: null
@@ -83,7 +87,7 @@ import EventListener from './utils/EventListener.js'
           }
           if (this.backdrop) {
             this._blurModalContentEvent = EventListener.listen(this.$el, 'click', (e)=> {
-              if (e.target === el) this.show = false
+              if (e.target === el) this.onClose()
             })
           }
         } else {
