@@ -10,7 +10,7 @@
                   <div class="datepicker-ctrl">
                       <span class="month-btn datepicker-preBtn" @click="preNextMonthClick(0)">&lt;</span>
                       <span class="month-btn datepicker-nextBtn" @click="preNextMonthClick(1)">&gt;</span>
-                      <p @click="switchMouthView">
+                      <p @click="switchMonthView">
                       {{stringifyDayHeader(currDate)}}
                       </p>
                   </div>
@@ -23,7 +23,7 @@
               </div>
           </div>
       </div>
-      <div class="datepicker-popup" v-show="displayMouthView">
+      <div class="datepicker-popup" v-show="displayMonthView">
         <div class="datepicker-inner">
             <div class="datepicker-body">
                 <div class="datepicker-ctrl">
@@ -33,12 +33,12 @@
                     {{stringifyYearHeader(currDate)}}
                     </p>
                 </div>
-                <div class="datepicker-mouthRange">
-                	<template v-for="m in mouthNames">
+                <div class="datepicker-monthRange">
+                	<template v-for="m in monthNames">
 	                    <span   v-bind:class="{'datepicker-dateRange-item-active':
-			                    (this.mouthNames[this.parse(this.value).getMonth()]  === m) &&
+			                    (this.monthNames[this.parse(this.value).getMonth()]  === m) &&
 			                    this.currDate.getFullYear() === this.parse(this.value).getFullYear()}"
-			                    @click="mouthSelect($index)"
+			                    @click="monthSelect($index)"
 	                    >
 	                      {{m.substr(0,3)}}
 	                    </span>
@@ -57,7 +57,7 @@
                     {{stringifyDecadeHeader(currDate)}}
                     </p>
                 </div>
-                <div class="datepicker-mouthRange decadeRange">
+                <div class="datepicker-monthRange decadeRange">
                 	<template v-for="decade in decadeRange">
                 		<span v-bind:class="{'datepicker-dateRange-item-active':
 		                    this.parse(this.value).getFullYear() === decade.text}"
@@ -102,9 +102,9 @@ import EventListener from './utils/EventListener.js'
         decadeRange: [],
         currDate: new Date,
         displayDayView: false,
-        displayMouthView: false,
+        displayMonthView: false,
         displayYearView: false,
-        mouthNames: [
+        monthNames: [
                       'January', 'February', 'March',
                       'April', 'May', 'June',
                       'July', 'August', 'September',
@@ -119,10 +119,10 @@ import EventListener from './utils/EventListener.js'
     },
     methods: {
         close() {
-          this.displayDayView = this.displayMouthView = this.displayMouthView = false
+          this.displayDayView = this.displayMonthView = this.displayMonthView = false
         },
         inputClick() {
-          if (this.displayMouthView || this.displayYearView) {
+          if (this.displayMonthView || this.displayYearView) {
             this.displayDayView = false
           } else {
             this.displayDayView =  !this.displayDayView
@@ -130,13 +130,13 @@ import EventListener from './utils/EventListener.js'
         },
         preNextDecadeClick(flag) {
           const year = this.currDate.getFullYear()
-          const mouths = this.currDate.getMonth()
+          const months = this.currDate.getMonth()
           const date = this.currDate.getDate()
 
           if (flag === 0) {
-            this.currDate = new Date(year - 10, mouths, date)
+            this.currDate = new Date(year - 10, months, date)
           } else {
-            this.currDate = new Date(year + 10, mouths, date)
+            this.currDate = new Date(year + 10, months, date)
           }
         },
         preNextMonthClick(flag) {
@@ -155,18 +155,18 @@ import EventListener from './utils/EventListener.js'
         },
         preNextYearClick(flag) {
           const year = this.currDate.getFullYear()
-          const mouths = this.currDate.getMonth()
+          const months = this.currDate.getMonth()
           const date = this.currDate.getDate()
 
           if (flag === 0) {
-            this.currDate = new Date(year - 1, mouths, date)
+            this.currDate = new Date(year - 1, months, date)
           } else {
-            this.currDate = new Date(year + 1, mouths, date)
+            this.currDate = new Date(year + 1, months, date)
           }
         },
         yearSelect(year) {
           this.displayYearView = false
-          this.displayMouthView = true
+          this.displayMonthView = true
           this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())
         },
         daySelect(date, el) {
@@ -178,16 +178,16 @@ import EventListener from './utils/EventListener.js'
             this.displayDayView = false
           }
         },
-        switchMouthView() {
+        switchMonthView() {
           this.displayDayView = false
-          this.displayMouthView = true
+          this.displayMonthView = true
         },
         switchDecadeView() {
-          this.displayMouthView = false
+          this.displayMonthView = false
           this.displayYearView = true
         },
-        mouthSelect(index) {
-          this.displayMouthView = false
+        monthSelect(index) {
+          this.displayMonthView = false
           this.displayDayView = true
           this.currDate = new Date(this.currDate.getFullYear(), index, this.currDate.getDate())
         },
@@ -208,10 +208,10 @@ import EventListener from './utils/EventListener.js'
           return firstYearOfDecade + '-' + lastYearOfDecade
         },
         stringifyDayHeader(date) {
-          return this.mouthNames[date.getMonth()] + ' ' + date.getFullYear()
+          return this.monthNames[date.getMonth()] + ' ' + date.getFullYear()
         },
-        parseMouth(date) {
-          return this.mouthNames[date.getMonth()]
+        parseMonth(date) {
+          return this.monthNames[date.getMonth()]
         },
         stringifyYearHeader(date) {
           return date.getFullYear()
@@ -220,12 +220,12 @@ import EventListener from './utils/EventListener.js'
           const year = date.getFullYear()
           const month = date.getMonth() + 1
           const day = date.getDate()
-          const mouthName = this.parseMouth(date)
+          const monthName = this.parseMonth(date)
 
           return format
             .replace(/yyyy/g, year)
-            .replace(/MMMM/g, mouthName)
-            .replace(/MMM/g, mouthName.substring(0, 3))
+            .replace(/MMMM/g, monthName)
+            .replace(/MMM/g, monthName.substring(0, 3))
             .replace(/MM/g, ('0' + month).slice(-2))
             .replace(/dd/g, ('0' + day).slice(-2))
             .replace(/yy/g, year)
@@ -375,7 +375,7 @@ import EventListener from './utils/EventListener.js'
 .datepicker-body span {
   text-align: center;
 }
-.datepicker-mouthRange span{
+.datepicker-monthRange span{
   width: 48px;
   height: 50px;
   line-height: 45px;
@@ -396,16 +396,16 @@ import EventListener from './utils/EventListener.js'
     background: rgb(50, 118, 177)!important;
     color: white!important;
 }
-.datepicker-mouthRange {
+.datepicker-monthRange {
   margin-top: 10px
 }
-.datepicker-mouthRange span,
+.datepicker-monthRange span,
 .datepicker-ctrl span,
 .datepicker-ctrl p,
 .datepicker-dateRange span {
   cursor: pointer;
 }
-.datepicker-mouthRange span:hover,
+.datepicker-monthRange span:hover,
 .datepicker-ctrl p:hover,
 .datepicker-ctrl i:hover,
 .datepicker-dateRange span:hover,
