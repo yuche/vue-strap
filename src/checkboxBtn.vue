@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import coerceBoolean from './utils/coerceBoolean.js'
+
   export default {
     props: {
       value: {
@@ -27,6 +29,7 @@
       },
       checked: {
         type: Boolean,
+        coerce: coerceBoolean,
         default: false
       }
     },
