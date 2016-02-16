@@ -27,7 +27,7 @@
     },
     computed: {
       show() {
-        return (this.$parent.activeIndex == this.index);
+        return (this.$parent.active == this.index);
       },
       transition() {
         return this.$parent.effect
