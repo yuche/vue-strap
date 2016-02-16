@@ -84,7 +84,9 @@
         let foundItems = []
         if (this.value.length) {
           for (let item in this.value) {
-            foundItems.push(this.value[item])
+            if (typeof this.value[item] === "string") {
+              foundItems.push(this.value[item])
+            }
           }
           return foundItems.join(', ')
         }
