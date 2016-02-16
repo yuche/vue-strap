@@ -32,6 +32,7 @@
 <script>
 import getScrollBarWidth from './utils/getScrollBarWidth.js'
 import EventListener from './utils/EventListener.js'
+import coerceBoolean from './utils/coerceBoolean.js'
 
   export default {
     props: {
@@ -42,6 +43,7 @@ import EventListener from './utils/EventListener.js'
       show: {
         require: true,
         type: Boolean,
+        coerce: coerceBoolean,
         twoWay: true
       },
       width: {
@@ -57,14 +59,17 @@ import EventListener from './utils/EventListener.js'
       },
       backdrop: {
         type: Boolean,
+        coerce: coerceBoolean,
         default: true
       },
       large: {
         type: Boolean,
+        coerce: coerceBoolean,
         default: false
       },
       small: {
         type: Boolean,
+        coerce: coerceBoolean,
         default: false
       }
     },

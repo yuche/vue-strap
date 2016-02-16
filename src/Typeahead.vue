@@ -18,7 +18,7 @@
       <a @mousedown.prevent="hit" @mousemove="setActive($index)">
         <partial :name="templateName"></partial>
       </a>
-    </li> 
+    </li>
   </ul>
 </div>
 
@@ -26,6 +26,8 @@
 
 <script>
 import callAjax from './utils/callAjax.js'
+import coerceBoolean from './utils/coerceBoolean.js'
+
 const typeahead = {
     created() {
       this.items = this.primitiveData
@@ -56,6 +58,7 @@ const typeahead = {
       },
       matchCase: {
         type: Boolean,
+        coerce: coerceBoolean,
         default: false
       },
       onHit: {

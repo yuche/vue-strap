@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import coerceBoolean from './utils/coerceBoolean.js'
+
   export default {
     props: {
       options: {
@@ -42,10 +44,12 @@
       },
       multiple: {
         type: Boolean,
+        coerce: coerceBoolean,
         default: false
       },
       search: { // Allow searching (only works when options are provided)
       	type: Boolean,
+        coerce: coerceBoolean,
       	default: false
       },
       limit: {
@@ -54,6 +58,7 @@
       },
       closeOnSelect: { // only works when multiple==false
         type: Boolean,
+        coerce: coerceBoolean,
         default: false
       }
     },
