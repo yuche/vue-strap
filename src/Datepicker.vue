@@ -7,6 +7,7 @@
 
   div.datepicker > button.close {
     outline: none;
+    z-index: 2;
   }
 
   div.datepicker > button.close:focus {
