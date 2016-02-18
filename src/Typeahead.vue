@@ -128,7 +128,6 @@ const typeahead = {
         return this.current === index
       },
       hit(e) {
-        console.log("e", e, "e.targetVm", e.targetVM);
         e.preventDefault()
         this.onHit(this.items[this.current], this);
       },
