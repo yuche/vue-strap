@@ -74,6 +74,11 @@ Select data : {{arr}}
       <p>Using the property :close-on-select="true" array driven selects will auto-close after selecting an entry.</p>
       <v-select :value.sync="arr2" :options="fruitOptions" :close-on-select="true">
       </v-select>
+
+      <h4>Disabled selects</h4>
+      <v-select :value.sync="arr2" :options="fruitOptions" :close-on-select="true" :disabled="true">
+      </v-select>
+
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
 <v-select>
@@ -154,6 +159,12 @@ fruitOptions = [
           <td><code>Number</code></td>
           <td><code>1024</code></td>
           <td>Limit the number of elements you are allowed to select.</td>
+        </tr>
+        <tr>
+          <td>disabled</td>
+          <td><code>Boolean</code></td>
+          <td><code>false</code></td>
+          <td></td>
         </tr>
       </tbody>
     </table>

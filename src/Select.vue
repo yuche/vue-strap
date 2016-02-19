@@ -3,6 +3,7 @@
     <button v-el:btn type="button" class="btn btn-default dropdown-toggle"
       @click="toggleDropdown"
       @blur="show = (search ? show : false)"
+      v-bind="{disabled: disabled}"
     >
       <span class="btn-placeholder" v-show="showPlaceholder">{{placeholder}}</span>
       <span class="btn-content">{{ selectedItems }}</span>
@@ -57,6 +58,11 @@ import coerceBoolean from './utils/coerceBoolean.js'
         default: 1024
       },
       closeOnSelect: { // only works when multiple==false
+        type: Boolean,
+        coerce: coerceBoolean,
+        default: false
+      },
+      disabled: {
         type: Boolean,
         coerce: coerceBoolean,
         default: false
