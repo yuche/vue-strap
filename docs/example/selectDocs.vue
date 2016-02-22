@@ -76,7 +76,7 @@ Select data : {{arr}}
       </v-select>
 
       <h4>Disabled selects</h4>
-      <v-select :value.sync="arr2" :options="fruitOptions" :close-on-select="true" :disabled="true">
+      <v-select :value.sync="disabled" :options="fruitOptions" :close-on-select="true" :disabled="true">
       </v-select>
 
     </div>
@@ -194,7 +194,8 @@ fruitOptions = [
         single: [],
         multiple: [],
         multipleLimit: [],
-        custom: []
+        custom: [],
+        disabled: []
       }
     }
   }
