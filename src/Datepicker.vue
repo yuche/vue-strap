@@ -1,9 +1,33 @@
+<style>
+  input.datepicker-input.with-reset-button {
+    padding-right: 25px;
+  }
+
+  div.datepicker > button.close {
+    position: absolute;
+    top: calc(50% - 13px);
+    right: 10px;
+  }
+
+  div.datepicker > button.close {
+    outline: none;
+    z-index: 2;
+  }
+
+  div.datepicker > button.close:focus {
+    opacity: .2;
+  }
+</style>
+
 <template>
   <div class="datepicker">
-    <input class="form-control datepicker-input" type="text"
+    <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text"
         v-bind:style="{width:width}"
         @click="inputClick"
         v-model="value"/>
+    <button v-if="showResetButton" type="button" class="close" @click="value = ''">
+      <span>&times;</span>
+    </button>
     <div class="datepicker-popup" v-show="displayDayView">
       <div class="datepicker-inner">
         <div class="datepicker-body">
@@ -84,6 +108,10 @@ export default {
     width: {
       type: String,
       default: '200px'
+    },
+    showResetButton: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
