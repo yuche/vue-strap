@@ -1,5 +1,5 @@
 <template>
-<div class="panel panel-default">
+  <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a class="accordion-toggle"
@@ -34,23 +34,23 @@ import coerceBoolean from './utils/coerceBoolean.js'
         type: String
       }
     },
-    data() {
-      return {
-        height: 0
-      }
-    },
     methods: {
       toggleIsOpen() {
         this.isOpen = !this.isOpen
         this.$dispatch('isOpenEvent', this)
       }
     },
-    ready() {
-      const panel = this.$els.panel
-      panel.style.display = 'block'
-      this.height = panel.offsetHeight
-      panel.style.maxHeight = this.height + 'px'
-      if (!this.isOpen) panel.style.display = 'none'
+    transitions: {
+      collapse: {
+        afterEnter: function afterEnter(el) {
+          el.style.maxHeight = "";
+        },
+        beforeLeave: function beforeLeave(el) {
+          el.style.maxHeight = el.offsetHeight + "px";
+          // Recalculate DOM before the class gets added.
+          return el.offsetHeight;
+        }
+      }
     }
   }
 </script>
@@ -61,12 +61,11 @@ import coerceBoolean from './utils/coerceBoolean.js'
 }
 
 .collapse-transition {
-transition: max-height .5s ease;
-overflow: hidden;
+  transition: max-height .5s ease;
+  overflow: hidden;
 }
 
 .collapse-enter, .collapse-leave {
   max-height: 0!important;
 }
-
 </style>
