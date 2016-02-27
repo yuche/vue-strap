@@ -83,12 +83,10 @@ const typeahead = {
     },
     computed: {
       primitiveData() {
-        var _this = this;
-        
         if (this.data) {
           return this.data.filter(value=> {
             value = this.matchCase ? value : value.toLowerCase();
-            var query = this.matchCase ? _this.query : _this.query.toLowerCase();
+            var query = this.matchCase ? this.query : this.query.toLowerCase();
             return value.indexOf(query) !== -1;
           }).slice(0, this.limit)
         }
