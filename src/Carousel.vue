@@ -2,7 +2,7 @@
 <div class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators" v-show="indicators">
-    <indicator></indicator>
+    <indicator :indicator.sync="indicator" :active-index.sync="activeIndex" :is-animating.sync="isAnimating"></indicator>
   </ol>
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
@@ -43,7 +43,8 @@ import coerceBoolean from './utils/coerceBoolean.js'
     },
     components: {
       'indicator': {
-        inherit: true,
+        //inherit: true,
+        props: ['indicator', 'activeIndex', 'isAnimating'],
         template: '<li v-for="i in indicator" @click="handleIndicatorClick($index)" v-bind:class="{\'active\':$index === activeIndex}"</li>',
         methods: {
           handleIndicatorClick(index) {
