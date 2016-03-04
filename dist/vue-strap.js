@@ -5514,8 +5514,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    }
 	}; // <template>
-	//     <div class="navbar-header">
-	//         <slot></slot>
+	//     <div class="container-fluid">
+	//         <div class="navbar-header">
+	//             <slot></slot>
+	//         </div>
 	//         <slot name="dropdown-menu"></slot>
 	//     </div>
 	// </template>
@@ -5526,7 +5528,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 186 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"navbar-header\">\n        <slot></slot>\n        <slot name=\"dropdown-menu\"></slot>\n    </div>";
+	module.exports = "<div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n            <slot></slot>\n        </div>\n        <slot name=\"dropdown-menu\"></slot>\n    </div>";
 
 /***/ }
 /******/ ])

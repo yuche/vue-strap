@@ -1,6 +1,8 @@
 <template>
-    <div class="navbar-header">
-        <slot></slot>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <slot></slot>
+        </div>
         <slot name="dropdown-menu"></slot>
     </div>
 </template>
