@@ -799,14 +799,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	//     <slot></slot>
 	//   </div>
 	//   <!-- Controls -->
-	//   <a v-show="controls" class="left carousel-control" @click="prevClick">
-	//     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-	//     <span class="sr-only">Previous</span>
-	//   </a>
-	//   <a v-show="controls" class="right carousel-control" @click="nextClick">
-	//     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-	//     <span class="sr-only">Next</span>
-	//   </a>
+	//   <div v-show="controls" class="carousel-controls hidden-xs">
+	//     <a class="left carousel-control" role="button" @click="prevClick">
+	//       <span class="fa fa-arrow-left" aria-hidden="true"></span>
+	//     </a>
+	//     <a class="right carousel-control" role="button" @click="nextClick">
+	//       <span class="fa fa-arrow-right" aria-hidden="true"></span>
+	//     </a>
+	//   </div>
 	// </div>
 	// </template>
 	
@@ -832,7 +832,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    'indicator': {
 	      //inherit: true,
 	      props: ['indicator', 'activeIndex', 'isAnimating'],
-	      template: '<li v-for="i in indicator" @click="handleIndicatorClick($index)" v-bind:class="{\'active\':$index === activeIndex}"></li>',
+	      template: '<li v-for="i in indicator" @click="handleIndicatorClick($index)" v-bind:class="{\'active\':$index === activeIndex}"><span></span></li>',
 	      methods: {
 	        handleIndicatorClick: function handleIndicatorClick(index) {
 	          if (this.isAnimating) return false;
@@ -1838,7 +1838,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 89 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-773a003c=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-773a003c=\"\">\n    <indicator :indicator.sync=\"indicator\" :active-index.sync=\"activeIndex\" :is-animating.sync=\"isAnimating\" _v-773a003c=\"\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-773a003c=\"\">\n    <slot _v-773a003c=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <a v-show=\"controls\" class=\"left carousel-control\" @click=\"prevClick\" _v-773a003c=\"\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" _v-773a003c=\"\"></span>\n    <span class=\"sr-only\" _v-773a003c=\"\">Previous</span>\n  </a>\n  <a v-show=\"controls\" class=\"right carousel-control\" @click=\"nextClick\" _v-773a003c=\"\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" _v-773a003c=\"\"></span>\n    <span class=\"sr-only\" _v-773a003c=\"\">Next</span>\n  </a>\n</div>";
+	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-773a003c=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-773a003c=\"\">\n    <indicator :indicator.sync=\"indicator\" :active-index.sync=\"activeIndex\" :is-animating.sync=\"isAnimating\" _v-773a003c=\"\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-773a003c=\"\">\n    <slot _v-773a003c=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <div v-show=\"controls\" class=\"carousel-controls hidden-xs\" _v-773a003c=\"\">\n    <a class=\"left carousel-control\" role=\"button\" @click=\"prevClick\" _v-773a003c=\"\">\n      <span class=\"fa fa-arrow-left\" aria-hidden=\"true\" _v-773a003c=\"\"></span>\n    </a>\n    <a class=\"right carousel-control\" role=\"button\" @click=\"nextClick\" _v-773a003c=\"\">\n      <span class=\"fa fa-arrow-right\" aria-hidden=\"true\" _v-773a003c=\"\"></span>\n    </a>\n  </div>\n</div>";
 
 /***/ },
 /* 90 */
