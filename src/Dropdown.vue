@@ -27,6 +27,14 @@
     },
     beforeDestroy() {
       if (this._closeEvent) this._closeEvent.remove()
+    },
+    props: {
+      dropdownId: String
+    },
+    events: {
+      toggleDropdown(dropdownId) {
+        if(dropdownId === this.dropdownId) this.$el.classList.toggle('open')
+      }
     }
   }
 </script>
