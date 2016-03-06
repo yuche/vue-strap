@@ -2828,7 +2828,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  props: {
 	    value: {
 	      type: String,
-	      twoWay: true
+	      twoWay: true,
+	      validator: function validator(val) {
+	        return !isNaN(new Date(val));
+	      }
 	    },
 	    format: {
 	      default: 'MMMM/dd/yyyy'
@@ -2870,9 +2873,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.getDateRange();
 	    },
 	    value: function value(val, oldval) {
-	      try {
-	        this.currDate = new Date(val);
-	      } catch (e) {}
+	      this.currDate = new Date(val);
 	    }
 	  },
 	  methods: {

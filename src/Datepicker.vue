@@ -94,7 +94,10 @@ export default {
   props: {
     value: {
       type: String,
-      twoWay: true
+      twoWay: true,
+      validator: function (val) {
+        return !isNaN(new Date(val))
+      }
     },
     format: {
       default: 'MMMM/dd/yyyy'
@@ -140,11 +143,7 @@ export default {
       this.getDateRange()
     },
     value(val, oldval) {
-      try {
-        this.currDate = new Date(val);
-      } catch (e) {
-
-      }
+      this.currDate = new Date(val)
     }
   },
   methods: {
