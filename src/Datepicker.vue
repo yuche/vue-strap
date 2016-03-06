@@ -21,7 +21,7 @@
 
 <template>
   <div class="datepicker">
-    <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text"
+    <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text" :readonly="readOnly"
         v-bind:style="{width:width}"
         @click="inputClick"
         v-model="value"/>
@@ -99,6 +99,10 @@ export default {
     format: {
       default: 'MMMM/dd/yyyy'
     },
+    readOnly: {
+      type: Boolean,
+      default: false,
+    },
     disabledDaysOfWeek: {
       type: Array,
       default() {
@@ -134,6 +138,13 @@ export default {
   watch: {
     currDate() {
       this.getDateRange()
+    },
+    value(val, oldval) {
+      try {
+        this.currDate = new Date(val);
+      } catch (e) {
+
+      }
     }
   },
   methods: {
