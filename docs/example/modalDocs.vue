@@ -168,13 +168,13 @@
       <tr>
         <td>ok-text</td>
         <td><code>String</code></td>
-        <td></td>
+        <td>Save changes</td>
         <td>Text for OK button</td>
       </tr>
       <tr>
         <td>cancel-text</td>
         <td><code>String</code></td>
-        <td></td>
+        <td>Close</td>
         <td>Text for cancel button</td>
       </tr>
       <tr>
