@@ -166,6 +166,18 @@
         <td>Title of the modal component.</td>
       </tr>
       <tr>
+        <td>ok-text</td>
+        <td><code>String</code></td>
+        <td></td>
+        <td>Text for OK button</td>
+      </tr>
+      <tr>
+        <td>cancel-text</td>
+        <td><code>String</code></td>
+        <td></td>
+        <td>Text for cancel button</td>
+      </tr>
+      <tr>
         <td>width</td>
         <td><code>Number, String or null</code></td>
         <td><code>null</code></td>
