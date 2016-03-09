@@ -189,6 +189,12 @@
         <td><code>false</code></td>
         <td>Creates a small modal ( see boostrap's documentation for .modal-sm )</td>
       </tr>
+      <tr>
+        <td>backdrop</td>
+        <td><code>Boolean</code></td>
+        <td><code>true</code></td>
+        <td>Enables/disables closing the modal by clicking on the backdrop.</td>
+      </tr>
     </tbody>
   </table>
   <h2>Usage</h2>
