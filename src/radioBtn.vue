@@ -1,5 +1,6 @@
 <template>
   <label class="btn"
+  @click="handleClick"
   v-bind:class="{
     'active':active,
     'btn-success':type == 'success',
@@ -12,7 +13,6 @@
 
     <input type="radio" autocomplete="off"
       :checked="checked"
-      @click="handleClick"
     />
 
     <slot></slot>
