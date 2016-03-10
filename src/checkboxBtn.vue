@@ -1,5 +1,6 @@
 <template>
   <label class="btn"
+  @click="handleClick"
   v-bind:class="{
     'active':checked,
     'btn-success':type == 'success',
@@ -12,7 +13,6 @@
 
     <input type="checkbox" autocomplete="off"
     :checked="checked"
-    @click="handleClick"
     />
 
     <slot></slot>
