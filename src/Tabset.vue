@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Nav tabs -->
-     <ul class="nav nav-tabs" role="tablist">
+     <ul class="nav nav-{{navStyle}}" role="tablist">
             <li
                 v-for="r in renderData"
                 v-bind:class="{
@@ -25,6 +25,10 @@
 <script>
   export default {
     props: {
+      navStyle: {
+        type: String,
+        default: 'tabs'
+      },
       effect: {
         type: String,
         default: 'fadein'
