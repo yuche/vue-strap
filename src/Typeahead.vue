@@ -39,6 +39,10 @@ const typeahead = {
       data: {
         type: Array
       },
+      query: {
+        type: String,
+        twoWay: true
+      },
       limit: {
         type: Number,
         default: 8
@@ -47,10 +51,10 @@ const typeahead = {
         type: String
       },
       template: {
-        type:String
+        type: String
       },
       templateName: {
-        type:String,
+        type: String,
         default: 'default'
       },
       key: {
@@ -74,7 +78,6 @@ const typeahead = {
     },
     data() {
       return {
-        query: '',
         showDropdown: false,
         noResults: true,
         current: 0,
