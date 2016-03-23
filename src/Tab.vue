@@ -51,6 +51,9 @@ import coerceBoolean from './utils/coerceBoolean.js'
                 break;
             }
         }
+    },
+    beforeDestroy() {
+      this.$parent.renderData.splice(this.index, 1);
     }
   }
 </script>
