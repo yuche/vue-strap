@@ -11,12 +11,16 @@
                 @click.prevent="handleTabListClick($index, r)"
                 :disabled="r.disabled"
             >
-                <a href="#">{{{r.header}}}</a>
+                <a href="#">  
+                    <slot name="header"> 
+                      {{{r.header}}}
+                  </slot> 
+                </a>
             </li>
      </ul>
 
      <!-- Tab panes -->
-     <div class="tab-content" v-el:tabContent>
+     <div class="tab-content" v-el:tab-content>
         <slot></slot>
      </div>
   </div>

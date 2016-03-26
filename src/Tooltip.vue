@@ -16,8 +16,10 @@
     role="tooltip">
     <div class="tooltip-arrow"></div>
     <div class="tooltip-inner">
-      {{{content}}}
-    </div>
+       <slot name="content">
+        {{{content}}}
+      </slot> 
+   </div>
   </div>
 </template>
 

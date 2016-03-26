@@ -12,7 +12,7 @@
         <slot name="modal-header">
           <div class="modal-header">
             <button type="button" class="close" @click="close"><span>&times;</span></button>
-            <h4 class="modal-title" >{{title}}</h4>
+            <h4 class="modal-title" > <slot name="title"{{title}}></slot></h4>
           </div>
         </slot>
         <slot name="modal-body">
