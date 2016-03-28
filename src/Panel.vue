@@ -4,7 +4,9 @@
       <h4 class="panel-title">
         <a class="accordion-toggle"
           @click="toggleIsOpen()">
-           {{ header }}
+          <slot name="header"> 
+            {{ header }}
+          </slot>
         </a>
       </h4>
     </div>

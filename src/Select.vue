@@ -22,7 +22,8 @@
         </li>
       </template>
       <slot v-else></slot>
-      <div class="notify" v-show="showNotify" transition="fadein">Limit reached ({{limit}} items max).</div>
+      <div class="notify" v-show="showNotify" transition="fadein">Limit reached ({{limit}} items max).
+      </div>
     </ul>
   </div>
 </template>
