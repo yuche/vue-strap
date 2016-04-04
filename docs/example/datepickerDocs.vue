@@ -28,6 +28,8 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
         <v-option value="yyyy.MM.dd">yyyy.MM.dd</v-option>
         <v-option value="MMM/dd/yyyy">MMM/dd/yyyy</v-option>
         <v-option value="MMMM/dd/yyyy">MMMM/dd/yyyy</v-option>
+        <v-option value="dd/MM/yyyy">dd/MM/yyyy</v-option>
+        <v-option value="dd-MM-yyyy">dd-MM-yyyy</v-option>
       </v-select>
 
       <h4>Reset button</h4>
@@ -56,6 +58,8 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
   <v-option value="yyyy.MM.dd">yyyy.MM.dd</v-option>
   <v-option value="MMM/dd/yyyy">MMM/dd/yyyy</v-option>
   <v-option value="MMMM/dd/yyyy">MMMM/dd/yyyy</v-option>
+  <v-option value="dd/MM/yyyy">dd/MM/yyyy</v-option>
+  <v-option value="dd-MM-yyyy">dd-MM-yyyy</v-option>
 </select>
     </script></code></pre>
     <h2>Option</h2>
