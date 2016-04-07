@@ -97,7 +97,14 @@ import coerceBoolean from './utils/coerceBoolean.js'
         if (this.value.length) {
           for (let item in this.value) {
             if (typeof this.value[item] === "string") {
-              foundItems.push(this.value[item])
+              let option
+              this.options.some(o => {
+                if(o.value === this.value[item]) {
+                  option = o
+                  return true
+                }
+              })
+              option && foundItems.push(option.label)
             }
           }
           return foundItems.join(', ')
