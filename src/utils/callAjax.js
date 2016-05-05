@@ -8,6 +8,7 @@ export default (url, callback)=> {
             }
         }
     }
+    httpRequest.setRequestHeader("Accept", "application/json")
     httpRequest.open('GET', url)
     httpRequest.send()
 }
