@@ -21,6 +21,7 @@ import tabset from './Tabset.vue'
 import tooltip from './Tooltip.vue'
 import typeahead from './Typeahead.vue'
 import navbar from './Navbar.vue'
+import spinner from './Spinner.vue'
 
 const VueStrap = {
   alert,
@@ -45,7 +46,8 @@ const VueStrap = {
   tabset,
   tooltip,
   typeahead,
-  navbar
+  navbar,
+  spinner
 }
 
 module.exports = VueStrap
