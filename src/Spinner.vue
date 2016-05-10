@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script type="es6">
+<script>
   // import styling
   import './spinner.scss'
 

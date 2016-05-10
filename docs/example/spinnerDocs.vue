@@ -27,7 +27,7 @@
   </div>
 </template>
 
-<script type="es6">
+<script>
   import spinner from 'src/Spinner.vue'
 
   const sizes = [
