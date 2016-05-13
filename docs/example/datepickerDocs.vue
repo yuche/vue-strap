@@ -8,7 +8,7 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
         </pre>
       </p>
       <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled"
-      :format="format.toString()"></datepicker>
+      :format="format.toString()" :show-reset-button="reset"></datepicker>
       <h4>Disabled days of week</h4>
 
       <v-select multiple :value.sync="disabled">
@@ -28,13 +28,19 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
         <v-option value="yyyy.MM.dd">yyyy.MM.dd</v-option>
         <v-option value="MMM/dd/yyyy">MMM/dd/yyyy</v-option>
         <v-option value="MMMM/dd/yyyy">MMMM/dd/yyyy</v-option>
+        <v-option value="dd/MM/yyyy">dd/MM/yyyy</v-option>
+        <v-option value="dd-MM-yyyy">dd-MM-yyyy</v-option>
       </v-select>
+
+      <h4>Reset button</h4>
+      <label><input type="checkbox" v-model="reset" @click="x"> toggle reset button</label>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
 <datepicker
   :value.sync="value"
   :disabled-days-of-Week="disabled"
-  :format="format">
+  :format="format"
+  :show-reset-button="reset">
 </datepicker>
 
 <select multiple :value.sync="disabled" size=5>
@@ -52,6 +58,8 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
   <v-option value="yyyy.MM.dd">yyyy.MM.dd</v-option>
   <v-option value="MMM/dd/yyyy">MMM/dd/yyyy</v-option>
   <v-option value="MMMM/dd/yyyy">MMMM/dd/yyyy</v-option>
+  <v-option value="dd/MM/yyyy">dd/MM/yyyy</v-option>
+  <v-option value="dd-MM-yyyy">dd-MM-yyyy</v-option>
 </select>
     </script></code></pre>
     <h2>Option</h2>
@@ -90,6 +98,13 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
           <td>Days of the week that should be disabled. Values are 0 (Sunday) to 6 (Saturday).
              Multiple values should be comma-separated.</td>
         </tr>
+        <tr>
+          <td>showResetButton</td>
+          <td><code>Boolean</code></td>
+          <td>false</td>
+          <td>If <strong>true</strong> shows an &times; shaped button to clear the selected date.
+            Usefull in forms where date entry is optional.</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -109,7 +124,8 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
       return {
         disabled: [],
         value: 'Oct/06/2015',
-        format: ['MMM/dd/yyyy']
+        format: ['MMM/dd/yyyy'],
+        reset: true
       }
     },
     watch: {

@@ -11,7 +11,11 @@
       <div class="aside-content">
         <div class="aside-header">
           <button type="button" class="close" @click='close'><span>&times;</span></button>
-          <h4 class="aside-title">{{header}}</h4>
+          <h4 class="aside-title">   
+          <slot name="header"> 
+            {{ header }}
+          </slot>
+          </h4>
         </div>
         <div class="aside-body">
           <slot></slot>
@@ -24,10 +28,13 @@
 <script>
 import EventListener from './utils/EventListener.js'
 import getScrollBarWidth from './utils/getScrollBarWidth.js'
+import coerceBoolean from './utils/coerceBoolean.js'
+
   export default {
     props: {
       show: {
         type: Boolean,
+        coerce: coerceBoolean,
         require: true,
         twoWay: true
       },

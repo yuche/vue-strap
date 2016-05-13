@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import coerceBoolean from './utils/coerceBoolean.js'
+
   export default {
     props: {
       value: {
@@ -28,6 +30,7 @@
       },
       checked: {
         type: Boolean,
+        coerce: coerceBoolean,
         default: false
       }
     },
@@ -45,7 +48,11 @@
       }
     },
     created() {
-      if (this.checked) this.$parent.value = this.value
+      if (this.$parent.value === this.value) {
+        this.checked = true
+      } else if (!this.$parent.value.length && this.checked) {
+        this.$parent.value = this.value
+      }
     }
   }
 </script>

@@ -1,8 +1,8 @@
 {
   "name": "vue-strap",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "description": "Bootstrap components built with Vue.js",
-  "main": "dist/vue-strap.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "yuche/vue-strap"
@@ -35,6 +35,10 @@
     "babel-preset-es2015": "^6.1.18",
     "babel-runtime": "^6.3.19",
     "css-loader": "^0.21.0",
+    "sass-loader": "^3.1.1",
+    "node-sass": "^3.4.1",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.1",
     "prismjs": "^1.3.0",
     "style-loader": "^0.13.0",
     "vue-hot-reload-api": "^1.2.0",
@@ -45,6 +49,9 @@
   },
   "browserify": {
     "transform": [
+    [
+       "babelify", { "presets": ["es2015"] }
+    ],
       [
         "vueify"
       ]

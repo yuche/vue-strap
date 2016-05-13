@@ -1,4 +1,6 @@
 import EventListener from './utils/EventListener.js'
+import coerceBoolean from './utils/coerceBoolean.js'
+
 const PopoverMixin = {
   props: {
     trigger: {
@@ -17,6 +19,7 @@ const PopoverMixin = {
     },
     header: {
       type: Boolean,
+      coerce: coerceBoolean,
       default: true
     },
     placement: {

@@ -166,6 +166,18 @@
         <td>Title of the modal component.</td>
       </tr>
       <tr>
+        <td>ok-text</td>
+        <td><code>String</code></td>
+        <td>Save changes</td>
+        <td>Text for OK button</td>
+      </tr>
+      <tr>
+        <td>cancel-text</td>
+        <td><code>String</code></td>
+        <td>Close</td>
+        <td>Text for cancel button</td>
+      </tr>
+      <tr>
         <td>width</td>
         <td><code>Number, String or null</code></td>
         <td><code>null</code></td>
@@ -188,6 +200,12 @@
         <td><code>Boolean</code></td>
         <td><code>false</code></td>
         <td>Creates a small modal ( see boostrap's documentation for .modal-sm )</td>
+      </tr>
+      <tr>
+        <td>backdrop</td>
+        <td><code>Boolean</code></td>
+        <td><code>true</code></td>
+        <td>Enables/disables closing the modal by clicking on the backdrop.</td>
       </tr>
     </tbody>
   </table>

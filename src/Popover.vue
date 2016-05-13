@@ -14,9 +14,15 @@
     v-show="show"
     :transition="effect">
       <div class="arrow"></div>
-      <h3 class="popover-title" v-show="title">{{title}}</h3>
+      <h3 class="popover-title" v-show="title"> 
+          <slot name="title">
+            {{title}} 
+          </slot> 
+      </h3>
       <div class="popover-content">
-        {{{content}}}
+        <slot name="content"> 
+            {{{content}}} 
+        </slot> 
       </div>
   </div>
 </template>

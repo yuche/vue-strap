@@ -22,6 +22,7 @@ import selectDocs from './example/selectDocs.vue'
 import tabsDocs from './example/tabsDocs.vue'
 import tooltipDocs from './example/tooltipDocs.vue'
 import typeaheadDocs from './example/typeaheadDocs.vue'
+import spinnerDocs from './example/spinnerDocs.vue'
 
 Vue.config.debug = true
 
@@ -47,6 +48,7 @@ new Vue({
     tabsDocs,
     tooltipDocs,
     typeaheadDocs,
+    spinnerDocs,
     list: {
       inherit: true,
       template: ''
