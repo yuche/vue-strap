@@ -24,6 +24,12 @@
       this._closeEvent = EventListener.listen(window, 'click', (e)=> {
         if (!el.contains(e.target) || e.target.nodeName.toLowerCase() == 'a') el.classList.remove('open')
       })
+      const targets = document.querySelectorAll('.btn-dropdown .dropdown-menu a')
+      for( let i = 0; i < targets.length; i++) {
+        targets[i].addEventListener('click', e => {
+          el.classList.remove('open')
+        })
+      }
     },
     beforeDestroy() {
       if (this._closeEvent) this._closeEvent.remove()
