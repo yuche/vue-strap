@@ -56,234 +56,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 	
-<<<<<<< HEAD
-	var _Alert = __webpack_require__(23);
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
-	var _Alert2 = _interopRequireDefault(_Alert);
-	
-	var _Carousel = __webpack_require__(30);
-	
-	var _Carousel2 = _interopRequireDefault(_Carousel);
-	
-	var _Slider = __webpack_require__(74);
-	
-	var _Slider2 = _interopRequireDefault(_Slider);
-	
-	var _Accordion = __webpack_require__(77);
-	
-	var _Accordion2 = _interopRequireDefault(_Accordion);
-	
-	var _Affix = __webpack_require__(80);
-	
-	var _Affix2 = _interopRequireDefault(_Affix);
-	
-	var _Aside = __webpack_require__(85);
-	
-	var _Aside2 = _interopRequireDefault(_Aside);
-	
-	var _checkboxGroup = __webpack_require__(91);
-	
-	var _checkboxGroup2 = _interopRequireDefault(_checkboxGroup);
-	
-	var _checkboxBtn = __webpack_require__(94);
-	
-	var _checkboxBtn2 = _interopRequireDefault(_checkboxBtn);
-	
-	var _Datepicker = __webpack_require__(97);
-	
-	var _Datepicker2 = _interopRequireDefault(_Datepicker);
-	
-	var _Dropdown = __webpack_require__(102);
-	
-	var _Dropdown2 = _interopRequireDefault(_Dropdown);
-	
-	var _Modal = __webpack_require__(105);
-	
-	var _Modal2 = _interopRequireDefault(_Modal);
-	
-<<<<<<< HEAD
-	var _Option = __webpack_require__(110);
-	
-	var _Option2 = _interopRequireDefault(_Option);
-	
-	var _Panel = __webpack_require__(115);
-	
-	var _Panel2 = _interopRequireDefault(_Panel);
-	
-	var _Popover = __webpack_require__(120);
-	
-	var _Popover2 = _interopRequireDefault(_Popover);
-	
-	var _Progressbar = __webpack_require__(126);
-	
-	var _Progressbar2 = _interopRequireDefault(_Progressbar);
-	
-	var _radioBtn = __webpack_require__(129);
-	
-	var _radioBtn2 = _interopRequireDefault(_radioBtn);
-	
-	var _radioGroup = __webpack_require__(132);
-	
-	var _radioGroup2 = _interopRequireDefault(_radioGroup);
-	
-	var _Select = __webpack_require__(135);
-	
-	var _Select2 = _interopRequireDefault(_Select);
-	
-	var _Tab = __webpack_require__(149);
-	
-	var _Tab2 = _interopRequireDefault(_Tab);
-	
-	var _Tabset = __webpack_require__(154);
-	
-	var _Tabset2 = _interopRequireDefault(_Tabset);
-	
-	var _Tooltip = __webpack_require__(159);
-	
-	var _Tooltip2 = _interopRequireDefault(_Tooltip);
-	
-	var _Typeahead = __webpack_require__(164);
-=======
-	var _Option = __webpack_require__(114);
-	
-	var _Option2 = _interopRequireDefault(_Option);
-	
-	var _Panel = __webpack_require__(119);
-	
-	var _Panel2 = _interopRequireDefault(_Panel);
-	
-	var _Popover = __webpack_require__(124);
-	
-	var _Popover2 = _interopRequireDefault(_Popover);
-	
-	var _Progressbar = __webpack_require__(130);
-	
-	var _Progressbar2 = _interopRequireDefault(_Progressbar);
-	
-	var _radioBtn = __webpack_require__(133);
-	
-	var _radioBtn2 = _interopRequireDefault(_radioBtn);
-	
-	var _radioGroup = __webpack_require__(136);
-	
-	var _radioGroup2 = _interopRequireDefault(_radioGroup);
-	
-	var _Select = __webpack_require__(139);
-	
-	var _Select2 = _interopRequireDefault(_Select);
-	
-	var _Tab = __webpack_require__(153);
-	
-	var _Tab2 = _interopRequireDefault(_Tab);
-	
-	var _Tabset = __webpack_require__(158);
-	
-	var _Tabset2 = _interopRequireDefault(_Tabset);
-	
-	var _Tooltip = __webpack_require__(163);
-	
-	var _Tooltip2 = _interopRequireDefault(_Tooltip);
-	
-	var _Typeahead = __webpack_require__(168);
->>>>>>> master
-	
-	var _Typeahead2 = _interopRequireDefault(_Typeahead);
-	
-=======
-	
-	var _Alert2 = _interopRequireDefault(_Alert);
-	
-	var _Carousel = __webpack_require__(30);
-	
-	var _Carousel2 = _interopRequireDefault(_Carousel);
-	
-	var _Slider = __webpack_require__(74);
-	
-	var _Slider2 = _interopRequireDefault(_Slider);
-	
-	var _Accordion = __webpack_require__(77);
-	
-	var _Accordion2 = _interopRequireDefault(_Accordion);
-	
-	var _Affix = __webpack_require__(80);
-	
-	var _Affix2 = _interopRequireDefault(_Affix);
-	
-	var _Aside = __webpack_require__(85);
-	
-	var _Aside2 = _interopRequireDefault(_Aside);
-	
-	var _checkboxGroup = __webpack_require__(91);
-	
-	var _checkboxGroup2 = _interopRequireDefault(_checkboxGroup);
-	
-	var _checkboxBtn = __webpack_require__(94);
-	
-	var _checkboxBtn2 = _interopRequireDefault(_checkboxBtn);
-	
-	var _Datepicker = __webpack_require__(97);
-	
-	var _Datepicker2 = _interopRequireDefault(_Datepicker);
-	
-	var _Dropdown = __webpack_require__(102);
-	
-	var _Dropdown2 = _interopRequireDefault(_Dropdown);
-	
-	var _Modal = __webpack_require__(105);
-	
-	var _Modal2 = _interopRequireDefault(_Modal);
-	
-	var _Option = __webpack_require__(114);
-	
-	var _Option2 = _interopRequireDefault(_Option);
-	
-	var _Panel = __webpack_require__(119);
-	
-	var _Panel2 = _interopRequireDefault(_Panel);
-	
-	var _Popover = __webpack_require__(124);
-	
-	var _Popover2 = _interopRequireDefault(_Popover);
-	
-	var _Progressbar = __webpack_require__(130);
-	
-	var _Progressbar2 = _interopRequireDefault(_Progressbar);
-	
-	var _radioBtn = __webpack_require__(133);
-	
-	var _radioBtn2 = _interopRequireDefault(_radioBtn);
-	
-	var _radioGroup = __webpack_require__(136);
-	
-	var _radioGroup2 = _interopRequireDefault(_radioGroup);
-	
-	var _Select = __webpack_require__(139);
-	
-	var _Select2 = _interopRequireDefault(_Select);
-	
-	var _Tab = __webpack_require__(153);
-	
-	var _Tab2 = _interopRequireDefault(_Tab);
-	
-	var _Tabset = __webpack_require__(158);
-	
-	var _Tabset2 = _interopRequireDefault(_Tabset);
-	
-	var _Tooltip = __webpack_require__(163);
-	
-	var _Tooltip2 = _interopRequireDefault(_Tooltip);
-	
-	var _Typeahead = __webpack_require__(168);
-	
-	var _Typeahead2 = _interopRequireDefault(_Typeahead);
-	
->>>>>>> master
-=======
-=======
 	var _Alert = __webpack_require__(25);
->>>>>>> master
 	
 	var _Alert2 = _interopRequireDefault(_Alert);
 	
@@ -371,9 +144,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _Typeahead2 = _interopRequireDefault(_Typeahead);
 	
-<<<<<<< HEAD
->>>>>>> master
-=======
 	var _Navbar = __webpack_require__(186);
 	
 	var _Navbar2 = _interopRequireDefault(_Navbar);
@@ -382,7 +152,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _Spinner2 = _interopRequireDefault(_Spinner);
 	
->>>>>>> master
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var VueStrap = {
@@ -454,29 +223,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Alert.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Alert.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Alert.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Alert.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Alert.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Alert.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Alert.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Alert.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Alert.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -498,23 +248,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-cc8c6960&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-cc8c6960&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3ac938d8&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3ac938d8&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3ac938d8&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3ac938d8&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3ac938d8&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3ac938d8&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue");
->>>>>>> master
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -856,47 +591,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	// <template>
-	//   <div
-	//     v-show="show"
-	//     v-bind:class="{
-	//       'alert':		true,
-	//       'alert-success':(type == 'success'),
-	//       'alert-warning':(type == 'warning'),
-	//       'alert-info':	(type == 'info'),
-	//       'alert-danger':	(type == 'danger'),
-	//       'top': 			(placement === 'top'),
-	//       'top-right': 	(placement === 'top-right')
-	//     }"
-	//     transition="fade"
-	//     v-bind:style="{width:width}"
-	//     role="alert">
-	//     <button v-show="dismissable" type="button" class="close"
-	//       @click="show = false">
-	//       <span>&times;</span>
-	//     </button>
-	//     <slot></slot>
-	//   </div>
-	// </template>
-	
-	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 	
 	var _coerceBoolean = __webpack_require__(31);
 	
@@ -904,7 +598,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
->>>>>>> master
 	exports.default = {
 	  props: {
 	    type: {
@@ -945,14 +638,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	// </script>
 
 	// <style>
@@ -979,15 +664,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	//   z-index: 2;
 	// }
 	// </style>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 	// <template>
 	//   <div
 	//     v-show="show"
@@ -1012,7 +688,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </template>
 
 	// <script>
->>>>>>> master
 
 /***/ },
 /* 31 */
@@ -1052,29 +727,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue","-!vue-html!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1ce6791c&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1ce6791c&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1ce6791c&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-619cca58&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-619cca58&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1ce6791c&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -1096,23 +752,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1ce6791c&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1ce6791c&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-619cca58&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-619cca58&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-619cca58&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-619cca58&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-619cca58&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-619cca58&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue");
->>>>>>> master
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -1130,19 +771,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	exports.push([module.id, ".carousel-control[_v-1ce6791c] {\n    cursor: pointer;\n  }", ""]);
-=======
-	exports.push([module.id, ".carousel-control[_v-619cca58] {\n    cursor: pointer;\n  }", ""]);
->>>>>>> master
-=======
-	exports.push([module.id, ".carousel-control[_v-619cca58] {\n    cursor: pointer;\n  }", ""]);
->>>>>>> master
-=======
-	exports.push([module.id, ".carousel-control[_v-619cca58] {\n    cursor: pointer;\n  }", ""]);
->>>>>>> master
 	
 	// exports
 
@@ -1298,14 +927,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	// </script>
 
 	// <style scoped>
@@ -1313,39 +934,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	//     cursor: pointer;
 	//   }
 	// </style>
-<<<<<<< HEAD
-	// <template>
-	// <div class="carousel slide" data-ride="carousel">
-	//   <!-- Indicators -->
-	//   <ol class="carousel-indicators" v-show="indicators">
-	//     <indicator></indicator>
-	//   </ol>
-	//   <!-- Wrapper for slides -->
-	//   <div class="carousel-inner" role="listbox">
-	//     <slot></slot>
-	//   </div>
-	//   <!-- Controls -->
-	//   <a v-show="controls" class="left carousel-control" @click="prevClick">
-	//     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-	//     <span class="sr-only">Previous</span>
-	//   </a>
-	//   <a v-show="controls" class="right carousel-control" @click="nextClick">
-	//     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-	//     <span class="sr-only">Next</span>
-	//   </a>
-	// </div>
-	// </template>
-
-	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 
 /***/ },
 /* 37 */
@@ -1788,13 +1376,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 55 */
-<<<<<<< HEAD
-=======
-=======
 /* 63 */
->>>>>>> master
 /***/ function(module, exports) {
 
 	module.exports = {};
@@ -1893,10 +1475,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 60 */
->>>>>>> master
-=======
 /* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -2021,94 +1599,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 77 */
->>>>>>> master
-/***/ function(module, exports) {
-
-	module.exports = {};
-
-/***/ },
-<<<<<<< HEAD
-/* 56 */
-<<<<<<< HEAD
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var $              = __webpack_require__(50)
-	  , descriptor     = __webpack_require__(51)
-	  , setToStringTag = __webpack_require__(57)
-	  , IteratorPrototype = {};
-	
-	// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-	__webpack_require__(49)(IteratorPrototype, __webpack_require__(58)('iterator'), function(){ return this; });
-	
-	module.exports = function(Constructor, NAME, next){
-	  Constructor.prototype = $.create(IteratorPrototype, {next: descriptor(1, next)});
-	  setToStringTag(Constructor, NAME + ' Iterator');
-	};
-
-/***/ },
-<<<<<<< HEAD
-/* 57 */
-/***/ function(module, exports, __webpack_require__) {
-
-=======
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var $              = __webpack_require__(50)
-	  , descriptor     = __webpack_require__(51)
-	  , setToStringTag = __webpack_require__(57)
-	  , IteratorPrototype = {};
-	
-	// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-	__webpack_require__(49)(IteratorPrototype, __webpack_require__(58)('iterator'), function(){ return this; });
-	
-	module.exports = function(Constructor, NAME, next){
-	  Constructor.prototype = $.create(IteratorPrototype, {next: descriptor(1, next)});
-	  setToStringTag(Constructor, NAME + ' Iterator');
-	};
-
-/***/ },
-/* 57 */
-/***/ function(module, exports, __webpack_require__) {
-
->>>>>>> master
-	var def = __webpack_require__(50).setDesc
-	  , has = __webpack_require__(54)
-	  , TAG = __webpack_require__(58)('toStringTag');
-	
-	module.exports = function(it, tag, stat){
-	  if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
-	};
-
-/***/ },
-/* 58 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var store  = __webpack_require__(59)('wks')
-	  , uid    = __webpack_require__(60)
-	  , Symbol = __webpack_require__(44).Symbol;
-	module.exports = function(name){
-	  return store[name] || (store[name] =
-	    Symbol && Symbol[name] || (Symbol || uid)('Symbol.' + name));
-	};
-
-/***/ },
-/* 59 */
-=======
-/* 61 */
->>>>>>> master
-/***/ function(module, exports, __webpack_require__) {
-
-	var global = __webpack_require__(44)
-	  , SHARED = '__core-js_shared__'
-	  , store  = global[SHARED] || (global[SHARED] = {});
-	module.exports = function(key){
-	  return store[key] || (store[key] = {});
-	};
-
-/***/ },
-/* 60 */
 /***/ function(module, exports) {
 
 	var id = 0
@@ -2118,19 +1608,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 61 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var ctx         = __webpack_require__(46)
-	  , $export     = __webpack_require__(43)
-	  , toObject    = __webpack_require__(62)
-	  , call        = __webpack_require__(63)
-	  , isArrayIter = __webpack_require__(66)
-	  , toLength    = __webpack_require__(67)
-	  , getIterFn   = __webpack_require__(68);
-	$export($export.S + $export.F * !__webpack_require__(71)(function(iter){ Array.from(iter); }), 'Array', {
-=======
 /* 78 */
 /***/ function(module, exports) {
 
@@ -2216,28 +1693,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	  , getIterFn      = __webpack_require__(88);
 	
 	$export($export.S + $export.F * !__webpack_require__(90)(function(iter){ Array.from(iter); }), 'Array', {
->>>>>>> master
 	  // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
 	  from: function from(arrayLike/*, mapfn = undefined, thisArg = undefined*/){
 	    var O       = toObject(arrayLike)
 	      , C       = typeof this == 'function' ? this : Array
-<<<<<<< HEAD
-	      , $$      = arguments
-	      , $$len   = $$.length
-	      , mapfn   = $$len > 1 ? $$[1] : undefined
-=======
 	      , aLen    = arguments.length
 	      , mapfn   = aLen > 1 ? arguments[1] : undefined
->>>>>>> master
 	      , mapping = mapfn !== undefined
 	      , index   = 0
 	      , iterFn  = getIterFn(O)
 	      , length, result, step, iterator;
-<<<<<<< HEAD
-	    if(mapping)mapfn = ctx(mapfn, $$len > 2 ? $$[2] : undefined, 2);
-=======
 	    if(mapping)mapfn = ctx(mapfn, aLen > 2 ? arguments[2] : undefined, 2);
->>>>>>> master
 	    // if object isn't iterable or it's array with default iterator - use simple case
 	    if(iterFn != undefined && !(C == Array && isArrayIter(iterFn))){
 	      for(iterator = iterFn.call(O), result = new C; !(step = iterator.next()).done; index++){
@@ -2409,23 +1875,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 92 */
 /***/ function(module, exports) {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-1ce6791c=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-1ce6791c=\"\">\n    <indicator _v-1ce6791c=\"\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-1ce6791c=\"\">\n    <slot _v-1ce6791c=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <a v-show=\"controls\" class=\"left carousel-control\" @click=\"prevClick\" _v-1ce6791c=\"\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" _v-1ce6791c=\"\"></span>\n    <span class=\"sr-only\" _v-1ce6791c=\"\">Previous</span>\n  </a>\n  <a v-show=\"controls\" class=\"right carousel-control\" @click=\"nextClick\" _v-1ce6791c=\"\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" _v-1ce6791c=\"\"></span>\n    <span class=\"sr-only\" _v-1ce6791c=\"\">Next</span>\n  </a>\n</div>";
-=======
-	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-619cca58=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-619cca58=\"\">\n    <indicator _v-619cca58=\"\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-619cca58=\"\">\n    <slot _v-619cca58=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <a v-show=\"controls\" class=\"left carousel-control\" @click=\"prevClick\" _v-619cca58=\"\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" _v-619cca58=\"\"></span>\n    <span class=\"sr-only\" _v-619cca58=\"\">Previous</span>\n  </a>\n  <a v-show=\"controls\" class=\"right carousel-control\" @click=\"nextClick\" _v-619cca58=\"\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" _v-619cca58=\"\"></span>\n    <span class=\"sr-only\" _v-619cca58=\"\">Next</span>\n  </a>\n</div>";
->>>>>>> master
-=======
-	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-619cca58=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-619cca58=\"\">\n    <indicator _v-619cca58=\"\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-619cca58=\"\">\n    <slot _v-619cca58=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <a v-show=\"controls\" class=\"left carousel-control\" @click=\"prevClick\" _v-619cca58=\"\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" _v-619cca58=\"\"></span>\n    <span class=\"sr-only\" _v-619cca58=\"\">Previous</span>\n  </a>\n  <a v-show=\"controls\" class=\"right carousel-control\" @click=\"nextClick\" _v-619cca58=\"\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" _v-619cca58=\"\"></span>\n    <span class=\"sr-only\" _v-619cca58=\"\">Next</span>\n  </a>\n</div>";
->>>>>>> master
-=======
-	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-619cca58=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-619cca58=\"\">\n    <indicator _v-619cca58=\"\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-619cca58=\"\">\n    <slot _v-619cca58=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <a v-show=\"controls\" class=\"left carousel-control\" @click=\"prevClick\" _v-619cca58=\"\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" _v-619cca58=\"\"></span>\n    <span class=\"sr-only\" _v-619cca58=\"\">Previous</span>\n  </a>\n  <a v-show=\"controls\" class=\"right carousel-control\" @click=\"nextClick\" _v-619cca58=\"\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" _v-619cca58=\"\"></span>\n    <span class=\"sr-only\" _v-619cca58=\"\">Next</span>\n  </a>\n</div>";
->>>>>>> master
-=======
 	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-1ce6791c=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-1ce6791c=\"\">\n    <indicator :indicator.sync=\"indicator\" :active-index.sync=\"activeIndex\" :is-animating.sync=\"isAnimating\" _v-1ce6791c=\"\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-1ce6791c=\"\">\n    <slot _v-1ce6791c=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <div v-show=\"controls\" class=\"carousel-controls hidden-xs\" _v-1ce6791c=\"\">\n    <a class=\"left carousel-control\" role=\"button\" @click=\"prevClick\" _v-1ce6791c=\"\">\n      <span class=\"fa fa-arrow-left\" aria-hidden=\"true\" _v-1ce6791c=\"\"></span>\n    </a>\n    <a class=\"right carousel-control\" role=\"button\" @click=\"nextClick\" _v-1ce6791c=\"\">\n      <span class=\"fa fa-arrow-right\" aria-hidden=\"true\" _v-1ce6791c=\"\"></span>\n    </a>\n  </div>\n</div>";
->>>>>>> master
 
 /***/ },
 /* 93 */
@@ -2442,29 +1892,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Slider.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Slider.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Slider.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Slider.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Slider.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Slider.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Slider.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Slider.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Slider.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -2479,14 +1910,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	// <template>
 	//   <div class="item">
 	//     <slot></slot>
@@ -2494,13 +1917,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </template>
 	
 	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	exports.default = {
 	  data: function data() {
 	    return {
@@ -2517,19 +1933,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  ready: function ready() {
 	    for (var c in this.$parent.$children) {
 	      if (this.$parent.$children[c].$el == this.$el) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	        this.index = c;
-=======
 	        this.index = parseInt(c, 10);
->>>>>>> master
-=======
-	        this.index = parseInt(c, 10);
->>>>>>> master
-=======
-	        this.index = parseInt(c, 10);
->>>>>>> master
 	        break;
 	      }
 	    }
@@ -2540,18 +1944,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 	// </script>
->>>>>>> master
-=======
-	// </script>
->>>>>>> master
-=======
-	// </script>
->>>>>>> master
 
 /***/ },
 /* 95 */
@@ -2574,29 +1967,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Accordion.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Accordion.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Accordion.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Accordion.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Accordion.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Accordion.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Accordion.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Accordion.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Accordion.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -2611,30 +1985,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	// <template>
-	//   <div class="panel-group">
-	//     <slot></slot>
-	//   </div>
-	// </template>
-	
-	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 	
 	var _coerceBoolean = __webpack_require__(31);
 	
@@ -2642,7 +1992,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
->>>>>>> master
 	exports.default = {
 	  props: {
 	    oneAtATime: {
@@ -2665,20 +2014,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 	// </script>
->>>>>>> master
-=======
-	// </script>
-<<<<<<< HEAD
->>>>>>> master
-=======
-	// </script>
->>>>>>> master
-=======
 	// <template>
 	//   <div class="panel-group">
 	//     <slot></slot>
@@ -2686,7 +2022,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </template>
 
 	// <script>
->>>>>>> master
 
 /***/ },
 /* 98 */
@@ -2710,29 +2045,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Affix.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Affix.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Affix.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Affix.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Affix.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Affix.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Affix.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Affix.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Affix.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -2754,23 +2070,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5035b9c4&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5035b9c4&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-cdd15bf0&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-cdd15bf0&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-cdd15bf0&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-cdd15bf0&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-cdd15bf0&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-cdd15bf0&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue");
->>>>>>> master
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -2882,14 +2183,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	// </script>
 
 	// <style>
@@ -2907,13 +2200,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </template>
 
 	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 
 /***/ },
 /* 103 */
@@ -2937,29 +2223,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Aside.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Aside.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Aside.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Aside.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Aside.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Aside.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Aside.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Aside.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Aside.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -2981,23 +2248,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2bc3b92c&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2bc3b92c&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-74a55170&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-74a55170&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-74a55170&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-74a55170&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-74a55170&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-74a55170&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue");
->>>>>>> master
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3015,19 +2267,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	exports.push([module.id, ".aside-open {\n    -webkit-transition: -webkit-transform 0.3s;\n    transition: -webkit-transform 0.3s;\n    transition: transform 0.3s;\n    transition: transform 0.3s, -webkit-transform 0.3s;\n  }\n  .aside-open.has-push-right {\n    -webkit-transform: translateX(-300px);\n        -ms-transform: translateX(-300px);\n            transform: translateX(-300px);\n  }\n  .aside {\n      position: fixed;\n      top: 0;\n      bottom: 0;\n      z-index: 1049;\n      overflow: auto;\n      background: #fff;\n  }\n  .aside.left {\n    left: 0;\n    right: auto;\n  }\n  .aside.right {\n    left: auto;\n    right: 0;\n  }\n\n  .slideleft-enter {\n    -webkit-animation:slideleft-in .3s;\n            animation:slideleft-in .3s;\n  }\n  .slideleft-leave {\n    -webkit-animation:slideleft-out .3s;\n            animation:slideleft-out .3s;\n  }\n  @-webkit-keyframes slideleft-in {\n    0% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @keyframes slideleft-in {\n    0% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @-webkit-keyframes slideleft-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n  }\n  @keyframes slideleft-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n  }\n  .slideright-enter {\n    -webkit-animation:slideright-in .3s;\n            animation:slideright-in .3s;\n  }\n  .slideright-leave {\n    -webkit-animation:slideright-out .3s;\n            animation:slideright-out .3s;\n  }\n  @-webkit-keyframes slideright-in {\n    0% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @keyframes slideright-in {\n    0% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @-webkit-keyframes slideright-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n  }\n  @keyframes slideright-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n  }\n\n  .aside:focus {\n      outline: 0\n  }\n\n  @media (max-width: 991px) {\n      .aside {\n          min-width:240px\n      }\n  }\n\n  .aside.left {\n      right: auto;\n      left: 0\n  }\n\n  .aside.right {\n      right: 0;\n      left: auto\n  }\n\n  .aside .aside-dialog .aside-header {\n      border-bottom: 1px solid #e5e5e5;\n      min-height: 16.43px;\n      padding: 6px 15px;\n      background: #337ab7;\n      color: #fff\n  }\n\n  .aside .aside-dialog .aside-header .close {\n      margin-right: -8px;\n      padding: 4px 8px;\n      color: #fff;\n      font-size: 25px;\n      opacity: .8\n  }\n\n  .aside .aside-dialog .aside-body {\n      position: relative;\n      padding: 15px\n  }\n\n  .aside .aside-dialog .aside-footer {\n      padding: 15px;\n      text-align: right;\n      border-top: 1px solid #e5e5e5\n  }\n\n  .aside .aside-dialog .aside-footer .btn+.btn {\n      margin-left: 5px;\n      margin-bottom: 0\n  }\n\n  .aside .aside-dialog .aside-footer .btn-group .btn+.btn {\n      margin-left: -1px\n  }\n\n  .aside .aside-dialog .aside-footer .btn-block+.btn-block {\n      margin-left: 0\n  }\n\n  .aside-backdrop {\n      position: fixed;\n      top: 0;\n      right: 0;\n      bottom: 0;\n      left: 0;\n      z-index: 1040;\n      opacity: 0;\n      -webkit-transition: opacity .3s ease;\n      transition: opacity .3s ease;\n      background-color: #000\n  }\n\n\n  .aside-backdrop.in {\n      opacity: .5;\n      filter: alpha(opacity=50)\n  }", ""]);
-=======
 	exports.push([module.id, ".aside-open {\n    -webkit-transition: -webkit-transform 0.3s;\n    transition: -webkit-transform 0.3s;\n    transition: transform 0.3s;\n    transition: transform 0.3s, -webkit-transform 0.3s;\n  }\n  .aside-open.has-push-right {\n    -webkit-transform: translateX(-300px);\n            transform: translateX(-300px);\n  }\n  .aside {\n      position: fixed;\n      top: 0;\n      bottom: 0;\n      z-index: 1049;\n      overflow: auto;\n      background: #fff;\n  }\n  .aside.left {\n    left: 0;\n    right: auto;\n  }\n  .aside.right {\n    left: auto;\n    right: 0;\n  }\n\n  .slideleft-enter {\n    -webkit-animation:slideleft-in .3s;\n            animation:slideleft-in .3s;\n  }\n  .slideleft-leave {\n    -webkit-animation:slideleft-out .3s;\n            animation:slideleft-out .3s;\n  }\n  @-webkit-keyframes slideleft-in {\n    0% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @keyframes slideleft-in {\n    0% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @-webkit-keyframes slideleft-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n  }\n  @keyframes slideleft-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n  }\n  .slideright-enter {\n    -webkit-animation:slideright-in .3s;\n            animation:slideright-in .3s;\n  }\n  .slideright-leave {\n    -webkit-animation:slideright-out .3s;\n            animation:slideright-out .3s;\n  }\n  @-webkit-keyframes slideright-in {\n    0% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @keyframes slideright-in {\n    0% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @-webkit-keyframes slideright-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n  }\n  @keyframes slideright-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n  }\n\n  .aside:focus {\n      outline: 0\n  }\n\n  @media (max-width: 991px) {\n      .aside {\n          min-width:240px\n      }\n  }\n\n  .aside.left {\n      right: auto;\n      left: 0\n  }\n\n  .aside.right {\n      right: 0;\n      left: auto\n  }\n\n  .aside .aside-dialog .aside-header {\n      border-bottom: 1px solid #e5e5e5;\n      min-height: 16.43px;\n      padding: 6px 15px;\n      background: #337ab7;\n      color: #fff\n  }\n\n  .aside .aside-dialog .aside-header .close {\n      margin-right: -8px;\n      padding: 4px 8px;\n      color: #fff;\n      font-size: 25px;\n      opacity: .8\n  }\n\n  .aside .aside-dialog .aside-body {\n      position: relative;\n      padding: 15px\n  }\n\n  .aside .aside-dialog .aside-footer {\n      padding: 15px;\n      text-align: right;\n      border-top: 1px solid #e5e5e5\n  }\n\n  .aside .aside-dialog .aside-footer .btn+.btn {\n      margin-left: 5px;\n      margin-bottom: 0\n  }\n\n  .aside .aside-dialog .aside-footer .btn-group .btn+.btn {\n      margin-left: -1px\n  }\n\n  .aside .aside-dialog .aside-footer .btn-block+.btn-block {\n      margin-left: 0\n  }\n\n  .aside-backdrop {\n      position: fixed;\n      top: 0;\n      right: 0;\n      bottom: 0;\n      left: 0;\n      z-index: 1040;\n      opacity: 0;\n      -webkit-transition: opacity .3s ease;\n      transition: opacity .3s ease;\n      background-color: #000\n  }\n\n\n  .aside-backdrop.in {\n      opacity: .5;\n      filter: alpha(opacity=50)\n  }", ""]);
->>>>>>> master
-=======
-	exports.push([module.id, ".aside-open {\n    -webkit-transition: -webkit-transform 0.3s;\n    transition: -webkit-transform 0.3s;\n    transition: transform 0.3s;\n    transition: transform 0.3s, -webkit-transform 0.3s;\n  }\n  .aside-open.has-push-right {\n    -webkit-transform: translateX(-300px);\n            transform: translateX(-300px);\n  }\n  .aside {\n      position: fixed;\n      top: 0;\n      bottom: 0;\n      z-index: 1049;\n      overflow: auto;\n      background: #fff;\n  }\n  .aside.left {\n    left: 0;\n    right: auto;\n  }\n  .aside.right {\n    left: auto;\n    right: 0;\n  }\n\n  .slideleft-enter {\n    -webkit-animation:slideleft-in .3s;\n            animation:slideleft-in .3s;\n  }\n  .slideleft-leave {\n    -webkit-animation:slideleft-out .3s;\n            animation:slideleft-out .3s;\n  }\n  @-webkit-keyframes slideleft-in {\n    0% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @keyframes slideleft-in {\n    0% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @-webkit-keyframes slideleft-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n  }\n  @keyframes slideleft-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n  }\n  .slideright-enter {\n    -webkit-animation:slideright-in .3s;\n            animation:slideright-in .3s;\n  }\n  .slideright-leave {\n    -webkit-animation:slideright-out .3s;\n            animation:slideright-out .3s;\n  }\n  @-webkit-keyframes slideright-in {\n    0% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @keyframes slideright-in {\n    0% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @-webkit-keyframes slideright-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n  }\n  @keyframes slideright-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n  }\n\n  .aside:focus {\n      outline: 0\n  }\n\n  @media (max-width: 991px) {\n      .aside {\n          min-width:240px\n      }\n  }\n\n  .aside.left {\n      right: auto;\n      left: 0\n  }\n\n  .aside.right {\n      right: 0;\n      left: auto\n  }\n\n  .aside .aside-dialog .aside-header {\n      border-bottom: 1px solid #e5e5e5;\n      min-height: 16.43px;\n      padding: 6px 15px;\n      background: #337ab7;\n      color: #fff\n  }\n\n  .aside .aside-dialog .aside-header .close {\n      margin-right: -8px;\n      padding: 4px 8px;\n      color: #fff;\n      font-size: 25px;\n      opacity: .8\n  }\n\n  .aside .aside-dialog .aside-body {\n      position: relative;\n      padding: 15px\n  }\n\n  .aside .aside-dialog .aside-footer {\n      padding: 15px;\n      text-align: right;\n      border-top: 1px solid #e5e5e5\n  }\n\n  .aside .aside-dialog .aside-footer .btn+.btn {\n      margin-left: 5px;\n      margin-bottom: 0\n  }\n\n  .aside .aside-dialog .aside-footer .btn-group .btn+.btn {\n      margin-left: -1px\n  }\n\n  .aside .aside-dialog .aside-footer .btn-block+.btn-block {\n      margin-left: 0\n  }\n\n  .aside-backdrop {\n      position: fixed;\n      top: 0;\n      right: 0;\n      bottom: 0;\n      left: 0;\n      z-index: 1040;\n      opacity: 0;\n      -webkit-transition: opacity .3s ease;\n      transition: opacity .3s ease;\n      background-color: #000\n  }\n\n\n  .aside-backdrop.in {\n      opacity: .5;\n      filter: alpha(opacity=50)\n  }", ""]);
->>>>>>> master
-=======
-	exports.push([module.id, ".aside-open {\n    -webkit-transition: -webkit-transform 0.3s;\n    transition: -webkit-transform 0.3s;\n    transition: transform 0.3s;\n    transition: transform 0.3s, -webkit-transform 0.3s;\n  }\n  .aside-open.has-push-right {\n    -webkit-transform: translateX(-300px);\n            transform: translateX(-300px);\n  }\n  .aside {\n      position: fixed;\n      top: 0;\n      bottom: 0;\n      z-index: 1049;\n      overflow: auto;\n      background: #fff;\n  }\n  .aside.left {\n    left: 0;\n    right: auto;\n  }\n  .aside.right {\n    left: auto;\n    right: 0;\n  }\n\n  .slideleft-enter {\n    -webkit-animation:slideleft-in .3s;\n            animation:slideleft-in .3s;\n  }\n  .slideleft-leave {\n    -webkit-animation:slideleft-out .3s;\n            animation:slideleft-out .3s;\n  }\n  @-webkit-keyframes slideleft-in {\n    0% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @keyframes slideleft-in {\n    0% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @-webkit-keyframes slideleft-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n  }\n  @keyframes slideleft-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(-100%);\n              transform: translateX(-100%);\n      opacity: 0;\n    }\n  }\n  .slideright-enter {\n    -webkit-animation:slideright-in .3s;\n            animation:slideright-in .3s;\n  }\n  .slideright-leave {\n    -webkit-animation:slideright-out .3s;\n            animation:slideright-out .3s;\n  }\n  @-webkit-keyframes slideright-in {\n    0% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @keyframes slideright-in {\n    0% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n    100% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n  }\n  @-webkit-keyframes slideright-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n  }\n  @keyframes slideright-out {\n    0% {\n      -webkit-transform: translateX(0);\n              transform: translateX(0);\n      opacity: 1;\n    }\n    100% {\n      -webkit-transform: translateX(100%);\n              transform: translateX(100%);\n      opacity: 0;\n    }\n  }\n\n  .aside:focus {\n      outline: 0\n  }\n\n  @media (max-width: 991px) {\n      .aside {\n          min-width:240px\n      }\n  }\n\n  .aside.left {\n      right: auto;\n      left: 0\n  }\n\n  .aside.right {\n      right: 0;\n      left: auto\n  }\n\n  .aside .aside-dialog .aside-header {\n      border-bottom: 1px solid #e5e5e5;\n      min-height: 16.43px;\n      padding: 6px 15px;\n      background: #337ab7;\n      color: #fff\n  }\n\n  .aside .aside-dialog .aside-header .close {\n      margin-right: -8px;\n      padding: 4px 8px;\n      color: #fff;\n      font-size: 25px;\n      opacity: .8\n  }\n\n  .aside .aside-dialog .aside-body {\n      position: relative;\n      padding: 15px\n  }\n\n  .aside .aside-dialog .aside-footer {\n      padding: 15px;\n      text-align: right;\n      border-top: 1px solid #e5e5e5\n  }\n\n  .aside .aside-dialog .aside-footer .btn+.btn {\n      margin-left: 5px;\n      margin-bottom: 0\n  }\n\n  .aside .aside-dialog .aside-footer .btn-group .btn+.btn {\n      margin-left: -1px\n  }\n\n  .aside .aside-dialog .aside-footer .btn-block+.btn-block {\n      margin-left: 0\n  }\n\n  .aside-backdrop {\n      position: fixed;\n      top: 0;\n      right: 0;\n      bottom: 0;\n      left: 0;\n      z-index: 1040;\n      opacity: 0;\n      -webkit-transition: opacity .3s ease;\n      transition: opacity .3s ease;\n      background-color: #000\n  }\n\n\n  .aside-backdrop.in {\n      opacity: .5;\n      filter: alpha(opacity=50)\n  }", ""]);
->>>>>>> master
 	
 	// exports
 
@@ -3052,52 +2292,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _coerceBoolean = __webpack_require__(31);
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	// <template>
-	//   <div class="aside"
-	//     v-bind:style="{width:width + 'px'}"
-	//     v-bind:class="{
-	//     left:placement === 'left',
-	//     right:placement === 'right'
-	//     }"
-	//     v-show="show"
-	//     :transition="(this.placement === 'left') ? 'slideleft' : 'slideright'">
-	//     <div class="aside-dialog">
-	//       <div class="aside-content">
-	//         <div class="aside-header">
-	//           <button type="button" class="close" @click='close'><span>&times;</span></button>
-	//           <h4 class="aside-title">{{header}}</h4>
-	//         </div>
-	//         <div class="aside-body">
-	//           <slot></slot>
-	//         </div>
-	//       </div>
-	//     </div>
-	//   </div>
-	// </template>
-	
-	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
->>>>>>> master
 	exports.default = {
 	  props: {
 	    show: {
@@ -3137,12 +2335,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      } else {
 	        if (this._clickEvent) this._clickEvent.remove();
 	        backdrop = document.querySelector('.aside-backdrop');
-	        backdrop.className = 'aside-backdrop';
-	        setTimeout(function () {
+	        try {
+	          backdrop.className = 'aside-backdrop';
 	          body.classList.remove('modal-open');
 	          body.style.paddingRight = '0';
 	          body.removeChild(backdrop);
-	        }, 300);
+	        } catch (e) {}
 	      }
 	    }
 	  },
@@ -3152,14 +2350,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	// </script>
 
 	// <style>
@@ -3316,15 +2506,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	//       filter: alpha(opacity=50)
 	//   }
 	// </style>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 	// <template>
 	//   <div class="aside"
 	//     v-bind:style="{width:width + 'px'}"
@@ -3353,7 +2534,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </template>
 
 	// <script>
->>>>>>> master
 
 /***/ },
 /* 108 */
@@ -3366,6 +2546,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	
 	exports.default = function () {
+	  if (document.documentElement.scrollHeight <= document.documentElement.clientHeight) {
+	    return 0;
+	  }
 	  var inner = document.createElement('p');
 	  inner.style.width = '100%';
 	  inner.style.height = '200px';
@@ -3412,29 +2595,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxGroup.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxGroup.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./checkboxGroup.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxGroup.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./checkboxGroup.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxGroup.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./checkboxGroup.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxGroup.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./checkboxGroup.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -3449,14 +2613,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	// <template>
 	//   <div class="btn-group" data-toggle="buttons">
 	//     <slot></slot>
@@ -3464,13 +2620,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </template>
 	
 	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	exports.default = {
 	  props: {
 	    value: {
@@ -3485,18 +2634,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 	// </script>
->>>>>>> master
-=======
-	// </script>
->>>>>>> master
-=======
-	// </script>
->>>>>>> master
 
 /***/ },
 /* 112 */
@@ -3519,29 +2657,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxBtn.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxBtn.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./checkboxBtn.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxBtn.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./checkboxBtn.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxBtn.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./checkboxBtn.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxBtn.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./checkboxBtn.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -3556,28 +2675,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	// <template>
-	//   <label class="btn"
-	//   v-bind:class="{
-	//     'active':checked,
-	//     'btn-success':type == 'success',
-	//     'btn-warning':type == 'warning',
-	//     'btn-info':type == 'info',
-	//     'btn-danger':type == 'danger',
-	//     'btn-default':type == 'default',
-	//     'btn-primary':type == 'primary'
-	//   }">
-=======
->>>>>>> master
 	
 	var _coerceBoolean = __webpack_require__(31);
 	
@@ -3585,17 +2682,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-<<<<<<< HEAD
-	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	exports.default = {
 	  props: {
 	    value: {
@@ -3628,20 +2714,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 	// </script>
->>>>>>> master
-=======
-	// </script>
-<<<<<<< HEAD
->>>>>>> master
-=======
-	// </script>
->>>>>>> master
-=======
 	// <template>
 	//   <label class="btn"
 	//   v-bind:class="{
@@ -3664,7 +2737,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </template>
 
 	// <script>
->>>>>>> master
 
 /***/ },
 /* 115 */
@@ -3689,29 +2761,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Datepicker.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Datepicker.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Datepicker.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Datepicker.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Datepicker.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Datepicker.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Datepicker.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Datepicker.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Datepicker.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -3733,23 +2786,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-663cce78&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-663cce78&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-56a3c0b4&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-56a3c0b4&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-56a3c0b4&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-56a3c0b4&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-56a3c0b4&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-56a3c0b4&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue");
->>>>>>> master
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3822,40 +2860,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-<<<<<<< HEAD
-	var _EventListener = __webpack_require__(72);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
-	var _EventListener2 = _interopRequireDefault(_EventListener);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-=======
-	
-	var _EventListener2 = _interopRequireDefault(_EventListener);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
->>>>>>> master
-=======
-	
-	var _EventListener2 = _interopRequireDefault(_EventListener);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
->>>>>>> master
-=======
-=======
 	var _EventListener = __webpack_require__(91);
->>>>>>> master
 	
 	var _EventListener2 = _interopRequireDefault(_EventListener);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
->>>>>>> master
 	exports.default = {
 	  props: {
 	    value: {
@@ -4118,14 +3128,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (this._closeEvent) this._closeEvent.remove();
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	// </script>
 
 	// <style>
@@ -4326,13 +3328,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </template>
 
 	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 
 /***/ },
 /* 122 */
@@ -4355,29 +3350,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -4393,24 +3369,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-<<<<<<< HEAD
-	var _EventListener = __webpack_require__(72);
-<<<<<<< HEAD
-	
-	var _EventListener2 = _interopRequireDefault(_EventListener);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-=======
-=======
 	var _EventListener = __webpack_require__(91);
->>>>>>> master
 	
 	var _EventListener2 = _interopRequireDefault(_EventListener);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
->>>>>>> master
 	exports.default = {
 	  methods: {
 	    toggleDropdown: function toggleDropdown(e) {
@@ -4433,14 +3397,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (this._closeEvent) this._closeEvent.remove();
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	// </script>
 	// <template>
 	//   <div class="btn-group">
@@ -4449,13 +3405,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	//   </div>
 	// </template>
 	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 
 /***/ },
 /* 125 */
@@ -4471,23 +3420,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = __webpack_require__(129)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(109)
-=======
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(113)
->>>>>>> master
-=======
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(113)
->>>>>>> master
-=======
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(113)
->>>>>>> master
-=======
 	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(134)
->>>>>>> master
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -4495,29 +3428,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Modal.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Modal.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Modal.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Modal.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Modal.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Modal.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Modal.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Modal.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Modal.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -4539,23 +3453,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-72392c21&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-72392c21&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-89ca7736&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-89ca7736&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-89ca7736&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-89ca7736&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-89ca7736&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-89ca7736&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue");
->>>>>>> master
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -4573,19 +3472,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	exports.push([module.id, ".modal {\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n}\n.modal.in {\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\n    -webkit-transform: scale(0.1);\n    -ms-transform: scale(0.1);\n    transform: scale(0.1);\n    top: 300px;\n    opacity: 0;\n    -webkit-transition: all 0.3s;\n    transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\n    -webkit-transform: scale(1);\n    -ms-transform: scale(1);\n    transform: scale(1);\n    -webkit-transform: translate3d(0, -300px, 0);\n    transform: translate3d(0, -300px, 0);\n    opacity: 1;\n}", ""]);
-=======
 	exports.push([module.id, ".modal {\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n}\n.modal.in {\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\n    -webkit-transform: scale(0.1);\n    transform: scale(0.1);\n    top: 300px;\n    opacity: 0;\n    -webkit-transition: all 0.3s;\n    transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n    -webkit-transform: translate3d(0, -300px, 0);\n    transform: translate3d(0, -300px, 0);\n    opacity: 1;\n}", ""]);
->>>>>>> master
-=======
-	exports.push([module.id, ".modal {\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n}\n.modal.in {\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\n    -webkit-transform: scale(0.1);\n    transform: scale(0.1);\n    top: 300px;\n    opacity: 0;\n    -webkit-transition: all 0.3s;\n    transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n    -webkit-transform: translate3d(0, -300px, 0);\n    transform: translate3d(0, -300px, 0);\n    opacity: 1;\n}", ""]);
->>>>>>> master
-=======
-	exports.push([module.id, ".modal {\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n}\n.modal.in {\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\n    -webkit-transform: scale(0.1);\n    transform: scale(0.1);\n    top: 300px;\n    opacity: 0;\n    -webkit-transition: all 0.3s;\n    transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n    -webkit-transform: translate3d(0, -300px, 0);\n    transform: translate3d(0, -300px, 0);\n    opacity: 1;\n}", ""]);
->>>>>>> master
 	
 	// exports
 
@@ -4600,34 +3487,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	var _isInteger = __webpack_require__(109);
-	
-	var _isInteger2 = _interopRequireDefault(_isInteger);
-	
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-	var _getScrollBarWidth = __webpack_require__(89);
-=======
 	var _isInteger = __webpack_require__(130);
 	
 	var _isInteger2 = _interopRequireDefault(_isInteger);
 	
 	var _getScrollBarWidth = __webpack_require__(108);
->>>>>>> master
 	
 	var _getScrollBarWidth2 = _interopRequireDefault(_getScrollBarWidth);
 	
@@ -4637,60 +3501,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _coerceBoolean = __webpack_require__(31);
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	// <template>
-	//   <div role="dialog"
-	//     v-bind:class="{
-	//     'modal':true,
-	//     'fade':effect === 'fade',
-	//     'zoom':effect === 'zoom'
-	//     }"
-	//     >
-	//     <div v-bind:class="{'modal-dialog':true,'modal-lg':large,'modal-sm':small}" role="document"
-	//       v-bind:style="{width: optionalWidth}">
-	//       <div class="modal-content">
-	//         <slot name="modal-header">
-	//           <div class="modal-header">
-	//             <button type="button" class="close" @click="close"><span>&times;</span></button>
-	//             <h4 class="modal-title" >{{title}}</h4>
-	//           </div>
-	//         </slot>
-	//         <slot name="modal-body">
-	//           <div class="modal-body"></div>
-	//         </slot>
-	//         <slot name="modal-footer">
-	//           <div class="modal-footer">
-	//             <button type="button" class="btn btn-default" @click="close">Close</button>
-	//             <button type="button" class="btn btn-primary" @click="callback">Save changes</button>
-	//           </div>
-	//         </slot>
-	//       </div>
-	//     </div>
-	//   </div>
-	// </template>
-	
-	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
->>>>>>> master
 	exports.default = {
 	  props: {
 	    okText: {
@@ -4712,20 +3526,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      twoWay: true
 	    },
 	    width: {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	      type: Number,
-	      default: 600
-=======
 	      default: null
->>>>>>> master
-=======
-	      default: null
->>>>>>> master
-=======
-	      default: null
->>>>>>> master
 	    },
 	    callback: {
 	      type: Function,
@@ -4733,32 +3534,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    effect: {
 	      type: String,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	      default: 'fade'
-=======
 	      default: null
->>>>>>> master
-=======
-	      default: null
->>>>>>> master
-=======
-	      default: null
->>>>>>> master
 	    },
 	    backdrop: {
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
 	      default: true
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	    },
 	    large: {
 	      type: Boolean,
@@ -4769,20 +3550,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
 	      default: false
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	    }
 	  },
-	  watch: {
-	    show: function show(val) {
-	      var _this = this;
+	  ready: function ready() {
+	    var _this = this;
 	
-	      var el = this.$el;
+	    this.$watch('show', function (val) {
+	      var el = _this.$el;
 	      var body = document.body;
 	      var scrollBarWidth = (0, _getScrollBarWidth2.default)();
 	      if (val) {
@@ -4795,13 +3569,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (scrollBarWidth !== 0) {
 	          body.style.paddingRight = scrollBarWidth + 'px';
 	        }
-	        if (this.backdrop) {
-	          this._blurModalContentEvent = _EventListener2.default.listen(this.$el, 'click', function (e) {
+	        if (_this.backdrop) {
+	          _this._blurModalContentEvent = _EventListener2.default.listen(_this.$el, 'click', function (e) {
 	            if (e.target === el) _this.show = false;
 	          });
 	        }
 	      } else {
-	        if (this._blurModalContentEvent) this._blurModalContentEvent.remove();
+	        if (_this._blurModalContentEvent) _this._blurModalContentEvent.remove();
 	        el.classList.remove('in');
 	        setTimeout(function () {
 	          el.style.display = 'none';
@@ -4809,8 +3583,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	          body.style.paddingRight = '0';
 	        }, 300);
 	      }
-	    }
+	    }, { immediate: true });
 	  },
+	
 	  computed: {
 	    optionalWidth: function optionalWidth() {
 	      if (this.width === null) {
@@ -4827,16 +3602,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-/***/ },
-/* 109 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"modal fade\" role=\"dialog\"\n    v-bind:class=\"{\n    'fade':effect === 'fade',\n    'zoom':effect === 'zoom'\n    }\"\n    >\n    <div class=\"modal-dialog\" role=\"document\"\n      v-bind:style=\"{'width': width + 'px'}\">\n      <div class=\"modal-content\">\n        <slot name=\"modal-header\">\n          <div class=\"modal-header\">\n            <button type=\"button\" class=\"close\" @click=\"close\"><span>&times;</span></button>\n            <h4 class=\"modal-title\" >{{title}}</h4>\n          </div>\n        </slot>\n        <slot name=\"modal-body\">\n          <div class=\"modal-body\"></div>\n        </slot>\n        <slot name=\"modal-footer\">\n          <div class=\"modal-footer\">\n            <button type=\"button\" class=\"btn btn-default\" @click=\"close\">Close</button>\n            <button type=\"button\" class=\"btn btn-primary\" @click=\"callback\">Save changes</button>\n          </div>\n        </slot>\n      </div>\n    </div>\n  </div>";
-=======
 	// </script>
 	// <style>
 	// .modal {
@@ -4913,22 +3678,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-	__webpack_require__(111);
-	module.exports = __webpack_require__(45).Number.isInteger;
->>>>>>> master
-
-/***/ },
-/* 110 */
-/***/ function(module, exports, __webpack_require__) {
-
-<<<<<<< HEAD
-	__webpack_require__(111)
-	module.exports = __webpack_require__(113)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(114)
-=======
 	__webpack_require__(132);
 	module.exports = __webpack_require__(48).Number.isInteger;
 
@@ -4967,7 +3716,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
 	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(139)
->>>>>>> master
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -4975,326 +3723,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue")
-=======
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-7f8c06b1&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-7f8c06b1&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue")
->>>>>>> master
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-=======
-	// 20.1.2.3 Number.isInteger(number)
-	var $export = __webpack_require__(43);
-	
-	$export($export.S, 'Number', {isInteger: __webpack_require__(112)});
->>>>>>> master
-=======
-	// </script>
-	// <style>
-	// .modal {
-	//   transition: all 0.3s ease;
-	// }
-	// .modal.in {
-	//   background-color: rgba(0,0,0,0.5);
-	// }
-	// .modal.zoom .modal-dialog {
-	//     -webkit-transform: scale(0.1);
-	//     -moz-transform: scale(0.1);
-	//     -ms-transform: scale(0.1);
-	//     transform: scale(0.1);
-	//     top: 300px;
-	//     opacity: 0;
-	//     -webkit-transition: all 0.3s;
-	//     -moz-transition: all 0.3s;
-	//     transition: all 0.3s;
-	// }
-	// .modal.zoom.in .modal-dialog {
-	//     -webkit-transform: scale(1);
-	//     -moz-transform: scale(1);
-	//     -ms-transform: scale(1);
-	//     transform: scale(1);
-	//     -webkit-transform: translate3d(0, -300px, 0);
-	//     transform: translate3d(0, -300px, 0);
-	//     opacity: 1;
-	// }
-	// </style>
-
-/***/ },
-<<<<<<< HEAD
-/* 109 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(110), __esModule: true };
-
-/***/ },
-/* 110 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(111);
-	module.exports = __webpack_require__(45).Number.isInteger;
->>>>>>> master
-=======
-	// </script>
-	// <style>
-	// .modal {
-	//   transition: all 0.3s ease;
-	// }
-	// .modal.in {
-	//   background-color: rgba(0,0,0,0.5);
-	// }
-	// .modal.zoom .modal-dialog {
-	//     -webkit-transform: scale(0.1);
-	//     -moz-transform: scale(0.1);
-	//     -ms-transform: scale(0.1);
-	//     transform: scale(0.1);
-	//     top: 300px;
-	//     opacity: 0;
-	//     -webkit-transition: all 0.3s;
-	//     -moz-transition: all 0.3s;
-	//     transition: all 0.3s;
-	// }
-	// .modal.zoom.in .modal-dialog {
-	//     -webkit-transform: scale(1);
-	//     -moz-transform: scale(1);
-	//     -ms-transform: scale(1);
-	//     transform: scale(1);
-	//     -webkit-transform: translate3d(0, -300px, 0);
-	//     transform: translate3d(0, -300px, 0);
-	//     opacity: 1;
-	// }
-	// </style>
-
-/***/ },
-/* 109 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(110), __esModule: true };
-
-/***/ },
-/* 110 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(111);
-	module.exports = __webpack_require__(45).Number.isInteger;
->>>>>>> master
-
-/***/ },
-/* 111 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 20.1.2.3 Number.isInteger(number)
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var isObject = __webpack_require__(65)
-	  , floor    = Math.floor;
-	module.exports = function isInteger(it){
-	  return !isObject(it) && isFinite(it) && floor(it) === it;
-	};
-
-/***/ },
-/* 113 */
-/***/ function(module, exports) {
-
-	module.exports = "<div role=\"dialog\"\n    v-bind:class=\"{\n    'modal':true,\n    'fade':effect === 'fade',\n    'zoom':effect === 'zoom'\n    }\"\n    >\n    <div v-bind:class=\"{'modal-dialog':true,'modal-lg':large,'modal-sm':small}\" role=\"document\"\n      v-bind:style=\"{width: optionalWidth}\">\n      <div class=\"modal-content\">\n        <slot name=\"modal-header\">\n          <div class=\"modal-header\">\n            <button type=\"button\" class=\"close\" @click=\"close\"><span>&times;</span></button>\n            <h4 class=\"modal-title\" >{{title}}</h4>\n          </div>\n        </slot>\n        <slot name=\"modal-body\">\n          <div class=\"modal-body\"></div>\n        </slot>\n        <slot name=\"modal-footer\">\n          <div class=\"modal-footer\">\n            <button type=\"button\" class=\"btn btn-default\" @click=\"close\">Close</button>\n            <button type=\"button\" class=\"btn btn-primary\" @click=\"callback\">Save changes</button>\n          </div>\n        </slot>\n      </div>\n    </div>\n  </div>";
-
-/***/ },
-/* 114 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(115)
-	module.exports = __webpack_require__(117)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(118)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-=======
-	var $export = __webpack_require__(43);
-	
-	$export($export.S, 'Number', {isInteger: __webpack_require__(112)});
->>>>>>> master
-
-/***/ },
-/* 115 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 20.1.2.3 Number.isInteger(number)
-	var isObject = __webpack_require__(65)
-	  , floor    = Math.floor;
-	module.exports = function isInteger(it){
-	  return !isObject(it) && isFinite(it) && floor(it) === it;
-	};
-
-/***/ },
-/* 113 */
-/***/ function(module, exports) {
-
-	module.exports = "<div role=\"dialog\"\n    v-bind:class=\"{\n    'modal':true,\n    'fade':effect === 'fade',\n    'zoom':effect === 'zoom'\n    }\"\n    >\n    <div v-bind:class=\"{'modal-dialog':true,'modal-lg':large,'modal-sm':small}\" role=\"document\"\n      v-bind:style=\"{width: optionalWidth}\">\n      <div class=\"modal-content\">\n        <slot name=\"modal-header\">\n          <div class=\"modal-header\">\n            <button type=\"button\" class=\"close\" @click=\"close\"><span>&times;</span></button>\n            <h4 class=\"modal-title\" >{{title}}</h4>\n          </div>\n        </slot>\n        <slot name=\"modal-body\">\n          <div class=\"modal-body\"></div>\n        </slot>\n        <slot name=\"modal-footer\">\n          <div class=\"modal-footer\">\n            <button type=\"button\" class=\"btn btn-default\" @click=\"close\">Close</button>\n            <button type=\"button\" class=\"btn btn-primary\" @click=\"callback\">Save changes</button>\n          </div>\n        </slot>\n      </div>\n    </div>\n  </div>";
-=======
-	var $export = __webpack_require__(43);
-	
-	$export($export.S, 'Number', {isInteger: __webpack_require__(112)});
->>>>>>> master
-
-/***/ },
-/* 114 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(115)
-	module.exports = __webpack_require__(117)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(118)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-/* 115 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 20.1.2.3 Number.isInteger(number)
-	var isObject = __webpack_require__(65)
-	  , floor    = Math.floor;
-	module.exports = function isInteger(it){
-	  return !isObject(it) && isFinite(it) && floor(it) === it;
-	};
-
-/***/ },
-/* 113 */
-/***/ function(module, exports) {
-
-	module.exports = "<div role=\"dialog\"\n    v-bind:class=\"{\n    'modal':true,\n    'fade':effect === 'fade',\n    'zoom':effect === 'zoom'\n    }\"\n    >\n    <div v-bind:class=\"{'modal-dialog':true,'modal-lg':large,'modal-sm':small}\" role=\"document\"\n      v-bind:style=\"{width: optionalWidth}\">\n      <div class=\"modal-content\">\n        <slot name=\"modal-header\">\n          <div class=\"modal-header\">\n            <button type=\"button\" class=\"close\" @click=\"close\"><span>&times;</span></button>\n            <h4 class=\"modal-title\" >{{title}}</h4>\n          </div>\n        </slot>\n        <slot name=\"modal-body\">\n          <div class=\"modal-body\"></div>\n        </slot>\n        <slot name=\"modal-footer\">\n          <div class=\"modal-footer\">\n            <button type=\"button\" class=\"btn btn-default\" @click=\"close\">Close</button>\n            <button type=\"button\" class=\"btn btn-primary\" @click=\"callback\">Save changes</button>\n          </div>\n        </slot>\n      </div>\n    </div>\n  </div>";
-
-/***/ },
-/* 114 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(115)
-	module.exports = __webpack_require__(117)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(118)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-/* 115 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var content = __webpack_require__(112);
-=======
-	var content = __webpack_require__(116);
->>>>>>> master
-=======
-	var content = __webpack_require__(116);
->>>>>>> master
-=======
-	var content = __webpack_require__(116);
->>>>>>> master
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(27)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-7f8c06b1&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-7f8c06b1&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52dd76ed&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52dd76ed&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52dd76ed&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52dd76ed&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52dd76ed&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52dd76ed&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue");
->>>>>>> master
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 112 */
-=======
-/* 116 */
->>>>>>> master
-=======
-/* 116 */
->>>>>>> master
-=======
-/* 116 */
->>>>>>> master
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(26)();
-=======
 /* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -5325,7 +3763,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(28)();
->>>>>>> master
 	// imports
 	
 	
@@ -5336,20 +3773,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 113 */
-=======
-/* 117 */
->>>>>>> master
-=======
-/* 117 */
->>>>>>> master
-=======
-/* 117 */
->>>>>>> master
+/* 138 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -5357,34 +3781,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	// <template>
 	//   <li style="position:relative">
 	//     <a @mousedown.prevent="handleClick" style="cursor:pointer">
 	//       <span v-el:v><slot></slot></span>
-	//       <slot name="span">
-	//         {{value}}
-	//       </slot>
 	//       <span class="glyphicon glyphicon-ok check-mark" v-show="chosen"></span>
 	//     </a>
 	//   </li>
 	// </template>
 	
 	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	exports.default = {
 	  props: {
 	    value: {
@@ -5397,170 +3803,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	  },
 	
-	  computed: {
-	    chosen: function chosen() {
-	      if (this.$parent.multiple) {
-	        return this.$parent.value.indexOf(this.value) !== -1 ? true : false;
-	      }
-	      return this.$parent.value == this.value;
-	    }
-	  },
-	  methods: {
-	    handleClick: function handleClick() {
-	      var parent = this.$parent;
-	      if (parent.multiple) {
-	        var index = parent.value.indexOf(this.value);
-	        index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1);
-	      } else {
-	        parent.value = this.value;
-	        parent.show = false;
-	      }
-	    }
-	  }
-	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-/***/ },
-/* 114 */
-/***/ function(module, exports) {
-
-	module.exports = "<li style=\"position:relative\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\">\n      <slot></slot>\n      <slot name=\"span\">\n        {{value}}\n      </slot>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\"></span>\n    </a>\n  </li>";
-
-/***/ },
-/* 115 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(116)
-	module.exports = __webpack_require__(118)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(119)
-=======
-	// </script>
-
-	// <style>
-	//   a span.check-mark {
-	//     position: absolute;
-	//     display: inline-block;
-	//     right: 15px;
-	//     margin-top: 5px;
-	//   }
-	// </style>
-
-/***/ },
-/* 118 */
-/***/ function(module, exports) {
-
-	module.exports = "<li style=\"position:relative\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\">\n      <span v-el:v><slot></slot></span>\n      <slot name=\"span\">\n        {{value}}\n      </slot>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\"></span>\n    </a>\n  </li>";
-
-/***/ },
-/* 119 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(120)
-	module.exports = __webpack_require__(122)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(123)
->>>>>>> master
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue"
-	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Panel.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Panel.vue")
-=======
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Panel.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Panel.vue")
->>>>>>> master
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-<<<<<<< HEAD
-/* 116 */
-=======
-/* 120 */
->>>>>>> master
-=======
-	// </script>
-
-	// <style>
-	//   a span.check-mark {
-	//     position: absolute;
-	//     display: inline-block;
-	//     right: 15px;
-	//     margin-top: 5px;
-	//   }
-	// </style>
-
-/***/ },
-/* 118 */
-/***/ function(module, exports) {
-
-	module.exports = "<li style=\"position:relative\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\">\n      <span v-el:v><slot></slot></span>\n      <slot name=\"span\">\n        {{value}}\n      </slot>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\"></span>\n    </a>\n  </li>";
-
-/***/ },
-/* 119 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(120)
-	module.exports = __webpack_require__(122)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(123)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Panel.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Panel.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-/* 120 */
->>>>>>> master
-/***/ function(module, exports, __webpack_require__) {
-=======
-/* 138 */
-/***/ function(module, exports) {
->>>>>>> master
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-<<<<<<< HEAD
-	// load the styles
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var content = __webpack_require__(117);
-=======
-	var content = __webpack_require__(121);
->>>>>>> master
-=======
-	var content = __webpack_require__(121);
->>>>>>> master
-=======
-=======
 	  computed: {
 	    chosen: function chosen() {
 	      return this.$parent.value.indexOf(this.value) !== -1;
@@ -5579,7 +3821,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
->>>>>>> master
 	// </script>
 
 	// <style scoped>
@@ -5595,11 +3836,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 139 */
 /***/ function(module, exports) {
 
-<<<<<<< HEAD
-	module.exports = "<li style=\"position:relative\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\">\n      <span v-el:v><slot></slot></span>\n      <slot name=\"span\">\n        {{value}}\n      </slot>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\"></span>\n    </a>\n  </li>";
-=======
 	module.exports = "<li style=\"position:relative\" _v-7f8c06b1=\"\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\" _v-7f8c06b1=\"\">\n      <span v-el:v=\"\" _v-7f8c06b1=\"\"><slot _v-7f8c06b1=\"\"></slot></span>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\" _v-7f8c06b1=\"\"></span>\n    </a>\n  </li>";
->>>>>>> master
 
 /***/ },
 /* 140 */
@@ -5633,12 +3870,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-<<<<<<< HEAD
-	var content = __webpack_require__(121);
->>>>>>> master
-=======
 	var content = __webpack_require__(142);
->>>>>>> master
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(29)(content, {});
@@ -5647,23 +3879,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-cef09010&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-cef09010&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3d2d5f88&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3d2d5f88&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3d2d5f88&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3d2d5f88&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3d2d5f88&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3d2d5f88&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue");
->>>>>>> master
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -5673,23 +3890,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 117 */
-=======
-/* 121 */
->>>>>>> master
-=======
-/* 121 */
->>>>>>> master
-=======
-/* 121 */
->>>>>>> master
-=======
 /* 142 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(28)();
@@ -5703,71 +3904,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 118 */
-=======
-/* 122 */
->>>>>>> master
-=======
-/* 122 */
->>>>>>> master
-=======
-/* 122 */
->>>>>>> master
-/***/ function(module, exports) {
-=======
 /* 143 */
 /***/ function(module, exports, __webpack_require__) {
->>>>>>> master
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	// <template>
-	// <div class="panel panel-default">
-	//     <div class="panel-heading">
-	//       <h4 class="panel-title">
-	//         <a class="accordion-toggle"
-	//           @click="toggleIsOpen()">
-	//            {{ header }}
-	//         </a>
-	//       </h4>
-	//     </div>
-	//     <div class="panel-collapse"
-	//       v-el:panel
-	//       v-show="isOpen"
-	//       transition="collapse"
-	//     >
-	//       <div class="panel-body">
-	//         <slot></slot>
-	//       </div>
-	//     </div>
-	//   </div>
-	// </template>
-	
-	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 	
 	var _coerceBoolean = __webpack_require__(31);
 	
@@ -5775,7 +3919,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
->>>>>>> master
 	exports.default = {
 	  props: {
 	    isOpen: {
@@ -5806,57 +3949,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-/***/ },
-/* 119 */
-=======
-	// </script>
-
-	// <style>
-	// .accordion-toggle {
-	//   cursor: pointer;
-	// }
-
-	// .collapse-transition {
-	// transition: max-height .5s ease;
-	// overflow: hidden;
-	// }
-
-	// .collapse-enter, .collapse-leave {
-	//   max-height: 0!important;
-	// }
-
-	// </style>
-
-/***/ },
-/* 123 */
->>>>>>> master
-=======
-	// </script>
-
-	// <style>
-	// .accordion-toggle {
-	//   cursor: pointer;
-	// }
-
-	// .collapse-transition {
-	// transition: max-height .5s ease;
-	// overflow: hidden;
-	// }
-
-	// .collapse-enter, .collapse-leave {
-	//   max-height: 0!important;
-	// }
-
-	// </style>
-
-/***/ },
-/* 123 */
->>>>>>> master
-=======
 	// </script>
 
 	// <style>
@@ -5900,56 +3992,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-<<<<<<< HEAD
-/* 123 */
->>>>>>> master
-=======
 /* 144 */
->>>>>>> master
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n      <h4 class=\"panel-title\">\n        <a class=\"accordion-toggle\"\n          @click=\"toggleIsOpen()\">\n          <slot name=\"header\"> \n            {{ header }}\n          </slot>\n        </a>\n      </h4>\n    </div>\n    <div class=\"panel-collapse\"\n      v-el:panel\n      v-show=\"isOpen\"\n      transition=\"collapse\"\n    >\n      <div class=\"panel-body\">\n        <slot></slot>\n      </div>\n    </div>\n  </div>";
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 120 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(121)
-	module.exports = __webpack_require__(123)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(125)
-=======
-/* 124 */
-/***/ function(module, exports, __webpack_require__) {
-
-=======
-/* 124 */
-/***/ function(module, exports, __webpack_require__) {
-
->>>>>>> master
-=======
-/* 124 */
-/***/ function(module, exports, __webpack_require__) {
-
->>>>>>> master
-	__webpack_require__(125)
-	module.exports = __webpack_require__(127)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(129)
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 /* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -5958,7 +4006,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
 	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(150)
->>>>>>> master
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -5966,238 +4013,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Popover.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Popover.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Popover.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Popover.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Popover.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Popover.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Popover.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Popover.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Popover.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 121 */
-=======
-/* 125 */
->>>>>>> master
-=======
-/* 125 */
->>>>>>> master
-=======
-/* 125 */
->>>>>>> master
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var content = __webpack_require__(122);
-=======
-	var content = __webpack_require__(126);
->>>>>>> master
-=======
-	var content = __webpack_require__(126);
->>>>>>> master
-=======
-	var content = __webpack_require__(126);
->>>>>>> master
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(27)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-d15a25ce&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-d15a25ce&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2e2f845d&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2e2f845d&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2e2f845d&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2e2f845d&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2e2f845d&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2e2f845d&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue");
->>>>>>> master
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 122 */
-=======
-/* 126 */
->>>>>>> master
-=======
-/* 126 */
->>>>>>> master
-=======
-/* 126 */
->>>>>>> master
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(26)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, ".scale-transition,\n.fade-transition {\n  display: block;\n}\n.scale-enter {\n  -webkit-animation:scale-in 0.15s ease-in;\n          animation:scale-in 0.15s ease-in;\n}\n.scale-leave {\n  -webkit-animation:scale-out 0.15s ease-out;\n          animation:scale-out 0.15s ease-out;\n}\n@-webkit-keyframes scale-in {\n  0% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n    opacity: 0;\n  }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    opacity: 1;\n  }\n}\n@keyframes scale-in {\n  0% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n    opacity: 0;\n  }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes scale-out {\n  0% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    opacity: 1;\n  }\n  100% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n    opacity: 0;\n  }\n}\n@keyframes scale-out {\n  0% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    opacity: 1;\n  }\n  100% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n    opacity: 0;\n  }\n}", ""]);
-	
-	// exports
-
-
-/***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 123 */
-=======
-/* 127 */
->>>>>>> master
-=======
-/* 127 */
->>>>>>> master
-=======
-/* 127 */
->>>>>>> master
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var _popoverMixins = __webpack_require__(124);
-	
-	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  mixins: [_popoverMixins2.default]
-	};
-
-/***/ },
-/* 124 */
-=======
-	var _popoverMixins = __webpack_require__(128);
-	
-	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  mixins: [_popoverMixins2.default]
-	};
-	// </script>
-	// <style>
-	// .scale-transition,
-	// .fade-transition {
-	//   display: block;
-	// }
-	// .scale-enter {
-	//   animation:scale-in 0.15s ease-in;
-	// }
-	// .scale-leave {
-	//   animation:scale-out 0.15s ease-out;
-	// }
-	// @keyframes scale-in {
-	//   0% {
-	//     transform: scale(0);
-	//     opacity: 0;
-	//   }
-	//   100% {
-	//     transform: scale(1);
-	//     opacity: 1;
-	//   }
-	// }
-	// @keyframes scale-out {
-	//   0% {
-	//     transform: scale(1);
-	//     opacity: 1;
-	//   }
-	//   100% {
-	//     transform: scale(0);
-	//     opacity: 0;
-	//   }
-	// }
-
-	// </style>
-	// <template>
-	//   <span v-el:trigger>
-	//     <slot>
-	//     </slot>
-	//   </span>
-	//   <div class="popover"
-	//     v-bind:class="{
-	//     'top':placement === 'top',
-	//     'left':placement === 'left',
-	//     'right':placement === 'right',
-	//     'bottom':placement === 'bottom'
-	//     }"
-	//     v-el:popover
-	//     v-show="show"
-	//     :transition="effect">
-	//       <div class="arrow"></div>
-	//       <h3 class="popover-title" v-show="title">{{title}}</h3>
-	//       <div class="popover-content">
-	//         {{{content}}}
-	//       </div>
-	//   </div>
-	// </template>
-
-	// <script>
-
-/***/ },
-/* 128 */
->>>>>>> master
-=======
-	var _popoverMixins = __webpack_require__(128);
-=======
 /* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6229,81 +4054,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports = module.exports = __webpack_require__(28)();
 	// imports
->>>>>>> master
 	
-	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	// module
+	exports.push([module.id, ".scale-transition,\n.fade-transition {\n  display: block;\n}\n.scale-enter {\n  -webkit-animation:scale-in 0.15s ease-in;\n          animation:scale-in 0.15s ease-in;\n}\n.scale-leave {\n  -webkit-animation:scale-out 0.15s ease-out;\n          animation:scale-out 0.15s ease-out;\n}\n@-webkit-keyframes scale-in {\n  0% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n    opacity: 0;\n  }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    opacity: 1;\n  }\n}\n@keyframes scale-in {\n  0% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n    opacity: 0;\n  }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes scale-out {\n  0% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    opacity: 1;\n  }\n  100% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n    opacity: 0;\n  }\n}\n@keyframes scale-out {\n  0% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    opacity: 1;\n  }\n  100% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n    opacity: 0;\n  }\n}", ""]);
 	
-	exports.default = {
-	  mixins: [_popoverMixins2.default]
-	};
-	// </script>
-	// <style>
-	// .scale-transition,
-	// .fade-transition {
-	//   display: block;
-	// }
-	// .scale-enter {
-	//   animation:scale-in 0.15s ease-in;
-	// }
-	// .scale-leave {
-	//   animation:scale-out 0.15s ease-out;
-	// }
-	// @keyframes scale-in {
-	//   0% {
-	//     transform: scale(0);
-	//     opacity: 0;
-	//   }
-	//   100% {
-	//     transform: scale(1);
-	//     opacity: 1;
-	//   }
-	// }
-	// @keyframes scale-out {
-	//   0% {
-	//     transform: scale(1);
-	//     opacity: 1;
-	//   }
-	//   100% {
-	//     transform: scale(0);
-	//     opacity: 0;
-	//   }
-	// }
+	// exports
 
-	// </style>
-	// <template>
-	//   <span v-el:trigger>
-	//     <slot>
-	//     </slot>
-	//   </span>
-	//   <div class="popover"
-	//     v-bind:class="{
-	//     'top':placement === 'top',
-	//     'left':placement === 'left',
-	//     'right':placement === 'right',
-	//     'bottom':placement === 'bottom'
-	//     }"
-	//     v-el:popover
-	//     v-show="show"
-	//     :transition="effect">
-	//       <div class="arrow"></div>
-	//       <h3 class="popover-title" v-show="title">{{title}}</h3>
-	//       <div class="popover-content">
-	//         {{{content}}}
-	//       </div>
-	//   </div>
-	// </template>
-
-	// <script>
 
 /***/ },
-<<<<<<< HEAD
-/* 128 */
->>>>>>> master
-=======
-	var _popoverMixins = __webpack_require__(128);
-=======
 /* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6314,7 +4073,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	
 	var _popoverMixins = __webpack_require__(149);
->>>>>>> master
 	
 	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
 	
@@ -6389,12 +4147,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-<<<<<<< HEAD
-/* 128 */
->>>>>>> master
-=======
 /* 149 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6516,88 +4269,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	
 	exports.default = PopoverMixin;
-<<<<<<< HEAD
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 125 */
-/***/ function(module, exports) {
-
-	module.exports = "<span v-el:trigger>\n    <slot>\n    </slot>\n  </span>\n  <div class=\"popover\"\n    v-bind:class=\"{\n    'top':placement === 'top',\n    'left':placement === 'left',\n    'right':placement === 'right',\n    'bottom':placement === 'bottom'\n    }\"\n    v-el:popover\n    v-show=\"show\"\n    :transition=\"effect\">\n      <div class=\"arrow\"></div>\n      <h3 class=\"popover-title\" v-show=\"header\">{{title}}</h3>\n      <div class=\"popover-content\">\n        {{{content}}}\n      </div>\n  </div>";
-
-/***/ },
-/* 126 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(127)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(128)
-=======
-=======
-
-/***/ },
->>>>>>> master
-/* 129 */
-/***/ function(module, exports) {
-
-	module.exports = "<span v-el:trigger>\n    <slot>\n    </slot>\n  </span>\n  <div class=\"popover\"\n    v-bind:class=\"{\n    'top':placement === 'top',\n    'left':placement === 'left',\n    'right':placement === 'right',\n    'bottom':placement === 'bottom'\n    }\"\n    v-el:popover\n    v-show=\"show\"\n    :transition=\"effect\">\n      <div class=\"arrow\"></div>\n      <h3 class=\"popover-title\" v-show=\"title\">{{title}}</h3>\n      <div class=\"popover-content\">\n        {{{content}}}\n      </div>\n  </div>";
-
-/***/ },
-<<<<<<< HEAD
-/* 130 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(131)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(132)
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Progressbar.vue"
-	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Progressbar.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Progressbar.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Progressbar.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Progressbar.vue")
-=======
-=======
->>>>>>> master
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Progressbar.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Progressbar.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Progressbar.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Progressbar.vue")
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-<<<<<<< HEAD
-
-/***/ },
-<<<<<<< HEAD
-/* 127 */
-=======
-/* 131 */
->>>>>>> master
-=======
-/* 129 */
-=======
 /* 150 */
->>>>>>> master
 /***/ function(module, exports) {
 
 	module.exports = "<span v-el:trigger>\n    <slot>\n    </slot>\n  </span>\n  <div class=\"popover\"\n    v-bind:class=\"{\n    'top':placement === 'top',\n    'left':placement === 'left',\n    'right':placement === 'right',\n    'bottom':placement === 'bottom'\n    }\"\n    v-el:popover\n    v-show=\"show\"\n    :transition=\"effect\">\n      <div class=\"arrow\"></div>\n      <h3 class=\"popover-title\" v-show=\"title\"> \n          <slot name=\"title\">\n            {{title}} \n          </slot> \n      </h3>\n      <div class=\"popover-content\">\n        <slot name=\"content\"> \n            {{{content}}} \n        </slot> \n      </div>\n  </div>";
@@ -6627,59 +4301,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-<<<<<<< HEAD
-/* 131 */
->>>>>>> master
-=======
-
-/***/ },
-/* 131 */
->>>>>>> master
-/***/ function(module, exports) {
-=======
 /* 152 */
 /***/ function(module, exports, __webpack_require__) {
->>>>>>> master
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	// <template>
-	//   <div role="progressbar"
-	//     v-bind:class="{
-	//     'progress-bar' : true,
-	//     'progress-bar-success':type == 'success',
-	//     'progress-bar-warning':type == 'warning',
-	//     'progress-bar-info':type == 'info',
-	//     'progress-bar-danger':type == 'danger',
-	//     'progress-bar-striped':striped,
-	//     'active':animated
-	//     }"
-	//     v-bind:style="{width: now + '%'}">
-	//     {{label ? now + '%':'' }}
-	//   </div>
-	// </template>
-	
-	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 	
 	var _coerceBoolean = __webpack_require__(31);
 	
@@ -6687,7 +4316,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
->>>>>>> master
 	exports.default = {
 	  props: {
 	    now: {
@@ -6714,25 +4342,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-/***/ },
-/* 128 */
-=======
-	// </script>
-
-/***/ },
-/* 132 */
->>>>>>> master
-=======
-	// </script>
-
-/***/ },
-/* 132 */
->>>>>>> master
-=======
 	// </script>
 	// <template>
 	//   <div role="progressbar"
@@ -6753,54 +4362,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-<<<<<<< HEAD
-/* 132 */
->>>>>>> master
-=======
 /* 153 */
->>>>>>> master
 /***/ function(module, exports) {
 
 	module.exports = "<div role=\"progressbar\"\n    v-bind:class=\"{\n    'progress-bar' : true,\n    'progress-bar-success':type == 'success',\n    'progress-bar-warning':type == 'warning',\n    'progress-bar-info':type == 'info',\n    'progress-bar-danger':type == 'danger',\n    'progress-bar-striped':striped,\n    'active':animated\n    }\"\n    v-bind:style=\"{width: now + '%'}\">\n    {{label ? now + '%':'' }}\n  </div>";
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 129 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(130)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(131)
-=======
-/* 133 */
-/***/ function(module, exports, __webpack_require__) {
-
-=======
-/* 133 */
-/***/ function(module, exports, __webpack_require__) {
-
->>>>>>> master
-=======
-/* 133 */
-/***/ function(module, exports, __webpack_require__) {
-
->>>>>>> master
-	module.exports = __webpack_require__(134)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(135)
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 /* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6808,7 +4375,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
 	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(156)
->>>>>>> master
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -6816,82 +4382,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./radioBtn.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./radioBtn.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./radioBtn.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./radioBtn.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./radioBtn.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./radioBtn.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./radioBtn.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./radioBtn.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./radioBtn.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 130 */
-=======
-/* 134 */
->>>>>>> master
-=======
-/* 134 */
->>>>>>> master
-=======
-/* 134 */
->>>>>>> master
-/***/ function(module, exports) {
-=======
 /* 155 */
 /***/ function(module, exports, __webpack_require__) {
->>>>>>> master
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	// <template>
-	//   <label class="btn"
-	//   v-bind:class="{
-	//     'active':active,
-	//     'btn-success':type == 'success',
-	//     'btn-warning':type == 'warning',
-	//     'btn-info':type == 'info',
-	//     'btn-danger':type == 'danger',
-	//     'btn-default':type == 'default',
-	//     'btn-primary':type == 'primary'
-	//   }">
-=======
->>>>>>> master
 	
 	var _coerceBoolean = __webpack_require__(31);
 	
@@ -6899,17 +4407,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-<<<<<<< HEAD
-	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	exports.default = {
 	  props: {
 	    value: {
@@ -6942,25 +4439,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-/***/ },
-/* 131 */
-=======
-	// </script>
-
-/***/ },
-/* 135 */
->>>>>>> master
-=======
-	// </script>
-
-/***/ },
-/* 135 */
->>>>>>> master
-=======
 	// </script>
 	// <template>
 	//   <label class="btn"
@@ -6987,54 +4465,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-<<<<<<< HEAD
-/* 135 */
->>>>>>> master
-=======
 /* 156 */
->>>>>>> master
 /***/ function(module, exports) {
 
 	module.exports = "<label class=\"btn\"\n  v-bind:class=\"{\n    'active':active,\n    'btn-success':type == 'success',\n    'btn-warning':type == 'warning',\n    'btn-info':type == 'info',\n    'btn-danger':type == 'danger',\n    'btn-default':type == 'default',\n    'btn-primary':type == 'primary'\n  }\">\n\n    <input type=\"radio\" autocomplete=\"off\"\n      :checked=\"checked\"\n      @click=\"handleClick\"\n    />\n\n    <slot></slot>\n\n  </label>";
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 132 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(133)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(134)
-=======
-/* 136 */
-/***/ function(module, exports, __webpack_require__) {
-
-=======
-/* 136 */
-/***/ function(module, exports, __webpack_require__) {
-
->>>>>>> master
-=======
-/* 136 */
-/***/ function(module, exports, __webpack_require__) {
-
->>>>>>> master
-	module.exports = __webpack_require__(137)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(138)
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 /* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -7042,7 +4478,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
 	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(159)
->>>>>>> master
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -7050,52 +4485,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./radioGroup.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./radioGroup.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./radioGroup.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./radioGroup.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./radioGroup.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./radioGroup.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./radioGroup.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./radioGroup.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./radioGroup.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 133 */
-=======
-/* 137 */
->>>>>>> master
-=======
-/* 137 */
->>>>>>> master
-=======
-/* 137 */
->>>>>>> master
-=======
 /* 158 */
->>>>>>> master
 /***/ function(module, exports) {
 
 	'use strict';
@@ -7103,14 +4503,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	// <template>
 	//   <div class="btn-group" data-toggle="buttons">
 	//     <slot></slot>
@@ -7118,13 +4510,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </template>
 	
 	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	exports.default = {
 	  props: {
 	    value: {
@@ -7137,78 +4522,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-/***/ },
-/* 134 */
-=======
 	// </script>
 
 /***/ },
-/* 138 */
->>>>>>> master
-=======
-	// </script>
-
-/***/ },
-/* 138 */
->>>>>>> master
-=======
-	// </script>
-
-/***/ },
-<<<<<<< HEAD
-/* 138 */
->>>>>>> master
-=======
 /* 159 */
->>>>>>> master
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"btn-group\" data-toggle=\"buttons\">\n    <slot></slot>\n  </div>";
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 135 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(136)
-	module.exports = __webpack_require__(138)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(148)
-=======
-/* 139 */
-/***/ function(module, exports, __webpack_require__) {
-
-=======
-/* 139 */
-/***/ function(module, exports, __webpack_require__) {
-
->>>>>>> master
-=======
-/* 139 */
-/***/ function(module, exports, __webpack_require__) {
-
->>>>>>> master
-	__webpack_require__(140)
-	module.exports = __webpack_require__(142)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(152)
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 /* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -7217,7 +4539,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
 	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(164)
->>>>>>> master
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -7225,81 +4546,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-6a0dd090&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-6a0dd090&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue")
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 136 */
-=======
-/* 140 */
->>>>>>> master
-=======
-/* 140 */
->>>>>>> master
-=======
-/* 140 */
->>>>>>> master
-=======
 /* 161 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var content = __webpack_require__(137);
-=======
-	var content = __webpack_require__(141);
->>>>>>> master
-=======
-	var content = __webpack_require__(141);
->>>>>>> master
-=======
-	var content = __webpack_require__(141);
->>>>>>> master
-=======
 	var content = __webpack_require__(162);
->>>>>>> master
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(29)(content, {});
@@ -7308,28 +4571,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6a0dd090&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6a0dd090&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c36af018&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c36af018&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c36af018&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c36af018&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c36af018&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c36af018&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue");
->>>>>>> master
-=======
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6a0dd090&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6a0dd090&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue");
->>>>>>> master
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -7339,23 +4582,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 137 */
-=======
-/* 141 */
->>>>>>> master
-=======
-/* 141 */
->>>>>>> master
-=======
-/* 141 */
->>>>>>> master
-=======
 /* 162 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(28)();
@@ -7369,23 +4596,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 138 */
-=======
-/* 142 */
->>>>>>> master
-=======
-/* 142 */
->>>>>>> master
-=======
-/* 142 */
->>>>>>> master
-=======
 /* 163 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7394,146 +4605,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var _getIterator2 = __webpack_require__(139);
-=======
-	var _getIterator2 = __webpack_require__(143);
->>>>>>> master
-=======
-	var _getIterator2 = __webpack_require__(143);
->>>>>>> master
-=======
-	var _getIterator2 = __webpack_require__(143);
->>>>>>> master
-=======
 	var _coerceBoolean = __webpack_require__(31);
->>>>>>> master
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	exports.default = {
 	  props: {
 	    options: {
-	      type: Array,
-	      default: function _default() {
-	        return [];
-	      }
-	    },
-	    value: {
-	      twoWay: true,
-=======
-	// <template>
-	//   <div class="btn-group" v-bind:class="{open:show}">
-	//     <button v-el:btn type="button" class="btn btn-default dropdown-toggle"
-	//       @click="toggleDropdown"
-	//       @blur="show = (search ? show:false)"
-	//     >
-	//       <span class="placeholder" v-show="showPlaceholder">{{placeholder}}</span>
-	//       <span class="content">{{ selectedItems }}</span>
-	//       <span class="caret"></span>
-	//     </button>
-	//     <ul class="dropdown-menu">
-	//       <template v-if="options.length">
-	//         <li v-if="search" class="bs-searchbox">
-	//           <input type="text" placeholder="Search" v-model="searchText" class="form-control" autocomplete="off">
-	//         </li>
-	//         <li v-for="option in options | filterBy searchText " v-bind:id="option.value" style="position:relative">
-	//           <a @mousedown.prevent="select(option.value)" style="cursor:pointer">
-	//             {{ option.label }}
-	//             <span class="glyphicon glyphicon-ok check-mark" v-show="value.indexOf(option.value) !== -1"></span>
-	//           </a>
-	//         </li>
-	//       </template>
-	//       <slot v-else></slot>
-	//       <div class="notify" v-show="showNotify" transition="fadein">Limit reached ({{limit}} items max).</div>
-	//     </ul>
-	//   </div>
-	// </template>
-	
-	// <script>
-	exports.default = {
-	  props: {
-	    options: {
->>>>>>> master
-=======
-	// <template>
-	//   <div class="btn-group" v-bind:class="{open:show}">
-	//     <button v-el:btn type="button" class="btn btn-default dropdown-toggle"
-	//       @click="toggleDropdown"
-	//       @blur="show = (search ? show:false)"
-	//     >
-	//       <span class="placeholder" v-show="showPlaceholder">{{placeholder}}</span>
-	//       <span class="content">{{ selectedItems }}</span>
-	//       <span class="caret"></span>
-	//     </button>
-	//     <ul class="dropdown-menu">
-	//       <template v-if="options.length">
-	//         <li v-if="search" class="bs-searchbox">
-	//           <input type="text" placeholder="Search" v-model="searchText" class="form-control" autocomplete="off">
-	//         </li>
-	//         <li v-for="option in options | filterBy searchText " v-bind:id="option.value" style="position:relative">
-	//           <a @mousedown.prevent="select(option.value)" style="cursor:pointer">
-	//             {{ option.label }}
-	//             <span class="glyphicon glyphicon-ok check-mark" v-show="value.indexOf(option.value) !== -1"></span>
-	//           </a>
-	//         </li>
-	//       </template>
-	//       <slot v-else></slot>
-	//       <div class="notify" v-show="showNotify" transition="fadein">Limit reached ({{limit}} items max).</div>
-	//     </ul>
-	//   </div>
-	// </template>
-	
-<<<<<<< HEAD
-	// <script>
-	exports.default = {
-	  props: {
-	    options: {
->>>>>>> master
-=======
-	// <template>
-	//   <div class="btn-group" v-bind:class="{open:show}">
-	//     <button v-el:btn type="button" class="btn btn-default dropdown-toggle"
-	//       @click="toggleDropdown"
-	//       @blur="show = (search ? show:false)"
-	//     >
-	//       <span class="placeholder" v-show="showPlaceholder">{{placeholder}}</span>
-	//       <span class="content">{{ selectedItems }}</span>
-	//       <span class="caret"></span>
-	//     </button>
-	//     <ul class="dropdown-menu">
-	//       <template v-if="options.length">
-	//         <li v-if="search" class="bs-searchbox">
-	//           <input type="text" placeholder="Search" v-model="searchText" class="form-control" autocomplete="off">
-	//         </li>
-	//         <li v-for="option in options | filterBy searchText " v-bind:id="option.value" style="position:relative">
-	//           <a @mousedown.prevent="select(option.value)" style="cursor:pointer">
-	//             {{ option.label }}
-	//             <span class="glyphicon glyphicon-ok check-mark" v-show="value.indexOf(option.value) !== -1"></span>
-	//           </a>
-	//         </li>
-	//       </template>
-	//       <slot v-else></slot>
-	//       <div class="notify" v-show="showNotify" transition="fadein">Limit reached ({{limit}} items max).</div>
-	//     </ul>
-	//   </div>
-	// </template>
-	
-	// <script>
-=======
->>>>>>> master
-	exports.default = {
-	  props: {
-	    options: {
->>>>>>> master
 	      type: Array,
 	      default: function _default() {
 	        return [];
@@ -7559,28 +4639,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    limit: {
 	      type: Number,
 	      default: 1024
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	    }
-	  },
-	  ready: function ready() {
-	    if (this.multiple) {
-	      this.value = [];
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 	    },
 	    closeOnSelect: { // only works when multiple==false
 	      type: Boolean,
@@ -7606,7 +4664,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      } else if (this.multiple && this.value.length > this.limit) {
 	        this.value = this.value.slice(0, this.limit);
 	      }
->>>>>>> master
 	    }
 	  },
 	  data: function data() {
@@ -7619,94 +4676,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  computed: {
 	    selectedItems: function selectedItems() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	      if (!this.options.length) {
-	        return this.value.join(',');
-	      } else {
-	        // we were given bunch of options, so pluck them out to display
-	        var foundItems = [];
-=======
-	      if (!this.multiple) {
->>>>>>> master
-=======
-	      if (!this.multiple) {
->>>>>>> master
-=======
-	      if (!this.multiple) {
->>>>>>> master
-	        var _iteratorNormalCompletion = true;
-	        var _didIteratorError = false;
-	        var _iteratorError = undefined;
-	
-	        try {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	          for (var _iterator = (0, _getIterator3.default)(this.options), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	            var item = _step.value;
-	
-	            if (this.value.indexOf(item.value) !== -1) foundItems.push(item.label);
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	          for (var _iterator = (0, _getIterator3.default)(this.$children), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	            var c = _step.value;
-	
-	            if (c.value == this.value) {
-	              return c.$els.v.innerText;
-	            }
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-	          }
-	        } catch (err) {
-	          _didIteratorError = true;
-	          _iteratorError = err;
-	        } finally {
-	          try {
-	            if (!_iteratorNormalCompletion && _iterator.return) {
-	              _iterator.return();
-	            }
-	          } finally {
-	            if (_didIteratorError) {
-	              throw _iteratorError;
-	            }
-	          }
-	        }
-	
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	        return foundItems.join(', ');
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	        return "";
-	      } else {
-	        if (!this.options.length) {
-	          var r = [];
-	          var _iteratorNormalCompletion2 = true;
-	          var _didIteratorError2 = false;
-	          var _iteratorError2 = undefined;
-	
-	          try {
-	            for (var _iterator2 = (0, _getIterator3.default)(this.$children), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	              var c = _step2.value;
-	
-	              if (this.value.indexOf(c.value) !== -1) {
-	                r.push(c.$els.v.innerText);
-=======
 	      var _this = this;
 	
 	      var foundItems = [];
@@ -7718,59 +4687,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	              if (o.value === item) {
 	                option = o;
 	                return true;
->>>>>>> master
 	              }
 	            });
 	            option && foundItems.push(option.label);
 	          }
-<<<<<<< HEAD
-	
-	          return r.join(',');
-	        } else {
-	          // we were given bunch of options, so pluck them out to display
-	          var foundItems = [];
-	          var _iteratorNormalCompletion3 = true;
-	          var _didIteratorError3 = false;
-	          var _iteratorError3 = undefined;
-	
-	          try {
-	            for (var _iterator3 = (0, _getIterator3.default)(this.options), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-	              var item = _step3.value;
-	
-	              if (this.value.indexOf(item.value) !== -1) foundItems.push(item.label);
-	            }
-	          } catch (err) {
-	            _didIteratorError3 = true;
-	            _iteratorError3 = err;
-	          } finally {
-	            try {
-	              if (!_iteratorNormalCompletion3 && _iterator3.return) {
-	                _iterator3.return();
-	              }
-	            } finally {
-	              if (_didIteratorError3) {
-	                throw _iteratorError3;
-	              }
-	            }
-	          }
-	
-	          return foundItems.join(', ');
-	        }
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 	        });
 	        return foundItems.join(', ');
->>>>>>> master
 	      }
 	    },
 	    showPlaceholder: function showPlaceholder() {
-	      return this.value.length === 0;
+	      return this.multiple ? this.value.length <= 0 : typeof this.value === 'undefined' || this.value == '';
 	    }
 	  },
 	  watch: {
@@ -7788,28 +4714,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  methods: {
 	    select: function select(v) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	      var index = this.value.indexOf(v);
-	      if (index === -1) this.value.push(v);else this.value.$remove(v);
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	      if (this.multiple != false) {
-	        var index = this.value.indexOf(v);
-	        if (index === -1) this.value.push(v);else this.value.$remove(v);
-=======
 	      if (this.value.indexOf(v) === -1) {
 	        if (this.multiple) {
 	          this.value.push(v);
 	        } else {
 	          this.value = [v];
 	        }
->>>>>>> master
 	      } else {
 	        if (this.multiple) {
 	          this.value.$remove(v);
@@ -7825,390 +4735,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      } else {
 	        return this.value.indexOf(v) !== -1;
 	      }
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	    },
 	    toggleDropdown: function toggleDropdown() {
 	      this.show = !this.show;
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-/***/ },
-/* 139 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(140), __esModule: true };
-
-/***/ },
-/* 140 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(141);
-	__webpack_require__(37);
-	module.exports = __webpack_require__(147);
-=======
-	// </script>
-	// <style>
-	// .bs_searchbox {
-	//   padding: 4px 8px;
-	// }
-	// .btn-group .dropdown-menu .notify {
-	//   position: absolute;
-	//   bottom: 5px;
-	//   width: 96%;
-	//   margin: 0 2%;
-	//   min-height: 26px;
-	//   padding: 3px 5px;
-	//   background: #f5f5f5;
-	//   border: 1px solid #e3e3e3;
-	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-	//    pointer-events: none;
-	//   opacity: .9;
-	// }
-	// </style>
-
-/***/ },
-=======
-	// </script>
-	// <style>
-	// .bs_searchbox {
-	//   padding: 4px 8px;
-	// }
-	// .btn-group .dropdown-menu .notify {
-	//   position: absolute;
-	//   bottom: 5px;
-	//   width: 96%;
-	//   margin: 0 2%;
-	//   min-height: 26px;
-	//   padding: 3px 5px;
-	//   background: #f5f5f5;
-	//   border: 1px solid #e3e3e3;
-	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-	//    pointer-events: none;
-	//   opacity: .9;
-	// }
-	// </style>
-
-/***/ },
->>>>>>> master
-=======
-	// </script>
-	// <style>
-	// .bs_searchbox {
-	//   padding: 4px 8px;
-	// }
-	// .btn-group .dropdown-menu .notify {
-	//   position: absolute;
-	//   bottom: 5px;
-	//   width: 96%;
-	//   margin: 0 2%;
-	//   min-height: 26px;
-	//   padding: 3px 5px;
-	//   background: #f5f5f5;
-	//   border: 1px solid #e3e3e3;
-	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-	//    pointer-events: none;
-	//   opacity: .9;
-	// }
-	// </style>
-
-/***/ },
->>>>>>> master
-/* 143 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(144), __esModule: true };
-
-/***/ },
-/* 144 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(145);
-	__webpack_require__(37);
-	module.exports = __webpack_require__(151);
-
-/***/ },
-/* 145 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(146);
-	var Iterators = __webpack_require__(55);
-	Iterators.NodeList = Iterators.HTMLCollection = Iterators.Array;
-
-/***/ },
-/* 146 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var addToUnscopables = __webpack_require__(147)
-	  , step             = __webpack_require__(148)
-	  , Iterators        = __webpack_require__(55)
-	  , toIObject        = __webpack_require__(149);
-	
-	// 22.1.3.4 Array.prototype.entries()
-	// 22.1.3.13 Array.prototype.keys()
-	// 22.1.3.29 Array.prototype.values()
-	// 22.1.3.30 Array.prototype[@@iterator]()
-	module.exports = __webpack_require__(41)(Array, 'Array', function(iterated, kind){
-	  this._t = toIObject(iterated); // target
-	  this._i = 0;                   // next index
-	  this._k = kind;                // kind
-	// 22.1.5.2.1 %ArrayIteratorPrototype%.next()
-	}, function(){
-	  var O     = this._t
-	    , kind  = this._k
-	    , index = this._i++;
-	  if(!O || index >= O.length){
-	    this._t = undefined;
-	    return step(1);
-	  }
-	  if(kind == 'keys'  )return step(0, index);
-	  if(kind == 'values')return step(0, O[index]);
-	  return step(0, [index, O[index]]);
-	}, 'values');
-	
-	// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
-	Iterators.Arguments = Iterators.Array;
-	
-	addToUnscopables('keys');
-	addToUnscopables('values');
-	addToUnscopables('entries');
-
-/***/ },
-/* 147 */
-/***/ function(module, exports) {
-
-	module.exports = function(){ /* empty */ };
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-
-/***/ },
-/* 148 */
-/***/ function(module, exports) {
-
-	module.exports = function(done, value){
-	  return {value: value, done: !!done};
-	};
-
-/***/ },
-/* 149 */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
-/***/ function(module, exports, __webpack_require__) {
-
-	// to indexed object, toObject with fallback for non-array-like ES3 strings
-	var IObject = __webpack_require__(150)
-	  , defined = __webpack_require__(40);
-	module.exports = function(it){
-	  return IObject(defined(it));
-	};
-
-/***/ },
-/* 150 */
-/***/ function(module, exports, __webpack_require__) {
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-	__webpack_require__(142);
-	var Iterators = __webpack_require__(55);
-	Iterators.NodeList = Iterators.HTMLCollection = Iterators.Array;
-=======
-=======
->>>>>>> master
-	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var cof = __webpack_require__(70);
-	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
-	  return cof(it) == 'String' ? it.split('') : Object(it);
-	};
-<<<<<<< HEAD
-
-/***/ },
-/* 151 */
-/***/ function(module, exports, __webpack_require__) {
-
-=======
-
-/***/ },
-/* 151 */
-/***/ function(module, exports, __webpack_require__) {
-
->>>>>>> master
-	var anObject = __webpack_require__(64)
-	  , get      = __webpack_require__(68);
-	module.exports = __webpack_require__(45).getIterator = function(it){
-	  var iterFn = get(it);
-	  if(typeof iterFn != 'function')throw TypeError(it + ' is not iterable!');
-	  return anObject(iterFn.call(it));
-	};
-<<<<<<< HEAD
->>>>>>> master
-
-/***/ },
-=======
-/***/ function(module, exports, __webpack_require__) {
-
-	// to indexed object, toObject with fallback for non-array-like ES3 strings
-	var IObject = __webpack_require__(150)
-	  , defined = __webpack_require__(40);
-	module.exports = function(it){
-	  return IObject(defined(it));
-	};
-
-/***/ },
-/* 150 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var cof = __webpack_require__(70);
-	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
-	  return cof(it) == 'String' ? it.split('') : Object(it);
-	};
-
-/***/ },
-/* 151 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var anObject = __webpack_require__(64)
-	  , get      = __webpack_require__(68);
-	module.exports = __webpack_require__(45).getIterator = function(it){
-	  var iterFn = get(it);
-	  if(typeof iterFn != 'function')throw TypeError(it + ' is not iterable!');
-	  return anObject(iterFn.call(it));
-	};
-
-/***/ },
->>>>>>> master
-=======
-
-/***/ },
->>>>>>> master
-/* 152 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"btn-group\" v-bind:class=\"{open:show}\">\n    <button v-el:btn type=\"button\" class=\"btn btn-default dropdown-toggle\" \n      @click=\"toggleDropdown\"\n      @blur=\"show = (search ? show:false)\"\n    >\n      <span class=\"placeholder\" v-show=\"showPlaceholder\">{{placeholder}}</span>\n      <span class=\"content\">{{ selectedItems }}</span>\n      <span class=\"caret\"></span>\n    </button>\n    <ul class=\"dropdown-menu\">\n      <template v-if=\"options.length\">\n        <li v-if=\"search\" class=\"bs-searchbox\">\n          <input type=\"text\" placeholder=\"Search\" v-model=\"searchText\" class=\"form-control\" autocomplete=\"off\">\n        </li>\n        <li v-for=\"option in options | filterBy searchText \" v-bind:id=\"option.value\" style=\"position:relative\">\n          <a @mousedown.prevent=\"select(option.value)\" style=\"cursor:pointer\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"value.indexOf(option.value) !== -1\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else></slot>\n      <div class=\"notify\" v-show=\"showNotify\" transition=\"fadein\">Limit reached ({{limit}} items max).</div>\n    </ul>\n  </div>";
-
-/***/ },
-/* 153 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(154)
-	module.exports = __webpack_require__(156)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(157)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-16bcbd4d&file=Tab.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tab.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-16bcbd4d&file=Tab.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tab.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-/* 154 */
-<<<<<<< HEAD
-<<<<<<< HEAD
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var addToUnscopables = __webpack_require__(143)
-	  , step             = __webpack_require__(144)
-	  , Iterators        = __webpack_require__(55)
-	  , toIObject        = __webpack_require__(145);
-	
-	// 22.1.3.4 Array.prototype.entries()
-	// 22.1.3.13 Array.prototype.keys()
-	// 22.1.3.29 Array.prototype.values()
-	// 22.1.3.30 Array.prototype[@@iterator]()
-	module.exports = __webpack_require__(41)(Array, 'Array', function(iterated, kind){
-	  this._t = toIObject(iterated); // target
-	  this._i = 0;                   // next index
-	  this._k = kind;                // kind
-	// 22.1.5.2.1 %ArrayIteratorPrototype%.next()
-	}, function(){
-	  var O     = this._t
-	    , kind  = this._k
-	    , index = this._i++;
-	  if(!O || index >= O.length){
-	    this._t = undefined;
-	    return step(1);
-	  }
-	  if(kind == 'keys'  )return step(0, index);
-	  if(kind == 'values')return step(0, O[index]);
-	  return step(0, [index, O[index]]);
-	}, 'values');
-	
-	// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
-	Iterators.Arguments = Iterators.Array;
-	
-	addToUnscopables('keys');
-	addToUnscopables('values');
-	addToUnscopables('entries');
-
-/***/ },
-/* 143 */
-/***/ function(module, exports) {
-
-	module.exports = function(){ /* empty */ };
-
-/***/ },
-/* 144 */
-/***/ function(module, exports) {
-
-	module.exports = function(done, value){
-	  return {value: value, done: !!done};
-	};
-
-/***/ },
-/* 145 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// to indexed object, toObject with fallback for non-array-like ES3 strings
-	var IObject = __webpack_require__(146)
-	  , defined = __webpack_require__(40);
-	module.exports = function(it){
-	  return IObject(defined(it));
-	};
-
-/***/ },
-/* 146 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var cof = __webpack_require__(70);
-	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
-	  return cof(it) == 'String' ? it.split('') : Object(it);
-	};
-
-/***/ },
-/* 147 */
-/***/ function(module, exports, __webpack_require__) {
-=======
 	// </script>
 
 	// <style scoped>
@@ -8258,31 +4790,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	//     </ul>
 	//   </div>
 	// </template>
->>>>>>> master
 
 	// <script>
 
 /***/ },
-<<<<<<< HEAD
-/* 148 */
-=======
 /* 164 */
->>>>>>> master
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"btn-group\" v-bind:class=\"{open: show}\" _v-6a0dd090=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"btn btn-default dropdown-toggle\" @click=\"toggleDropdown\" @blur=\"show = (search ? show : false)\" v-bind=\"{disabled: disabled}\" _v-6a0dd090=\"\">\n      <span class=\"btn-placeholder\" v-show=\"showPlaceholder\" _v-6a0dd090=\"\">{{placeholder}}</span>\n      <span class=\"btn-content\" _v-6a0dd090=\"\">{{ selectedItems }}</span>\n      <span class=\"caret\" _v-6a0dd090=\"\"></span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-6a0dd090=\"\">\n      <template v-if=\"options.length\" _v-6a0dd090=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-6a0dd090=\"\">\n          <input type=\"text\" placeholder=\"Search\" v-model=\"searchText\" class=\"form-control\" autocomplete=\"off\" _v-6a0dd090=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchText \" v-bind:id=\"option.value\" style=\"position:relative\" _v-6a0dd090=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" style=\"cursor:pointer\" _v-6a0dd090=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-6a0dd090=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-6a0dd090=\"\"></slot>\n      <div class=\"notify\" v-show=\"showNotify\" transition=\"fadein\" _v-6a0dd090=\"\">Limit reached ({{limit}} items max).\n      </div>\n    </ul>\n  </div>";
 
 /***/ },
-<<<<<<< HEAD
-/* 149 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(150)
-	module.exports = __webpack_require__(152)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(153)
-=======
 /* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -8291,7 +4808,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
 	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(169)
->>>>>>> master
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -8299,47 +4815,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue","-!vue-html!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-0c89e409&file=Tab.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tab.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-0c89e409&file=Tab.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tab.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-0c89e409&file=Tab.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tab.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-0c89e409&file=Tab.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tab.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-<<<<<<< HEAD
-/* 150 */
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 /* 166 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var content = __webpack_require__(151);
-=======
-	var content = __webpack_require__(155);
->>>>>>> master
-=======
-	var content = __webpack_require__(155);
->>>>>>> master
-=======
-	var content = __webpack_require__(155);
->>>>>>> master
-=======
 	var content = __webpack_require__(167);
->>>>>>> master
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(29)(content, {});
@@ -8348,23 +4840,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0c89e409&file=Tab.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0c89e409&file=Tab.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-16bcbd4d&file=Tab.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-16bcbd4d&file=Tab.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-16bcbd4d&file=Tab.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-16bcbd4d&file=Tab.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-16bcbd4d&file=Tab.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-16bcbd4d&file=Tab.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue");
->>>>>>> master
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -8374,226 +4851,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 151 */
-=======
-/* 155 */
->>>>>>> master
-=======
-/* 155 */
->>>>>>> master
-=======
-/* 155 */
->>>>>>> master
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(26)();
-	// imports
-	
-	
-	// module
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	exports.push([module.id, ".tab-content > .tab-pane[_v-0c89e409] {\n    display: block;\n  }", ""]);
-=======
-	exports.push([module.id, ".tab-content > .tab-pane[_v-16bcbd4d] {\n    display: block;\n  }", ""]);
->>>>>>> master
-=======
-	exports.push([module.id, ".tab-content > .tab-pane[_v-16bcbd4d] {\n    display: block;\n  }", ""]);
->>>>>>> master
-=======
-	exports.push([module.id, ".tab-content > .tab-pane[_v-16bcbd4d] {\n    display: block;\n  }", ""]);
->>>>>>> master
-	
-	// exports
-
-
-/***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 152 */
-=======
-/* 156 */
->>>>>>> master
-=======
-/* 156 */
->>>>>>> master
-=======
-/* 156 */
->>>>>>> master
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	// <template>
-	//   <div role="tabpanel" class="tab-pane"
-	//       v-bind:class="{hide:!show}"
-	//       v-show="show"
-	//       :transition="transition"
-	//   >
-	//     <slot></slot>
-	//   </div>
-	// </template>
-	
-	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-	exports.default = {
-	  props: {
-	    header: {
-	      type: String
-	    },
-	    disabled: {
-	      type: Boolean,
-	      default: false
-	    }
-	  },
-	  data: function data() {
-	    return {
-	      index: 0,
-	      show: false
-	    };
-	  },
-	
-	  computed: {
-	    show: function show() {
-	      return this.$parent.activeIndex == this.index;
-	    },
-	    transition: function transition() {
-	      return this.$parent.effect;
-	    }
-	  },
-	  created: function created() {
-	    this.$parent.renderData.push({
-	      header: this.header,
-	      disabled: this.disabled
-	    });
-	  },
-	  ready: function ready() {
-	    for (var c in this.$parent.$children) {
-	      if (this.$parent.$children[c].$el == this.$el) {
-	        this.index = c;
-	        break;
-	      }
-	    }
-	  }
-	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-/***/ },
-/* 153 */
-/***/ function(module, exports) {
-
-	module.exports = "<div role=\"tabpanel\" class=\"tab-pane\" v-bind:class=\"{hide:!show}\" v-show=\"show\" :transition=\"transition\" _v-0c89e409=\"\">\n    <slot _v-0c89e409=\"\"></slot>\n  </div>";
-
-/***/ },
-/* 154 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(155)
-	module.exports = __webpack_require__(157)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(158)
-=======
-	// </script>
-
-	// <style scoped>
-	//   .tab-content > .tab-pane {
-	//     display: block;
-	//   }
-	// </style>
-
-/***/ },
-/* 157 */
-/***/ function(module, exports) {
-
-	module.exports = "<div role=\"tabpanel\" class=\"tab-pane\" v-bind:class=\"{hide:!show}\" v-show=\"show\" :transition=\"transition\" _v-16bcbd4d=\"\">\n    <slot _v-16bcbd4d=\"\"></slot>\n  </div>";
-
-/***/ },
-/* 158 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(159)
-	module.exports = __webpack_require__(161)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(162)
->>>>>>> master
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue"
-	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue","-!vue-html!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4765fae9&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4765fae9&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue")
-=======
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1ab76b25&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1ab76b25&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue")
->>>>>>> master
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-<<<<<<< HEAD
-/* 155 */
-=======
-/* 159 */
->>>>>>> master
-=======
-	// </script>
-
-	// <style scoped>
-	//   .tab-content > .tab-pane {
-	//     display: block;
-	//   }
-	// </style>
-
-/***/ },
-/* 157 */
-/***/ function(module, exports) {
-
-	module.exports = "<div role=\"tabpanel\" class=\"tab-pane\" v-bind:class=\"{hide:!show}\" v-show=\"show\" :transition=\"transition\" _v-16bcbd4d=\"\">\n    <slot _v-16bcbd4d=\"\"></slot>\n  </div>";
-
-/***/ },
-/* 158 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(159)
-	module.exports = __webpack_require__(161)
-=======
 /* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -8603,32 +4860,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// module
 	exports.push([module.id, ".tab-content > .tab-pane[_v-0c89e409] {\n    display: block;\n  }", ""]);
->>>>>>> master
 	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(162)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1ab76b25&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1ab76b25&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
+	// exports
+
 
 /***/ },
-<<<<<<< HEAD
-/* 159 */
->>>>>>> master
-=======
-=======
 /* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -8688,7 +4924,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.$parent.renderData.splice(this.index, 1);
 	  }
 	};
->>>>>>> master
 	// </script>
 
 	// <style scoped>
@@ -8712,7 +4947,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 169 */
 /***/ function(module, exports) {
 
-	module.exports = "<div role=\"tabpanel\" class=\"tab-pane\" v-bind:class=\"{hide:!show}\" v-show=\"show\" :transition=\"transition\" _v-16bcbd4d=\"\">\n    <slot _v-16bcbd4d=\"\"></slot>\n  </div>";
+	module.exports = "<div role=\"tabpanel\" class=\"tab-pane\" v-bind:class=\"{hide:!show}\" v-show=\"show\" :transition=\"transition\" _v-0c89e409=\"\">\n    <slot _v-0c89e409=\"\"></slot>\n  </div>";
 
 /***/ },
 /* 170 */
@@ -8730,44 +4965,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1ab76b25&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4765fae9&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1ab76b25&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4765fae9&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-<<<<<<< HEAD
-/* 159 */
->>>>>>> master
-=======
 /* 171 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var content = __webpack_require__(156);
-=======
-	var content = __webpack_require__(160);
->>>>>>> master
-=======
-	var content = __webpack_require__(160);
->>>>>>> master
-=======
-	var content = __webpack_require__(160);
->>>>>>> master
-=======
 	var content = __webpack_require__(172);
->>>>>>> master
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(29)(content, {});
@@ -8776,23 +4990,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4765fae9&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4765fae9&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1ab76b25&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1ab76b25&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1ab76b25&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1ab76b25&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1ab76b25&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1ab76b25&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue");
->>>>>>> master
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -8802,23 +5001,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 156 */
-=======
-/* 160 */
->>>>>>> master
-=======
-/* 160 */
->>>>>>> master
-=======
-/* 160 */
->>>>>>> master
-=======
 /* 172 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(28)();
@@ -8826,41 +5009,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	exports.push([module.id, ".nav-tabs[_v-4765fae9] {\n    margin-bottom: 15px\n  }", ""]);
-=======
-	exports.push([module.id, ".nav-tabs[_v-1ab76b25] {\n    margin-bottom: 15px\n  }", ""]);
->>>>>>> master
-=======
-	exports.push([module.id, ".nav-tabs[_v-1ab76b25] {\n    margin-bottom: 15px\n  }", ""]);
->>>>>>> master
-=======
-	exports.push([module.id, ".nav-tabs[_v-1ab76b25] {\n    margin-bottom: 15px\n  }", ""]);
->>>>>>> master
 	
 	// exports
 
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 157 */
-=======
-/* 161 */
->>>>>>> master
-=======
-/* 161 */
->>>>>>> master
-=======
-/* 161 */
->>>>>>> master
-=======
 /* 173 */
->>>>>>> master
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8868,14 +5023,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	// <template>
 	//   <div>
 	//     <!-- Nav tabs -->
@@ -8905,13 +5052,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </template>
 	
 	// <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	exports.default = {
 	  props: {
 	    navStyle: {
@@ -8939,26 +5079,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-/***/ },
-/* 158 */
-/***/ function(module, exports) {
-
-	module.exports = "<div _v-4765fae9=\"\">\n    <!-- Nav tabs -->\n     <ul class=\"nav nav-tabs\" role=\"tablist\" _v-4765fae9=\"\">\n            <li v-for=\"r in renderData\" v-bind:class=\"{\n                  'active': ($index === activeIndex),\n                  'disabled': r.disabled\n                }\" @click.prevent=\"handleTabListClick($index, r)\" :disabled=\"r.disabled\" _v-4765fae9=\"\">\n                <a href=\"#\" _v-4765fae9=\"\">{{r.header}}</a>\n            </li>\n     </ul>\n\n     <!-- Tab panes -->\n     <div class=\"tab-content\" v-el:tabcontent=\"\" _v-4765fae9=\"\">\n        <slot _v-4765fae9=\"\"></slot>\n     </div>\n  </div>";
-
-/***/ },
-/* 159 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(160)
-	module.exports = __webpack_require__(162)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(163)
-=======
 	// </script>
 
 	// <style scoped>
@@ -8971,108 +5091,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 174 */
 /***/ function(module, exports) {
 
-<<<<<<< HEAD
-	module.exports = "<div _v-1ab76b25=\"\">\n    <!-- Nav tabs -->\n     <ul class=\"nav nav-tabs\" role=\"tablist\" _v-1ab76b25=\"\">\n            <li v-for=\"r in renderData\" v-bind:class=\"{\n                  'active': ($index === activeIndex),\n                  'disabled': r.disabled\n                }\" @click.prevent=\"handleTabListClick($index, r)\" :disabled=\"r.disabled\" _v-1ab76b25=\"\">\n                <a href=\"#\" _v-1ab76b25=\"\">{{r.header}}</a>\n            </li>\n     </ul>\n\n     <!-- Tab panes -->\n     <div class=\"tab-content\" v-el:tabcontent=\"\" _v-1ab76b25=\"\">\n        <slot _v-1ab76b25=\"\"></slot>\n     </div>\n  </div>";
-
-/***/ },
-/* 163 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(164)
-	module.exports = __webpack_require__(166)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(167)
->>>>>>> master
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tooltip.vue"
-	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tooltip.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tooltip.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tooltip.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tooltip.vue")
-=======
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tooltip.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tooltip.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tooltip.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tooltip.vue")
->>>>>>> master
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-<<<<<<< HEAD
-/* 160 */
-=======
-/* 164 */
->>>>>>> master
-=======
-	// </script>
-
-	// <style scoped>
-	//   .nav-tabs {
-	//     margin-bottom: 15px
-	//   }
-	// </style>
-
-/***/ },
-/* 162 */
-/***/ function(module, exports) {
-
-	module.exports = "<div _v-1ab76b25=\"\">\n    <!-- Nav tabs -->\n     <ul class=\"nav nav-tabs\" role=\"tablist\" _v-1ab76b25=\"\">\n            <li v-for=\"r in renderData\" v-bind:class=\"{\n                  'active': ($index === activeIndex),\n                  'disabled': r.disabled\n                }\" @click.prevent=\"handleTabListClick($index, r)\" :disabled=\"r.disabled\" _v-1ab76b25=\"\">\n                <a href=\"#\" _v-1ab76b25=\"\">{{r.header}}</a>\n            </li>\n     </ul>\n\n     <!-- Tab panes -->\n     <div class=\"tab-content\" v-el:tabcontent=\"\" _v-1ab76b25=\"\">\n        <slot _v-1ab76b25=\"\"></slot>\n     </div>\n  </div>";
-
-/***/ },
-/* 163 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(164)
-	module.exports = __webpack_require__(166)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(167)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tooltip.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tooltip.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tooltip.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tooltip.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tooltip.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-/* 164 */
->>>>>>> master
-=======
-	// </script>
-
-	// <style scoped>
-	//   .nav-tabs {
-	//     margin-bottom: 15px
-	//   }
-	// </style>
-
-/***/ },
-/* 162 */
-/***/ function(module, exports) {
-
-	module.exports = "<div _v-1ab76b25=\"\">\n    <!-- Nav tabs -->\n     <ul class=\"nav nav-tabs\" role=\"tablist\" _v-1ab76b25=\"\">\n            <li v-for=\"r in renderData\" v-bind:class=\"{\n                  'active': ($index === activeIndex),\n                  'disabled': r.disabled\n                }\" @click.prevent=\"handleTabListClick($index, r)\" :disabled=\"r.disabled\" _v-1ab76b25=\"\">\n                <a href=\"#\" _v-1ab76b25=\"\">{{r.header}}</a>\n            </li>\n     </ul>\n\n     <!-- Tab panes -->\n     <div class=\"tab-content\" v-el:tabcontent=\"\" _v-1ab76b25=\"\">\n        <slot _v-1ab76b25=\"\"></slot>\n     </div>\n  </div>";
-=======
 	module.exports = "<div _v-4765fae9=\"\">\n    <!-- Nav tabs -->\n     <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-4765fae9=\"\">\n            <li v-for=\"r in renderData\" v-bind:class=\"{\n                  'active': ($index === active),\n                  'disabled': r.disabled\n                }\" @click.prevent=\"handleTabListClick($index, r)\" :disabled=\"r.disabled\" _v-4765fae9=\"\">\n                <a href=\"#\" _v-4765fae9=\"\">  \n                    <slot name=\"header\" _v-4765fae9=\"\"> \n                      {{{r.header}}}\n                  </slot> \n                </a>\n            </li>\n     </ul>\n\n     <!-- Tab panes -->\n     <div class=\"tab-content\" v-el:tab-content=\"\" _v-4765fae9=\"\">\n        <slot _v-4765fae9=\"\"></slot>\n     </div>\n  </div>";
->>>>>>> master
 
 /***/ },
 /* 175 */
@@ -9100,34 +5119,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-<<<<<<< HEAD
-/* 164 */
->>>>>>> master
-=======
 /* 176 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var content = __webpack_require__(161);
-=======
-	var content = __webpack_require__(165);
->>>>>>> master
-=======
-	var content = __webpack_require__(165);
->>>>>>> master
-=======
-	var content = __webpack_require__(165);
->>>>>>> master
-=======
 	var content = __webpack_require__(177);
->>>>>>> master
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(29)(content, {});
@@ -9136,23 +5134,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-882f0112&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-882f0112&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52c516bb&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52c516bb&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52c516bb&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52c516bb&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52c516bb&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52c516bb&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue");
->>>>>>> master
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -9162,23 +5145,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 161 */
-=======
-/* 165 */
->>>>>>> master
-=======
-/* 165 */
->>>>>>> master
-=======
-/* 165 */
->>>>>>> master
-=======
 /* 177 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(28)();
@@ -9192,23 +5159,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 162 */
-=======
-/* 166 */
->>>>>>> master
-=======
-/* 166 */
->>>>>>> master
-=======
-/* 166 */
->>>>>>> master
-=======
 /* 178 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9217,38 +5168,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var _popoverMixins = __webpack_require__(124);
-=======
-	var _popoverMixins = __webpack_require__(128);
->>>>>>> master
-	
-	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-	var _popoverMixins = __webpack_require__(128);
-=======
 	var _popoverMixins = __webpack_require__(149);
->>>>>>> master
 	
 	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	exports.default = {
 	  mixins: [_popoverMixins2.default],
 	  props: {
@@ -9262,17 +5187,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-/***/ },
-/* 163 */
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	// </script>
 
 	// <style>
@@ -9331,62 +5245,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-<<<<<<< HEAD
-/* 167 */
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 /* 179 */
->>>>>>> master
 /***/ function(module, exports) {
 
 	module.exports = "<span v-el:trigger>\n    <slot>\n    </slot>\n  </span>\n  <div class=\"tooltip\"\n    v-bind:class=\"{\n    'top':    placement === 'top',\n    'left':   placement === 'left',\n    'right':  placement === 'right',\n    'bottom': placement === 'bottom'\n    }\"\n    v-el:popover\n    v-show=\"show\"\n    :transition=\"effect\"\n    role=\"tooltip\">\n    <div class=\"tooltip-arrow\"></div>\n    <div class=\"tooltip-inner\">\n       <slot name=\"content\">\n        {{{content}}}\n      </slot> \n   </div>\n  </div>";
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 164 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(165)
-	module.exports = __webpack_require__(167)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(169)
-=======
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
-=======
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
->>>>>>> master
-=======
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
->>>>>>> master
-	__webpack_require__(169)
-	module.exports = __webpack_require__(171)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(173)
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 /* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -9395,7 +5259,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
 	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(185)
->>>>>>> master
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -9403,74 +5266,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Typeahead.vue"
 	hotAPI.createRecord(id, module.exports)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Typeahead.vue","-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Typeahead.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Typeahead.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Typeahead.vue")
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Typeahead.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Typeahead.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Typeahead.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
 	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Typeahead.vue")
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 165 */
-=======
-/* 169 */
->>>>>>> master
-=======
-/* 169 */
->>>>>>> master
-=======
-/* 169 */
->>>>>>> master
-=======
 /* 181 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var content = __webpack_require__(166);
-=======
-	var content = __webpack_require__(170);
->>>>>>> master
-=======
-	var content = __webpack_require__(170);
->>>>>>> master
-=======
-	var content = __webpack_require__(170);
->>>>>>> master
-=======
 	var content = __webpack_require__(182);
->>>>>>> master
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(29)(content, {});
@@ -9479,23 +5291,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3ea9213b&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3ea9213b&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue");
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-de861102&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-de861102&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-de861102&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-de861102&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue");
->>>>>>> master
-=======
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-de861102&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-de861102&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue");
->>>>>>> master
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -9505,23 +5302,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 166 */
-=======
-/* 170 */
->>>>>>> master
-=======
-/* 170 */
->>>>>>> master
-=======
-/* 170 */
->>>>>>> master
-=======
 /* 182 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(28)();
@@ -9535,23 +5316,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 167 */
-=======
-/* 171 */
->>>>>>> master
-=======
-/* 171 */
->>>>>>> master
-=======
-/* 171 */
->>>>>>> master
-=======
 /* 183 */
->>>>>>> master
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9560,33 +5325,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var _callAjax = __webpack_require__(168);
-	
-	var _callAjax2 = _interopRequireDefault(_callAjax);
-	
-=======
-	var _callAjax = __webpack_require__(172);
-	
-	var _callAjax2 = _interopRequireDefault(_callAjax);
-	
->>>>>>> master
-=======
-	var _callAjax = __webpack_require__(172);
-	
-	var _callAjax2 = _interopRequireDefault(_callAjax);
-	
->>>>>>> master
-=======
-	var _callAjax = __webpack_require__(172);
-	
-	var _callAjax2 = _interopRequireDefault(_callAjax);
-	
->>>>>>> master
-=======
 	var _callAjax = __webpack_require__(184);
 	
 	var _callAjax2 = _interopRequireDefault(_callAjax);
@@ -9595,7 +5333,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
->>>>>>> master
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// <template>
@@ -9632,19 +5369,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	
 	  partials: {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	    'default': 'asdf<span v-html="item | highlight query"></span>'
-=======
 	    'default': '<span v-html="item | highlight query"></span>'
->>>>>>> master
-=======
-	    'default': '<span v-html="item | highlight query"></span>'
->>>>>>> master
-=======
-	    'default': '<span v-html="item | highlight query"></span>'
->>>>>>> master
 	  },
 	  props: {
 	    data: {
@@ -9765,51 +5490,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return value.replace(new RegExp('(' + phrase + ')', 'gi'), '<strong>$1</strong>');
 	    }
 	  }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	};
-	exports.default = typeahead;
-
-/***/ },
-/* 168 */
-=======
-=======
->>>>>>> master
-=======
->>>>>>> master
-	}; // <template>
-	// <div style="position: relative"
-	//   v-bind:class="{'open':showDropdown}"
-	//   >
-	//   <input type="text" class="form-control"
-	//     :placeholder="placeholder"
-	//     autocomplete="off"
-	//     v-model="query"
-	//     @input="update"
-	//     @keydown.up="up"
-	//     @keydown.down="down"
-	//     @keydown.enter= "hit"
-	//     @keydown.esc="reset"
-	//     @blur="showDropdown = false"
-	//   />
-	//   <ul class="dropdown-menu" v-el:dropdown>
-	//     <li v-for="item in items" v-bind:class="{'active': isActive($index)}">
-	//       <a @mousedown.prevent="hit" @mousemove="setActive($index)">
-	//         <partial :name="templateName"></partial>
-	//       </a>
-	//     </li>
-	//   </ul>
-	// </div>
-	
-	// </template>
-	
-	// <script>
-	
-=======
-	};
->>>>>>> master
 	exports.default = typeahead;
 	// </script>
 
@@ -9820,18 +5501,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </style>
 
 /***/ },
-<<<<<<< HEAD
-/* 172 */
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
 /* 184 */
->>>>>>> master
 /***/ function(module, exports) {
 
 	"use strict";
@@ -9856,21 +5526,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 169 */
-=======
-/* 173 */
->>>>>>> master
-=======
-/* 173 */
->>>>>>> master
-=======
-/* 173 */
->>>>>>> master
-=======
 /* 185 */
 /***/ function(module, exports) {
 
@@ -10143,7 +5798,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 193 */
->>>>>>> master
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"spinner spinner-gritcode {{spinnerSize}} {{fixed ? 'spinner-fixed' : ''}}\" v-show=\"active\">\n    <div class=\"spinner-wrapper\">\n      <div class=\"spinner-circle\"></div>\n      <div class=\"spinner-text\">{{text}}</div>\n    </div>\n  </div>";
