@@ -138,7 +138,7 @@ export default {
   },
   methods: {
     close() {
-      this.displayDayView = this.displayMonthView = this.displayMonthView = false
+      this.displayDayView = this.displayMonthView = this.displayYearView = false
     },
     inputClick() {
       if (this.displayMonthView || this.displayYearView) {
