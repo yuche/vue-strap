@@ -61,6 +61,11 @@ const typeahead = {
         coerce: coerceBoolean,
         default: false
       },
+      matchStart: {
+        type: Boolean,
+        coerce: coerceBoolean,
+        default: false
+      },
       onHit: {
         type: Function,
         default(items) {
@@ -87,7 +92,7 @@ const typeahead = {
           return this.data.filter(value=> {
             value = this.matchCase ? value : value.toLowerCase();
             var query = this.matchCase ? this.query : this.query.toLowerCase();
-            return value.indexOf(query) !== -1;
+            return this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1;
           }).slice(0, this.limit)
         }
       }
