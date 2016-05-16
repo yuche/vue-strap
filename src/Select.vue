@@ -95,18 +95,26 @@ import coerceBoolean from './utils/coerceBoolean.js'
       selectedItems() {
         let foundItems = []
         if (this.value.length) {
-          this.value.forEach(item => {
-            if (typeof item === "string") {
-              let option
-              this.options.some(o => {
-                if(o.value === item) {
-                  option = o
-                  return true
-                }
-              })
-              option && foundItems.push(option.label)
-            }
-          })
+          for (var item of this.value) {
+          	if (this.options.length ===0)
+          	{
+          		// 
+          		foundItems = this.value;
+          	}
+          	else
+          	{
+	            if (typeof item === "string") {
+	              let option
+	              this.options.some(o => {
+	                if(o.value === item) {
+	                  option = o
+	                  return true
+	                }
+	              })
+	              option && foundItems.push(option.label)
+	            }
+          	}
+          }
           return foundItems.join(', ')
         }
       },

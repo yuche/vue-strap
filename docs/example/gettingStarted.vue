@@ -10,7 +10,7 @@
       </p>
       <ul>
         <li><a href="http://vuejs.org/">Vue.js</a>
-          (required ^0.12, test with 0.12.10).</li>
+          (required ^1.0.8, test with 1.0.8).</li>
         <li><a href="http://getbootstrap.com/">Bootstrap CSS</a>
           (required 3.x.x, test with 3.3.5).
           VueStrap doesn't depend on a very precise version of Bootstrap. Just pull the latest.
