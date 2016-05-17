@@ -54,7 +54,8 @@ const typeahead = {
         default: 'default'
       },
       key: {
-        type: String
+        type: String,
+        default: null
       },
       matchCase: {
         type: Boolean,
