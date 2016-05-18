@@ -1,6 +1,6 @@
 {
   "name": "vue-strap",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Bootstrap components built with Vue.js",
   "main": "dist/vue-strap.js",
   "repository": {
@@ -49,9 +49,14 @@
   },
   "browserify": {
     "transform": [
-    [
-       "babelify", { "presets": ["es2015"] }
-    ],
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ],
       [
         "vueify"
       ]
@@ -61,7 +66,6 @@
     "docs": "webpack-dev-server --inline --hot --quiet",
     "builddocs": "webpack --progress --hide-modules && NODE_ENV=production webpack --progress --hide-modules",
     "build": "webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js",
-
     "version": "npm run build && git add -A dist"
   },
   "author": "yuche",
