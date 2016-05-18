@@ -122,8 +122,8 @@ new Vue {
         <tr>
           <td>key</td>
           <td><code>String</code></td>
-          <td></td>
-          <td>The remote JSON key you want to render.</td>
+          <td><code>null</code></td>
+          <td>The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).</td>
         </tr>
         <tr>
           <td>match-case</td>

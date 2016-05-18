@@ -54,7 +54,8 @@ const typeahead = {
         default: 'default'
       },
       key: {
-        type: String
+        type: String,
+        default: null
       },
       matchCase: {
         type: Boolean,
@@ -116,7 +117,7 @@ const typeahead = {
         }
         if (this.async) {
           callAjax(this.async + this.query, (data)=> {
-            this.items = data[this.key].slice(0, this.limit)
+            this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
             this.showDropdown = this.items.length ? true : false
           })
         }
