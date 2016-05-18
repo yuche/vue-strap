@@ -60,7 +60,9 @@
   "scripts": {
     "docs": "webpack-dev-server --inline --hot --quiet",
     "builddocs": "webpack --progress --hide-modules && NODE_ENV=production webpack --progress --hide-modules",
-    "build": "webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js"
+    "build": "webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js",
+
+    "version": "npm run build && git add -A dist"
   },
   "author": "yuche",
   "license": "MIT"
