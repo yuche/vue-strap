@@ -5,10 +5,20 @@
       <h4>
         Static arrays
       </h4>
-      <typeahead 
-        :data="USstate" 
-        placeholder="USA states"
-      ></typeahead>
+      <div class="row">
+        <div class="col-md-6">
+          <typeahead
+            :data="USstate"
+            :query.sync="state"
+            placeholder="USA states"
+          ></typeahead>
+        </div>
+        <div class="col-md-6">
+          <pre style="margin: 0; padding: 6px; 12px;">
+            this.state: {{state}}
+          </pre>
+        </div>
+      </div>
       <hr>
       <h4>
       Asynchronous results
@@ -16,7 +26,7 @@
         <small style="cursor:pointer">(not working?)</small>
       </tooltip>
       </h4>
-      <typeahead 
+      <typeahead
         placeholder="CCCAddress, async via maps.googleapis.com"
         key="results"
         async="https://maps.googleapis.com/maps/api/geocode/json?address="
@@ -28,10 +38,10 @@
       <h4>
       Custom templates for results
       </h4>
-      <typeahead 
+      <typeahead
         placeholder="Github users, async via api.github.com"
         key="items"
-        async="https://api.github.com/search/users?q=" 
+        async="https://api.github.com/search/users?q="
         template-name="github"
         :template="githubTemplate"
         :on-hit="githubCallback"
@@ -41,6 +51,7 @@
 <h4>Static arrays</h4>
 <typeahead
   :data="USstate"
+  :query.sync="state"
   placeholder="USA states">
 </typeahead>
 
@@ -72,6 +83,7 @@ new Vue {
   data() {
     return {
       USstate: ['Alabama', 'Alaska', 'Arizona',...],
+      state: '',
       asynchronous: '{{formatted_address}}',
       customTemplate: '<img width="18px" height="18px" v-attr="src:avatar_url"/>' +
       '<span>{{login}}</span>'
@@ -106,6 +118,12 @@ new Vue {
           <td><code>Array</code></td>
           <td></td>
           <td>The local data source for suggestions. Expected to be a primitive array.</td>
+        </tr>
+        <tr>
+          <td>query</td>
+          <td><code>String</code></td>
+          <td><code>''</code></td>
+          <td>The data property of the parent component that will retrieve the queried result</td>
         </tr>
         <tr>
           <td>async</td>
@@ -166,6 +184,7 @@ new Vue {
     },
     data() {
       return {
+        state: '',
         USstate: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
         'asyncTemplate': '{{ item.formatted_address }}',
         'githubTemplate': '<img width="18px" height="18px" :src="item.avatar_url"/> <span>{{item.login}}</span>'
