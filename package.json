@@ -47,21 +47,6 @@
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.0"
   },
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015"
-          ]
-        }
-      ],
-      [
-        "vueify"
-      ]
-    ]
-  },
   "scripts": {
     "docs": "webpack-dev-server --inline --hot --quiet",
     "builddocs": "webpack --progress --hide-modules && NODE_ENV=production webpack --progress --hide-modules",
