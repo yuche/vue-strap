@@ -21,7 +21,8 @@ import coerceBoolean from './utils/coerceBoolean.js'
     props: {
       now: {
         type: Number,
-        require: true
+        require: true,
+        twoWay: true
       },
       label: {
         type: Boolean,
