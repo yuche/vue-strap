@@ -99,7 +99,7 @@ const typeahead = {
         }
       }
     },
-    ready() {
+    beforeCompile() {
       // register a partial:
       if (this.templateName && this.templateName!=='default')
       {

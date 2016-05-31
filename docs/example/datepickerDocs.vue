@@ -105,6 +105,12 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
           <td>If <strong>true</strong> shows an &times; shaped button to clear the selected date.
             Usefull in forms where date entry is optional.</td>
         </tr>
+        <tr>
+          <td>disableInput</td>
+          <td><code>Boolean</code></td>
+          <td>false</td>
+          <td>If <strong>true</strong>makes date input box disabled, thus read-only mode</td>
+        </tr>
       </tbody>
     </table>
   </div>
