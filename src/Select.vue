@@ -94,6 +94,9 @@ import coerceBoolean from './utils/coerceBoolean.js'
     computed: {
       selectedItems() {
         let foundItems = []
+        if (this.value.constructor !== Array) {
+          return [this.value];
+        }
         if (this.value.length) {
           for (var item of this.value) {
           	if (this.options.length ===0)
