@@ -95,7 +95,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
       selectedItems() {
         let foundItems = []
         if (this.value.constructor !== Array) {
-          return [this.value];
+          return this.value;
         }
         if (this.value.length) {
           for (var item of this.value) {
