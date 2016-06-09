@@ -95,7 +95,10 @@ export default {
   props: {
     value: {
       type: String,
-      twoWay: true
+      twoWay: true,
+      validator: function (val) {
+        return !isNaN(new Date(val))
+      }
     },
     format: {
       default: 'MMMM/dd/yyyy'
@@ -140,6 +143,9 @@ export default {
   watch: {
     currDate() {
       this.getDateRange()
+    },
+    value(val, oldval) {
+      this.currDate = new Date(val)
     }
   },
   methods: {
