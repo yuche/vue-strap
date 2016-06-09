@@ -16,6 +16,7 @@ import buttonsDocs  from './example/buttonsDocs.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
 import dropdownDocs from './example/dropdownDocs.vue'
 import modalDocs from './example/modalDocs.vue'
+import paginationDocs from './example/paginationDocs.vue'
 import popoverDocs from './example/popoverDocs.vue'
 import progressbarDocs from './example/progressbar-docs.vue'
 import selectDocs from './example/selectDocs.vue'
@@ -42,6 +43,7 @@ new Vue({
     datepickerDocs,
     dropdownDocs,
     modalDocs,
+    paginationDocs,
     popoverDocs,
     progressbarDocs,
     selectDocs,
