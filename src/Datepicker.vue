@@ -21,7 +21,7 @@
 
 <template>
   <div class="datepicker">
-    <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text"
+    <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text" :readonly="readOnly"
         v-bind:style="{width:width}"
         @click="inputClick"
         v-model="value"/>
@@ -89,6 +89,7 @@
 
 <script>
 import EventListener from './utils/EventListener.js'
+import coerceBoolean from './utils/coerceBoolean.js'
 
 export default {
   props: {
@@ -98,6 +99,11 @@ export default {
     },
     format: {
       default: 'MMMM/dd/yyyy'
+    },
+    readOnly: {
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: false
     },
     disabledDaysOfWeek: {
       type: Array,
