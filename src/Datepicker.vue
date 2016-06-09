@@ -96,7 +96,7 @@ export default {
     value: {
       type: String,
       twoWay: true,
-      validator: function (val) {
+      validator (val){
         return !isNaN(new Date(val))
       }
     },
