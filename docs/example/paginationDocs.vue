@@ -5,7 +5,25 @@
       <pagination :page-count="20"></pagination>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
-<pagination page-count="20"></pagination>
+<pagination page-count="20" cur-page="curPage" goto-page="gotoPage"></pagination>
+</script></code></pre>
+<pre><code class="language-javascript"><script type="language-javascript">
+new Vue({
+  el: '#el',
+  components: {
+    pagination
+  },
+  data: {
+    curPage: 1
+  },
+  methods: {
+    gotoPage (page) {
+      getPageRecords(page).then(
+        () => this.curPage = page
+      ) // cur-page should be updated if records are retrieved successfully
+    }
+  }
+})
 </script></code></pre>
   <h2>Options</h2>
   <table class="table table-bordered">
