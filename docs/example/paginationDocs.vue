@@ -19,22 +19,22 @@
     </thead>
     <tbody>
       <tr>
-        <td>pageCount</td>
+        <td>page-count</td>
         <td><code>Number</code></td>
         <td></td>
-        <td>How the popover is triggered.</td>
+        <td></td>
       </tr>
       <tr>
-        <td>curPage</td>
+        <td>cur-page</td>
         <td><code>Number</code></td>
         <td>1</td>
-        <td></td>
+        <td>Current page number.</td>
       </tr>
       <tr>
-        <td>gotoPage</td>
+        <td>goto-page</td>
         <td><code>Function</code></td>
         <td></td>
-        <td></td>
+        <td>Callback function with the page number as its parameter.</td>
       </tr>
     </tbody>
   </table>
