@@ -16,7 +16,7 @@
 <script type="text/ecmascript-6">
   export default{
     props: {
-        pageCount: {
+      pageCount: {
         type: Number,
         validator (val) {
           return val > 0
@@ -62,12 +62,12 @@
         }
 
         return pages
-      },
-      nav () {
-        return function (page) {
-          if (page > 0 && page !== this.curPage) {
-            this.gotoPage(page)
-          }
+      }
+    },
+    methods: {
+      nav (page) {
+        if (page > 0 && page !== this.curPage) {
+          this.gotoPage(page)
         }
       }
     }
