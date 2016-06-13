@@ -55,6 +55,28 @@
           </ul>
         </dropdown>
       </div>
+      <dropdown :ref.sync='refDropdown'>
+        <button type="button" class="btn btn-default" data-toggle="dropdown">
+          I can be open/close by the button beside me
+          <span class="caret"></span>
+        </button>
+        <ul slot="dropdown-menu" class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </dropdown>
+      <button class='btn btn-primary' @click.stop='toggleDropdown()'>open/close dropdown</button>
+      <div>
+        <label>Before Toggle Event:</label>
+        <span>{{ txtBeforeToggle }}</span>
+      </div>
+      <div>
+        <label>After Toggle Event:</label>
+        <span>{{ txtAfterToggle }}</span>
+      </div>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
 <dropdown>
@@ -84,6 +106,29 @@
   export default {
     components: {
       dropdown
+    },
+    data() {
+      return {
+        txtBeforeToggle: '',
+        txtAfterToggle: '',
+        refDropdown: {
+          // here for user to define events
+          beforeToggle: () => {
+            console.log('dropdown - before')
+            this.txtBeforeToggle = 'Before Evnet Fired!'
+          },
+          afterToggle: () => {
+            console.log('dropdown - after')
+            this.txtAfterToggle = 'After Evnet Fired!'
+          }
+        }
+      }
+    },
+    methods: {
+      toggleDropdown() {
+        // use .stop for the click
+        this.refDropdown.toggle()
+      }
     }
   }
 </script>
