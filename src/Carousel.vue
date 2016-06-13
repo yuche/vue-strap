@@ -2,21 +2,21 @@
 <div class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators" v-show="indicators">
-    <indicator></indicator>
+    <indicator :indicator.sync="indicator" :active-index.sync="activeIndex" :is-animating.sync="isAnimating"></indicator>
   </ol>
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <slot></slot>
   </div>
   <!-- Controls -->
-  <a v-show="controls" class="left carousel-control" @click="prevClick">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a v-show="controls" class="right carousel-control" @click="nextClick">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  <div v-show="controls" class="carousel-controls hidden-xs">
+    <a class="left carousel-control" role="button" @click="prevClick">
+      <span class="fa fa-arrow-left" aria-hidden="true"></span>
+    </a>
+    <a class="right carousel-control" role="button" @click="nextClick">
+      <span class="fa fa-arrow-right" aria-hidden="true"></span>
+    </a>
+  </div>
 </div>
 </template>
 
@@ -43,8 +43,9 @@ import coerceBoolean from './utils/coerceBoolean.js'
     },
     components: {
       'indicator': {
-        inherit: true,
-        template: '<li v-for="i in indicator" @click="handleIndicatorClick($index)" v-bind:class="{\'active\':$index === activeIndex}"</li>',
+        //inherit: true,
+        props: ['indicator', 'activeIndex', 'isAnimating'],
+        template: '<li v-for="i in indicator" @click="handleIndicatorClick($index)" v-bind:class="{\'active\':$index === activeIndex}"><span></span></li>',
         methods: {
           handleIndicatorClick(index) {
             if (this.isAnimating) return false

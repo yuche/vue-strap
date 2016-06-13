@@ -1,0 +1,118 @@
+/*!
+ *
+ * Spinner
+ * With fallback to IE9
+ *
+ */
+
+// Variables
+// --------------------------------------------------
+$brand-primary: darken(#428bca, 6.5%); // #337ab7
+$spinner-backdrop-background: rgba(255,255,255,0.9) !default;;
+$spinner-text-color: $brand-primary !default;
+$spinner-border-size: 4px !default;
+$spinner-border-primary-color:  $brand-primary !default;
+$spinner-border-secondary-color: #ccc !default;
+$spinner-sm: 1.5em !default;
+$spinner-md: 2em !default;
+$spinner-lg: 2.5em !default;
+$spinner-xl: 3.5em !default;
+
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+
+// Animation
+// --------------------------------------------------
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Core stuff
+// --------------------------------------------------
+.spinner-gritcode {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9998;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  background: $spinner-backdrop-background;
+
+  // fixed position is better option for full screen spinner overlay
+  &.spinner-fixed {
+    position: fixed;
+  }
+
+  // wraps text and spinner itself and centers it
+  .spinner-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // fix for IE9
+    -ms-transform: translate(-50%, -50%);
+  }
+
+  // animated spinner
+  .spinner-circle {
+    position: relative;
+    border: $spinner-border-size solid $spinner-border-secondary-color;
+    border-right-color: $spinner-border-primary-color;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 0.6s linear;
+    animation-iteration-count: infinite;
+    width: 3em;
+    height: 3em;
+    z-index: 2;
+  }
+
+  // a text below spinner
+  .spinner-text {
+    position: relative;
+    text-align: center;
+    margin-top: 0.5em;
+    z-index: 2;
+    width: 100%;
+    font-size: 95%;
+    color: $spinner-text-color;
+  }
+}
+
+// Sizes
+// --------------------------------------------------
+.spinner-gritcode {
+  &.spinner-sm .spinner-circle {
+    @include size($spinner-sm, $spinner-sm)
+  }
+  &.spinner-md .spinner-circle {
+    @include size($spinner-md, $spinner-md)
+  }
+  &.spinner-lg .spinner-circle {
+    @include size($spinner-lg, $spinner-lg)
+  }
+  &.spinner-xl .spinner-circle {
+    @include size($spinner-xl, $spinner-xl)
+  }
+}
+
+// Default to standard gif for < IE10
+.lt-ie10, .ie9, .oldie, .no-csstransitions, .no-csstransforms3d {
+  .spinner-gritcode .spinner-circle {
+    background: url("http://i2.wp.com/www.thegreatnovelingadventure.com/wp-content/plugins/wp-polls/images/loading.gif") center center no-repeat;
+    animation: none;
+    margin-left: 0;
+    margin-top: 5px;
+    border: none;
+    width: 32px;
+    height: 32px;
+  }
+}

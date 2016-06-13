@@ -138,7 +138,7 @@ export default {
   },
   methods: {
     close() {
-      this.displayDayView = this.displayMonthView = this.displayMonthView = false
+      this.displayDayView = this.displayMonthView = this.displayYearView = false
     },
     inputClick() {
       if (this.displayMonthView || this.displayYearView) {
@@ -252,6 +252,9 @@ export default {
       .replace(/d/g, day)
     },
     parse(str) {
+      if (str.length == 10 && (this.format == 'dd-MM-yyyy' || this.format == 'dd/MM/yyyy')) {
+        str = str.substring(3,5)+'-'+str.substring(0,2)+'-'+str.substring(6,10);
+      }
       const date = new Date(str)
       return isNaN(date.getFullYear()) ? null : date
     },

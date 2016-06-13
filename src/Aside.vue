@@ -11,7 +11,11 @@
       <div class="aside-content">
         <div class="aside-header">
           <button type="button" class="close" @click='close'><span>&times;</span></button>
-          <h4 class="aside-title">{{header}}</h4>
+          <h4 class="aside-title">   
+          <slot name="header"> 
+            {{ header }}
+          </slot>
+          </h4>
         </div>
         <div class="aside-body">
           <slot></slot>

@@ -54,9 +54,15 @@ const typeahead = {
         default: 'default'
       },
       key: {
-        type: String
+        type: String,
+        default: null
       },
       matchCase: {
+        type: Boolean,
+        coerce: coerceBoolean,
+        default: false
+      },
+      matchStart: {
         type: Boolean,
         coerce: coerceBoolean,
         default: false
@@ -83,13 +89,11 @@ const typeahead = {
     },
     computed: {
       primitiveData() {
-        var _this = this;
-        
         if (this.data) {
           return this.data.filter(value=> {
             value = this.matchCase ? value : value.toLowerCase();
-            var query = this.matchCase ? _this.query : _this.query.toLowerCase();
-            return value.indexOf(query) !== -1;
+            var query = this.matchCase ? this.query : this.query.toLowerCase();
+            return this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1;
           }).slice(0, this.limit)
         }
       }
@@ -113,7 +117,7 @@ const typeahead = {
         }
         if (this.async) {
           callAjax(this.async + this.query, (data)=> {
-            this.items = data[this.key].slice(0, this.limit)
+            this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
             this.showDropdown = this.items.length ? true : false
           })
         }

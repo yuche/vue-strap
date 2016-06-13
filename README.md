@@ -55,7 +55,16 @@ and on both the Bower and NPM packages.
 <script src="path/to/vue.js"></script>
 <script src="path/to/vue-strap.js"></script>
 <script>
-  var alert = VueStrap.alert
+    var vm = new Vue({
+        components: {
+            alert: VueStrap.alert
+        },
+        el: "#app",
+        data: {
+            showRight: false,
+            showTop: false
+        }
+    })
 </script>
 ```
 

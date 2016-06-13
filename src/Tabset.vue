@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Nav tabs -->
-     <ul class="nav nav-tabs" role="tablist">
+     <ul class="nav nav-{{navStyle}}" role="tablist">
             <li
                 v-for="r in renderData"
                 v-bind:class="{
@@ -11,12 +11,16 @@
                 @click.prevent="handleTabListClick($index, r)"
                 :disabled="r.disabled"
             >
-                <a href="#">{{{r.header}}}</a>
+                <a href="#">  
+                    <slot name="header"> 
+                      {{{r.header}}}
+                  </slot> 
+                </a>
             </li>
      </ul>
 
      <!-- Tab panes -->
-     <div class="tab-content" v-el:tabContent>
+     <div class="tab-content" v-el:tab-content>
         <slot></slot>
      </div>
   </div>
@@ -25,6 +29,10 @@
 <script>
   export default {
     props: {
+      navStyle: {
+        type: String,
+        default: 'tabs'
+      },
       effect: {
         type: String,
         default: 'fadein'

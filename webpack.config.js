@@ -19,7 +19,9 @@ module.exports = {
         exclude: /node_modules|vue\/src|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
       	loader: 'babel'
       },
-      { test: /\.css$/, loader: "style-loader!css-loader?root=./docs/" }
+      { test: /\.css$/, loader: "style-loader!css-loader?root=./docs/" },
+      {test: /\.scss$/, loader: "style!css!sass"},
+      {test: /\.less$/, loader: "style-loader!css-loader!less-loader"},
     ]
   },
   babel: {

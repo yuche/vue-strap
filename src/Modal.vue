@@ -12,7 +12,11 @@
         <slot name="modal-header">
           <div class="modal-header">
             <button type="button" class="close" @click="close"><span>&times;</span></button>
-            <h4 class="modal-title" >{{title}}</h4>
+            <h4 class="modal-title" > 
+              <slot name="title">
+                {{title}}
+              </slot>
+            </h4>
           </div>
         </slot>
         <slot name="modal-body">
@@ -20,8 +24,8 @@
         </slot>
         <slot name="modal-footer">
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" @click="close">Close</button>
-            <button type="button" class="btn btn-primary" @click="callback">Save changes</button>
+            <button type="button" class="btn btn-default" @click="close">{{ cancelText }}</button>
+            <button type="button" class="btn btn-primary" @click="callback">{{ okText }}</button>
           </div>
         </slot>
       </div>
@@ -36,6 +40,14 @@ import coerceBoolean from './utils/coerceBoolean.js'
 
   export default {
     props: {
+      okText: {
+        type: String,
+        default: 'Save changes'
+      },
+      cancelText:{
+        type: String,
+        default: 'Close'
+      },
       title: {
         type: String,
         default: ''

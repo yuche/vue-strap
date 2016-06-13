@@ -122,14 +122,20 @@ new Vue {
         <tr>
           <td>key</td>
           <td><code>String</code></td>
-          <td></td>
-          <td>The remote JSON key you want to render.</td>
+          <td><code>null</code></td>
+          <td>The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).</td>
         </tr>
         <tr>
           <td>match-case</td>
           <td><code>Boolean</code></td>
           <td><code>false</code></td>
           <td>Case sensitive for suggestions.</td>
+        </tr>
+        <tr>
+          <td>match-start</td>
+          <td><code>Boolean</code></td>
+          <td><code>false</code></td>
+          <td>Match only against start of suggestions. E.g. if true, "a" matches "ab" but not "ba".</td>
         </tr>
         <tr>
           <td>on-hit</td>

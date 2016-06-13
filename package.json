@@ -1,6 +1,6 @@
 {
   "name": "vue-strap",
-  "version": "1.0.8",
+  "version": "1.0.11",
   "description": "Bootstrap components built with Vue.js",
   "main": "dist/vue-strap.js",
   "repository": {
@@ -35,6 +35,10 @@
     "babel-preset-es2015": "^6.1.18",
     "babel-runtime": "^6.3.19",
     "css-loader": "^0.21.0",
+    "sass-loader": "^3.1.1",
+    "node-sass": "^3.4.1",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.1",
     "prismjs": "^1.3.0",
     "style-loader": "^0.13.0",
     "vue-hot-reload-api": "^1.2.0",
@@ -46,6 +50,14 @@
   "browserify": {
     "transform": [
       [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ],
+      [
         "vueify"
       ]
     ]
@@ -53,7 +65,9 @@
   "scripts": {
     "docs": "webpack-dev-server --inline --hot --quiet",
     "builddocs": "webpack --progress --hide-modules && NODE_ENV=production webpack --progress --hide-modules",
-    "build": "webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js"
+    "build": "webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags"
   },
   "author": "yuche",
   "license": "MIT"

@@ -65,6 +65,7 @@
         <td></td>
         <td></td>
       </tr>
+      <tr>
         <td>placement</td>
         <td><code>String</code>, one of <code>top</code>
         <code>left</code>

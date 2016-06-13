@@ -17,12 +17,13 @@
         <li v-for="option in options | filterBy searchText " v-bind:id="option.value" style="position:relative">
           <a @mousedown.prevent="select(option.value)" style="cursor:pointer">
             {{ option.label }}
-            <span class="glyphicon glyphicon-ok check-mark" v-show="value.indexOf(option.value) !== -1"></span>
+            <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option.value)"></span>
           </a>
         </li>
       </template>
       <slot v-else></slot>
-      <div class="notify" v-show="showNotify" transition="fadein">Limit reached ({{limit}} items max).</div>
+      <div class="notify" v-show="showNotify" transition="fadein">Limit reached ({{limit}} items max).
+      </div>
     </ul>
   </div>
 </template>
@@ -94,10 +95,25 @@ import coerceBoolean from './utils/coerceBoolean.js'
       selectedItems() {
         let foundItems = []
         if (this.value.length) {
-          for (let item in this.value) {
-            if (typeof this.value[item] === "string") {
-              foundItems.push(this.value[item])
-            }
+          for (var item of this.value) {
+          	if (this.options.length ===0)
+          	{
+          		// 
+          		foundItems = this.value;
+          	}
+          	else
+          	{
+	            if (typeof item === "string") {
+	              let option
+	              this.options.some(o => {
+	                if(o.value === item) {
+	                  option = o
+	                  return true
+	                }
+	              })
+	              option && foundItems.push(option.label)
+	            }
+          	}
           }
           return foundItems.join(', ')
         }
@@ -131,6 +147,13 @@ import coerceBoolean from './utils/coerceBoolean.js'
           if (this.closeOnSelect) {
             this.toggleDropdown()
           }
+      },
+      isSelected(v) {
+        if (this.value.constructor !== Array) {
+          return this.value == v
+        } else {
+          return this.value.indexOf(v) !== -1
+        }
       },
       toggleDropdown() {
         this.show = !this.show
