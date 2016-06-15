@@ -13,7 +13,7 @@
           return []
         }
       },
-      type: {
+      style: {
         type: String,
         default: 'default'
       }
