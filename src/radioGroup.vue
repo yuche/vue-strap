@@ -11,7 +11,7 @@
         type: String,
         twoWay: true
       },
-      type: {
+      style: {
         type: String,
         default: 'default'
       }
