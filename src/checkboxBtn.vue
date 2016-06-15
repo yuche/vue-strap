@@ -2,12 +2,12 @@
   <label class="btn"
   v-bind:class="{
     'active':checked,
-    'btn-success':type == 'success',
-    'btn-warning':type == 'warning',
-    'btn-info':type == 'info',
-    'btn-danger':type == 'danger',
-    'btn-default':type == 'default',
-    'btn-primary':type == 'primary'
+    'btn-success':style == 'success',
+    'btn-warning':style == 'warning',
+    'btn-info':style == 'info',
+    'btn-danger':style == 'danger',
+    'btn-default':style == 'default',
+    'btn-primary':style == 'primary'
   }">
 
     <input type="checkbox" autocomplete="off"
@@ -34,8 +34,8 @@ import coerceBoolean from './utils/coerceBoolean.js'
       }
     },
     computed: {
-      type() {
-        return this.$parent.type
+      style() {
+        return this.$parent.style
       }
     },
     methods: {
