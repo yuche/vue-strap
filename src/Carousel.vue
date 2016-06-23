@@ -48,7 +48,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
         template: '<li v-for="i in indicator" @click="handleIndicatorClick($index)" v-bind:class="{\'active\':$index === activeIndex}"><span></span></li>',
         methods: {
           handleIndicatorClick(index) {
-            if (this.isAnimating) return false
+            if (this.isAnimating || this.activeIndex === index) return false
             this.isAnimating = true
             this.activeIndex = index
           }
