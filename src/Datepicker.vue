@@ -24,7 +24,7 @@
     <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text"
         v-bind:style="{width:width}"
         @click="inputClick"
-        v-model="value"/>
+        v-model="value" :disabled="disableInput"/>
     <button v-if="showResetButton" type="button" class="close" @click="value = ''">
       <span>&times;</span>
     </button>
@@ -110,6 +110,10 @@ export default {
       default: '200px'
     },
     showResetButton: {
+      type: Boolean,
+      default: false
+    },
+    disableInput: {
       type: Boolean,
       default: false
     }

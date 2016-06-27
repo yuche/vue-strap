@@ -27,6 +27,7 @@
 <script>
 import callAjax from './utils/callAjax.js'
 import coerceBoolean from './utils/coerceBoolean.js'
+import Vue from 'vue'
 
 const typeahead = {
     created() {
@@ -98,7 +99,7 @@ const typeahead = {
         }
       }
     },
-    ready() {
+    beforeCompile() {
       // register a partial:
       if (this.templateName && this.templateName!=='default')
       {
