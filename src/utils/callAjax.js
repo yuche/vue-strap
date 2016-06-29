@@ -1,4 +1,4 @@
-export default (url, callback)=> {
+module.exports = (url, callback)=> {
   var httpRequest = new XMLHttpRequest()
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === 4) {
