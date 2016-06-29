@@ -1,4 +1,4 @@
-export default ()=> {
+module.exports = ()=> {
   if (document.documentElement.scrollHeight <= document.documentElement.clientHeight) {
     return 0
   }
