@@ -22,7 +22,7 @@
         toggle.addEventListener('click', this.toggleDropdown)
       }
       this._closeEvent = EventListener.listen(window, 'click', (e)=> {
-        if (!el.contains(e.target) || e.target.nodeName.toLowerCase() == 'a') el.classList.remove('open')
+        if (!el.contains(e.target) || e.target.nodeName.toLowerCase() == 'a') Vue.util.removeClass(el, 'open')
       })
     },
     beforeDestroy() {
