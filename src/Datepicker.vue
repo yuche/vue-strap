@@ -56,8 +56,8 @@
           <div class="datepicker-monthRange">
             <template v-for="m in monthNames">
               <span   v-bind:class="{'datepicker-dateRange-item-active':
-                  (this.monthNames[this.parse(this.value).getMonth()]  === m) &&
-                  this.currDate.getFullYear() === this.parse(this.value).getFullYear()}"
+                  (this.monthNames[this.parsedValue.getMonth()]  === m) &&
+                  this.currDate.getFullYear() === this.parsedValue.getFullYear()}"
                   @click="monthSelect($index)"
                 >{{m.substr(0,3)}}</span>
             </template>
@@ -76,7 +76,7 @@
           <div class="datepicker-monthRange decadeRange">
             <template v-for="decade in decadeRange">
               <span v-bind:class="{'datepicker-dateRange-item-active':
-                  this.parse(this.value).getFullYear() === decade.text}"
+                  this.parsedValue.getFullYear() === decade.text}"
                   @click.stop="yearSelect(decade.text)"
                 >{{decade.text}}</span>
             </template>
@@ -129,6 +129,11 @@ export default {
         'July', 'August', 'September',
         'October', 'November', 'December'
       ]
+    }
+  },
+  computed: {
+    parsedValue() {
+      return this.parse(this.value) || this.parse(new Date());
     }
   },
   watch: {
@@ -315,7 +320,7 @@ export default {
 
       if (i === time.day) {
         if (this.value) {
-          const valueDate = this.parse(this.value)
+          const valueDate = this.parsedValue
           if (valueDate) {
             if (valueDate.getFullYear() === time.year && valueDate.getMonth() === time.month) {
               sclass = 'datepicker-dateRange-item-active'
@@ -346,7 +351,7 @@ export default {
   },
   ready() {
     this.$dispatch('child-created', this)
-    this.currDate = this.parse(this.value) || this.parse(new Date())
+    this.currDate = this.parsedValue || this.parse(new Date())
     this._closeEvent = EventListener.listen(window, 'click', (e)=> {
       if (!this.$el.contains(e.target)) this.close()
     })
