@@ -29,7 +29,7 @@
       //this.index = [...this.$el.parentNode.children].indexOf(this.$el)
       this.$parent.indicator.push(this.index)
       if (this.index === 0)  {
-        this.$el.classList.add('active')
+				Vue.util.addClass(this.$el, 'active')
       }
     }
   }

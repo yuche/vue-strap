@@ -11,8 +11,8 @@
       <div class="aside-content">
         <div class="aside-header">
           <button type="button" class="close" @click='close'><span>&times;</span></button>
-          <h4 class="aside-title">   
-          <slot name="header"> 
+          <h4 class="aside-title">
+          <slot name="header">
             {{ header }}
           </slot>
           </h4>
@@ -58,7 +58,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
         const scrollBarWidth =  getScrollBarWidth()
         if (val) {
           body.appendChild(backdrop)
-          body.classList.add('modal-open')
+					Vue.util.addClass(body, 'modal-open');
           if (scrollBarWidth !== 0) {
             body.style.paddingRight = scrollBarWidth + 'px'
           }
@@ -71,7 +71,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
           backdrop = document.querySelector('.aside-backdrop')
           try {
               backdrop.className = 'aside-backdrop'
-              body.classList.remove('modal-open')
+							Vue.util.removeClass(body, 'modal-open')
               body.style.paddingRight = '0'
               body.removeChild(backdrop)
           } catch(e) {}

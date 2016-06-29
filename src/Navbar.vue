@@ -29,7 +29,7 @@ export default {
         }
         this._closeEvent = EventListener.listen(window, 'click', (e)=> {
             if (!this.$el.contains(e.target)) {
-                this.$el.classList.remove('open');
+								Vue.util.removeClass(this.$el, 'open')
             }
         })
     },

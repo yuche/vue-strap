@@ -12,7 +12,7 @@
         <slot name="modal-header">
           <div class="modal-header">
             <button type="button" class="close" @click="close"><span>&times;</span></button>
-            <h4 class="modal-title" > 
+            <h4 class="modal-title" >
               <slot name="title">
                 {{title}}
               </slot>
@@ -93,8 +93,8 @@ import coerceBoolean from './utils/coerceBoolean.js'
         if (val) {
           el.querySelector('.modal-content').focus()
           el.style.display = 'block'
-          setTimeout(()=> el.classList.add('in'), 0)
-          body.classList.add('modal-open')
+          setTimeout(()=> Vue.util.addClass(el, 'in'), 0)
+					Vue.util.addClass(body, 'modal-open')
           if (scrollBarWidth !== 0) {
             body.style.paddingRight = scrollBarWidth + 'px'
           }
@@ -105,10 +105,10 @@ import coerceBoolean from './utils/coerceBoolean.js'
           }
         } else {
           if (this._blurModalContentEvent) this._blurModalContentEvent.remove()
-          el.classList.remove('in')
+					Vue.util.removeClass(el, 'in')
           setTimeout(()=> {
             el.style.display = 'none'
-            body.classList.remove('modal-open')
+						Vue.util.removeClass(body, 'modal-open')
             body.style.paddingRight = '0'
           }, 300)
         }

@@ -81,17 +81,17 @@ import coerceBoolean from './utils/coerceBoolean.js'
         const selectedEl = this.slider[selected]
         const transitionendFn = ()=> {
           [...this.slider].forEach((el)=> el.className = 'item')
-          selectedEl.classList.add('active')
+					Vue.util.addClass(selectedEl, 'active');
           this.isAnimating = false
         }
 
-        direction === 'left' ? selectedEl.classList.add('next') : selectedEl.classList.add('prev')
+        direction === 'left' ? Vue.util.addClass(selectedEl, 'next') : Vue.util.addClass(selectedEl, 'prev')
         // request property that requires layout to force a layout
         var x = selectedEl.clientHeight
         this._prevSelectedEvent = EventListener.listen(prevSelectedEl, 'transitionend', transitionendFn)
         this._selectedEvent = EventListener.listen(selectedEl, 'transitionend', transitionendFn)
-        prevSelectedEl.classList.add(direction)
-        selectedEl.classList.add(direction)
+				Vue.util.addClass(prevSelectedEl, direction)
+				Vue.util.addClass(selectedEl, direction)
       },
       nextClick() {
         if (this.isAnimating) return false
