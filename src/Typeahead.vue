@@ -36,6 +36,10 @@ const typeahead = {
       'default': '<span v-html="item | highlight query"></span>',
     },
     props: {
+      query: {
+        type: String,
+        twoWay: true
+      },
       data: {
         type: Array
       },
@@ -80,7 +84,6 @@ const typeahead = {
     },
     data() {
       return {
-        query: '',
         showDropdown: false,
         noResults: true,
         current: 0,
