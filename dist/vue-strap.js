@@ -4656,7 +4656,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  ready: function ready() {
-	    if (this.value.constructor !== Array) {
+	    if (!(this.value instanceof Array)) {
 	      if (this.value.length === 0) {
 	        this.value = [];
 	      } else {
