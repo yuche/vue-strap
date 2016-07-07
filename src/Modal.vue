@@ -65,6 +65,10 @@ import coerceBoolean from './utils/coerceBoolean.js'
         type: Function,
         default() {}
       },
+      closeCallback: {
+        type: Function,
+        default() {}
+      },
       effect: {
         type: String,
         default: null
@@ -100,7 +104,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
           }
           if (this.backdrop) {
             this._blurModalContentEvent = EventListener.listen(this.$el, 'click', (e)=> {
-              if (e.target === el) this.show = false
+              if (e.target === el) this.close()
             })
           }
         } else {
@@ -127,6 +131,8 @@ import coerceBoolean from './utils/coerceBoolean.js'
     methods: {
       close() {
         this.show = false
+
+        this.closeCallback()
       }
     }
   }
