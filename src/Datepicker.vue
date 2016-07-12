@@ -37,7 +37,7 @@
             <p @click="switchMonthView">{{stringifyDayHeader(currDate)}}</p>
           </div>
           <div class="datepicker-weekRange">
-            <span v-for="w in weekRange">{{w}}</span>
+            <span v-for="w in weekRange[lang]">{{w}}</span>
           </div>
           <div class="datepicker-dateRange">
             <span v-for="d in dateRange" v-bind:class="d.sclass" @click="daySelect(d.date,this)">{{d.text}}</span>
@@ -54,9 +54,9 @@
             <p @click="switchDecadeView">{{stringifyYearHeader(currDate)}}</p>
           </div>
           <div class="datepicker-monthRange">
-            <template v-for="m in monthNames">
+            <template v-for="m in monthNames[this.lang]">
               <span   v-bind:class="{'datepicker-dateRange-item-active':
-                  (this.monthNames[this.parse(this.value).getMonth()]  === m) &&
+                  (this.monthNames[this.lang][this.parse(this.value).getMonth()]  === m) &&
                   this.currDate.getFullYear() === this.parse(this.value).getFullYear()}"
                   @click="monthSelect($index)"
                 >{{m.substr(0,3)}}</span>
@@ -112,23 +112,38 @@ export default {
     showResetButton: {
       type: Boolean,
       default: false
+    },
+    lang: {
+      type: String,
+      default: ~['es','en'].indexOf(navigator.language) ? navigator.language : 'en'
     }
   },
   data() {
     return {
-      weekRange: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+      weekRange: {
+        'en': ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+        'es': ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+      },
       dateRange: [],
       decadeRange: [],
       currDate: new Date,
       displayDayView: false,
       displayMonthView: false,
       displayYearView: false,
-      monthNames: [
-        'January', 'February', 'March',
-        'April', 'May', 'June',
-        'July', 'August', 'September',
-        'October', 'November', 'December'
-      ]
+      monthNames: {
+        'en': [
+          'January', 'February', 'March',
+          'April', 'May', 'June',
+          'July', 'August', 'September',
+          'October', 'November', 'December'
+        ],
+        'es': [
+          'Enero', 'Febrero', 'Marzo',
+          'Abril', 'Mayo', 'Junio',
+          'Julio', 'Agosto', 'Septiembre',
+          'Octubre', 'Noviembre', 'Diciembre'
+        ]
+      }
     }
   },
   watch: {
@@ -227,10 +242,10 @@ export default {
       return firstYearOfDecade + '-' + lastYearOfDecade
     },
     stringifyDayHeader(date) {
-      return this.monthNames[date.getMonth()] + ' ' + date.getFullYear()
+      return this.monthNames[this.lang][date.getMonth()] + ' ' + date.getFullYear()
     },
     parseMonth(date) {
-      return this.monthNames[date.getMonth()]
+      return this.monthNames[this.lang][date.getMonth()]
     },
     stringifyYearHeader(date) {
       return date.getFullYear()
