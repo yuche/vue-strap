@@ -12,8 +12,8 @@
     "src": "src/"
   },
   "dependencies": {
-    "vue": "^1.0.8",
-    "bootstrap": "^3.3.5"
+    "bootstrap": "^3.3.5",
+    "vue": "^1.0.26"
   },
   "files": [
     "LICENSE",
