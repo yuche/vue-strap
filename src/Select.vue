@@ -1,20 +1,25 @@
 <template>
-  <div class="btn-group" v-bind:class="{open: show}">
+<div :class="{'btn-group btn-group-justified': justified}" :click="canSearch && stopBlur()">
+  <div class="btn-group" :class="{open: show}">
     <button v-el:btn type="button" class="btn btn-default dropdown-toggle"
-      @click="toggleDropdown"
-      @blur="show = (search ? show : false)"
       v-bind="{disabled: disabled}"
+      @click="toggleDropdown('click')"
+      @blur="!canSearch && blur()"
     >
-      <span class="btn-placeholder" v-show="showPlaceholder">{{placeholder}}</span>
+      <span class="btn-placeholder" v-show="showPlaceholder">{{placeholder||text.placeholder}}</span>
       <span class="btn-content">{{ selectedItems }}</span>
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
       <template v-if="options.length">
         <li v-if="search" class="bs-searchbox">
-          <input type="text" placeholder="Search" v-model="searchText" class="form-control" autocomplete="off">
+          <input type="text" placeholder="{{searchText||text.search}}" class="form-control" autocomplete="off"
+            v-el:search
+            v-model="searchValue"
+            @blur="canSearch && blur()"
+          />
         </li>
-        <li v-for="option in options | filterBy searchText " v-bind:id="option.value" style="position:relative">
+        <li v-for="option in options | filterBy searchValue" :id="option.value" style="position:relative">
           <a @mousedown.prevent="select(option.value)" style="cursor:pointer">
             {{ option.label }}
             <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option.value)"></span>
@@ -22,10 +27,16 @@
         </li>
       </template>
       <slot v-else></slot>
-      <div class="notify" v-show="showNotify" transition="fadein">Limit reached ({{limit}} items max).
-      </div>
+      <div class="notify" v-show="showNotify" transition="fadein">{{limitText}}</div>
     </ul>
   </div>
+</div>
+<div v-if="name">
+  <template v-if="multiple">
+    <input v-for="val in value" type="hidden" name="{{name}}" value="{{val}}">
+  </template>
+  <input v-else type="hidden" name="{{name}}" value="{{value}}"/>
+</div>
 </template>
 
 <script>
@@ -37,12 +48,20 @@ import coerceBoolean from './utils/coerceBoolean.js'
         type: Array,
         default() { return [] },
       },
+      name: {
+        type: String,
+        default: null
+      },
       value: {
         twoWay: true
       },
       placeholder: {
         type: String,
-        default: 'Nothing Selected'
+        default: null
+      },
+      searchText: {
+        type: String,
+        default: null
       },
       multiple: {
         type: Boolean,
@@ -67,28 +86,51 @@ import coerceBoolean from './utils/coerceBoolean.js'
         type: Boolean,
         coerce: coerceBoolean,
         default: false
+      },
+      lang: {
+        type: String,
+        default: ~['es','en'].indexOf(navigator.language) ? navigator.language : 'en'
+      },
+      justified: {
+        type: Boolean,
+        coerce: coerceBoolean,
+        default: false
       }
     },
     ready() {
-      if (this.value.constructor !== Array) {
-        if (this.value.length === 0) {
-          this.value = []
-        } else {
-          this.value = [this.value]
-        }
-      } else {
+      if (this.value instanceof Array) {
         if (!this.multiple && this.value.length > 1) {
           this.value = this.value.slice(0, 1)
         } else if (this.multiple && this.value.length > this.limit) {
           this.value = this.value.slice(0, this.limit)
         }
+      } else {
+        if (this.value === null || this.value === undefined || this.value.length === 0) {
+          this.value = []
+        } else {
+          this.value = [this.value]
+        }
       }
+
     },
     data() {
       return {
-        searchText: null,
+        searchValue: null,
         show: false,
-        showNotify: false
+        showNotify: false,
+        translations: {
+          en: {
+            limit: 'Limit reached ({{limit}} items max).',
+            search: 'Search',
+            placeholder: 'Nothing Selected'
+          },
+          es: {
+            limit: 'Limite alcanzado (máximo {{limit}} items).',
+            search: 'Buscar',
+            placeholder: 'Nada seleccionado'
+          }
+        },
+        timeout: null
       }
     },
     computed: {
@@ -118,8 +160,17 @@ import coerceBoolean from './utils/coerceBoolean.js'
           return foundItems.join(', ')
         }
       },
+      limitText() {
+        return this.text.limit.replace('{{limit}}', this.limit)
+      },
       showPlaceholder() {
         return this.value.length === 0
+      },
+      text() {
+        return this.translations[this.lang]
+      },
+      canSearch() {
+        return this.$els.search
       }
     },
     watch: {
@@ -129,19 +180,22 @@ import coerceBoolean from './utils/coerceBoolean.js'
           this.value.pop()
           setTimeout(() => this.showNotify = false, 1000)
         }
+      },
+      show(val) {
+        if (this.show) this.$els[this.canSearch ? 'search' : 'btn'].focus()
       }
     },
     methods: {
       select(v) {
-          if (this.value.indexOf(v) === -1) {
+          if (~this.value.indexOf(v)) {
+            if (this.multiple) {
+              this.value.$remove(v)
+            }
+          } else {
             if (this.multiple) {
               this.value.push(v)
             } else {
               this.value = [v]
-            }
-          } else {
-            if (this.multiple) {
-              this.value.$remove(v)
             }
           }
           if (this.closeOnSelect) {
@@ -149,14 +203,27 @@ import coerceBoolean from './utils/coerceBoolean.js'
           }
       },
       isSelected(v) {
-        if (this.value.constructor !== Array) {
-          return this.value == v
+        if (this.value instanceof Array) {
+          return ~this.value.indexOf(v)
         } else {
-          return this.value.indexOf(v) !== -1
+          return this.value == v
         }
       },
       toggleDropdown() {
         this.show = !this.show
+      },
+      blur() {
+        if (this.canSearch) {
+          this.timeout = setTimeout(() => this.timeout = this.show = false, 100)
+        } else {
+          this.show = false
+        }
+      },
+      stopBlur() {
+        if (self.timeout) {
+          clearTimeout(self.timeout)
+          self.timeout = false
+        }
       }
     }
   }
@@ -176,7 +243,10 @@ import coerceBoolean from './utils/coerceBoolean.js'
     background: #f5f5f5;
     border: 1px solid #e3e3e3;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-     pointer-events: none;
+    pointer-events: none;
     opacity: .9;
+  }
+  .btn-group.btn-group-justified .dropdown-menu {
+    width:100%;
   }
 </style>

@@ -66,8 +66,16 @@ Select data : {{custom.join(', ')}}
 Select data : {{arr}}
         </pre>
       </p>
-      <v-select :value.sync="arr" :options="fruitOptions" :search="true" :close-on-select="true">
-      </v-select>
+      <v-select :value.sync="arr" :options="fruitOptions" :search="true" :close-on-select="true"></v-select>
+
+      <hr />
+      <h4>Multiple w/ search, justified and form values</h4>
+      <p>
+        <pre>
+Select data : {{fruits.join(', ')}}
+        </pre>
+      </p>
+      <v-select multiple :search="true" :options="fruitOptions" justified name="fruits[]" :value.sync="fruits"></v-select>
 
       <hr />
       <h4>Automatically close array driven selects</h4>
