@@ -1,24 +1,3 @@
-<style>
-  input.datepicker-input.with-reset-button {
-    padding-right: 25px;
-  }
-
-  div.datepicker > button.close {
-    position: absolute;
-    top: calc(50% - 13px);
-    right: 10px;
-  }
-
-  div.datepicker > button.close {
-    outline: none;
-    z-index: 2;
-  }
-
-  div.datepicker > button.close:focus {
-    opacity: .2;
-  }
-</style>
-
 <template>
   <div class="datepicker">
     <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text"
@@ -37,7 +16,7 @@
             <p @click="switchMonthView">{{stringifyDayHeader(currDate)}}</p>
           </div>
           <div class="datepicker-weekRange">
-            <span v-for="w in weekRange[lang]">{{w}}</span>
+            <span v-for="w in text.days">{{w}}</span>
           </div>
           <div class="datepicker-dateRange">
             <span v-for="d in dateRange" v-bind:class="d.sclass" @click="daySelect(d.date,this)">{{d.text}}</span>
@@ -54,9 +33,9 @@
             <p @click="switchDecadeView">{{stringifyYearHeader(currDate)}}</p>
           </div>
           <div class="datepicker-monthRange">
-            <template v-for="m in monthNames[this.lang]">
+            <template v-for="m in text.months">
               <span   v-bind:class="{'datepicker-dateRange-item-active':
-                  (this.monthNames[this.lang][this.parse(this.value).getMonth()]  === m) &&
+                  (this.text.months[this.parse(this.value).getMonth()]  === m) &&
                   this.currDate.getFullYear() === this.parse(this.value).getFullYear()}"
                   @click="monthSelect($index)"
                 >{{m.substr(0,3)}}</span>
@@ -120,29 +99,31 @@ export default {
   },
   data() {
     return {
-      weekRange: {
-        'en': ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-        'es': ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
-      },
       dateRange: [],
       decadeRange: [],
       currDate: new Date,
       displayDayView: false,
       displayMonthView: false,
       displayYearView: false,
-      monthNames: {
-        'en': [
-          'January', 'February', 'March',
-          'April', 'May', 'June',
-          'July', 'August', 'September',
-          'October', 'November', 'December'
-        ],
-        'es': [
-          'Enero', 'Febrero', 'Marzo',
-          'Abril', 'Mayo', 'Junio',
-          'Julio', 'Agosto', 'Septiembre',
-          'Octubre', 'Noviembre', 'Diciembre'
-        ]
+      translations: {
+        en: {
+          days: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+          months: [
+            'January', 'February', 'March',
+            'April', 'May', 'June',
+            'July', 'August', 'September',
+            'October', 'November', 'December'
+          ]
+        },
+        es: {
+          days: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+          months: [
+            'Enero', 'Febrero', 'Marzo',
+            'Abril', 'Mayo', 'Junio',
+            'Julio', 'Agosto', 'Septiembre',
+            'Octubre', 'Noviembre', 'Diciembre'
+          ]
+        }
       }
     }
   },
@@ -152,6 +133,9 @@ export default {
     }
   },
   methods: {
+    text() {
+      return this.translations[this.lang] || this.translations['en']
+    },
     close() {
       this.displayDayView = this.displayMonthView = this.displayYearView = false
     },
@@ -242,10 +226,10 @@ export default {
       return firstYearOfDecade + '-' + lastYearOfDecade
     },
     stringifyDayHeader(date) {
-      return this.monthNames[this.lang][date.getMonth()] + ' ' + date.getFullYear()
+      return this.text.months[date.getMonth()] + ' ' + date.getFullYear()
     },
     parseMonth(date) {
-      return this.monthNames[this.lang][date.getMonth()]
+      return this.text.months[date.getMonth()]
     },
     stringifyYearHeader(date) {
       return date.getFullYear()
@@ -373,6 +357,25 @@ export default {
 </script>
 
 <style>
+input.datepicker-input.with-reset-button {
+  padding-right: 25px;
+}
+
+div.datepicker > button.close {
+  position: absolute;
+  top: calc(50% - 13px);
+  right: 10px;
+}
+
+div.datepicker > button.close {
+  outline: none;
+  z-index: 2;
+}
+
+div.datepicker > button.close:focus {
+  opacity: .2;
+}
+
 .datepicker{
     position: relative;
     display: inline-block;

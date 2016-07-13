@@ -167,7 +167,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
         return this.value.length === 0
       },
       text() {
-        return this.translations[this.lang]
+        return this.translations[this.lang] || this.translations['en']
       },
       canSearch() {
         return this.$els.search
