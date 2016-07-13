@@ -813,7 +813,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".carousel-control[_v-4b6e4443] {\r\n    cursor: pointer;\r\n  }", ""]);
+	exports.push([module.id, ".carousel-control[_v-4b6e4443] {\r\n  cursor: pointer;\r\n}", ""]);
 	
 	// exports
 
@@ -993,11 +993,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// <style scoped>
 
-	//   .carousel-control {
+	// .carousel-control {
 
-	//     cursor: pointer;
+	//   cursor: pointer;
 
-	//   }
+	// }
 
 	// </style>
 
@@ -2352,7 +2352,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".aside-open {\r\n    -webkit-transition: -webkit-transform 0.3s;\r\n    transition: -webkit-transform 0.3s;\r\n    transition: transform 0.3s;\r\n    transition: transform 0.3s, -webkit-transform 0.3s;\r\n  }\r\n  .aside-open.has-push-right {\r\n    -webkit-transform: translateX(-300px);\r\n            transform: translateX(-300px);\r\n  }\r\n  .aside {\r\n      position: fixed;\r\n      top: 0;\r\n      bottom: 0;\r\n      z-index: 1049;\r\n      overflow: auto;\r\n      background: #fff;\r\n  }\r\n  .aside.left {\r\n    left: 0;\r\n    right: auto;\r\n  }\r\n  .aside.right {\r\n    left: auto;\r\n    right: 0;\r\n  }\r\n\r\n  .slideleft-enter {\r\n    -webkit-animation:slideleft-in .3s;\r\n            animation:slideleft-in .3s;\r\n  }\r\n  .slideleft-leave {\r\n    -webkit-animation:slideleft-out .3s;\r\n            animation:slideleft-out .3s;\r\n  }\r\n  @-webkit-keyframes slideleft-in {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n      opacity: 0;\r\n    }\r\n    100% {\r\n      -webkit-transform: translateX(0);\r\n              transform: translateX(0);\r\n      opacity: 1;\r\n    }\r\n  }\r\n  @keyframes slideleft-in {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n      opacity: 0;\r\n    }\r\n    100% {\r\n      -webkit-transform: translateX(0);\r\n              transform: translateX(0);\r\n      opacity: 1;\r\n    }\r\n  }\r\n  @-webkit-keyframes slideleft-out {\r\n    0% {\r\n      -webkit-transform: translateX(0);\r\n              transform: translateX(0);\r\n      opacity: 1;\r\n    }\r\n    100% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n      opacity: 0;\r\n    }\r\n  }\r\n  @keyframes slideleft-out {\r\n    0% {\r\n      -webkit-transform: translateX(0);\r\n              transform: translateX(0);\r\n      opacity: 1;\r\n    }\r\n    100% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n      opacity: 0;\r\n    }\r\n  }\r\n  .slideright-enter {\r\n    -webkit-animation:slideright-in .3s;\r\n            animation:slideright-in .3s;\r\n  }\r\n  .slideright-leave {\r\n    -webkit-animation:slideright-out .3s;\r\n            animation:slideright-out .3s;\r\n  }\r\n  @-webkit-keyframes slideright-in {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n      opacity: 0;\r\n    }\r\n    100% {\r\n      -webkit-transform: translateX(0);\r\n              transform: translateX(0);\r\n      opacity: 1;\r\n    }\r\n  }\r\n  @keyframes slideright-in {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n      opacity: 0;\r\n    }\r\n    100% {\r\n      -webkit-transform: translateX(0);\r\n              transform: translateX(0);\r\n      opacity: 1;\r\n    }\r\n  }\r\n  @-webkit-keyframes slideright-out {\r\n    0% {\r\n      -webkit-transform: translateX(0);\r\n              transform: translateX(0);\r\n      opacity: 1;\r\n    }\r\n    100% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n      opacity: 0;\r\n    }\r\n  }\r\n  @keyframes slideright-out {\r\n    0% {\r\n      -webkit-transform: translateX(0);\r\n              transform: translateX(0);\r\n      opacity: 1;\r\n    }\r\n    100% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n      opacity: 0;\r\n    }\r\n  }\r\n\r\n  .aside:focus {\r\n      outline: 0\r\n  }\r\n\r\n  @media (max-width: 991px) {\r\n      .aside {\r\n          min-width:240px\r\n      }\r\n  }\r\n\r\n  .aside.left {\r\n      right: auto;\r\n      left: 0\r\n  }\r\n\r\n  .aside.right {\r\n      right: 0;\r\n      left: auto\r\n  }\r\n\r\n  .aside .aside-dialog .aside-header {\r\n      border-bottom: 1px solid #e5e5e5;\r\n      min-height: 16.43px;\r\n      padding: 6px 15px;\r\n      background: #337ab7;\r\n      color: #fff\r\n  }\r\n\r\n  .aside .aside-dialog .aside-header .close {\r\n      margin-right: -8px;\r\n      padding: 4px 8px;\r\n      color: #fff;\r\n      font-size: 25px;\r\n      opacity: .8\r\n  }\r\n\r\n  .aside .aside-dialog .aside-body {\r\n      position: relative;\r\n      padding: 15px\r\n  }\r\n\r\n  .aside .aside-dialog .aside-footer {\r\n      padding: 15px;\r\n      text-align: right;\r\n      border-top: 1px solid #e5e5e5\r\n  }\r\n\r\n  .aside .aside-dialog .aside-footer .btn+.btn {\r\n      margin-left: 5px;\r\n      margin-bottom: 0\r\n  }\r\n\r\n  .aside .aside-dialog .aside-footer .btn-group .btn+.btn {\r\n      margin-left: -1px\r\n  }\r\n\r\n  .aside .aside-dialog .aside-footer .btn-block+.btn-block {\r\n      margin-left: 0\r\n  }\r\n\r\n  .aside-backdrop {\r\n      position: fixed;\r\n      top: 0;\r\n      right: 0;\r\n      bottom: 0;\r\n      left: 0;\r\n      z-index: 1040;\r\n      opacity: 0;\r\n      -webkit-transition: opacity .3s ease;\r\n      transition: opacity .3s ease;\r\n      background-color: #000\r\n  }\r\n\r\n\r\n  .aside-backdrop.in {\r\n      opacity: .5;\r\n      filter: alpha(opacity=50)\r\n  }", ""]);
+	exports.push([module.id, ".aside-open {\r\n  -webkit-transition: -webkit-transform 0.3s;\r\n  transition: -webkit-transform 0.3s;\r\n  transition: transform 0.3s;\r\n  transition: transform 0.3s, -webkit-transform 0.3s;\r\n}\r\n.aside-open.has-push-right {\r\n  -webkit-transform: translateX(-300px);\r\n          transform: translateX(-300px);\r\n}\r\n.aside {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    z-index: 1049;\r\n    overflow: auto;\r\n    background: #fff;\r\n}\r\n.aside.left {\r\n  left: 0;\r\n  right: auto;\r\n}\r\n.aside.right {\r\n  left: auto;\r\n  right: 0;\r\n}\r\n.slideleft-enter {\r\n  -webkit-animation:slideleft-in .3s;\r\n          animation:slideleft-in .3s;\r\n}\r\n.slideleft-leave {\r\n  -webkit-animation:slideleft-out .3s;\r\n          animation:slideleft-out .3s;\r\n}\r\n@-webkit-keyframes slideleft-in {\r\n  0% {\r\n    -webkit-transform: translateX(-100%);\r\n            transform: translateX(-100%);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    -webkit-transform: translateX(0);\r\n            transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes slideleft-in {\r\n  0% {\r\n    -webkit-transform: translateX(-100%);\r\n            transform: translateX(-100%);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    -webkit-transform: translateX(0);\r\n            transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n}\r\n@-webkit-keyframes slideleft-out {\r\n  0% {\r\n    -webkit-transform: translateX(0);\r\n            transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    -webkit-transform: translateX(-100%);\r\n            transform: translateX(-100%);\r\n    opacity: 0;\r\n  }\r\n}\r\n@keyframes slideleft-out {\r\n  0% {\r\n    -webkit-transform: translateX(0);\r\n            transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    -webkit-transform: translateX(-100%);\r\n            transform: translateX(-100%);\r\n    opacity: 0;\r\n  }\r\n}\r\n.slideright-enter {\r\n  -webkit-animation:slideright-in .3s;\r\n          animation:slideright-in .3s;\r\n}\r\n.slideright-leave {\r\n  -webkit-animation:slideright-out .3s;\r\n          animation:slideright-out .3s;\r\n}\r\n@-webkit-keyframes slideright-in {\r\n  0% {\r\n    -webkit-transform: translateX(100%);\r\n            transform: translateX(100%);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    -webkit-transform: translateX(0);\r\n            transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes slideright-in {\r\n  0% {\r\n    -webkit-transform: translateX(100%);\r\n            transform: translateX(100%);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    -webkit-transform: translateX(0);\r\n            transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n}\r\n@-webkit-keyframes slideright-out {\r\n  0% {\r\n    -webkit-transform: translateX(0);\r\n            transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    -webkit-transform: translateX(100%);\r\n            transform: translateX(100%);\r\n    opacity: 0;\r\n  }\r\n}\r\n@keyframes slideright-out {\r\n  0% {\r\n    -webkit-transform: translateX(0);\r\n            transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    -webkit-transform: translateX(100%);\r\n            transform: translateX(100%);\r\n    opacity: 0;\r\n  }\r\n}\r\n.aside:focus {\r\n    outline: 0\r\n}\r\n@media (max-width: 991px) {\r\n  .aside {\r\n    min-width:240px\r\n  }\r\n}\r\n.aside.left {\r\n  right: auto;\r\n  left: 0\r\n}\r\n.aside.right {\r\n  right: 0;\r\n  left: auto\r\n}\r\n.aside .aside-dialog .aside-header {\r\n  border-bottom: 1px solid #e5e5e5;\r\n  min-height: 16.43px;\r\n  padding: 6px 15px;\r\n  background: #337ab7;\r\n  color: #fff\r\n}\r\n.aside .aside-dialog .aside-header .close {\r\n  margin-right: -8px;\r\n  padding: 4px 8px;\r\n  color: #fff;\r\n  font-size: 25px;\r\n  opacity: .8\r\n}\r\n.aside .aside-dialog .aside-body {\r\n  position: relative;\r\n  padding: 15px\r\n}\r\n.aside .aside-dialog .aside-footer {\r\n  padding: 15px;\r\n  text-align: right;\r\n  border-top: 1px solid #e5e5e5\r\n}\r\n.aside .aside-dialog .aside-footer .btn+.btn {\r\n  margin-left: 5px;\r\n  margin-bottom: 0\r\n}\r\n.aside .aside-dialog .aside-footer .btn-group .btn+.btn {\r\n  margin-left: -1px\r\n}\r\n.aside .aside-dialog .aside-footer .btn-block+.btn-block {\r\n  margin-left: 0\r\n}\r\n.aside-backdrop {\r\n  position: fixed;\r\n  top: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 1040;\r\n  opacity: 0;\r\n  -webkit-transition: opacity .3s ease;\r\n  transition: opacity .3s ease;\r\n  background-color: #000\r\n}\r\n.aside-backdrop.in {\r\n  opacity: .5;\r\n  filter: alpha(opacity=50)\r\n}", ""]);
 	
 	// exports
 
@@ -2439,281 +2439,281 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// <style>
 
-	//   .aside-open {
+	// .aside-open {
 
-	//     transition: transform 0.3s;
+	//   transition: transform 0.3s;
+
+	// }
+
+	// .aside-open.has-push-right {
+
+	//   transform: translateX(-300px);
+
+	// }
+
+	// .aside {
+
+	//     position: fixed;
+
+	//     top: 0;
+
+	//     bottom: 0;
+
+	//     z-index: 1049;
+
+	//     overflow: auto;
+
+	//     background: #fff;
+
+	// }
+
+	// .aside.left {
+
+	//   left: 0;
+
+	//   right: auto;
+
+	// }
+
+	// .aside.right {
+
+	//   left: auto;
+
+	//   right: 0;
+
+	// }
+
+	// .slideleft-enter {
+
+	//   animation:slideleft-in .3s;
+
+	// }
+
+	// .slideleft-leave {
+
+	//   animation:slideleft-out .3s;
+
+	// }
+
+	// @keyframes slideleft-in {
+
+	//   0% {
+
+	//     transform: translateX(-100%);
+
+	//     opacity: 0;
 
 	//   }
 
-	//   .aside-open.has-push-right {
+	//   100% {
 
-	//     transform: translateX(-300px);
+	//     transform: translateX(0);
+
+	//     opacity: 1;
 
 	//   }
+
+	// }
+
+	// @keyframes slideleft-out {
+
+	//   0% {
+
+	//     transform: translateX(0);
+
+	//     opacity: 1;
+
+	//   }
+
+	//   100% {
+
+	//     transform: translateX(-100%);
+
+	//     opacity: 0;
+
+	//   }
+
+	// }
+
+	// .slideright-enter {
+
+	//   animation:slideright-in .3s;
+
+	// }
+
+	// .slideright-leave {
+
+	//   animation:slideright-out .3s;
+
+	// }
+
+	// @keyframes slideright-in {
+
+	//   0% {
+
+	//     transform: translateX(100%);
+
+	//     opacity: 0;
+
+	//   }
+
+	//   100% {
+
+	//     transform: translateX(0);
+
+	//     opacity: 1;
+
+	//   }
+
+	// }
+
+	// @keyframes slideright-out {
+
+	//   0% {
+
+	//     transform: translateX(0);
+
+	//     opacity: 1;
+
+	//   }
+
+	//   100% {
+
+	//     transform: translateX(100%);
+
+	//     opacity: 0;
+
+	//   }
+
+	// }
+
+	// .aside:focus {
+
+	//     outline: 0
+
+	// }
+
+	// @media (max-width: 991px) {
 
 	//   .aside {
 
-	//       position: fixed;
-
-	//       top: 0;
-
-	//       bottom: 0;
-
-	//       z-index: 1049;
-
-	//       overflow: auto;
-
-	//       background: #fff;
+	//     min-width:240px
 
 	//   }
 
-	//   .aside.left {
+	// }
 
-	//     left: 0;
+	// .aside.left {
 
-	//     right: auto;
+	//   right: auto;
 
-	//   }
+	//   left: 0
 
-	//   .aside.right {
+	// }
 
-	//     left: auto;
+	// .aside.right {
 
-	//     right: 0;
+	//   right: 0;
 
-	//   }
+	//   left: auto
 
-	//   .slideleft-enter {
+	// }
 
-	//     animation:slideleft-in .3s;
+	// .aside .aside-dialog .aside-header {
 
-	//   }
+	//   border-bottom: 1px solid #e5e5e5;
 
-	//   .slideleft-leave {
+	//   min-height: 16.43px;
 
-	//     animation:slideleft-out .3s;
+	//   padding: 6px 15px;
 
-	//   }
+	//   background: #337ab7;
 
-	//   @keyframes slideleft-in {
+	//   color: #fff
 
-	//     0% {
+	// }
 
-	//       transform: translateX(-100%);
+	// .aside .aside-dialog .aside-header .close {
 
-	//       opacity: 0;
+	//   margin-right: -8px;
 
-	//     }
+	//   padding: 4px 8px;
 
-	//     100% {
+	//   color: #fff;
 
-	//       transform: translateX(0);
+	//   font-size: 25px;
 
-	//       opacity: 1;
+	//   opacity: .8
 
-	//     }
+	// }
 
-	//   }
+	// .aside .aside-dialog .aside-body {
 
-	//   @keyframes slideleft-out {
+	//   position: relative;
 
-	//     0% {
+	//   padding: 15px
 
-	//       transform: translateX(0);
+	// }
 
-	//       opacity: 1;
+	// .aside .aside-dialog .aside-footer {
 
-	//     }
+	//   padding: 15px;
 
-	//     100% {
+	//   text-align: right;
 
-	//       transform: translateX(-100%);
+	//   border-top: 1px solid #e5e5e5
 
-	//       opacity: 0;
+	// }
 
-	//     }
+	// .aside .aside-dialog .aside-footer .btn+.btn {
 
-	//   }
+	//   margin-left: 5px;
 
-	//   .slideright-enter {
+	//   margin-bottom: 0
 
-	//     animation:slideright-in .3s;
+	// }
 
-	//   }
+	// .aside .aside-dialog .aside-footer .btn-group .btn+.btn {
 
-	//   .slideright-leave {
+	//   margin-left: -1px
 
-	//     animation:slideright-out .3s;
+	// }
 
-	//   }
+	// .aside .aside-dialog .aside-footer .btn-block+.btn-block {
 
-	//   @keyframes slideright-in {
+	//   margin-left: 0
 
-	//     0% {
+	// }
 
-	//       transform: translateX(100%);
+	// .aside-backdrop {
 
-	//       opacity: 0;
+	//   position: fixed;
 
-	//     }
+	//   top: 0;
 
-	//     100% {
+	//   right: 0;
 
-	//       transform: translateX(0);
+	//   bottom: 0;
 
-	//       opacity: 1;
+	//   left: 0;
 
-	//     }
+	//   z-index: 1040;
 
-	//   }
+	//   opacity: 0;
 
-	//   @keyframes slideright-out {
+	//   transition: opacity .3s ease;
 
-	//     0% {
+	//   background-color: #000
 
-	//       transform: translateX(0);
+	// }
 
-	//       opacity: 1;
+	// .aside-backdrop.in {
 
-	//     }
+	//   opacity: .5;
 
-	//     100% {
+	//   filter: alpha(opacity=50)
 
-	//       transform: translateX(100%);
-
-	//       opacity: 0;
-
-	//     }
-
-	//   }
-
-	//   .aside:focus {
-
-	//       outline: 0
-
-	//   }
-
-	//   @media (max-width: 991px) {
-
-	//       .aside {
-
-	//           min-width:240px
-
-	//       }
-
-	//   }
-
-	//   .aside.left {
-
-	//       right: auto;
-
-	//       left: 0
-
-	//   }
-
-	//   .aside.right {
-
-	//       right: 0;
-
-	//       left: auto
-
-	//   }
-
-	//   .aside .aside-dialog .aside-header {
-
-	//       border-bottom: 1px solid #e5e5e5;
-
-	//       min-height: 16.43px;
-
-	//       padding: 6px 15px;
-
-	//       background: #337ab7;
-
-	//       color: #fff
-
-	//   }
-
-	//   .aside .aside-dialog .aside-header .close {
-
-	//       margin-right: -8px;
-
-	//       padding: 4px 8px;
-
-	//       color: #fff;
-
-	//       font-size: 25px;
-
-	//       opacity: .8
-
-	//   }
-
-	//   .aside .aside-dialog .aside-body {
-
-	//       position: relative;
-
-	//       padding: 15px
-
-	//   }
-
-	//   .aside .aside-dialog .aside-footer {
-
-	//       padding: 15px;
-
-	//       text-align: right;
-
-	//       border-top: 1px solid #e5e5e5
-
-	//   }
-
-	//   .aside .aside-dialog .aside-footer .btn+.btn {
-
-	//       margin-left: 5px;
-
-	//       margin-bottom: 0
-
-	//   }
-
-	//   .aside .aside-dialog .aside-footer .btn-group .btn+.btn {
-
-	//       margin-left: -1px
-
-	//   }
-
-	//   .aside .aside-dialog .aside-footer .btn-block+.btn-block {
-
-	//       margin-left: 0
-
-	//   }
-
-	//   .aside-backdrop {
-
-	//       position: fixed;
-
-	//       top: 0;
-
-	//       right: 0;
-
-	//       bottom: 0;
-
-	//       left: 0;
-
-	//       z-index: 1040;
-
-	//       opacity: 0;
-
-	//       transition: opacity .3s ease;
-
-	//       background-color: #000
-
-	//   }
-
-	//   .aside-backdrop.in {
-
-	//       opacity: .5;
-
-	//       filter: alpha(opacity=50)
-
-	//   }
+	// }
 
 	// </style>
 	// <template>
@@ -3058,7 +3058,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "input.datepicker-input.with-reset-button {\r\n  padding-right: 25px;\r\n}\r\n\r\ndiv.datepicker > button.close {\r\n  position: absolute;\r\n  top: calc(50% - 13px);\r\n  right: 10px;\r\n}\r\n\r\ndiv.datepicker > button.close {\r\n  outline: none;\r\n  z-index: 2;\r\n}\r\n\r\ndiv.datepicker > button.close:focus {\r\n  opacity: .2;\r\n}\r\n\r\n.datepicker{\r\n    position: relative;\r\n    display: inline-block;\r\n}\r\n\r\n.datepicker-popup{\r\n    position: absolute;\r\n    border: 1px solid #ccc;\r\n    border-radius: 5px;\r\n    background: #fff;\r\n    margin-top: 2px;\r\n    z-index: 1000;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,0.175);\r\n}\r\n.datepicker-inner{\r\n    width: 218px;\r\n\r\n}\r\n.datepicker-body{\r\n    padding: 10px 10px;\r\n}\r\n.datepicker-ctrl p,\r\n.datepicker-ctrl span,\r\n.datepicker-body span{\r\n    display: inline-block;\r\n    width: 28px;\r\n    line-height: 28px;\r\n    height: 28px;\r\n    border-radius: 4px;\r\n}\r\n.datepicker-ctrl p {\r\n    width: 65%;\r\n}\r\n.datepicker-ctrl span {\r\n  position: absolute;\r\n}\r\n.datepicker-body span {\r\n  text-align: center;\r\n}\r\n.datepicker-monthRange span{\r\n  width: 48px;\r\n  height: 50px;\r\n  line-height: 45px;\r\n}\r\n.datepicker-item-disable {\r\n  background-color: white!important;\r\n  cursor: not-allowed!important;\r\n}\r\n.decadeRange span:first-child,\r\n.decadeRange span:last-child,\r\n.datepicker-item-disable,\r\n.datepicker-item-gray{\r\n    color: #999;\r\n}\r\n\r\n.datepicker-dateRange-item-active:hover,\r\n.datepicker-dateRange-item-active {\r\n    background: rgb(50, 118, 177)!important;\r\n    color: white!important;\r\n}\r\n.datepicker-monthRange {\r\n  margin-top: 10px\r\n}\r\n.datepicker-monthRange span,\r\n.datepicker-ctrl span,\r\n.datepicker-ctrl p,\r\n.datepicker-dateRange span {\r\n  cursor: pointer;\r\n}\r\n.datepicker-monthRange span:hover,\r\n.datepicker-ctrl p:hover,\r\n.datepicker-ctrl i:hover,\r\n.datepicker-dateRange span:hover,\r\n.datepicker-dateRange-item-hover {\r\n    background-color : #eeeeee;\r\n}\r\n\r\n.datepicker-weekRange span{\r\n    font-weight: bold;\r\n}\r\n.datepicker-label{\r\n    background-color: #f8f8f8;\r\n    font-weight: 700;\r\n    padding: 7px 0;\r\n    text-align: center;\r\n}\r\n.datepicker-ctrl{\r\n    position: relative;\r\n    height: 30px;\r\n    line-height: 30px;\r\n    font-weight: bold;\r\n    text-align: center;\r\n}\r\n.month-btn{\r\n  font-weight: bold;\r\n  -webkit-user-select:none;\r\n    -moz-user-select:none;\r\n    -ms-user-select:none;\r\n    user-select:none;\r\n}\r\n.datepicker-preBtn{\r\n    left: 2px;\r\n}\r\n.datepicker-nextBtn{\r\n    right: 2px;\r\n}", ""]);
+	exports.push([module.id, ".datepicker{\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\ninput.datepicker-input.with-reset-button {\r\n  padding-right: 25px;\r\n}\r\n.datepicker > button.close {\r\n  position: absolute;\r\n  top: calc(50% - 13px);\r\n  right: 10px;\r\n  outline: none;\r\n  z-index: 2;\r\n}\r\n.datepicker > button.close:focus {\r\n  opacity: .2;\r\n}\r\n.datepicker-popup{\r\n  position: absolute;\r\n  border: 1px solid #ccc;\r\n  border-radius: 5px;\r\n  background: #fff;\r\n  margin-top: 2px;\r\n  z-index: 1000;\r\n  box-shadow: 0 6px 12px rgba(0,0,0,0.175);\r\n}\r\n.datepicker-inner{\r\n  width: 218px;\r\n}\r\n.datepicker-body{\r\n  padding: 10px 10px;\r\n}\r\n.datepicker-ctrl p,\r\n.datepicker-ctrl span,\r\n.datepicker-body span{\r\n  display: inline-block;\r\n  width: 28px;\r\n  line-height: 28px;\r\n  height: 28px;\r\n  border-radius: 4px;\r\n}\r\n.datepicker-ctrl p {\r\n  width: 65%;\r\n}\r\n.datepicker-ctrl span {\r\n  position: absolute;\r\n}\r\n.datepicker-body span {\r\n  text-align: center;\r\n}\r\n.datepicker-monthRange span{\r\n  width: 48px;\r\n  height: 50px;\r\n  line-height: 45px;\r\n}\r\n.datepicker-item-disable {\r\n  background-color: white!important;\r\n  cursor: not-allowed!important;\r\n}\r\n.decadeRange span:first-child,\r\n.decadeRange span:last-child,\r\n.datepicker-item-disable,\r\n.datepicker-item-gray{\r\n  color: #999;\r\n}\r\n\r\n.datepicker-dateRange-item-active:hover,\r\n.datepicker-dateRange-item-active {\r\n  background: rgb(50, 118, 177)!important;\r\n  color: white!important;\r\n}\r\n.datepicker-monthRange {\r\n  margin-top: 10px\r\n}\r\n.datepicker-monthRange span,\r\n.datepicker-ctrl span,\r\n.datepicker-ctrl p,\r\n.datepicker-dateRange span {\r\n  cursor: pointer;\r\n}\r\n.datepicker-monthRange span:hover,\r\n.datepicker-ctrl p:hover,\r\n.datepicker-ctrl i:hover,\r\n.datepicker-dateRange span:hover,\r\n.datepicker-dateRange-item-hover {\r\n  background-color : #eeeeee;\r\n}\r\n.datepicker-weekRange span{\r\n  font-weight: bold;\r\n}\r\n.datepicker-label{\r\n  background-color: #f8f8f8;\r\n  font-weight: 700;\r\n  padding: 7px 0;\r\n  text-align: center;\r\n}\r\n.datepicker-ctrl{\r\n  position: relative;\r\n  height: 30px;\r\n  line-height: 30px;\r\n  font-weight: bold;\r\n  text-align: center;\r\n}\r\n.month-btn{\r\n  font-weight: bold;\r\n  -webkit-user-select:none;\r\n  -moz-user-select:none;\r\n  -ms-user-select:none;\r\n  user-select:none;\r\n}\r\n.datepicker-preBtn{\r\n  left: 2px;\r\n}\r\n.datepicker-nextBtn{\r\n  right: 2px;\r\n}", ""]);
 	
 	// exports
 
@@ -3360,13 +3360,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// <style>
 
+	// .datepicker{
+
+	//   position: relative;
+
+	//   display: inline-block;
+
+	// }
+
 	// input.datepicker-input.with-reset-button {
 
 	//   padding-right: 25px;
 
 	// }
 
-	// div.datepicker > button.close {
+	// .datepicker > button.close {
 
 	//   position: absolute;
 
@@ -3374,57 +3382,45 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	//   right: 10px;
 
-	// }
-
-	// div.datepicker > button.close {
-
 	//   outline: none;
 
 	//   z-index: 2;
 
 	// }
 
-	// div.datepicker > button.close:focus {
+	// .datepicker > button.close:focus {
 
 	//   opacity: .2;
 
 	// }
 
-	// .datepicker{
-
-	//     position: relative;
-
-	//     display: inline-block;
-
-	// }
-
 	// .datepicker-popup{
 
-	//     position: absolute;
+	//   position: absolute;
 
-	//     border: 1px solid #ccc;
+	//   border: 1px solid #ccc;
 
-	//     border-radius: 5px;
+	//   border-radius: 5px;
 
-	//     background: #fff;
+	//   background: #fff;
 
-	//     margin-top: 2px;
+	//   margin-top: 2px;
 
-	//     z-index: 1000;
+	//   z-index: 1000;
 
-	//     box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+	//   box-shadow: 0 6px 12px rgba(0,0,0,0.175);
 
 	// }
 
 	// .datepicker-inner{
 
-	//     width: 218px;
+	//   width: 218px;
 
 	// }
 
 	// .datepicker-body{
 
-	//     padding: 10px 10px;
+	//   padding: 10px 10px;
 
 	// }
 
@@ -3434,21 +3430,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// .datepicker-body span{
 
-	//     display: inline-block;
+	//   display: inline-block;
 
-	//     width: 28px;
+	//   width: 28px;
 
-	//     line-height: 28px;
+	//   line-height: 28px;
 
-	//     height: 28px;
+	//   height: 28px;
 
-	//     border-radius: 4px;
+	//   border-radius: 4px;
 
 	// }
 
 	// .datepicker-ctrl p {
 
-	//     width: 65%;
+	//   width: 65%;
 
 	// }
 
@@ -3490,7 +3486,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// .datepicker-item-gray{
 
-	//     color: #999;
+	//   color: #999;
 
 	// }
 
@@ -3498,9 +3494,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// .datepicker-dateRange-item-active {
 
-	//     background: rgb(50, 118, 177)!important;
+	//   background: rgb(50, 118, 177)!important;
 
-	//     color: white!important;
+	//   color: white!important;
 
 	// }
 
@@ -3532,39 +3528,39 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// .datepicker-dateRange-item-hover {
 
-	//     background-color : #eeeeee;
+	//   background-color : #eeeeee;
 
 	// }
 
 	// .datepicker-weekRange span{
 
-	//     font-weight: bold;
+	//   font-weight: bold;
 
 	// }
 
 	// .datepicker-label{
 
-	//     background-color: #f8f8f8;
+	//   background-color: #f8f8f8;
 
-	//     font-weight: 700;
+	//   font-weight: 700;
 
-	//     padding: 7px 0;
+	//   padding: 7px 0;
 
-	//     text-align: center;
+	//   text-align: center;
 
 	// }
 
 	// .datepicker-ctrl{
 
-	//     position: relative;
+	//   position: relative;
 
-	//     height: 30px;
+	//   height: 30px;
 
-	//     line-height: 30px;
+	//   line-height: 30px;
 
-	//     font-weight: bold;
+	//   font-weight: bold;
 
-	//     text-align: center;
+	//   text-align: center;
 
 	// }
 
@@ -3574,23 +3570,23 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	//   -webkit-user-select:none;
 
-	//     -moz-user-select:none;
+	//   -moz-user-select:none;
 
-	//     -ms-user-select:none;
+	//   -ms-user-select:none;
 
-	//     user-select:none;
+	//   user-select:none;
 
 	// }
 
 	// .datepicker-preBtn{
 
-	//     left: 2px;
+	//   left: 2px;
 
 	// }
 
 	// .datepicker-nextBtn{
 
-	//     right: 2px;
+	//   right: 2px;
 
 	// }
 
@@ -3880,7 +3876,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".modal {\r\n  -webkit-transition: all 0.3s ease;\r\n  transition: all 0.3s ease;\r\n}\r\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\r\n}\r\n.modal.zoom .modal-dialog {\r\n    -webkit-transform: scale(0.1);\r\n    transform: scale(0.1);\r\n    top: 300px;\r\n    opacity: 0;\r\n    -webkit-transition: all 0.3s;\r\n    transition: all 0.3s;\r\n}\r\n.modal.zoom.in .modal-dialog {\r\n    -webkit-transform: scale(1);\r\n    transform: scale(1);\r\n    -webkit-transform: translate3d(0, -300px, 0);\r\n    transform: translate3d(0, -300px, 0);\r\n    opacity: 1;\r\n}", ""]);
+	exports.push([module.id, ".modal {\r\n  -webkit-transition: all 0.3s ease;\r\n  transition: all 0.3s ease;\r\n}\r\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\r\n}\r\n.modal.zoom .modal-dialog {\r\n  -webkit-transform: scale(0.1);\r\n  transform: scale(0.1);\r\n  top: 300px;\r\n  opacity: 0;\r\n  -webkit-transition: all 0.3s;\r\n  transition: all 0.3s;\r\n}\r\n.modal.zoom.in .modal-dialog {\r\n  -webkit-transform: scale(1);\r\n  transform: scale(1);\r\n  -webkit-transform: translate3d(0, -300px, 0);\r\n  transform: translate3d(0, -300px, 0);\r\n  opacity: 1;\r\n}", ""]);
 	
 	// exports
 
@@ -4028,41 +4024,41 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// .modal.zoom .modal-dialog {
 
-	//     -webkit-transform: scale(0.1);
+	//   -webkit-transform: scale(0.1);
 
-	//     -moz-transform: scale(0.1);
+	//   -moz-transform: scale(0.1);
 
-	//     -ms-transform: scale(0.1);
+	//   -ms-transform: scale(0.1);
 
-	//     transform: scale(0.1);
+	//   transform: scale(0.1);
 
-	//     top: 300px;
+	//   top: 300px;
 
-	//     opacity: 0;
+	//   opacity: 0;
 
-	//     -webkit-transition: all 0.3s;
+	//   -webkit-transition: all 0.3s;
 
-	//     -moz-transition: all 0.3s;
+	//   -moz-transition: all 0.3s;
 
-	//     transition: all 0.3s;
+	//   transition: all 0.3s;
 
 	// }
 
 	// .modal.zoom.in .modal-dialog {
 
-	//     -webkit-transform: scale(1);
+	//   -webkit-transform: scale(1);
 
-	//     -moz-transform: scale(1);
+	//   -moz-transform: scale(1);
 
-	//     -ms-transform: scale(1);
+	//   -ms-transform: scale(1);
 
-	//     transform: scale(1);
+	//   transform: scale(1);
 
-	//     -webkit-transform: translate3d(0, -300px, 0);
+	//   -webkit-transform: translate3d(0, -300px, 0);
 
-	//     transform: translate3d(0, -300px, 0);
+	//   transform: translate3d(0, -300px, 0);
 
-	//     opacity: 1;
+	//   opacity: 1;
 
 	// }
 
@@ -4236,7 +4232,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "a span.check-mark[_v-57eb20d0] {\r\n    position: absolute;\r\n    display: inline-block;\r\n    right: 15px;\r\n    margin-top: 5px;\r\n  }", ""]);
+	exports.push([module.id, "a span.check-mark[_v-57eb20d0] {\r\n  position: absolute;\r\n  display: inline-block;\r\n  right: 15px;\r\n  margin-top: 5px;\r\n}", ""]);
 	
 	// exports
 
@@ -4301,17 +4297,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// <style scoped>
 
-	//   a span.check-mark {
+	// a span.check-mark {
 
-	//     position: absolute;
+	//   position: absolute;
 
-	//     display: inline-block;
+	//   display: inline-block;
 
-	//     right: 15px;
+	//   right: 15px;
 
-	//     margin-top: 5px;
+	//   margin-top: 5px;
 
-	//   }
+	// }
 
 	// </style>
 
@@ -4381,7 +4377,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".accordion-toggle {\r\n  cursor: pointer;\r\n}\r\n\r\n.collapse-transition {\r\n  -webkit-transition: max-height .5s ease;\r\n  transition: max-height .5s ease;\r\n  overflow: hidden;\r\n}\r\n\r\n.collapse-enter, .collapse-leave {\r\n  max-height: 0!important;\r\n}", ""]);
+	exports.push([module.id, ".accordion-toggle {\r\n  cursor: pointer;\r\n}\r\n.collapse-transition {\r\n  -webkit-transition: max-height .5s ease;\r\n  transition: max-height .5s ease;\r\n  overflow: hidden;\r\n}\r\n.collapse-enter, .collapse-leave {\r\n  max-height: 0!important;\r\n}", ""]);
 	
 	// exports
 
@@ -5068,7 +5064,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 154 */
 /***/ function(module, exports) {
 
-	module.exports = "<label class=\"btn\"\r\n  v-bind:class=\"{\r\n    'active':active,\r\n    'btn-success':type == 'success',\r\n    'btn-warning':type == 'warning',\r\n    'btn-info':type == 'info',\r\n    'btn-danger':type == 'danger',\r\n    'btn-default':type == 'default',\r\n    'btn-primary':type == 'primary'\r\n  }\">\r\n\r\n    <input type=\"radio\" autocomplete=\"off\"\r\n      :checked=\"checked\"\r\n      @click=\"handleClick\"\r\n    />\r\n\r\n    <slot></slot>\r\n\r\n  </label>";
+	module.exports = "<label class=\"btn\"\r\n  v-bind:class=\"{\r\n    'active':active,\r\n    'btn-success':type == 'success',\r\n    'btn-warning':type == 'warning',\r\n    'btn-info':type == 'info',\r\n    'btn-danger':type == 'danger',\r\n    'btn-default':type == 'default',\r\n    'btn-primary':type == 'primary'\r\n  }\">\r\n\r\n    <input type=\"radio\" autocomplete=\"off\"\r\n      :checked=\"checked\"\r\n      @click=\"handleClick\"\r\n    />\r\n\r\n    <slot></slot>\r\n  </label>";
 
 /***/ },
 /* 155 */
@@ -5194,7 +5190,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".bs-searchbox[_v-1f77809f] {\r\n    padding: 4px 8px;\r\n  }\r\n  .btn-group .dropdown-menu .notify[_v-1f77809f] {\r\n    position: absolute;\r\n    bottom: 5px;\r\n    width: 96%;\r\n    margin: 0 2%;\r\n    min-height: 26px;\r\n    padding: 3px 5px;\r\n    background: #f5f5f5;\r\n    border: 1px solid #e3e3e3;\r\n    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n    pointer-events: none;\r\n    opacity: .9;\r\n  }\r\n  .btn-group.btn-group-justified .dropdown-menu[_v-1f77809f] {\r\n    width:100%;\r\n  }", ""]);
+	exports.push([module.id, ".bs-searchbox[_v-1f77809f] {\r\n  padding: 4px 8px;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f] {\r\n  position: absolute;\r\n  bottom: 5px;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n  opacity: .9;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-1f77809f] {\r\n  width:100%;\r\n}", ""]);
 	
 	// exports
 
@@ -5437,43 +5433,43 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// <style scoped>
 
-	//   .bs-searchbox {
+	// .bs-searchbox {
 
-	//     padding: 4px 8px;
+	//   padding: 4px 8px;
 
-	//   }
+	// }
 
-	//   .btn-group .dropdown-menu .notify {
+	// .btn-group .dropdown-menu .notify {
 
-	//     position: absolute;
+	//   position: absolute;
 
-	//     bottom: 5px;
+	//   bottom: 5px;
 
-	//     width: 96%;
+	//   width: 96%;
 
-	//     margin: 0 2%;
+	//   margin: 0 2%;
 
-	//     min-height: 26px;
+	//   min-height: 26px;
 
-	//     padding: 3px 5px;
+	//   padding: 3px 5px;
 
-	//     background: #f5f5f5;
+	//   background: #f5f5f5;
 
-	//     border: 1px solid #e3e3e3;
+	//   border: 1px solid #e3e3e3;
 
-	//     box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
 
-	//     pointer-events: none;
+	//   pointer-events: none;
 
-	//     opacity: .9;
+	//   opacity: .9;
 
-	//   }
+	// }
 
-	//   .btn-group.btn-group-justified .dropdown-menu {
+	// .btn-group.btn-group-justified .dropdown-menu {
 
-	//     width:100%;
+	//   width:100%;
 
-	//   }
+	// }
 
 	// </style>
 	// <template>
@@ -5721,7 +5717,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".tab-content > .tab-pane[_v-388906fc] {\r\n    display: block;\r\n  }", ""]);
+	exports.push([module.id, ".tab-content > .tab-pane[_v-388906fc] {\r\n  display: block;\r\n}", ""]);
 	
 	// exports
 
@@ -5790,11 +5786,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// <style scoped>
 
-	//   .tab-content > .tab-pane {
+	// .tab-content > .tab-pane {
 
-	//     display: block;
+	//   display: block;
 
-	//   }
+	// }
 
 	// </style>
 	// <template>
@@ -5883,7 +5879,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".nav-tabs[_v-c8373860] {\r\n    margin-bottom: 15px\r\n  }", ""]);
+	exports.push([module.id, ".nav-tabs[_v-c8373860] {\r\n  margin-bottom: 15px;\r\n}", ""]);
 	
 	// exports
 
@@ -5903,47 +5899,47 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//     <!-- Nav tabs -->
 	
-	//      <ul class="nav nav-{{navStyle}}" role="tablist">
+	//     <ul class="nav nav-{{navStyle}}" role="tablist">
 	
-	//             <li
+	//       <li
 	
-	//                 v-for="r in renderData"
+	//         v-for="r in renderData"
 	
-	//                 v-bind:class="{
+	//         v-bind:class="{
 	
-	//                   'active': ($index === active),
+	//           'active': ($index === active),
 	
-	//                   'disabled': r.disabled
+	//           'disabled': r.disabled
 	
-	//                 }"
+	//         }"
 	
-	//                 @click.prevent="handleTabListClick($index, r)"
+	//         @click.prevent="handleTabListClick($index, r)"
 	
-	//                 :disabled="r.disabled"
+	//         :disabled="r.disabled"
 	
-	//             >
+	//       >
 	
-	//                 <a href="#"> 
+	//         <a href="#">
 	
-	//                     <slot name="header">
+	//           <slot name="header">
 	
-	//                       {{{r.header}}}
+	//             {{{r.header}}}
 	
-	//                   </slot>
+	//           </slot>
 	
-	//                 </a>
+	//         </a>
 	
-	//             </li>
+	//       </li>
 	
-	//      </ul>
+	//     </ul>
 	
-	//      <!-- Tab panes -->
+	//     <!-- Tab panes -->
 	
-	//      <div class="tab-content" v-el:tab-content>
+	//     <div class="tab-content" v-el:tab-content>
 	
-	//         <slot></slot>
+	//       <slot></slot>
 	
-	//      </div>
+	//     </div>
 	
 	//   </div>
 	
@@ -5981,11 +5977,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// <style scoped>
 
-	//   .nav-tabs {
+	// .nav-tabs {
 
-	//     margin-bottom: 15px
+	//   margin-bottom: 15px;
 
-	//   }
+	// }
 
 	// </style>
 
@@ -5993,7 +5989,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 179 */
 /***/ function(module, exports) {
 
-	module.exports = "<div _v-c8373860=\"\">\n    <!-- Nav tabs -->\n     <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-c8373860=\"\">\n            <li v-for=\"r in renderData\" v-bind:class=\"{\n                  'active': ($index === active),\n                  'disabled': r.disabled\n                }\" @click.prevent=\"handleTabListClick($index, r)\" :disabled=\"r.disabled\" _v-c8373860=\"\">\n                <a href=\"#\" _v-c8373860=\"\">  \n                    <slot name=\"header\" _v-c8373860=\"\"> \n                      {{{r.header}}}\n                  </slot> \n                </a>\n            </li>\n     </ul>\n\n     <!-- Tab panes -->\n     <div class=\"tab-content\" v-el:tab-content=\"\" _v-c8373860=\"\">\n        <slot _v-c8373860=\"\"></slot>\n     </div>\n  </div>";
+	module.exports = "<div _v-c8373860=\"\">\n    <!-- Nav tabs -->\n    <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-c8373860=\"\">\n      <li v-for=\"r in renderData\" v-bind:class=\"{\n          'active': ($index === active),\n          'disabled': r.disabled\n        }\" @click.prevent=\"handleTabListClick($index, r)\" :disabled=\"r.disabled\" _v-c8373860=\"\">\n        <a href=\"#\" _v-c8373860=\"\">\n          <slot name=\"header\" _v-c8373860=\"\">\n            {{{r.header}}}\n          </slot>\n        </a>\n      </li>\n    </ul>\n    <!-- Tab panes -->\n    <div class=\"tab-content\" v-el:tab-content=\"\" _v-c8373860=\"\">\n      <slot _v-c8373860=\"\"></slot>\n    </div>\n  </div>";
 
 /***/ },
 /* 180 */
@@ -6287,49 +6283,49 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <template>
 	
-	// <div style="position: relative"
+	//   <div style="position: relative"
 	
-	//   v-bind:class="{'open':showDropdown}"
+	//     v-bind:class="{'open':showDropdown}"
 	
-	//   >
+	//     >
 	
-	//   <input type="text" class="form-control"
+	//     <input type="text" class="form-control"
 	
-	//     :placeholder="placeholder"
+	//       :placeholder="placeholder"
 	
-	//     autocomplete="off"
+	//       autocomplete="off"
 	
-	//     v-model="query"
+	//       v-model="query"
 	
-	//     @input="update"
+	//       @input="update"
 	
-	//     @keydown.up="up"
+	//       @keydown.up="up"
 	
-	//     @keydown.down="down"
+	//       @keydown.down="down"
 	
-	//     @keydown.enter= "hit"
+	//       @keydown.enter= "hit"
 	
-	//     @keydown.esc="reset"
+	//       @keydown.esc="reset"
 	
-	//     @blur="showDropdown = false"
+	//       @blur="showDropdown = false"
 	
-	//   />
+	//     />
 	
-	//   <ul class="dropdown-menu" v-el:dropdown>
+	//     <ul class="dropdown-menu" v-el:dropdown>
 	
-	//     <li v-for="item in items" v-bind:class="{'active': isActive($index)}">
+	//       <li v-for="item in items" v-bind:class="{'active': isActive($index)}">
 	
-	//       <a @mousedown.prevent="hit" @mousemove="setActive($index)">
+	//         <a @mousedown.prevent="hit" @mousemove="setActive($index)">
 	
-	//         <partial :name="templateName"></partial>
+	//           <partial :name="templateName"></partial>
 	
-	//       </a>
+	//         </a>
 	
-	//     </li>
+	//       </li>
 	
-	//   </ul>
+	//     </ul>
 	
-	// </div>
+	//   </div>
 	
 	// </template>
 	
@@ -6507,7 +6503,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 190 */
 /***/ function(module, exports) {
 
-	module.exports = "<div style=\"position: relative\"\r\n  v-bind:class=\"{'open':showDropdown}\"\r\n  >\r\n  <input type=\"text\" class=\"form-control\"\r\n    :placeholder=\"placeholder\"\r\n    autocomplete=\"off\"\r\n    v-model=\"query\"\r\n    @input=\"update\"\r\n    @keydown.up=\"up\"\r\n    @keydown.down=\"down\"\r\n    @keydown.enter= \"hit\"\r\n    @keydown.esc=\"reset\"\r\n    @blur=\"showDropdown = false\"\r\n  />\r\n  <ul class=\"dropdown-menu\" v-el:dropdown>\r\n    <li v-for=\"item in items\" v-bind:class=\"{'active': isActive($index)}\">\r\n      <a @mousedown.prevent=\"hit\" @mousemove=\"setActive($index)\">\r\n        <partial :name=\"templateName\"></partial>\r\n      </a>\r\n    </li>\r\n  </ul>\r\n</div>";
+	module.exports = "<div style=\"position: relative\"\r\n    v-bind:class=\"{'open':showDropdown}\"\r\n    >\r\n    <input type=\"text\" class=\"form-control\"\r\n      :placeholder=\"placeholder\"\r\n      autocomplete=\"off\"\r\n      v-model=\"query\"\r\n      @input=\"update\"\r\n      @keydown.up=\"up\"\r\n      @keydown.down=\"down\"\r\n      @keydown.enter= \"hit\"\r\n      @keydown.esc=\"reset\"\r\n      @blur=\"showDropdown = false\"\r\n    />\r\n    <ul class=\"dropdown-menu\" v-el:dropdown>\r\n      <li v-for=\"item in items\" v-bind:class=\"{'active': isActive($index)}\">\r\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive($index)\">\r\n          <partial :name=\"templateName\"></partial>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>";
 
 /***/ },
 /* 191 */
@@ -6540,7 +6536,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	
 	var _EventListener = __webpack_require__(91);
@@ -6550,51 +6546,51 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	    methods: {
-	        toggleCollapse: function toggleCollapse(e) {
-	            e.preventDefault();
+	  methods: {
+	    toggleCollapse: function toggleCollapse(e) {
+	      e.preventDefault();
 	
-	            // collapse data-target
-	            var tmp = this.$el.querySelector('[data-target]');
-	            var id = tmp.getAttribute('data-target');
-	            var o = document.getElementById(id.substring(1));
-	            o.classList.toggle('collapse');
-	        }
-	    },
-	    ready: function ready() {
-	        var _this = this;
-	
-	        var toggle = this.$el.querySelector('[data-toggle="collapse"]');
-	        if (toggle) {
-	            toggle.style.borderRadius = '4px';
-	            toggle.addEventListener('click', this.toggleCollapse);
-	        }
-	        this._closeEvent = _EventListener2.default.listen(window, 'click', function (e) {
-	            if (!_this.$el.contains(e.target)) {
-	                _this.$el.classList.remove('open');
-	            }
-	        });
-	    },
-	    beforeDestroy: function beforeDestroy() {
-	        if (this._closeEvent) {
-	            this._closeEvent.remove();
-	        }
+	      // collapse data-target
+	      var tmp = this.$el.querySelector('[data-target]');
+	      var id = tmp.getAttribute('data-target');
+	      var o = document.getElementById(id.substring(1));
+	      o.classList.toggle('collapse');
 	    }
+	  },
+	  ready: function ready() {
+	    var _this = this;
+	
+	    var toggle = this.$el.querySelector('[data-toggle="collapse"]');
+	    if (toggle) {
+	      toggle.style.borderRadius = '4px';
+	      toggle.addEventListener('click', this.toggleCollapse);
+	    }
+	    this._closeEvent = _EventListener2.default.listen(window, 'click', function (e) {
+	      if (!_this.$el.contains(e.target)) {
+	        _this.$el.classList.remove('open');
+	      }
+	    });
+	  },
+	  beforeDestroy: function beforeDestroy() {
+	    if (this._closeEvent) {
+	      this._closeEvent.remove();
+	    }
+	  }
 	};
 	// </script>
 	// <template>
 
-	//     <div class="container-fluid">
+	//   <div class="container-fluid">
 
-	//         <div class="navbar-header">
+	//     <div class="navbar-header">
 
-	//             <slot></slot>
-
-	//         </div>
-
-	//         <slot name="dropdown-menu"></slot>
+	//       <slot></slot>
 
 	//     </div>
+
+	//     <slot name="dropdown-menu"></slot>
+
+	//   </div>
 
 	// </template>
 
@@ -6604,7 +6600,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 193 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"container-fluid\">\r\n        <div class=\"navbar-header\">\r\n            <slot></slot>\r\n        </div>\r\n        <slot name=\"dropdown-menu\"></slot>\r\n    </div>";
+	module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"navbar-header\">\r\n      <slot></slot>\r\n    </div>\r\n    <slot name=\"dropdown-menu\"></slot>\r\n  </div>";
 
 /***/ },
 /* 194 */
