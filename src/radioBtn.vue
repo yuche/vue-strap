@@ -16,7 +16,6 @@
     />
 
     <slot></slot>
-
   </label>
 </template>
 

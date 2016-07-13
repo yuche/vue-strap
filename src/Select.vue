@@ -230,23 +230,23 @@ import coerceBoolean from './utils/coerceBoolean.js'
 </script>
 
 <style scoped>
-  .bs-searchbox {
-    padding: 4px 8px;
-  }
-  .btn-group .dropdown-menu .notify {
-    position: absolute;
-    bottom: 5px;
-    width: 96%;
-    margin: 0 2%;
-    min-height: 26px;
-    padding: 3px 5px;
-    background: #f5f5f5;
-    border: 1px solid #e3e3e3;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-    pointer-events: none;
-    opacity: .9;
-  }
-  .btn-group.btn-group-justified .dropdown-menu {
-    width:100%;
-  }
+.bs-searchbox {
+  padding: 4px 8px;
+}
+.btn-group .dropdown-menu .notify {
+  position: absolute;
+  bottom: 5px;
+  width: 96%;
+  margin: 0 2%;
+  min-height: 26px;
+  padding: 3px 5px;
+  background: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+  pointer-events: none;
+  opacity: .9;
+}
+.btn-group.btn-group-justified .dropdown-menu {
+  width:100%;
+}
 </style>

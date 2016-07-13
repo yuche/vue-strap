@@ -357,57 +357,49 @@ export default {
 </script>
 
 <style>
+.datepicker{
+  position: relative;
+  display: inline-block;
+}
 input.datepicker-input.with-reset-button {
   padding-right: 25px;
 }
-
-div.datepicker > button.close {
+.datepicker > button.close {
   position: absolute;
   top: calc(50% - 13px);
   right: 10px;
-}
-
-div.datepicker > button.close {
   outline: none;
   z-index: 2;
 }
-
-div.datepicker > button.close:focus {
+.datepicker > button.close:focus {
   opacity: .2;
 }
-
-.datepicker{
-    position: relative;
-    display: inline-block;
-}
-
 .datepicker-popup{
-    position: absolute;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #fff;
-    margin-top: 2px;
-    z-index: 1000;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+  position: absolute;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  margin-top: 2px;
+  z-index: 1000;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.175);
 }
 .datepicker-inner{
-    width: 218px;
-
+  width: 218px;
 }
 .datepicker-body{
-    padding: 10px 10px;
+  padding: 10px 10px;
 }
 .datepicker-ctrl p,
 .datepicker-ctrl span,
 .datepicker-body span{
-    display: inline-block;
-    width: 28px;
-    line-height: 28px;
-    height: 28px;
-    border-radius: 4px;
+  display: inline-block;
+  width: 28px;
+  line-height: 28px;
+  height: 28px;
+  border-radius: 4px;
 }
 .datepicker-ctrl p {
-    width: 65%;
+  width: 65%;
 }
 .datepicker-ctrl span {
   position: absolute;
@@ -428,13 +420,13 @@ div.datepicker > button.close:focus {
 .decadeRange span:last-child,
 .datepicker-item-disable,
 .datepicker-item-gray{
-    color: #999;
+  color: #999;
 }
 
 .datepicker-dateRange-item-active:hover,
 .datepicker-dateRange-item-active {
-    background: rgb(50, 118, 177)!important;
-    color: white!important;
+  background: rgb(50, 118, 177)!important;
+  color: white!important;
 }
 .datepicker-monthRange {
   margin-top: 10px
@@ -450,36 +442,35 @@ div.datepicker > button.close:focus {
 .datepicker-ctrl i:hover,
 .datepicker-dateRange span:hover,
 .datepicker-dateRange-item-hover {
-    background-color : #eeeeee;
+  background-color : #eeeeee;
 }
-
 .datepicker-weekRange span{
-    font-weight: bold;
+  font-weight: bold;
 }
 .datepicker-label{
-    background-color: #f8f8f8;
-    font-weight: 700;
-    padding: 7px 0;
-    text-align: center;
+  background-color: #f8f8f8;
+  font-weight: 700;
+  padding: 7px 0;
+  text-align: center;
 }
 .datepicker-ctrl{
-    position: relative;
-    height: 30px;
-    line-height: 30px;
-    font-weight: bold;
-    text-align: center;
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  font-weight: bold;
+  text-align: center;
 }
 .month-btn{
   font-weight: bold;
   -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 }
 .datepicker-preBtn{
-    left: 2px;
+  left: 2px;
 }
 .datepicker-nextBtn{
-    right: 2px;
+  right: 2px;
 }
 </style>

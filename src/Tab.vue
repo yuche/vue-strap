@@ -59,7 +59,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
 </script>
 
 <style scoped>
-  .tab-content > .tab-pane {
-    display: block;
-  }
+.tab-content > .tab-pane {
+  display: block;
+}
 </style>

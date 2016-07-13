@@ -40,10 +40,10 @@
 </script>
 
 <style scoped>
-  a span.check-mark {
-    position: absolute;
-    display: inline-block;
-    right: 15px;
-    margin-top: 5px;
-  }
+a span.check-mark {
+  position: absolute;
+  display: inline-block;
+  right: 15px;
+  margin-top: 5px;
+}
 </style>

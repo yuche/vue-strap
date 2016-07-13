@@ -121,7 +121,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
 </script>
 
 <style scoped>
-  .carousel-control {
-    cursor: pointer;
-  }
+.carousel-control {
+  cursor: pointer;
+}
 </style>

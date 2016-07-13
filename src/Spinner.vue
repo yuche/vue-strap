@@ -8,8 +8,8 @@
 </template>
 
 <script>
-  // import styling
-  import './spinner.scss'
+// import styling
+import './spinner.scss'
 
   const MIN_WAIT = 500 // in ms
 

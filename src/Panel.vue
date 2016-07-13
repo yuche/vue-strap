@@ -61,12 +61,10 @@ import coerceBoolean from './utils/coerceBoolean.js'
 .accordion-toggle {
   cursor: pointer;
 }
-
 .collapse-transition {
   transition: max-height .5s ease;
   overflow: hidden;
 }
-
 .collapse-enter, .collapse-leave {
   max-height: 0!important;
 }
