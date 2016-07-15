@@ -21,7 +21,7 @@
 
 <template>
   <div class="datepicker">
-    <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text"
+    <input :tabindex="tabindex" class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text"
         v-bind:style="{width:width}"
         @click="inputClick"
         v-model="value"/>
@@ -92,6 +92,7 @@ import EventListener from './utils/EventListener.js'
 
 export default {
   props: {
+    tabindex: String,
     value: {
       type: String,
       twoWay: true
