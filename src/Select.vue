@@ -1,10 +1,11 @@
 <template>
-<div :class="{'btn-group btn-group-justified': justified}" :click="canSearch && stopBlur()">
+<div :class="{'btn-group btn-group-justified': justified}">
   <div class="btn-group" :class="{open: show}">
     <button v-el:btn type="button" class="btn btn-default dropdown-toggle"
       v-bind="{disabled: disabled}"
-      @click="toggleDropdown('click')"
-      @blur="!canSearch && blur()"
+      @click="toggleDropdown()"
+      @blur="search ? null : blur()"
+      @keyup.esc="show = false"
     >
       <span class="btn-placeholder" v-show="showPlaceholder">{{placeholder||text.placeholder}}</span>
       <span class="btn-content">{{ selectedItems }}</span>
@@ -17,6 +18,7 @@
             v-el:search
             v-model="searchValue"
             @blur="canSearch && blur()"
+            @keyup.esc="show = false"
           />
         </li>
         <li v-for="option in options | filterBy searchValue" :id="option.value" style="position:relative">
@@ -31,11 +33,8 @@
     </ul>
   </div>
 </div>
-<div v-if="name">
-  <template v-if="multiple">
-    <input v-for="val in value" type="hidden" name="{{name}}" value="{{val}}">
-  </template>
-  <input v-else type="hidden" name="{{name}}" value="{{value}}"/>
+<div values v-if="name">
+  <input v-for="val in value" type="hidden" name="{{name}}" value="{{val}}">
 </div>
 </template>
 
@@ -182,7 +181,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
         }
       },
       show(val) {
-        if (this.show) this.$els[this.canSearch ? 'search' : 'btn'].focus()
+        if (this.show) this.focus()
       }
     },
     methods: {
@@ -211,6 +210,10 @@ import coerceBoolean from './utils/coerceBoolean.js'
       },
       toggleDropdown() {
         this.show = !this.show
+        if (self.timeout) {
+          clearTimeout(self.timeout)
+          self.timeout = false
+        }
       },
       blur() {
         if (this.canSearch) {
@@ -219,10 +222,11 @@ import coerceBoolean from './utils/coerceBoolean.js'
           this.show = false
         }
       },
-      stopBlur() {
-        if (self.timeout) {
-          clearTimeout(self.timeout)
-          self.timeout = false
+      focus() {
+        if (this.show) {
+          (this.$els.search || this.$els.btn).focus()
+        } else {
+          this.$els.btn.focus()
         }
       }
     }
