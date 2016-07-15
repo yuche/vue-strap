@@ -5324,6 +5324,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              //
 	              foundItems = this.value;
 	            } else {
+	              if (typeof item === "number") item = item + '';
 	              if (typeof item === "string") {
 	                var option = void 0;
 	                this.options.some(function (o) {
