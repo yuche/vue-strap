@@ -144,11 +144,11 @@ import coerceBoolean from './utils/coerceBoolean.js'
           	}
           	else
           	{
-              if(typeof item === "number") item = item+''
-	            if (typeof item === "string") {
-	              let option
+              if (~['number','string'].indexOf(typeof item)) {
+                let option
+                console.log(this.options)
 	              this.options.some(o => {
-	                if(o.value === item) {
+	                if(o.value == item) {
 	                  option = o
 	                  return true
 	                }
