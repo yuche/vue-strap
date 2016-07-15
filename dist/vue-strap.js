@@ -5380,7 +5380,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    },
 	    show: function show(val) {
-	      if (this.show) this.$els[this.canSearch ? 'search' : 'btn'].focus();
+	      if (this.show) this.focus();
 	    }
 	  },
 	  methods: {
@@ -5409,6 +5409,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    toggleDropdown: function toggleDropdown() {
 	      this.show = !this.show;
+	      if (self.timeout) {
+	        clearTimeout(self.timeout);
+	        self.timeout = false;
+	      }
 	    },
 	    blur: function blur() {
 	      var _this2 = this;
@@ -5421,10 +5425,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.show = false;
 	      }
 	    },
-	    stopBlur: function stopBlur() {
-	      if (self.timeout) {
-	        clearTimeout(self.timeout);
-	        self.timeout = false;
+	    focus: function focus() {
+	      if (this.show) {
+	        (this.$els.search || this.$els.btn).focus();
+	      } else {
+	        this.$els.btn.focus();
 	      }
 	    }
 	  }
@@ -5474,7 +5479,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </style>
 	// <template>
 
-	// <div :class="{'btn-group btn-group-justified': justified}" :click="canSearch && stopBlur()">
+	// <div :class="{'btn-group btn-group-justified': justified}">
 
 	//   <div class="btn-group" :class="{open: show}">
 
@@ -5482,9 +5487,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	//       v-bind="{disabled: disabled}"
 
-	//       @click="toggleDropdown('click')"
+	//       @click="toggleDropdown()"
 
-	//       @blur="!canSearch && blur()"
+	//       @blur="search ? null : blur()"
+
+	//       @keyup.esc="show = false"
 
 	//     >
 
@@ -5509,6 +5516,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	//             v-model="searchValue"
 
 	//             @blur="canSearch && blur()"
+
+	//             @keyup.esc="show = false"
 
 	//           />
 
@@ -5538,15 +5547,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// </div>
 
-	// <div v-if="name">
+	// <div values v-if="name">
 
-	//   <template v-if="multiple">
-
-	//     <input v-for="val in value" type="hidden" name="{{name}}" value="{{val}}">
-
-	//   </template>
-
-	//   <input v-else type="hidden" name="{{name}}" value="{{value}}"/>
+	//   <input v-for="val in value" type="hidden" name="{{name}}" value="{{val}}">
 
 	// </div>
 
@@ -5655,7 +5658,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 169 */
 /***/ function(module, exports) {
 
-	module.exports = "<div :class=\"{'btn-group btn-group-justified': justified}\" :click=\"canSearch &amp;&amp; stopBlur()\" _v-1f77809f=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"btn btn-default dropdown-toggle\" v-bind=\"{disabled: disabled}\" @click=\"toggleDropdown('click')\" @blur=\"!canSearch &amp;&amp; blur()\" _v-1f77809f=\"\">\n      <span class=\"btn-placeholder\" v-show=\"showPlaceholder\" _v-1f77809f=\"\">{{placeholder||text.placeholder}}</span>\n      <span class=\"btn-content\" _v-1f77809f=\"\">{{ selectedItems }}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"canSearch &amp;&amp; blur()\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" style=\"position:relative\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" style=\"cursor:pointer\" _v-1f77809f=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div class=\"notify\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n  </div>\n</div>\n<div v-if=\"name\" _v-1f77809f=\"\">\n  <template v-if=\"multiple\" _v-1f77809f=\"\">\n    <input v-for=\"val in value\" type=\"hidden\" name=\"{{name}}\" value=\"{{val}}\" _v-1f77809f=\"\">\n  </template>\n  <input v-else=\"\" type=\"hidden\" name=\"{{name}}\" value=\"{{value}}\" _v-1f77809f=\"\">\n</div>";
+	module.exports = "<div :class=\"{'btn-group btn-group-justified': justified}\" _v-1f77809f=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"btn btn-default dropdown-toggle\" v-bind=\"{disabled: disabled}\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-placeholder\" v-show=\"showPlaceholder\" _v-1f77809f=\"\">{{placeholder||text.placeholder}}</span>\n      <span class=\"btn-content\" _v-1f77809f=\"\">{{ selectedItems }}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"canSearch &amp;&amp; blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" style=\"position:relative\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" style=\"cursor:pointer\" _v-1f77809f=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div class=\"notify\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n  </div>\n</div>\n<div values=\"\" v-if=\"name\" _v-1f77809f=\"\">\n  <input v-for=\"val in value\" type=\"hidden\" name=\"{{name}}\" value=\"{{val}}\" _v-1f77809f=\"\">\n</div>";
 
 /***/ },
 /* 170 */
