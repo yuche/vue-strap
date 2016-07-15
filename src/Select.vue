@@ -144,6 +144,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
           	}
           	else
           	{
+              if(typeof item === "number") item = item+''
 	            if (typeof item === "string") {
 	              let option
 	              this.options.some(o => {
