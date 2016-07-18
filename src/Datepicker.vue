@@ -1,7 +1,7 @@
 <template>
   <div class="datepicker">
     <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text"
-        v-bind:style="{width:width}"
+        :style="{width:width}"
         @click="inputClick"
         v-model="value"/>
     <button v-if="showResetButton" type="button" class="close" @click="value = ''">
@@ -16,7 +16,7 @@
             <p @click="switchMonthView">{{stringifyDayHeader(currDate)}}</p>
           </div>
           <div class="datepicker-weekRange">
-            <span v-for="w in text.days">{{w}}</span>
+            <span v-for="w in text.daysOfWeek">{{w}}</span>
           </div>
           <div class="datepicker-dateRange">
             <span v-for="d in dateRange" v-bind:class="d.sclass" @click="daySelect(d.date,this)">{{d.text}}</span>
@@ -68,6 +68,7 @@
 
 <script>
 import EventListener from './utils/EventListener.js'
+import translations from './translations.js'
 
 export default {
   props: {
@@ -76,7 +77,7 @@ export default {
       twoWay: true
     },
     format: {
-      default: 'MMMM/dd/yyyy'
+      default: 'dd/MM/yyyy'
     },
     disabledDaysOfWeek: {
       type: Array,
@@ -94,37 +95,27 @@ export default {
     },
     lang: {
       type: String,
-      default: ~['es','en'].indexOf(navigator.language) ? navigator.language : 'en'
+      default: navigator.language
     }
+  },
+  ready() {
+    this.$dispatch('child-created', this)
+    this.currDate = this.parse(this.value) || this.parse(new Date())
+    this._closeEvent = EventListener.listen(window, 'click', (e)=> {
+      if (!this.$el.contains(e.target)) this.close()
+    })
+  },
+  beforeDestroy() {
+    if (this._closeEvent) this._closeEvent.remove()
   },
   data() {
     return {
+      currDate: new Date,
       dateRange: [],
       decadeRange: [],
-      currDate: new Date,
       displayDayView: false,
       displayMonthView: false,
-      displayYearView: false,
-      translations: {
-        en: {
-          days: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-          months: [
-            'January', 'February', 'March',
-            'April', 'May', 'June',
-            'July', 'August', 'September',
-            'October', 'November', 'December'
-          ]
-        },
-        es: {
-          days: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
-          months: [
-            'Enero', 'Febrero', 'Marzo',
-            'Abril', 'Mayo', 'Junio',
-            'Julio', 'Agosto', 'Septiembre',
-            'Octubre', 'Noviembre', 'Diciembre'
-          ]
-        }
-      }
+      displayYearView: false
     }
   },
   watch: {
@@ -132,10 +123,12 @@ export default {
       this.getDateRange()
     }
   },
-  methods: {
+  computed: {
     text() {
-      return this.translations[this.lang] || this.translations['en']
-    },
+      return translations(this.lang)
+    }
+  },
+  methods: {
     close() {
       this.displayDayView = this.displayMonthView = this.displayYearView = false
     },
@@ -342,16 +335,6 @@ export default {
         }
       }
     }
-  },
-  ready() {
-    this.$dispatch('child-created', this)
-    this.currDate = this.parse(this.value) || this.parse(new Date())
-    this._closeEvent = EventListener.listen(window, 'click', (e)=> {
-      if (!this.$el.contains(e.target)) this.close()
-    })
-  },
-  beforeDestroy() {
-    if (this._closeEvent) this._closeEvent.remove()
   }
 }
 </script>
