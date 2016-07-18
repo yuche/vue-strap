@@ -22,14 +22,16 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
       </v-select>
 
       <h4>Format</h4>
-      <v-select :value.sync="format" >
+      <v-select :value.sync="format">
+        <v-option value="dd/MM/yyyy">dd/MM/yyyy</v-option>
+        <v-option value="dd-MM-yyyy">dd-MM-yyyy</v-option>
         <v-option value="yyyy,MM,dd">yyyy,MM,dd</v-option>
         <v-option value="yyyy-MM-dd">yyyy-MM-dd</v-option>
         <v-option value="yyyy.MM.dd">yyyy.MM.dd</v-option>
         <v-option value="MMM/dd/yyyy">MMM/dd/yyyy</v-option>
         <v-option value="MMMM/dd/yyyy">MMMM/dd/yyyy</v-option>
-        <v-option value="dd/MM/yyyy">dd/MM/yyyy</v-option>
-        <v-option value="dd-MM-yyyy">dd-MM-yyyy</v-option>
+        <v-option value="MM/dd/yyyy">MM/dd/yyyy</v-option>
+        <v-option value="MM-dd-yyyy">MM-dd-yyyy</v-option>
       </v-select>
 
       <h4>Reset button</h4>
@@ -89,7 +91,7 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
           <td>format</td>
           <td><code>String</code></td>
           <td><code>MMMM/dd/yyyy</code></td>
-          <td>The date format, combination of d, dd, M, MM ,MMM , MMMM, yyyy.</td>
+          <td>The date format, combination of d, dd, M, MM, MMM, MMMM, yyyy.</td>
         </tr>
         <tr>
           <td>disabledDaysOfWeek</td>
@@ -123,8 +125,8 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
     data() {
       return {
         disabled: [],
-        value: 'Oct/06/2015',
-        format: ['MMM/dd/yyyy'],
+        value: '06/10/2015',
+        format: ['dd/MM/yyyy'],
         reset: true
       }
     },
