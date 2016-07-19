@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import callAjax from './utils/callAjax.js'
 import coerceBoolean from './utils/coerceBoolean.js'
 import translations from './translations.js'
 var timeout
@@ -50,6 +51,7 @@ var timeout
   export default {
     props: {
       options: {
+        twoWay: true,
         type: Array,
         default() { return [] },
       },
@@ -109,6 +111,15 @@ var timeout
         type: Boolean,
         coerce: coerceBoolean,
         default: false
+      },
+      url: {
+        type: String,
+        default: null
+      },
+      parent: {
+        twoWay: true,
+        type: Array,
+        default: true
       }
     },
     ready() {
@@ -125,7 +136,7 @@ var timeout
           this.value = [this.value]
         }
       }
-
+      if (this.url && !this.options.length) this.update()
     },
     data() {
       return {
@@ -165,6 +176,9 @@ var timeout
       },
       text() {
         return translations(this.lang)
+      },
+      hasParent() {
+        return this.url && (this.parent === true || (this.parent instanceof Array && this.parent.length))
       }
     },
     watch: {
@@ -177,6 +191,12 @@ var timeout
       },
       show(val) {
         if (this.show) this.focus()
+      },
+      url(val,old) {
+        this.update()
+      },
+      parent(val,old) {
+        this.update()
       }
     },
     methods: {
@@ -226,6 +246,23 @@ var timeout
           (this.$els.search || this.$els.btn).focus()
         } else {
           this.$els.btn.focus()
+        }
+      },
+      update() {
+        if (!this.hasParent) {
+          this.options = []
+          this.disabled = !this.options.length
+          if (this.disabled) this.value = []
+        } else {
+          callAjax(this.url, (data)=> {
+            let options = []
+            for (let opc of data) {
+              if(opc.value !== undefined && opc.label !== undefined) options.push({value: opc.value, label: opc.label})
+            }
+            this.options = options
+            this.disabled = !this.options.length
+            if (this.disabled) this.value = []
+          })
         }
       }
     }

@@ -80,6 +80,19 @@ options: [
 ]
     </script></code></pre>
 
+      <hr />
+      <h4>Ajax data & parent dependency:</h4>
+      <p>
+        The second element has inheritance. Enable when the first get some value & the ajax return values.
+      </p>
+      <v-select url="docs/data.json" multiple :value.sync="ajax.value"></v-select>
+      <v-select url="docs/data.json" multiple :parent="ajax.value"></v-select>
+    <pre><code class="language-markup">
+Ajax:
+&lt;v-select url="docs/data.json" multiple :value.sync="ajax.value">&lt;/v-select>
+&lt;v-select url="docs/data.json" multiple :parent="ajax.value">&lt;/v-select>
+    </code></pre>
+
     <h2>Select Options</h2>
     <table class="table table-bordered">
       <thead>
@@ -148,6 +161,8 @@ options: [
             {value:7, label:'Tiger'},
             {value:8, label:'Turtle'}
           ]
+        },
+        ajax: {
         },
         fruitOptions: [
           {value:'Apple', label:'Apple'},

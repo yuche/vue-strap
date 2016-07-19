@@ -128,19 +128,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
-	var _Tab = __webpack_require__(191);
+	var _Tab = __webpack_require__(192);
 	
 	var _Tab2 = _interopRequireDefault(_Tab);
 	
-	var _Tabset = __webpack_require__(196);
+	var _Tabset = __webpack_require__(197);
 	
 	var _Tabset2 = _interopRequireDefault(_Tabset);
 	
-	var _Tooltip = __webpack_require__(201);
+	var _Tooltip = __webpack_require__(202);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
-	var _Typeahead = __webpack_require__(206);
+	var _Typeahead = __webpack_require__(207);
 	
 	var _Typeahead2 = _interopRequireDefault(_Typeahead);
 	
@@ -5177,7 +5177,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = __webpack_require__(162)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(190)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(191)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -5229,7 +5229,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".btn-select[_v-e514dbc6] {\r\n  display: inline-block;\r\n}\r\n.bs-searchbox[_v-e514dbc6] {\r\n  padding: 4px 8px;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-e514dbc6] {\r\n  position: absolute;\r\n  bottom: 5px;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n  opacity: .9;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-e514dbc6] {\r\n  width:100%;\r\n}\r\nspan.caret[_v-e514dbc6] {\r\n  float: right;\r\n  margin-top: 9px;\r\n  margin-left: 5px;\r\n}\r\nspan.close[_v-e514dbc6] {\r\n  margin-left: 5px;\r\n}\r\nspan[values]>input[_v-e514dbc6],\r\nspan[values]>select[_v-e514dbc6] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
+	exports.push([module.id, ".btn-select[_v-e514dbc6] {\r\n  display: inline-block;\r\n}\r\n.bs-searchbox[_v-e514dbc6] {\r\n  padding: 4px 8px;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-e514dbc6] {\r\n  position: absolute;\r\n  bottom: 5px;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n  opacity: .9;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-e514dbc6] {\r\n  width:100%;\r\n}\r\nspan.caret[_v-e514dbc6] {\r\n  float: right;\r\n  margin-top: 9px;\r\n  margin-left: 5px;\r\n}\r\nspan.close[_v-e514dbc6] {\r\n  margin-left: 5px;\r\n}\r\nspan[values]>select[_v-e514dbc6] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
 	
 	// exports
 
@@ -5252,6 +5252,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _getIterator3 = _interopRequireDefault(_getIterator2);
 	
+	var _callAjax = __webpack_require__(190);
+	
+	var _callAjax2 = _interopRequireDefault(_callAjax);
+	
 	var _coerceBoolean = __webpack_require__(31);
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
@@ -5262,7 +5266,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// <template>
+	var timeout; // <template>
 	
 	// <div class="btn-select" :class="{'btn-group btn-group-justified': justified}">
 	
@@ -5350,11 +5354,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <script>
 	
-	var timeout;
 	
 	exports.default = {
 	  props: {
 	    options: {
+	      twoWay: true,
 	      type: Array,
 	      default: function _default() {
 	        return [];
@@ -5416,6 +5420,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
 	      default: false
+	    },
+	    url: {
+	      type: String,
+	      default: null
+	    },
+	    parent: {
+	      twoWay: true,
+	      type: Array,
+	      default: true
 	    }
 	  },
 	  ready: function ready() {
@@ -5432,6 +5445,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.value = [this.value];
 	      }
 	    }
+	    if (this.url && !this.options.length) this.update();
 	  },
 	  data: function data() {
 	    return {
@@ -5494,6 +5508,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    text: function text() {
 	      return (0, _translations2.default)(this.lang);
+	    },
+	    hasParent: function hasParent() {
+	      return this.url && (this.parent === true || this.parent instanceof Array && this.parent.length);
 	    }
 	  },
 	  watch: {
@@ -5510,6 +5527,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    show: function show(val) {
 	      if (this.show) this.focus();
+	    },
+	    url: function url(val, old) {
+	      this.update();
+	    },
+	    parent: function parent(val, old) {
+	      this.update();
 	    }
 	  },
 	  methods: {
@@ -5563,6 +5586,47 @@ return /******/ (function(modules) { // webpackBootstrap
 	        (this.$els.search || this.$els.btn).focus();
 	      } else {
 	        this.$els.btn.focus();
+	      }
+	    },
+	    update: function update() {
+	      var _this3 = this;
+	
+	      if (!this.hasParent) {
+	        this.options = [];
+	        this.disabled = !this.options.length;
+	        if (this.disabled) this.value = [];
+	      } else {
+	        (0, _callAjax2.default)(this.url, function (data) {
+	          var options = [];
+	          var _iteratorNormalCompletion2 = true;
+	          var _didIteratorError2 = false;
+	          var _iteratorError2 = undefined;
+	
+	          try {
+	            for (var _iterator2 = (0, _getIterator3.default)(data), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	              var opc = _step2.value;
+	
+	              if (opc.value !== undefined && opc.label !== undefined) options.push({ value: opc.value, label: opc.label });
+	            }
+	          } catch (err) {
+	            _didIteratorError2 = true;
+	            _iteratorError2 = err;
+	          } finally {
+	            try {
+	              if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                _iterator2.return();
+	              }
+	            } finally {
+	              if (_didIteratorError2) {
+	                throw _iteratorError2;
+	              }
+	            }
+	          }
+	
+	          _this3.options = options;
+	          _this3.disabled = !_this3.options.length;
+	          if (_this3.disabled) _this3.value = [];
+	        });
 	      }
 	    }
 	  }
@@ -5630,8 +5694,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	//   margin-left: 5px;
 	
 	// }
-	
-	// span[values]>input,
 	
 	// span[values]>select {
 	
@@ -6263,17 +6325,42 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 190 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" _v-e514dbc6=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-e514dbc6=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"btn btn-default dropdown-toggle\" :disabled=\"disabled\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-e514dbc6=\"\">\n      <span class=\"btn-placeholder\" v-show=\"showPlaceholder\" _v-e514dbc6=\"\">{{placeholder||text.notSelected}}</span>\n      <span class=\"btn-content\" _v-e514dbc6=\"\">{{ selectedItems }}</span>\n      <span class=\"caret\" _v-e514dbc6=\"\"></span>\n      <span v-if=\"showResetButton&amp;&amp;value.length\" class=\"close\" @click=\"clear()\" _v-e514dbc6=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-e514dbc6=\"\">\n      <template v-if=\"options.length\" _v-e514dbc6=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-e514dbc6=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-e514dbc6=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" style=\"position:relative\" _v-e514dbc6=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" style=\"cursor:pointer\" _v-e514dbc6=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-e514dbc6=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-e514dbc6=\"\"></slot>\n      <div class=\"notify\" v-show=\"showNotify\" transition=\"fadein\" _v-e514dbc6=\"\">{{limitText}}</div>\n    </ul>\n  </div>\n</div>\n<span values=\"\" v-if=\"name &amp;&amp; (required || value.length)\" _v-e514dbc6=\"\">\n  <select name=\"{{name}}\" :multiple=\"multiple\" :required=\"required\" @focus=\"focus()\" _v-e514dbc6=\"\">\n    <option v-if=\"!value.length\" value=\"\" _v-e514dbc6=\"\"></option>\n    <option v-else=\"\" v-for=\"val in value\" value=\"{{val}}\" selected=\"\" _v-e514dbc6=\"\">{{val}}</option>\n  </select>\n</span>";
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	exports.default = function (url, callback) {
+	    var httpRequest = new XMLHttpRequest();
+	    httpRequest.onreadystatechange = function () {
+	        if (httpRequest.readyState === 4) {
+	            if (httpRequest.status === 200) {
+	                var data = JSON.parse(httpRequest.responseText);
+	                if (callback) callback(data);
+	            }
+	        }
+	    };
+	    httpRequest.open('GET', url);
+	    httpRequest.setRequestHeader("Accept", "application/json");
+	    httpRequest.send();
+	};
 
 /***/ },
 /* 191 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" _v-e514dbc6=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-e514dbc6=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"btn btn-default dropdown-toggle\" :disabled=\"disabled\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-e514dbc6=\"\">\n      <span class=\"btn-placeholder\" v-show=\"showPlaceholder\" _v-e514dbc6=\"\">{{placeholder||text.notSelected}}</span>\n      <span class=\"btn-content\" _v-e514dbc6=\"\">{{ selectedItems }}</span>\n      <span class=\"caret\" _v-e514dbc6=\"\"></span>\n      <span v-if=\"showResetButton&amp;&amp;value.length\" class=\"close\" @click=\"clear()\" _v-e514dbc6=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-e514dbc6=\"\">\n      <template v-if=\"options.length\" _v-e514dbc6=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-e514dbc6=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-e514dbc6=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" style=\"position:relative\" _v-e514dbc6=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" style=\"cursor:pointer\" _v-e514dbc6=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-e514dbc6=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-e514dbc6=\"\"></slot>\n      <div class=\"notify\" v-show=\"showNotify\" transition=\"fadein\" _v-e514dbc6=\"\">{{limitText}}</div>\n    </ul>\n  </div>\n</div>\n<span values=\"\" v-if=\"name &amp;&amp; (required || value.length)\" _v-e514dbc6=\"\">\n  <select name=\"{{name}}\" :multiple=\"multiple\" :required=\"required\" @focus=\"focus()\" _v-e514dbc6=\"\">\n    <option v-if=\"!value.length\" value=\"\" _v-e514dbc6=\"\"></option>\n    <option v-else=\"\" v-for=\"val in value\" value=\"{{val}}\" selected=\"\" _v-e514dbc6=\"\">{{val}}</option>\n  </select>\n</span>";
+
+/***/ },
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(192)
-	module.exports = __webpack_require__(194)
+	__webpack_require__(193)
+	module.exports = __webpack_require__(195)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(195)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(196)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -6291,13 +6378,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(193);
+	var content = __webpack_require__(194);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(29)(content, {});
@@ -6317,7 +6404,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(28)();
@@ -6331,7 +6418,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6422,20 +6509,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports) {
 
 	module.exports = "<div role=\"tabpanel\" class=\"tab-pane\" v-bind:class=\"{hide:!show}\" v-show=\"show\" :transition=\"transition\" _v-0985e878=\"\">\n    <slot _v-0985e878=\"\"></slot>\n  </div>";
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(197)
-	module.exports = __webpack_require__(199)
+	__webpack_require__(198)
+	module.exports = __webpack_require__(200)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(200)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(201)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -6453,13 +6540,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 197 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(198);
+	var content = __webpack_require__(199);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(29)(content, {});
@@ -6479,7 +6566,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(28)();
@@ -6493,7 +6580,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 199 */
+/* 200 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6594,20 +6681,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </style>
 
 /***/ },
-/* 200 */
+/* 201 */
 /***/ function(module, exports) {
 
 	module.exports = "<div _v-09e2754e=\"\">\n    <!-- Nav tabs -->\n    <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-09e2754e=\"\">\n      <li v-for=\"r in renderData\" v-bind:class=\"{\n          'active': ($index === active),\n          'disabled': r.disabled\n        }\" @click.prevent=\"handleTabListClick($index, r)\" :disabled=\"r.disabled\" _v-09e2754e=\"\">\n        <a href=\"#\" _v-09e2754e=\"\">\n          <slot name=\"header\" _v-09e2754e=\"\">\n            {{{r.header}}}\n          </slot>\n        </a>\n      </li>\n    </ul>\n    <!-- Tab panes -->\n    <div class=\"tab-content\" v-el:tab-content=\"\" _v-09e2754e=\"\">\n      <slot _v-09e2754e=\"\"></slot>\n    </div>\n  </div>";
 
 /***/ },
-/* 201 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(202)
-	module.exports = __webpack_require__(204)
+	__webpack_require__(203)
+	module.exports = __webpack_require__(205)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(205)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(206)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -6625,13 +6712,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 202 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(203);
+	var content = __webpack_require__(204);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(29)(content, {});
@@ -6651,7 +6738,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 203 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(28)();
@@ -6665,7 +6752,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 204 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6799,17 +6886,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 205 */
+/* 206 */
 /***/ function(module, exports) {
 
 	module.exports = "<span v-el:trigger>\r\n    <slot>\r\n    </slot>\r\n  </span>\r\n  <div class=\"tooltip\"\r\n    v-bind:class=\"{\r\n    'top':    placement === 'top',\r\n    'left':   placement === 'left',\r\n    'right':  placement === 'right',\r\n    'bottom': placement === 'bottom'\r\n    }\"\r\n    v-el:popover\r\n    v-show=\"show\"\r\n    :transition=\"effect\"\r\n    role=\"tooltip\">\r\n    <div class=\"tooltip-arrow\"></div>\r\n    <div class=\"tooltip-inner\">\r\n       <slot name=\"content\">\r\n        {{{content}}}\r\n      </slot> \r\n   </div>\r\n  </div>";
 
 /***/ },
-/* 206 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(207)
-	module.exports = __webpack_require__(209)
+	__webpack_require__(208)
+	module.exports = __webpack_require__(210)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
 	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(211)
@@ -6830,13 +6917,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 207 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(208);
+	var content = __webpack_require__(209);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(29)(content, {});
@@ -6856,7 +6943,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 208 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(28)();
@@ -6870,7 +6957,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 209 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6879,7 +6966,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _callAjax = __webpack_require__(210);
+	var _callAjax = __webpack_require__(190);
 	
 	var _callAjax2 = _interopRequireDefault(_callAjax);
 	
@@ -7081,31 +7168,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	// }
 	
 	// </style>
-
-/***/ },
-/* 210 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	exports.default = function (url, callback) {
-	    var httpRequest = new XMLHttpRequest();
-	    httpRequest.onreadystatechange = function () {
-	        if (httpRequest.readyState === 4) {
-	            if (httpRequest.status === 200) {
-	                var data = JSON.parse(httpRequest.responseText);
-	                if (callback) callback(data);
-	            }
-	        }
-	    };
-	    httpRequest.open('GET', url);
-	    httpRequest.setRequestHeader("Accept", "application/json");
-	    httpRequest.send();
-	};
 
 /***/ },
 /* 211 */
