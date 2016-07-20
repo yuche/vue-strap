@@ -35,10 +35,10 @@
 import EventListener from './utils/EventListener';
 
   export default {
-    props:{
+    props: {
       type: {
         type: String,
-        value="default"
+        value: "default"
       },
       placement: ''
     },
@@ -70,5 +70,5 @@ import EventListener from './utils/EventListener';
         this._closeEvent.remove();
       }
     }
-  }
+  }//End Object
 </script>
