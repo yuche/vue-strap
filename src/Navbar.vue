@@ -1,16 +1,47 @@
 <template>
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <slot></slot>
-    </div>
-    <slot name="dropdown-menu"></slot>
-  </div>
+  <nav class="navbar" :class="{
+        'navbar-inverse':(type == 'inverse'),
+        'navbar-default':(type == 'default'),
+        'navbar-fixed-top':      (placement === 'top'),
+        'navbar-fixed-bottom':  (placement === 'bottom'),
+        'navbar-static-top':  (placement === 'static')
+      }">
+     <div class="container-fluid">
+       <!-- Brand and toggle get grouped for better mobile display -->
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <slot name="brand"></slot>
+       </div>
+
+       <!-- Collect the nav links, forms, and other content for toggling -->
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <slot></slot>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <slot name="right"></slot>
+        </ul>
+      </div>
+    </div><!-- /.container-fluid -->
+  </nav>
 </template>
 
 <script>
 import EventListener from './utils/EventListener';
 
   export default {
+    props:{
+      type: {
+        type: String,
+        value="default"
+      },
+      placement: ''
+    },
     methods: {
       toggleCollapse(e) {
         e.preventDefault();
