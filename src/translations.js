@@ -4,6 +4,10 @@ let text = {
     en: 'Limit reached ({{limit}} items max).',
     es: 'Limite alcanzado (máximo {{limit}} items).',
   },
+  loading: {
+    en: 'Loading...',
+    es: 'Cargando...'
+  },
   search: {
     en: 'Search',
     es: 'Buscar'

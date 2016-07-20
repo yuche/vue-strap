@@ -1,4 +1,10 @@
 <template>
+<span select="{{name}}" v-if="name && (required || value.length)">
+  <select name="{{name}}" :multiple="multiple" :required="required" @focus="focus()">
+    <option v-if="!value.length" value=""></option>
+    <option v-else v-for="val in value" value="{{val}}" selected>{{val}}</option>
+  </select>
+</span>
 <div class="btn-select" :class="{'btn-group btn-group-justified': justified}">
   <div class="btn-group" :class="{open: show}">
     <button v-el:btn type="button" class="btn btn-default dropdown-toggle"
@@ -7,8 +13,9 @@
       @blur="search ? null : blur()"
       @keyup.esc="show = false"
     >
-      <span class="btn-placeholder" v-show="showPlaceholder">{{placeholder||text.notSelected}}</span>
-      <span class="btn-content">{{ selectedItems }}</span>
+      <span class="btn-placeholder" v-show="!ajax && showPlaceholder">{{placeholder || text.notSelected}}</span>
+      <span class="btn-content" v-show="!ajax">{{ selectedItems }}</span>
+      <span class="btn-loader" v-show="ajax">{{text.loading}}</span>
       <span class="caret"></span>
       <span v-if="showResetButton&&value.length" class="close" @click="clear()">&times;</span>
     </button>
@@ -34,19 +41,13 @@
     </ul>
   </div>
 </div>
-<span values v-if="name && (required || value.length)">
-  <select name="{{name}}" :multiple="multiple" :required="required" @focus="focus()">
-    <option v-if="!value.length" value=""></option>
-    <option v-else v-for="val in value" value="{{val}}" selected>{{val}}</option>
-  </select>
-</span>
 </template>
 
 <script>
 import callAjax from './utils/callAjax.js'
 import coerceBoolean from './utils/coerceBoolean.js'
 import translations from './translations.js'
-var timeout
+let timeout
 
   export default {
     props: {
@@ -98,7 +99,7 @@ var timeout
         type: Boolean,
         default: false
       },
-      closeOnSelect: { // only works when multiple==false
+      closeOnSelect: { // only works when multiple
         type: Boolean,
         coerce: coerceBoolean,
         default: false
@@ -115,6 +116,10 @@ var timeout
       url: {
         type: String,
         default: null
+      },
+      cache: { //save old data -- not working yet (experimental)
+        type: Array,
+        default: true
       },
       parent: {
         twoWay: true,
@@ -140,6 +145,7 @@ var timeout
     },
     data() {
       return {
+        ajax: null,
         searchValue: null,
         show: false,
         showNotify: false
@@ -196,6 +202,7 @@ var timeout
         this.update()
       },
       parent(val,old) {
+        this.value = []
         this.update()
       }
     },
@@ -254,6 +261,7 @@ var timeout
           this.disabled = !this.options.length
           if (this.disabled) this.value = []
         } else {
+          this.ajax = true
           callAjax(this.url, (data)=> {
             let options = []
             for (let opc of data) {
@@ -262,7 +270,7 @@ var timeout
             this.options = options
             this.disabled = !this.options.length
             if (this.disabled) this.value = []
-          })
+          }).always(()=> this.ajax = false)
         }
       }
     }
@@ -300,7 +308,7 @@ span.caret {
 span.close {
   margin-left: 5px;
 }
-span[values]>select {
+span[select]>select {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
