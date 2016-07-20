@@ -19,7 +19,7 @@
        </div>
 
        <!-- Collect the nav links, forms, and other content for toggling -->
-       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <slot></slot>
         </ul>
@@ -38,9 +38,12 @@ import EventListener from './utils/EventListener';
     props: {
       type: {
         type: String,
-        value: "default"
+        default: "default"
       },
-      placement: ''
+      placement: {
+        type: String,
+        default: 'top'
+      }
     },
     methods: {
       toggleCollapse(e) {
@@ -54,7 +57,23 @@ import EventListener from './utils/EventListener';
       }
     },
     ready() {
+      const dropdowns = document.querySelector('.dropdown > .dropdown-toggle');
       const toggle = this.$el.querySelector('[data-toggle="collapse"]');
+      if (dropdowns) {
+        dropdowns.addEventListener('click',function(e){
+          e.preventDefault();
+          let dropDown = e;
+          dropDown.target.offsetParent.classList.add('open')
+          const dropDownItems = dropDown.target.nextElementSibling.children;
+          if (dropDownItems) {
+            for (var i = 0; i < dropDownItems.length; i++) {
+              dropDownItems[i].addEventListener('click',function(){
+                dropDown.target.offsetParent.classList.remove('open')
+              });
+            }
+          }
+        });
+      }
       if (toggle) {
         toggle.style.borderRadius = '4px';
         toggle.addEventListener('click', this.toggleCollapse);

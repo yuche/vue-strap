@@ -1,28 +1,17 @@
 <template>
-  <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
-    <navbar>
-      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="../" class="navbar-brand">VueStrap</a>
-      <nav id="bs-navbar" class="collapse navbar-collapse" slot="dropdown-menu">
-        <ul class="nav navbar-nav">
-          <li>
-            <a href="#accordion" style="color:#19986B">Components</a>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="https://github.com/yuche/vue-strap">
-            <span class="icon-github-circled"></span>
-            GitHub
-          </a></li>
-        </ul>
-      </nav>
-    </navbar>
-  </header>
+  <navbar>
+    <a href="/" title="Home" slot="brand" class="navbar-brand">VueStrap</a>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Component List <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#accordion">Accordion</a></li>
+        <li><a href="#affix">Affix</a></li>
+        <li><a href="#alert">Alert</a></li>
+        <li><a href="#aside">Aside</a></li>
+        <li><a href="#buttons">Buttons</a></li>
+      </ul>
+    </li>
+  </navbar>
 </template>
 
 <script>
