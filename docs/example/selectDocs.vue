@@ -8,11 +8,11 @@
       <h4>Simple select</h4>
       <p><pre>Select data : {{single}}</pre></p>
       <v-select :value.sync="single">
-        <v-option value="Apple">Apple</v-option>
-        <v-option value="Banana">Banana</v-option>
-        <v-option value="Cherry">Cherry</v-option>
-        <v-option value="Orange">Orange</v-option>
-        <v-option value="Grape">Grape</v-option>
+        <v-option value="apple">Apple</v-option>
+        <v-option value="banana">Banana</v-option>
+        <v-option value="cherry">Cherry</v-option>
+        <v-option value="orange">Orange</v-option>
+        <v-option value="grape">Grape</v-option>
       </v-select>
 
       <hr />

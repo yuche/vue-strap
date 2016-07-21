@@ -47,7 +47,7 @@
 import callAjax from './utils/callAjax.js'
 import coerceBoolean from './utils/coerceBoolean.js'
 import translations from './translations.js'
-let timeout
+var timeout = {}
 
   export default {
     props: {
@@ -122,7 +122,6 @@ let timeout
         default: true
       },
       parent: {
-        twoWay: true,
         type: Array,
         default: true
       }
@@ -184,7 +183,7 @@ let timeout
         return translations(this.lang)
       },
       hasParent() {
-        return this.url && (this.parent === true || (this.parent instanceof Array && this.parent.length))
+        return this.url && ((this.parent instanceof Array && this.parent.length) || this.parent == true )
       }
     },
     watch: {
@@ -192,16 +191,17 @@ let timeout
         if (val.length > this.limit) {
           this.showNotify = true
           this.value.pop()
-          setTimeout(() => this.showNotify = false, 1000)
+          if(timeout.limit) clearTimeout(timeout.limit)
+          timeout.limit = setTimeout(() => timeout.limit = this.showNotify = false, 1000)
         }
       },
       show(val) {
-        if (this.show) this.focus()
+        if (val) this.focus()
       },
-      url(val,old) {
+      url() {
         this.update()
       },
-      parent(val,old) {
+      parent() {
         this.value = []
         this.update()
       }
@@ -236,14 +236,14 @@ let timeout
       },
       toggleDropdown() {
         this.show = !this.show
-        if (timeout) {
-          clearTimeout(timeout)
-          timeout = false
+        if (timeout.hide) {
+          clearTimeout(timeout.hide)
+          timeout.hide = false
         }
       },
       blur() {
         if (this.search) {
-          timeout = setTimeout(() => timeout = this.show = false, 100)
+          timeout.hide = setTimeout(() => timeout.hide = this.show = false, 100)
         } else {
           this.show = false
         }
