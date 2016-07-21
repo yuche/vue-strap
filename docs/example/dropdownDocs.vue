@@ -3,7 +3,7 @@
     <h1 class="page-header"><a href="#dropdown" class="anchor">Dropdown</a></h1>
     <div class="bs-example">
       <dropdown>
-        <button type="button" class="btn btn-default" data-toggle="dropdown">
+        <button slot="button" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
           Action
           <span class="caret"></span>
         </button>
@@ -15,20 +15,15 @@
           <li><a href="#">Separated link</a></li>
         </ul>
       </dropdown>
-      <dropdown>
-        <button type="button" class="btn btn-success" data-toggle="dropdown">
-          Action <span class="caret"></span>
-        </button>
-        <ul slot="dropdown-menu" class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
+      <dropdown text="Action" type="primary">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
       </dropdown>
       <dropdown>
-        <button type="button" class="btn btn-primary" data-toggle="dropdown">
+        <button slot="button" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
           Action <span class="caret"></span>
         </button>
         <ul slot="dropdown-menu" class="dropdown-menu">
@@ -41,9 +36,8 @@
       </dropdown>
       <div class="btn-group btn-group-justified" role="group">
         <a href="#" class="btn btn-default" role="button">Left</a>
-        <a href="#" class="btn btn-default" role="button">Middle</a>
         <dropdown>
-          <a href="#" class="btn btn-default" data-toggle="dropdown">
+          <a slot="button" href="#" class="btn btn-default" data-toggle="dropdown">
             Dropdown <span class="caret"></span>
           </a>
           <ul slot="dropdown-menu" class="dropdown-menu">
@@ -54,9 +48,11 @@
             <li><a href="#">Separated link</a></li>
           </ul>
         </dropdown>
+        <a href="#" class="btn btn-default" role="button">Right</a>
       </div>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
+Boostrap style:
 <dropdown>
   <button type="button" class="btn btn-default" data-toggle="dropdown">
     Action
@@ -70,7 +66,16 @@
     <li><a href="#">Separated link</a></li>
   </ul>
 </dropdown>
-</script></code></pre>
+
+Component style:
+<dropdown text="Action" type="primary">
+  <li><a href="#">Action</a></li>
+  <li><a href="#">Another action</a></li>
+  <li><a href="#">Something else here</a></li>
+  <li role="separator" class="divider"></li>
+  <li><a href="#">Separated link</a></li>
+</dropdown>
+    </script></code></pre>
     <h2>Usage</h2>
     <p>
       Just use as <a target="_blank" href="http://getbootstrap.com/javascript/#dropdowns">original Bootstrap way</a>.

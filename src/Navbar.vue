@@ -51,6 +51,11 @@ import EventListener from './utils/EventListener';
         styles: {}
       }
     },
+    computed: {
+      navbar() {
+        return true
+      }
+    },
     methods: {
       toggleCollapse(e) {
         e.preventDefault();

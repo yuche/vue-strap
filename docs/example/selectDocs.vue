@@ -17,25 +17,25 @@
 
       <hr />
       <h4>Test options:</h4>
-      <p><pre>Selected data : {{test.value.join(', ')}}</pre></p>
+      <p><pre>Selected data : {{select.value.join(', ')}}</pre></p>
       <form action="./#select" method="get">
-        <v-select :options="test.options" :value.sync="test.value" :name="test.inputs?(test.multiple?'animals[]':'animal'):''"
-          :multiple="test.multiple" :search="test.search" :justified="test.justified" :required="test.inputs&&test.required"
-          :show-reset-button="test.showResetButton" :close-on-select="test.closeOnSelect" :limit="test.limit?3:1024" :disabled="test.disabled"></v-select>
-        <button v-if="test.inputs" type="submit" class="btn btn-default">Submit form</button>
+        <v-select :options="select.options" :value.sync="select.value" :name="select.inputs?(select.multiple?'animals[]':'animal'):''"
+          :multiple="select.multiple" :search="select.search" :justified="select.justified" :required="select.inputs&&select.required"
+          :show-reset-button="select.showResetButton" :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"></v-select>
+        <button v-if="select.inputs" type="submit" class="btn btn-default">Submit form</button>
       </form>
-      <div class="checkbox"><label><input type="checkbox" v-model="test.disabled"/> Disabled</label></div>
-      <div class="checkbox"><label><input type="checkbox" v-model="test.search"/> Search</label></div>
+      <div class="checkbox"><label><input type="checkbox" v-model="select.disabled"/> Disabled</label></div>
+      <div class="checkbox"><label><input type="checkbox" v-model="select.search"/> Search</label></div>
       <div class="checkbox">
-        <label><input type="checkbox" v-model="test.multiple"/> Multiple</label>
-        <label v-if="test.multiple"><input type="checkbox" v-model="test.limit"/> Limit (e.g. 3 - default: 1024)</label>
-        <label v-if="test.multiple"><input type="checkbox" v-model="test.closeOnSelect"/> Close on Select</label>
+        <label><input type="checkbox" v-model="select.multiple"/> Multiple</label>
+        <label v-if="select.multiple"><input type="checkbox" v-model="select.limit"/> Limit (e.g. 3)</label>
+        <label v-if="select.multiple"><input type="checkbox" v-model="select.closeOnSelect"/> Close on Select</label>
       </div>
-      <div class="checkbox"><label><input type="checkbox" v-model="test.justified"/> Justified</label></div>
-      <div class="checkbox"><label><input type="checkbox" v-model="test.showResetButton"/> Show Reset Button</label></div>
+      <div class="checkbox"><label><input type="checkbox" v-model="select.justified"/> Justified</label></div>
+      <div class="checkbox"><label><input type="checkbox" v-model="select.showResetButton"/> Show Reset Button</label></div>
       <div class="checkbox">
-        <label><input type="checkbox" v-model="test.inputs"/> Form input</label>
-        <label v-if="test.inputs"><input type="checkbox" v-model="test.required"/> Required (add empty value if noting selected)</label>
+        <label><input type="checkbox" v-model="select.inputs"/> Form input</label>
+        <label v-if="select.inputs"><input type="checkbox" v-model="select.required"/> Required (add empty value if noting selected)</label>
       </div>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
@@ -50,23 +50,23 @@ Simple:
 
 Test options:
 <form action="./#select" method="get">
-  <v-select :options="options" :value.sync="value" :name="inputs?(multiple?'animals[]':'animal'):''"
-    :multiple="multiple" :search="search" :justified="justified" :required="inputs&&required"
-    :show-reset-button="showResetButton" :close-on-select="closeOnSelect" :limit="limit?3:1024"></v-select>
-  <button v-if="inputs" type="submit" class="btn btn-default">Submit form</button>
+  <v-select :options="select.options" :value.sync="select.value" :name="select.inputs?(select.multiple?'animals[]':'animal'):''"
+    :multiple="select.multiple" :search="select.search" :justified="select.justified" :required="select.inputs&&select.required"
+    :show-reset-button="select.showResetButton" :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"></v-select>
+  <button v-if="select.inputs" type="submit" class="btn btn-default">Submit form</button>
 </form>
-<div class="checkbox"><label><input type="checkbox" v-model="disabled"> Disabled</label></div>
-<div class="checkbox"><label><input type="checkbox" v-model="search"> Search</label></div>
+<div class="checkbox"><label><input type="checkbox" v-model="select.disabled"/> Disabled</label></div>
+<div class="checkbox"><label><input type="checkbox" v-model="select.search"/> Search</label></div>
 <div class="checkbox">
-  <label><input type="checkbox" v-model="multiple"> Multiple</label>
-  <label v-if="multiple"><input type="checkbox" v-model="limit"> Limit (e.g. 3 - default: 1024)</label>
-  <label v-if="multiple"><input type="checkbox" v-model="closeOnSelect"> Close on Select</label>
+  <label><input type="checkbox" v-model="select.multiple"/> Multiple</label>
+  <label v-if="select.multiple"><input type="checkbox" v-model="select.limit"/> Limit (e.g. 3)</label>
+  <label v-if="select.multiple"><input type="checkbox" v-model="select.closeOnSelect"/> Close on Select</label>
 </div>
-<div class="checkbox"><label><input type="checkbox" v-model="justified"> Justified</label></div>
-<div class="checkbox"><label><input type="checkbox" v-model="showResetButton"> Show Reset Button</label></div>
+<div class="checkbox"><label><input type="checkbox" v-model="select.justified"/> Justified</label></div>
+<div class="checkbox"><label><input type="checkbox" v-model="select.showResetButton"/> Show Reset Button</label></div>
 <div class="checkbox">
-  <label><input type="checkbox" v-model="inputs"> Form input</label>
-  <label v-if="inputs"><input type="checkbox" v-model="required"> Required (add empty value if noting selected)</label>
+  <label><input type="checkbox" v-model="select.inputs"/> Form input</label>
+  <label v-if="select.inputs"><input type="checkbox" v-model="select.required"/> Required (add empty value if noting selected)</label>
 </div>
 options: [
   {value:1, label:'Cat'},
@@ -150,7 +150,7 @@ Ajax:
     },
     data() {
       return {
-        test: {
+        select: {
           options: [
             {value:1, label:'Cat'},
             {value:2, label:'Cow'},
@@ -164,20 +164,7 @@ Ajax:
         },
         ajax: {
         },
-        fruitOptions: [
-          {value:'Apple', label:'Apple'},
-          {value:'Banana', label:'Banana'},
-          {value:'Cherry', label:'Cherry'},
-          {value:'Orange', label:'Orange'},
-          {value:'Grape', label:'Grape'},
-        ],
-        arr: [],
-        arr2: [],
         single: [],
-        multiple: [],
-        multipleLimit: [],
-        custom: [],
-        disabled: []
       }
     }
   }

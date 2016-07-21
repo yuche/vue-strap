@@ -1,11 +1,9 @@
 <template>
-<span select="{{name}}" v-if="name && (required || value.length)">
-  <select name="{{name}}" :multiple="multiple" :required="required" @focus="focus()">
-    <option v-if="!value.length" value=""></option>
-    <option v-else v-for="val in value" value="{{val}}" selected>{{val}}</option>
-  </select>
-</span>
-<div class="btn-select" :class="{'btn-group btn-group-justified': justified}">
+<select v-if="name && (required || value.length)" name="{{name}}" class="secret" :multiple="multiple" :required="required" @focus="focus()">
+  <option v-if="!value.length" value=""></option>
+  <option v-else v-for="val in value" value="{{val}}" selected>{{val}}</option>
+</select>
+<div class="btn-select" :class="{'btn-group btn-group-justified': justified}" @click="unblur">
   <div class="btn-group" :class="{open: show}">
     <button v-el:btn type="button" class="btn btn-default dropdown-toggle"
       :disabled="disabled"
@@ -29,16 +27,17 @@
             @keyup.esc="show = false"
           />
         </li>
-        <li v-for="option in options | filterBy searchValue" :id="option.value" style="position:relative">
-          <a @mousedown.prevent="select(option.value)" style="cursor:pointer">
+        <li v-for="option in options | filterBy searchValue" :id="option.value">
+          <a @mousedown.prevent="select(option.value)">
             {{ option.label }}
             <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option.value)"></span>
           </a>
         </li>
       </template>
       <slot v-else></slot>
-      <div class="notify" v-show="showNotify" transition="fadein">{{limitText}}</div>
+      <div class="notify" v-if="!closeOnSelect" v-show="showNotify" transition="fadein">{{limitText}}</div>
     </ul>
+    <div class="notify" v-if="closeOnSelect" v-show="showNotify" transition="fadein"><div>{{limitText}}</div></div>
   </div>
 </div>
 </template>
@@ -192,7 +191,7 @@ var timeout = {}
           this.showNotify = true
           this.value.pop()
           if(timeout.limit) clearTimeout(timeout.limit)
-          timeout.limit = setTimeout(() => timeout.limit = this.showNotify = false, 1000)
+          timeout.limit = setTimeout(() => timeout.limit = this.showNotify = false, 1500)
         }
       },
       show(val) {
@@ -236,16 +235,15 @@ var timeout = {}
       },
       toggleDropdown() {
         this.show = !this.show
+        this.unblur()
+      },
+      blur() {
+        timeout.hide = setTimeout(() => timeout.hide = this.show = false, 100)
+      },
+      unblur() {
         if (timeout.hide) {
           clearTimeout(timeout.hide)
           timeout.hide = false
-        }
-      },
-      blur() {
-        if (this.search) {
-          timeout.hide = setTimeout(() => timeout.hide = this.show = false, 100)
-        } else {
-          this.show = false
         }
       },
       focus() {
@@ -281,10 +279,23 @@ var timeout = {}
 .btn-select {
   display: inline-block;
 }
+.btn-select>.btn-group>.dropdown-menu>li {
+  position:relative;
+}
+.btn-select>.btn-group>.dropdown-menu>li>a {
+  cursor:pointer;
+}
 .bs-searchbox {
   padding: 4px 8px;
 }
-.btn-group .dropdown-menu .notify {
+button>.close {
+  margin-left: 5px;
+}
+.btn-group .notify {
+  position: relative;
+}
+.btn-group .dropdown-menu .notify,
+.btn-group .notify > div {
   position: absolute;
   bottom: 5px;
   width: 96%;
@@ -295,6 +306,11 @@ var timeout = {}
   border: 1px solid #e3e3e3;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
   pointer-events: none;
+}
+.btn-group .dropdown-menu .notify {
+  opacity: .9;
+}
+.btn-group .dropdown-menu .notify {
   opacity: .9;
 }
 .btn-group.btn-group-justified .dropdown-menu {
@@ -305,10 +321,7 @@ span.caret {
   margin-top: 9px;
   margin-left: 5px;
 }
-span.close {
-  margin-left: 5px;
-}
-span[select]>select {
+.secret {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
