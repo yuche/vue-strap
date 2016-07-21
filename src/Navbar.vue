@@ -9,7 +9,7 @@
      <div class="container-fluid">
        <!-- Brand and toggle get grouped for better mobile display -->
        <div class="navbar-header">
-         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#{{ id }}" aria-expanded="false">
            <span class="sr-only">Toggle navigation</span>
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
@@ -19,7 +19,7 @@
        </div>
 
        <!-- Collect the nav links, forms, and other content for toggling -->
-       <div class="collapse navbar-collapse">
+       <div class="collapse navbar-collapse" id="{{ id }}">
         <ul class="nav navbar-nav">
           <slot></slot>
         </ul>
@@ -45,6 +45,12 @@ import EventListener from './utils/EventListener';
         default: 'top'
       }
     },
+    data() {
+      return {
+        id: 'bs-example-navbar-collapse-1',
+        styles: {}
+      }
+    },
     methods: {
       toggleCollapse(e) {
         e.preventDefault();
@@ -60,11 +66,14 @@ import EventListener from './utils/EventListener';
       const dropdowns = document.querySelector('.dropdown > .dropdown-toggle');
       const toggle = this.$el.querySelector('[data-toggle="collapse"]');
       if (dropdowns) {
+        // Al hacer click en un dropdown
         dropdowns.addEventListener('click',function(e){
           e.preventDefault();
           let dropDown = e;
           dropDown.target.offsetParent.classList.add('open')
-          const dropDownItems = dropDown.target.nextElementSibling.children;
+          let dropDownItems = dropDown.target.nextElementSibling.children;
+
+          // Al hacer click en un elemento del dropdown
           if (dropDownItems) {
             for (var i = 0; i < dropDownItems.length; i++) {
               dropDownItems[i].addEventListener('click',function(){
@@ -72,6 +81,10 @@ import EventListener from './utils/EventListener';
               });
             }
           }
+
+          // dropdowns.addEventListener('focusout',function(){
+          //   dropDown.target.offsetParent.classList.remove('open')
+          // });
         });
       }
       if (toggle) {
