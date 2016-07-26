@@ -56,129 +56,134 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 	
-	var _Alert = __webpack_require__(25);
-	
-	var _Alert2 = _interopRequireDefault(_Alert);
-	
-	var _Carousel = __webpack_require__(33);
-	
-	var _Carousel2 = _interopRequireDefault(_Carousel);
-	
-	var _Slider = __webpack_require__(93);
-	
-	var _Slider2 = _interopRequireDefault(_Slider);
-	
-	var _Accordion = __webpack_require__(96);
+	var _Accordion = __webpack_require__(26);
 	
 	var _Accordion2 = _interopRequireDefault(_Accordion);
 	
-	var _Affix = __webpack_require__(99);
+	var _Affix = __webpack_require__(30);
 	
 	var _Affix2 = _interopRequireDefault(_Affix);
 	
-	var _Aside = __webpack_require__(104);
+	var _Alert = __webpack_require__(38);
+	
+	var _Alert2 = _interopRequireDefault(_Alert);
+	
+	var _Aside = __webpack_require__(43);
 	
 	var _Aside2 = _interopRequireDefault(_Aside);
 	
-	var _checkboxGroup = __webpack_require__(110);
+	var _Carousel = __webpack_require__(49);
 	
-	var _checkboxGroup2 = _interopRequireDefault(_checkboxGroup);
+	var _Carousel2 = _interopRequireDefault(_Carousel);
 	
-	var _checkboxBtn = __webpack_require__(113);
+	var _checkboxBtn = __webpack_require__(108);
 	
 	var _checkboxBtn2 = _interopRequireDefault(_checkboxBtn);
 	
-	var _Datepicker = __webpack_require__(116);
+	var _checkboxGroup = __webpack_require__(111);
+	
+	var _checkboxGroup2 = _interopRequireDefault(_checkboxGroup);
+	
+	var _Datepicker = __webpack_require__(114);
 	
 	var _Datepicker2 = _interopRequireDefault(_Datepicker);
 	
-	var _Dropdown = __webpack_require__(122);
+	var _Dropdown = __webpack_require__(120);
 	
 	var _Dropdown2 = _interopRequireDefault(_Dropdown);
 	
-	var _Modal = __webpack_require__(127);
+	var _Input = __webpack_require__(125);
+	
+	var _Input2 = _interopRequireDefault(_Input);
+	
+	var _Modal = __webpack_require__(129);
 	
 	var _Modal2 = _interopRequireDefault(_Modal);
 	
-	var _Option = __webpack_require__(136);
-	
-	var _Option2 = _interopRequireDefault(_Option);
-	
-	var _Panel = __webpack_require__(141);
-	
-	var _Panel2 = _interopRequireDefault(_Panel);
-	
-	var _Popover = __webpack_require__(146);
-	
-	var _Popover2 = _interopRequireDefault(_Popover);
-	
-	var _Progressbar = __webpack_require__(152);
-	
-	var _Progressbar2 = _interopRequireDefault(_Progressbar);
-	
-	var _radioBtn = __webpack_require__(155);
-	
-	var _radioBtn2 = _interopRequireDefault(_radioBtn);
-	
-	var _radioGroup = __webpack_require__(158);
-	
-	var _radioGroup2 = _interopRequireDefault(_radioGroup);
-	
-	var _Select = __webpack_require__(161);
-	
-	var _Select2 = _interopRequireDefault(_Select);
-	
-	var _Tab = __webpack_require__(194);
-	
-	var _Tab2 = _interopRequireDefault(_Tab);
-	
-	var _Tabset = __webpack_require__(199);
-	
-	var _Tabset2 = _interopRequireDefault(_Tabset);
-	
-	var _Tooltip = __webpack_require__(204);
-	
-	var _Tooltip2 = _interopRequireDefault(_Tooltip);
-	
-	var _Typeahead = __webpack_require__(209);
-	
-	var _Typeahead2 = _interopRequireDefault(_Typeahead);
-	
-	var _Navbar = __webpack_require__(214);
+	var _Navbar = __webpack_require__(138);
 	
 	var _Navbar2 = _interopRequireDefault(_Navbar);
 	
-	var _Spinner = __webpack_require__(217);
+	var _Option = __webpack_require__(141);
+	
+	var _Option2 = _interopRequireDefault(_Option);
+	
+	var _Panel = __webpack_require__(146);
+	
+	var _Panel2 = _interopRequireDefault(_Panel);
+	
+	var _Popover = __webpack_require__(151);
+	
+	var _Popover2 = _interopRequireDefault(_Popover);
+	
+	var _Progressbar = __webpack_require__(157);
+	
+	var _Progressbar2 = _interopRequireDefault(_Progressbar);
+	
+	var _radioBtn = __webpack_require__(160);
+	
+	var _radioBtn2 = _interopRequireDefault(_radioBtn);
+	
+	var _radioGroup = __webpack_require__(163);
+	
+	var _radioGroup2 = _interopRequireDefault(_radioGroup);
+	
+	var _Select = __webpack_require__(166);
+	
+	var _Select2 = _interopRequireDefault(_Select);
+	
+	var _Slider = __webpack_require__(199);
+	
+	var _Slider2 = _interopRequireDefault(_Slider);
+	
+	var _Spinner = __webpack_require__(202);
 	
 	var _Spinner2 = _interopRequireDefault(_Spinner);
+	
+	var _Tab = __webpack_require__(205);
+	
+	var _Tab2 = _interopRequireDefault(_Tab);
+	
+	var _Tabset = __webpack_require__(210);
+	
+	var _Tabset2 = _interopRequireDefault(_Tabset);
+	
+	var _Tooltip = __webpack_require__(215);
+	
+	var _Tooltip2 = _interopRequireDefault(_Tooltip);
+	
+	var _Typeahead = __webpack_require__(220);
+	
+	var _Typeahead2 = _interopRequireDefault(_Typeahead);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var VueStrap = {
-	  alert: _Alert2.default,
-	  carousel: _Carousel2.default,
-	  slider: _Slider2.default,
 	  accordion: _Accordion2.default,
 	  affix: _Affix2.default,
+	  alert: _Alert2.default,
 	  aside: _Aside2.default,
+	  carousel: _Carousel2.default,
 	  checkboxBtn: _checkboxBtn2.default,
 	  checkboxGroup: _checkboxGroup2.default,
 	  datepicker: _Datepicker2.default,
 	  dropdown: _Dropdown2.default,
+	  input: _Input2.default,
 	  modal: _Modal2.default,
+	  navbar: _Navbar2.default,
 	  option: _Option2.default,
 	  panel: _Panel2.default,
 	  popover: _Popover2.default,
 	  progressbar: _Progressbar2.default,
-	  radioGroup: _radioGroup2.default,
 	  radioBtn: _radioBtn2.default,
+	  radioGroup: _radioGroup2.default,
 	  select: _Select2.default,
+	  slider: _Slider2.default,
+	  spinner: _Spinner2.default,
 	  tab: _Tab2.default,
 	  tabset: _Tabset2.default,
 	  tooltip: _Tooltip2.default,
-	  typeahead: _Typeahead2.default,
-	  navbar: _Navbar2.default,
-	  spinner: _Spinner2.default
+	  typeahead: _Typeahead2.default
 	};
 	
 	module.exports = VueStrap;
@@ -208,48 +213,146 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 22 */,
 /* 23 */,
 /* 24 */,
-/* 25 */
+/* 25 */,
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(26)
-	module.exports = __webpack_require__(30)
+	module.exports = __webpack_require__(27)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(32)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(29)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
 	hotAPI.install(require("vue"))
 	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Alert.vue"
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Accordion.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Alert.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Alert.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Alert.vue")
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Accordion.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Accordion.vue"], function () {
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Accordion.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Alert.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Accordion.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-/* 26 */
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _coerceBoolean = __webpack_require__(28);
+	
+	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  props: {
+	    oneAtATime: {
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: false
+	    }
+	  },
+	  created: function created() {
+	    var _this = this;
+	
+	    this.$on('isOpenEvent', function (child) {
+	      if (_this.oneAtATime) {
+	        _this.$children.forEach(function (item) {
+	          if (child !== item) {
+	            item.isOpen = false;
+	          }
+	        });
+	      }
+	    });
+	  }
+	};
+	// </script>
+	// <template>
+
+	//   <div class="panel-group">
+
+	//     <slot></slot>
+
+	//   </div>
+
+	// </template>
+
+	// <script>
+
+/***/ },
+/* 28 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// Attempt to convert a string value to a Boolean. Otherwise, return the value
+	// without modification so Vue can throw a warning.
+	
+	exports.default = function (val) {
+	  return typeof val !== 'string' ? val : val === 'true' ? true : val === 'false' ? false : val === 'null' ? false : val === 'undefined' ? false : val;
+	};
+
+/***/ },
+/* 29 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"panel-group\">\r\n    <slot></slot>\r\n  </div>";
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(31)
+	module.exports = __webpack_require__(35)
+	
+	if (module.exports.__esModule) module.exports = module.exports.default
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(37)
+	if (false) {
+	(function () {
+	var hotAPI = require("vue-hot-reload-api")
+	hotAPI.install(require("vue"))
+	if (!hotAPI.compatible) return
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Affix.vue"
+	hotAPI.createRecord(id, module.exports)
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Affix.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Affix.vue"], function () {
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Affix.vue")
+	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Affix.vue")
+	hotAPI.update(id, newOptions, newTemplate)
+	})
+	})()
+	}
+
+/***/ },
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(27);
+	var content = __webpack_require__(32);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
+	var update = __webpack_require__(34)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6ae72989&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6ae72989&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-216317fd&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-216317fd&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -259,21 +362,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 27 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(28)();
+	exports = module.exports = __webpack_require__(33)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, ".fade-transition {\r\n  -webkit-transition: opacity .3s ease;\r\n  transition: opacity .3s ease;\r\n}\r\n.fade-enter,\r\n.fade-leave {\r\n  height: 0;\r\n  opacity: 0;\r\n}\r\n.alert.top {\r\n  position: fixed;\r\n  top: 30px;\r\n  margin: 0 auto;\r\n  left: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n}\r\n.alert.top-right {\r\n  position: fixed;\r\n  top: 30px;\r\n  right: 50px;\r\n  z-index: 2;\r\n}", ""]);
+	exports.push([module.id, ".vue-affix {\r\n    position: fixed;\r\n  }", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 28 */
+/* 33 */
 /***/ function(module, exports) {
 
 	/*
@@ -329,7 +432,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 29 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -581,7 +684,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 30 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -590,7 +693,236 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _coerceBoolean = __webpack_require__(31);
+	var _EventListener = __webpack_require__(36);
+	
+	var _EventListener2 = _interopRequireDefault(_EventListener);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  props: {
+	    offset: {
+	      type: Number,
+	      default: 0
+	    }
+	  },
+	  data: function data() {
+	    return {
+	      affixed: false,
+	      styles: {}
+	    };
+	  },
+	
+	  methods: {
+	    scrolling: function scrolling() {
+	      var scrollTop = this.getScroll(window, true);
+	      var elementOffset = this.getOffset(this.$el);
+	      if (!this.affixed && scrollTop > elementOffset.top) {
+	        this.affixed = true;
+	        this.styles = {
+	          top: this.offset + 'px',
+	          left: elementOffset.left + 'px',
+	          width: this.$el.offsetWidth + 'px'
+	        };
+	      }
+	      if (this.affixed && scrollTop < elementOffset.top) {
+	        this.affixed = false;
+	        this.styles = {};
+	      }
+	    },
+	
+	    // from https://github.com/ant-design/ant-design/blob/master/components/affix/index.jsx#L20
+	    getScroll: function getScroll(w, top) {
+	      var ret = w['page' + (top ? 'Y' : 'X') + 'Offset'];
+	      var method = 'scroll' + (top ? 'Top' : 'Left');
+	      if (typeof ret !== 'number') {
+	        var d = w.document;
+	        // ie6,7,8 standard mode
+	        ret = d.documentElement[method];
+	        if (typeof ret !== 'number') {
+	          // quirks mode
+	          ret = d.body[method];
+	        }
+	      }
+	      return ret;
+	    },
+	    getOffset: function getOffset(element) {
+	      var rect = element.getBoundingClientRect();
+	      var body = document.body;
+	      var clientTop = element.clientTop || body.clientTop || 0;
+	      var clientLeft = element.clientLeft || body.clientLeft || 0;
+	      var scrollTop = this.getScroll(window, true);
+	      var scrollLeft = this.getScroll(window);
+	      return {
+	        top: rect.top + scrollTop - clientTop,
+	        left: rect.left + scrollLeft - clientLeft
+	      };
+	    }
+	  },
+	  ready: function ready() {
+	    this._scrollEvent = _EventListener2.default.listen(window, 'scroll', this.scrolling);
+	    this._resizeEvent = _EventListener2.default.listen(window, 'resize', this.scrolling);
+	  },
+	  beforeDestroy: function beforeDestroy() {
+	    if (this._scrollEvent) {
+	      this._scrollEvent.remove();
+	    }
+	    if (this._resizeEvent) {
+	      this._resizeEvent.remove();
+	    }
+	  }
+	};
+	// </script>
+
+	// <style>
+
+	//   .vue-affix {
+
+	//     position: fixed;
+
+	//   }
+
+	// </style>
+	// <template>
+
+	//   <div>
+
+	//     <div v-bind:class="{'vue-affix': affixed}"
+
+	//       v-bind:style="styles">
+
+	//       <slot></slot>
+
+	//     </div>
+
+	//   </div>
+
+	// </template>
+
+	// <script>
+
+/***/ },
+/* 36 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var EventListener = {
+	  /**
+	   * Listen to DOM events during the bubble phase.
+	   *
+	   * @param {DOMEventTarget} target DOM element to register listener on.
+	   * @param {string} eventType Event type, e.g. 'click' or 'mouseover'.
+	   * @param {function} callback Callback function.
+	   * @return {object} Object with a `remove` method.
+	   */
+	
+	  listen: function listen(target, eventType, callback) {
+	    if (target.addEventListener) {
+	      target.addEventListener(eventType, callback, false);
+	      return {
+	        remove: function remove() {
+	          target.removeEventListener(eventType, callback, false);
+	        }
+	      };
+	    } else if (target.attachEvent) {
+	      target.attachEvent('on' + eventType, callback);
+	      return {
+	        remove: function remove() {
+	          target.detachEvent('on' + eventType, callback);
+	        }
+	      };
+	    }
+	  }
+	};
+	
+	exports.default = EventListener;
+
+/***/ },
+/* 37 */
+/***/ function(module, exports) {
+
+	module.exports = "<div>\r\n    <div v-bind:class=\"{'vue-affix': affixed}\"\r\n      v-bind:style=\"styles\">\r\n      <slot></slot>\r\n    </div>\r\n  </div>";
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(39)
+	module.exports = __webpack_require__(41)
+	
+	if (module.exports.__esModule) module.exports = module.exports.default
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(42)
+	if (false) {
+	(function () {
+	var hotAPI = require("vue-hot-reload-api")
+	hotAPI.install(require("vue"))
+	if (!hotAPI.compatible) return
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Alert.vue"
+	hotAPI.createRecord(id, module.exports)
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Alert.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Alert.vue"], function () {
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Alert.vue")
+	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Alert.vue")
+	hotAPI.update(id, newOptions, newTemplate)
+	})
+	})()
+	}
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(40);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(34)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6ae72989&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6ae72989&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(33)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".fade-transition {\r\n  -webkit-transition: opacity .3s ease;\r\n  transition: opacity .3s ease;\r\n}\r\n.fade-enter,\r\n.fade-leave {\r\n  height: 0;\r\n  opacity: 0;\r\n}\r\n.alert.top {\r\n  position: fixed;\r\n  top: 30px;\r\n  margin: 0 auto;\r\n  left: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n}\r\n.alert.top-right {\r\n  position: fixed;\r\n  top: 30px;\r\n  right: 50px;\r\n  z-index: 2;\r\n}", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _coerceBoolean = __webpack_require__(28);
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
@@ -630,7 +962,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (this._timeout) clearTimeout(this._timeout);
 	      if (val && Boolean(this.duration)) {
 	        this._timeout = setTimeout(function () {
-	          return _this.show = false;
+	          _this.show = false;
 	        }, this.duration);
 	      }
 	    }
@@ -732,1575 +1064,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 31 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	// Attempt to convert a string value to a Boolean. Otherwise, return the value
-	// without modification so Vue can throw a warning.
-	
-	exports.default = function (val) {
-	  return typeof val !== "string" ? val : val === "true" ? true : val === "false" ? false : val === "null" ? false : val === "undefined" ? false : val;
-	};
-
-/***/ },
-/* 32 */
+/* 42 */
 /***/ function(module, exports) {
 
 	module.exports = "<div\r\n    v-show=\"show\"\r\n    v-bind:class=\"{\r\n      'alert':\t\ttrue,\r\n      'alert-success':(type == 'success'),\r\n      'alert-warning':(type == 'warning'),\r\n      'alert-info':\t(type == 'info'),\r\n      'alert-danger':\t(type == 'danger'),\r\n      'top': \t\t\t(placement === 'top'),\r\n      'top-right': \t(placement === 'top-right')\r\n    }\"\r\n    transition=\"fade\"\r\n    v-bind:style=\"{width:width}\"\r\n    role=\"alert\">\r\n    <button v-show=\"dismissable\" type=\"button\" class=\"close\"\r\n      @click=\"show = false\">\r\n      <span>&times;</span>\r\n    </button>\r\n    <slot></slot>\r\n  </div>";
 
 /***/ },
-/* 33 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(34)
-	module.exports = __webpack_require__(36)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(92)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4b6e4443&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4b6e4443&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-/* 34 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(35);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4b6e4443&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4b6e4443&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(28)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, ".carousel-control[_v-4b6e4443] {\r\n  cursor: pointer;\r\n}", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 36 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _toConsumableArray2 = __webpack_require__(37);
-	
-	var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
-	
-	var _EventListener = __webpack_require__(91);
-	
-	var _EventListener2 = _interopRequireDefault(_EventListener);
-	
-	var _coerceBoolean = __webpack_require__(31);
-	
-	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// <template>
-	
-	// <div class="carousel slide" data-ride="carousel">
-	
-	//   <!-- Indicators -->
-	
-	//   <ol class="carousel-indicators" v-show="indicators">
-	
-	//     <indicator :indicator.sync="indicator" :active-index.sync="activeIndex" :is-animating.sync="isAnimating"></indicator>
-	
-	//   </ol>
-	
-	//   <!-- Wrapper for slides -->
-	
-	//   <div class="carousel-inner" role="listbox">
-	
-	//     <slot></slot>
-	
-	//   </div>
-	
-	//   <!-- Controls -->
-	
-	//   <div v-show="controls" class="carousel-controls hidden-xs">
-	
-	//     <a class="left carousel-control" role="button" @click="prevClick">
-	
-	//       <span class="fa fa-arrow-left" aria-hidden="true"></span>
-	
-	//     </a>
-	
-	//     <a class="right carousel-control" role="button" @click="nextClick">
-	
-	//       <span class="fa fa-arrow-right" aria-hidden="true"></span>
-	
-	//     </a>
-	
-	//   </div>
-	
-	// </div>
-	
-	// </template>
-	
-	// <script>
-	exports.default = {
-	  props: {
-	    indicators: {
-	      type: Boolean,
-	      coerce: _coerceBoolean2.default,
-	      default: true
-	    },
-	    controls: {
-	      type: Boolean,
-	      coerce: _coerceBoolean2.default,
-	      default: true
-	    },
-	    interval: {
-	      type: Number,
-	      default: 5000
-	    }
-	  },
-	  components: {
-	    'indicator': {
-	      //inherit: true,
-	      props: ['indicator', 'activeIndex', 'isAnimating'],
-	      template: '<li v-for="i in indicator" @click="handleIndicatorClick($index)" v-bind:class="{\'active\':$index === activeIndex}"><span></span></li>',
-	      methods: {
-	        handleIndicatorClick: function handleIndicatorClick(index) {
-	          if (this.isAnimating || this.activeIndex === index) return false;
-	          this.isAnimating = true;
-	          this.activeIndex = index;
-	        }
-	      }
-	    }
-	  },
-	  data: function data() {
-	    return {
-	      indicator: [],
-	      activeIndex: 0,
-	      isAnimating: false
-	    };
-	  },
-	
-	  computed: {
-	    slider: function slider() {
-	      return this.$el.querySelectorAll('.item');
-	    }
-	  },
-	  watch: {
-	    activeIndex: function activeIndex(newVal, oldVal) {
-	      newVal > oldVal ? this.slide('left', newVal, oldVal) : this.slide('right', newVal, oldVal);
-	    }
-	  },
-	  methods: {
-	    slide: function slide(direction, selected, prev) {
-	      var _this = this;
-	
-	      if (this._prevSelectedEvent) this._prevSelectedEvent.remove();
-	      if (this._selectedEvent) this._selectedEvent.remove();
-	
-	      var prevSelectedEl = this.slider[prev];
-	      var selectedEl = this.slider[selected];
-	      var transitionendFn = function transitionendFn() {
-	        [].concat((0, _toConsumableArray3.default)(_this.slider)).forEach(function (el) {
-	          return el.className = 'item';
-	        });
-	        selectedEl.classList.add('active');
-	        _this.isAnimating = false;
-	      };
-	
-	      direction === 'left' ? selectedEl.classList.add('next') : selectedEl.classList.add('prev');
-	      // request property that requires layout to force a layout
-	      var x = selectedEl.clientHeight;
-	      this._prevSelectedEvent = _EventListener2.default.listen(prevSelectedEl, 'transitionend', transitionendFn);
-	      this._selectedEvent = _EventListener2.default.listen(selectedEl, 'transitionend', transitionendFn);
-	      prevSelectedEl.classList.add(direction);
-	      selectedEl.classList.add(direction);
-	    },
-	    nextClick: function nextClick() {
-	      if (this.isAnimating) return false;
-	      this.isAnimating = true;
-	      this.activeIndex + 1 < this.slider.length ? this.activeIndex += 1 : this.activeIndex = 0;
-	    },
-	    prevClick: function prevClick() {
-	      if (this.isAnimating) return false;
-	      this.isAnimating = true;
-	      this.activeIndex === 0 ? this.activeIndex = this.slider.length - 1 : this.activeIndex -= 1;
-	    }
-	  },
-	  ready: function ready() {
-	    var _this2 = this;
-	
-	    var intervalID = null;
-	    var el = this.$el;
-	    function intervalManager(flag, func, time) {
-	      flag ? intervalID = setInterval(func, time) : clearInterval(intervalID);
-	    }
-	    if (!!this.interval) {
-	      intervalManager(true, this.nextClick, this.interval);
-	      el.addEventListener('mouseenter', function () {
-	        return intervalManager(false);
-	      });
-	      el.addEventListener('mouseleave', function () {
-	        return intervalManager(true, _this2.nextClick, _this2.interval);
-	      });
-	    }
-	  }
-	};
-	// </script>
-
-	// <style scoped>
-
-	// .carousel-control {
-
-	//   cursor: pointer;
-
-	// }
-
-	// </style>
-
-/***/ },
-/* 37 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	exports.__esModule = true;
-	
-	var _from = __webpack_require__(38);
-	
-	var _from2 = _interopRequireDefault(_from);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (arr) {
-	  if (Array.isArray(arr)) {
-	    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-	      arr2[i] = arr[i];
-	    }
-	
-	    return arr2;
-	  } else {
-	    return (0, _from2.default)(arr);
-	  }
-	};
-
-/***/ },
-/* 38 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(39), __esModule: true };
-
-/***/ },
-/* 39 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(40);
-	__webpack_require__(84);
-	module.exports = __webpack_require__(48).Array.from;
-
-/***/ },
-/* 40 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var $at  = __webpack_require__(41)(true);
-	
-	// 21.1.3.27 String.prototype[@@iterator]()
-	__webpack_require__(44)(String, 'String', function(iterated){
-	  this._t = String(iterated); // target
-	  this._i = 0;                // next index
-	// 21.1.5.2.1 %StringIteratorPrototype%.next()
-	}, function(){
-	  var O     = this._t
-	    , index = this._i
-	    , point;
-	  if(index >= O.length)return {value: undefined, done: true};
-	  point = $at(O, index);
-	  this._i += point.length;
-	  return {value: point, done: false};
-	});
-
-/***/ },
-/* 41 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var toInteger = __webpack_require__(42)
-	  , defined   = __webpack_require__(43);
-	// true  -> String#at
-	// false -> String#codePointAt
-	module.exports = function(TO_STRING){
-	  return function(that, pos){
-	    var s = String(defined(that))
-	      , i = toInteger(pos)
-	      , l = s.length
-	      , a, b;
-	    if(i < 0 || i >= l)return TO_STRING ? '' : undefined;
-	    a = s.charCodeAt(i);
-	    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
-	      ? TO_STRING ? s.charAt(i) : a
-	      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
-	  };
-	};
-
-/***/ },
-/* 42 */
-/***/ function(module, exports) {
-
-	// 7.1.4 ToInteger
-	var ceil  = Math.ceil
-	  , floor = Math.floor;
-	module.exports = function(it){
-	  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
-	};
-
-/***/ },
 /* 43 */
-/***/ function(module, exports) {
-
-	// 7.2.1 RequireObjectCoercible(argument)
-	module.exports = function(it){
-	  if(it == undefined)throw TypeError("Can't call method on  " + it);
-	  return it;
-	};
-
-/***/ },
-/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	var LIBRARY        = __webpack_require__(45)
-	  , $export        = __webpack_require__(46)
-	  , redefine       = __webpack_require__(61)
-	  , hide           = __webpack_require__(51)
-	  , has            = __webpack_require__(62)
-	  , Iterators      = __webpack_require__(63)
-	  , $iterCreate    = __webpack_require__(64)
-	  , setToStringTag = __webpack_require__(80)
-	  , getPrototypeOf = __webpack_require__(82)
-	  , ITERATOR       = __webpack_require__(81)('iterator')
-	  , BUGGY          = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
-	  , FF_ITERATOR    = '@@iterator'
-	  , KEYS           = 'keys'
-	  , VALUES         = 'values';
-	
-	var returnThis = function(){ return this; };
-	
-	module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED){
-	  $iterCreate(Constructor, NAME, next);
-	  var getMethod = function(kind){
-	    if(!BUGGY && kind in proto)return proto[kind];
-	    switch(kind){
-	      case KEYS: return function keys(){ return new Constructor(this, kind); };
-	      case VALUES: return function values(){ return new Constructor(this, kind); };
-	    } return function entries(){ return new Constructor(this, kind); };
-	  };
-	  var TAG        = NAME + ' Iterator'
-	    , DEF_VALUES = DEFAULT == VALUES
-	    , VALUES_BUG = false
-	    , proto      = Base.prototype
-	    , $native    = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT]
-	    , $default   = $native || getMethod(DEFAULT)
-	    , $entries   = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined
-	    , $anyNative = NAME == 'Array' ? proto.entries || $native : $native
-	    , methods, key, IteratorPrototype;
-	  // Fix native
-	  if($anyNative){
-	    IteratorPrototype = getPrototypeOf($anyNative.call(new Base));
-	    if(IteratorPrototype !== Object.prototype){
-	      // Set @@toStringTag to native iterators
-	      setToStringTag(IteratorPrototype, TAG, true);
-	      // fix for some old engines
-	      if(!LIBRARY && !has(IteratorPrototype, ITERATOR))hide(IteratorPrototype, ITERATOR, returnThis);
-	    }
-	  }
-	  // fix Array#{values, @@iterator}.name in V8 / FF
-	  if(DEF_VALUES && $native && $native.name !== VALUES){
-	    VALUES_BUG = true;
-	    $default = function values(){ return $native.call(this); };
-	  }
-	  // Define iterator
-	  if((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])){
-	    hide(proto, ITERATOR, $default);
-	  }
-	  // Plug for library
-	  Iterators[NAME] = $default;
-	  Iterators[TAG]  = returnThis;
-	  if(DEFAULT){
-	    methods = {
-	      values:  DEF_VALUES ? $default : getMethod(VALUES),
-	      keys:    IS_SET     ? $default : getMethod(KEYS),
-	      entries: $entries
-	    };
-	    if(FORCED)for(key in methods){
-	      if(!(key in proto))redefine(proto, key, methods[key]);
-	    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
-	  }
-	  return methods;
-	};
-
-/***/ },
-/* 45 */
-/***/ function(module, exports) {
-
-	module.exports = true;
-
-/***/ },
-/* 46 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var global    = __webpack_require__(47)
-	  , core      = __webpack_require__(48)
-	  , ctx       = __webpack_require__(49)
-	  , hide      = __webpack_require__(51)
-	  , PROTOTYPE = 'prototype';
-	
-	var $export = function(type, name, source){
-	  var IS_FORCED = type & $export.F
-	    , IS_GLOBAL = type & $export.G
-	    , IS_STATIC = type & $export.S
-	    , IS_PROTO  = type & $export.P
-	    , IS_BIND   = type & $export.B
-	    , IS_WRAP   = type & $export.W
-	    , exports   = IS_GLOBAL ? core : core[name] || (core[name] = {})
-	    , expProto  = exports[PROTOTYPE]
-	    , target    = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE]
-	    , key, own, out;
-	  if(IS_GLOBAL)source = name;
-	  for(key in source){
-	    // contains in native
-	    own = !IS_FORCED && target && target[key] !== undefined;
-	    if(own && key in exports)continue;
-	    // export native or passed
-	    out = own ? target[key] : source[key];
-	    // prevent global pollution for namespaces
-	    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
-	    // bind timers to global for call from export context
-	    : IS_BIND && own ? ctx(out, global)
-	    // wrap global constructors for prevent change them in library
-	    : IS_WRAP && target[key] == out ? (function(C){
-	      var F = function(a, b, c){
-	        if(this instanceof C){
-	          switch(arguments.length){
-	            case 0: return new C;
-	            case 1: return new C(a);
-	            case 2: return new C(a, b);
-	          } return new C(a, b, c);
-	        } return C.apply(this, arguments);
-	      };
-	      F[PROTOTYPE] = C[PROTOTYPE];
-	      return F;
-	    // make static versions for prototype methods
-	    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
-	    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
-	    if(IS_PROTO){
-	      (exports.virtual || (exports.virtual = {}))[key] = out;
-	      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
-	      if(type & $export.R && expProto && !expProto[key])hide(expProto, key, out);
-	    }
-	  }
-	};
-	// type bitmap
-	$export.F = 1;   // forced
-	$export.G = 2;   // global
-	$export.S = 4;   // static
-	$export.P = 8;   // proto
-	$export.B = 16;  // bind
-	$export.W = 32;  // wrap
-	$export.U = 64;  // safe
-	$export.R = 128; // real proto method for `library` 
-	module.exports = $export;
-
-/***/ },
-/* 47 */
-/***/ function(module, exports) {
-
-	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-	var global = module.exports = typeof window != 'undefined' && window.Math == Math
-	  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
-	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
-
-/***/ },
-/* 48 */
-/***/ function(module, exports) {
-
-	var core = module.exports = {version: '2.4.0'};
-	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-
-/***/ },
-/* 49 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// optional / simple context binding
-	var aFunction = __webpack_require__(50);
-	module.exports = function(fn, that, length){
-	  aFunction(fn);
-	  if(that === undefined)return fn;
-	  switch(length){
-	    case 1: return function(a){
-	      return fn.call(that, a);
-	    };
-	    case 2: return function(a, b){
-	      return fn.call(that, a, b);
-	    };
-	    case 3: return function(a, b, c){
-	      return fn.call(that, a, b, c);
-	    };
-	  }
-	  return function(/* ...args */){
-	    return fn.apply(that, arguments);
-	  };
-	};
-
-/***/ },
-/* 50 */
-/***/ function(module, exports) {
-
-	module.exports = function(it){
-	  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
-	  return it;
-	};
-
-/***/ },
-/* 51 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var dP         = __webpack_require__(52)
-	  , createDesc = __webpack_require__(60);
-	module.exports = __webpack_require__(56) ? function(object, key, value){
-	  return dP.f(object, key, createDesc(1, value));
-	} : function(object, key, value){
-	  object[key] = value;
-	  return object;
-	};
-
-/***/ },
-/* 52 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var anObject       = __webpack_require__(53)
-	  , IE8_DOM_DEFINE = __webpack_require__(55)
-	  , toPrimitive    = __webpack_require__(59)
-	  , dP             = Object.defineProperty;
-	
-	exports.f = __webpack_require__(56) ? Object.defineProperty : function defineProperty(O, P, Attributes){
-	  anObject(O);
-	  P = toPrimitive(P, true);
-	  anObject(Attributes);
-	  if(IE8_DOM_DEFINE)try {
-	    return dP(O, P, Attributes);
-	  } catch(e){ /* empty */ }
-	  if('get' in Attributes || 'set' in Attributes)throw TypeError('Accessors not supported!');
-	  if('value' in Attributes)O[P] = Attributes.value;
-	  return O;
-	};
-
-/***/ },
-/* 53 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var isObject = __webpack_require__(54);
-	module.exports = function(it){
-	  if(!isObject(it))throw TypeError(it + ' is not an object!');
-	  return it;
-	};
-
-/***/ },
-/* 54 */
-/***/ function(module, exports) {
-
-	module.exports = function(it){
-	  return typeof it === 'object' ? it !== null : typeof it === 'function';
-	};
-
-/***/ },
-/* 55 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = !__webpack_require__(56) && !__webpack_require__(57)(function(){
-	  return Object.defineProperty(__webpack_require__(58)('div'), 'a', {get: function(){ return 7; }}).a != 7;
-	});
-
-/***/ },
-/* 56 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// Thank's IE8 for his funny defineProperty
-	module.exports = !__webpack_require__(57)(function(){
-	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
-	});
-
-/***/ },
-/* 57 */
-/***/ function(module, exports) {
-
-	module.exports = function(exec){
-	  try {
-	    return !!exec();
-	  } catch(e){
-	    return true;
-	  }
-	};
-
-/***/ },
-/* 58 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var isObject = __webpack_require__(54)
-	  , document = __webpack_require__(47).document
-	  // in old IE typeof document.createElement is 'object'
-	  , is = isObject(document) && isObject(document.createElement);
-	module.exports = function(it){
-	  return is ? document.createElement(it) : {};
-	};
-
-/***/ },
-/* 59 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 7.1.1 ToPrimitive(input [, PreferredType])
-	var isObject = __webpack_require__(54);
-	// instead of the ES6 spec version, we didn't implement @@toPrimitive case
-	// and the second argument - flag - preferred type is a string
-	module.exports = function(it, S){
-	  if(!isObject(it))return it;
-	  var fn, val;
-	  if(S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
-	  if(typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it)))return val;
-	  if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
-	  throw TypeError("Can't convert object to primitive value");
-	};
-
-/***/ },
-/* 60 */
-/***/ function(module, exports) {
-
-	module.exports = function(bitmap, value){
-	  return {
-	    enumerable  : !(bitmap & 1),
-	    configurable: !(bitmap & 2),
-	    writable    : !(bitmap & 4),
-	    value       : value
-	  };
-	};
-
-/***/ },
-/* 61 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(51);
-
-/***/ },
-/* 62 */
-/***/ function(module, exports) {
-
-	var hasOwnProperty = {}.hasOwnProperty;
-	module.exports = function(it, key){
-	  return hasOwnProperty.call(it, key);
-	};
-
-/***/ },
-/* 63 */
-/***/ function(module, exports) {
-
-	module.exports = {};
-
-/***/ },
-/* 64 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var create         = __webpack_require__(65)
-	  , descriptor     = __webpack_require__(60)
-	  , setToStringTag = __webpack_require__(80)
-	  , IteratorPrototype = {};
-	
-	// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-	__webpack_require__(51)(IteratorPrototype, __webpack_require__(81)('iterator'), function(){ return this; });
-	
-	module.exports = function(Constructor, NAME, next){
-	  Constructor.prototype = create(IteratorPrototype, {next: descriptor(1, next)});
-	  setToStringTag(Constructor, NAME + ' Iterator');
-	};
-
-/***/ },
-/* 65 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-	var anObject    = __webpack_require__(53)
-	  , dPs         = __webpack_require__(66)
-	  , enumBugKeys = __webpack_require__(78)
-	  , IE_PROTO    = __webpack_require__(75)('IE_PROTO')
-	  , Empty       = function(){ /* empty */ }
-	  , PROTOTYPE   = 'prototype';
-	
-	// Create object with fake `null` prototype: use iframe Object with cleared prototype
-	var createDict = function(){
-	  // Thrash, waste and sodomy: IE GC bug
-	  var iframe = __webpack_require__(58)('iframe')
-	    , i      = enumBugKeys.length
-	    , gt     = '>'
-	    , iframeDocument;
-	  iframe.style.display = 'none';
-	  __webpack_require__(79).appendChild(iframe);
-	  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
-	  // createDict = iframe.contentWindow.Object;
-	  // html.removeChild(iframe);
-	  iframeDocument = iframe.contentWindow.document;
-	  iframeDocument.open();
-	  iframeDocument.write('<script>document.F=Object</script' + gt);
-	  iframeDocument.close();
-	  createDict = iframeDocument.F;
-	  while(i--)delete createDict[PROTOTYPE][enumBugKeys[i]];
-	  return createDict();
-	};
-	
-	module.exports = Object.create || function create(O, Properties){
-	  var result;
-	  if(O !== null){
-	    Empty[PROTOTYPE] = anObject(O);
-	    result = new Empty;
-	    Empty[PROTOTYPE] = null;
-	    // add "__proto__" for Object.getPrototypeOf polyfill
-	    result[IE_PROTO] = O;
-	  } else result = createDict();
-	  return Properties === undefined ? result : dPs(result, Properties);
-	};
-
-/***/ },
-/* 66 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var dP       = __webpack_require__(52)
-	  , anObject = __webpack_require__(53)
-	  , getKeys  = __webpack_require__(67);
-	
-	module.exports = __webpack_require__(56) ? Object.defineProperties : function defineProperties(O, Properties){
-	  anObject(O);
-	  var keys   = getKeys(Properties)
-	    , length = keys.length
-	    , i = 0
-	    , P;
-	  while(length > i)dP.f(O, P = keys[i++], Properties[P]);
-	  return O;
-	};
-
-/***/ },
-/* 67 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 19.1.2.14 / 15.2.3.14 Object.keys(O)
-	var $keys       = __webpack_require__(68)
-	  , enumBugKeys = __webpack_require__(78);
-	
-	module.exports = Object.keys || function keys(O){
-	  return $keys(O, enumBugKeys);
-	};
-
-/***/ },
-/* 68 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var has          = __webpack_require__(62)
-	  , toIObject    = __webpack_require__(69)
-	  , arrayIndexOf = __webpack_require__(72)(false)
-	  , IE_PROTO     = __webpack_require__(75)('IE_PROTO');
-	
-	module.exports = function(object, names){
-	  var O      = toIObject(object)
-	    , i      = 0
-	    , result = []
-	    , key;
-	  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
-	  // Don't enum bug & hidden keys
-	  while(names.length > i)if(has(O, key = names[i++])){
-	    ~arrayIndexOf(result, key) || result.push(key);
-	  }
-	  return result;
-	};
-
-/***/ },
-/* 69 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// to indexed object, toObject with fallback for non-array-like ES3 strings
-	var IObject = __webpack_require__(70)
-	  , defined = __webpack_require__(43);
-	module.exports = function(it){
-	  return IObject(defined(it));
-	};
-
-/***/ },
-/* 70 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var cof = __webpack_require__(71);
-	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
-	  return cof(it) == 'String' ? it.split('') : Object(it);
-	};
-
-/***/ },
-/* 71 */
-/***/ function(module, exports) {
-
-	var toString = {}.toString;
-	
-	module.exports = function(it){
-	  return toString.call(it).slice(8, -1);
-	};
-
-/***/ },
-/* 72 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// false -> Array#indexOf
-	// true  -> Array#includes
-	var toIObject = __webpack_require__(69)
-	  , toLength  = __webpack_require__(73)
-	  , toIndex   = __webpack_require__(74);
-	module.exports = function(IS_INCLUDES){
-	  return function($this, el, fromIndex){
-	    var O      = toIObject($this)
-	      , length = toLength(O.length)
-	      , index  = toIndex(fromIndex, length)
-	      , value;
-	    // Array#includes uses SameValueZero equality algorithm
-	    if(IS_INCLUDES && el != el)while(length > index){
-	      value = O[index++];
-	      if(value != value)return true;
-	    // Array#toIndex ignores holes, Array#includes - not
-	    } else for(;length > index; index++)if(IS_INCLUDES || index in O){
-	      if(O[index] === el)return IS_INCLUDES || index || 0;
-	    } return !IS_INCLUDES && -1;
-	  };
-	};
-
-/***/ },
-/* 73 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 7.1.15 ToLength
-	var toInteger = __webpack_require__(42)
-	  , min       = Math.min;
-	module.exports = function(it){
-	  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
-	};
-
-/***/ },
-/* 74 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var toInteger = __webpack_require__(42)
-	  , max       = Math.max
-	  , min       = Math.min;
-	module.exports = function(index, length){
-	  index = toInteger(index);
-	  return index < 0 ? max(index + length, 0) : min(index, length);
-	};
-
-/***/ },
-/* 75 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var shared = __webpack_require__(76)('keys')
-	  , uid    = __webpack_require__(77);
-	module.exports = function(key){
-	  return shared[key] || (shared[key] = uid(key));
-	};
-
-/***/ },
-/* 76 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var global = __webpack_require__(47)
-	  , SHARED = '__core-js_shared__'
-	  , store  = global[SHARED] || (global[SHARED] = {});
-	module.exports = function(key){
-	  return store[key] || (store[key] = {});
-	};
-
-/***/ },
-/* 77 */
-/***/ function(module, exports) {
-
-	var id = 0
-	  , px = Math.random();
-	module.exports = function(key){
-	  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
-	};
-
-/***/ },
-/* 78 */
-/***/ function(module, exports) {
-
-	// IE 8- don't enum bug keys
-	module.exports = (
-	  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
-	).split(',');
-
-/***/ },
-/* 79 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(47).document && document.documentElement;
-
-/***/ },
-/* 80 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var def = __webpack_require__(52).f
-	  , has = __webpack_require__(62)
-	  , TAG = __webpack_require__(81)('toStringTag');
-	
-	module.exports = function(it, tag, stat){
-	  if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
-	};
-
-/***/ },
-/* 81 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var store      = __webpack_require__(76)('wks')
-	  , uid        = __webpack_require__(77)
-	  , Symbol     = __webpack_require__(47).Symbol
-	  , USE_SYMBOL = typeof Symbol == 'function';
-	
-	var $exports = module.exports = function(name){
-	  return store[name] || (store[name] =
-	    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
-	};
-	
-	$exports.store = store;
-
-/***/ },
-/* 82 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
-	var has         = __webpack_require__(62)
-	  , toObject    = __webpack_require__(83)
-	  , IE_PROTO    = __webpack_require__(75)('IE_PROTO')
-	  , ObjectProto = Object.prototype;
-	
-	module.exports = Object.getPrototypeOf || function(O){
-	  O = toObject(O);
-	  if(has(O, IE_PROTO))return O[IE_PROTO];
-	  if(typeof O.constructor == 'function' && O instanceof O.constructor){
-	    return O.constructor.prototype;
-	  } return O instanceof Object ? ObjectProto : null;
-	};
-
-/***/ },
-/* 83 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 7.1.13 ToObject(argument)
-	var defined = __webpack_require__(43);
-	module.exports = function(it){
-	  return Object(defined(it));
-	};
-
-/***/ },
-/* 84 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var ctx            = __webpack_require__(49)
-	  , $export        = __webpack_require__(46)
-	  , toObject       = __webpack_require__(83)
-	  , call           = __webpack_require__(85)
-	  , isArrayIter    = __webpack_require__(86)
-	  , toLength       = __webpack_require__(73)
-	  , createProperty = __webpack_require__(87)
-	  , getIterFn      = __webpack_require__(88);
-	
-	$export($export.S + $export.F * !__webpack_require__(90)(function(iter){ Array.from(iter); }), 'Array', {
-	  // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
-	  from: function from(arrayLike/*, mapfn = undefined, thisArg = undefined*/){
-	    var O       = toObject(arrayLike)
-	      , C       = typeof this == 'function' ? this : Array
-	      , aLen    = arguments.length
-	      , mapfn   = aLen > 1 ? arguments[1] : undefined
-	      , mapping = mapfn !== undefined
-	      , index   = 0
-	      , iterFn  = getIterFn(O)
-	      , length, result, step, iterator;
-	    if(mapping)mapfn = ctx(mapfn, aLen > 2 ? arguments[2] : undefined, 2);
-	    // if object isn't iterable or it's array with default iterator - use simple case
-	    if(iterFn != undefined && !(C == Array && isArrayIter(iterFn))){
-	      for(iterator = iterFn.call(O), result = new C; !(step = iterator.next()).done; index++){
-	        createProperty(result, index, mapping ? call(iterator, mapfn, [step.value, index], true) : step.value);
-	      }
-	    } else {
-	      length = toLength(O.length);
-	      for(result = new C(length); length > index; index++){
-	        createProperty(result, index, mapping ? mapfn(O[index], index) : O[index]);
-	      }
-	    }
-	    result.length = index;
-	    return result;
-	  }
-	});
-
-
-/***/ },
-/* 85 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// call something on iterator step with safe closing on error
-	var anObject = __webpack_require__(53);
-	module.exports = function(iterator, fn, value, entries){
-	  try {
-	    return entries ? fn(anObject(value)[0], value[1]) : fn(value);
-	  // 7.4.6 IteratorClose(iterator, completion)
-	  } catch(e){
-	    var ret = iterator['return'];
-	    if(ret !== undefined)anObject(ret.call(iterator));
-	    throw e;
-	  }
-	};
-
-/***/ },
-/* 86 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// check on default Array iterator
-	var Iterators  = __webpack_require__(63)
-	  , ITERATOR   = __webpack_require__(81)('iterator')
-	  , ArrayProto = Array.prototype;
-	
-	module.exports = function(it){
-	  return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
-	};
-
-/***/ },
-/* 87 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var $defineProperty = __webpack_require__(52)
-	  , createDesc      = __webpack_require__(60);
-	
-	module.exports = function(object, index, value){
-	  if(index in object)$defineProperty.f(object, index, createDesc(0, value));
-	  else object[index] = value;
-	};
-
-/***/ },
-/* 88 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var classof   = __webpack_require__(89)
-	  , ITERATOR  = __webpack_require__(81)('iterator')
-	  , Iterators = __webpack_require__(63);
-	module.exports = __webpack_require__(48).getIteratorMethod = function(it){
-	  if(it != undefined)return it[ITERATOR]
-	    || it['@@iterator']
-	    || Iterators[classof(it)];
-	};
-
-/***/ },
-/* 89 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// getting tag from 19.1.3.6 Object.prototype.toString()
-	var cof = __webpack_require__(71)
-	  , TAG = __webpack_require__(81)('toStringTag')
-	  // ES3 wrong here
-	  , ARG = cof(function(){ return arguments; }()) == 'Arguments';
-	
-	// fallback for IE11 Script Access Denied error
-	var tryGet = function(it, key){
-	  try {
-	    return it[key];
-	  } catch(e){ /* empty */ }
-	};
-	
-	module.exports = function(it){
-	  var O, T, B;
-	  return it === undefined ? 'Undefined' : it === null ? 'Null'
-	    // @@toStringTag case
-	    : typeof (T = tryGet(O = Object(it), TAG)) == 'string' ? T
-	    // builtinTag case
-	    : ARG ? cof(O)
-	    // ES3 arguments fallback
-	    : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
-	};
-
-/***/ },
-/* 90 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var ITERATOR     = __webpack_require__(81)('iterator')
-	  , SAFE_CLOSING = false;
-	
-	try {
-	  var riter = [7][ITERATOR]();
-	  riter['return'] = function(){ SAFE_CLOSING = true; };
-	  Array.from(riter, function(){ throw 2; });
-	} catch(e){ /* empty */ }
-	
-	module.exports = function(exec, skipClosing){
-	  if(!skipClosing && !SAFE_CLOSING)return false;
-	  var safe = false;
-	  try {
-	    var arr  = [7]
-	      , iter = arr[ITERATOR]();
-	    iter.next = function(){ return {done: safe = true}; };
-	    arr[ITERATOR] = function(){ return iter; };
-	    exec(arr);
-	  } catch(e){ /* empty */ }
-	  return safe;
-	};
-
-/***/ },
-/* 91 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var EventListener = {
-	  /**
-	   * Listen to DOM events during the bubble phase.
-	   *
-	   * @param {DOMEventTarget} target DOM element to register listener on.
-	   * @param {string} eventType Event type, e.g. 'click' or 'mouseover'.
-	   * @param {function} callback Callback function.
-	   * @return {object} Object with a `remove` method.
-	   */
-	
-	  listen: function listen(target, eventType, callback) {
-	    if (target.addEventListener) {
-	      target.addEventListener(eventType, callback, false);
-	      return {
-	        remove: function remove() {
-	          target.removeEventListener(eventType, callback, false);
-	        }
-	      };
-	    } else if (target.attachEvent) {
-	      target.attachEvent('on' + eventType, callback);
-	      return {
-	        remove: function remove() {
-	          target.detachEvent('on' + eventType, callback);
-	        }
-	      };
-	    }
-	  }
-	};
-	
-	exports.default = EventListener;
-
-/***/ },
-/* 92 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-4b6e4443=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-4b6e4443=\"\">\n    <indicator :indicator.sync=\"indicator\" :active-index.sync=\"activeIndex\" :is-animating.sync=\"isAnimating\" _v-4b6e4443=\"\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-4b6e4443=\"\">\n    <slot _v-4b6e4443=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <div v-show=\"controls\" class=\"carousel-controls hidden-xs\" _v-4b6e4443=\"\">\n    <a class=\"left carousel-control\" role=\"button\" @click=\"prevClick\" _v-4b6e4443=\"\">\n      <span class=\"fa fa-arrow-left\" aria-hidden=\"true\" _v-4b6e4443=\"\"></span>\n    </a>\n    <a class=\"right carousel-control\" role=\"button\" @click=\"nextClick\" _v-4b6e4443=\"\">\n      <span class=\"fa fa-arrow-right\" aria-hidden=\"true\" _v-4b6e4443=\"\"></span>\n    </a>\n  </div>\n</div>";
-
-/***/ },
-/* 93 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(94)
+	__webpack_require__(44)
+	module.exports = __webpack_require__(46)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(95)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Slider.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Slider.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Slider.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Slider.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Slider.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-/* 94 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	// <template>
-	
-	//   <div class="item">
-	
-	//     <slot></slot>
-	
-	//   </div>
-	
-	// </template>
-	
-	// <script>
-	exports.default = {
-	  data: function data() {
-	    return {
-	      index: 0,
-	      show: false
-	    };
-	  },
-	
-	  computed: {
-	    show: function show() {
-	      return this.$parent.activeIndex === this.index;
-	    }
-	  },
-	  ready: function ready() {
-	    for (var c in this.$parent.$children) {
-	      if (this.$parent.$children[c].$el == this.$el) {
-	        this.index = parseInt(c, 10);
-	        break;
-	      }
-	    }
-	    //this.index = [...this.$el.parentNode.children].indexOf(this.$el)
-	    this.$parent.indicator.push(this.index);
-	    if (this.index === 0) {
-	      this.$el.classList.add('active');
-	    }
-	  }
-	};
-	// </script>
-
-/***/ },
-/* 95 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"item\">\r\n    <slot></slot>\r\n  </div>";
-
-/***/ },
-/* 96 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(97)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(98)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Accordion.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Accordion.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Accordion.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Accordion.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Accordion.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-/* 97 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _coerceBoolean = __webpack_require__(31);
-	
-	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  props: {
-	    oneAtATime: {
-	      type: Boolean,
-	      coerce: _coerceBoolean2.default,
-	      default: false
-	    }
-	  },
-	  created: function created() {
-	    var _this = this;
-	
-	    this.$on('isOpenEvent', function (child) {
-	      if (_this.oneAtATime) {
-	        _this.$children.forEach(function (item) {
-	          if (child !== item) {
-	            item.isOpen = false;
-	          }
-	        });
-	      }
-	    });
-	  }
-	};
-	// </script>
-	// <template>
-
-	//   <div class="panel-group">
-
-	//     <slot></slot>
-
-	//   </div>
-
-	// </template>
-
-	// <script>
-
-/***/ },
-/* 98 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"panel-group\">\r\n    <slot></slot>\r\n  </div>";
-
-/***/ },
-/* 99 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(100)
-	module.exports = __webpack_require__(102)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(103)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Affix.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Affix.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Affix.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Affix.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Affix.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-/* 100 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(101);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-216317fd&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-216317fd&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 101 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(28)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, ".vue-affix {\r\n    position: fixed;\r\n  }", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 102 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _EventListener = __webpack_require__(91);
-	
-	var _EventListener2 = _interopRequireDefault(_EventListener);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  props: {
-	    offset: {
-	      type: Number,
-	      default: 0
-	    }
-	  },
-	  data: function data() {
-	    return {
-	      affixed: false,
-	      styles: {}
-	    };
-	  },
-	
-	  methods: {
-	    scrolling: function scrolling() {
-	      var scrollTop = this.getScroll(window, true);
-	      var elementOffset = this.getOffset(this.$el);
-	      if (!this.affixed && scrollTop > elementOffset.top) {
-	        this.affixed = true;
-	        this.styles = {
-	          top: this.offset + 'px',
-	          left: elementOffset.left + 'px',
-	          width: this.$el.offsetWidth + 'px'
-	        };
-	      }
-	      if (this.affixed && scrollTop < elementOffset.top) {
-	        this.affixed = false;
-	        this.styles = {};
-	      }
-	    },
-	
-	    // from https://github.com/ant-design/ant-design/blob/master/components/affix/index.jsx#L20
-	    getScroll: function getScroll(w, top) {
-	      var ret = w['page' + (top ? 'Y' : 'X') + 'Offset'];
-	      var method = 'scroll' + (top ? 'Top' : 'Left');
-	      if (typeof ret !== 'number') {
-	        var d = w.document;
-	        // ie6,7,8 standard mode
-	        ret = d.documentElement[method];
-	        if (typeof ret !== 'number') {
-	          // quirks mode
-	          ret = d.body[method];
-	        }
-	      }
-	      return ret;
-	    },
-	    getOffset: function getOffset(element) {
-	      var rect = element.getBoundingClientRect();
-	      var body = document.body;
-	      var clientTop = element.clientTop || body.clientTop || 0;
-	      var clientLeft = element.clientLeft || body.clientLeft || 0;
-	      var scrollTop = this.getScroll(window, true);
-	      var scrollLeft = this.getScroll(window);
-	      return {
-	        top: rect.top + scrollTop - clientTop,
-	        left: rect.left + scrollLeft - clientLeft
-	      };
-	    }
-	  },
-	  ready: function ready() {
-	    this._scrollEvent = _EventListener2.default.listen(window, 'scroll', this.scrolling);
-	    this._resizeEvent = _EventListener2.default.listen(window, 'resize', this.scrolling);
-	  },
-	  beforeDestroy: function beforeDestroy() {
-	    if (this._scrollEvent) {
-	      this._scrollEvent.remove();
-	    }
-	    if (this._resizeEvent) {
-	      this._resizeEvent.remove();
-	    }
-	  }
-	};
-	// </script>
-
-	// <style>
-
-	//   .vue-affix {
-
-	//     position: fixed;
-
-	//   }
-
-	// </style>
-	// <template>
-
-	// <div>
-
-	// <div v-bind:class="{'vue-affix': affixed}"
-
-	//   v-bind:style="styles">
-
-	//   <slot></slot>
-
-	// </div>
-
-	// </div>
-
-	// </template>
-
-	// <script>
-
-/***/ },
-/* 103 */
-/***/ function(module, exports) {
-
-	module.exports = "<div>\r\n<div v-bind:class=\"{'vue-affix': affixed}\"\r\n  v-bind:style=\"styles\">\r\n  <slot></slot>\r\n</div>\r\n</div>";
-
-/***/ },
-/* 104 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(105)
-	module.exports = __webpack_require__(107)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(109)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(48)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -2318,16 +1095,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 105 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(106);
+	var content = __webpack_require__(45);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
+	var update = __webpack_require__(34)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -2344,10 +1121,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 106 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(28)();
+	exports = module.exports = __webpack_require__(33)();
 	// imports
 	
 	
@@ -2358,7 +1135,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 107 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2367,15 +1144,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _EventListener = __webpack_require__(91);
+	var _EventListener = __webpack_require__(36);
 	
 	var _EventListener2 = _interopRequireDefault(_EventListener);
 	
-	var _getScrollBarWidth = __webpack_require__(108);
+	var _getScrollBarWidth = __webpack_require__(47);
 	
 	var _getScrollBarWidth2 = _interopRequireDefault(_getScrollBarWidth);
 	
-	var _coerceBoolean = __webpack_require__(31);
+	var _coerceBoolean = __webpack_require__(28);
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
@@ -2414,7 +1191,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          body.style.paddingRight = scrollBarWidth + 'px';
 	        }
 	        // request property that requires layout to force a layout
-	        var x = backdrop.clientHeight;
+	        // var x = backdrop.clientHeight
 	        backdrop.className += ' in';
 	        this._clickEvent = _EventListener2.default.listen(backdrop, 'click', this.close);
 	      } else {
@@ -2771,7 +1548,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 108 */
+/* 47 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2810,85 +1587,1169 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 109 */
+/* 48 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"aside\"\r\n    v-bind:style=\"{width:width + 'px'}\"\r\n    v-bind:class=\"{\r\n    left:placement === 'left',\r\n    right:placement === 'right'\r\n    }\"\r\n    v-show=\"show\"\r\n    :transition=\"(this.placement === 'left') ? 'slideleft' : 'slideright'\">\r\n    <div class=\"aside-dialog\">\r\n      <div class=\"aside-content\">\r\n        <div class=\"aside-header\">\r\n          <button type=\"button\" class=\"close\" @click='close'><span>&times;</span></button>\r\n          <h4 class=\"aside-title\">   \r\n          <slot name=\"header\"> \r\n            {{ header }}\r\n          </slot>\r\n          </h4>\r\n        </div>\r\n        <div class=\"aside-body\">\r\n          <slot></slot>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 110 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(111)
+	__webpack_require__(50)
+	module.exports = __webpack_require__(52)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(112)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(107)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
 	hotAPI.install(require("vue"))
 	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxGroup.vue"
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxGroup.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./checkboxGroup.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxGroup.vue")
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4b6e4443&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue"], function () {
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./checkboxGroup.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4b6e4443&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-/* 111 */
-/***/ function(module, exports) {
+/* 50 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(51);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(34)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4b6e4443&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4b6e4443&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 51 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(33)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".carousel-control[_v-4b6e4443] {\r\n  cursor: pointer;\r\n}", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 52 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	var _toConsumableArray2 = __webpack_require__(53);
+	
+	var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
+	
+	var _EventListener = __webpack_require__(36);
+	
+	var _EventListener2 = _interopRequireDefault(_EventListener);
+	
+	var _coerceBoolean = __webpack_require__(28);
+	
+	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	// <template>
 	
-	//   <div class="btn-group" data-toggle="buttons">
+	// <div class="carousel slide" data-ride="carousel">
+	
+	//   <!-- Indicators -->
+	
+	//   <ol class="carousel-indicators" v-show="indicators">
+	
+	//     <indicator :indicator.sync="indicator" :active-index.sync="activeIndex" :is-animating.sync="isAnimating"></indicator>
+	
+	//   </ol>
+	
+	//   <!-- Wrapper for slides -->
+	
+	//   <div class="carousel-inner" role="listbox">
 	
 	//     <slot></slot>
 	
 	//   </div>
+	
+	//   <!-- Controls -->
+	
+	//   <div v-show="controls" class="carousel-controls hidden-xs">
+	
+	//     <a class="left carousel-control" role="button" @click="prevClick">
+	
+	//       <span class="fa fa-arrow-left" aria-hidden="true"></span>
+	
+	//     </a>
+	
+	//     <a class="right carousel-control" role="button" @click="nextClick">
+	
+	//       <span class="fa fa-arrow-right" aria-hidden="true"></span>
+	
+	//     </a>
+	
+	//   </div>
+	
+	// </div>
 	
 	// </template>
 	
 	// <script>
 	exports.default = {
 	  props: {
-	    value: {
-	      type: Array,
-	      default: function _default() {
-	        return [];
-	      }
+	    indicators: {
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: true
 	    },
-	    type: {
-	      type: String,
-	      default: 'default'
+	    controls: {
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: true
+	    },
+	    interval: {
+	      type: Number,
+	      default: 5000
+	    }
+	  },
+	  components: {
+	    'indicator': {
+	      // inherit: true,
+	      props: ['indicator', 'activeIndex', 'isAnimating'],
+	      template: '<li v-for="i in indicator" @click="handleIndicatorClick($index)" v-bind:class="{\'active\':$index === activeIndex}"><span></span></li>',
+	      methods: {
+	        handleIndicatorClick: function handleIndicatorClick(index) {
+	          if (this.isAnimating || this.activeIndex === index) return false;
+	          this.isAnimating = true;
+	          this.activeIndex = index;
+	        }
+	      }
+	    }
+	  },
+	  data: function data() {
+	    return {
+	      indicator: [],
+	      activeIndex: 0,
+	      isAnimating: false
+	    };
+	  },
+	
+	  computed: {
+	    slider: function slider() {
+	      return this.$el.querySelectorAll('.item');
+	    }
+	  },
+	  watch: {
+	    activeIndex: function activeIndex(newVal, oldVal) {
+	      newVal > oldVal ? this.slide('left', newVal, oldVal) : this.slide('right', newVal, oldVal);
+	    }
+	  },
+	  methods: {
+	    slide: function slide(direction, selected, prev) {
+	      var _this = this;
+	
+	      if (this._prevSelectedEvent) this._prevSelectedEvent.remove();
+	      if (this._selectedEvent) this._selectedEvent.remove();
+	
+	      var prevSelectedEl = this.slider[prev];
+	      var selectedEl = this.slider[selected];
+	      var transitionendFn = function transitionendFn() {
+	        [].concat((0, _toConsumableArray3.default)(_this.slider)).forEach(function (el) {
+	          el.className = 'item';
+	        });
+	        selectedEl.classList.add('active');
+	        _this.isAnimating = false;
+	      };
+	
+	      direction === 'left' ? selectedEl.classList.add('next') : selectedEl.classList.add('prev');
+	      // request property that requires layout to force a layout
+	      // var x = selectedEl.clientHeight
+	      this._prevSelectedEvent = _EventListener2.default.listen(prevSelectedEl, 'transitionend', transitionendFn);
+	      this._selectedEvent = _EventListener2.default.listen(selectedEl, 'transitionend', transitionendFn);
+	      prevSelectedEl.classList.add(direction);
+	      selectedEl.classList.add(direction);
+	    },
+	    nextClick: function nextClick() {
+	      if (this.isAnimating) return false;
+	      this.isAnimating = true;
+	      this.activeIndex + 1 < this.slider.length ? this.activeIndex += 1 : this.activeIndex = 0;
+	    },
+	    prevClick: function prevClick() {
+	      if (this.isAnimating) return false;
+	      this.isAnimating = true;
+	      this.activeIndex === 0 ? this.activeIndex = this.slider.length - 1 : this.activeIndex -= 1;
+	    }
+	  },
+	  ready: function ready() {
+	    var _this2 = this;
+	
+	    var intervalID = null;
+	    var el = this.$el;
+	    function intervalManager(flag, func, time) {
+	      flag ? intervalID = setInterval(func, time) : clearInterval(intervalID);
+	    }
+	    if (!this.interval === false) {
+	      intervalManager(true, this.nextClick, this.interval);
+	      el.addEventListener('mouseenter', function () {
+	        return intervalManager(false);
+	      });
+	      el.addEventListener('mouseleave', function () {
+	        return intervalManager(true, _this2.nextClick, _this2.interval);
+	      });
 	    }
 	  }
 	};
 	// </script>
 
-/***/ },
-/* 112 */
-/***/ function(module, exports) {
+	// <style scoped>
 
-	module.exports = "<div class=\"btn-group\" data-toggle=\"buttons\">\r\n    <slot></slot>\r\n  </div>";
+	// .carousel-control {
+
+	//   cursor: pointer;
+
+	// }
+
+	// </style>
 
 /***/ },
-/* 113 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(114)
+	"use strict";
+	
+	exports.__esModule = true;
+	
+	var _from = __webpack_require__(54);
+	
+	var _from2 = _interopRequireDefault(_from);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (arr) {
+	  if (Array.isArray(arr)) {
+	    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+	      arr2[i] = arr[i];
+	    }
+	
+	    return arr2;
+	  } else {
+	    return (0, _from2.default)(arr);
+	  }
+	};
+
+/***/ },
+/* 54 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(55), __esModule: true };
+
+/***/ },
+/* 55 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(56);
+	__webpack_require__(100);
+	module.exports = __webpack_require__(64).Array.from;
+
+/***/ },
+/* 56 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var $at  = __webpack_require__(57)(true);
+	
+	// 21.1.3.27 String.prototype[@@iterator]()
+	__webpack_require__(60)(String, 'String', function(iterated){
+	  this._t = String(iterated); // target
+	  this._i = 0;                // next index
+	// 21.1.5.2.1 %StringIteratorPrototype%.next()
+	}, function(){
+	  var O     = this._t
+	    , index = this._i
+	    , point;
+	  if(index >= O.length)return {value: undefined, done: true};
+	  point = $at(O, index);
+	  this._i += point.length;
+	  return {value: point, done: false};
+	});
+
+/***/ },
+/* 57 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var toInteger = __webpack_require__(58)
+	  , defined   = __webpack_require__(59);
+	// true  -> String#at
+	// false -> String#codePointAt
+	module.exports = function(TO_STRING){
+	  return function(that, pos){
+	    var s = String(defined(that))
+	      , i = toInteger(pos)
+	      , l = s.length
+	      , a, b;
+	    if(i < 0 || i >= l)return TO_STRING ? '' : undefined;
+	    a = s.charCodeAt(i);
+	    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
+	      ? TO_STRING ? s.charAt(i) : a
+	      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
+	  };
+	};
+
+/***/ },
+/* 58 */
+/***/ function(module, exports) {
+
+	// 7.1.4 ToInteger
+	var ceil  = Math.ceil
+	  , floor = Math.floor;
+	module.exports = function(it){
+	  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+	};
+
+/***/ },
+/* 59 */
+/***/ function(module, exports) {
+
+	// 7.2.1 RequireObjectCoercible(argument)
+	module.exports = function(it){
+	  if(it == undefined)throw TypeError("Can't call method on  " + it);
+	  return it;
+	};
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var LIBRARY        = __webpack_require__(61)
+	  , $export        = __webpack_require__(62)
+	  , redefine       = __webpack_require__(77)
+	  , hide           = __webpack_require__(67)
+	  , has            = __webpack_require__(78)
+	  , Iterators      = __webpack_require__(79)
+	  , $iterCreate    = __webpack_require__(80)
+	  , setToStringTag = __webpack_require__(96)
+	  , getPrototypeOf = __webpack_require__(98)
+	  , ITERATOR       = __webpack_require__(97)('iterator')
+	  , BUGGY          = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
+	  , FF_ITERATOR    = '@@iterator'
+	  , KEYS           = 'keys'
+	  , VALUES         = 'values';
+	
+	var returnThis = function(){ return this; };
+	
+	module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED){
+	  $iterCreate(Constructor, NAME, next);
+	  var getMethod = function(kind){
+	    if(!BUGGY && kind in proto)return proto[kind];
+	    switch(kind){
+	      case KEYS: return function keys(){ return new Constructor(this, kind); };
+	      case VALUES: return function values(){ return new Constructor(this, kind); };
+	    } return function entries(){ return new Constructor(this, kind); };
+	  };
+	  var TAG        = NAME + ' Iterator'
+	    , DEF_VALUES = DEFAULT == VALUES
+	    , VALUES_BUG = false
+	    , proto      = Base.prototype
+	    , $native    = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT]
+	    , $default   = $native || getMethod(DEFAULT)
+	    , $entries   = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined
+	    , $anyNative = NAME == 'Array' ? proto.entries || $native : $native
+	    , methods, key, IteratorPrototype;
+	  // Fix native
+	  if($anyNative){
+	    IteratorPrototype = getPrototypeOf($anyNative.call(new Base));
+	    if(IteratorPrototype !== Object.prototype){
+	      // Set @@toStringTag to native iterators
+	      setToStringTag(IteratorPrototype, TAG, true);
+	      // fix for some old engines
+	      if(!LIBRARY && !has(IteratorPrototype, ITERATOR))hide(IteratorPrototype, ITERATOR, returnThis);
+	    }
+	  }
+	  // fix Array#{values, @@iterator}.name in V8 / FF
+	  if(DEF_VALUES && $native && $native.name !== VALUES){
+	    VALUES_BUG = true;
+	    $default = function values(){ return $native.call(this); };
+	  }
+	  // Define iterator
+	  if((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])){
+	    hide(proto, ITERATOR, $default);
+	  }
+	  // Plug for library
+	  Iterators[NAME] = $default;
+	  Iterators[TAG]  = returnThis;
+	  if(DEFAULT){
+	    methods = {
+	      values:  DEF_VALUES ? $default : getMethod(VALUES),
+	      keys:    IS_SET     ? $default : getMethod(KEYS),
+	      entries: $entries
+	    };
+	    if(FORCED)for(key in methods){
+	      if(!(key in proto))redefine(proto, key, methods[key]);
+	    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
+	  }
+	  return methods;
+	};
+
+/***/ },
+/* 61 */
+/***/ function(module, exports) {
+
+	module.exports = true;
+
+/***/ },
+/* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var global    = __webpack_require__(63)
+	  , core      = __webpack_require__(64)
+	  , ctx       = __webpack_require__(65)
+	  , hide      = __webpack_require__(67)
+	  , PROTOTYPE = 'prototype';
+	
+	var $export = function(type, name, source){
+	  var IS_FORCED = type & $export.F
+	    , IS_GLOBAL = type & $export.G
+	    , IS_STATIC = type & $export.S
+	    , IS_PROTO  = type & $export.P
+	    , IS_BIND   = type & $export.B
+	    , IS_WRAP   = type & $export.W
+	    , exports   = IS_GLOBAL ? core : core[name] || (core[name] = {})
+	    , expProto  = exports[PROTOTYPE]
+	    , target    = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE]
+	    , key, own, out;
+	  if(IS_GLOBAL)source = name;
+	  for(key in source){
+	    // contains in native
+	    own = !IS_FORCED && target && target[key] !== undefined;
+	    if(own && key in exports)continue;
+	    // export native or passed
+	    out = own ? target[key] : source[key];
+	    // prevent global pollution for namespaces
+	    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+	    // bind timers to global for call from export context
+	    : IS_BIND && own ? ctx(out, global)
+	    // wrap global constructors for prevent change them in library
+	    : IS_WRAP && target[key] == out ? (function(C){
+	      var F = function(a, b, c){
+	        if(this instanceof C){
+	          switch(arguments.length){
+	            case 0: return new C;
+	            case 1: return new C(a);
+	            case 2: return new C(a, b);
+	          } return new C(a, b, c);
+	        } return C.apply(this, arguments);
+	      };
+	      F[PROTOTYPE] = C[PROTOTYPE];
+	      return F;
+	    // make static versions for prototype methods
+	    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+	    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+	    if(IS_PROTO){
+	      (exports.virtual || (exports.virtual = {}))[key] = out;
+	      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+	      if(type & $export.R && expProto && !expProto[key])hide(expProto, key, out);
+	    }
+	  }
+	};
+	// type bitmap
+	$export.F = 1;   // forced
+	$export.G = 2;   // global
+	$export.S = 4;   // static
+	$export.P = 8;   // proto
+	$export.B = 16;  // bind
+	$export.W = 32;  // wrap
+	$export.U = 64;  // safe
+	$export.R = 128; // real proto method for `library` 
+	module.exports = $export;
+
+/***/ },
+/* 63 */
+/***/ function(module, exports) {
+
+	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+	var global = module.exports = typeof window != 'undefined' && window.Math == Math
+	  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
+	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
+
+/***/ },
+/* 64 */
+/***/ function(module, exports) {
+
+	var core = module.exports = {version: '2.4.0'};
+	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+
+/***/ },
+/* 65 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// optional / simple context binding
+	var aFunction = __webpack_require__(66);
+	module.exports = function(fn, that, length){
+	  aFunction(fn);
+	  if(that === undefined)return fn;
+	  switch(length){
+	    case 1: return function(a){
+	      return fn.call(that, a);
+	    };
+	    case 2: return function(a, b){
+	      return fn.call(that, a, b);
+	    };
+	    case 3: return function(a, b, c){
+	      return fn.call(that, a, b, c);
+	    };
+	  }
+	  return function(/* ...args */){
+	    return fn.apply(that, arguments);
+	  };
+	};
+
+/***/ },
+/* 66 */
+/***/ function(module, exports) {
+
+	module.exports = function(it){
+	  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
+	  return it;
+	};
+
+/***/ },
+/* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var dP         = __webpack_require__(68)
+	  , createDesc = __webpack_require__(76);
+	module.exports = __webpack_require__(72) ? function(object, key, value){
+	  return dP.f(object, key, createDesc(1, value));
+	} : function(object, key, value){
+	  object[key] = value;
+	  return object;
+	};
+
+/***/ },
+/* 68 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var anObject       = __webpack_require__(69)
+	  , IE8_DOM_DEFINE = __webpack_require__(71)
+	  , toPrimitive    = __webpack_require__(75)
+	  , dP             = Object.defineProperty;
+	
+	exports.f = __webpack_require__(72) ? Object.defineProperty : function defineProperty(O, P, Attributes){
+	  anObject(O);
+	  P = toPrimitive(P, true);
+	  anObject(Attributes);
+	  if(IE8_DOM_DEFINE)try {
+	    return dP(O, P, Attributes);
+	  } catch(e){ /* empty */ }
+	  if('get' in Attributes || 'set' in Attributes)throw TypeError('Accessors not supported!');
+	  if('value' in Attributes)O[P] = Attributes.value;
+	  return O;
+	};
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var isObject = __webpack_require__(70);
+	module.exports = function(it){
+	  if(!isObject(it))throw TypeError(it + ' is not an object!');
+	  return it;
+	};
+
+/***/ },
+/* 70 */
+/***/ function(module, exports) {
+
+	module.exports = function(it){
+	  return typeof it === 'object' ? it !== null : typeof it === 'function';
+	};
+
+/***/ },
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = !__webpack_require__(72) && !__webpack_require__(73)(function(){
+	  return Object.defineProperty(__webpack_require__(74)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+	});
+
+/***/ },
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Thank's IE8 for his funny defineProperty
+	module.exports = !__webpack_require__(73)(function(){
+	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
+	});
+
+/***/ },
+/* 73 */
+/***/ function(module, exports) {
+
+	module.exports = function(exec){
+	  try {
+	    return !!exec();
+	  } catch(e){
+	    return true;
+	  }
+	};
+
+/***/ },
+/* 74 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var isObject = __webpack_require__(70)
+	  , document = __webpack_require__(63).document
+	  // in old IE typeof document.createElement is 'object'
+	  , is = isObject(document) && isObject(document.createElement);
+	module.exports = function(it){
+	  return is ? document.createElement(it) : {};
+	};
+
+/***/ },
+/* 75 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.1 ToPrimitive(input [, PreferredType])
+	var isObject = __webpack_require__(70);
+	// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+	// and the second argument - flag - preferred type is a string
+	module.exports = function(it, S){
+	  if(!isObject(it))return it;
+	  var fn, val;
+	  if(S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+	  if(typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it)))return val;
+	  if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+	  throw TypeError("Can't convert object to primitive value");
+	};
+
+/***/ },
+/* 76 */
+/***/ function(module, exports) {
+
+	module.exports = function(bitmap, value){
+	  return {
+	    enumerable  : !(bitmap & 1),
+	    configurable: !(bitmap & 2),
+	    writable    : !(bitmap & 4),
+	    value       : value
+	  };
+	};
+
+/***/ },
+/* 77 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(67);
+
+/***/ },
+/* 78 */
+/***/ function(module, exports) {
+
+	var hasOwnProperty = {}.hasOwnProperty;
+	module.exports = function(it, key){
+	  return hasOwnProperty.call(it, key);
+	};
+
+/***/ },
+/* 79 */
+/***/ function(module, exports) {
+
+	module.exports = {};
+
+/***/ },
+/* 80 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var create         = __webpack_require__(81)
+	  , descriptor     = __webpack_require__(76)
+	  , setToStringTag = __webpack_require__(96)
+	  , IteratorPrototype = {};
+	
+	// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
+	__webpack_require__(67)(IteratorPrototype, __webpack_require__(97)('iterator'), function(){ return this; });
+	
+	module.exports = function(Constructor, NAME, next){
+	  Constructor.prototype = create(IteratorPrototype, {next: descriptor(1, next)});
+	  setToStringTag(Constructor, NAME + ' Iterator');
+	};
+
+/***/ },
+/* 81 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
+	var anObject    = __webpack_require__(69)
+	  , dPs         = __webpack_require__(82)
+	  , enumBugKeys = __webpack_require__(94)
+	  , IE_PROTO    = __webpack_require__(91)('IE_PROTO')
+	  , Empty       = function(){ /* empty */ }
+	  , PROTOTYPE   = 'prototype';
+	
+	// Create object with fake `null` prototype: use iframe Object with cleared prototype
+	var createDict = function(){
+	  // Thrash, waste and sodomy: IE GC bug
+	  var iframe = __webpack_require__(74)('iframe')
+	    , i      = enumBugKeys.length
+	    , gt     = '>'
+	    , iframeDocument;
+	  iframe.style.display = 'none';
+	  __webpack_require__(95).appendChild(iframe);
+	  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
+	  // createDict = iframe.contentWindow.Object;
+	  // html.removeChild(iframe);
+	  iframeDocument = iframe.contentWindow.document;
+	  iframeDocument.open();
+	  iframeDocument.write('<script>document.F=Object</script' + gt);
+	  iframeDocument.close();
+	  createDict = iframeDocument.F;
+	  while(i--)delete createDict[PROTOTYPE][enumBugKeys[i]];
+	  return createDict();
+	};
+	
+	module.exports = Object.create || function create(O, Properties){
+	  var result;
+	  if(O !== null){
+	    Empty[PROTOTYPE] = anObject(O);
+	    result = new Empty;
+	    Empty[PROTOTYPE] = null;
+	    // add "__proto__" for Object.getPrototypeOf polyfill
+	    result[IE_PROTO] = O;
+	  } else result = createDict();
+	  return Properties === undefined ? result : dPs(result, Properties);
+	};
+
+/***/ },
+/* 82 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var dP       = __webpack_require__(68)
+	  , anObject = __webpack_require__(69)
+	  , getKeys  = __webpack_require__(83);
+	
+	module.exports = __webpack_require__(72) ? Object.defineProperties : function defineProperties(O, Properties){
+	  anObject(O);
+	  var keys   = getKeys(Properties)
+	    , length = keys.length
+	    , i = 0
+	    , P;
+	  while(length > i)dP.f(O, P = keys[i++], Properties[P]);
+	  return O;
+	};
+
+/***/ },
+/* 83 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+	var $keys       = __webpack_require__(84)
+	  , enumBugKeys = __webpack_require__(94);
+	
+	module.exports = Object.keys || function keys(O){
+	  return $keys(O, enumBugKeys);
+	};
+
+/***/ },
+/* 84 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var has          = __webpack_require__(78)
+	  , toIObject    = __webpack_require__(85)
+	  , arrayIndexOf = __webpack_require__(88)(false)
+	  , IE_PROTO     = __webpack_require__(91)('IE_PROTO');
+	
+	module.exports = function(object, names){
+	  var O      = toIObject(object)
+	    , i      = 0
+	    , result = []
+	    , key;
+	  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
+	  // Don't enum bug & hidden keys
+	  while(names.length > i)if(has(O, key = names[i++])){
+	    ~arrayIndexOf(result, key) || result.push(key);
+	  }
+	  return result;
+	};
+
+/***/ },
+/* 85 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// to indexed object, toObject with fallback for non-array-like ES3 strings
+	var IObject = __webpack_require__(86)
+	  , defined = __webpack_require__(59);
+	module.exports = function(it){
+	  return IObject(defined(it));
+	};
+
+/***/ },
+/* 86 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// fallback for non-array-like ES3 and non-enumerable old V8 strings
+	var cof = __webpack_require__(87);
+	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
+	  return cof(it) == 'String' ? it.split('') : Object(it);
+	};
+
+/***/ },
+/* 87 */
+/***/ function(module, exports) {
+
+	var toString = {}.toString;
+	
+	module.exports = function(it){
+	  return toString.call(it).slice(8, -1);
+	};
+
+/***/ },
+/* 88 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// false -> Array#indexOf
+	// true  -> Array#includes
+	var toIObject = __webpack_require__(85)
+	  , toLength  = __webpack_require__(89)
+	  , toIndex   = __webpack_require__(90);
+	module.exports = function(IS_INCLUDES){
+	  return function($this, el, fromIndex){
+	    var O      = toIObject($this)
+	      , length = toLength(O.length)
+	      , index  = toIndex(fromIndex, length)
+	      , value;
+	    // Array#includes uses SameValueZero equality algorithm
+	    if(IS_INCLUDES && el != el)while(length > index){
+	      value = O[index++];
+	      if(value != value)return true;
+	    // Array#toIndex ignores holes, Array#includes - not
+	    } else for(;length > index; index++)if(IS_INCLUDES || index in O){
+	      if(O[index] === el)return IS_INCLUDES || index || 0;
+	    } return !IS_INCLUDES && -1;
+	  };
+	};
+
+/***/ },
+/* 89 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.15 ToLength
+	var toInteger = __webpack_require__(58)
+	  , min       = Math.min;
+	module.exports = function(it){
+	  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+	};
+
+/***/ },
+/* 90 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var toInteger = __webpack_require__(58)
+	  , max       = Math.max
+	  , min       = Math.min;
+	module.exports = function(index, length){
+	  index = toInteger(index);
+	  return index < 0 ? max(index + length, 0) : min(index, length);
+	};
+
+/***/ },
+/* 91 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var shared = __webpack_require__(92)('keys')
+	  , uid    = __webpack_require__(93);
+	module.exports = function(key){
+	  return shared[key] || (shared[key] = uid(key));
+	};
+
+/***/ },
+/* 92 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var global = __webpack_require__(63)
+	  , SHARED = '__core-js_shared__'
+	  , store  = global[SHARED] || (global[SHARED] = {});
+	module.exports = function(key){
+	  return store[key] || (store[key] = {});
+	};
+
+/***/ },
+/* 93 */
+/***/ function(module, exports) {
+
+	var id = 0
+	  , px = Math.random();
+	module.exports = function(key){
+	  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+	};
+
+/***/ },
+/* 94 */
+/***/ function(module, exports) {
+
+	// IE 8- don't enum bug keys
+	module.exports = (
+	  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+	).split(',');
+
+/***/ },
+/* 95 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(63).document && document.documentElement;
+
+/***/ },
+/* 96 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var def = __webpack_require__(68).f
+	  , has = __webpack_require__(78)
+	  , TAG = __webpack_require__(97)('toStringTag');
+	
+	module.exports = function(it, tag, stat){
+	  if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
+	};
+
+/***/ },
+/* 97 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var store      = __webpack_require__(92)('wks')
+	  , uid        = __webpack_require__(93)
+	  , Symbol     = __webpack_require__(63).Symbol
+	  , USE_SYMBOL = typeof Symbol == 'function';
+	
+	var $exports = module.exports = function(name){
+	  return store[name] || (store[name] =
+	    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
+	};
+	
+	$exports.store = store;
+
+/***/ },
+/* 98 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
+	var has         = __webpack_require__(78)
+	  , toObject    = __webpack_require__(99)
+	  , IE_PROTO    = __webpack_require__(91)('IE_PROTO')
+	  , ObjectProto = Object.prototype;
+	
+	module.exports = Object.getPrototypeOf || function(O){
+	  O = toObject(O);
+	  if(has(O, IE_PROTO))return O[IE_PROTO];
+	  if(typeof O.constructor == 'function' && O instanceof O.constructor){
+	    return O.constructor.prototype;
+	  } return O instanceof Object ? ObjectProto : null;
+	};
+
+/***/ },
+/* 99 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.13 ToObject(argument)
+	var defined = __webpack_require__(59);
+	module.exports = function(it){
+	  return Object(defined(it));
+	};
+
+/***/ },
+/* 100 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var ctx            = __webpack_require__(65)
+	  , $export        = __webpack_require__(62)
+	  , toObject       = __webpack_require__(99)
+	  , call           = __webpack_require__(101)
+	  , isArrayIter    = __webpack_require__(102)
+	  , toLength       = __webpack_require__(89)
+	  , createProperty = __webpack_require__(103)
+	  , getIterFn      = __webpack_require__(104);
+	
+	$export($export.S + $export.F * !__webpack_require__(106)(function(iter){ Array.from(iter); }), 'Array', {
+	  // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
+	  from: function from(arrayLike/*, mapfn = undefined, thisArg = undefined*/){
+	    var O       = toObject(arrayLike)
+	      , C       = typeof this == 'function' ? this : Array
+	      , aLen    = arguments.length
+	      , mapfn   = aLen > 1 ? arguments[1] : undefined
+	      , mapping = mapfn !== undefined
+	      , index   = 0
+	      , iterFn  = getIterFn(O)
+	      , length, result, step, iterator;
+	    if(mapping)mapfn = ctx(mapfn, aLen > 2 ? arguments[2] : undefined, 2);
+	    // if object isn't iterable or it's array with default iterator - use simple case
+	    if(iterFn != undefined && !(C == Array && isArrayIter(iterFn))){
+	      for(iterator = iterFn.call(O), result = new C; !(step = iterator.next()).done; index++){
+	        createProperty(result, index, mapping ? call(iterator, mapfn, [step.value, index], true) : step.value);
+	      }
+	    } else {
+	      length = toLength(O.length);
+	      for(result = new C(length); length > index; index++){
+	        createProperty(result, index, mapping ? mapfn(O[index], index) : O[index]);
+	      }
+	    }
+	    result.length = index;
+	    return result;
+	  }
+	});
+
+
+/***/ },
+/* 101 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// call something on iterator step with safe closing on error
+	var anObject = __webpack_require__(69);
+	module.exports = function(iterator, fn, value, entries){
+	  try {
+	    return entries ? fn(anObject(value)[0], value[1]) : fn(value);
+	  // 7.4.6 IteratorClose(iterator, completion)
+	  } catch(e){
+	    var ret = iterator['return'];
+	    if(ret !== undefined)anObject(ret.call(iterator));
+	    throw e;
+	  }
+	};
+
+/***/ },
+/* 102 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// check on default Array iterator
+	var Iterators  = __webpack_require__(79)
+	  , ITERATOR   = __webpack_require__(97)('iterator')
+	  , ArrayProto = Array.prototype;
+	
+	module.exports = function(it){
+	  return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
+	};
+
+/***/ },
+/* 103 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var $defineProperty = __webpack_require__(68)
+	  , createDesc      = __webpack_require__(76);
+	
+	module.exports = function(object, index, value){
+	  if(index in object)$defineProperty.f(object, index, createDesc(0, value));
+	  else object[index] = value;
+	};
+
+/***/ },
+/* 104 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var classof   = __webpack_require__(105)
+	  , ITERATOR  = __webpack_require__(97)('iterator')
+	  , Iterators = __webpack_require__(79);
+	module.exports = __webpack_require__(64).getIteratorMethod = function(it){
+	  if(it != undefined)return it[ITERATOR]
+	    || it['@@iterator']
+	    || Iterators[classof(it)];
+	};
+
+/***/ },
+/* 105 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// getting tag from 19.1.3.6 Object.prototype.toString()
+	var cof = __webpack_require__(87)
+	  , TAG = __webpack_require__(97)('toStringTag')
+	  // ES3 wrong here
+	  , ARG = cof(function(){ return arguments; }()) == 'Arguments';
+	
+	// fallback for IE11 Script Access Denied error
+	var tryGet = function(it, key){
+	  try {
+	    return it[key];
+	  } catch(e){ /* empty */ }
+	};
+	
+	module.exports = function(it){
+	  var O, T, B;
+	  return it === undefined ? 'Undefined' : it === null ? 'Null'
+	    // @@toStringTag case
+	    : typeof (T = tryGet(O = Object(it), TAG)) == 'string' ? T
+	    // builtinTag case
+	    : ARG ? cof(O)
+	    // ES3 arguments fallback
+	    : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
+	};
+
+/***/ },
+/* 106 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var ITERATOR     = __webpack_require__(97)('iterator')
+	  , SAFE_CLOSING = false;
+	
+	try {
+	  var riter = [7][ITERATOR]();
+	  riter['return'] = function(){ SAFE_CLOSING = true; };
+	  Array.from(riter, function(){ throw 2; });
+	} catch(e){ /* empty */ }
+	
+	module.exports = function(exec, skipClosing){
+	  if(!skipClosing && !SAFE_CLOSING)return false;
+	  var safe = false;
+	  try {
+	    var arr  = [7]
+	      , iter = arr[ITERATOR]();
+	    iter.next = function(){ return {done: safe = true}; };
+	    arr[ITERATOR] = function(){ return iter; };
+	    exec(arr);
+	  } catch(e){ /* empty */ }
+	  return safe;
+	};
+
+/***/ },
+/* 107 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-4b6e4443=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-4b6e4443=\"\">\n    <indicator :indicator.sync=\"indicator\" :active-index.sync=\"activeIndex\" :is-animating.sync=\"isAnimating\" _v-4b6e4443=\"\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-4b6e4443=\"\">\n    <slot _v-4b6e4443=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <div v-show=\"controls\" class=\"carousel-controls hidden-xs\" _v-4b6e4443=\"\">\n    <a class=\"left carousel-control\" role=\"button\" @click=\"prevClick\" _v-4b6e4443=\"\">\n      <span class=\"fa fa-arrow-left\" aria-hidden=\"true\" _v-4b6e4443=\"\"></span>\n    </a>\n    <a class=\"right carousel-control\" role=\"button\" @click=\"nextClick\" _v-4b6e4443=\"\">\n      <span class=\"fa fa-arrow-right\" aria-hidden=\"true\" _v-4b6e4443=\"\"></span>\n    </a>\n  </div>\n</div>";
+
+/***/ },
+/* 108 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(109)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(115)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(110)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -2906,7 +2767,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 114 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2915,7 +2776,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _coerceBoolean = __webpack_require__(31);
+	var _coerceBoolean = __webpack_require__(28);
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
@@ -2993,20 +2854,86 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 115 */
+/* 110 */
 /***/ function(module, exports) {
 
-	module.exports = "<label class=\"btn\"\r\n  v-bind:class=\"{\r\n    'active':checked,\r\n    'btn-success':type == 'success',\r\n    'btn-warning':type == 'warning',\r\n    'btn-info':type == 'info',\r\n    'btn-danger':type == 'danger',\r\n    'btn-default':type == 'default',\r\n    'btn-primary':type == 'primary'\r\n  }\">\r\n\r\n    <input type=\"checkbox\" autocomplete=\"off\"\r\n    :checked=\"checked\"\r\n    @click=\"handleClick\"\r\n    />\r\n\r\n    <slot></slot>\r\n  </label>";
+	module.exports = "<label class=\"btn\"\r\n  v-bind:class=\"{\r\n    'active':checked,\r\n    'btn-success':type == 'success',\r\n    'btn-warning':type == 'warning',\r\n    'btn-info':type == 'info',\r\n    'btn-danger':type == 'danger',\r\n    'btn-default':type == 'default',\r\n    'btn-primary':type == 'primary'\r\n  }\">\r\n    <input type=\"checkbox\" autocomplete=\"off\"\r\n    :checked=\"checked\"\r\n    @click=\"handleClick\"\r\n    />\r\n    <slot></slot>\r\n  </label>";
 
 /***/ },
-/* 116 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(117)
-	module.exports = __webpack_require__(119)
+	module.exports = __webpack_require__(112)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(121)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(113)
+	if (false) {
+	(function () {
+	var hotAPI = require("vue-hot-reload-api")
+	hotAPI.install(require("vue"))
+	if (!hotAPI.compatible) return
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxGroup.vue"
+	hotAPI.createRecord(id, module.exports)
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxGroup.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./checkboxGroup.vue"], function () {
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./checkboxGroup.vue")
+	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./checkboxGroup.vue")
+	hotAPI.update(id, newOptions, newTemplate)
+	})
+	})()
+	}
+
+/***/ },
+/* 112 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <template>
+	
+	//   <div class="btn-group" data-toggle="buttons">
+	
+	//     <slot></slot>
+	
+	//   </div>
+	
+	// </template>
+	
+	// <script>
+	exports.default = {
+	  props: {
+	    value: {
+	      type: Array,
+	      default: function _default() {
+	        return [];
+	      }
+	    },
+	    type: {
+	      type: String,
+	      default: 'default'
+	    }
+	  }
+	};
+	// </script>
+
+/***/ },
+/* 113 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"btn-group\" data-toggle=\"buttons\">\r\n    <slot></slot>\r\n  </div>";
+
+/***/ },
+/* 114 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(115)
+	module.exports = __webpack_require__(117)
+	
+	if (module.exports.__esModule) module.exports = module.exports.default
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(119)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -3024,16 +2951,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 117 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(118);
+	var content = __webpack_require__(116);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
+	var update = __webpack_require__(34)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -3050,10 +2977,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 118 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(28)();
+	exports = module.exports = __webpack_require__(33)();
 	// imports
 	
 	
@@ -3064,7 +2991,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 119 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3073,11 +3000,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _EventListener = __webpack_require__(91);
+	var _EventListener = __webpack_require__(36);
 	
 	var _EventListener2 = _interopRequireDefault(_EventListener);
 	
-	var _translations = __webpack_require__(120);
+	var _translations = __webpack_require__(118);
 	
 	var _translations2 = _interopRequireDefault(_translations);
 	
@@ -3388,7 +3315,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return format.replace(/yyyy/g, year).replace(/MMMM/g, monthName).replace(/MMM/g, monthName.substring(0, 3)).replace(/MM/g, ('0' + month).slice(-2)).replace(/dd/g, ('0' + day).slice(-2)).replace(/yy/g, year).replace(/M(?!a)/g, month).replace(/d/g, day);
 	    },
 	    parse: function parse(str) {
-	      if (str.length == 10 && (this.format == 'dd-MM-yyyy' || this.format == 'dd/MM/yyyy')) {
+	      if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {
 	        str = str.substring(3, 5) + '-' + str.substring(0, 2) + '-' + str.substring(6, 10);
 	      }
 	      var date = new Date(str);
@@ -3396,14 +3323,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    getDayCount: function getDayCount(year, month) {
 	      var dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-	
 	      if (month === 1) {
 	        if (year % 400 === 0 || year % 4 === 0 && year % 100 !== 0) {
 	          return 29;
 	        }
-	        return 28;
 	      }
-	
 	      return dict[month];
 	    },
 	    getDateRange: function getDateRange() {
@@ -3450,7 +3374,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _this2.disabledDaysOfWeek.forEach(function (el) {
 	          if (week === parseInt(el, 10)) sclass = 'datepicker-item-disable';
 	        });
-	
 	        if (_i2 === time.day) {
 	          if (_this2.value) {
 	            var valueDate = _this2.parse(_this2.value);
@@ -3724,7 +3647,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </style>
 
 /***/ },
-/* 120 */
+/* 118 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3734,6 +3657,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	// return all the translations
 	var text = {
+	  daysOfWeek: {
+	    en: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+	    es: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+	  },
 	  limit: {
 	    en: 'Limit reached ({{limit}} items max).',
 	    es: 'Limite alcanzado (máximo {{limit}} items).'
@@ -3742,21 +3669,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	    en: 'Loading...',
 	    es: 'Cargando...'
 	  },
-	  search: {
-	    en: 'Search',
-	    es: 'Buscar'
+	  minLength: {
+	    en: 'Min. Length',
+	    es: 'Tamaño Mínimo'
+	  },
+	  months: {
+	    en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+	    es: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 	  },
 	  notSelected: {
 	    en: 'Nothing Selected',
 	    es: 'Nada seleccionado'
 	  },
-	  daysOfWeek: {
-	    en: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-	    es: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+	  required: {
+	    en: 'Required',
+	    es: 'Requerido'
 	  },
-	  months: {
-	    en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-	    es: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+	  search: {
+	    en: 'Search',
+	    es: 'Buscar'
 	  }
 	};
 	
@@ -3771,20 +3702,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 121 */
+/* 119 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"datepicker\">\r\n    <input class=\"form-control datepicker-input\" :class=\"{'with-reset-button': showResetButton}\" type=\"text\"\r\n        :style=\"{width:width}\"\r\n        @click=\"inputClick\"\r\n        v-model=\"value\"/>\r\n    <button v-if=\"showResetButton\" type=\"button\" class=\"close\" @click=\"value = ''\">\r\n      <span>&times;</span>\r\n    </button>\r\n    <div class=\"datepicker-popup\" v-show=\"displayDayView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"month-btn datepicker-preBtn\" @click=\"preNextMonthClick(0)\">&lt;</span>\r\n            <span class=\"month-btn datepicker-nextBtn\" @click=\"preNextMonthClick(1)\">&gt;</span>\r\n            <p @click=\"switchMonthView\">{{stringifyDayHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-weekRange\">\r\n            <span v-for=\"w in text.daysOfWeek\">{{w}}</span>\r\n          </div>\r\n          <div class=\"datepicker-dateRange\">\r\n            <span v-for=\"d in dateRange\" v-bind:class=\"d.sclass\" @click=\"daySelect(d.date,this)\">{{d.text}}</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayMonthView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"month-btn datepicker-preBtn\" @click=\"preNextYearClick(0)\">&lt;</span>\r\n            <span class=\"month-btn datepicker-nextBtn\" @click=\"preNextYearClick(1)\">&gt;</span>\r\n            <p @click=\"switchDecadeView\">{{stringifyYearHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange\">\r\n            <template v-for=\"m in text.months\">\r\n              <span   v-bind:class=\"{'datepicker-dateRange-item-active':\r\n                  (this.text.months[this.parse(this.value).getMonth()]  === m) &&\r\n                  this.currDate.getFullYear() === this.parse(this.value).getFullYear()}\"\r\n                  @click=\"monthSelect($index)\"\r\n                >{{m.substr(0,3)}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayYearView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"month-btn datepicker-preBtn\" @click=\"preNextDecadeClick(0)\">&lt;</span>\r\n            <span class=\"month-btn datepicker-nextBtn\" @click=\"preNextDecadeClick(1)\">&gt;</span>\r\n            <p>{{stringifyDecadeHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange decadeRange\">\r\n            <template v-for=\"decade in decadeRange\">\r\n              <span v-bind:class=\"{'datepicker-dateRange-item-active':\r\n                  this.parse(this.value).getFullYear() === decade.text}\"\r\n                  @click.stop=\"yearSelect(decade.text)\"\r\n                >{{decade.text}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 122 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(123)
-	module.exports = __webpack_require__(125)
+	__webpack_require__(121)
+	module.exports = __webpack_require__(123)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(126)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(124)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -3802,16 +3733,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 123 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(124);
+	var content = __webpack_require__(122);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
+	var update = __webpack_require__(34)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -3828,10 +3759,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 124 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(28)();
+	exports = module.exports = __webpack_require__(33)();
 	// imports
 	
 	
@@ -3842,7 +3773,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 125 */
+/* 123 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3962,7 +3893,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var _this = this;
 	
 	      timeout.hide = setTimeout(function () {
-	        return timeout.hide = _this.show = false;
+	        timeout.hide = false;
+	        _this.show = false;
 	      }, 100);
 	    },
 	    unblur: function unblur() {
@@ -3991,7 +3923,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    var el = this.$els.dropdown;
 	    el.querySelector('ul.dropdown-menu').addEventListener('click', function (e) {
-	      if (e.target.nodeName.toLowerCase() == 'a') _this2.toggleDropdown();
+	      if (e.target.nodeName.toLowerCase() === 'a') _this2.toggleDropdown();
 	    });
 	    if (!this.text) {
 	      var toggle = el.querySelector('[data-toggle="dropdown"]');
@@ -4029,20 +3961,306 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </style>
 
 /***/ },
-/* 126 */
+/* 124 */
 /***/ function(module, exports) {
 
 	module.exports = "<li v-if=\"$parent.navbar||$parent.menu\" v-el:dropdown=\"\" class=\"dropdown\" :class=\"{open: show}\" @click=\"show ? blur() : toggleDropdown()\" _v-52fe6674=\"\">\n      <a v-if=\"text\" v-el:btn=\"\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" _v-52fe6674=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-52fe6674=\"\"></span>\n      </a>\n      <button type=\"button\" class=\"secret\" v-el:btn=\"\" @blur=\"blur()\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-52fe6674=\"\"></button>\n      <slot v-else=\"\" name=\"button\" _v-52fe6674=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-52fe6674=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" @click=\"unblur\" _v-52fe6674=\"\">\n      <slot _v-52fe6674=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"{open: show}\" @click=\"unblur\" _v-52fe6674=\"\">\n      <button v-if=\"text\" v-el:btn=\"\" type=\"button\" class=\"btn btn-{{type||'default'}} dropdown-toggle\" @click=\"toggleDropdown()\" @blur=\"blur()\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-52fe6674=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-52fe6674=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-52fe6674=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-52fe6674=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" @click=\"unblur\" _v-52fe6674=\"\">\n      <slot _v-52fe6674=\"\"></slot>\n    </ul>\n  </div>";
 
 /***/ },
-/* 127 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(128)
-	module.exports = __webpack_require__(130)
+	module.exports = __webpack_require__(126)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(135)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(128)
+	if (false) {
+	(function () {
+	var hotAPI = require("vue-hot-reload-api")
+	hotAPI.install(require("vue"))
+	if (!hotAPI.compatible) return
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Input.vue"
+	hotAPI.createRecord(id, module.exports)
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Input.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Input.vue"], function () {
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Input.vue")
+	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Input.vue")
+	hotAPI.update(id, newOptions, newTemplate)
+	})
+	})()
+	}
+
+/***/ },
+/* 126 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _coerceBoolean = __webpack_require__(28);
+	
+	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
+	
+	var _coerceNumber = __webpack_require__(127);
+	
+	var _coerceNumber2 = _interopRequireDefault(_coerceNumber);
+	
+	var _translations = __webpack_require__(118);
+	
+	var _translations2 = _interopRequireDefault(_translations);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  props: {
+	    value: {
+	      twoWay: true,
+	      type: String,
+	      default: ''
+	    },
+	    match: {
+	      type: String,
+	      default: null
+	    },
+	    disabled: {
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: false
+	    },
+	    enterSubmit: {
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: false
+	    },
+	    error: {
+	      type: String,
+	      default: null
+	    },
+	    help: {
+	      type: String,
+	      default: null
+	    },
+	    hideHelp: { // hide when have error
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: true
+	    },
+	    icon: {
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: false
+	    },
+	    label: {
+	      type: String,
+	      default: null
+	    },
+	    lang: {
+	      type: String,
+	      default: navigator.language
+	    },
+	    mask: null,
+	    maxlength: {
+	      type: Number,
+	      coerce: _coerceNumber2.default,
+	      default: null
+	    },
+	    minlength: {
+	      type: Number,
+	      coerce: _coerceNumber2.default,
+	      default: 0
+	    },
+	    name: {
+	      type: String,
+	      default: null
+	    },
+	    pattern: null,
+	    placeholder: {
+	      type: String,
+	      default: null
+	    },
+	    required: {
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: false
+	    },
+	    type: {
+	      type: String,
+	      default: 'text'
+	    },
+	    validationDelay: {
+	      type: Number,
+	      coerce: _coerceNumber2.default,
+	      default: 250
+	    }
+	  },
+	  data: function data() {
+	    return {
+	      valid: null,
+	      timeout: null
+	    };
+	  },
+	
+	  computed: {
+	    slots: function slots() {
+	      return this._slotContents || {};
+	    },
+	    bsForm: function bsForm() {
+	      return true;
+	    },
+	    input: function input() {
+	      return true;
+	    },
+	    text: function text() {
+	      return (0, _translations2.default)(this.lang);
+	    },
+	    showHelp: function showHelp() {
+	      return this.help && (!this.showError || !this.hideHelp);
+	    },
+	    showError: function showError() {
+	      return this.error && this.valid === false;
+	    },
+	    errorText: function errorText() {
+	      var value = this.value;
+	      var error = [this.error];
+	      if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')');
+	      if (value && value.length < this.minlength) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')');
+	      // if (valid && this.match && this.match !== valid) { return false }
+	      return error.join(' ');
+	    }
+	  },
+	  watch: {
+	    match: function match(val) {
+	      this.eval();
+	    },
+	    valid: function valid(val) {
+	      if (this.$parent.eval) {
+	        this.$parent.eval();
+	      }
+	    }
+	  },
+	  methods: {
+	    focus: function focus() {
+	      this.$els.input.focus();
+	    },
+	    eval: function _eval() {
+	      var _this = this;
+	
+	      var value = this.value || '';
+	      if (this.mask instanceof Function) value = this.mask(value);
+	      if (this.value !== value) this.value = value;
+	      if (this.timeout) clearTimeout(this.timeout);
+	      this.timeout = setTimeout(function () {
+	        _this.valid = _this.validate();
+	        _this.timeout = null;
+	      }, (0, _coerceNumber2.default)(this.validationDelay, 250));
+	    },
+	    validate: function validate() {
+	      var value = (this.value || '').trim();
+	      if (!value) {
+	        return !this.required;
+	      }
+	      if (this.match !== null && this.match !== value) {
+	        return false;
+	      }
+	      if (value.length < this.minlength) {
+	        return false;
+	      }
+	      var valid = true;
+	      if (this.pattern instanceof Function) valid = this.pattern(this.value);
+	      if (typeof this.pattern === 'string') {
+	        var regex = new RegExp(this.pattern);
+	        valid = regex.test(this.value);
+	      }
+	      return valid;
+	    },
+	    toggleEvents: function toggleEvents(enable) {
+	      var _this2 = this;
+	
+	      if (!enable) {
+	        this.valid = this.validate();
+	      }
+	      ['change', 'keypress', 'keydown', 'keyup'].forEach(function (event) {
+	        enable ? _this2.$els.input.addEventListener(event, _this2.eval) : _this2.$els.input.removeEventListener(event, _this2.eval);
+	      });
+	    }
+	  }
+	};
+	// </script>
+
+	// <!-- Add "scoped" attribute to limit CSS to this component only -->
+	// <!-- <style scoped></style> -->
+	// <template>
+	//   <div class="form-group has-feedback" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}">
+	//     <label v-if="label" class="control-label">{{label}}</label>
+	//     <div v-if="slots.before||slots.after" class="input-group">
+	//       <slot name="before"></slot>
+	//       <input v-else class="form-control" v-el:input v-model="value"
+	//         :name="name"
+	//         :type="type"
+	//         :required="required"
+	//         :disabled="disabled"
+	//         :minlength="minlength"
+	//         :maxlength="maxlength"
+	//         :placeholder="placeholder"
+	//         @focus="toggleEvents(true)"
+	//         @blur="toggleEvents(false)"
+	//       />
+	//       <slot name="after"></slot>
+	//     </div>
+	//     <input v-else class="form-control" v-el:input v-model="value"
+	//       :name="name"
+	//       :type="type"
+	//       :required="required"
+	//       :disabled="disabled"
+	//       :minlength="minlength"
+	//       :maxlength="maxlength"
+	//       :placeholder="placeholder"
+	//       @focus="toggleEvents(true)"
+	//       @blur="toggleEvents(false)"
+	//     />
+	//     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
+	//     <div v-if="showHelp" class="help-block">{{help}}</div>
+	//     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
+	//   </div>
+	// </template>
+
+	// <script>
+
+/***/ },
+/* 127 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// Attempt to convert a string value to a Number.
+	// Otherwise, return 0.
+	
+	exports.default = function (val) {
+	  var alt = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+	  return typeof val === 'number' ? val : val === undefined || val === null || isNaN(Number(val)) ? alt : Number(val);
+	};
+
+/***/ },
+/* 128 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"form-group has-feedback\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}\">\n    <label v-if=\"label\" class=\"control-label\">{{label}}</label>\n    <div v-if=\"slots.before||slots.after\" class=\"input-group\">\n      <slot name=\"before\"></slot>\n      <input v-else class=\"form-control\" v-el:input v-model=\"value\"\n        :name=\"name\"\n        :type=\"type\"\n        :required=\"required\"\n        :disabled=\"disabled\"\n        :minlength=\"minlength\"\n        :maxlength=\"maxlength\"\n        :placeholder=\"placeholder\"\n        @focus=\"toggleEvents(true)\"\n        @blur=\"toggleEvents(false)\"\n      />\n      <slot name=\"after\"></slot>\n    </div>\n    <input v-else class=\"form-control\" v-el:input v-model=\"value\"\n      :name=\"name\"\n      :type=\"type\"\n      :required=\"required\"\n      :disabled=\"disabled\"\n      :minlength=\"minlength\"\n      :maxlength=\"maxlength\"\n      :placeholder=\"placeholder\"\n      @focus=\"toggleEvents(true)\"\n      @blur=\"toggleEvents(false)\"\n    />\n    <span v-if=\"icon&&valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\">{{errorText}}</div>\n  </div>";
+
+/***/ },
+/* 129 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(130)
+	module.exports = __webpack_require__(132)
+	
+	if (module.exports.__esModule) module.exports = module.exports.default
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(137)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -4060,16 +4278,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 128 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(129);
+	var content = __webpack_require__(131);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
+	var update = __webpack_require__(34)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -4086,10 +4304,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 129 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(28)();
+	exports = module.exports = __webpack_require__(33)();
 	// imports
 	
 	
@@ -4100,7 +4318,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 130 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4109,19 +4327,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _isInteger = __webpack_require__(131);
+	var _isInteger = __webpack_require__(133);
 	
 	var _isInteger2 = _interopRequireDefault(_isInteger);
 	
-	var _getScrollBarWidth = __webpack_require__(108);
+	var _getScrollBarWidth = __webpack_require__(47);
 	
 	var _getScrollBarWidth2 = _interopRequireDefault(_getScrollBarWidth);
 	
-	var _EventListener = __webpack_require__(91);
+	var _EventListener = __webpack_require__(36);
 	
 	var _EventListener2 = _interopRequireDefault(_EventListener);
 	
-	var _coerceBoolean = __webpack_require__(31);
+	var _coerceBoolean = __webpack_require__(28);
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
@@ -4213,7 +4431,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (this.width === null) {
 	        return null;
 	      } else if ((0, _isInteger2.default)(this.width)) {
-	        return this.width + "px";
+	        return this.width + 'px';
 	      }
 	      return this.width;
 	    }
@@ -4352,53 +4570,240 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 131 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(132), __esModule: true };
-
-/***/ },
-/* 132 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(133);
-	module.exports = __webpack_require__(48).Number.isInteger;
-
-/***/ },
 /* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// 20.1.2.3 Number.isInteger(number)
-	var $export = __webpack_require__(46);
-	
-	$export($export.S, 'Number', {isInteger: __webpack_require__(134)});
+	module.exports = { "default": __webpack_require__(134), __esModule: true };
 
 /***/ },
 /* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
+	__webpack_require__(135);
+	module.exports = __webpack_require__(64).Number.isInteger;
+
+/***/ },
+/* 135 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// 20.1.2.3 Number.isInteger(number)
-	var isObject = __webpack_require__(54)
+	var $export = __webpack_require__(62);
+	
+	$export($export.S, 'Number', {isInteger: __webpack_require__(136)});
+
+/***/ },
+/* 136 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 20.1.2.3 Number.isInteger(number)
+	var isObject = __webpack_require__(70)
 	  , floor    = Math.floor;
 	module.exports = function isInteger(it){
 	  return !isObject(it) && isFinite(it) && floor(it) === it;
 	};
 
 /***/ },
-/* 135 */
+/* 137 */
 /***/ function(module, exports) {
 
 	module.exports = "<div role=\"dialog\"\r\n    v-bind:class=\"{\r\n    'modal':true,\r\n    'fade':effect === 'fade',\r\n    'zoom':effect === 'zoom'\r\n    }\"\r\n    >\r\n    <div v-bind:class=\"{'modal-dialog':true,'modal-lg':large,'modal-sm':small}\" role=\"document\"\r\n      v-bind:style=\"{width: optionalWidth}\">\r\n      <div class=\"modal-content\">\r\n        <slot name=\"modal-header\">\r\n          <div class=\"modal-header\">\r\n            <button type=\"button\" class=\"close\" @click=\"close\"><span>&times;</span></button>\r\n            <h4 class=\"modal-title\" > \r\n              <slot name=\"title\">\r\n                {{title}}\r\n              </slot>\r\n            </h4>\r\n          </div>\r\n        </slot>\r\n        <slot name=\"modal-body\">\r\n          <div class=\"modal-body\"></div>\r\n        </slot>\r\n        <slot name=\"modal-footer\">\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" @click=\"close\">{{ cancelText }}</button>\r\n            <button type=\"button\" class=\"btn btn-primary\" @click=\"callback\">{{ okText }}</button>\r\n          </div>\r\n        </slot>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 136 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(137)
 	module.exports = __webpack_require__(139)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
 	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(140)
+	if (false) {
+	(function () {
+	var hotAPI = require("vue-hot-reload-api")
+	hotAPI.install(require("vue"))
+	if (!hotAPI.compatible) return
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Navbar.vue"
+	hotAPI.createRecord(id, module.exports)
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Navbar.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Navbar.vue"], function () {
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Navbar.vue")
+	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Navbar.vue")
+	hotAPI.update(id, newOptions, newTemplate)
+	})
+	})()
+	}
+
+/***/ },
+/* 139 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _EventListener = __webpack_require__(36);
+	
+	var _EventListener2 = _interopRequireDefault(_EventListener);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  props: {
+	    type: {
+	      type: String,
+	      default: 'default'
+	    },
+	    placement: {
+	      type: String,
+	      default: 'top'
+	    }
+	  },
+	  data: function data() {
+	    return {
+	      id: 'bs-example-navbar-collapse-1',
+	      styles: {}
+	    };
+	  },
+	
+	  computed: {
+	    navbar: function navbar() {
+	      return true;
+	    }
+	  },
+	  methods: {
+	    toggleCollapse: function toggleCollapse(e) {
+	      e.preventDefault();
+	
+	      // collapse data-target
+	      var tmp = this.$el.querySelector('[data-target]');
+	      var id = tmp.getAttribute('data-target');
+	      var o = document.getElementById(id.substring(1));
+	      o.classList.toggle('collapse');
+	    }
+	  },
+	  ready: function ready() {
+	    var _this = this;
+	
+	    var dropdowns = document.querySelector('.dropdown > .dropdown-toggle');
+	    var toggle = this.$el.querySelector('[data-toggle="collapse"]');
+	    if (dropdowns) {
+	      // Al hacer click en un dropdown
+	      dropdowns.addEventListener('click', function (e) {
+	        e.preventDefault();
+	        var dropDown = e.target.offsetParent.classList.add('open');
+	        var dropDownItems = dropDown.target.nextElementSibling.children;
+	
+	        // Al hacer click en un elemento del dropdown
+	        if (dropDownItems) {
+	          for (var i = 0; i < dropDownItems.length; i++) {
+	            dropDownItems[i].addEventListener('click', function () {
+	              dropDown.target.offsetParent.classList.remove('open');
+	            });
+	          }
+	        }
+	
+	        // dropdowns.addEventListener('focusout',function(){
+	        //   dropDown.target.offsetParent.classList.remove('open')
+	        // });
+	      });
+	    }
+	    if (toggle) {
+	      toggle.style.borderRadius = '4px';
+	      toggle.addEventListener('click', this.toggleCollapse);
+	    }
+	    this._closeEvent = _EventListener2.default.listen(window, 'click', function (e) {
+	      if (!_this.$el.contains(e.target)) {
+	        _this.$el.classList.remove('open');
+	      }
+	    });
+	  },
+	  beforeDestroy: function beforeDestroy() {
+	    if (this._closeEvent) {
+	      this._closeEvent.remove();
+	    }
+	  }
+	};
+	// </script>
+	// <template>
+
+	//   <nav class="navbar" :class="{
+
+	//         'navbar-inverse':(type == 'inverse'),
+
+	//         'navbar-default':(type == 'default'),
+
+	//         'navbar-fixed-top':      (placement === 'top'),
+
+	//         'navbar-fixed-bottom':  (placement === 'bottom'),
+
+	//         'navbar-static-top':  (placement === 'static')
+
+	//       }">
+
+	//      <div class="container-fluid">
+
+	//        <!-- Brand and toggle get grouped for better mobile display -->
+
+	//        <div class="navbar-header">
+
+	//          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#{{ id }}" aria-expanded="false">
+
+	//            <span class="sr-only">Toggle navigation</span>
+
+	//            <span class="icon-bar"></span>
+
+	//            <span class="icon-bar"></span>
+
+	//            <span class="icon-bar"></span>
+
+	//          </button>
+
+	//          <slot name="brand"></slot>
+
+	//        </div>
+
+	//        <!-- Collect the nav links, forms, and other content for toggling -->
+
+	//        <div class="collapse navbar-collapse" id="{{ id }}">
+
+	//         <ul class="nav navbar-nav">
+
+	//           <slot></slot>
+
+	//         </ul>
+
+	//         <ul class="nav navbar-nav navbar-right">
+
+	//           <slot name="right"></slot>
+
+	//         </ul>
+
+	//       </div>
+
+	//     </div><!-- /.container-fluid -->
+
+	//   </nav>
+
+	// </template>
+
+	// <script>
+
+/***/ },
+/* 140 */
+/***/ function(module, exports) {
+
+	module.exports = "<nav class=\"navbar\" :class=\"{\r\n        'navbar-inverse':(type == 'inverse'),\r\n        'navbar-default':(type == 'default'),\r\n        'navbar-fixed-top':      (placement === 'top'),\r\n        'navbar-fixed-bottom':  (placement === 'bottom'),\r\n        'navbar-static-top':  (placement === 'static')\r\n      }\">\r\n     <div class=\"container-fluid\">\r\n       <!-- Brand and toggle get grouped for better mobile display -->\r\n       <div class=\"navbar-header\">\r\n         <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#{{ id }}\" aria-expanded=\"false\">\r\n           <span class=\"sr-only\">Toggle navigation</span>\r\n           <span class=\"icon-bar\"></span>\r\n           <span class=\"icon-bar\"></span>\r\n           <span class=\"icon-bar\"></span>\r\n         </button>\r\n         <slot name=\"brand\"></slot>\r\n       </div>\r\n\r\n       <!-- Collect the nav links, forms, and other content for toggling -->\r\n       <div class=\"collapse navbar-collapse\" id=\"{{ id }}\">\r\n        <ul class=\"nav navbar-nav\">\r\n          <slot></slot>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <slot name=\"right\"></slot>\r\n        </ul>\r\n      </div>\r\n    </div><!-- /.container-fluid -->\r\n  </nav>";
+
+/***/ },
+/* 141 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(142)
+	module.exports = __webpack_require__(144)
+	
+	if (module.exports.__esModule) module.exports = module.exports.default
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(145)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -4416,16 +4821,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 137 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(138);
+	var content = __webpack_require__(143);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
+	var update = __webpack_require__(34)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -4442,10 +4847,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 138 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(28)();
+	exports = module.exports = __webpack_require__(33)();
 	// imports
 	
 	
@@ -4456,7 +4861,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 139 */
+/* 144 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -4530,20 +4935,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </style>
 
 /***/ },
-/* 140 */
+/* 145 */
 /***/ function(module, exports) {
 
 	module.exports = "<li style=\"position:relative\" _v-57eb20d0=\"\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\" _v-57eb20d0=\"\">\n      <span v-el:v=\"\" _v-57eb20d0=\"\"><slot _v-57eb20d0=\"\"></slot></span>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\" _v-57eb20d0=\"\"></span>\n    </a>\n  </li>";
 
 /***/ },
-/* 141 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(142)
-	module.exports = __webpack_require__(144)
+	__webpack_require__(147)
+	module.exports = __webpack_require__(149)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(145)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(150)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -4561,16 +4966,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 142 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(143);
+	var content = __webpack_require__(148);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
+	var update = __webpack_require__(34)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -4587,10 +4992,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 143 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(28)();
+	exports = module.exports = __webpack_require__(33)();
 	// imports
 	
 	
@@ -4601,7 +5006,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 144 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4610,7 +5015,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _coerceBoolean = __webpack_require__(31);
+	var _coerceBoolean = __webpack_require__(28);
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
@@ -4628,7 +5033,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  methods: {
-	    toggleIsOpen: function toggleIsOpen() {
+	    toggle: function toggle() {
 	      this.isOpen = !this.isOpen;
 	      this.$dispatch('isOpenEvent', this);
 	    }
@@ -4636,10 +5041,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  transitions: {
 	    collapse: {
 	      afterEnter: function afterEnter(el) {
-	        el.style.maxHeight = "";
+	        el.style.maxHeight = '';
 	      },
 	      beforeLeave: function beforeLeave(el) {
-	        el.style.maxHeight = el.offsetHeight + "px";
+	        el.style.maxHeight = el.offsetHeight + 'px';
 	        // Recalculate DOM before the class gets added.
 	        return el.offsetHeight;
 	      }
@@ -4681,7 +5086,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	//         <a class="accordion-toggle"
 
-	//           @click="toggleIsOpen()">
+	//           @click="toggle()">
 
 	//           <slot name="header">
 
@@ -4720,20 +5125,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 145 */
+/* 150 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel panel-default\">\r\n    <div class=\"panel-heading\">\r\n      <h4 class=\"panel-title\">\r\n        <a class=\"accordion-toggle\"\r\n          @click=\"toggleIsOpen()\">\r\n          <slot name=\"header\"> \r\n            {{ header }}\r\n          </slot>\r\n        </a>\r\n      </h4>\r\n    </div>\r\n    <div class=\"panel-collapse\"\r\n      v-el:panel\r\n      v-show=\"isOpen\"\r\n      transition=\"collapse\"\r\n    >\r\n      <div class=\"panel-body\">\r\n        <slot></slot>\r\n      </div>\r\n    </div>\r\n  </div>";
+	module.exports = "<div class=\"panel panel-default\">\r\n    <div class=\"panel-heading\">\r\n      <h4 class=\"panel-title\">\r\n        <a class=\"accordion-toggle\"\r\n          @click=\"toggle()\">\r\n          <slot name=\"header\"> \r\n            {{ header }}\r\n          </slot>\r\n        </a>\r\n      </h4>\r\n    </div>\r\n    <div class=\"panel-collapse\"\r\n      v-el:panel\r\n      v-show=\"isOpen\"\r\n      transition=\"collapse\"\r\n    >\r\n      <div class=\"panel-body\">\r\n        <slot></slot>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 146 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(147)
-	module.exports = __webpack_require__(149)
+	__webpack_require__(152)
+	module.exports = __webpack_require__(154)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(151)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(156)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -4751,16 +5156,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 147 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(148);
+	var content = __webpack_require__(153);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
+	var update = __webpack_require__(34)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -4777,10 +5182,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 148 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(28)();
+	exports = module.exports = __webpack_require__(33)();
 	// imports
 	
 	
@@ -4791,7 +5196,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 149 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4800,7 +5205,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _popoverMixins = __webpack_require__(150);
+	var _popoverMixins = __webpack_require__(155);
 	
 	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
 	
@@ -4933,7 +5338,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 150 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4942,17 +5347,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _EventListener = __webpack_require__(91);
+	var _EventListener = __webpack_require__(36);
 	
 	var _EventListener2 = _interopRequireDefault(_EventListener);
 	
-	var _coerceBoolean = __webpack_require__(31);
+	var _coerceBoolean = __webpack_require__(28);
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var PopoverMixin = {
+	exports.default = {
 	  props: {
 	    trigger: {
 	      type: String,
@@ -5000,17 +5405,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var triger = this.$els.trigger.children[0];
 	    if (this.trigger === 'hover') {
 	      this._mouseenterEvent = _EventListener2.default.listen(triger, 'mouseenter', function () {
-	        return _this.show = true;
+	        _this.show = true;
 	      });
 	      this._mouseleaveEvent = _EventListener2.default.listen(triger, 'mouseleave', function () {
-	        return _this.show = false;
+	        _this.show = false;
 	      });
 	    } else if (this.trigger === 'focus') {
 	      this._focusEvent = _EventListener2.default.listen(triger, 'focus', function () {
-	        return _this.show = true;
+	        _this.show = true;
 	      });
 	      this._blurEvent = _EventListener2.default.listen(triger, 'blur', function () {
-	        return _this.show = false;
+	        _this.show = false;
 	      });
 	    } else {
 	      this._clickEvent = _EventListener2.default.listen(triger, 'click', this.toggle);
@@ -5053,23 +5458,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (this._clickEvent) this._clickEvent.remove();
 	  }
 	};
-	
-	exports.default = PopoverMixin;
 
 /***/ },
-/* 151 */
+/* 156 */
 /***/ function(module, exports) {
 
 	module.exports = "<span v-el:trigger>\r\n    <slot>\r\n    </slot>\r\n  </span>\r\n  <div class=\"popover\"\r\n    v-bind:class=\"{\r\n    'top':placement === 'top',\r\n    'left':placement === 'left',\r\n    'right':placement === 'right',\r\n    'bottom':placement === 'bottom'\r\n    }\"\r\n    v-el:popover\r\n    v-show=\"show\"\r\n    :transition=\"effect\">\r\n      <div class=\"arrow\"></div>\r\n      <h3 class=\"popover-title\" v-show=\"title\">\r\n          <slot name=\"title\">\r\n            {{title}}\r\n          </slot>\r\n      </h3>\r\n      <div class=\"popover-content\">\r\n        <slot name=\"content\">\r\n            {{{content}}}\r\n        </slot>\r\n      </div>\r\n  </div>";
 
 /***/ },
-/* 152 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(153)
+	module.exports = __webpack_require__(158)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(154)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(159)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -5087,7 +5490,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 153 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5096,7 +5499,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _coerceBoolean = __webpack_require__(31);
+	var _coerceBoolean = __webpack_require__(28);
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
@@ -5162,19 +5565,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 154 */
+/* 159 */
 /***/ function(module, exports) {
 
 	module.exports = "<div role=\"progressbar\"\r\n    v-bind:class=\"{\r\n    'progress-bar' : true,\r\n    'progress-bar-success':type == 'success',\r\n    'progress-bar-warning':type == 'warning',\r\n    'progress-bar-info':type == 'info',\r\n    'progress-bar-danger':type == 'danger',\r\n    'progress-bar-striped':striped,\r\n    'active':animated\r\n    }\"\r\n    v-bind:style=\"{width: now + '%'}\">\r\n    {{label ? now + '%':'' }}\r\n  </div>";
 
 /***/ },
-/* 155 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(156)
+	module.exports = __webpack_require__(161)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(157)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(162)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -5192,7 +5595,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 156 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5201,7 +5604,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _coerceBoolean = __webpack_require__(31);
+	var _coerceBoolean = __webpack_require__(28);
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
@@ -5279,19 +5682,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 157 */
+/* 162 */
 /***/ function(module, exports) {
 
 	module.exports = "<label class=\"btn\"\r\n  v-bind:class=\"{\r\n    'active':active,\r\n    'btn-success':type == 'success',\r\n    'btn-warning':type == 'warning',\r\n    'btn-info':type == 'info',\r\n    'btn-danger':type == 'danger',\r\n    'btn-default':type == 'default',\r\n    'btn-primary':type == 'primary'\r\n  }\">\r\n\r\n    <input type=\"radio\" autocomplete=\"off\"\r\n      :checked=\"checked\"\r\n      @click=\"handleClick\"\r\n    />\r\n\r\n    <slot></slot>\r\n  </label>";
 
 /***/ },
-/* 158 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(159)
+	module.exports = __webpack_require__(164)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(160)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(165)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -5309,7 +5712,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 159 */
+/* 164 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5343,20 +5746,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </script>
 
 /***/ },
-/* 160 */
+/* 165 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"btn-group\" data-toggle=\"buttons\">\r\n    <slot></slot>\r\n  </div>";
 
 /***/ },
-/* 161 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(162)
-	module.exports = __webpack_require__(164)
+	__webpack_require__(167)
+	module.exports = __webpack_require__(169)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(193)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(198)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -5374,16 +5777,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 162 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(163);
+	var content = __webpack_require__(168);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
+	var update = __webpack_require__(34)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -5400,21 +5803,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 163 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(28)();
+	exports = module.exports = __webpack_require__(33)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, ".btn-select[_v-1f77809f] {\r\n  display: inline-block;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li[_v-1f77809f] {\r\n  position:relative;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li>a[_v-1f77809f] {\r\n  cursor:pointer;\r\n}\r\n.bs-searchbox[_v-1f77809f] {\r\n  padding: 4px 8px;\r\n}\r\nbutton>.close[_v-1f77809f] {\r\n  margin-left: 5px;\r\n}\r\n.btn-group .notify[_v-1f77809f] {\r\n  position: relative;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f],\r\n.btn-group .notify > div[_v-1f77809f] {\r\n  position: absolute;\r\n  bottom: 5px;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f] {\r\n  opacity: .9;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f] {\r\n  opacity: .9;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-1f77809f] {\r\n  width:100%;\r\n}\r\nspan.caret[_v-1f77809f] {\r\n  float: right;\r\n  margin-top: 9px;\r\n  margin-left: 5px;\r\n}\r\n.secret[_v-1f77809f] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
+	exports.push([module.id, ".btn-select[_v-1f77809f] {\r\n  display: inline-block;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li[_v-1f77809f] {\r\n  position:relative;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li>a[_v-1f77809f] {\r\n  cursor:pointer;\r\n}\r\n.bs-searchbox[_v-1f77809f] {\r\n  padding: 4px 8px;\r\n}\r\n.bs-searchbox input[_v-1f77809f] {\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;\r\n}\r\nbutton>.close[_v-1f77809f] {\r\n  margin-left: 5px;\r\n}\r\n.btn-group .notify[_v-1f77809f] {\r\n  position: relative;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f],\r\n.btn-group .notify > div[_v-1f77809f] {\r\n  position: absolute;\r\n  bottom: 5px;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f] {\r\n  opacity: .9;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f] {\r\n  opacity: .9;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-1f77809f] {\r\n  width:100%;\r\n}\r\nspan.caret[_v-1f77809f] {\r\n  float: right;\r\n  margin-top: 9px;\r\n  margin-left: 5px;\r\n}\r\n.secret[_v-1f77809f] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 164 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5423,23 +5826,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _typeof2 = __webpack_require__(165);
+	var _typeof2 = __webpack_require__(170);
 	
 	var _typeof3 = _interopRequireDefault(_typeof2);
 	
-	var _getIterator2 = __webpack_require__(189);
+	var _getIterator2 = __webpack_require__(194);
 	
 	var _getIterator3 = _interopRequireDefault(_getIterator2);
 	
-	var _callAjax = __webpack_require__(192);
+	var _callAjax = __webpack_require__(197);
 	
 	var _callAjax2 = _interopRequireDefault(_callAjax);
 	
-	var _coerceBoolean = __webpack_require__(31);
+	var _coerceBoolean = __webpack_require__(28);
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
-	var _translations = __webpack_require__(120);
+	var _translations = __webpack_require__(118);
 	
 	var _translations2 = _interopRequireDefault(_translations);
 	
@@ -5459,7 +5862,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//   <div class="btn-group" :class="{open: show}">
 	
-	//     <button v-el:btn type="button" class="btn btn-default dropdown-toggle"
+	//     <button v-el:btn type="button" class="btn btn-default form-control dropdown-toggle"
 	
 	//       :disabled="disabled"
 	
@@ -5533,7 +5936,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <script>
 	
-	
 	exports.default = {
 	  props: {
 	    options: {
@@ -5545,6 +5947,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    value: {
 	      twoWay: true
+	    },
+	    label: {
+	      type: String,
+	      default: null
 	    },
 	    multiple: {
 	      type: Boolean,
@@ -5604,7 +6010,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      type: String,
 	      default: null
 	    },
-	    cache: { //save old data -- not working yet (experimental)
+	    cache: { // save old data -- not working yet (experimental)
 	      type: Array,
 	      default: true
 	    },
@@ -5627,6 +6033,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.value = [this.value];
 	      }
 	    }
+	    this.label = this.selectedItems;
 	    if (this.url && !this.options.length) this.update();
 	  },
 	  data: function data() {
@@ -5656,7 +6063,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              if (~['number', 'string'].indexOf(typeof item === 'undefined' ? 'undefined' : (0, _typeof3.default)(item))) {
 	                var option = void 0;
 	                this.options.some(function (o) {
-	                  if (o.value == item) {
+	                  if (o.value === item) {
 	                    option = o;
 	                    return true;
 	                  }
@@ -5693,7 +6100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return (0, _translations2.default)(this.lang);
 	    },
 	    hasParent: function hasParent() {
-	      return this.url && (this.parent instanceof Array && this.parent.length || this.parent == true);
+	      return this.url && (this.parent instanceof Array && this.parent.length || this.parent === true);
 	    }
 	  },
 	  watch: {
@@ -5705,7 +6112,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.value.pop();
 	        if (timeout.limit) clearTimeout(timeout.limit);
 	        timeout.limit = setTimeout(function () {
-	          return timeout.limit = _this.showNotify = false;
+	          timeout.limit = false;
+	          _this.showNotify = false;
 	        }, 1500);
 	      }
 	    },
@@ -5733,19 +6141,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	          this.value = [v];
 	        }
 	      }
+	      this.label = this.selectedItems;
 	      if (!this.multiple || this.closeOnSelect) {
 	        this.toggleDropdown();
 	      }
 	    },
 	    clear: function clear() {
 	      this.value = [];
+	      this.label = this.selectedItems;
 	      this.toggleDropdown();
 	    },
 	    isSelected: function isSelected(v) {
 	      if (this.value instanceof Array) {
 	        return ~this.value.indexOf(v);
 	      } else {
-	        return this.value == v;
+	        return this.value === v;
 	      }
 	    },
 	    toggleDropdown: function toggleDropdown() {
@@ -5756,7 +6166,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var _this2 = this;
 	
 	      timeout.hide = setTimeout(function () {
-	        return timeout.hide = _this2.show = false;
+	        timeout.hide = false;
+	        _this2.show = false;
 	      }, 100);
 	    },
 	    unblur: function unblur() {
@@ -5812,7 +6223,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _this3.disabled = !_this3.options.length;
 	          if (_this3.disabled) _this3.value = [];
 	        }).always(function () {
-	          return _this3.ajax = false;
+	          _this3.ajax = false;
+	          _this3.label = _this3.selectedItems;
 	        });
 	      }
 	    }
@@ -5843,6 +6255,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	// .bs-searchbox {
 
 	//   padding: 4px 8px;
+
+	// }
+
+	// .bs-searchbox input {
+
+	//   border-color: #66afe9 !important;
+
+	//   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
+
+	//           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
 
 	// }
 
@@ -5935,18 +6357,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </style>
 
 /***/ },
-/* 165 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	exports.__esModule = true;
 	
-	var _iterator = __webpack_require__(166);
+	var _iterator = __webpack_require__(171);
 	
 	var _iterator2 = _interopRequireDefault(_iterator);
 	
-	var _symbol = __webpack_require__(173);
+	var _symbol = __webpack_require__(178);
 	
 	var _symbol2 = _interopRequireDefault(_symbol);
 	
@@ -5961,28 +6383,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 166 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(167), __esModule: true };
+	module.exports = { "default": __webpack_require__(172), __esModule: true };
 
 /***/ },
-/* 167 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(40);
-	__webpack_require__(168);
-	module.exports = __webpack_require__(172).f('iterator');
+	__webpack_require__(56);
+	__webpack_require__(173);
+	module.exports = __webpack_require__(177).f('iterator');
 
 /***/ },
-/* 168 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(169);
-	var global        = __webpack_require__(47)
-	  , hide          = __webpack_require__(51)
-	  , Iterators     = __webpack_require__(63)
-	  , TO_STRING_TAG = __webpack_require__(81)('toStringTag');
+	__webpack_require__(174);
+	var global        = __webpack_require__(63)
+	  , hide          = __webpack_require__(67)
+	  , Iterators     = __webpack_require__(79)
+	  , TO_STRING_TAG = __webpack_require__(97)('toStringTag');
 	
 	for(var collections = ['NodeList', 'DOMTokenList', 'MediaList', 'StyleSheetList', 'CSSRuleList'], i = 0; i < 5; i++){
 	  var NAME       = collections[i]
@@ -5993,20 +6415,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 169 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var addToUnscopables = __webpack_require__(170)
-	  , step             = __webpack_require__(171)
-	  , Iterators        = __webpack_require__(63)
-	  , toIObject        = __webpack_require__(69);
+	var addToUnscopables = __webpack_require__(175)
+	  , step             = __webpack_require__(176)
+	  , Iterators        = __webpack_require__(79)
+	  , toIObject        = __webpack_require__(85);
 	
 	// 22.1.3.4 Array.prototype.entries()
 	// 22.1.3.13 Array.prototype.keys()
 	// 22.1.3.29 Array.prototype.values()
 	// 22.1.3.30 Array.prototype[@@iterator]()
-	module.exports = __webpack_require__(44)(Array, 'Array', function(iterated, kind){
+	module.exports = __webpack_require__(60)(Array, 'Array', function(iterated, kind){
 	  this._t = toIObject(iterated); // target
 	  this._i = 0;                   // next index
 	  this._k = kind;                // kind
@@ -6032,13 +6454,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	addToUnscopables('entries');
 
 /***/ },
-/* 170 */
+/* 175 */
 /***/ function(module, exports) {
 
 	module.exports = function(){ /* empty */ };
 
 /***/ },
-/* 171 */
+/* 176 */
 /***/ function(module, exports) {
 
 	module.exports = function(done, value){
@@ -6046,58 +6468,58 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 172 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports.f = __webpack_require__(81);
+	exports.f = __webpack_require__(97);
 
 /***/ },
-/* 173 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(174), __esModule: true };
+	module.exports = { "default": __webpack_require__(179), __esModule: true };
 
 /***/ },
-/* 174 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(175);
-	__webpack_require__(186);
-	__webpack_require__(187);
-	__webpack_require__(188);
-	module.exports = __webpack_require__(48).Symbol;
+	__webpack_require__(180);
+	__webpack_require__(191);
+	__webpack_require__(192);
+	__webpack_require__(193);
+	module.exports = __webpack_require__(64).Symbol;
 
 /***/ },
-/* 175 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	// ECMAScript 6 symbols shim
-	var global         = __webpack_require__(47)
-	  , has            = __webpack_require__(62)
-	  , DESCRIPTORS    = __webpack_require__(56)
-	  , $export        = __webpack_require__(46)
-	  , redefine       = __webpack_require__(61)
-	  , META           = __webpack_require__(176).KEY
-	  , $fails         = __webpack_require__(57)
-	  , shared         = __webpack_require__(76)
-	  , setToStringTag = __webpack_require__(80)
-	  , uid            = __webpack_require__(77)
-	  , wks            = __webpack_require__(81)
-	  , wksExt         = __webpack_require__(172)
-	  , wksDefine      = __webpack_require__(177)
-	  , keyOf          = __webpack_require__(178)
-	  , enumKeys       = __webpack_require__(179)
-	  , isArray        = __webpack_require__(182)
-	  , anObject       = __webpack_require__(53)
-	  , toIObject      = __webpack_require__(69)
-	  , toPrimitive    = __webpack_require__(59)
-	  , createDesc     = __webpack_require__(60)
-	  , _create        = __webpack_require__(65)
-	  , gOPNExt        = __webpack_require__(183)
-	  , $GOPD          = __webpack_require__(185)
-	  , $DP            = __webpack_require__(52)
-	  , $keys          = __webpack_require__(67)
+	var global         = __webpack_require__(63)
+	  , has            = __webpack_require__(78)
+	  , DESCRIPTORS    = __webpack_require__(72)
+	  , $export        = __webpack_require__(62)
+	  , redefine       = __webpack_require__(77)
+	  , META           = __webpack_require__(181).KEY
+	  , $fails         = __webpack_require__(73)
+	  , shared         = __webpack_require__(92)
+	  , setToStringTag = __webpack_require__(96)
+	  , uid            = __webpack_require__(93)
+	  , wks            = __webpack_require__(97)
+	  , wksExt         = __webpack_require__(177)
+	  , wksDefine      = __webpack_require__(182)
+	  , keyOf          = __webpack_require__(183)
+	  , enumKeys       = __webpack_require__(184)
+	  , isArray        = __webpack_require__(187)
+	  , anObject       = __webpack_require__(69)
+	  , toIObject      = __webpack_require__(85)
+	  , toPrimitive    = __webpack_require__(75)
+	  , createDesc     = __webpack_require__(76)
+	  , _create        = __webpack_require__(81)
+	  , gOPNExt        = __webpack_require__(188)
+	  , $GOPD          = __webpack_require__(190)
+	  , $DP            = __webpack_require__(68)
+	  , $keys          = __webpack_require__(83)
 	  , gOPD           = $GOPD.f
 	  , dP             = $DP.f
 	  , gOPN           = gOPNExt.f
@@ -6220,11 +6642,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  $GOPD.f = $getOwnPropertyDescriptor;
 	  $DP.f   = $defineProperty;
-	  __webpack_require__(184).f = gOPNExt.f = $getOwnPropertyNames;
-	  __webpack_require__(181).f  = $propertyIsEnumerable;
-	  __webpack_require__(180).f = $getOwnPropertySymbols;
+	  __webpack_require__(189).f = gOPNExt.f = $getOwnPropertyNames;
+	  __webpack_require__(186).f  = $propertyIsEnumerable;
+	  __webpack_require__(185).f = $getOwnPropertySymbols;
 	
-	  if(DESCRIPTORS && !__webpack_require__(45)){
+	  if(DESCRIPTORS && !__webpack_require__(61)){
 	    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
 	  }
 	
@@ -6299,7 +6721,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	
 	// 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
-	$Symbol[PROTOTYPE][TO_PRIMITIVE] || __webpack_require__(51)($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
+	$Symbol[PROTOTYPE][TO_PRIMITIVE] || __webpack_require__(67)($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
 	// 19.4.3.5 Symbol.prototype[@@toStringTag]
 	setToStringTag($Symbol, 'Symbol');
 	// 20.2.1.9 Math[@@toStringTag]
@@ -6308,18 +6730,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	setToStringTag(global.JSON, 'JSON', true);
 
 /***/ },
-/* 176 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var META     = __webpack_require__(77)('meta')
-	  , isObject = __webpack_require__(54)
-	  , has      = __webpack_require__(62)
-	  , setDesc  = __webpack_require__(52).f
+	var META     = __webpack_require__(93)('meta')
+	  , isObject = __webpack_require__(70)
+	  , has      = __webpack_require__(78)
+	  , setDesc  = __webpack_require__(68).f
 	  , id       = 0;
 	var isExtensible = Object.isExtensible || function(){
 	  return true;
 	};
-	var FREEZE = !__webpack_require__(57)(function(){
+	var FREEZE = !__webpack_require__(73)(function(){
 	  return isExtensible(Object.preventExtensions({}));
 	});
 	var setMeta = function(it){
@@ -6366,25 +6788,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 177 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var global         = __webpack_require__(47)
-	  , core           = __webpack_require__(48)
-	  , LIBRARY        = __webpack_require__(45)
-	  , wksExt         = __webpack_require__(172)
-	  , defineProperty = __webpack_require__(52).f;
+	var global         = __webpack_require__(63)
+	  , core           = __webpack_require__(64)
+	  , LIBRARY        = __webpack_require__(61)
+	  , wksExt         = __webpack_require__(177)
+	  , defineProperty = __webpack_require__(68).f;
 	module.exports = function(name){
 	  var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
 	  if(name.charAt(0) != '_' && !(name in $Symbol))defineProperty($Symbol, name, {value: wksExt.f(name)});
 	};
 
 /***/ },
-/* 178 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getKeys   = __webpack_require__(67)
-	  , toIObject = __webpack_require__(69);
+	var getKeys   = __webpack_require__(83)
+	  , toIObject = __webpack_require__(85);
 	module.exports = function(object, el){
 	  var O      = toIObject(object)
 	    , keys   = getKeys(O)
@@ -6395,13 +6817,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 179 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// all enumerable object keys, includes symbols
-	var getKeys = __webpack_require__(67)
-	  , gOPS    = __webpack_require__(180)
-	  , pIE     = __webpack_require__(181);
+	var getKeys = __webpack_require__(83)
+	  , gOPS    = __webpack_require__(185)
+	  , pIE     = __webpack_require__(186);
 	module.exports = function(it){
 	  var result     = getKeys(it)
 	    , getSymbols = gOPS.f;
@@ -6415,34 +6837,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 180 */
+/* 185 */
 /***/ function(module, exports) {
 
 	exports.f = Object.getOwnPropertySymbols;
 
 /***/ },
-/* 181 */
+/* 186 */
 /***/ function(module, exports) {
 
 	exports.f = {}.propertyIsEnumerable;
 
 /***/ },
-/* 182 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.2.2 IsArray(argument)
-	var cof = __webpack_require__(71);
+	var cof = __webpack_require__(87);
 	module.exports = Array.isArray || function isArray(arg){
 	  return cof(arg) == 'Array';
 	};
 
 /***/ },
-/* 183 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
-	var toIObject = __webpack_require__(69)
-	  , gOPN      = __webpack_require__(184).f
+	var toIObject = __webpack_require__(85)
+	  , gOPN      = __webpack_require__(189).f
 	  , toString  = {}.toString;
 	
 	var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
@@ -6462,30 +6884,30 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 184 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
-	var $keys      = __webpack_require__(68)
-	  , hiddenKeys = __webpack_require__(78).concat('length', 'prototype');
+	var $keys      = __webpack_require__(84)
+	  , hiddenKeys = __webpack_require__(94).concat('length', 'prototype');
 	
 	exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O){
 	  return $keys(O, hiddenKeys);
 	};
 
 /***/ },
-/* 185 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pIE            = __webpack_require__(181)
-	  , createDesc     = __webpack_require__(60)
-	  , toIObject      = __webpack_require__(69)
-	  , toPrimitive    = __webpack_require__(59)
-	  , has            = __webpack_require__(62)
-	  , IE8_DOM_DEFINE = __webpack_require__(55)
+	var pIE            = __webpack_require__(186)
+	  , createDesc     = __webpack_require__(76)
+	  , toIObject      = __webpack_require__(85)
+	  , toPrimitive    = __webpack_require__(75)
+	  , has            = __webpack_require__(78)
+	  , IE8_DOM_DEFINE = __webpack_require__(71)
 	  , gOPD           = Object.getOwnPropertyDescriptor;
 	
-	exports.f = __webpack_require__(56) ? gOPD : function getOwnPropertyDescriptor(O, P){
+	exports.f = __webpack_require__(72) ? gOPD : function getOwnPropertyDescriptor(O, P){
 	  O = toIObject(O);
 	  P = toPrimitive(P, true);
 	  if(IE8_DOM_DEFINE)try {
@@ -6495,51 +6917,51 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 186 */
+/* 191 */
 /***/ function(module, exports) {
 
 
 
 /***/ },
-/* 187 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(177)('asyncIterator');
+	__webpack_require__(182)('asyncIterator');
 
 /***/ },
-/* 188 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(177)('observable');
+	__webpack_require__(182)('observable');
 
 /***/ },
-/* 189 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(190), __esModule: true };
+	module.exports = { "default": __webpack_require__(195), __esModule: true };
 
 /***/ },
-/* 190 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(168);
-	__webpack_require__(40);
-	module.exports = __webpack_require__(191);
+	__webpack_require__(173);
+	__webpack_require__(56);
+	module.exports = __webpack_require__(196);
 
 /***/ },
-/* 191 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var anObject = __webpack_require__(53)
-	  , get      = __webpack_require__(88);
-	module.exports = __webpack_require__(48).getIterator = function(it){
+	var anObject = __webpack_require__(69)
+	  , get      = __webpack_require__(104);
+	module.exports = __webpack_require__(64).getIterator = function(it){
 	  var iterFn = get(it);
 	  if(typeof iterFn != 'function')throw TypeError(it + ' is not iterable!');
 	  return anObject(iterFn.call(it));
 	};
 
 /***/ },
-/* 192 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6548,22 +6970,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _getIterator2 = __webpack_require__(189);
+	var _getIterator2 = __webpack_require__(194);
 	
 	var _getIterator3 = _interopRequireDefault(_getIterator2);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (url, callback) {
-	  var httpRequest = new XMLHttpRequest();
+	  var httpRequest = new window.XMLHttpRequest();
 	  var data = {};
 	  // p (promise)
 	  var p = {
 	    then: function then(fn1, fn2, fn3) {
-	      done(fn1);
-	      fail(fn2);
-	      always(fn3);
-	      return p;
+	      return p.done(fn1).fail(fn2).always(fn3);
 	    }
 	  };
 	  var _arr = ['done', 'fail', 'always'];
@@ -6592,8 +7011,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	          try {
 	            for (var _iterator = (0, _getIterator3.default)(data.done), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	              var _done = _step.value;
-	              _done(response);
+	              var done = _step.value;
+	              done(response);
 	            }
 	          } catch (err) {
 	            _didIteratorError = true;
@@ -6616,8 +7035,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	          try {
 	            for (var _iterator2 = (0, _getIterator3.default)(data.fail), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	              var _fail = _step2.value;
-	              _fail(e);
+	              var fail = _step2.value;
+	              fail(e);
 	            }
 	          } catch (err) {
 	            _didIteratorError2 = true;
@@ -6641,10 +7060,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	        try {
 	          for (var _iterator3 = (0, _getIterator3.default)(data.fail), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-	            var _fail2 = _step3.value;
-	            _fail2({
-	              status: httpRequest.status
-	            });
+	            var _fail = _step3.value;
+	
+	            _fail({ status: httpRequest.status });
 	          }
 	        } catch (err) {
 	          _didIteratorError3 = true;
@@ -6667,10 +7085,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      try {
 	        for (var _iterator4 = (0, _getIterator3.default)(data.always), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-	          var _always = _step4.value;
-	          _always({
-	            status: httpRequest.status
-	          });
+	          var always = _step4.value;
+	
+	          always({ status: httpRequest.status });
 	        }
 	      } catch (err) {
 	        _didIteratorError4 = true;
@@ -6689,26 +7106,252 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  };
 	  httpRequest.open('GET', url);
-	  httpRequest.setRequestHeader("Accept", "application/json");
+	  httpRequest.setRequestHeader('Accept', 'application/json');
 	  httpRequest.send();
 	  return p;
 	};
 
 /***/ },
-/* 193 */
+/* 198 */
 /***/ function(module, exports) {
 
-	module.exports = "<select v-if=\"name &amp;&amp; (required || value.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"!value.length\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-else=\"\" v-for=\"val in value\" value=\"{{val}}\" selected=\"\" _v-1f77809f=\"\">{{val}}</option>\n</select>\n<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"btn btn-default dropdown-toggle\" :disabled=\"disabled\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-placeholder\" v-show=\"!ajax &amp;&amp; showPlaceholder\" _v-1f77809f=\"\">{{placeholder || text.notSelected}}</span>\n      <span class=\"btn-content\" v-show=\"!ajax\" _v-1f77809f=\"\">{{ selectedItems }}</span>\n      <span class=\"btn-loader\" v-show=\"ajax\" _v-1f77809f=\"\">{{text.loading}}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"showResetButton&amp;&amp;value.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" _v-1f77809f=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div class=\"notify\" v-if=\"!closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div class=\"notify\" v-if=\"closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n</div>";
+	module.exports = "<select v-if=\"name &amp;&amp; (required || value.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"!value.length\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-else=\"\" v-for=\"val in value\" value=\"{{val}}\" selected=\"\" _v-1f77809f=\"\">{{val}}</option>\n</select>\n<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"btn btn-default form-control dropdown-toggle\" :disabled=\"disabled\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-placeholder\" v-show=\"!ajax &amp;&amp; showPlaceholder\" _v-1f77809f=\"\">{{placeholder || text.notSelected}}</span>\n      <span class=\"btn-content\" v-show=\"!ajax\" _v-1f77809f=\"\">{{ selectedItems }}</span>\n      <span class=\"btn-loader\" v-show=\"ajax\" _v-1f77809f=\"\">{{text.loading}}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"showResetButton&amp;&amp;value.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" _v-1f77809f=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div class=\"notify\" v-if=\"!closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div class=\"notify\" v-if=\"closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n</div>";
 
 /***/ },
-/* 194 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(195)
-	module.exports = __webpack_require__(197)
+	module.exports = __webpack_require__(200)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(198)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(201)
+	if (false) {
+	(function () {
+	var hotAPI = require("vue-hot-reload-api")
+	hotAPI.install(require("vue"))
+	if (!hotAPI.compatible) return
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Slider.vue"
+	hotAPI.createRecord(id, module.exports)
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Slider.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Slider.vue"], function () {
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Slider.vue")
+	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Slider.vue")
+	hotAPI.update(id, newOptions, newTemplate)
+	})
+	})()
+	}
+
+/***/ },
+/* 200 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <template>
+	
+	//   <div class="item">
+	
+	//     <slot></slot>
+	
+	//   </div>
+	
+	// </template>
+	
+	// <script>
+	exports.default = {
+	  data: function data() {
+	    return {
+	      index: 0,
+	      show: false
+	    };
+	  },
+	
+	  computed: {
+	    show: function show() {
+	      return this.$parent.activeIndex === this.index;
+	    }
+	  },
+	  ready: function ready() {
+	    for (var c in this.$parent.$children) {
+	      if (this.$parent.$children[c].$el === this.$el) {
+	        this.index = parseInt(c, 10);
+	        break;
+	      }
+	    }
+	    // this.index = [...this.$el.parentNode.children].indexOf(this.$el)
+	    this.$parent.indicator.push(this.index);
+	    if (this.index === 0) {
+	      this.$el.classList.add('active');
+	    }
+	  }
+	};
+	// </script>
+
+/***/ },
+/* 201 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"item\">\r\n    <slot></slot>\r\n  </div>";
+
+/***/ },
+/* 202 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(203)
+	
+	if (module.exports.__esModule) module.exports = module.exports.default
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(204)
+	if (false) {
+	(function () {
+	var hotAPI = require("vue-hot-reload-api")
+	hotAPI.install(require("vue"))
+	if (!hotAPI.compatible) return
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Spinner.vue"
+	hotAPI.createRecord(id, module.exports)
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Spinner.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Spinner.vue"], function () {
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Spinner.vue")
+	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Spinner.vue")
+	hotAPI.update(id, newOptions, newTemplate)
+	})
+	})()
+	}
+
+/***/ },
+/* 203 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <template>
+	
+	//   <div class="spinner spinner-gritcode {{spinnerSize}} {{fixed ? 'spinner-fixed' : ''}}" v-show="active">
+	
+	//     <div class="spinner-wrapper">
+	
+	//       <div class="spinner-circle"></div>
+	
+	//       <div class="spinner-text">{{text}}</div>
+	
+	//     </div>
+	
+	//   </div>
+	
+	// </template>
+	
+	// <script>
+	// import styling
+	// import './spinner.scss'
+	
+	var MIN_WAIT = 500; // in ms
+	
+	exports.default = {
+	  data: function data() {
+	    return {
+	      active: false
+	    };
+	  },
+	
+	  props: {
+	    size: {
+	      type: String,
+	      default: 'md'
+	    },
+	    text: {
+	      type: String,
+	      default: ''
+	    },
+	    fixed: {
+	      type: Boolean,
+	      default: false
+	    }
+	  },
+	  computed: {
+	    spinnerSize: function spinnerSize() {
+	      return this.size ? 'spinner-${this.size}' : 'spinner-sm';
+	    }
+	  },
+	  methods: {
+	    getMinWait: function getMinWait(delay) {
+	      delay = delay || 0;
+	      return new Date().getTime() - this._started.getTime() < MIN_WAIT ? MIN_WAIT - parseInt(new Date().getTime() - this._started.getTime(), 10) + delay : 0 + delay;
+	    },
+	    show: function show(options) {
+	      if (options && options.text) {
+	        this.text = options.text;
+	      }
+	      if (options && options.size) {
+	        this.size = options.size;
+	      }
+	      if (options && options.fixed) {
+	        this.fixed = options.fixed;
+	      }
+	
+	      // block scrolling when spinner is on
+	      this._body.style.overflowY = 'hidden';
+	
+	      // activate spinner
+	      this._started = new Date();
+	      this.active = true;
+	      this.$root.$broadcast('shown::spinner');
+	    },
+	    hide: function hide() {
+	      var _this = this;
+	
+	      var delay = 0;
+	      this._spinnerAnimation = setTimeout(function () {
+	        _this.active = false;
+	        _this._body.style.overflowY = _this._bodyOverflow;
+	        _this.$root.$broadcast('hidden::spinner');
+	      }, this.getMinWait(delay));
+	    }
+	  },
+	  events: {
+	    'show::spinner': function showSpinner(options) {
+	      this.show(options);
+	    },
+	    'hide::spinner': function hideSpinner() {
+	      this.hide();
+	    },
+	    'start::ajax': function startAjax(options) {
+	      this.show(options);
+	    },
+	    'end::ajax': function endAjax() {
+	      this.hide();
+	    }
+	  },
+	  destroyed: function destroyed() {
+	    clearTimeout(this._spinnerAnimation);
+	    this._body.style.overflowY = this._bodyOverflow;
+	  },
+	  ready: function ready() {
+	    this._body = document.querySelector('body');
+	    this._bodyOverflow = this._body.style.overflowY || '';
+	  }
+	};
+	// </script>
+
+/***/ },
+/* 204 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"spinner spinner-gritcode {{spinnerSize}} {{fixed ? 'spinner-fixed' : ''}}\" v-show=\"active\">\r\n    <div class=\"spinner-wrapper\">\r\n      <div class=\"spinner-circle\"></div>\r\n      <div class=\"spinner-text\">{{text}}</div>\r\n    </div>\r\n  </div>";
+
+/***/ },
+/* 205 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(206)
+	module.exports = __webpack_require__(208)
+	
+	if (module.exports.__esModule) module.exports = module.exports.default
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(209)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -6726,16 +7369,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 195 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(196);
+	var content = __webpack_require__(207);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
+	var update = __webpack_require__(34)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -6752,10 +7395,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 196 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(28)();
+	exports = module.exports = __webpack_require__(33)();
 	// imports
 	
 	
@@ -6766,7 +7409,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 197 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6775,7 +7418,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _coerceBoolean = __webpack_require__(31);
+	var _coerceBoolean = __webpack_require__(28);
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
@@ -6801,7 +7444,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  computed: {
 	    show: function show() {
-	      return this.$parent.active == this.index;
+	      return this.$parent.active === this.index;
 	    },
 	    transition: function transition() {
 	      return this.$parent.effect;
@@ -6815,7 +7458,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  ready: function ready() {
 	    for (var c in this.$parent.$children) {
-	      if (this.$parent.$children[c].$el == this.$el) {
+	      if (this.$parent.$children[c].$el === this.$el) {
 	        this.index = c;
 	        break;
 	      }
@@ -6840,11 +7483,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	//   <div role="tabpanel" class="tab-pane"
 
-	//       v-bind:class="{hide:!show}"
+	//     v-bind:class="{hide:!show}"
 
-	//       v-show="show"
+	//     v-show="show"
 
-	//       :transition="transition"
+	//     :transition="transition"
 
 	//   >
 
@@ -6857,20 +7500,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 198 */
+/* 209 */
 /***/ function(module, exports) {
 
 	module.exports = "<div role=\"tabpanel\" class=\"tab-pane\" v-bind:class=\"{hide:!show}\" v-show=\"show\" :transition=\"transition\" _v-388906fc=\"\">\n    <slot _v-388906fc=\"\"></slot>\n  </div>";
 
 /***/ },
-/* 199 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(200)
-	module.exports = __webpack_require__(202)
+	__webpack_require__(211)
+	module.exports = __webpack_require__(213)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(203)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(214)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -6888,16 +7531,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 200 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(201);
+	var content = __webpack_require__(212);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
+	var update = __webpack_require__(34)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -6914,10 +7557,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 201 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(28)();
+	exports = module.exports = __webpack_require__(33)();
 	// imports
 	
 	
@@ -6928,7 +7571,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 202 */
+/* 213 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -7029,20 +7672,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </style>
 
 /***/ },
-/* 203 */
+/* 214 */
 /***/ function(module, exports) {
 
 	module.exports = "<div _v-c8373860=\"\">\n    <!-- Nav tabs -->\n    <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-c8373860=\"\">\n      <li v-for=\"r in renderData\" v-bind:class=\"{\n          'active': ($index === active),\n          'disabled': r.disabled\n        }\" @click.prevent=\"handleTabListClick($index, r)\" :disabled=\"r.disabled\" _v-c8373860=\"\">\n        <a href=\"#\" _v-c8373860=\"\">\n          <slot name=\"header\" _v-c8373860=\"\">\n            {{{r.header}}}\n          </slot>\n        </a>\n      </li>\n    </ul>\n    <!-- Tab panes -->\n    <div class=\"tab-content\" v-el:tab-content=\"\" _v-c8373860=\"\">\n      <slot _v-c8373860=\"\"></slot>\n    </div>\n  </div>";
 
 /***/ },
-/* 204 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(205)
-	module.exports = __webpack_require__(207)
+	__webpack_require__(216)
+	module.exports = __webpack_require__(218)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(208)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(219)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -7060,16 +7703,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 205 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(206);
+	var content = __webpack_require__(217);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
+	var update = __webpack_require__(34)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -7086,21 +7729,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 206 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(28)();
+	exports = module.exports = __webpack_require__(33)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, ".tooltip {\r\n    opacity: .9\r\n  }\r\n.fadein-enter {\r\n  -webkit-animation:fadein-in 0.3s ease-in;\r\n          animation:fadein-in 0.3s ease-in;\r\n}\r\n.fadein-leave {\r\n  -webkit-animation:fadein-out 0.3s ease-out;\r\n          animation:fadein-out 0.3s ease-out;\r\n}\r\n@-webkit-keyframes fadein-in {\r\n  0% {\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes fadein-in {\r\n  0% {\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    opacity: 1;\r\n  }\r\n}\r\n@-webkit-keyframes fadein-out {\r\n  0% {\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    opacity: 0;\r\n  }\r\n}\r\n@keyframes fadein-out {\r\n  0% {\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    opacity: 0;\r\n  }\r\n}", ""]);
+	exports.push([module.id, ".tooltip {\r\n  opacity: .9\r\n}\r\n.fadein-enter {\r\n  -webkit-animation:fadein-in 0.3s ease-in;\r\n          animation:fadein-in 0.3s ease-in;\r\n}\r\n.fadein-leave {\r\n  -webkit-animation:fadein-out 0.3s ease-out;\r\n          animation:fadein-out 0.3s ease-out;\r\n}\r\n@-webkit-keyframes fadein-in {\r\n  0% {\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes fadein-in {\r\n  0% {\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    opacity: 1;\r\n  }\r\n}\r\n@-webkit-keyframes fadein-out {\r\n  0% {\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    opacity: 0;\r\n  }\r\n}\r\n@keyframes fadein-out {\r\n  0% {\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    opacity: 0;\r\n  }\r\n}", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 207 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7109,7 +7752,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _popoverMixins = __webpack_require__(150);
+	var _popoverMixins = __webpack_require__(155);
 	
 	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
 	
@@ -7132,11 +7775,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// <style>
 
-	//   .tooltip {
+	// .tooltip {
 
-	//     opacity: .9
+	//   opacity: .9
 
-	//   }
+	// }
 
 	// .fadein-enter {
 
@@ -7234,20 +7877,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 208 */
+/* 219 */
 /***/ function(module, exports) {
 
-	module.exports = "<span v-el:trigger>\r\n    <slot>\r\n    </slot>\r\n  </span>\r\n  <div class=\"tooltip\"\r\n    v-bind:class=\"{\r\n    'top':    placement === 'top',\r\n    'left':   placement === 'left',\r\n    'right':  placement === 'right',\r\n    'bottom': placement === 'bottom'\r\n    }\"\r\n    v-el:popover\r\n    v-show=\"show\"\r\n    :transition=\"effect\"\r\n    role=\"tooltip\">\r\n    <div class=\"tooltip-arrow\"></div>\r\n    <div class=\"tooltip-inner\">\r\n       <slot name=\"content\">\r\n        {{{content}}}\r\n      </slot> \r\n   </div>\r\n  </div>";
+	module.exports = "<span v-el:trigger>\r\n    <slot>\r\n    </slot>\r\n  </span>\r\n  <div class=\"tooltip\"\r\n    v-bind:class=\"{\r\n    'top':    placement === 'top',\r\n    'left':   placement === 'left',\r\n    'right':  placement === 'right',\r\n    'bottom': placement === 'bottom'\r\n    }\"\r\n    v-el:popover\r\n    v-show=\"show\"\r\n    :transition=\"effect\"\r\n    role=\"tooltip\">\r\n    <div class=\"tooltip-arrow\"></div>\r\n    <div class=\"tooltip-inner\">\r\n       <slot name=\"content\">\r\n        {{{content}}}\r\n      </slot>\r\n   </div>\r\n  </div>";
 
 /***/ },
-/* 209 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(210)
-	module.exports = __webpack_require__(212)
+	__webpack_require__(221)
+	module.exports = __webpack_require__(223)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(213)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(224)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -7265,16 +7908,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 210 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(211);
+	var content = __webpack_require__(222);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
+	var update = __webpack_require__(34)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -7291,10 +7934,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 211 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(28)();
+	exports = module.exports = __webpack_require__(33)();
 	// imports
 	
 	
@@ -7305,7 +7948,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 212 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7314,11 +7957,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _callAjax = __webpack_require__(192);
+	var _callAjax = __webpack_require__(197);
 	
 	var _callAjax2 = _interopRequireDefault(_callAjax);
 	
-	var _coerceBoolean = __webpack_require__(31);
+	var _coerceBoolean = __webpack_require__(28);
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
@@ -7330,7 +7973,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//     v-bind:class="{'open':showDropdown}"
 	
-	//     >
+	//   >
 	
 	//     <input type="text" class="form-control"
 	
@@ -7375,13 +8018,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 	
 	
-	var typeahead = {
+	var Vue = window.Vue;
+	
+	exports.default = {
 	  created: function created() {
 	    this.items = this.primitiveData;
 	  },
 	
 	  partials: {
-	    'default': '<span v-html="item | highlight query"></span>'
+	    default: '<span v-html="item | highlight query"></span>'
 	  },
 	  props: {
 	    data: {
@@ -7466,12 +8111,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	      if (this.data) {
 	        this.items = this.primitiveData;
-	        this.showDropdown = this.items.length ? true : false;
+	        this.showDropdown = this.items.length > 0;
 	      }
 	      if (this.async) {
 	        (0, _callAjax2.default)(this.async + this.query, function (data) {
 	          _this2.items = (_this2.key ? data[_this2.key] : data).slice(0, _this2.limit);
-	          _this2.showDropdown = _this2.items.length ? true : false;
+	          _this2.showDropdown = _this2.items.length > 0;
 	        });
 	      }
 	    },
@@ -7504,7 +8149,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-	exports.default = typeahead;
 	// </script>
 
 	// <style>
@@ -7518,386 +8162,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </style>
 
 /***/ },
-/* 213 */
+/* 224 */
 /***/ function(module, exports) {
 
-	module.exports = "<div style=\"position: relative\"\r\n    v-bind:class=\"{'open':showDropdown}\"\r\n    >\r\n    <input type=\"text\" class=\"form-control\"\r\n      :placeholder=\"placeholder\"\r\n      autocomplete=\"off\"\r\n      v-model=\"query\"\r\n      @input=\"update\"\r\n      @keydown.up=\"up\"\r\n      @keydown.down=\"down\"\r\n      @keydown.enter= \"hit\"\r\n      @keydown.esc=\"reset\"\r\n      @blur=\"showDropdown = false\"\r\n    />\r\n    <ul class=\"dropdown-menu\" v-el:dropdown>\r\n      <li v-for=\"item in items\" v-bind:class=\"{'active': isActive($index)}\">\r\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive($index)\">\r\n          <partial :name=\"templateName\"></partial>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>";
-
-/***/ },
-/* 214 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(215)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(216)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Navbar.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Navbar.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Navbar.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Navbar.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Navbar.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-/* 215 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _EventListener = __webpack_require__(91);
-	
-	var _EventListener2 = _interopRequireDefault(_EventListener);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  props: {
-	    type: {
-	      type: String,
-	      default: "default"
-	    },
-	    placement: {
-	      type: String,
-	      default: 'top'
-	    }
-	  },
-	  data: function data() {
-	    return {
-	      id: 'bs-example-navbar-collapse-1',
-	      styles: {}
-	    };
-	  },
-	
-	  computed: {
-	    navbar: function navbar() {
-	      return true;
-	    }
-	  },
-	  methods: {
-	    toggleCollapse: function toggleCollapse(e) {
-	      e.preventDefault();
-	
-	      // collapse data-target
-	      var tmp = this.$el.querySelector('[data-target]');
-	      var id = tmp.getAttribute('data-target');
-	      var o = document.getElementById(id.substring(1));
-	      o.classList.toggle('collapse');
-	    }
-	  },
-	  ready: function ready() {
-	    var _this = this;
-	
-	    var dropdowns = document.querySelector('.dropdown > .dropdown-toggle');
-	    var toggle = this.$el.querySelector('[data-toggle="collapse"]');
-	    if (dropdowns) {
-	      // Al hacer click en un dropdown
-	      dropdowns.addEventListener('click', function (e) {
-	        e.preventDefault();
-	        var dropDown = e;
-	        dropDown.target.offsetParent.classList.add('open');
-	        var dropDownItems = dropDown.target.nextElementSibling.children;
-	
-	        // Al hacer click en un elemento del dropdown
-	        if (dropDownItems) {
-	          for (var i = 0; i < dropDownItems.length; i++) {
-	            dropDownItems[i].addEventListener('click', function () {
-	              dropDown.target.offsetParent.classList.remove('open');
-	            });
-	          }
-	        }
-	
-	        // dropdowns.addEventListener('focusout',function(){
-	        //   dropDown.target.offsetParent.classList.remove('open')
-	        // });
-	      });
-	    }
-	    if (toggle) {
-	      toggle.style.borderRadius = '4px';
-	      toggle.addEventListener('click', this.toggleCollapse);
-	    }
-	    this._closeEvent = _EventListener2.default.listen(window, 'click', function (e) {
-	      if (!_this.$el.contains(e.target)) {
-	        _this.$el.classList.remove('open');
-	      }
-	    });
-	  },
-	  beforeDestroy: function beforeDestroy() {
-	    if (this._closeEvent) {
-	      this._closeEvent.remove();
-	    }
-	  }
-	}; //End Object
-	// </script>
-	// <template>
-
-	//   <nav class="navbar" :class="{
-
-	//         'navbar-inverse':(type == 'inverse'),
-
-	//         'navbar-default':(type == 'default'),
-
-	//         'navbar-fixed-top':      (placement === 'top'),
-
-	//         'navbar-fixed-bottom':  (placement === 'bottom'),
-
-	//         'navbar-static-top':  (placement === 'static')
-
-	//       }">
-
-	//      <div class="container-fluid">
-
-	//        <!-- Brand and toggle get grouped for better mobile display -->
-
-	//        <div class="navbar-header">
-
-	//          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#{{ id }}" aria-expanded="false">
-
-	//            <span class="sr-only">Toggle navigation</span>
-
-	//            <span class="icon-bar"></span>
-
-	//            <span class="icon-bar"></span>
-
-	//            <span class="icon-bar"></span>
-
-	//          </button>
-
-	//          <slot name="brand"></slot>
-
-	//        </div>
-
-	//        <!-- Collect the nav links, forms, and other content for toggling -->
-
-	//        <div class="collapse navbar-collapse" id="{{ id }}">
-
-	//         <ul class="nav navbar-nav">
-
-	//           <slot></slot>
-
-	//         </ul>
-
-	//         <ul class="nav navbar-nav navbar-right">
-
-	//           <slot name="right"></slot>
-
-	//         </ul>
-
-	//       </div>
-
-	//     </div><!-- /.container-fluid -->
-
-	//   </nav>
-
-	// </template>
-
-	// <script>
-
-/***/ },
-/* 216 */
-/***/ function(module, exports) {
-
-	module.exports = "<nav class=\"navbar\" :class=\"{\r\n        'navbar-inverse':(type == 'inverse'),\r\n        'navbar-default':(type == 'default'),\r\n        'navbar-fixed-top':      (placement === 'top'),\r\n        'navbar-fixed-bottom':  (placement === 'bottom'),\r\n        'navbar-static-top':  (placement === 'static')\r\n      }\">\r\n     <div class=\"container-fluid\">\r\n       <!-- Brand and toggle get grouped for better mobile display -->\r\n       <div class=\"navbar-header\">\r\n         <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#{{ id }}\" aria-expanded=\"false\">\r\n           <span class=\"sr-only\">Toggle navigation</span>\r\n           <span class=\"icon-bar\"></span>\r\n           <span class=\"icon-bar\"></span>\r\n           <span class=\"icon-bar\"></span>\r\n         </button>\r\n         <slot name=\"brand\"></slot>\r\n       </div>\r\n\r\n       <!-- Collect the nav links, forms, and other content for toggling -->\r\n       <div class=\"collapse navbar-collapse\" id=\"{{ id }}\">\r\n        <ul class=\"nav navbar-nav\">\r\n          <slot></slot>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <slot name=\"right\"></slot>\r\n        </ul>\r\n      </div>\r\n    </div><!-- /.container-fluid -->\r\n  </nav>";
-
-/***/ },
-/* 217 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(218)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(221)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Spinner.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Spinner.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Spinner.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Spinner.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Spinner.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-/* 218 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	__webpack_require__(219);
-	
-	var MIN_WAIT = 500; // in ms
-	
-	// <template>
-	
-	//   <div class="spinner spinner-gritcode {{spinnerSize}} {{fixed ? 'spinner-fixed' : ''}}" v-show="active">
-	
-	//     <div class="spinner-wrapper">
-	
-	//       <div class="spinner-circle"></div>
-	
-	//       <div class="spinner-text">{{text}}</div>
-	
-	//     </div>
-	
-	//   </div>
-	
-	// </template>
-	
-	// <script>
-	// import styling
-	exports.default = {
-	  data: function data() {
-	    return {
-	      active: false
-	    };
-	  },
-	
-	  props: {
-	    size: {
-	      type: String,
-	      default: 'md'
-	    },
-	    text: {
-	      type: String,
-	      default: ''
-	    },
-	    fixed: {
-	      type: Boolean,
-	      default: false
-	    }
-	  },
-	  computed: {
-	    spinnerSize: function spinnerSize() {
-	      return this.size ? 'spinner-' + this.size : 'spinner-sm';
-	    }
-	  },
-	  methods: {
-	    getMinWait: function getMinWait(delay) {
-	      delay = delay || 0;
-	      return new Date().getTime() - this._started.getTime() < MIN_WAIT ? MIN_WAIT - parseInt(new Date().getTime() - this._started.getTime(), 10) + delay : 0 + delay;
-	    },
-	    show: function show(options) {
-	      if (options && options.text) {
-	        this.text = options.text;
-	      }
-	      if (options && options.size) {
-	        this.size = options.size;
-	      }
-	      if (options && options.fixed) {
-	        this.fixed = options.fixed;
-	      }
-	
-	      // block scrolling when spinner is on
-	      this._body.style.overflowY = 'hidden';
-	
-	      // activate spinner
-	      this._started = new Date();
-	      this.active = true;
-	      this.$root.$broadcast('shown::spinner');
-	    },
-	    hide: function hide() {
-	      var _this = this;
-	
-	      var delay = 0;
-	      this._spinnerAnimation = setTimeout(function () {
-	        _this.active = false;
-	        _this._body.style.overflowY = _this._bodyOverflow;
-	        _this.$root.$broadcast('hidden::spinner');
-	      }, this.getMinWait(delay));
-	    }
-	  },
-	  events: {
-	    'show::spinner': function showSpinner(options) {
-	      this.show(options);
-	    },
-	    'hide::spinner': function hideSpinner() {
-	      this.hide();
-	    },
-	    'start::ajax': function startAjax(options) {
-	      this.show(options);
-	    },
-	    'end::ajax': function endAjax() {
-	      this.hide();
-	    }
-	  },
-	  destroyed: function destroyed() {
-	    clearTimeout(this._spinnerAnimation);
-	    this._body.style.overflowY = this._bodyOverflow;
-	  },
-	  ready: function ready() {
-	    this._body = document.querySelector('body');
-	    this._bodyOverflow = this._body.style.overflowY || '';
-	  }
-	};
-	// </script>
-
-/***/ },
-/* 219 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(220);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(29)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./spinner.scss", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./spinner.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 220 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(28)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "/*!\r\n *\r\n * Spinner\r\n * With fallback to IE9\r\n *\r\n */\n@keyframes spin {\n  100% {\n    transform: rotate(360deg); } }\n\n.spinner-gritcode {\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  z-index: 9998;\n  position: absolute;\n  width: 100%;\n  text-align: center;\n  background: rgba(255, 255, 255, 0.9); }\n  .spinner-gritcode.spinner-fixed {\n    position: fixed; }\n  .spinner-gritcode .spinner-wrapper {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%); }\n  .spinner-gritcode .spinner-circle {\n    position: relative;\n    border: 4px solid #ccc;\n    border-right-color: #337ab7;\n    border-radius: 50%;\n    display: inline-block;\n    animation: spin 0.6s linear;\n    animation-iteration-count: infinite;\n    width: 3em;\n    height: 3em;\n    z-index: 2; }\n  .spinner-gritcode .spinner-text {\n    position: relative;\n    text-align: center;\n    margin-top: 0.5em;\n    z-index: 2;\n    width: 100%;\n    font-size: 95%;\n    color: #337ab7; }\n\n.spinner-gritcode.spinner-sm .spinner-circle {\n  width: 1.5em;\n  height: 1.5em; }\n\n.spinner-gritcode.spinner-md .spinner-circle {\n  width: 2em;\n  height: 2em; }\n\n.spinner-gritcode.spinner-lg .spinner-circle {\n  width: 2.5em;\n  height: 2.5em; }\n\n.spinner-gritcode.spinner-xl .spinner-circle {\n  width: 3.5em;\n  height: 3.5em; }\n\n.lt-ie10 .spinner-gritcode .spinner-circle, .ie9 .spinner-gritcode .spinner-circle, .oldie .spinner-gritcode .spinner-circle, .no-csstransitions .spinner-gritcode .spinner-circle, .no-csstransforms3d .spinner-gritcode .spinner-circle {\n  background: url(\"http://i2.wp.com/www.thegreatnovelingadventure.com/wp-content/plugins/wp-polls/images/loading.gif\") center center no-repeat;\n  animation: none;\n  margin-left: 0;\n  margin-top: 5px;\n  border: none;\n  width: 32px;\n  height: 32px; }\n", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 221 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"spinner spinner-gritcode {{spinnerSize}} {{fixed ? 'spinner-fixed' : ''}}\" v-show=\"active\">\r\n    <div class=\"spinner-wrapper\">\r\n      <div class=\"spinner-circle\"></div>\r\n      <div class=\"spinner-text\">{{text}}</div>\r\n    </div>\r\n  </div>";
+	module.exports = "<div style=\"position: relative\"\r\n    v-bind:class=\"{'open':showDropdown}\"\r\n  >\r\n    <input type=\"text\" class=\"form-control\"\r\n      :placeholder=\"placeholder\"\r\n      autocomplete=\"off\"\r\n      v-model=\"query\"\r\n      @input=\"update\"\r\n      @keydown.up=\"up\"\r\n      @keydown.down=\"down\"\r\n      @keydown.enter= \"hit\"\r\n      @keydown.esc=\"reset\"\r\n      @blur=\"showDropdown = false\"\r\n    />\r\n    <ul class=\"dropdown-menu\" v-el:dropdown>\r\n      <li v-for=\"item in items\" v-bind:class=\"{'active': isActive($index)}\">\r\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive($index)\">\r\n          <partial :name=\"templateName\"></partial>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>";
 
 /***/ }
 /******/ ])
