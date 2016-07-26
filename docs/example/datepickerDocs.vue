@@ -110,33 +110,35 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
       </tbody>
     </table>
   </div>
+  <div></div>
 </template>
 
 <script>
-  import datepicker from 'src/Datepicker.vue'
-  import select from 'src/Select.vue'
-  import option from 'src/Option.vue'
-  export default {
-    components: {
-      datepicker,
-      'v-select': select,
-      'v-option': option
+import datepicker from 'src/Datepicker.vue'
+import vSelect from 'src/Select.vue'
+import vOption from 'src/Option.vue'
+
+export default {
+  components: {
+    datepicker,
+    vSelect,
+    vOption
+  },
+  data () {
+    return {
+      disabled: [],
+      value: '06/10/2015',
+      format: ['dd/MM/yyyy'],
+      reset: true
+    }
+  },
+  watch: {
+    disabled () {
+      this.$refs.dp.getDateRange()
     },
-    data() {
-      return {
-        disabled: [],
-        value: '06/10/2015',
-        format: ['dd/MM/yyyy'],
-        reset: true
-      }
-    },
-    watch: {
-      disabled() {
-        this.$refs.dp.getDateRange()
-      },
-      format(newV) {
-        this.value = this.$refs.dp.stringify(new Date(this.value))
-      }
+    format (newV) {
+      this.value = this.$refs.dp.stringify(new Date(this.value))
     }
   }
+}
 </script>

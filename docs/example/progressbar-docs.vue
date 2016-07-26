@@ -119,31 +119,32 @@
 </template>
 
 <script>
-  import progressbar from 'src/Progressbar.vue'
-  export default {
-    data() {
-      return {
-        dynamicData: [5, 15, 25, 35, 45],
-        stackedData: [10, 20, 30, 40],
-      }
+import progressbar from 'src/Progressbar.vue'
+
+export default {
+  data () {
+    return {
+      dynamicData: [5, 15, 25, 35, 45],
+      stackedData: [10, 20, 30, 40]
+    }
+  },
+  components: {
+    progressbar
+  },
+  methods: {
+    dynamicClick () {
+      this.dynamicData = this.dynamicData.map(() => {
+        return Math.floor(Math.random() * 50)
+      })
     },
-    components: {
-      progressbar
-    },
-    methods: {
-      dynamicClick() {
-        this.dynamicData = this.dynamicData.map(() => {
-          return Math.floor(Math.random() * 50)
-        })
-      },
-      stackedClick() {
-        let i = 100
-        this.stackedData = this.stackedData.map(() => {
-          const random = Math.floor(Math.random() * i)
-          i = i - random
-          return random
-        })
-      }
+    stackedClick () {
+      let i = 100
+      this.stackedData = this.stackedData.map(() => {
+        const random = Math.floor(Math.random() * i)
+        i = i - random
+        return random
+      })
     }
   }
+}
 </script>

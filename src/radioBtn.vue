@@ -22,36 +22,36 @@
 <script>
 import coerceBoolean from './utils/coerceBoolean.js'
 
-  export default {
-    props: {
-      value: {
-        type: String
-      },
-      checked: {
-        type: Boolean,
-        coerce: coerceBoolean,
-        default: false
-      }
+export default {
+  props: {
+    value: {
+      type: String
     },
-    computed: {
-      type() {
-        return this.$parent.type
-      },
-      active() {
-        return this.$parent.value === this.value
-      }
+    checked: {
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: false
+    }
+  },
+  computed: {
+    type () {
+      return this.$parent.type
     },
-    methods: {
-      handleClick() {
-        this.$parent.value = this.value
-      }
-    },
-    created() {
-      if (this.$parent.value === this.value) {
-        this.checked = true
-      } else if (!this.$parent.value.length && this.checked) {
-        this.$parent.value = this.value
-      }
+    active () {
+      return this.$parent.value === this.value
+    }
+  },
+  methods: {
+    handleClick () {
+      this.$parent.value = this.value
+    }
+  },
+  created () {
+    if (this.$parent.value === this.value) {
+      this.checked = true
+    } else if (!this.$parent.value.length && this.checked) {
+      this.$parent.value = this.value
     }
   }
+}
 </script>

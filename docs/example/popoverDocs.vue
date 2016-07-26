@@ -104,16 +104,17 @@
 </template>
 
 <script>
-  import popover from 'src/Popover.vue'
-  export default {
-    data() {
-      return {
-        title: 'Title',
-        text: 'Lorem ipsum dolor sit amet'
-      }
-    },
-    components: {
-      popover
+import popover from 'src/Popover.vue'
+
+export default {
+  data () {
+    return {
+      title: 'Title',
+      text: 'Lorem ipsum dolor sit amet'
     }
+  },
+  components: {
+    popover
   }
+}
 </script>

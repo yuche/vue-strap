@@ -81,7 +81,7 @@ export default {
     },
     disabledDaysOfWeek: {
       type: Array,
-      default() {
+      default () {
         return []
       }
     },
@@ -98,19 +98,19 @@ export default {
       default: navigator.language
     }
   },
-  ready() {
+  ready () {
     this.$dispatch('child-created', this)
     this.currDate = this.parse(this.value) || this.parse(new Date())
-    this._closeEvent = EventListener.listen(window, 'click', (e)=> {
+    this._closeEvent = EventListener.listen(window, 'click', (e) => {
       if (!this.$el.contains(e.target)) this.close()
     })
   },
-  beforeDestroy() {
+  beforeDestroy () {
     if (this._closeEvent) this._closeEvent.remove()
   },
-  data() {
+  data () {
     return {
-      currDate: new Date,
+      currDate: new Date(),
       dateRange: [],
       decadeRange: [],
       displayDayView: false,
@@ -119,27 +119,27 @@ export default {
     }
   },
   watch: {
-    currDate() {
+    currDate () {
       this.getDateRange()
     }
   },
   computed: {
-    text() {
+    text () {
       return translations(this.lang)
     }
   },
   methods: {
-    close() {
+    close () {
       this.displayDayView = this.displayMonthView = this.displayYearView = false
     },
-    inputClick() {
+    inputClick () {
       if (this.displayMonthView || this.displayYearView) {
         this.displayDayView = false
       } else {
         this.displayDayView = !this.displayDayView
       }
     },
-    preNextDecadeClick(flag) {
+    preNextDecadeClick (flag) {
       const year = this.currDate.getFullYear()
       const months = this.currDate.getMonth()
       const date = this.currDate.getDate()
@@ -150,11 +150,10 @@ export default {
         this.currDate = new Date(year + 10, months, date)
       }
     },
-    preNextMonthClick(flag) {
+    preNextMonthClick (flag) {
       const year = this.currDate.getFullYear()
       const month = this.currDate.getMonth()
       const date = this.currDate.getDate()
-
 
       if (flag === 0) {
         const preMonth = this.getYearMonth(year, month - 1)
@@ -164,7 +163,7 @@ export default {
         this.currDate = new Date(nextMonth.year, nextMonth.month, date)
       }
     },
-    preNextYearClick(flag) {
+    preNextYearClick (flag) {
       const year = this.currDate.getFullYear()
       const months = this.currDate.getMonth()
       const date = this.currDate.getDate()
@@ -175,12 +174,12 @@ export default {
         this.currDate = new Date(year + 1, months, date)
       }
     },
-    yearSelect(year) {
+    yearSelect (year) {
       this.displayYearView = false
       this.displayMonthView = true
       this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())
     },
-    daySelect(date, el) {
+    daySelect (date, el) {
       if (el.$el.classList[0] === 'datepicker-item-disable') {
         return false
       } else {
@@ -189,45 +188,45 @@ export default {
         this.displayDayView = false
       }
     },
-    switchMonthView() {
+    switchMonthView () {
       this.displayDayView = false
       this.displayMonthView = true
     },
-    switchDecadeView() {
+    switchDecadeView () {
       this.displayMonthView = false
       this.displayYearView = true
     },
-    monthSelect(index) {
+    monthSelect (index) {
       this.displayMonthView = false
       this.displayDayView = true
       this.currDate = new Date(this.currDate.getFullYear(), index, this.currDate.getDate())
     },
-    getYearMonth(year, month) {
+    getYearMonth (year, month) {
       if (month > 11) {
         year++
-          month = 0
+        month = 0
       } else if (month < 0) {
         year--
-          month = 11
+        month = 11
       }
       return {year: year, month: month}
     },
-    stringifyDecadeHeader(date) {
+    stringifyDecadeHeader (date) {
       const yearStr = date.getFullYear().toString()
       const firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0
       const lastYearOfDecade = parseInt(firstYearOfDecade, 10) + 10
       return firstYearOfDecade + '-' + lastYearOfDecade
     },
-    stringifyDayHeader(date) {
+    stringifyDayHeader (date) {
       return this.text.months[date.getMonth()] + ' ' + date.getFullYear()
     },
-    parseMonth(date) {
+    parseMonth (date) {
       return this.text.months[date.getMonth()]
     },
-    stringifyYearHeader(date) {
+    stringifyYearHeader (date) {
       return date.getFullYear()
     },
-    stringify(date, format = this.format) {
+    stringify (date, format = this.format) {
       const year = date.getFullYear()
       const month = date.getMonth() + 1
       const day = date.getDate()
@@ -243,26 +242,23 @@ export default {
       .replace(/M(?!a)/g, month)
       .replace(/d/g, day)
     },
-    parse(str) {
-      if (str.length == 10 && (this.format == 'dd-MM-yyyy' || this.format == 'dd/MM/yyyy')) {
-        str = str.substring(3,5)+'-'+str.substring(0,2)+'-'+str.substring(6,10);
+    parse (str) {
+      if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {
+        str = str.substring(3, 5) + '-' + str.substring(0, 2) + '-' + str.substring(6, 10)
       }
       const date = new Date(str)
       return isNaN(date.getFullYear()) ? null : date
     },
-    getDayCount(year, month) {
+    getDayCount (year, month) {
       const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
       if (month === 1) {
-        if ( (year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0) ) {
+        if ((year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0)) {
           return 29
         }
-        return 28
       }
-
       return dict[month]
     },
-    getDateRange() {
+    getDateRange () {
       this.dateRange = []
       this.decadeRange = []
       const time = {
@@ -301,25 +297,24 @@ export default {
         const date = new Date(time.year, time.month, i)
         const week = date.getDay()
         let sclass = ''
-        this.disabledDaysOfWeek.forEach((el)=> {
+        this.disabledDaysOfWeek.forEach((el) => {
           if (week === parseInt(el, 10)) sclass = 'datepicker-item-disable'
         })
-
-      if (i === time.day) {
-        if (this.value) {
-          const valueDate = this.parse(this.value)
-          if (valueDate) {
-            if (valueDate.getFullYear() === time.year && valueDate.getMonth() === time.month) {
-              sclass = 'datepicker-dateRange-item-active'
+        if (i === time.day) {
+          if (this.value) {
+            const valueDate = this.parse(this.value)
+            if (valueDate) {
+              if (valueDate.getFullYear() === time.year && valueDate.getMonth() === time.month) {
+                sclass = 'datepicker-dateRange-item-active'
+              }
             }
           }
         }
-      }
-      this.dateRange.push({
-        text: i,
-        date: date,
-        sclass: sclass
-      })
+        this.dateRange.push({
+          text: i,
+          date: date,
+          sclass: sclass
+        })
       }
 
       if (this.dateRange.length < 42) {

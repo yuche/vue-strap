@@ -1,7 +1,7 @@
 import EventListener from './utils/EventListener.js'
 import coerceBoolean from './utils/coerceBoolean.js'
 
-const PopoverMixin = {
+export default {
   props: {
     trigger: {
       type: String,
@@ -26,7 +26,7 @@ const PopoverMixin = {
       type: String
     }
   },
-  data() {
+  data () {
     return {
       position: {
         top: 0,
@@ -36,20 +36,20 @@ const PopoverMixin = {
     }
   },
   methods: {
-    toggle() {
+    toggle () {
       this.show = !this.show
     }
   },
-  ready() {
-    if (!this.$els.popover) return console.error("Couldn't find popover v-el in your component that uses popoverMixin.");
+  ready () {
+    if (!this.$els.popover) return console.error("Couldn't find popover v-el in your component that uses popoverMixin.")
     const popover = this.$els.popover
     const triger = this.$els.trigger.children[0]
     if (this.trigger === 'hover') {
-      this._mouseenterEvent = EventListener.listen(triger, 'mouseenter', ()=> this.show = true)
-      this._mouseleaveEvent = EventListener.listen(triger, 'mouseleave', ()=> this.show = false)
+      this._mouseenterEvent = EventListener.listen(triger, 'mouseenter', () => { this.show = true })
+      this._mouseleaveEvent = EventListener.listen(triger, 'mouseleave', () => { this.show = false })
     } else if (this.trigger === 'focus') {
-      this._focusEvent = EventListener.listen(triger, 'focus', ()=> this.show = true)
-      this._blurEvent = EventListener.listen(triger, 'blur', ()=> this.show = false)
+      this._focusEvent = EventListener.listen(triger, 'focus', () => { this.show = true })
+      this._blurEvent = EventListener.listen(triger, 'blur', () => { this.show = false })
     } else {
       this._clickEvent = EventListener.listen(triger, 'click', this.toggle)
     }
@@ -57,7 +57,7 @@ const PopoverMixin = {
     switch (this.placement) {
       case 'top' :
         this.position.left = triger.offsetLeft - popover.offsetWidth / 2 + triger.offsetWidth / 2
-        this.position.top = triger.offsetTop  - popover.offsetHeight
+        this.position.top = triger.offsetTop - popover.offsetHeight
         break
       case 'left':
         this.position.left = triger.offsetLeft - popover.offsetWidth
@@ -79,7 +79,7 @@ const PopoverMixin = {
     popover.style.display = 'none'
     this.show = !this.show
   },
-  beforeDestroy() {
+  beforeDestroy () {
     if (this._blurEvent) {
       this._blurEvent.remove()
       this._focusEvent.remove()
@@ -91,5 +91,3 @@ const PopoverMixin = {
     if (this._clickEvent) this._clickEvent.remove()
   }
 }
-
-export default PopoverMixin

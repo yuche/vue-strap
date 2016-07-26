@@ -85,10 +85,11 @@ Component style:
 </template>
 
 <script>
-  import dropdown from 'src/Dropdown.vue'
-  export default {
-    components: {
-      dropdown
-    }
+import dropdown from 'src/Dropdown.vue'
+
+export default {
+  components: {
+    dropdown
   }
+}
 </script>

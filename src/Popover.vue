@@ -29,9 +29,10 @@
 
 <script>
 import PopoverMixin from './popoverMixins.js'
-  export default {
-    mixins: [PopoverMixin]
-  }
+
+export default {
+  mixins: [PopoverMixin]
+}
 </script>
 
 <style>

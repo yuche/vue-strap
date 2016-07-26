@@ -8,35 +8,35 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      value: {
-        type: String
-      }
-    },
-    data() {
-      return {
-        chosen: false
-      }
-    },
-    computed: {
-      chosen() {
-        return this.$parent.value.indexOf(this.value) !== -1
-      }
-    },
-    methods: {
-      handleClick() {
-        const parent = this.$parent
-        if (parent.multiple) {
-          const index = parent.value.indexOf(this.value)
-          index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1)
-        } else {
-          parent.value = [this.value]
-          parent.show = false
-        }
+export default {
+  props: {
+    value: {
+      type: String
+    }
+  },
+  data () {
+    return {
+      chosen: false
+    }
+  },
+  computed: {
+    chosen () {
+      return this.$parent.value.indexOf(this.value) !== -1
+    }
+  },
+  methods: {
+    handleClick () {
+      const parent = this.$parent
+      if (parent.multiple) {
+        const index = parent.value.indexOf(this.value)
+        index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1)
+      } else {
+        parent.value = [this.value]
+        parent.show = false
       }
     }
   }
+}
 </script>
 
 <style scoped>

@@ -110,15 +110,16 @@
 <script>
 import accordion from 'src/Accordion.vue'
 import panel from 'src/Panel.vue'
-  export default {
-    data() {
-      return {
-        checked: true
-      }
-    },
-    components: {
-      accordion,
-      panel
+
+export default {
+  data () {
+    return {
+      checked: true
     }
+  },
+  components: {
+    accordion,
+    panel
   }
+}
 </script>

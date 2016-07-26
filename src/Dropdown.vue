@@ -35,79 +35,81 @@
   </div>
 </template>
 <script>
-  var timeout = {}
-  export default {
-    props: {
-      text: {
-        type: String,
-        default: null
-      },
-      type: {
-        type: String,
-        default: null
+let timeout = {}
+export default {
+  props: {
+    text: {
+      type: String,
+      default: null
+    },
+    type: {
+      type: String,
+      default: null
+    }
+  },
+  data () {
+    return {
+      show: false
+    }
+  },
+  computed: {
+    menu () {
+      return !this.$parent || this.$parent.navbar
+    },
+    submenu () {
+      return this.$parent && (this.$parent.menu || this.$parent.submenu)
+    },
+    slots () {
+      return this._slotContents
+    }
+  },
+  watch: {
+    show (val) {
+      if (val) this.focus()
+    }
+  },
+  methods: {
+    blur () {
+      timeout.hide = setTimeout(() => {
+        timeout.hide = false
+        this.show = false
+      }, 100)
+    },
+    unblur () {
+      if (timeout.hide) {
+        clearTimeout(timeout.hide)
+        timeout.hide = false
       }
     },
-    data() {
-      return {
-        show: false
-      }
-    },
-    computed: {
-      menu() {
-        return !this.$parent || this.$parent.navbar
-      },
-      submenu() {
-        return this.$parent && (this.$parent.menu || this.$parent.submenu)
-      },
-      slots() {
-        return this._slotContents
-      }
-    },
-    watch: {
-      show(val) {
-        if (val) this.focus()
-      }
-    },
-    methods: {
-      blur() {
-        timeout.hide = setTimeout(() => timeout.hide = this.show = false, 100)
-      },
-      unblur() {
-        if (timeout.hide) {
-          clearTimeout(timeout.hide)
-          timeout.hide = false
-        }
-      },
-      focus() {
-        let el
-        if (!this.text) {
-          el = this.$els.dropdown.querySelector('[data-toggle="dropdown"]')
-        } else {
-          el = this.$els.btn
-        }
-        if (el) el.focus()
-      },
-      toggleDropdown(e) {
-        if(e) e.preventDefault()
-        this.show = !this.show
-        this.unblur()
-      }
-    },
-    ready() {
-      const el = this.$els.dropdown
-      el.querySelector('ul.dropdown-menu').addEventListener('click', (e)=> {
-        if (e.target.nodeName.toLowerCase() == 'a') this.toggleDropdown()
-      })
+    focus () {
+      let el
       if (!this.text) {
-        const toggle = el.querySelector('[data-toggle="dropdown"]')
-        if (toggle)
-        {
-          toggle.addEventListener('click', this.toggleDropdown)
-          toggle.addEventListener('blur', this.blur)
-        }
+        el = this.$els.dropdown.querySelector('[data-toggle="dropdown"]')
+      } else {
+        el = this.$els.btn
+      }
+      if (el) el.focus()
+    },
+    toggleDropdown (e) {
+      if (e) e.preventDefault()
+      this.show = !this.show
+      this.unblur()
+    }
+  },
+  ready () {
+    const el = this.$els.dropdown
+    el.querySelector('ul.dropdown-menu').addEventListener('click', (e) => {
+      if (e.target.nodeName.toLowerCase() === 'a') this.toggleDropdown()
+    })
+    if (!this.text) {
+      const toggle = el.querySelector('[data-toggle="dropdown"]')
+      if (toggle) {
+        toggle.addEventListener('click', this.toggleDropdown)
+        toggle.addEventListener('blur', this.blur)
       }
     }
   }
+}
 </script>
 
 <style scoped>

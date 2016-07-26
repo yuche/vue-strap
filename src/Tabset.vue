@@ -41,15 +41,15 @@
         default: 0
       }
     },
-    data() {
+    data () {
       return {
         renderData: []
       }
     },
     methods: {
-        handleTabListClick(index, el) {
-            if (!el.disabled) this.active = index
-        }
+      handleTabListClick (index, el) {
+        if (!el.disabled) this.active = index
+      }
     }
   }
 </script>

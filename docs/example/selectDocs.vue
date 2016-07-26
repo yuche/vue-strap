@@ -141,33 +141,34 @@ Ajax:
 </template>
 
 <script>
-  import vSelect from 'src/Select.vue'
-  import vOption from 'src/Option.vue'
-  export default {
-    components: {
-      vSelect,
-      vOption
-    },
-    data() {
-      return {
-        select: {
-          options: [
-            {value:1, label:'Cat'},
-            {value:2, label:'Cow'},
-            {value:3, label:'Dog'},
-            {value:4, label:'Elephant'},
-            {value:5, label:'Fish'},
-            {value:6, label:'Lion'},
-            {value:7, label:'Tiger'},
-            {value:8, label:'Turtle'}
-          ]
-        },
-        ajax: {
-        },
-        single: [],
-      }
+import vSelect from 'src/Select.vue'
+import vOption from 'src/Option.vue'
+
+export default {
+  components: {
+    vSelect,
+    vOption
+  },
+  data () {
+    return {
+      select: {
+        options: [
+          {value: 1, label: 'Cat'},
+          {value: 2, label: 'Cow'},
+          {value: 3, label: 'Dog'},
+          {value: 4, label: 'Elephant'},
+          {value: 5, label: 'Fish'},
+          {value: 6, label: 'Lion'},
+          {value: 7, label: 'Tiger'},
+          {value: 8, label: 'Turtle'}
+        ]
+      },
+      ajax: {
+      },
+      single: []
     }
   }
+}
 </script>
 
 <style>

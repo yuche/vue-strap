@@ -32,80 +32,79 @@
 </template>
 
 <script>
-import EventListener from './utils/EventListener';
+import EventListener from './utils/EventListener'
 
-  export default {
-    props: {
-      type: {
-        type: String,
-        default: "default"
-      },
-      placement: {
-        type: String,
-        default: 'top'
-      }
+export default {
+  props: {
+    type: {
+      type: String,
+      default: 'default'
     },
-    data() {
-      return {
-        id: 'bs-example-navbar-collapse-1',
-        styles: {}
-      }
-    },
-    computed: {
-      navbar() {
-        return true
-      }
-    },
-    methods: {
-      toggleCollapse(e) {
-        e.preventDefault();
-
-        // collapse data-target
-        var tmp = this.$el.querySelector('[data-target]');
-        var id = tmp.getAttribute('data-target');
-        var o = document.getElementById(id.substring(1));
-        o.classList.toggle('collapse');
-      }
-    },
-    ready() {
-      const dropdowns = document.querySelector('.dropdown > .dropdown-toggle');
-      const toggle = this.$el.querySelector('[data-toggle="collapse"]');
-      if (dropdowns) {
-        // Al hacer click en un dropdown
-        dropdowns.addEventListener('click',function(e){
-          e.preventDefault();
-          let dropDown = e;
-          dropDown.target.offsetParent.classList.add('open')
-          let dropDownItems = dropDown.target.nextElementSibling.children;
-
-          // Al hacer click en un elemento del dropdown
-          if (dropDownItems) {
-            for (var i = 0; i < dropDownItems.length; i++) {
-              dropDownItems[i].addEventListener('click',function(){
-                dropDown.target.offsetParent.classList.remove('open')
-              });
-            }
-          }
-
-          // dropdowns.addEventListener('focusout',function(){
-          //   dropDown.target.offsetParent.classList.remove('open')
-          // });
-        });
-      }
-      if (toggle) {
-        toggle.style.borderRadius = '4px';
-        toggle.addEventListener('click', this.toggleCollapse);
-      }
-      this._closeEvent = EventListener.listen(window, 'click', (e)=> {
-        if (!this.$el.contains(e.target)) {
-          this.$el.classList.remove('open');
-        }
-      })
-    },
-    beforeDestroy() {
-      if (this._closeEvent) {
-        this._closeEvent.remove();
-      }
+    placement: {
+      type: String,
+      default: 'top'
     }
-  }//End Object
+  },
+  data () {
+    return {
+      id: 'bs-example-navbar-collapse-1',
+      styles: {}
+    }
+  },
+  computed: {
+    navbar () {
+      return true
+    }
+  },
+  methods: {
+    toggleCollapse (e) {
+      e.preventDefault()
+
+      // collapse data-target
+      var tmp = this.$el.querySelector('[data-target]')
+      var id = tmp.getAttribute('data-target')
+      var o = document.getElementById(id.substring(1))
+      o.classList.toggle('collapse')
+    }
+  },
+  ready () {
+    const dropdowns = document.querySelector('.dropdown > .dropdown-toggle')
+    const toggle = this.$el.querySelector('[data-toggle="collapse"]')
+    if (dropdowns) {
+      // Al hacer click en un dropdown
+      dropdowns.addEventListener('click', (e) => {
+        e.preventDefault()
+        let dropDown = e.target.offsetParent.classList.add('open')
+        let dropDownItems = dropDown.target.nextElementSibling.children
+
+        // Al hacer click en un elemento del dropdown
+        if (dropDownItems) {
+          for (let i = 0; i < dropDownItems.length; i++) {
+            dropDownItems[i].addEventListener('click', () => {
+              dropDown.target.offsetParent.classList.remove('open')
+            })
+          }
+        }
+
+        // dropdowns.addEventListener('focusout',function(){
+        //   dropDown.target.offsetParent.classList.remove('open')
+        // });
+      })
+    }
+    if (toggle) {
+      toggle.style.borderRadius = '4px'
+      toggle.addEventListener('click', this.toggleCollapse)
+    }
+    this._closeEvent = EventListener.listen(window, 'click', (e) => {
+      if (!this.$el.contains(e.target)) {
+        this.$el.classList.remove('open')
+      }
+    })
+  },
+  beforeDestroy () {
+    if (this._closeEvent) {
+      this._closeEvent.remove()
+    }
+  }
+}
 </script>

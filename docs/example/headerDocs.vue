@@ -11,6 +11,7 @@
       <li><a href="#carousel">Carousel</a></li>
       <li><a href="#datepicker">Datepicker</a></li>
       <li><a href="#dropdown">Dropdown</a></li>
+      <li><a href="#input">Input</a></li>
       <li><a href="#modal">Modal</a></li>
       <li><a href="#popover">Popover</a></li>
       <li><a href="#progressbar">Progressbar</a></li>
@@ -31,12 +32,13 @@
 </template>
 
 <script>
-  import navbar from 'src/Navbar.vue'
-  import dropdown from 'src/Dropdown.vue'
-  export default {
-    components: {
-      navbar,
-      dropdown
-    }
+import navbar from 'src/Navbar.vue'
+import dropdown from 'src/Dropdown.vue'
+
+export default {
+  components: {
+    navbar,
+    dropdown
   }
+}
 </script>

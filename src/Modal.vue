@@ -38,98 +38,98 @@ import getScrollBarWidth from './utils/getScrollBarWidth.js'
 import EventListener from './utils/EventListener.js'
 import coerceBoolean from './utils/coerceBoolean.js'
 
-  export default {
-    props: {
-      okText: {
-        type: String,
-        default: 'Save changes'
-      },
-      cancelText:{
-        type: String,
-        default: 'Close'
-      },
-      title: {
-        type: String,
-        default: ''
-      },
-      show: {
-        require: true,
-        type: Boolean,
-        coerce: coerceBoolean,
-        twoWay: true
-      },
-      width: {
-        default: null
-      },
-      callback: {
-        type: Function,
-        default() {}
-      },
-      effect: {
-        type: String,
-        default: null
-      },
-      backdrop: {
-        type: Boolean,
-        coerce: coerceBoolean,
-        default: true
-      },
-      large: {
-        type: Boolean,
-        coerce: coerceBoolean,
-        default: false
-      },
-      small: {
-        type: Boolean,
-        coerce: coerceBoolean,
-        default: false
-      }
+export default {
+  props: {
+    okText: {
+      type: String,
+      default: 'Save changes'
     },
-    ready() {
-      this.$watch('show', (val)=> {
-        const el = this.$el
-        const body = document.body
-        const scrollBarWidth =  getScrollBarWidth()
-        if (val) {
-          el.querySelector('.modal-content').focus()
-          el.style.display = 'block'
-          setTimeout(()=> el.classList.add('in'), 0)
-          body.classList.add('modal-open')
-          if (scrollBarWidth !== 0) {
-            body.style.paddingRight = scrollBarWidth + 'px'
-          }
-          if (this.backdrop) {
-            this._blurModalContentEvent = EventListener.listen(this.$el, 'click', (e)=> {
-              if (e.target === el) this.show = false
-            })
-          }
-        } else {
-          if (this._blurModalContentEvent) this._blurModalContentEvent.remove()
-          el.classList.remove('in')
-          setTimeout(()=> {
-            el.style.display = 'none'
-            body.classList.remove('modal-open')
-            body.style.paddingRight = '0'
-          }, 300)
+    cancelText: {
+      type: String,
+      default: 'Close'
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    show: {
+      require: true,
+      type: Boolean,
+      coerce: coerceBoolean,
+      twoWay: true
+    },
+    width: {
+      default: null
+    },
+    callback: {
+      type: Function,
+      default () {}
+    },
+    effect: {
+      type: String,
+      default: null
+    },
+    backdrop: {
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: true
+    },
+    large: {
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: false
+    },
+    small: {
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: false
+    }
+  },
+  ready () {
+    this.$watch('show', (val) => {
+      const el = this.$el
+      const body = document.body
+      const scrollBarWidth = getScrollBarWidth()
+      if (val) {
+        el.querySelector('.modal-content').focus()
+        el.style.display = 'block'
+        setTimeout(() => el.classList.add('in'), 0)
+        body.classList.add('modal-open')
+        if (scrollBarWidth !== 0) {
+          body.style.paddingRight = scrollBarWidth + 'px'
         }
-      }, { immediate: true })
-    },
-    computed: {
-      optionalWidth: function() {
-        if( this.width === null ) {
-          return null;
-        } else if( Number.isInteger(this.width) ) {
-          return this.width + "px";
+        if (this.backdrop) {
+          this._blurModalContentEvent = EventListener.listen(this.$el, 'click', (e) => {
+            if (e.target === el) this.show = false
+          })
         }
-        return this.width;
-      },
-    },
-    methods: {
-      close() {
-        this.show = false
+      } else {
+        if (this._blurModalContentEvent) this._blurModalContentEvent.remove()
+        el.classList.remove('in')
+        setTimeout(() => {
+          el.style.display = 'none'
+          body.classList.remove('modal-open')
+          body.style.paddingRight = '0'
+        }, 300)
       }
+    }, { immediate: true })
+  },
+  computed: {
+    optionalWidth () {
+      if (this.width === null) {
+        return null
+      } else if (Number.isInteger(this.width)) {
+        return this.width + 'px'
+      }
+      return this.width
+    }
+  },
+  methods: {
+    close () {
+      this.show = false
     }
   }
+}
 </script>
 <style>
 .modal {

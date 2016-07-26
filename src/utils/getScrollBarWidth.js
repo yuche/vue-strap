@@ -1,4 +1,4 @@
-export default ()=> {
+export default () => {
   if (document.documentElement.scrollHeight <= document.documentElement.clientHeight) {
     return 0
   }

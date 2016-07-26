@@ -1,24 +1,20 @@
 // return all the translations
 let text = {
+  daysOfWeek: {
+    en: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+    es: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+  },
   limit: {
     en: 'Limit reached ({{limit}} items max).',
-    es: 'Limite alcanzado (máximo {{limit}} items).',
+    es: 'Limite alcanzado (máximo {{limit}} items).'
   },
   loading: {
     en: 'Loading...',
     es: 'Cargando...'
   },
-  search: {
-    en: 'Search',
-    es: 'Buscar'
-  },
-  notSelected: {
-    en: 'Nothing Selected',
-    es: 'Nada seleccionado'
-  },
-  daysOfWeek: {
-    en: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-    es: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+  minLength: {
+    en: 'Min. Length',
+    es: 'Tamaño Mínimo'
   },
   months: {
     en: [
@@ -33,6 +29,18 @@ let text = {
       'Julio', 'Agosto', 'Septiembre',
       'Octubre', 'Noviembre', 'Diciembre'
     ]
+  },
+  notSelected: {
+    en: 'Nothing Selected',
+    es: 'Nada seleccionado'
+  },
+  required: {
+    en: 'Required',
+    es: 'Requerido'
+  },
+  search: {
+    en: 'Search',
+    es: 'Buscar'
   }
 }
 export default (lang = 'en') => {
