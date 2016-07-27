@@ -1,3 +1,8 @@
+<style lang="sass">
+    // import styling
+    @import './spinner.scss';
+</style>
+
 <template>
   <div class="spinner spinner-gritcode {{spinnerSize}} {{fixed ? 'spinner-fixed' : ''}}" v-show="active">
     <div class="spinner-wrapper">
@@ -8,8 +13,6 @@
 </template>
 
 <script>
-  // import styling
-  import './spinner.scss'
 
   const MIN_WAIT = 500 // in ms
 
