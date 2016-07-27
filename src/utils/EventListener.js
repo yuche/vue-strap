@@ -26,4 +26,4 @@ const EventListener = {
   }
 }
 
-export default EventListener
+module.exports = EventListener
