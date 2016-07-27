@@ -6,7 +6,7 @@
     </p>
     <div class="bs-example">
       <h4>Simple select</h4>
-      <p><pre>Select data : {{single}}</pre></p>
+      <p><pre>Select data : {{show(single)}}</pre></p>
       <v-select :value.sync="single">
         <v-option value="apple">Apple</v-option>
         <v-option value="banana">Banana</v-option>
@@ -17,7 +17,7 @@
 
       <hr />
       <h4>Test options:</h4>
-      <p><pre>Selected data : {{select.value.join(', ')}}</pre></p>
+      <p><pre>Selected data : {{show(select.value)}}</pre></p>
       <form action="./#select" method="get">
         <v-select :options="select.options" :value.sync="select.value" :name="select.inputs?(select.multiple?'animals[]':'animal'):''"
           :multiple="select.multiple" :search="select.search" :justified="select.justified" :required="select.inputs&&select.required"
@@ -166,6 +166,11 @@ export default {
       ajax: {
       },
       single: []
+    }
+  },
+  methods: {
+    show (value) {
+      return value instanceof Array ? value.join(', ') : value
     }
   }
 }

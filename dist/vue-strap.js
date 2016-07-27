@@ -4193,11 +4193,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <!-- Add "scoped" attribute to limit CSS to this component only -->
 	// <!-- <style scoped></style> -->
 	// <template>
-	//   <div class="form-group has-feedback" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}">
+	//   <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}">
 	//     <label v-if="label" class="control-label">{{label}}</label>
 	//     <div v-if="slots.before||slots.after" class="input-group">
 	//       <slot name="before"></slot>
-	//       <input v-else class="form-control" v-el:input v-model="value"
+	//       <input class="form-control" v-el:input v-model="value"
 	//         :name="name"
 	//         :type="type"
 	//         :required="required"
@@ -4250,7 +4250,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 128 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"form-group has-feedback\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}\">\n    <label v-if=\"label\" class=\"control-label\">{{label}}</label>\n    <div v-if=\"slots.before||slots.after\" class=\"input-group\">\n      <slot name=\"before\"></slot>\n      <input v-else class=\"form-control\" v-el:input v-model=\"value\"\n        :name=\"name\"\n        :type=\"type\"\n        :required=\"required\"\n        :disabled=\"disabled\"\n        :minlength=\"minlength\"\n        :maxlength=\"maxlength\"\n        :placeholder=\"placeholder\"\n        @focus=\"toggleEvents(true)\"\n        @blur=\"toggleEvents(false)\"\n      />\n      <slot name=\"after\"></slot>\n    </div>\n    <input v-else class=\"form-control\" v-el:input v-model=\"value\"\n      :name=\"name\"\n      :type=\"type\"\n      :required=\"required\"\n      :disabled=\"disabled\"\n      :minlength=\"minlength\"\n      :maxlength=\"maxlength\"\n      :placeholder=\"placeholder\"\n      @focus=\"toggleEvents(true)\"\n      @blur=\"toggleEvents(false)\"\n    />\n    <span v-if=\"icon&&valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\">{{errorText}}</div>\n  </div>";
+	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}\">\n    <label v-if=\"label\" class=\"control-label\">{{label}}</label>\n    <div v-if=\"slots.before||slots.after\" class=\"input-group\">\n      <slot name=\"before\"></slot>\n      <input class=\"form-control\" v-el:input v-model=\"value\"\n        :name=\"name\"\n        :type=\"type\"\n        :required=\"required\"\n        :disabled=\"disabled\"\n        :minlength=\"minlength\"\n        :maxlength=\"maxlength\"\n        :placeholder=\"placeholder\"\n        @focus=\"toggleEvents(true)\"\n        @blur=\"toggleEvents(false)\"\n      />\n      <slot name=\"after\"></slot>\n    </div>\n    <input v-else class=\"form-control\" v-el:input v-model=\"value\"\n      :name=\"name\"\n      :type=\"type\"\n      :required=\"required\"\n      :disabled=\"disabled\"\n      :minlength=\"minlength\"\n      :maxlength=\"maxlength\"\n      :placeholder=\"placeholder\"\n      @focus=\"toggleEvents(true)\"\n      @blur=\"toggleEvents(false)\"\n    />\n    <span v-if=\"icon&&valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\">{{errorText}}</div>\n  </div>";
 
 /***/ },
 /* 129 */
@@ -5842,13 +5842,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
+	var _coerceNumber = __webpack_require__(127);
+	
+	var _coerceNumber2 = _interopRequireDefault(_coerceNumber);
+	
 	var _translations = __webpack_require__(118);
 	
 	var _translations2 = _interopRequireDefault(_translations);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var timeout = {}; // <template>
+	// <template>
 	
 	// <select v-if="name && (required || value.length)" name="{{name}}" class="secret" :multiple="multiple" :required="required" @focus="focus()">
 	
@@ -5862,7 +5866,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//   <div class="btn-group" :class="{open: show}">
 	
-	//     <button v-el:btn type="button" class="btn btn-default form-control dropdown-toggle"
+	//     <button v-el:btn type="button" class="form-control dropdown-toggle"
 	
 	//       :disabled="disabled"
 	
@@ -5936,17 +5940,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <script>
 	
+	
+	var timeout = {};
 	exports.default = {
 	  props: {
+	    value: {
+	      twoWay: true
+	    },
 	    options: {
 	      twoWay: true,
 	      type: Array,
 	      default: function _default() {
 	        return [];
 	      }
-	    },
-	    value: {
-	      twoWay: true
 	    },
 	    label: {
 	      type: String,
@@ -5978,6 +5984,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    limit: {
 	      type: Number,
+	      coerce: _coerceNumber2.default,
 	      default: 1024
 	    },
 	    name: {
@@ -6020,20 +6027,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  ready: function ready() {
+	    if (this.value === undefined) {
+	      this.value = null;
+	    }
 	    if (this.value instanceof Array) {
-	      if (!this.multiple && this.value.length > 1) {
+	      if (!this.multiple) {
 	        this.value = this.value.slice(0, 1);
-	      } else if (this.multiple && this.value.length > this.limit) {
+	      }
+	      if (this.value.length > this.limit && this.limit > 0) {
 	        this.value = this.value.slice(0, this.limit);
 	      }
-	    } else {
-	      if (this.value === null || this.value === undefined || this.value.length === 0) {
-	        this.value = [];
-	      } else {
-	        this.value = [this.value];
-	      }
 	    }
-	    this.label = this.selectedItems;
+	    this.checkValue();
 	    if (this.url && !this.options.length) this.update();
 	  },
 	  data: function data() {
@@ -6048,17 +6053,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	  computed: {
 	    selectedItems: function selectedItems() {
 	      var foundItems = [];
-	      if (this.value.length) {
+	      var value = this.value instanceof Array ? this.value : this.value !== null ? [this.value] : [];
+	      if (value.length) {
 	        var _iteratorNormalCompletion = true;
 	        var _didIteratorError = false;
 	        var _iteratorError = undefined;
 	
 	        try {
-	          for (var _iterator = (0, _getIterator3.default)(this.value), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	          for (var _iterator = (0, _getIterator3.default)(value), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	            var item = _step.value;
 	
 	            if (this.options.length === 0) {
-	              foundItems = this.value;
+	              foundItems = value;
 	            } else {
 	              if (~['number', 'string'].indexOf(typeof item === 'undefined' ? 'undefined' : (0, _typeof3.default)(item))) {
 	                var option = void 0;
@@ -6094,7 +6100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return this.text.limit.replace('{{limit}}', this.limit);
 	    },
 	    showPlaceholder: function showPlaceholder() {
-	      return this.value.length === 0;
+	      return this.value === null || this.value instanceof Array && this.value.length === 0;
 	    },
 	    text: function text() {
 	      return (0, _translations2.default)(this.lang);
@@ -6107,7 +6113,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function value(val) {
 	      var _this = this;
 	
-	      if (val.length > this.limit) {
+	      this.checkValue();
+	      if (this.value instanceof Array && val.length > this.limit) {
 	        this.showNotify = true;
 	        this.value.pop();
 	        if (timeout.limit) clearTimeout(timeout.limit);
@@ -6117,46 +6124,57 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, 1500);
 	      }
 	    },
+	    multiple: function multiple() {
+	      this.checkValue();
+	    },
+	    parent: function parent() {
+	      this.value = [];
+	      this.update();
+	    },
 	    show: function show(val) {
 	      if (val) this.focus();
 	    },
 	    url: function url() {
 	      this.update();
-	    },
-	    parent: function parent() {
-	      this.value = [];
-	      this.update();
 	    }
 	  },
 	  methods: {
 	    select: function select(v) {
-	      if (~this.value.indexOf(v)) {
-	        if (this.multiple) {
+	      if (this.value instanceof Array) {
+	        if (~this.value.indexOf(v)) {
 	          this.value.$remove(v);
+	        } else {
+	          this.value.push(v);
+	        }
+	        if (this.closeOnSelect) {
+	          this.toggleDropdown();
 	        }
 	      } else {
-	        if (this.multiple) {
-	          this.value.push(v);
-	        } else {
-	          this.value = [v];
-	        }
-	      }
-	      this.label = this.selectedItems;
-	      if (!this.multiple || this.closeOnSelect) {
+	        this.value = v;
 	        this.toggleDropdown();
 	      }
+	      this.label = this.selectedItems;
 	    },
 	    clear: function clear() {
-	      this.value = [];
+	      this.value = this.value instanceof Array ? [] : null;
 	      this.label = this.selectedItems;
 	      this.toggleDropdown();
 	    },
-	    isSelected: function isSelected(v) {
-	      if (this.value instanceof Array) {
-	        return ~this.value.indexOf(v);
-	      } else {
-	        return this.value === v;
+	    checkValue: function checkValue() {
+	      if (this.multiple && !(this.value instanceof Array)) {
+	        if (this.value === null || this.value === undefined) {
+	          this.value = [];
+	        } else {
+	          this.value = [this.value];
+	        }
 	      }
+	      if (!this.multiple && this.value instanceof Array) {
+	        this.value = this.value.length ? this.value.pop() : null;
+	      }
+	      this.label = this.selectedItems;
+	    },
+	    isSelected: function isSelected(v) {
+	      return this.value instanceof Array ? ~this.value.indexOf(v) : this.value === v;
 	    },
 	    toggleDropdown: function toggleDropdown() {
 	      this.show = !this.show;
@@ -7115,7 +7133,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 198 */
 /***/ function(module, exports) {
 
-	module.exports = "<select v-if=\"name &amp;&amp; (required || value.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"!value.length\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-else=\"\" v-for=\"val in value\" value=\"{{val}}\" selected=\"\" _v-1f77809f=\"\">{{val}}</option>\n</select>\n<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"btn btn-default form-control dropdown-toggle\" :disabled=\"disabled\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-placeholder\" v-show=\"!ajax &amp;&amp; showPlaceholder\" _v-1f77809f=\"\">{{placeholder || text.notSelected}}</span>\n      <span class=\"btn-content\" v-show=\"!ajax\" _v-1f77809f=\"\">{{ selectedItems }}</span>\n      <span class=\"btn-loader\" v-show=\"ajax\" _v-1f77809f=\"\">{{text.loading}}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"showResetButton&amp;&amp;value.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" _v-1f77809f=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div class=\"notify\" v-if=\"!closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div class=\"notify\" v-if=\"closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n</div>";
+	module.exports = "<select v-if=\"name &amp;&amp; (required || value.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"!value.length\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-else=\"\" v-for=\"val in value\" value=\"{{val}}\" selected=\"\" _v-1f77809f=\"\">{{val}}</option>\n</select>\n<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-placeholder\" v-show=\"!ajax &amp;&amp; showPlaceholder\" _v-1f77809f=\"\">{{placeholder || text.notSelected}}</span>\n      <span class=\"btn-content\" v-show=\"!ajax\" _v-1f77809f=\"\">{{ selectedItems }}</span>\n      <span class=\"btn-loader\" v-show=\"ajax\" _v-1f77809f=\"\">{{text.loading}}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"showResetButton&amp;&amp;value.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" _v-1f77809f=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div class=\"notify\" v-if=\"!closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div class=\"notify\" v-if=\"closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n</div>";
 
 /***/ },
 /* 199 */

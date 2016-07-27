@@ -1,9 +1,9 @@
 <template>
-  <div class="form-group has-feedback" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}">
+  <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}">
     <label v-if="label" class="control-label">{{label}}</label>
     <div v-if="slots.before||slots.after" class="input-group">
       <slot name="before"></slot>
-      <input v-else class="form-control" v-el:input v-model="value"
+      <input class="form-control" v-el:input v-model="value"
         :name="name"
         :type="type"
         :required="required"

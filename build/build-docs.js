@@ -94,11 +94,11 @@
 	
 	var _datepickerDocs2 = _interopRequireDefault(_datepickerDocs);
 	
-	var _dropdownDocs = __webpack_require__(238);
+	var _dropdownDocs = __webpack_require__(239);
 	
 	var _dropdownDocs2 = _interopRequireDefault(_dropdownDocs);
 	
-	var _inputDocs = __webpack_require__(241);
+	var _inputDocs = __webpack_require__(242);
 	
 	var _inputDocs2 = _interopRequireDefault(_inputDocs);
 	
@@ -5996,7 +5996,7 @@
 	module.exports = __webpack_require__(192)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(237)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(238)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -6031,7 +6031,7 @@
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
-	var _Option = __webpack_require__(232);
+	var _Option = __webpack_require__(233);
 	
 	var _Option2 = _interopRequireDefault(_Option);
 	
@@ -7074,7 +7074,7 @@
 	module.exports = __webpack_require__(202)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(231)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(232)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -7157,13 +7157,17 @@
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
+	var _coerceNumber = __webpack_require__(231);
+	
+	var _coerceNumber2 = _interopRequireDefault(_coerceNumber);
+	
 	var _translations = __webpack_require__(197);
 	
 	var _translations2 = _interopRequireDefault(_translations);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var timeout = {}; // <template>
+	// <template>
 	
 	// <select v-if="name && (required || value.length)" name="{{name}}" class="secret" :multiple="multiple" :required="required" @focus="focus()">
 	
@@ -7177,7 +7181,7 @@
 	
 	//   <div class="btn-group" :class="{open: show}">
 	
-	//     <button v-el:btn type="button" class="btn btn-default form-control dropdown-toggle"
+	//     <button v-el:btn type="button" class="form-control dropdown-toggle"
 	
 	//       :disabled="disabled"
 	
@@ -7251,17 +7255,19 @@
 	
 	// <script>
 	
+	
+	var timeout = {};
 	exports.default = {
 	  props: {
+	    value: {
+	      twoWay: true
+	    },
 	    options: {
 	      twoWay: true,
 	      type: Array,
 	      default: function _default() {
 	        return [];
 	      }
-	    },
-	    value: {
-	      twoWay: true
 	    },
 	    label: {
 	      type: String,
@@ -7293,6 +7299,7 @@
 	    },
 	    limit: {
 	      type: Number,
+	      coerce: _coerceNumber2.default,
 	      default: 1024
 	    },
 	    name: {
@@ -7335,20 +7342,18 @@
 	    }
 	  },
 	  ready: function ready() {
+	    if (this.value === undefined) {
+	      this.value = null;
+	    }
 	    if (this.value instanceof Array) {
-	      if (!this.multiple && this.value.length > 1) {
+	      if (!this.multiple) {
 	        this.value = this.value.slice(0, 1);
-	      } else if (this.multiple && this.value.length > this.limit) {
+	      }
+	      if (this.value.length > this.limit && this.limit > 0) {
 	        this.value = this.value.slice(0, this.limit);
 	      }
-	    } else {
-	      if (this.value === null || this.value === undefined || this.value.length === 0) {
-	        this.value = [];
-	      } else {
-	        this.value = [this.value];
-	      }
 	    }
-	    this.label = this.selectedItems;
+	    this.checkValue();
 	    if (this.url && !this.options.length) this.update();
 	  },
 	  data: function data() {
@@ -7363,17 +7368,18 @@
 	  computed: {
 	    selectedItems: function selectedItems() {
 	      var foundItems = [];
-	      if (this.value.length) {
+	      var value = this.value instanceof Array ? this.value : this.value !== null ? [this.value] : [];
+	      if (value.length) {
 	        var _iteratorNormalCompletion = true;
 	        var _didIteratorError = false;
 	        var _iteratorError = undefined;
 	
 	        try {
-	          for (var _iterator = (0, _getIterator3.default)(this.value), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	          for (var _iterator = (0, _getIterator3.default)(value), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	            var item = _step.value;
 	
 	            if (this.options.length === 0) {
-	              foundItems = this.value;
+	              foundItems = value;
 	            } else {
 	              if (~['number', 'string'].indexOf(typeof item === 'undefined' ? 'undefined' : (0, _typeof3.default)(item))) {
 	                var option = void 0;
@@ -7409,7 +7415,7 @@
 	      return this.text.limit.replace('{{limit}}', this.limit);
 	    },
 	    showPlaceholder: function showPlaceholder() {
-	      return this.value.length === 0;
+	      return this.value === null || this.value instanceof Array && this.value.length === 0;
 	    },
 	    text: function text() {
 	      return (0, _translations2.default)(this.lang);
@@ -7422,7 +7428,8 @@
 	    value: function value(val) {
 	      var _this = this;
 	
-	      if (val.length > this.limit) {
+	      this.checkValue();
+	      if (this.value instanceof Array && val.length > this.limit) {
 	        this.showNotify = true;
 	        this.value.pop();
 	        if (timeout.limit) clearTimeout(timeout.limit);
@@ -7432,46 +7439,57 @@
 	        }, 1500);
 	      }
 	    },
+	    multiple: function multiple() {
+	      this.checkValue();
+	    },
+	    parent: function parent() {
+	      this.value = [];
+	      this.update();
+	    },
 	    show: function show(val) {
 	      if (val) this.focus();
 	    },
 	    url: function url() {
 	      this.update();
-	    },
-	    parent: function parent() {
-	      this.value = [];
-	      this.update();
 	    }
 	  },
 	  methods: {
 	    select: function select(v) {
-	      if (~this.value.indexOf(v)) {
-	        if (this.multiple) {
+	      if (this.value instanceof Array) {
+	        if (~this.value.indexOf(v)) {
 	          this.value.$remove(v);
+	        } else {
+	          this.value.push(v);
+	        }
+	        if (this.closeOnSelect) {
+	          this.toggleDropdown();
 	        }
 	      } else {
-	        if (this.multiple) {
-	          this.value.push(v);
-	        } else {
-	          this.value = [v];
-	        }
-	      }
-	      this.label = this.selectedItems;
-	      if (!this.multiple || this.closeOnSelect) {
+	        this.value = v;
 	        this.toggleDropdown();
 	      }
+	      this.label = this.selectedItems;
 	    },
 	    clear: function clear() {
-	      this.value = [];
+	      this.value = this.value instanceof Array ? [] : null;
 	      this.label = this.selectedItems;
 	      this.toggleDropdown();
 	    },
-	    isSelected: function isSelected(v) {
-	      if (this.value instanceof Array) {
-	        return ~this.value.indexOf(v);
-	      } else {
-	        return this.value === v;
+	    checkValue: function checkValue() {
+	      if (this.multiple && !(this.value instanceof Array)) {
+	        if (this.value === null || this.value === undefined) {
+	          this.value = [];
+	        } else {
+	          this.value = [this.value];
+	        }
 	      }
+	      if (!this.multiple && this.value instanceof Array) {
+	        this.value = this.value.length ? this.value.pop() : null;
+	      }
+	      this.label = this.selectedItems;
+	    },
+	    isSelected: function isSelected(v) {
+	      return this.value instanceof Array ? ~this.value.indexOf(v) : this.value === v;
 	    },
 	    toggleDropdown: function toggleDropdown() {
 	      this.show = !this.show;
@@ -8430,17 +8448,34 @@
 /* 231 */
 /***/ function(module, exports) {
 
-	module.exports = "<select v-if=\"name &amp;&amp; (required || value.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"!value.length\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-else=\"\" v-for=\"val in value\" value=\"{{val}}\" selected=\"\" _v-1f77809f=\"\">{{val}}</option>\n</select>\n<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"btn btn-default form-control dropdown-toggle\" :disabled=\"disabled\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-placeholder\" v-show=\"!ajax &amp;&amp; showPlaceholder\" _v-1f77809f=\"\">{{placeholder || text.notSelected}}</span>\n      <span class=\"btn-content\" v-show=\"!ajax\" _v-1f77809f=\"\">{{ selectedItems }}</span>\n      <span class=\"btn-loader\" v-show=\"ajax\" _v-1f77809f=\"\">{{text.loading}}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"showResetButton&amp;&amp;value.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" _v-1f77809f=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div class=\"notify\" v-if=\"!closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div class=\"notify\" v-if=\"closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n</div>";
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// Attempt to convert a string value to a Number.
+	// Otherwise, return 0.
+	
+	exports.default = function (val) {
+	  var alt = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+	  return typeof val === 'number' ? val : val === undefined || val === null || isNaN(Number(val)) ? alt : Number(val);
+	};
 
 /***/ },
 /* 232 */
+/***/ function(module, exports) {
+
+	module.exports = "<select v-if=\"name &amp;&amp; (required || value.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"!value.length\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-else=\"\" v-for=\"val in value\" value=\"{{val}}\" selected=\"\" _v-1f77809f=\"\">{{val}}</option>\n</select>\n<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-placeholder\" v-show=\"!ajax &amp;&amp; showPlaceholder\" _v-1f77809f=\"\">{{placeholder || text.notSelected}}</span>\n      <span class=\"btn-content\" v-show=\"!ajax\" _v-1f77809f=\"\">{{ selectedItems }}</span>\n      <span class=\"btn-loader\" v-show=\"ajax\" _v-1f77809f=\"\">{{text.loading}}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"showResetButton&amp;&amp;value.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" _v-1f77809f=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div class=\"notify\" v-if=\"!closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div class=\"notify\" v-if=\"closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n</div>";
+
+/***/ },
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(233)
-	module.exports = __webpack_require__(235)
+	__webpack_require__(234)
+	module.exports = __webpack_require__(236)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(236)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(237)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -8458,13 +8493,13 @@
 	}
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(234);
+	var content = __webpack_require__(235);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(112)(content, {});
@@ -8484,7 +8519,7 @@
 	}
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(111)();
@@ -8498,7 +8533,7 @@
 
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -8572,25 +8607,25 @@
 	// </style>
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports) {
 
 	module.exports = "<li style=\"position:relative\" _v-57eb20d0=\"\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\" _v-57eb20d0=\"\">\n      <span v-el:v=\"\" _v-57eb20d0=\"\"><slot _v-57eb20d0=\"\"></slot></span>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\" _v-57eb20d0=\"\"></span>\n    </a>\n  </li>";
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"bs-docs-section\" id=\"datepicker\">\r\n    <h1 class=\"page-header\"><a href=\"#datepicker\" class=\"anchor\">Datepicker</a></h1>\r\n    <div class=\"bs-example\">\r\n      <p>\r\n        <pre>\r\nSelected date is: {{new Date(value).toString().slice(0, -23)}}\r\n        </pre>\r\n      </p>\r\n      <datepicker v-ref:dp :value.sync=\"value\" :disabled-days-of-Week=\"disabled\"\r\n      :format=\"format.toString()\" :show-reset-button=\"reset\"></datepicker>\r\n      <h4>Disabled days of week</h4>\r\n\r\n      <v-select multiple :value.sync=\"disabled\">\r\n  <v-option value=\"0\">0</v-option>\r\n  <v-option value=\"1\">1</v-option>\r\n  <v-option value=\"2\">2</v-option>\r\n  <v-option value=\"3\">3</v-option>\r\n  <v-option value=\"4\">4</v-option>\r\n  <v-option value=\"5\">5</v-option>\r\n  <v-option value=\"6\">6</v-option>\r\n      </v-select>\r\n\r\n      <h4>Format</h4>\r\n      <v-select :value.sync=\"format\">\r\n        <v-option value=\"dd/MM/yyyy\">dd/MM/yyyy</v-option>\r\n        <v-option value=\"dd-MM-yyyy\">dd-MM-yyyy</v-option>\r\n        <v-option value=\"yyyy,MM,dd\">yyyy,MM,dd</v-option>\r\n        <v-option value=\"yyyy-MM-dd\">yyyy-MM-dd</v-option>\r\n        <v-option value=\"yyyy.MM.dd\">yyyy.MM.dd</v-option>\r\n        <v-option value=\"MMM/dd/yyyy\">MMM/dd/yyyy</v-option>\r\n        <v-option value=\"MMMM/dd/yyyy\">MMMM/dd/yyyy</v-option>\r\n        <v-option value=\"MM/dd/yyyy\">MM/dd/yyyy</v-option>\r\n        <v-option value=\"MM-dd-yyyy\">MM-dd-yyyy</v-option>\r\n      </v-select>\r\n\r\n      <h4>Reset button</h4>\r\n      <label><input type=\"checkbox\" v-model=\"reset\" @click=\"x\"> toggle reset button</label>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\n<datepicker\r\n  :value.sync=\"value\"\r\n  :disabled-days-of-Week=\"disabled\"\r\n  :format=\"format\"\r\n  :show-reset-button=\"reset\">\r\n</datepicker>\r\n\r\n<select multiple :value.sync=\"disabled\" size=5>\r\n  <v-option value=\"0\">0</v-option>\r\n  <v-option value=\"1\">1</v-option>\r\n  <v-option value=\"2\">2</v-option>\r\n  <v-option value=\"3\">3</v-option>\r\n  <v-option value=\"4\">4</v-option>\r\n  <v-option value=\"5\">5</v-option>\r\n  <v-option value=\"6\">6</v-option>\r\n</select>\r\n<select  :value.sync=\"format\">\r\n  <v-option value=\"yyyy,MM,dd\">yyyy,MM,dd</v-option>\r\n  <v-option value=\"yyyy-MM-dd\">yyyy-MM-dd</v-option>\r\n  <v-option value=\"yyyy.MM.dd\">yyyy.MM.dd</v-option>\r\n  <v-option value=\"MMM/dd/yyyy\">MMM/dd/yyyy</v-option>\r\n  <v-option value=\"MMMM/dd/yyyy\">MMMM/dd/yyyy</v-option>\r\n  <v-option value=\"dd/MM/yyyy\">dd/MM/yyyy</v-option>\r\n  <v-option value=\"dd-MM-yyyy\">dd-MM-yyyy</v-option>\r\n</select>\r\n    </script></code></pre>\r\n    <h2>Option</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>String</code></td>\r\n          <td></td>\r\n          <td>Value of the input DOM</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Width</td>\r\n          <td><code>String</code></td>\r\n          <td>200px</td>\r\n          <td>Width of the input DOM</td>\r\n        </tr>\r\n        <tr>\r\n          <td>format</td>\r\n          <td><code>String</code></td>\r\n          <td><code>MMMM/dd/yyyy</code></td>\r\n          <td>The date format, combination of d, dd, M, MM, MMM, MMMM, yyyy.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>disabledDaysOfWeek</td>\r\n          <td><code>Array</code></td>\r\n          <td></td>\r\n          <td>Days of the week that should be disabled. Values are 0 (Sunday) to 6 (Saturday).\r\n             Multiple values should be comma-separated.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>showResetButton</td>\r\n          <td><code>Boolean</code></td>\r\n          <td>false</td>\r\n          <td>If <strong>true</strong> shows an &times; shaped button to clear the selected date.\r\n            Usefull in forms where date entry is optional.</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div></div>";
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(239)
+	module.exports = __webpack_require__(240)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(240)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(241)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -8608,7 +8643,7 @@
 	}
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8800,16 +8835,16 @@
 	// <script>
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"bs-docs-section\" id=\"dropdown\">\r\n    <h1 class=\"page-header\"><a href=\"#dropdown\" class=\"anchor\">Dropdown</a></h1>\r\n    <div class=\"bs-example\">\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#\">Action</a></li>\r\n          <li><a href=\"#\">Another action</a></li>\r\n          <li><a href=\"#\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#\">Action</a></li>\r\n        <li><a href=\"#\">Another action</a></li>\r\n        <li><a href=\"#\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-success dropdown-toggle\" data-toggle=\"dropdown\">\r\n          Action <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#\">Action</a></li>\r\n          <li><a href=\"#\">Another action</a></li>\r\n          <li><a href=\"#\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <div class=\"btn-group btn-group-justified\" role=\"group\">\r\n        <a href=\"#\" class=\"btn btn-default\" role=\"button\">Left</a>\r\n        <dropdown>\r\n          <a slot=\"button\" href=\"#\" class=\"btn btn-default\" data-toggle=\"dropdown\">\r\n            Dropdown <span class=\"caret\"></span>\r\n          </a>\r\n          <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n            <li><a href=\"#\">Action</a></li>\r\n            <li><a href=\"#\">Another action</a></li>\r\n            <li><a href=\"#\">Something else here</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Separated link</a></li>\r\n          </ul>\r\n        </dropdown>\r\n        <a href=\"#\" class=\"btn btn-default\" role=\"button\">Right</a>\r\n      </div>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\nBoostrap style:\r\n<dropdown>\r\n  <button type=\"button\" class=\"btn btn-default\" data-toggle=\"dropdown\">\r\n    Action\r\n    <span class=\"caret\"></span>\r\n  </button>\r\n  <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n    <li><a href=\"#\">Action</a></li>\r\n    <li><a href=\"#\">Another action</a></li>\r\n    <li><a href=\"#\">Something else here</a></li>\r\n    <li role=\"separator\" class=\"divider\"></li>\r\n    <li><a href=\"#\">Separated link</a></li>\r\n  </ul>\r\n</dropdown>\r\n\r\nComponent style:\r\n<dropdown text=\"Action\" type=\"primary\">\r\n  <li><a href=\"#\">Action</a></li>\r\n  <li><a href=\"#\">Another action</a></li>\r\n  <li><a href=\"#\">Something else here</a></li>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <li><a href=\"#\">Separated link</a></li>\r\n</dropdown>\r\n    </script></code></pre>\r\n    <h2>Usage</h2>\r\n    <p>\r\n      Just use as <a target=\"_blank\" href=\"http://getbootstrap.com/javascript/#dropdowns\">original Bootstrap way</a>.\r\n      Working on progress, considered refactoring with directive. Currently the other components(Select, etc..) not depend on this component.\r\n    </p>\r\n  </div>";
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(242)
+	module.exports = __webpack_require__(243)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
 	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(247)
@@ -8830,7 +8865,7 @@
 	}
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8839,7 +8874,7 @@
 	  value: true
 	});
 	
-	var _Input = __webpack_require__(243);
+	var _Input = __webpack_require__(244);
 	
 	var _Input2 = _interopRequireDefault(_Input);
 	
@@ -9259,10 +9294,10 @@
 	// <script>
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(244)
+	module.exports = __webpack_require__(245)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
 	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(246)
@@ -9283,7 +9318,7 @@
 	}
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9296,7 +9331,7 @@
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
-	var _coerceNumber = __webpack_require__(245);
+	var _coerceNumber = __webpack_require__(231);
 	
 	var _coerceNumber2 = _interopRequireDefault(_coerceNumber);
 	
@@ -9485,11 +9520,11 @@
 	// <!-- Add "scoped" attribute to limit CSS to this component only -->
 	// <!-- <style scoped></style> -->
 	// <template>
-	//   <div class="form-group has-feedback" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}">
+	//   <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}">
 	//     <label v-if="label" class="control-label">{{label}}</label>
 	//     <div v-if="slots.before||slots.after" class="input-group">
 	//       <slot name="before"></slot>
-	//       <input v-else class="form-control" v-el:input v-model="value"
+	//       <input class="form-control" v-el:input v-model="value"
 	//         :name="name"
 	//         :type="type"
 	//         :required="required"
@@ -9522,27 +9557,10 @@
 	// <script>
 
 /***/ },
-/* 245 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	// Attempt to convert a string value to a Number.
-	// Otherwise, return 0.
-	
-	exports.default = function (val) {
-	  var alt = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
-	  return typeof val === 'number' ? val : val === undefined || val === null || isNaN(Number(val)) ? alt : Number(val);
-	};
-
-/***/ },
 /* 246 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"form-group has-feedback\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}\">\n    <label v-if=\"label\" class=\"control-label\">{{label}}</label>\n    <div v-if=\"slots.before||slots.after\" class=\"input-group\">\n      <slot name=\"before\"></slot>\n      <input v-else class=\"form-control\" v-el:input v-model=\"value\"\n        :name=\"name\"\n        :type=\"type\"\n        :required=\"required\"\n        :disabled=\"disabled\"\n        :minlength=\"minlength\"\n        :maxlength=\"maxlength\"\n        :placeholder=\"placeholder\"\n        @focus=\"toggleEvents(true)\"\n        @blur=\"toggleEvents(false)\"\n      />\n      <slot name=\"after\"></slot>\n    </div>\n    <input v-else class=\"form-control\" v-el:input v-model=\"value\"\n      :name=\"name\"\n      :type=\"type\"\n      :required=\"required\"\n      :disabled=\"disabled\"\n      :minlength=\"minlength\"\n      :maxlength=\"maxlength\"\n      :placeholder=\"placeholder\"\n      @focus=\"toggleEvents(true)\"\n      @blur=\"toggleEvents(false)\"\n    />\n    <span v-if=\"icon&&valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\">{{errorText}}</div>\n  </div>";
+	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}\">\n    <label v-if=\"label\" class=\"control-label\">{{label}}</label>\n    <div v-if=\"slots.before||slots.after\" class=\"input-group\">\n      <slot name=\"before\"></slot>\n      <input class=\"form-control\" v-el:input v-model=\"value\"\n        :name=\"name\"\n        :type=\"type\"\n        :required=\"required\"\n        :disabled=\"disabled\"\n        :minlength=\"minlength\"\n        :maxlength=\"maxlength\"\n        :placeholder=\"placeholder\"\n        @focus=\"toggleEvents(true)\"\n        @blur=\"toggleEvents(false)\"\n      />\n      <slot name=\"after\"></slot>\n    </div>\n    <input v-else class=\"form-control\" v-el:input v-model=\"value\"\n      :name=\"name\"\n      :type=\"type\"\n      :required=\"required\"\n      :disabled=\"disabled\"\n      :minlength=\"minlength\"\n      :maxlength=\"maxlength\"\n      :placeholder=\"placeholder\"\n      @focus=\"toggleEvents(true)\"\n      @blur=\"toggleEvents(false)\"\n    />\n    <span v-if=\"icon&&valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\">{{errorText}}</div>\n  </div>";
 
 /***/ },
 /* 247 */
@@ -11359,7 +11377,7 @@
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
-	var _Option = __webpack_require__(232);
+	var _Option = __webpack_require__(233);
 	
 	var _Option2 = _interopRequireDefault(_Option);
 	
@@ -11381,7 +11399,7 @@
 	
 	//       <h4>Simple select</h4>
 	
-	//       <p><pre>Select data : {{single}}</pre></p>
+	//       <p><pre>Select data : {{show(single)}}</pre></p>
 	
 	//       <v-select :value.sync="single">
 	
@@ -11401,7 +11419,7 @@
 	
 	//       <h4>Test options:</h4>
 	
-	//       <p><pre>Selected data : {{select.value.join(', ')}}</pre></p>
+	//       <p><pre>Selected data : {{show(select.value)}}</pre></p>
 	
 	//       <form action="./#select" method="get">
 	
@@ -11651,6 +11669,12 @@
 	      ajax: {},
 	      single: []
 	    };
+	  },
+	
+	  methods: {
+	    show: function show(value) {
+	      return value instanceof Array ? value.join(', ') : value;
+	    }
 	  }
 	};
 	// </script>
@@ -11669,7 +11693,7 @@
 /* 278 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"bs-docs-section\" id=\"select\">\r\n    <h1 class=\"page-header\"><a href=\"#select\" class=\"anchor\">Select</a></h1>\r\n    <p>\r\n      This a <a target=\"_blank\" href=\"https://silviomoreto.github.io/bootstrap-select/\">bootstrap-select</a> implementation.\r\n    </p>\r\n    <div class=\"bs-example\">\r\n      <h4>Simple select</h4>\r\n      <p><pre>Select data : {{single}}</pre></p>\r\n      <v-select :value.sync=\"single\">\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n\r\n      <hr />\r\n      <h4>Test options:</h4>\r\n      <p><pre>Selected data : {{select.value.join(', ')}}</pre></p>\r\n      <form action=\"./#select\" method=\"get\">\r\n        <v-select :options=\"select.options\" :value.sync=\"select.value\" :name=\"select.inputs?(select.multiple?'animals[]':'animal'):''\"\r\n          :multiple=\"select.multiple\" :search=\"select.search\" :justified=\"select.justified\" :required=\"select.inputs&&select.required\"\r\n          :show-reset-button=\"select.showResetButton\" :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"></v-select>\r\n        <button v-if=\"select.inputs\" type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n      </form>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.disabled\"/> Disabled</label></div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.search\"/> Search</label></div>\r\n      <div class=\"checkbox\">\r\n        <label><input type=\"checkbox\" v-model=\"select.multiple\"/> Multiple</label>\r\n        <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.limit\"/> Limit (e.g. 3)</label>\r\n        <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.closeOnSelect\"/> Close on Select</label>\r\n      </div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.justified\"/> Justified</label></div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.showResetButton\"/> Show Reset Button</label></div>\r\n      <div class=\"checkbox\">\r\n        <label><input type=\"checkbox\" v-model=\"select.inputs\"/> Form input</label>\r\n        <label v-if=\"select.inputs\"><input type=\"checkbox\" v-model=\"select.required\"/> Required (add empty value if noting selected)</label>\r\n      </div>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\nSimple:\r\n<v-select>\r\n  <v-option value=\"Apple\">Apple</v-option>\r\n  <v-option value=\"Banana\">Banana</v-option>\r\n  <v-option value=\"Cherry\">Cherry</v-option>\r\n  <v-option value=\"Orange\">Orange</v-option>\r\n  <v-option value=\"Grape\">Grape</v-option>\r\n</v-select>\r\n\r\nTest options:\r\n<form action=\"./#select\" method=\"get\">\r\n  <v-select :options=\"select.options\" :value.sync=\"select.value\" :name=\"select.inputs?(select.multiple?'animals[]':'animal'):''\"\r\n    :multiple=\"select.multiple\" :search=\"select.search\" :justified=\"select.justified\" :required=\"select.inputs&&select.required\"\r\n    :show-reset-button=\"select.showResetButton\" :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"></v-select>\r\n  <button v-if=\"select.inputs\" type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n</form>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.disabled\"/> Disabled</label></div>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.search\"/> Search</label></div>\r\n<div class=\"checkbox\">\r\n  <label><input type=\"checkbox\" v-model=\"select.multiple\"/> Multiple</label>\r\n  <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.limit\"/> Limit (e.g. 3)</label>\r\n  <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.closeOnSelect\"/> Close on Select</label>\r\n</div>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.justified\"/> Justified</label></div>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.showResetButton\"/> Show Reset Button</label></div>\r\n<div class=\"checkbox\">\r\n  <label><input type=\"checkbox\" v-model=\"select.inputs\"/> Form input</label>\r\n  <label v-if=\"select.inputs\"><input type=\"checkbox\" v-model=\"select.required\"/> Required (add empty value if noting selected)</label>\r\n</div>\r\noptions: [\r\n  {value:1, label:'Cat'},\r\n  {value:2, label:'Cow'},\r\n  {value:3, label:'Dog'},\r\n  {value:4, label:'Elephant'},\r\n  {value:5, label:'Fish'},\r\n  {value:6, label:'Lion'},\r\n  {value:7, label:'Tiger'},\r\n  {value:8, label:'Turtle'}\r\n]\r\n    </script></code></pre>\r\n\r\n      <hr />\r\n      <h4>Ajax data & parent dependency:</h4>\r\n      <p>\r\n        The second element has inheritance. Enable when the first get some value & the ajax return values.\r\n      </p>\r\n      <v-select url=\"docs/data.json\" multiple :value.sync=\"ajax.value\"></v-select>\r\n      <v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\"></v-select>\r\n    <pre><code class=\"language-markup\">\r\nAjax:\r\n&lt;v-select url=\"docs/data.json\" multiple :value.sync=\"ajax.value\">&lt;/v-select>\r\n&lt;v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\">&lt;/v-select>\r\n    </code></pre>\r\n\r\n    <h2>Select Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>Array</code></td>\r\n          <td><code>[]</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>placeholder</td>\r\n          <td><code>String</code></td>\r\n          <td>Nothing Selected</td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>multiple</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>limit</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>1024</code></td>\r\n          <td>Limit the number of elements you are allowed to select.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>disabled</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n  </div>";
+	module.exports = "<div class=\"bs-docs-section\" id=\"select\">\r\n    <h1 class=\"page-header\"><a href=\"#select\" class=\"anchor\">Select</a></h1>\r\n    <p>\r\n      This a <a target=\"_blank\" href=\"https://silviomoreto.github.io/bootstrap-select/\">bootstrap-select</a> implementation.\r\n    </p>\r\n    <div class=\"bs-example\">\r\n      <h4>Simple select</h4>\r\n      <p><pre>Select data : {{show(single)}}</pre></p>\r\n      <v-select :value.sync=\"single\">\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n\r\n      <hr />\r\n      <h4>Test options:</h4>\r\n      <p><pre>Selected data : {{show(select.value)}}</pre></p>\r\n      <form action=\"./#select\" method=\"get\">\r\n        <v-select :options=\"select.options\" :value.sync=\"select.value\" :name=\"select.inputs?(select.multiple?'animals[]':'animal'):''\"\r\n          :multiple=\"select.multiple\" :search=\"select.search\" :justified=\"select.justified\" :required=\"select.inputs&&select.required\"\r\n          :show-reset-button=\"select.showResetButton\" :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"></v-select>\r\n        <button v-if=\"select.inputs\" type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n      </form>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.disabled\"/> Disabled</label></div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.search\"/> Search</label></div>\r\n      <div class=\"checkbox\">\r\n        <label><input type=\"checkbox\" v-model=\"select.multiple\"/> Multiple</label>\r\n        <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.limit\"/> Limit (e.g. 3)</label>\r\n        <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.closeOnSelect\"/> Close on Select</label>\r\n      </div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.justified\"/> Justified</label></div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.showResetButton\"/> Show Reset Button</label></div>\r\n      <div class=\"checkbox\">\r\n        <label><input type=\"checkbox\" v-model=\"select.inputs\"/> Form input</label>\r\n        <label v-if=\"select.inputs\"><input type=\"checkbox\" v-model=\"select.required\"/> Required (add empty value if noting selected)</label>\r\n      </div>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\nSimple:\r\n<v-select>\r\n  <v-option value=\"Apple\">Apple</v-option>\r\n  <v-option value=\"Banana\">Banana</v-option>\r\n  <v-option value=\"Cherry\">Cherry</v-option>\r\n  <v-option value=\"Orange\">Orange</v-option>\r\n  <v-option value=\"Grape\">Grape</v-option>\r\n</v-select>\r\n\r\nTest options:\r\n<form action=\"./#select\" method=\"get\">\r\n  <v-select :options=\"select.options\" :value.sync=\"select.value\" :name=\"select.inputs?(select.multiple?'animals[]':'animal'):''\"\r\n    :multiple=\"select.multiple\" :search=\"select.search\" :justified=\"select.justified\" :required=\"select.inputs&&select.required\"\r\n    :show-reset-button=\"select.showResetButton\" :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"></v-select>\r\n  <button v-if=\"select.inputs\" type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n</form>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.disabled\"/> Disabled</label></div>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.search\"/> Search</label></div>\r\n<div class=\"checkbox\">\r\n  <label><input type=\"checkbox\" v-model=\"select.multiple\"/> Multiple</label>\r\n  <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.limit\"/> Limit (e.g. 3)</label>\r\n  <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.closeOnSelect\"/> Close on Select</label>\r\n</div>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.justified\"/> Justified</label></div>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.showResetButton\"/> Show Reset Button</label></div>\r\n<div class=\"checkbox\">\r\n  <label><input type=\"checkbox\" v-model=\"select.inputs\"/> Form input</label>\r\n  <label v-if=\"select.inputs\"><input type=\"checkbox\" v-model=\"select.required\"/> Required (add empty value if noting selected)</label>\r\n</div>\r\noptions: [\r\n  {value:1, label:'Cat'},\r\n  {value:2, label:'Cow'},\r\n  {value:3, label:'Dog'},\r\n  {value:4, label:'Elephant'},\r\n  {value:5, label:'Fish'},\r\n  {value:6, label:'Lion'},\r\n  {value:7, label:'Tiger'},\r\n  {value:8, label:'Turtle'}\r\n]\r\n    </script></code></pre>\r\n\r\n      <hr />\r\n      <h4>Ajax data & parent dependency:</h4>\r\n      <p>\r\n        The second element has inheritance. Enable when the first get some value & the ajax return values.\r\n      </p>\r\n      <v-select url=\"docs/data.json\" multiple :value.sync=\"ajax.value\"></v-select>\r\n      <v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\"></v-select>\r\n    <pre><code class=\"language-markup\">\r\nAjax:\r\n&lt;v-select url=\"docs/data.json\" multiple :value.sync=\"ajax.value\">&lt;/v-select>\r\n&lt;v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\">&lt;/v-select>\r\n    </code></pre>\r\n\r\n    <h2>Select Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>Array</code></td>\r\n          <td><code>[]</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>placeholder</td>\r\n          <td><code>String</code></td>\r\n          <td>Nothing Selected</td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>multiple</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>limit</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>1024</code></td>\r\n          <td>Limit the number of elements you are allowed to select.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>disabled</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n  </div>";
 
 /***/ },
 /* 279 */

@@ -5,7 +5,7 @@
 </select>
 <div class="btn-select" :class="{'btn-group btn-group-justified': justified}" @click="unblur">
   <div class="btn-group" :class="{open: show}">
-    <button v-el:btn type="button" class="btn btn-default form-control dropdown-toggle"
+    <button v-el:btn type="button" class="form-control dropdown-toggle"
       :disabled="disabled"
       @click="toggleDropdown()"
       @blur="search ? null : blur()"
@@ -45,18 +45,19 @@
 <script>
 import callAjax from './utils/callAjax.js'
 import coerceBoolean from './utils/coerceBoolean.js'
+import coerceNumber from './utils/coerceNumber.js'
 import translations from './translations.js'
 
 var timeout = {}
 export default {
   props: {
+    value: {
+      twoWay: true
+    },
     options: {
       twoWay: true,
       type: Array,
       default () { return [] }
-    },
-    value: {
-      twoWay: true
     },
     label: {
       type: String,
@@ -88,6 +89,7 @@ export default {
     },
     limit: {
       type: Number,
+      coerce: coerceNumber,
       default: 1024
     },
     name: {
@@ -130,20 +132,16 @@ export default {
     }
   },
   ready () {
+    if (this.value === undefined) { this.value = null }
     if (this.value instanceof Array) {
-      if (!this.multiple && this.value.length > 1) {
+      if (!this.multiple) {
         this.value = this.value.slice(0, 1)
-      } else if (this.multiple && this.value.length > this.limit) {
+      }
+      if (this.value.length > this.limit && this.limit > 0) {
         this.value = this.value.slice(0, this.limit)
       }
-    } else {
-      if (this.value === null || this.value === undefined || this.value.length === 0) {
-        this.value = []
-      } else {
-        this.value = [this.value]
-      }
     }
-    this.label = this.selectedItems
+    this.checkValue()
     if (this.url && !this.options.length) this.update()
   },
   data () {
@@ -157,10 +155,11 @@ export default {
   computed: {
     selectedItems () {
       let foundItems = []
-      if (this.value.length) {
-        for (var item of this.value) {
+      let value = this.value instanceof Array ? this.value : this.value !== null ? [this.value] : []
+      if (value.length) {
+        for (var item of value) {
           if (this.options.length === 0) {
-            foundItems = this.value
+            foundItems = value
           } else {
             if (~['number', 'string'].indexOf(typeof item)) {
               let option
@@ -181,7 +180,7 @@ export default {
       return this.text.limit.replace('{{limit}}', this.limit)
     },
     showPlaceholder () {
-      return this.value.length === 0
+      return this.value === null || (this.value instanceof Array && this.value.length === 0)
     },
     text () {
       return translations(this.lang)
@@ -192,7 +191,8 @@ export default {
   },
   watch: {
     value (val) {
-      if (val.length > this.limit) {
+      this.checkValue()
+      if (this.value instanceof Array && val.length > this.limit) {
         this.showNotify = true
         this.value.pop()
         if (timeout.limit) clearTimeout(timeout.limit)
@@ -202,46 +202,57 @@ export default {
         }, 1500)
       }
     },
+    multiple () {
+      this.checkValue()
+    },
+    parent () {
+      this.value = []
+      this.update()
+    },
     show (val) {
       if (val) this.focus()
     },
     url () {
       this.update()
-    },
-    parent () {
-      this.value = []
-      this.update()
     }
   },
   methods: {
     select (v) {
-      if (~this.value.indexOf(v)) {
-        if (this.multiple) {
+      if (this.value instanceof Array) {
+        if (~this.value.indexOf(v)) {
           this.value.$remove(v)
+        } else {
+          this.value.push(v)
+        }
+        if (this.closeOnSelect) {
+          this.toggleDropdown()
         }
       } else {
-        if (this.multiple) {
-          this.value.push(v)
-        } else {
-          this.value = [v]
-        }
-      }
-      this.label = this.selectedItems
-      if (!this.multiple || this.closeOnSelect) {
+        this.value = v
         this.toggleDropdown()
       }
+      this.label = this.selectedItems
     },
     clear () {
-      this.value = []
+      this.value = this.value instanceof Array ? [] : null
       this.label = this.selectedItems
       this.toggleDropdown()
     },
-    isSelected (v) {
-      if (this.value instanceof Array) {
-        return ~this.value.indexOf(v)
-      } else {
-        return this.value === v
+    checkValue () {
+      if (this.multiple && !(this.value instanceof Array)) {
+        if (this.value === null || this.value === undefined) {
+          this.value = []
+        } else {
+          this.value = [this.value]
+        }
       }
+      if (!this.multiple && this.value instanceof Array) {
+        this.value = this.value.length ? this.value.pop() : null
+      }
+      this.label = this.selectedItems
+    },
+    isSelected (v) {
+      return this.value instanceof Array ? ~this.value.indexOf(v) : this.value === v
     },
     toggleDropdown () {
       this.show = !this.show
