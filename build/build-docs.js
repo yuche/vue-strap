@@ -7169,11 +7169,11 @@
 	
 	// <template>
 	
-	// <select v-if="name && (required || value.length)" name="{{name}}" class="secret" :multiple="multiple" :required="required" @focus="focus()">
+	// <select v-if="name && (required || values.length)" name="{{name}}" class="secret" :multiple="multiple" :required="required" @focus="focus()">
 	
-	//   <option v-if="!value.length" value=""></option>
+	//   <option v-if="!values.length)" value=""></option>
 	
-	//   <option v-else v-for="val in value" value="{{val}}" selected>{{val}}</option>
+	//   <option v-else v-for="val in values" value="{{val}}" selected>{{val}}</option>
 	
 	// </select>
 	
@@ -7183,7 +7183,9 @@
 	
 	//     <button v-el:btn type="button" class="form-control dropdown-toggle"
 	
-	//       :disabled="disabled"
+	//       :disabled="disabled || !hasParent"
+	
+	//       :readonly="readonly"
 	
 	//       @click="toggleDropdown()"
 	
@@ -7193,15 +7195,11 @@
 	
 	//     >
 	
-	//       <span class="btn-placeholder" v-show="!ajax && showPlaceholder">{{placeholder || text.notSelected}}</span>
-	
-	//       <span class="btn-content" v-show="!ajax">{{ selectedItems }}</span>
-	
-	//       <span class="btn-loader" v-show="ajax">{{text.loading}}</span>
+	//       <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>
 	
 	//       <span class="caret"></span>
 	
-	//       <span v-if="showResetButton&&value.length" class="close" @click="clear()">&times;</span>
+	//       <span v-if="showResetButton&&values.length" class="close" @click="clear()">&times;</span>
 	
 	//     </button>
 	
@@ -7241,11 +7239,11 @@
 	
 	//       <slot v-else></slot>
 	
-	//       <div class="notify" v-if="!closeOnSelect" v-show="showNotify" transition="fadein">{{limitText}}</div>
+	//       <div v-if="showNotify && !closeOnSelect" class="notify" transition="fadein">{{limitText}}</div>
 	
 	//     </ul>
 	
-	//     <div class="notify" v-if="closeOnSelect" v-show="showNotify" transition="fadein"><div>{{limitText}}</div></div>
+	//     <div v-if="showNotify && closeOnSelect" class="notify" transition="fadein"><div>{{limitText}}</div></div>
 	
 	//   </div>
 	
@@ -7287,6 +7285,11 @@
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
 	      default: false
+	    },
+	    readonly: {
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: null
 	    },
 	    required: {
 	      type: Boolean,
@@ -7337,28 +7340,22 @@
 	      default: true
 	    },
 	    parent: {
-	      type: Array,
 	      default: true
 	    }
 	  },
 	  ready: function ready() {
-	    if (this.value === undefined) {
+	    if (this.value === undefined || !this.parent) {
 	      this.value = null;
 	    }
-	    if (this.value instanceof Array) {
-	      if (!this.multiple) {
-	        this.value = this.value.slice(0, 1);
-	      }
-	      if (this.value.length > this.limit && this.limit > 0) {
-	        this.value = this.value.slice(0, this.limit);
-	      }
+	    if (!this.multiple && this.value instanceof Array) {
+	      this.value = this.value.shift();
 	    }
 	    this.checkValue();
-	    if (this.url && !this.options.length) this.update();
+	    if (this.url) this.update();
 	  },
 	  data: function data() {
 	    return {
-	      ajax: null,
+	      loading: null,
 	      searchValue: null,
 	      show: false,
 	      showNotify: false
@@ -7368,7 +7365,7 @@
 	  computed: {
 	    selectedItems: function selectedItems() {
 	      var foundItems = [];
-	      var value = this.value instanceof Array ? this.value : this.value !== null ? [this.value] : [];
+	      var value = this.values;
 	      if (value.length) {
 	        var _iteratorNormalCompletion = true;
 	        var _didIteratorError = false;
@@ -7407,44 +7404,42 @@
 	            }
 	          }
 	        }
-	
-	        return foundItems.join(', ');
 	      }
+	      return foundItems.join(', ');
 	    },
 	    limitText: function limitText() {
 	      return this.text.limit.replace('{{limit}}', this.limit);
 	    },
 	    showPlaceholder: function showPlaceholder() {
-	      return this.value === null || this.value instanceof Array && this.value.length === 0;
+	      return this.values.length === 0 || !this.hasParent ? this.placeholder || this.text.notSelected : null;
 	    },
 	    text: function text() {
 	      return (0, _translations2.default)(this.lang);
 	    },
 	    hasParent: function hasParent() {
-	      return this.url && (this.parent instanceof Array && this.parent.length || this.parent === true);
+	      return this.parent instanceof Array ? this.parent.length : this.parent;
+	    },
+	    values: function values() {
+	      return this.value instanceof Array ? this.value : this.value !== null && this.value !== undefined ? [this.value] : [];
 	    }
 	  },
 	  watch: {
 	    value: function value(val) {
 	      var _this = this;
 	
-	      this.checkValue();
 	      if (this.value instanceof Array && val.length > this.limit) {
 	        this.showNotify = true;
-	        this.value.pop();
 	        if (timeout.limit) clearTimeout(timeout.limit);
 	        timeout.limit = setTimeout(function () {
 	          timeout.limit = false;
 	          _this.showNotify = false;
 	        }, 1500);
 	      }
+	      this.label = this.selectedItems;
+	      this.checkValue();
 	    },
 	    multiple: function multiple() {
 	      this.checkValue();
-	    },
-	    parent: function parent() {
-	      this.value = [];
-	      this.update();
 	    },
 	    show: function show(val) {
 	      if (val) this.focus();
@@ -7468,28 +7463,27 @@
 	        this.value = v;
 	        this.toggleDropdown();
 	      }
-	      this.label = this.selectedItems;
 	    },
 	    clear: function clear() {
 	      this.value = this.value instanceof Array ? [] : null;
-	      this.label = this.selectedItems;
 	      this.toggleDropdown();
 	    },
 	    checkValue: function checkValue() {
+	      if (this.limit < 1) {
+	        this.limit = 1;
+	      }
 	      if (this.multiple && !(this.value instanceof Array)) {
-	        if (this.value === null || this.value === undefined) {
-	          this.value = [];
-	        } else {
-	          this.value = [this.value];
+	        this.value = this.value === null || this.value === undefined ? [] : [this.value];
+	        if (this.value.length > this.limit) {
+	          this.value = this.value.slice(0, this.limit);
 	        }
 	      }
 	      if (!this.multiple && this.value instanceof Array) {
 	        this.value = this.value.length ? this.value.pop() : null;
 	      }
-	      this.label = this.selectedItems;
 	    },
 	    isSelected: function isSelected(v) {
-	      return this.value instanceof Array ? ~this.value.indexOf(v) : this.value === v;
+	      return ~this.values.indexOf(v);
 	    },
 	    toggleDropdown: function toggleDropdown() {
 	      this.show = !this.show;
@@ -7519,47 +7513,43 @@
 	    update: function update() {
 	      var _this3 = this;
 	
-	      if (!this.hasParent) {
-	        this.options = [];
-	        this.disabled = !this.options.length;
-	        if (this.disabled) this.value = [];
-	      } else {
-	        this.ajax = true;
-	        (0, _callAjax2.default)(this.url, function (data) {
-	          var options = [];
-	          var _iteratorNormalCompletion2 = true;
-	          var _didIteratorError2 = false;
-	          var _iteratorError2 = undefined;
+	      if (!this.url) return;
+	      this.loading = true;
+	      (0, _callAjax2.default)(this.url, function (data) {
+	        var options = [];
+	        var _iteratorNormalCompletion2 = true;
+	        var _didIteratorError2 = false;
+	        var _iteratorError2 = undefined;
 	
+	        try {
+	          for (var _iterator2 = (0, _getIterator3.default)(data), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	            var opc = _step2.value;
+	
+	            if (opc.value !== undefined && opc.label !== undefined) options.push({ value: opc.value, label: opc.label });
+	          }
+	        } catch (err) {
+	          _didIteratorError2 = true;
+	          _iteratorError2 = err;
+	        } finally {
 	          try {
-	            for (var _iterator2 = (0, _getIterator3.default)(data), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	              var opc = _step2.value;
-	
-	              if (opc.value !== undefined && opc.label !== undefined) options.push({ value: opc.value, label: opc.label });
+	            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	              _iterator2.return();
 	            }
-	          } catch (err) {
-	            _didIteratorError2 = true;
-	            _iteratorError2 = err;
 	          } finally {
-	            try {
-	              if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                _iterator2.return();
-	              }
-	            } finally {
-	              if (_didIteratorError2) {
-	                throw _iteratorError2;
-	              }
+	            if (_didIteratorError2) {
+	              throw _iteratorError2;
 	            }
 	          }
+	        }
 	
-	          _this3.options = options;
-	          _this3.disabled = !_this3.options.length;
-	          if (_this3.disabled) _this3.value = [];
-	        }).always(function () {
-	          _this3.ajax = false;
-	          _this3.label = _this3.selectedItems;
-	        });
-	      }
+	        _this3.options = options;
+	        if (!options.length) {
+	          _this3.value = _this3.value instanceof Array ? [] : null;
+	        }
+	      }).always(function () {
+	        _this3.loading = false;
+	        _this3.checkValue();
+	      });
 	    }
 	  }
 	};
@@ -8465,7 +8455,7 @@
 /* 232 */
 /***/ function(module, exports) {
 
-	module.exports = "<select v-if=\"name &amp;&amp; (required || value.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"!value.length\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-else=\"\" v-for=\"val in value\" value=\"{{val}}\" selected=\"\" _v-1f77809f=\"\">{{val}}</option>\n</select>\n<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-placeholder\" v-show=\"!ajax &amp;&amp; showPlaceholder\" _v-1f77809f=\"\">{{placeholder || text.notSelected}}</span>\n      <span class=\"btn-content\" v-show=\"!ajax\" _v-1f77809f=\"\">{{ selectedItems }}</span>\n      <span class=\"btn-loader\" v-show=\"ajax\" _v-1f77809f=\"\">{{text.loading}}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"showResetButton&amp;&amp;value.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" _v-1f77809f=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div class=\"notify\" v-if=\"!closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div class=\"notify\" v-if=\"closeOnSelect\" v-show=\"showNotify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n</div>";
+	module.exports = "<select v-if=\"name &amp;&amp; (required || values.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"!values.length)\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-else=\"\" v-for=\"val in values\" value=\"{{val}}\" selected=\"\" _v-1f77809f=\"\">{{val}}</option>\n</select>\n<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-content\" _v-1f77809f=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"showResetButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" _v-1f77809f=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n</div>";
 
 /***/ },
 /* 233 */
@@ -11467,15 +11457,15 @@
 	
 	// <v-select>
 	
-	//   <v-option value="Apple">Apple</v-option>
+	//   <v-option value="apple">Apple</v-option>
 	
-	//   <v-option value="Banana">Banana</v-option>
+	//   <v-option value="banana">Banana</v-option>
 	
-	//   <v-option value="Cherry">Cherry</v-option>
+	//   <v-option value="cherry">Cherry</v-option>
 	
-	//   <v-option value="Orange">Orange</v-option>
+	//   <v-option value="orange">Orange</v-option>
 	
-	//   <v-option value="Grape">Grape</v-option>
+	//   <v-option value="grape">Grape</v-option>
 	
 	// </v-select>
 	
@@ -11551,7 +11541,7 @@
 	
 	//       </p>
 	
-	//       <v-select url="docs/data.json" multiple :value.sync="ajax.value"></v-select>
+	//       <v-select url="docs/data.json" :value.sync="ajax.value" show-reset-button></v-select>
 	
 	//       <v-select url="docs/data.json" multiple :parent="ajax.value"></v-select>
 	
@@ -11559,7 +11549,7 @@
 	
 	// Ajax:
 	
-	// &lt;v-select url="docs/data.json" multiple :value.sync="ajax.value">&lt;/v-select>
+	// &lt;v-select url="docs/data.json" :value.sync="ajax.value" show-reset-button>&lt;/v-select>
 	
 	// &lt;v-select url="docs/data.json" multiple :parent="ajax.value">&lt;/v-select>
 	
@@ -11666,7 +11656,9 @@
 	      select: {
 	        options: [{ value: 1, label: 'Cat' }, { value: 2, label: 'Cow' }, { value: 3, label: 'Dog' }, { value: 4, label: 'Elephant' }, { value: 5, label: 'Fish' }, { value: 6, label: 'Lion' }, { value: 7, label: 'Tiger' }, { value: 8, label: 'Turtle' }]
 	      },
-	      ajax: {},
+	      ajax: {
+	        value: null
+	      },
 	      single: []
 	    };
 	  },
@@ -11693,7 +11685,7 @@
 /* 278 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"bs-docs-section\" id=\"select\">\r\n    <h1 class=\"page-header\"><a href=\"#select\" class=\"anchor\">Select</a></h1>\r\n    <p>\r\n      This a <a target=\"_blank\" href=\"https://silviomoreto.github.io/bootstrap-select/\">bootstrap-select</a> implementation.\r\n    </p>\r\n    <div class=\"bs-example\">\r\n      <h4>Simple select</h4>\r\n      <p><pre>Select data : {{show(single)}}</pre></p>\r\n      <v-select :value.sync=\"single\">\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n\r\n      <hr />\r\n      <h4>Test options:</h4>\r\n      <p><pre>Selected data : {{show(select.value)}}</pre></p>\r\n      <form action=\"./#select\" method=\"get\">\r\n        <v-select :options=\"select.options\" :value.sync=\"select.value\" :name=\"select.inputs?(select.multiple?'animals[]':'animal'):''\"\r\n          :multiple=\"select.multiple\" :search=\"select.search\" :justified=\"select.justified\" :required=\"select.inputs&&select.required\"\r\n          :show-reset-button=\"select.showResetButton\" :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"></v-select>\r\n        <button v-if=\"select.inputs\" type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n      </form>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.disabled\"/> Disabled</label></div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.search\"/> Search</label></div>\r\n      <div class=\"checkbox\">\r\n        <label><input type=\"checkbox\" v-model=\"select.multiple\"/> Multiple</label>\r\n        <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.limit\"/> Limit (e.g. 3)</label>\r\n        <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.closeOnSelect\"/> Close on Select</label>\r\n      </div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.justified\"/> Justified</label></div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.showResetButton\"/> Show Reset Button</label></div>\r\n      <div class=\"checkbox\">\r\n        <label><input type=\"checkbox\" v-model=\"select.inputs\"/> Form input</label>\r\n        <label v-if=\"select.inputs\"><input type=\"checkbox\" v-model=\"select.required\"/> Required (add empty value if noting selected)</label>\r\n      </div>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\nSimple:\r\n<v-select>\r\n  <v-option value=\"Apple\">Apple</v-option>\r\n  <v-option value=\"Banana\">Banana</v-option>\r\n  <v-option value=\"Cherry\">Cherry</v-option>\r\n  <v-option value=\"Orange\">Orange</v-option>\r\n  <v-option value=\"Grape\">Grape</v-option>\r\n</v-select>\r\n\r\nTest options:\r\n<form action=\"./#select\" method=\"get\">\r\n  <v-select :options=\"select.options\" :value.sync=\"select.value\" :name=\"select.inputs?(select.multiple?'animals[]':'animal'):''\"\r\n    :multiple=\"select.multiple\" :search=\"select.search\" :justified=\"select.justified\" :required=\"select.inputs&&select.required\"\r\n    :show-reset-button=\"select.showResetButton\" :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"></v-select>\r\n  <button v-if=\"select.inputs\" type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n</form>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.disabled\"/> Disabled</label></div>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.search\"/> Search</label></div>\r\n<div class=\"checkbox\">\r\n  <label><input type=\"checkbox\" v-model=\"select.multiple\"/> Multiple</label>\r\n  <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.limit\"/> Limit (e.g. 3)</label>\r\n  <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.closeOnSelect\"/> Close on Select</label>\r\n</div>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.justified\"/> Justified</label></div>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.showResetButton\"/> Show Reset Button</label></div>\r\n<div class=\"checkbox\">\r\n  <label><input type=\"checkbox\" v-model=\"select.inputs\"/> Form input</label>\r\n  <label v-if=\"select.inputs\"><input type=\"checkbox\" v-model=\"select.required\"/> Required (add empty value if noting selected)</label>\r\n</div>\r\noptions: [\r\n  {value:1, label:'Cat'},\r\n  {value:2, label:'Cow'},\r\n  {value:3, label:'Dog'},\r\n  {value:4, label:'Elephant'},\r\n  {value:5, label:'Fish'},\r\n  {value:6, label:'Lion'},\r\n  {value:7, label:'Tiger'},\r\n  {value:8, label:'Turtle'}\r\n]\r\n    </script></code></pre>\r\n\r\n      <hr />\r\n      <h4>Ajax data & parent dependency:</h4>\r\n      <p>\r\n        The second element has inheritance. Enable when the first get some value & the ajax return values.\r\n      </p>\r\n      <v-select url=\"docs/data.json\" multiple :value.sync=\"ajax.value\"></v-select>\r\n      <v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\"></v-select>\r\n    <pre><code class=\"language-markup\">\r\nAjax:\r\n&lt;v-select url=\"docs/data.json\" multiple :value.sync=\"ajax.value\">&lt;/v-select>\r\n&lt;v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\">&lt;/v-select>\r\n    </code></pre>\r\n\r\n    <h2>Select Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>Array</code></td>\r\n          <td><code>[]</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>placeholder</td>\r\n          <td><code>String</code></td>\r\n          <td>Nothing Selected</td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>multiple</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>limit</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>1024</code></td>\r\n          <td>Limit the number of elements you are allowed to select.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>disabled</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n  </div>";
+	module.exports = "<div class=\"bs-docs-section\" id=\"select\">\r\n    <h1 class=\"page-header\"><a href=\"#select\" class=\"anchor\">Select</a></h1>\r\n    <p>\r\n      This a <a target=\"_blank\" href=\"https://silviomoreto.github.io/bootstrap-select/\">bootstrap-select</a> implementation.\r\n    </p>\r\n    <div class=\"bs-example\">\r\n      <h4>Simple select</h4>\r\n      <p><pre>Select data : {{show(single)}}</pre></p>\r\n      <v-select :value.sync=\"single\">\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n\r\n      <hr />\r\n      <h4>Test options:</h4>\r\n      <p><pre>Selected data : {{show(select.value)}}</pre></p>\r\n      <form action=\"./#select\" method=\"get\">\r\n        <v-select :options=\"select.options\" :value.sync=\"select.value\" :name=\"select.inputs?(select.multiple?'animals[]':'animal'):''\"\r\n          :multiple=\"select.multiple\" :search=\"select.search\" :justified=\"select.justified\" :required=\"select.inputs&&select.required\"\r\n          :show-reset-button=\"select.showResetButton\" :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"></v-select>\r\n        <button v-if=\"select.inputs\" type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n      </form>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.disabled\"/> Disabled</label></div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.search\"/> Search</label></div>\r\n      <div class=\"checkbox\">\r\n        <label><input type=\"checkbox\" v-model=\"select.multiple\"/> Multiple</label>\r\n        <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.limit\"/> Limit (e.g. 3)</label>\r\n        <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.closeOnSelect\"/> Close on Select</label>\r\n      </div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.justified\"/> Justified</label></div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.showResetButton\"/> Show Reset Button</label></div>\r\n      <div class=\"checkbox\">\r\n        <label><input type=\"checkbox\" v-model=\"select.inputs\"/> Form input</label>\r\n        <label v-if=\"select.inputs\"><input type=\"checkbox\" v-model=\"select.required\"/> Required (add empty value if noting selected)</label>\r\n      </div>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\nSimple:\r\n<v-select>\r\n  <v-option value=\"apple\">Apple</v-option>\r\n  <v-option value=\"banana\">Banana</v-option>\r\n  <v-option value=\"cherry\">Cherry</v-option>\r\n  <v-option value=\"orange\">Orange</v-option>\r\n  <v-option value=\"grape\">Grape</v-option>\r\n</v-select>\r\n\r\nTest options:\r\n<form action=\"./#select\" method=\"get\">\r\n  <v-select :options=\"select.options\" :value.sync=\"select.value\" :name=\"select.inputs?(select.multiple?'animals[]':'animal'):''\"\r\n    :multiple=\"select.multiple\" :search=\"select.search\" :justified=\"select.justified\" :required=\"select.inputs&&select.required\"\r\n    :show-reset-button=\"select.showResetButton\" :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"></v-select>\r\n  <button v-if=\"select.inputs\" type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n</form>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.disabled\"/> Disabled</label></div>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.search\"/> Search</label></div>\r\n<div class=\"checkbox\">\r\n  <label><input type=\"checkbox\" v-model=\"select.multiple\"/> Multiple</label>\r\n  <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.limit\"/> Limit (e.g. 3)</label>\r\n  <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.closeOnSelect\"/> Close on Select</label>\r\n</div>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.justified\"/> Justified</label></div>\r\n<div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.showResetButton\"/> Show Reset Button</label></div>\r\n<div class=\"checkbox\">\r\n  <label><input type=\"checkbox\" v-model=\"select.inputs\"/> Form input</label>\r\n  <label v-if=\"select.inputs\"><input type=\"checkbox\" v-model=\"select.required\"/> Required (add empty value if noting selected)</label>\r\n</div>\r\noptions: [\r\n  {value:1, label:'Cat'},\r\n  {value:2, label:'Cow'},\r\n  {value:3, label:'Dog'},\r\n  {value:4, label:'Elephant'},\r\n  {value:5, label:'Fish'},\r\n  {value:6, label:'Lion'},\r\n  {value:7, label:'Tiger'},\r\n  {value:8, label:'Turtle'}\r\n]\r\n    </script></code></pre>\r\n\r\n      <hr />\r\n      <h4>Ajax data & parent dependency:</h4>\r\n      <p>\r\n        The second element has inheritance. Enable when the first get some value & the ajax return values.\r\n      </p>\r\n      <v-select url=\"docs/data.json\" :value.sync=\"ajax.value\" show-reset-button></v-select>\r\n      <v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\"></v-select>\r\n    <pre><code class=\"language-markup\">\r\nAjax:\r\n&lt;v-select url=\"docs/data.json\" :value.sync=\"ajax.value\" show-reset-button>&lt;/v-select>\r\n&lt;v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\">&lt;/v-select>\r\n    </code></pre>\r\n\r\n    <h2>Select Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>Array</code></td>\r\n          <td><code>[]</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>placeholder</td>\r\n          <td><code>String</code></td>\r\n          <td>Nothing Selected</td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>multiple</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>limit</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>1024</code></td>\r\n          <td>Limit the number of elements you are allowed to select.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>disabled</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n  </div>";
 
 /***/ },
 /* 279 */

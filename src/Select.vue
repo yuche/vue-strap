@@ -1,21 +1,20 @@
 <template>
-<select v-if="name && (required || value.length)" name="{{name}}" class="secret" :multiple="multiple" :required="required" @focus="focus()">
-  <option v-if="!value.length" value=""></option>
-  <option v-else v-for="val in value" value="{{val}}" selected>{{val}}</option>
+<select v-if="name && (required || values.length)" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" @focus="focus()">
+  <option v-if="!values.length)" value=""></option>
+  <option v-else v-for="val in values" value="{{val}}" selected>{{val}}</option>
 </select>
 <div class="btn-select" :class="{'btn-group btn-group-justified': justified}" @click="unblur">
   <div class="btn-group" :class="{open: show}">
     <button v-el:btn type="button" class="form-control dropdown-toggle"
-      :disabled="disabled"
+      :disabled="disabled || !hasParent"
+      :readonly="readonly"
       @click="toggleDropdown()"
       @blur="search ? null : blur()"
       @keyup.esc="show = false"
     >
-      <span class="btn-placeholder" v-show="!ajax && showPlaceholder">{{placeholder || text.notSelected}}</span>
-      <span class="btn-content" v-show="!ajax">{{ selectedItems }}</span>
-      <span class="btn-loader" v-show="ajax">{{text.loading}}</span>
+      <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>
       <span class="caret"></span>
-      <span v-if="showResetButton&&value.length" class="close" @click="clear()">&times;</span>
+      <span v-if="showResetButton&&values.length" class="close" @click="clear()">&times;</span>
     </button>
     <ul class="dropdown-menu">
       <template v-if="options.length">
@@ -35,9 +34,9 @@
         </li>
       </template>
       <slot v-else></slot>
-      <div class="notify" v-if="!closeOnSelect" v-show="showNotify" transition="fadein">{{limitText}}</div>
+      <div v-if="showNotify && !closeOnSelect" class="notify" transition="fadein">{{limitText}}</div>
     </ul>
-    <div class="notify" v-if="closeOnSelect" v-show="showNotify" transition="fadein"><div>{{limitText}}</div></div>
+    <div v-if="showNotify && closeOnSelect" class="notify" transition="fadein"><div>{{limitText}}</div></div>
   </div>
 </div>
 </template>
@@ -77,6 +76,11 @@ export default {
       type: Boolean,
       coerce: coerceBoolean,
       default: false
+    },
+    readonly: {
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: null
     },
     required: {
       type: Boolean,
@@ -127,26 +131,20 @@ export default {
       default: true
     },
     parent: {
-      type: Array,
       default: true
     }
   },
   ready () {
-    if (this.value === undefined) { this.value = null }
-    if (this.value instanceof Array) {
-      if (!this.multiple) {
-        this.value = this.value.slice(0, 1)
-      }
-      if (this.value.length > this.limit && this.limit > 0) {
-        this.value = this.value.slice(0, this.limit)
-      }
+    if (this.value === undefined || !this.parent) { this.value = null }
+    if (!this.multiple && this.value instanceof Array) {
+      this.value = this.value.shift()
     }
     this.checkValue()
-    if (this.url && !this.options.length) this.update()
+    if (this.url) this.update()
   },
   data () {
     return {
-      ajax: null,
+      loading: null,
       searchValue: null,
       show: false,
       showNotify: false
@@ -155,7 +153,7 @@ export default {
   computed: {
     selectedItems () {
       let foundItems = []
-      let value = this.value instanceof Array ? this.value : this.value !== null ? [this.value] : []
+      let value = this.values
       if (value.length) {
         for (var item of value) {
           if (this.options.length === 0) {
@@ -173,41 +171,40 @@ export default {
             }
           }
         }
-        return foundItems.join(', ')
       }
+      return foundItems.join(', ')
     },
     limitText () {
       return this.text.limit.replace('{{limit}}', this.limit)
     },
     showPlaceholder () {
-      return this.value === null || (this.value instanceof Array && this.value.length === 0)
+      return (this.values.length === 0 || !this.hasParent) ? (this.placeholder || this.text.notSelected) : null
     },
     text () {
       return translations(this.lang)
     },
     hasParent () {
-      return this.url && ((this.parent instanceof Array && this.parent.length) || this.parent === true)
+      return this.parent instanceof Array ? this.parent.length : this.parent
+    },
+    values () {
+      return this.value instanceof Array ? this.value : this.value !== null && this.value !== undefined ? [this.value] : []
     }
   },
   watch: {
     value (val) {
-      this.checkValue()
       if (this.value instanceof Array && val.length > this.limit) {
         this.showNotify = true
-        this.value.pop()
         if (timeout.limit) clearTimeout(timeout.limit)
         timeout.limit = setTimeout(() => {
           timeout.limit = false
           this.showNotify = false
         }, 1500)
       }
+      this.label = this.selectedItems
+      this.checkValue()
     },
     multiple () {
       this.checkValue()
-    },
-    parent () {
-      this.value = []
-      this.update()
     },
     show (val) {
       if (val) this.focus()
@@ -231,28 +228,25 @@ export default {
         this.value = v
         this.toggleDropdown()
       }
-      this.label = this.selectedItems
     },
     clear () {
       this.value = this.value instanceof Array ? [] : null
-      this.label = this.selectedItems
       this.toggleDropdown()
     },
     checkValue () {
+      if (this.limit < 1) { this.limit = 1 }
       if (this.multiple && !(this.value instanceof Array)) {
-        if (this.value === null || this.value === undefined) {
-          this.value = []
-        } else {
-          this.value = [this.value]
+        this.value = (this.value === null || this.value === undefined) ? [] : [this.value]
+        if (this.value.length > this.limit) {
+          this.value = this.value.slice(0, this.limit)
         }
       }
       if (!this.multiple && this.value instanceof Array) {
         this.value = this.value.length ? this.value.pop() : null
       }
-      this.label = this.selectedItems
     },
     isSelected (v) {
-      return this.value instanceof Array ? ~this.value.indexOf(v) : this.value === v
+      return ~this.values.indexOf(v)
     },
     toggleDropdown () {
       this.show = !this.show
@@ -278,25 +272,19 @@ export default {
       }
     },
     update () {
-      if (!this.hasParent) {
-        this.options = []
-        this.disabled = !this.options.length
-        if (this.disabled) this.value = []
-      } else {
-        this.ajax = true
-        callAjax(this.url, (data) => {
-          let options = []
-          for (let opc of data) {
-            if (opc.value !== undefined && opc.label !== undefined) options.push({value: opc.value, label: opc.label})
-          }
-          this.options = options
-          this.disabled = !this.options.length
-          if (this.disabled) this.value = []
-        }).always(() => {
-          this.ajax = false
-          this.label = this.selectedItems
-        })
-      }
+      if (!this.url) return
+      this.loading = true
+      callAjax(this.url, (data) => {
+        let options = []
+        for (let opc of data) {
+          if (opc.value !== undefined && opc.label !== undefined) options.push({value: opc.value, label: opc.label})
+        }
+        this.options = options
+        if (!options.length) { this.value = this.value instanceof Array ? [] : null }
+      }).always(() => {
+        this.loading = false
+        this.checkValue()
+      })
     }
   }
 }

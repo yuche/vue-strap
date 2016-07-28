@@ -41,11 +41,11 @@
     <pre><code class="language-markup"><script type="language-mark-up">
 Simple:
 <v-select>
-  <v-option value="Apple">Apple</v-option>
-  <v-option value="Banana">Banana</v-option>
-  <v-option value="Cherry">Cherry</v-option>
-  <v-option value="Orange">Orange</v-option>
-  <v-option value="Grape">Grape</v-option>
+  <v-option value="apple">Apple</v-option>
+  <v-option value="banana">Banana</v-option>
+  <v-option value="cherry">Cherry</v-option>
+  <v-option value="orange">Orange</v-option>
+  <v-option value="grape">Grape</v-option>
 </v-select>
 
 Test options:
@@ -85,11 +85,11 @@ options: [
       <p>
         The second element has inheritance. Enable when the first get some value & the ajax return values.
       </p>
-      <v-select url="docs/data.json" multiple :value.sync="ajax.value"></v-select>
+      <v-select url="docs/data.json" :value.sync="ajax.value" show-reset-button></v-select>
       <v-select url="docs/data.json" multiple :parent="ajax.value"></v-select>
     <pre><code class="language-markup">
 Ajax:
-&lt;v-select url="docs/data.json" multiple :value.sync="ajax.value">&lt;/v-select>
+&lt;v-select url="docs/data.json" :value.sync="ajax.value" show-reset-button>&lt;/v-select>
 &lt;v-select url="docs/data.json" multiple :parent="ajax.value">&lt;/v-select>
     </code></pre>
 
@@ -164,6 +164,7 @@ export default {
         ]
       },
       ajax: {
+        value:null
       },
       single: []
     }
