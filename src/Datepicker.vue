@@ -22,6 +22,7 @@
 <template>
   <div class="datepicker">
     <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text"
+        v-bind:placeholder="placeholder"
         v-bind:style="{width:width}"
         @click="inputClick"
         v-model="value"/>
@@ -95,6 +96,10 @@ export default {
     value: {
       type: String,
       twoWay: true
+    },
+    placeholder: {
+      type: String,
+      default: ''
     },
     format: {
       default: 'MMMM/dd/yyyy'

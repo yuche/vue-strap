@@ -105,6 +105,12 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
           <td>If <strong>true</strong> shows an &times; shaped button to clear the selected date.
             Usefull in forms where date entry is optional.</td>
         </tr>
+        <tr>
+          <td>placeholder</td>
+          <td><code>String</code></td>
+          <td><em>(Empty)</em></td>
+          <td>Display a placeholder value to the input field, when no value has been set.</td>
+        </tr>
       </tbody>
     </table>
   </div>
