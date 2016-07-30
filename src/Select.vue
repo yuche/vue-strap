@@ -234,15 +234,15 @@ export default {
       this.toggleDropdown()
     },
     checkValue () {
-      if (this.limit < 1) { this.limit = 1 }
       if (this.multiple && !(this.value instanceof Array)) {
         this.value = (this.value === null || this.value === undefined) ? [] : [this.value]
-        if (this.value.length > this.limit) {
-          this.value = this.value.slice(0, this.limit)
-        }
       }
       if (!this.multiple && this.value instanceof Array) {
         this.value = this.value.length ? this.value.pop() : null
+      }
+      if (this.limit < 1) { this.limit = 1 }
+      if (this.values.length > this.limit) {
+        this.value = this.value.slice(0, this.limit)
       }
     },
     isSelected (v) {
@@ -311,13 +311,12 @@ export default {
 button>.close {
   margin-left: 5px;
 }
-.btn-group .notify {
+.btn-group>.notify {
   position: relative;
 }
 .btn-group .dropdown-menu .notify,
 .btn-group .notify > div {
   position: absolute;
-  bottom: 5px;
   width: 96%;
   margin: 0 2%;
   min-height: 26px;
@@ -327,11 +326,13 @@ button>.close {
   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
   pointer-events: none;
 }
-.btn-group .dropdown-menu .notify {
-  opacity: .9;
+.btn-group .notify > div {
+  top: 5px;
+  z-index: 1;
 }
 .btn-group .dropdown-menu .notify {
   opacity: .9;
+  bottom: 5px;
 }
 .btn-group.btn-group-justified .dropdown-menu {
   width:100%;
