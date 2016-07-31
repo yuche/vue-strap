@@ -56,7 +56,7 @@
           <div class="datepicker-monthRange">
             <template v-for="m in monthNames">
               <span   v-bind:class="{'datepicker-dateRange-item-active':
-                  (this.monthNames[this.parse(this.value).getMonth()]  === m) &&
+                  this.parse(this.value) && (this.monthNames[this.parse(this.value).getMonth()]  === m) &&
                   this.currDate.getFullYear() === this.parse(this.value).getFullYear()}"
                   @click="monthSelect($index)"
                 >{{m.substr(0,3)}}</span>
@@ -76,7 +76,7 @@
           <div class="datepicker-monthRange decadeRange">
             <template v-for="decade in decadeRange">
               <span v-bind:class="{'datepicker-dateRange-item-active':
-                  this.parse(this.value).getFullYear() === decade.text}"
+                  this.parse(this.value) && (this.parse(this.value).getFullYear() === decade.text)}"
                   @click.stop="yearSelect(decade.text)"
                 >{{decade.text}}</span>
             </template>
@@ -252,6 +252,8 @@ export default {
       .replace(/d/g, day)
     },
     parse(str) {
+      if(!str) return null // need to deal with null value
+
       if (str.length == 10 && (this.format == 'dd-MM-yyyy' || this.format == 'dd/MM/yyyy')) {
         str = str.substring(3,5)+'-'+str.substring(0,2)+'-'+str.substring(6,10);
       }
