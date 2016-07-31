@@ -2,18 +2,16 @@
   <div>
     <!-- Nav tabs -->
     <ul class="nav nav-{{navStyle}}" role="tablist">
-      <li
-        v-for="r in renderData"
-        v-bind:class="{
+      <li v-for="t in tabs" v-if="t"
+        :class="{
           'active': ($index === active),
-          'disabled': r.disabled
+          'disabled': t.disabled
         }"
-        @click.prevent="handleTabListClick($index, r)"
-        :disabled="r.disabled"
+        @click.prevent="select($index)"
       >
         <a href="#">
           <slot name="header">
-            {{{r.header}}}
+            {{{t.header}}}
           </slot>
         </a>
       </li>
@@ -26,32 +24,42 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      navStyle: {
-        type: String,
-        default: 'tabs'
-      },
-      effect: {
-        type: String,
-        default: 'fadein'
-      },
-      active: {
-        type: Number,
-        default: 0
-      }
+import coerceNumber from './utils/coerceNumber.js'
+
+export default {
+  props: {
+    navStyle: {
+      type: String,
+      default: 'tabs'
     },
-    data () {
-      return {
-        renderData: []
-      }
+    effect: {
+      type: String,
+      default: 'fadein'
     },
-    methods: {
-      handleTabListClick (index, el) {
-        if (!el.disabled) this.active = index
+    active: {
+      type: Number,
+      coerce: coerceNumber,
+      default: 0
+    }
+  },
+  data () {
+    return {
+      tabs: []
+    }
+  },
+  computed: {
+    isTabset () {
+      return true
+    }
+  },
+  methods: {
+    select (index) {
+      if (!this.tabs[index].disabled) {
+        this.active = index
       }
     }
   }
+}
 </script>
 
 <style scoped>

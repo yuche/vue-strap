@@ -144,15 +144,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _Tab2 = _interopRequireDefault(_Tab);
 	
-	var _Tabset = __webpack_require__(210);
+	var _Tabset = __webpack_require__(208);
 	
 	var _Tabset2 = _interopRequireDefault(_Tabset);
 	
-	var _Tooltip = __webpack_require__(215);
+	var _Tooltip = __webpack_require__(213);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
-	var _Typeahead = __webpack_require__(220);
+	var _Typeahead = __webpack_require__(218);
 	
 	var _Typeahead2 = _interopRequireDefault(_Typeahead);
 	
@@ -7391,11 +7391,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(206)
-	module.exports = __webpack_require__(208)
+	module.exports = __webpack_require__(206)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(209)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(207)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -7403,10 +7402,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-0985e878&file=Tab.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tab.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tab.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-0985e878&file=Tab.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tab.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tab.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -7414,46 +7413,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 206 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(207);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(34)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0985e878&file=Tab.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0985e878&file=Tab.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tab.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 207 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(33)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, ".tab-content > .tab-pane[_v-0985e878] {\r\n  display: block;\r\n}", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7479,57 +7438,44 @@ return /******/ (function(modules) { // webpackBootstrap
 	      default: false
 	    }
 	  },
-	  data: function data() {
-	    return {
-	      index: 0,
-	      show: false
-	    };
-	  },
-	
 	  computed: {
+	    index: function index() {
+	      return this._tabset.tabs.indexOf(this);
+	    },
 	    show: function show() {
-	      return this.$parent.active === this.index;
+	      return this._tabset && this._tabset.active === this.index;
 	    },
 	    transition: function transition() {
-	      return this.$parent.effect;
+	      return this._tabset ? this._tabset.effect : null;
 	    }
 	  },
 	  created: function created() {
-	    this.$parent.renderData.push({
-	      header: this.header,
-	      disabled: this.disabled
-	    });
-	  },
-	  ready: function ready() {
-	    for (var c in this.$parent.$children) {
-	      if (this.$parent.$children[c].$el === this.$el) {
-	        this.index = c;
-	        break;
-	      }
+	    var tabset = this;
+	    while (tabset && !tabset.isTabset && tabset.$parent) {
+	      tabset = tabset.$parent;
 	    }
+	    if (tabset.isTabset) {
+	      tabset.tabs.push(this);
+	      this._tabset = tabset;
+	    } else {
+	      this._tabset = {};
+	      console.warn('Warning: "tab" depend on "tabset" to work properly.');
+	    }
+	    console.log(this);
 	  },
 	  beforeDestroy: function beforeDestroy() {
-	    this.$parent.renderData.splice(this.index, 1);
+	    if (this._tabset.active === this.index) {
+	      this._tabset.active = 0;
+	    }
+	    this._tabset.tabs.splice(this.index, 1);
 	  }
 	};
 	// </script>
-	
-	// <style scoped>
-	
-	// .tab-content > .tab-pane {
-	
-	//   display: block;
-	
-	// }
-	
-	// </style>
 	// <template>
 	
-	//   <div role="tabpanel" class="tab-pane"
+	//   <div role="tabpanel" class="tab-pane active" v-show="show"
 	
-	//     v-bind:class="{hide:!show}"
-	
-	//     v-show="show"
+	//     :class="{hide:!show}"
 	
 	//     :transition="transition"
 	
@@ -7544,20 +7490,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 209 */
+/* 207 */
 /***/ function(module, exports) {
 
-	module.exports = "<div role=\"tabpanel\" class=\"tab-pane\" v-bind:class=\"{hide:!show}\" v-show=\"show\" :transition=\"transition\" _v-0985e878=\"\">\n    <slot _v-0985e878=\"\"></slot>\n  </div>";
+	module.exports = "<div role=\"tabpanel\" class=\"tab-pane active\" v-show=\"show\"\r\n    :class=\"{hide:!show}\"\r\n    :transition=\"transition\"\r\n  >\r\n    <slot></slot>\r\n  </div>";
 
 /***/ },
-/* 210 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(211)
-	module.exports = __webpack_require__(213)
+	__webpack_require__(209)
+	module.exports = __webpack_require__(211)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(214)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(212)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -7575,13 +7521,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 211 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(212);
+	var content = __webpack_require__(210);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(34)(content, {});
@@ -7601,7 +7547,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 212 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(33)();
@@ -7615,14 +7561,67 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 213 */
-/***/ function(module, exports) {
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	var _coerceNumber = __webpack_require__(127);
+	
+	var _coerceNumber2 = _interopRequireDefault(_coerceNumber);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  props: {
+	    navStyle: {
+	      type: String,
+	      default: 'tabs'
+	    },
+	    effect: {
+	      type: String,
+	      default: 'fadein'
+	    },
+	    active: {
+	      type: Number,
+	      coerce: _coerceNumber2.default,
+	      default: 0
+	    }
+	  },
+	  data: function data() {
+	    return {
+	      tabs: []
+	    };
+	  },
+	
+	  computed: {
+	    isTabset: function isTabset() {
+	      return true;
+	    }
+	  },
+	  methods: {
+	    select: function select(index) {
+	      if (!this.tabs[index].disabled) {
+	        this.active = index;
+	      }
+	    }
+	  }
+	};
+	// </script>
+	
+	// <style scoped>
+	
+	// .nav-tabs {
+	
+	//   margin-bottom: 15px;
+	
+	// }
+	
+	// </style>
 	// <template>
 	
 	//   <div>
@@ -7631,21 +7630,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//     <ul class="nav nav-{{navStyle}}" role="tablist">
 	
-	//       <li
+	//       <li v-for="t in tabs" v-if="t"
 	
-	//         v-for="r in renderData"
-	
-	//         v-bind:class="{
+	//         :class="{
 	
 	//           'active': ($index === active),
 	
-	//           'disabled': r.disabled
+	//           'disabled': t.disabled
 	
 	//         }"
 	
-	//         @click.prevent="handleTabListClick($index, r)"
-	
-	//         :disabled="r.disabled"
+	//         @click.prevent="select($index)"
 	
 	//       >
 	
@@ -7653,7 +7648,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//           <slot name="header">
 	
-	//             {{{r.header}}}
+	//             {{{t.header}}}
 	
 	//           </slot>
 	
@@ -7676,60 +7671,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </template>
 	
 	// <script>
-	exports.default = {
-	  props: {
-	    navStyle: {
-	      type: String,
-	      default: 'tabs'
-	    },
-	    effect: {
-	      type: String,
-	      default: 'fadein'
-	    },
-	    active: {
-	      type: Number,
-	      default: 0
-	    }
-	  },
-	  data: function data() {
-	    return {
-	      renderData: []
-	    };
-	  },
-	
-	  methods: {
-	    handleTabListClick: function handleTabListClick(index, el) {
-	      if (!el.disabled) this.active = index;
-	    }
-	  }
-	};
-	// </script>
-	
-	// <style scoped>
-	
-	// .nav-tabs {
-	
-	//   margin-bottom: 15px;
-	
-	// }
-	
-	// </style>
 
 /***/ },
-/* 214 */
+/* 212 */
 /***/ function(module, exports) {
 
-	module.exports = "<div _v-09e2754e=\"\">\n    <!-- Nav tabs -->\n    <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-09e2754e=\"\">\n      <li v-for=\"r in renderData\" v-bind:class=\"{\n          'active': ($index === active),\n          'disabled': r.disabled\n        }\" @click.prevent=\"handleTabListClick($index, r)\" :disabled=\"r.disabled\" _v-09e2754e=\"\">\n        <a href=\"#\" _v-09e2754e=\"\">\n          <slot name=\"header\" _v-09e2754e=\"\">\n            {{{r.header}}}\n          </slot>\n        </a>\n      </li>\n    </ul>\n    <!-- Tab panes -->\n    <div class=\"tab-content\" v-el:tab-content=\"\" _v-09e2754e=\"\">\n      <slot _v-09e2754e=\"\"></slot>\n    </div>\n  </div>";
+	module.exports = "<div _v-09e2754e=\"\">\n    <!-- Nav tabs -->\n    <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-09e2754e=\"\">\n      <li v-for=\"t in tabs\" v-if=\"t\" :class=\"{\n          'active': ($index === active),\n          'disabled': t.disabled\n        }\" @click.prevent=\"select($index)\" _v-09e2754e=\"\">\n        <a href=\"#\" _v-09e2754e=\"\">\n          <slot name=\"header\" _v-09e2754e=\"\">\n            {{{t.header}}}\n          </slot>\n        </a>\n      </li>\n    </ul>\n    <!-- Tab panes -->\n    <div class=\"tab-content\" v-el:tab-content=\"\" _v-09e2754e=\"\">\n      <slot _v-09e2754e=\"\"></slot>\n    </div>\n  </div>";
 
 /***/ },
-/* 215 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(216)
-	module.exports = __webpack_require__(218)
+	__webpack_require__(214)
+	module.exports = __webpack_require__(216)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(219)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(217)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -7747,13 +7704,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 216 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(217);
+	var content = __webpack_require__(215);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(34)(content, {});
@@ -7773,7 +7730,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 217 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(33)();
@@ -7787,7 +7744,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 218 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7921,20 +7878,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 219 */
+/* 217 */
 /***/ function(module, exports) {
 
 	module.exports = "<span v-el:trigger>\r\n    <slot>\r\n    </slot>\r\n  </span>\r\n  <div class=\"tooltip\"\r\n    v-bind:class=\"{\r\n    'top':    placement === 'top',\r\n    'left':   placement === 'left',\r\n    'right':  placement === 'right',\r\n    'bottom': placement === 'bottom'\r\n    }\"\r\n    v-el:popover\r\n    v-show=\"show\"\r\n    :transition=\"effect\"\r\n    role=\"tooltip\">\r\n    <div class=\"tooltip-arrow\"></div>\r\n    <div class=\"tooltip-inner\">\r\n       <slot name=\"content\">\r\n        {{{content}}}\r\n      </slot>\r\n   </div>\r\n  </div>";
 
 /***/ },
-/* 220 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(221)
-	module.exports = __webpack_require__(223)
+	__webpack_require__(219)
+	module.exports = __webpack_require__(221)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(224)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(222)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -7952,13 +7909,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 221 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(222);
+	var content = __webpack_require__(220);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(34)(content, {});
@@ -7978,7 +7935,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 222 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(33)();
@@ -7992,7 +7949,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 223 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8206,7 +8163,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </style>
 
 /***/ },
-/* 224 */
+/* 222 */
 /***/ function(module, exports) {
 
 	module.exports = "<div style=\"position: relative\"\r\n    v-bind:class=\"{'open':showDropdown}\"\r\n  >\r\n    <input type=\"text\" class=\"form-control\"\r\n      :placeholder=\"placeholder\"\r\n      autocomplete=\"off\"\r\n      v-model=\"query\"\r\n      @input=\"update\"\r\n      @keydown.up=\"up\"\r\n      @keydown.down=\"down\"\r\n      @keydown.enter= \"hit\"\r\n      @keydown.esc=\"reset\"\r\n      @blur=\"showDropdown = false\"\r\n    />\r\n    <ul class=\"dropdown-menu\" v-el:dropdown>\r\n      <li v-for=\"item in items\" v-bind:class=\"{'active': isActive($index)}\">\r\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive($index)\">\r\n          <partial :name=\"templateName\"></partial>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>";

@@ -1,7 +1,6 @@
 <template>
-  <div role="tabpanel" class="tab-pane"
-    v-bind:class="{hide:!show}"
-    v-show="show"
+  <div role="tabpanel" class="tab-pane active" v-show="show"
+    :class="{hide:!show}"
     :transition="transition"
   >
     <slot></slot>
@@ -22,42 +21,34 @@ export default {
       default: false
     }
   },
-  data () {
-    return {
-      index: 0,
-      show: false
-    }
-  },
   computed: {
+    index () {
+      return this._tabset.tabs.indexOf(this)
+    },
     show () {
-      return (this.$parent.active === this.index)
+      return this._tabset && this._tabset.active === this.index
     },
     transition () {
-      return this.$parent.effect
+      return this._tabset ? this._tabset.effect : null
     }
   },
   created () {
-    this.$parent.renderData.push({
-      header: this.header,
-      disabled: this.disabled
-    })
-  },
-  ready () {
-    for (let c in this.$parent.$children) {
-      if (this.$parent.$children[c].$el === this.$el) {
-        this.index = c
-        break
-      }
+    let tabset = this
+    while (tabset && !tabset.isTabset && tabset.$parent) {
+      tabset = tabset.$parent
     }
+    if (tabset.isTabset) {
+      tabset.tabs.push(this)
+      this._tabset = tabset
+    } else {
+      this._tabset = {}
+      console.warn('Warning: "tab" depend on "tabset" to work properly.')
+    }
+    console.log(this)
   },
   beforeDestroy () {
-    this.$parent.renderData.splice(this.index, 1)
+    if (this._tabset.active === this.index) { this._tabset.active = 0 }
+    this._tabset.tabs.splice(this.index, 1)
   }
 }
 </script>
-
-<style scoped>
-.tab-content > .tab-pane {
-  display: block;
-}
-</style>

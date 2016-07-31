@@ -23,19 +23,19 @@
         </tab>
       </tabs>
     </div>
-    <pre><code class="language-markup"><script type="language-mark-up">
-<tabs :active="0">
-  <tab header="one">
+    <pre><code class="language-markup">
+&lt;tabs>
+  &lt;tab header="one">
     ...
-  </tab>
-  <tab header="two">
+  &lt;/tab>
+  &lt;tab header="two">
     ...
-  </tab>
-  <tab header="three" disabled>
+  &lt;/tab>
+  &lt;tab header="three" disabled>
     ...
-  </tab>
-</tabs>
-</script></code></pre>
+  &lt;/tab>
+&lt;/tabs>
+  </code></pre>
   <h2>Tabs Options</h2>
   <table class="table table-bordered">
     <thead>
@@ -50,7 +50,7 @@
       <tr>
         <td>active</td>
         <td><code>Number</code></td>
-        <td></td>
+        <td><code>0</code></td>
         <td>Active tab index (0 based)</td>
       </tr>
     </tbody>
@@ -84,12 +84,13 @@
 </template>
 
 <script>
-  import tabs from 'src/Tabset.vue'
-  import tab from 'src/Tab.vue'
-  export default {
-    components: {
-      tabs,
-      tab
-    }
+import tabs from 'src/Tabset.vue'
+import tab from 'src/Tab.vue'
+
+export default {
+  components: {
+    tabs,
+    tab
   }
+}
 </script>
