@@ -6,6 +6,7 @@
       <input class="form-control" v-el:input v-model="value"
         :name="name"
         :type="type"
+        :readonly="readonly"
         :required="required"
         :disabled="disabled"
         :minlength="minlength"
@@ -19,6 +20,7 @@
     <input v-else class="form-control" v-el:input v-model="value"
       :name="name"
       :type="type"
+      :readonly="readonly"
       :required="required"
       :disabled="disabled"
       :minlength="minlength"
@@ -104,6 +106,11 @@ export default {
     placeholder: {
       type: String,
       default: null
+    },
+    readonly: {
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: false
     },
     required: {
       type: Boolean,

@@ -19,12 +19,13 @@
             :minlength="check.minlength?5:0"
             pattern="^[a-z][a-z0-9]+$"
             :placeholder="check.placeholder?'Username can\'t start with a number.':null"
+            :readonly="check.readonly"
             :required="check.required"
             :value.sync="input"
           ></bs-input>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <bs-input required label="Match value" type="password" :match="input" help="Match the User Name"></bs-input>
+          <bs-input required label="Match value" type="password" :match="input" :icon="check.icon" help="Match the User Name"></bs-input>
         </div>
       </div>
     </div>
@@ -41,6 +42,7 @@
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
         <div class="checkbox"><label><input type="checkbox" v-model="check.minlength"/> minlength=5</label></div>
+        <div class="checkbox"><label><input type="checkbox" v-model="check.readonly"/> readonly</label></div>
         <div class="checkbox"><label><input type="checkbox" v-model="check.required"/> required</label></div>
       </div>
     </div>
@@ -54,6 +56,7 @@ Input:
   pattern="^[a-z][a-z0-9]+$"
   :mask="mask"
   minlength="5"
+  readonly
   required
   icon
 >&lt;/bs-input>

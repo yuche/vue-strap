@@ -1421,67 +1421,67 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <nav class="navbar" :class="{
-	
+
 	//         'navbar-inverse':(type == 'inverse'),
-	
+
 	//         'navbar-default':(type == 'default'),
-	
+
 	//         'navbar-fixed-top':      (placement === 'top'),
-	
+
 	//         'navbar-fixed-bottom':  (placement === 'bottom'),
-	
+
 	//         'navbar-static-top':  (placement === 'static')
-	
+
 	//       }">
-	
+
 	//      <div class="container-fluid">
-	
+
 	//        <!-- Brand and toggle get grouped for better mobile display -->
-	
+
 	//        <div class="navbar-header">
-	
+
 	//          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#{{ id }}" aria-expanded="false">
-	
+
 	//            <span class="sr-only">Toggle navigation</span>
-	
+
 	//            <span class="icon-bar"></span>
-	
+
 	//            <span class="icon-bar"></span>
-	
+
 	//            <span class="icon-bar"></span>
-	
+
 	//          </button>
-	
+
 	//          <slot name="brand"></slot>
-	
+
 	//        </div>
-	
+
 	//        <!-- Collect the nav links, forms, and other content for toggling -->
-	
+
 	//        <div class="collapse navbar-collapse" id="{{ id }}">
-	
+
 	//         <ul class="nav navbar-nav">
-	
+
 	//           <slot></slot>
-	
+
 	//         </ul>
-	
+
 	//         <ul class="nav navbar-nav navbar-right">
-	
+
 	//           <slot name="right"></slot>
-	
+
 	//         </ul>
-	
+
 	//       </div>
-	
+
 	//     </div><!-- /.container-fluid -->
-	
+
 	//   </nav>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -1546,10 +1546,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-39be1072&file=Dropdown.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-52fe6674&file=Dropdown.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-39be1072&file=Dropdown.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-52fe6674&file=Dropdown.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -1571,8 +1571,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-39be1072&file=Dropdown.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dropdown.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-39be1072&file=Dropdown.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dropdown.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52fe6674&file=Dropdown.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dropdown.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52fe6674&file=Dropdown.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dropdown.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -1590,7 +1590,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".secret[_v-39be1072] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
+	exports.push([module.id, ".secret[_v-52fe6674] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
 	
 	// exports
 
@@ -2066,36 +2066,36 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .secret {
-	
+
 	//   border: 0;
-	
+
 	//   clip: rect(0 0 0 0);
-	
+
 	//   height: 1px;
-	
+
 	//   margin: -1px;
-	
+
 	//   overflow: hidden;
-	
+
 	//   padding: 0;
-	
+
 	//   position: absolute;
-	
+
 	//   width: 1px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
 /* 114 */
 /***/ function(module, exports) {
 
-	module.exports = "<li v-if=\"$parent.navbar||$parent.menu\" v-el:dropdown=\"\" class=\"dropdown\" :class=\"{open: show}\" @click=\"show ? blur() : toggleDropdown()\" _v-39be1072=\"\">\n      <a v-if=\"text\" v-el:btn=\"\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" _v-39be1072=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-39be1072=\"\"></span>\n      </a>\n      <button type=\"button\" class=\"secret\" v-el:btn=\"\" @blur=\"blur()\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-39be1072=\"\"></button>\n      <slot v-else=\"\" name=\"button\" _v-39be1072=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-39be1072=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" @click=\"unblur\" _v-39be1072=\"\">\n      <slot _v-39be1072=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"{open: show}\" @click=\"unblur\" _v-39be1072=\"\">\n      <button v-if=\"text\" v-el:btn=\"\" type=\"button\" class=\"btn btn-{{type||'default'}} dropdown-toggle\" @click=\"toggleDropdown()\" @blur=\"blur()\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-39be1072=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-39be1072=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-39be1072=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-39be1072=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" @click=\"unblur\" _v-39be1072=\"\">\n      <slot _v-39be1072=\"\"></slot>\n    </ul>\n  </div>";
+	module.exports = "<li v-if=\"$parent.navbar||$parent.menu\" v-el:dropdown=\"\" class=\"dropdown\" :class=\"{open: show}\" @click=\"show ? blur() : toggleDropdown()\" _v-52fe6674=\"\">\n      <a v-if=\"text\" v-el:btn=\"\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" _v-52fe6674=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-52fe6674=\"\"></span>\n      </a>\n      <button type=\"button\" class=\"secret\" v-el:btn=\"\" @blur=\"blur()\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-52fe6674=\"\"></button>\n      <slot v-else=\"\" name=\"button\" _v-52fe6674=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-52fe6674=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" @click=\"unblur\" _v-52fe6674=\"\">\n      <slot _v-52fe6674=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"{open: show}\" @click=\"unblur\" _v-52fe6674=\"\">\n      <button v-if=\"text\" v-el:btn=\"\" type=\"button\" class=\"btn btn-{{type||'default'}} dropdown-toggle\" @click=\"toggleDropdown()\" @blur=\"blur()\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-52fe6674=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-52fe6674=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-52fe6674=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-52fe6674=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" @click=\"unblur\" _v-52fe6674=\"\">\n      <slot _v-52fe6674=\"\"></slot>\n    </ul>\n  </div>";
 
 /***/ },
 /* 115 */
@@ -2440,15 +2440,15 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="panel-group">
-	
+
 	//     <slot></slot>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -2514,8 +2514,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-b1e0461a&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-b1e0461a&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-69b51631&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-69b51631&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -2585,76 +2585,76 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .accordion-toggle {
-	
+
 	//   cursor: pointer;
-	
+
 	// }
-	
+
 	// .collapse-transition {
-	
+
 	//   transition: max-height .5s ease;
-	
+
 	//   overflow: hidden;
-	
+
 	// }
-	
+
 	// .collapse-enter, .collapse-leave {
-	
+
 	//   max-height: 0!important;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div class="panel panel-default">
-	
+
 	//     <div class="panel-heading">
-	
+
 	//       <h4 class="panel-title">
-	
+
 	//         <a class="accordion-toggle"
-	
+
 	//           @click="toggle()">
-	
-	//           <slot name="header"> 
-	
+
+	//           <slot name="header">
+
 	//             {{ header }}
-	
+
 	//           </slot>
-	
+
 	//         </a>
-	
+
 	//       </h4>
-	
+
 	//     </div>
-	
+
 	//     <div class="panel-collapse"
-	
+
 	//       v-el:panel
-	
+
 	//       v-show="isOpen"
-	
+
 	//       transition="collapse"
-	
+
 	//     >
-	
+
 	//       <div class="panel-body">
-	
+
 	//         <slot></slot>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -2710,8 +2710,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5ebddebf&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5ebddebf&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-216317fd&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-216317fd&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -2824,32 +2824,32 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	//   .vue-affix {
-	
+
 	//     position: fixed;
-	
+
 	//   }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div>
-	
+
 	//     <div v-bind:class="{'vue-affix': affixed}"
-	
+
 	//       v-bind:style="styles">
-	
+
 	//       <slot></slot>
-	
+
 	//     </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -2899,8 +2899,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-81085d3e&file=affixDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./affixDocs.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-81085d3e&file=affixDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./affixDocs.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-46920ce3&file=affixDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./affixDocs.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-46920ce3&file=affixDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./affixDocs.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -2945,128 +2945,128 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .animated {
-	
+
 	//     -webkit-animation-duration: 3s;
-	
+
 	//     animation-duration: 3s;
-	
+
 	//     -webkit-animation-fill-mode: both;
-	
+
 	//     animation-fill-mode: both;
-	
+
 	//     animation-iteration-count: infinite
-	
+
 	// }
-	
+
 	// @keyframes shake {
-	
+
 	//     0%, 100% {transform: translateX(0);}
-	
+
 	//     10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);}
-	
+
 	//     20%, 40%, 60%, 80% {transform: translateX(5px);}
-	
+
 	// }
-	
+
 	// .shake {
-	
+
 	//     -webkit-animation-name: shake;
-	
+
 	//     animation-name: shake;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="affix">
-	
+
 	//     <h1 class="page-header"><a href="#affix" class="anchor">Affix</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <h3>
-	
+
 	//         The sub-navigation on the RIGHT is a live demo of the affix.
-	
+
 	//         <tooltip trigger="hover" effect="fadein" content="I'm a direction, not jerking off!" placement="left">
-	
+
 	//           <span class="glyphicon glyphicon-hand-right pull-right animated shake"></span>
-	
+
 	//         </tooltip>
-	
+
 	//       </h3>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <affix offset="">
-	
+
 	//   <nav class="sidebar">
-	
+
 	//     <ul>
-	
+
 	//       <li>...</li>
-	
+
 	//       <li>...</li>
-	
+
 	//       <li>...</li>
-	
+
 	//     </ul>
-	
+
 	//   </nav>
-	
+
 	// </affix>
-	
+
 	// </script></code></pre>
-	
+
 	//     <h2>Options</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>offset</td>
-	
+
 	//           <td><code>Number</code></td>
-	
+
 	//           <td><code>0</code></td>
-	
+
 	//           <td>Pixels to offset from top of screen when calculating position of scroll.</td>
-	
+
 	//         </tr>
-	
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -3110,8 +3110,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-48fb51b2&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-48fb51b2&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-11919920&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-11919920&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3164,108 +3164,108 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .tooltip {
-	
+
 	//   opacity: .9
-	
+
 	// }
-	
+
 	// .fadein-enter {
-	
+
 	//   animation:fadein-in 0.3s ease-in;
-	
+
 	// }
-	
+
 	// .fadein-leave {
-	
+
 	//   animation:fadein-out 0.3s ease-out;
-	
+
 	// }
-	
+
 	// @keyframes fadein-in {
-	
+
 	//   0% {
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// @keyframes fadein-out {
-	
+
 	//   0% {
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <span v-el:trigger>
-	
+
 	//     <slot>
-	
+
 	//     </slot>
-	
+
 	//   </span>
-	
+
 	//   <div class="tooltip"
-	
+
 	//     v-bind:class="{
-	
+
 	//     'top':    placement === 'top',
-	
+
 	//     'left':   placement === 'left',
-	
+
 	//     'right':  placement === 'right',
-	
+
 	//     'bottom': placement === 'bottom'
-	
+
 	//     }"
-	
+
 	//     v-el:popover
-	
+
 	//     v-show="show"
-	
+
 	//     :transition="effect"
-	
+
 	//     role="tooltip">
-	
+
 	//     <div class="tooltip-arrow"></div>
-	
+
 	//     <div class="tooltip-inner">
-	
+
 	//        <slot name="content">
-	
+
 	//         {{{content}}}
-	
+
 	//       </slot>
-	
+
 	//    </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -3443,8 +3443,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c3778626&file=alertDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./alertDocs.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c3778626&file=alertDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./alertDocs.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-255a786f&file=alertDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./alertDocs.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-255a786f&file=alertDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./alertDocs.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3496,322 +3496,322 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	//   .alert-icon-float-left {
-	
+
 	//     font-size:32px;float:left;margin-right:5px;
-	
+
 	//   }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="alert">
-	
+
 	//     <h1 class="page-header">
-	
+
 	//       <a href="#alert" class="anchor">Alert</a>
-	
+
 	//     </h1>
-	
+
 	//     <div class="bs-example" >
-	
+
 	//       <button class="btn btn-success btn-lg"
-	
+
 	//         @click="showRight = !showRight">
-	
+
 	//         Click to toggle alert on right
-	
+
 	//       </button>
-	
+
 	//       <button class="btn btn-danger btn-lg"
-	
+
 	//         @click="showTop = !showTop">
-	
+
 	//         Click to toggle alert on top
-	
+
 	//       </button>
-	
+
 	//       <hr>
-	
+
 	//       <alert type="success" >
-	
+
 	//         <strong>Well Done!</strong>
-	
+
 	//         You successfully read this important alert message.
-	
+
 	//       </alert>
-	
+
 	//       <alert type="info" >
-	
+
 	//         <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-	
+
 	//       </alert>
-	
+
 	//       <alert type="danger" dismissable>
-	
+
 	//         <strong>Oh snap!</strong> Change a few things up and try submitting again.
-	
+
 	//       </alert>
-	
+
 	//       <alert type="warning" dismissable>
-	
+
 	//         <strong>Warning!</strong> Better check yourself, you're not looking too good.
-	
+
 	//       </alert>
-	
+
 	//       <alert
-	
+
 	//         :show.sync="showRight"
-	
+
 	//         :duration="3000"
-	
+
 	//         type="success"
-	
+
 	//         width="400px"
-	
+
 	//         placement="top-right"
-	
+
 	//         dismissable
-	
+
 	//       >
-	
+
 	//         <span class="icon-ok-circled alert-icon-float-left"></span>
-	
+
 	//         <strong>Well Done!</strong>
-	
+
 	//         <p>You successfully read this important alert message.</p>
-	
+
 	//       </alert>
-	
+
 	//       <alert
-	
+
 	//         :show.sync="showTop"
-	
+
 	//         :duration="3000"
-	
+
 	//         type="danger"
-	
+
 	//         width="400px"
-	
+
 	//         placement="top"
-	
+
 	//         dismissable>
-	
+
 	//         <span class="icon-info-circled alert-icon-float-left"></span>
-	
+
 	//         <strong>Heads up!</strong>
-	
+
 	//         <p>This alert needs your attention.</p>
-	
+
 	//       </alert>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <button class="btn btn-default btn-lg"
-	
+
 	//   @click="showRight = !showRight">
-	
+
 	//   Click to toggle alert on right
-	
+
 	// </button>
-	
+
 	// <button class="btn btn-default btn-lg"
-	
+
 	//   @click="showTop = !showTop">
-	
+
 	//   Click to toggle alert on top
-	
+
 	// </button>
-	
+
 	// <hr>
-	
+
 	// <alert type="success" >
-	
+
 	//   <strong>Well Done!</strong>
-	
+
 	//   You successfully read this important alert message.
-	
+
 	// </alert>
-	
+
 	// <alert type="info" >
-	
+
 	//   <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-	
+
 	// </alert>
-	
+
 	// <alert type="danger" dismissable>
-	
+
 	//   <strong>Oh snap!</strong> Change a few things up and try submitting again.
-	
+
 	// </alert>
-	
+
 	// <alert type="warning" dismissable>
-	
+
 	//   <strong>Warning!</strong> Better check yourself, you're not looking too good.
-	
+
 	// </alert>
-	
+
 	// <alert
-	
+
 	//   :show.sync="showRight"
-	
+
 	//   :duration="3000"
-	
+
 	//   type="success"
-	
+
 	//   width="400px"
-	
+
 	//   placement="top-right"
-	
+
 	//   dismissable
-	
+
 	// >
-	
+
 	//   <span class="icon-ok-circled alert-icon-float-left"></span>
-	
+
 	//   <strong>Well Done!</strong>
-	
+
 	//   <p>You successfully read this important alert message.</p>
-	
+
 	// </alert>
-	
+
 	// <alert
-	
+
 	//   :show.sync="showTop"
-	
+
 	//   :duration="3000"
-	
+
 	//   type="danger"
-	
+
 	//   width="400px"
-	
+
 	//   placement="top"
-	
+
 	//   dismissable>
-	
+
 	//   <span class="icon-info-circled alert-icon-float-left"></span>
-	
+
 	//   <strong>Heads up!</strong>
-	
+
 	//   <p>This alert needs your attention.</p>
-	
+
 	// </alert>
-	
+
 	// </script></code></pre>
-	
+
 	//     <h2>Options</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>show</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>true</code></td>
-	
+
 	//           <td>Whether show the component</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>dismissable</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>false</code></td>
-	
+
 	//           <td>Whether show close button</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>type</td>
-	
+
 	//           <td><code>String</code>, one of
-	
+
 	//           <code>success</code>
-	
+
 	//           <code>info</code>
-	
+
 	//           <code>warning</code>
-	
+
 	//           <code>danger</code></td>
-	
+
 	//           <td><code>success</code></td>
-	
+
 	//           <td>Components styles</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>duration</td>
-	
+
 	//           <td><code>Number</code></td>
-	
+
 	//           <td><code>0</code></td>
-	
+
 	//           <td>Auto close duration. Set <code>0</code> or a negative number will NOT be auto-close.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>width</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>placement</td>
-	
+
 	//           <td><code>String</code>. one of <code>top</code>, <code>top-right</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>how to position the component.</td>
-	
+
 	//         </tr>
-	
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -3855,8 +3855,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-af7c1f6a&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-af7c1f6a&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6ae72989&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6ae72989&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3936,98 +3936,98 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .fade-transition {
-	
+
 	//   transition: opacity .3s ease;
-	
+
 	// }
-	
+
 	// .fade-enter,
-	
+
 	// .fade-leave {
-	
+
 	//   height: 0;
-	
+
 	//   opacity: 0;
-	
+
 	// }
-	
+
 	// .alert.top {
-	
+
 	//   position: fixed;
-	
+
 	//   top: 30px;
-	
+
 	//   margin: 0 auto;
-	
+
 	//   left: 0;
-	
+
 	//   right: 0;
-	
+
 	//   z-index: 2;
-	
+
 	// }
-	
+
 	// .alert.top-right {
-	
+
 	//   position: fixed;
-	
+
 	//   top: 30px;
-	
+
 	//   right: 50px;
-	
+
 	//   z-index: 2;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div
-	
+
 	//     v-show="show"
-	
+
 	//     v-bind:class="{
-	
+
 	//       'alert':		true,
-	
+
 	//       'alert-success':(type == 'success'),
-	
+
 	//       'alert-warning':(type == 'warning'),
-	
+
 	//       'alert-info':	(type == 'info'),
-	
+
 	//       'alert-danger':	(type == 'danger'),
-	
+
 	//       'top': 			(placement === 'top'),
-	
+
 	//       'top-right': 	(placement === 'top-right')
-	
+
 	//     }"
-	
+
 	//     transition="fade"
-	
+
 	//     v-bind:style="{width:width}"
-	
+
 	//     role="alert">
-	
+
 	//     <button v-show="dismissable" type="button" class="close"
-	
+
 	//       @click="show = false">
-	
+
 	//       <span>&times;</span>
-	
+
 	//     </button>
-	
+
 	//     <slot></slot>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -4095,187 +4095,187 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="aside">
-	
+
 	//     <h1 class="page-header"><a href="#aside" class="anchor">Aside</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <button class="btn btn-success btn-lg" @click="showRight = true">Show Aside on right</button>
-	
+
 	//       <sidebar :show.sync="showRight" placement="right" header="Title" :width="350">
-	
+
 	//         <h4>Text in aside</h4>
-	
+
 	//         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//         tempor incididunt ut labore et dolore magna aliqua.</p>
-	
+
 	//         <p> Ut enim ad minim veniam,
-	
+
 	//         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//         consequat.</p>
-	
+
 	//           <pre><code class="language-javascript">
-	
+
 	// if (talk === cheap){
-	
+
 	//   code.style.display = 'block'
-	
+
 	// }
-	
+
 	//         </code></pre>
-	
+
 	//         <div class="aside-footer">
-	
+
 	//           <button type="button" class="btn btn-default" @click="showRight=false">Close</button>
-	
+
 	//         </div>
-	
+
 	//       </sidebar>
-	
+
 	//       <button class="btn btn-danger btn-lg" @click="showLeft = true">Show Aside on left</button>
-	
+
 	//       <sidebar  :show.sync="showLeft" placement="left" header="Title" :width="350">
-	
+
 	//         <h4>Text in aside</h4>
-	
+
 	//         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//         tempor incididunt ut labore et dolore magna aliqua.</p>
-	
+
 	//         <p> Ut enim ad minim veniam,
-	
+
 	//         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//         consequat.</p>
-	
+
 	//         <pre><code class="language-javascript">
-	
+
 	// if (talk === cheap){
-	
+
 	//   code.style.display = 'block'
-	
+
 	// }
-	
+
 	//         </code></pre>
-	
+
 	//         <div class="aside-footer">
-	
+
 	//           <button type="button" class="btn btn-default" @click="showLeft=false">Close</button>
-	
+
 	//         </div>
-	
+
 	//       </sidebar>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <button
-	
+
 	// class="btn btn-success btn-lg"
-	
+
 	// @click="showRight = true">Show Aside on right</button>
-	
+
 	// <aside :show.sync="showRight" placement="right" header="Title" :width="350">
-	
+
 	// ...
-	
+
 	// </aside>
-	
+
 	// <button
-	
+
 	// class="btn btn-danger btn-lg"
-	
+
 	// @click="showLeft = true">Show Aside on left</button>
-	
+
 	// <aside :show.sync="showLeft" placement="left" header="Title" :width="350">
-	
+
 	// ...
-	
+
 	// </aside></script></code></pre>
-	
+
 	//     <h2>Options</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>show</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>Whether show the component.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>placement</td>
-	
+
 	//           <td><code>String</code>, one of <code>left</code>, <code>right</code></td>
-	
+
 	//           <td><code>right</code></td>
-	
+
 	//           <td>how to position the component.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>header</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>Header text of the aside component.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>width</td>
-	
+
 	//           <td><code>Number</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -4319,8 +4319,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3a4bde27&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3a4bde27&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-061dd136&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-061dd136&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -4422,338 +4422,338 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .aside-open {
-	
+
 	//   transition: transform 0.3s;
-	
+
 	// }
-	
+
 	// .aside-open.has-push-right {
-	
+
 	//   transform: translateX(-300px);
-	
+
 	// }
-	
+
 	// .aside {
-	
+
 	//     position: fixed;
-	
+
 	//     top: 0;
-	
+
 	//     bottom: 0;
-	
+
 	//     z-index: 1049;
-	
+
 	//     overflow: auto;
-	
+
 	//     background: #fff;
-	
+
 	// }
-	
+
 	// .aside.left {
-	
+
 	//   left: 0;
-	
+
 	//   right: auto;
-	
+
 	// }
-	
+
 	// .aside.right {
-	
+
 	//   left: auto;
-	
+
 	//   right: 0;
-	
+
 	// }
-	
+
 	// .slideleft-enter {
-	
+
 	//   animation:slideleft-in .3s;
-	
+
 	// }
-	
+
 	// .slideleft-leave {
-	
+
 	//   animation:slideleft-out .3s;
-	
+
 	// }
-	
+
 	// @keyframes slideleft-in {
-	
+
 	//   0% {
-	
+
 	//     transform: translateX(-100%);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: translateX(0);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// @keyframes slideleft-out {
-	
+
 	//   0% {
-	
+
 	//     transform: translateX(0);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: translateX(-100%);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// .slideright-enter {
-	
+
 	//   animation:slideright-in .3s;
-	
+
 	// }
-	
+
 	// .slideright-leave {
-	
+
 	//   animation:slideright-out .3s;
-	
+
 	// }
-	
+
 	// @keyframes slideright-in {
-	
+
 	//   0% {
-	
+
 	//     transform: translateX(100%);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: translateX(0);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// @keyframes slideright-out {
-	
+
 	//   0% {
-	
+
 	//     transform: translateX(0);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: translateX(100%);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// .aside:focus {
-	
+
 	//     outline: 0
-	
+
 	// }
-	
+
 	// @media (max-width: 991px) {
-	
+
 	//   .aside {
-	
+
 	//     min-width:240px
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// .aside.left {
-	
+
 	//   right: auto;
-	
+
 	//   left: 0
-	
+
 	// }
-	
+
 	// .aside.right {
-	
+
 	//   right: 0;
-	
+
 	//   left: auto
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-header {
-	
+
 	//   border-bottom: 1px solid #e5e5e5;
-	
+
 	//   min-height: 16.43px;
-	
+
 	//   padding: 6px 15px;
-	
+
 	//   background: #337ab7;
-	
+
 	//   color: #fff
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-header .close {
-	
+
 	//   margin-right: -8px;
-	
+
 	//   padding: 4px 8px;
-	
+
 	//   color: #fff;
-	
+
 	//   font-size: 25px;
-	
+
 	//   opacity: .8
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-body {
-	
+
 	//   position: relative;
-	
+
 	//   padding: 15px
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-footer {
-	
+
 	//   padding: 15px;
-	
+
 	//   text-align: right;
-	
+
 	//   border-top: 1px solid #e5e5e5
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-footer .btn+.btn {
-	
+
 	//   margin-left: 5px;
-	
+
 	//   margin-bottom: 0
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-footer .btn-group .btn+.btn {
-	
+
 	//   margin-left: -1px
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-footer .btn-block+.btn-block {
-	
+
 	//   margin-left: 0
-	
+
 	// }
-	
+
 	// .aside-backdrop {
-	
+
 	//   position: fixed;
-	
+
 	//   top: 0;
-	
+
 	//   right: 0;
-	
+
 	//   bottom: 0;
-	
+
 	//   left: 0;
-	
+
 	//   z-index: 1040;
-	
+
 	//   opacity: 0;
-	
+
 	//   transition: opacity .3s ease;
-	
+
 	//   background-color: #000
-	
+
 	// }
-	
+
 	// .aside-backdrop.in {
-	
+
 	//   opacity: .5;
-	
+
 	//   filter: alpha(opacity=50)
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div class="aside"
-	
+
 	//     v-bind:style="{width:width + 'px'}"
-	
+
 	//     v-bind:class="{
-	
+
 	//     left:placement === 'left',
-	
+
 	//     right:placement === 'right'
-	
+
 	//     }"
-	
+
 	//     v-show="show"
-	
+
 	//     :transition="(this.placement === 'left') ? 'slideleft' : 'slideright'">
-	
+
 	//     <div class="aside-dialog">
-	
+
 	//       <div class="aside-content">
-	
+
 	//         <div class="aside-header">
-	
+
 	//           <button type="button" class="close" @click='close'><span>&times;</span></button>
-	
-	//           <h4 class="aside-title">   
-	
-	//           <slot name="header"> 
-	
+
+	//           <h4 class="aside-title">  
+
+	//           <slot name="header">
+
 	//             {{ header }}
-	
+
 	//           </slot>
-	
+
 	//           </h4>
-	
+
 	//         </div>
-	
+
 	//         <div class="aside-body">
-	
+
 	//           <slot></slot>
-	
+
 	//         </div>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -5180,41 +5180,41 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <label class="btn"
-	
+
 	//   v-bind:class="{
-	
+
 	//     'active':active,
-	
+
 	//     'btn-success':type == 'success',
-	
+
 	//     'btn-warning':type == 'warning',
-	
+
 	//     'btn-info':type == 'info',
-	
+
 	//     'btn-danger':type == 'danger',
-	
+
 	//     'btn-default':type == 'default',
-	
+
 	//     'btn-primary':type == 'primary'
-	
+
 	//   }">
-	
+
 	//     <input type="radio" autocomplete="off"
-	
+
 	//       :checked="checked"
-	
+
 	//       @click="handleClick"
-	
+
 	//     />
-	
+
 	//     <slot></slot>
-	
+
 	//   </label>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -5363,41 +5363,41 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <label class="btn"
-	
+
 	//   v-bind:class="{
-	
+
 	//     'active':checked,
-	
+
 	//     'btn-success':type == 'success',
-	
+
 	//     'btn-warning':type == 'warning',
-	
+
 	//     'btn-info':type == 'info',
-	
+
 	//     'btn-danger':type == 'danger',
-	
+
 	//     'btn-default':type == 'default',
-	
+
 	//     'btn-primary':type == 'primary'
-	
+
 	//   }">
-	
+
 	//     <input type="checkbox" autocomplete="off"
-	
+
 	//     :checked="checked"
-	
+
 	//     @click="handleClick"
-	
+
 	//     />
-	
+
 	//     <slot></slot>
-	
+
 	//   </label>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -5639,10 +5639,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-322dee41&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4b6e4443&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-322dee41&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4b6e4443&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -5664,8 +5664,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-322dee41&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-322dee41&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4b6e4443&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4b6e4443&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -5683,7 +5683,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".carousel-control[_v-322dee41] {\r\n  cursor: pointer;\r\n}", ""]);
+	exports.push([module.id, ".carousel-control[_v-4b6e4443] {\r\n  cursor: pointer;\r\n}", ""]);
 	
 	// exports
 
@@ -5860,22 +5860,22 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .carousel-control {
-	
+
 	//   cursor: pointer;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
 /* 184 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-322dee41=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-322dee41=\"\">\n    <indicator :indicator.sync=\"indicator\" :active-index.sync=\"activeIndex\" :is-animating.sync=\"isAnimating\" _v-322dee41=\"\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-322dee41=\"\">\n    <slot _v-322dee41=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <div v-show=\"controls\" class=\"carousel-controls hidden-xs\" _v-322dee41=\"\">\n    <a class=\"left carousel-control\" role=\"button\" @click=\"prevClick\" _v-322dee41=\"\">\n      <span class=\"fa fa-arrow-left\" aria-hidden=\"true\" _v-322dee41=\"\"></span>\n    </a>\n    <a class=\"right carousel-control\" role=\"button\" @click=\"nextClick\" _v-322dee41=\"\">\n      <span class=\"fa fa-arrow-right\" aria-hidden=\"true\" _v-322dee41=\"\"></span>\n    </a>\n  </div>\n</div>";
+	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-4b6e4443=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-4b6e4443=\"\">\n    <indicator :indicator.sync=\"indicator\" :active-index.sync=\"activeIndex\" :is-animating.sync=\"isAnimating\" _v-4b6e4443=\"\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-4b6e4443=\"\">\n    <slot _v-4b6e4443=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <div v-show=\"controls\" class=\"carousel-controls hidden-xs\" _v-4b6e4443=\"\">\n    <a class=\"left carousel-control\" role=\"button\" @click=\"prevClick\" _v-4b6e4443=\"\">\n      <span class=\"fa fa-arrow-left\" aria-hidden=\"true\" _v-4b6e4443=\"\"></span>\n    </a>\n    <a class=\"right carousel-control\" role=\"button\" @click=\"nextClick\" _v-4b6e4443=\"\">\n      <span class=\"fa fa-arrow-right\" aria-hidden=\"true\" _v-4b6e4443=\"\"></span>\n    </a>\n  </div>\n</div>";
 
 /***/ },
 /* 185 */
@@ -6063,225 +6063,225 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="datepicker">
-	
+
 	//     <h1 class="page-header"><a href="#datepicker" class="anchor">Datepicker</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <p>
-	
+
 	//         <pre>
-	
+
 	// Selected date is: {{new Date(value).toString().slice(0, -23)}}
-	
+
 	//         </pre>
-	
+
 	//       </p>
-	
+
 	//       <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled"
-	
+
 	//       :format="format.toString()" :show-reset-button="reset"></datepicker>
-	
+
 	//       <h4>Disabled days of week</h4>
-	
+
 	//       <v-select multiple :value.sync="disabled">
-	
+
 	//   <v-option value="0">0</v-option>
-	
+
 	//   <v-option value="1">1</v-option>
-	
+
 	//   <v-option value="2">2</v-option>
-	
+
 	//   <v-option value="3">3</v-option>
-	
+
 	//   <v-option value="4">4</v-option>
-	
+
 	//   <v-option value="5">5</v-option>
-	
+
 	//   <v-option value="6">6</v-option>
-	
+
 	//       </v-select>
-	
+
 	//       <h4>Format</h4>
-	
+
 	//       <v-select :value.sync="format">
-	
+
 	//         <v-option value="dd/MM/yyyy">dd/MM/yyyy</v-option>
-	
+
 	//         <v-option value="dd-MM-yyyy">dd-MM-yyyy</v-option>
-	
+
 	//         <v-option value="yyyy,MM,dd">yyyy,MM,dd</v-option>
-	
+
 	//         <v-option value="yyyy-MM-dd">yyyy-MM-dd</v-option>
-	
+
 	//         <v-option value="yyyy.MM.dd">yyyy.MM.dd</v-option>
-	
+
 	//         <v-option value="MMM/dd/yyyy">MMM/dd/yyyy</v-option>
-	
+
 	//         <v-option value="MMMM/dd/yyyy">MMMM/dd/yyyy</v-option>
-	
+
 	//         <v-option value="MM/dd/yyyy">MM/dd/yyyy</v-option>
-	
+
 	//         <v-option value="MM-dd-yyyy">MM-dd-yyyy</v-option>
-	
+
 	//       </v-select>
-	
+
 	//       <h4>Reset button</h4>
-	
+
 	//       <label><input type="checkbox" v-model="reset" @click="x"> toggle reset button</label>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <datepicker
-	
+
 	//   :value.sync="value"
-	
+
 	//   :disabled-days-of-Week="disabled"
-	
+
 	//   :format="format"
-	
+
 	//   :show-reset-button="reset">
-	
+
 	// </datepicker>
-	
+
 	// <select multiple :value.sync="disabled" size=5>
-	
+
 	//   <v-option value="0">0</v-option>
-	
+
 	//   <v-option value="1">1</v-option>
-	
+
 	//   <v-option value="2">2</v-option>
-	
+
 	//   <v-option value="3">3</v-option>
-	
+
 	//   <v-option value="4">4</v-option>
-	
+
 	//   <v-option value="5">5</v-option>
-	
+
 	//   <v-option value="6">6</v-option>
-	
+
 	// </select>
-	
+
 	// <select  :value.sync="format">
-	
+
 	//   <v-option value="yyyy,MM,dd">yyyy,MM,dd</v-option>
-	
+
 	//   <v-option value="yyyy-MM-dd">yyyy-MM-dd</v-option>
-	
+
 	//   <v-option value="yyyy.MM.dd">yyyy.MM.dd</v-option>
-	
+
 	//   <v-option value="MMM/dd/yyyy">MMM/dd/yyyy</v-option>
-	
+
 	//   <v-option value="MMMM/dd/yyyy">MMMM/dd/yyyy</v-option>
-	
+
 	//   <v-option value="dd/MM/yyyy">dd/MM/yyyy</v-option>
-	
+
 	//   <v-option value="dd-MM-yyyy">dd-MM-yyyy</v-option>
-	
+
 	// </select>
-	
+
 	//     </script></code></pre>
-	
+
 	//     <h2>Option</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>value</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>Value of the input DOM</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>Width</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td>200px</td>
-	
+
 	//           <td>Width of the input DOM</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>format</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>MMMM/dd/yyyy</code></td>
-	
+
 	//           <td>The date format, combination of d, dd, M, MM, MMM, MMMM, yyyy.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>disabledDaysOfWeek</td>
-	
+
 	//           <td><code>Array</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>Days of the week that should be disabled. Values are 0 (Sunday) to 6 (Saturday).
-	
+
 	//              Multiple values should be comma-separated.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>showResetButton</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td>false</td>
-	
+
 	//           <td>If <strong>true</strong> shows an &times; shaped button to clear the selected date.
-	
+
 	//             Usefull in forms where date entry is optional.</td>
-	
+
 	//         </tr>
-	
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	//   <div></div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -6325,8 +6325,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-477b8e5d&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-477b8e5d&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-11fe6bdf&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-11fe6bdf&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -6770,239 +6770,239 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .datepicker{
-	
+
 	//   position: relative;
-	
+
 	//   display: inline-block;
-	
+
 	// }
-	
+
 	// input.datepicker-input.with-reset-button {
-	
+
 	//   padding-right: 25px;
-	
+
 	// }
-	
+
 	// .datepicker > button.close {
-	
+
 	//   position: absolute;
-	
+
 	//   top: calc(50% - 13px);
-	
+
 	//   right: 10px;
-	
+
 	//   outline: none;
-	
+
 	//   z-index: 2;
-	
+
 	// }
-	
+
 	// .datepicker > button.close:focus {
-	
+
 	//   opacity: .2;
-	
+
 	// }
-	
+
 	// .datepicker-popup{
-	
+
 	//   position: absolute;
-	
+
 	//   border: 1px solid #ccc;
-	
+
 	//   border-radius: 5px;
-	
+
 	//   background: #fff;
-	
+
 	//   margin-top: 2px;
-	
+
 	//   z-index: 1000;
-	
+
 	//   box-shadow: 0 6px 12px rgba(0,0,0,0.175);
-	
+
 	// }
-	
+
 	// .datepicker-inner{
-	
+
 	//   width: 218px;
-	
+
 	// }
-	
+
 	// .datepicker-body{
-	
+
 	//   padding: 10px 10px;
-	
+
 	// }
-	
+
 	// .datepicker-ctrl p,
-	
+
 	// .datepicker-ctrl span,
-	
+
 	// .datepicker-body span{
-	
+
 	//   display: inline-block;
-	
+
 	//   width: 28px;
-	
+
 	//   line-height: 28px;
-	
+
 	//   height: 28px;
-	
+
 	//   border-radius: 4px;
-	
+
 	// }
-	
+
 	// .datepicker-ctrl p {
-	
+
 	//   width: 65%;
-	
+
 	// }
-	
+
 	// .datepicker-ctrl span {
-	
+
 	//   position: absolute;
-	
+
 	// }
-	
+
 	// .datepicker-body span {
-	
+
 	//   text-align: center;
-	
+
 	// }
-	
+
 	// .datepicker-monthRange span{
-	
+
 	//   width: 48px;
-	
+
 	//   height: 50px;
-	
+
 	//   line-height: 45px;
-	
+
 	// }
-	
+
 	// .datepicker-item-disable {
-	
+
 	//   background-color: white!important;
-	
+
 	//   cursor: not-allowed!important;
-	
+
 	// }
-	
+
 	// .decadeRange span:first-child,
-	
+
 	// .decadeRange span:last-child,
-	
+
 	// .datepicker-item-disable,
-	
+
 	// .datepicker-item-gray{
-	
+
 	//   color: #999;
-	
+
 	// }
-	
+
 	// .datepicker-dateRange-item-active:hover,
-	
+
 	// .datepicker-dateRange-item-active {
-	
+
 	//   background: rgb(50, 118, 177)!important;
-	
+
 	//   color: white!important;
-	
+
 	// }
-	
+
 	// .datepicker-monthRange {
-	
+
 	//   margin-top: 10px
-	
+
 	// }
-	
+
 	// .datepicker-monthRange span,
-	
+
 	// .datepicker-ctrl span,
-	
+
 	// .datepicker-ctrl p,
-	
+
 	// .datepicker-dateRange span {
-	
+
 	//   cursor: pointer;
-	
+
 	// }
-	
+
 	// .datepicker-monthRange span:hover,
-	
+
 	// .datepicker-ctrl p:hover,
-	
+
 	// .datepicker-ctrl i:hover,
-	
+
 	// .datepicker-dateRange span:hover,
-	
+
 	// .datepicker-dateRange-item-hover {
-	
+
 	//   background-color : #eeeeee;
-	
+
 	// }
-	
+
 	// .datepicker-weekRange span{
-	
+
 	//   font-weight: bold;
-	
+
 	// }
-	
+
 	// .datepicker-label{
-	
+
 	//   background-color: #f8f8f8;
-	
+
 	//   font-weight: 700;
-	
+
 	//   padding: 7px 0;
-	
+
 	//   text-align: center;
-	
+
 	// }
-	
+
 	// .datepicker-ctrl{
-	
+
 	//   position: relative;
-	
+
 	//   height: 30px;
-	
+
 	//   line-height: 30px;
-	
+
 	//   font-weight: bold;
-	
+
 	//   text-align: center;
-	
+
 	// }
-	
+
 	// .month-btn{
-	
+
 	//   font-weight: bold;
-	
+
 	//   -webkit-user-select:none;
-	
+
 	//   -moz-user-select:none;
-	
+
 	//   -ms-user-select:none;
-	
+
 	//   user-select:none;
-	
+
 	// }
-	
+
 	// .datepicker-preBtn{
-	
+
 	//   left: 2px;
-	
+
 	// }
-	
+
 	// .datepicker-nextBtn{
-	
+
 	//   right: 2px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
@@ -7082,10 +7082,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-e514dbc6&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1f77809f&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-e514dbc6&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1f77809f&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -7107,8 +7107,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e514dbc6&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e514dbc6&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1f77809f&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1f77809f&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -7126,7 +7126,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".btn-select[_v-e514dbc6] {\r\n  display: inline-block;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li[_v-e514dbc6] {\r\n  position:relative;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li>a[_v-e514dbc6] {\r\n  cursor:pointer;\r\n}\r\n.bs-searchbox[_v-e514dbc6] {\r\n  padding: 4px 8px;\r\n}\r\n.bs-searchbox input[_v-e514dbc6] {\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;\r\n}\r\nbutton>.close[_v-e514dbc6] {\r\n  margin-left: 5px;\r\n}\r\n.btn-group>.notify[_v-e514dbc6] {\r\n  position: relative;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-e514dbc6],\r\n.btn-group .notify > div[_v-e514dbc6] {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.btn-group .notify > div[_v-e514dbc6] {\r\n  top: 5px;\r\n  z-index: 1;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-e514dbc6] {\r\n  opacity: .9;\r\n  bottom: 5px;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-e514dbc6] {\r\n  width:100%;\r\n}\r\nspan.caret[_v-e514dbc6] {\r\n  float: right;\r\n  margin-top: 9px;\r\n  margin-left: 5px;\r\n}\r\n.secret[_v-e514dbc6] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
+	exports.push([module.id, ".btn-select[_v-1f77809f] {\r\n  display: inline-block;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li[_v-1f77809f] {\r\n  position:relative;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li>a[_v-1f77809f] {\r\n  cursor:pointer;\r\n}\r\n.bs-searchbox[_v-1f77809f] {\r\n  padding: 4px 8px;\r\n}\r\n.bs-searchbox input[_v-1f77809f] {\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;\r\n}\r\nbutton>.close[_v-1f77809f] {\r\n  margin-left: 5px;\r\n}\r\n.btn-group>.notify[_v-1f77809f] {\r\n  position: relative;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f],\r\n.btn-group .notify > div[_v-1f77809f] {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.btn-group .notify > div[_v-1f77809f] {\r\n  top: 5px;\r\n  z-index: 1;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f] {\r\n  opacity: .9;\r\n  bottom: 5px;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-1f77809f] {\r\n  width:100%;\r\n}\r\nspan.caret[_v-1f77809f] {\r\n  float: right;\r\n  margin-top: 9px;\r\n  margin-left: 5px;\r\n}\r\n.secret[_v-1f77809f] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
 	
 	// exports
 
@@ -7554,131 +7554,131 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .btn-select {
-	
+
 	//   display: inline-block;
-	
+
 	// }
-	
+
 	// .btn-select>.btn-group>.dropdown-menu>li {
-	
+
 	//   position:relative;
-	
+
 	// }
-	
+
 	// .btn-select>.btn-group>.dropdown-menu>li>a {
-	
+
 	//   cursor:pointer;
-	
+
 	// }
-	
+
 	// .bs-searchbox {
-	
+
 	//   padding: 4px 8px;
-	
+
 	// }
-	
+
 	// .bs-searchbox input {
-	
+
 	//   border-color: #66afe9 !important;
-	
+
 	//   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
-	
+
 	//           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
-	
+
 	// }
-	
+
 	// button>.close {
-	
+
 	//   margin-left: 5px;
-	
+
 	// }
-	
+
 	// .btn-group>.notify {
-	
+
 	//   position: relative;
-	
+
 	// }
-	
+
 	// .btn-group .dropdown-menu .notify,
-	
+
 	// .btn-group .notify > div {
-	
+
 	//   position: absolute;
-	
+
 	//   width: 96%;
-	
+
 	//   margin: 0 2%;
-	
+
 	//   min-height: 26px;
-	
+
 	//   padding: 3px 5px;
-	
+
 	//   background: #f5f5f5;
-	
+
 	//   border: 1px solid #e3e3e3;
-	
+
 	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-	
+
 	//   pointer-events: none;
-	
+
 	// }
-	
+
 	// .btn-group .notify > div {
-	
+
 	//   top: 5px;
-	
+
 	//   z-index: 1;
-	
+
 	// }
-	
+
 	// .btn-group .dropdown-menu .notify {
-	
+
 	//   opacity: .9;
-	
+
 	//   bottom: 5px;
-	
+
 	// }
-	
+
 	// .btn-group.btn-group-justified .dropdown-menu {
-	
+
 	//   width:100%;
-	
+
 	// }
-	
+
 	// span.caret {
-	
+
 	//   float: right;
-	
+
 	//   margin-top: 9px;
-	
+
 	//   margin-left: 5px;
-	
+
 	// }
-	
+
 	// .secret {
-	
+
 	//   border: 0;
-	
+
 	//   clip: rect(0 0 0 0);
-	
+
 	//   height: 1px;
-	
+
 	//   margin: -1px;
-	
+
 	//   overflow: hidden;
-	
+
 	//   padding: 0;
-	
+
 	//   position: absolute;
-	
+
 	//   width: 1px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
@@ -8457,7 +8457,7 @@
 /* 232 */
 /***/ function(module, exports) {
 
-	module.exports = "<select v-if=\"name &amp;&amp; (required || values.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" @focus=\"focus()\" _v-e514dbc6=\"\">\n  <option v-if=\"!values.length)\" value=\"\" _v-e514dbc6=\"\"></option>\n  <option v-else=\"\" v-for=\"val in values\" value=\"{{val}}\" selected=\"\" _v-e514dbc6=\"\">{{val}}</option>\n</select>\n<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" @click=\"unblur\" _v-e514dbc6=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-e514dbc6=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-e514dbc6=\"\">\n      <span class=\"btn-content\" _v-e514dbc6=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-e514dbc6=\"\"></span>\n      <span v-if=\"showResetButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-e514dbc6=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-e514dbc6=\"\">\n      <template v-if=\"options.length\" _v-e514dbc6=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-e514dbc6=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-e514dbc6=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" _v-e514dbc6=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" _v-e514dbc6=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-e514dbc6=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-e514dbc6=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-e514dbc6=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-e514dbc6=\"\"><div _v-e514dbc6=\"\">{{limitText}}</div></div>\n  </div>\n</div>";
+	module.exports = "<select v-if=\"name &amp;&amp; (required || values.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"!values.length)\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-else=\"\" v-for=\"val in values\" value=\"{{val}}\" selected=\"\" _v-1f77809f=\"\">{{val}}</option>\n</select>\n<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-content\" _v-1f77809f=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"showResetButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" _v-1f77809f=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n</div>";
 
 /***/ },
 /* 233 */
@@ -8475,10 +8475,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-42088116&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-57eb20d0&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-42088116&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-57eb20d0&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -8500,8 +8500,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-42088116&file=Option.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-42088116&file=Option.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-57eb20d0&file=Option.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-57eb20d0&file=Option.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -8519,7 +8519,7 @@
 	
 	
 	// module
-	exports.push([module.id, "a span.check-mark[_v-42088116] {\r\n  position: absolute;\r\n  display: inline-block;\r\n  right: 15px;\r\n  margin-top: 5px;\r\n}", ""]);
+	exports.push([module.id, "a span.check-mark[_v-57eb20d0] {\r\n  position: absolute;\r\n  display: inline-block;\r\n  right: 15px;\r\n  margin-top: 5px;\r\n}", ""]);
 	
 	// exports
 
@@ -8581,28 +8581,28 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// a span.check-mark {
-	
+
 	//   position: absolute;
-	
+
 	//   display: inline-block;
-	
+
 	//   right: 15px;
-	
+
 	//   margin-top: 5px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
 /* 237 */
 /***/ function(module, exports) {
 
-	module.exports = "<li style=\"position:relative\" _v-42088116=\"\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\" _v-42088116=\"\">\n      <span v-el:v=\"\" _v-42088116=\"\"><slot _v-42088116=\"\"></slot></span>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\" _v-42088116=\"\"></span>\n    </a>\n  </li>";
+	module.exports = "<li style=\"position:relative\" _v-57eb20d0=\"\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\" _v-57eb20d0=\"\">\n      <span v-el:v=\"\" _v-57eb20d0=\"\"><slot _v-57eb20d0=\"\"></slot></span>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\" _v-57eb20d0=\"\"></span>\n    </a>\n  </li>";
 
 /***/ },
 /* 238 */
@@ -8657,173 +8657,173 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="dropdown">
-	
+
 	//     <h1 class="page-header"><a href="#dropdown" class="anchor">Dropdown</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <dropdown>
-	
+
 	//         <button slot="button" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-	
+
 	//           Action
-	
+
 	//           <span class="caret"></span>
-	
+
 	//         </button>
-	
+
 	//         <ul slot="dropdown-menu" class="dropdown-menu">
-	
+
 	//           <li><a href="#">Action</a></li>
-	
+
 	//           <li><a href="#">Another action</a></li>
-	
+
 	//           <li><a href="#">Something else here</a></li>
-	
+
 	//           <li role="separator" class="divider"></li>
-	
+
 	//           <li><a href="#">Separated link</a></li>
-	
+
 	//         </ul>
-	
+
 	//       </dropdown>
-	
+
 	//       <dropdown text="Action" type="primary">
-	
+
 	//         <li><a href="#">Action</a></li>
-	
+
 	//         <li><a href="#">Another action</a></li>
-	
+
 	//         <li><a href="#">Something else here</a></li>
-	
+
 	//         <li role="separator" class="divider"></li>
-	
+
 	//         <li><a href="#">Separated link</a></li>
-	
+
 	//       </dropdown>
-	
+
 	//       <dropdown>
-	
+
 	//         <button slot="button" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-	
+
 	//           Action <span class="caret"></span>
-	
+
 	//         </button>
-	
+
 	//         <ul slot="dropdown-menu" class="dropdown-menu">
-	
+
 	//           <li><a href="#">Action</a></li>
-	
+
 	//           <li><a href="#">Another action</a></li>
-	
+
 	//           <li><a href="#">Something else here</a></li>
-	
+
 	//           <li role="separator" class="divider"></li>
-	
+
 	//           <li><a href="#">Separated link</a></li>
-	
+
 	//         </ul>
-	
+
 	//       </dropdown>
-	
+
 	//       <div class="btn-group btn-group-justified" role="group">
-	
+
 	//         <a href="#" class="btn btn-default" role="button">Left</a>
-	
+
 	//         <dropdown>
-	
+
 	//           <a slot="button" href="#" class="btn btn-default" data-toggle="dropdown">
-	
+
 	//             Dropdown <span class="caret"></span>
-	
+
 	//           </a>
-	
+
 	//           <ul slot="dropdown-menu" class="dropdown-menu">
-	
+
 	//             <li><a href="#">Action</a></li>
-	
+
 	//             <li><a href="#">Another action</a></li>
-	
+
 	//             <li><a href="#">Something else here</a></li>
-	
+
 	//             <li role="separator" class="divider"></li>
-	
+
 	//             <li><a href="#">Separated link</a></li>
-	
+
 	//           </ul>
-	
+
 	//         </dropdown>
-	
+
 	//         <a href="#" class="btn btn-default" role="button">Right</a>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// Boostrap style:
-	
+
 	// <dropdown>
-	
+
 	//   <button type="button" class="btn btn-default" data-toggle="dropdown">
-	
+
 	//     Action
-	
+
 	//     <span class="caret"></span>
-	
+
 	//   </button>
-	
+
 	//   <ul slot="dropdown-menu" class="dropdown-menu">
-	
+
 	//     <li><a href="#">Action</a></li>
-	
+
 	//     <li><a href="#">Another action</a></li>
-	
+
 	//     <li><a href="#">Something else here</a></li>
-	
+
 	//     <li role="separator" class="divider"></li>
-	
+
 	//     <li><a href="#">Separated link</a></li>
-	
+
 	//   </ul>
-	
+
 	// </dropdown>
-	
+
 	// Component style:
-	
+
 	// <dropdown text="Action" type="primary">
-	
+
 	//   <li><a href="#">Action</a></li>
-	
+
 	//   <li><a href="#">Another action</a></li>
-	
+
 	//   <li><a href="#">Something else here</a></li>
-	
+
 	//   <li role="separator" class="divider"></li>
-	
+
 	//   <li><a href="#">Separated link</a></li>
-	
+
 	// </dropdown>
-	
+
 	//     </script></code></pre>
-	
+
 	//     <h2>Usage</h2>
-	
+
 	//     <p>
-	
+
 	//       Just use as <a target="_blank" href="http://getbootstrap.com/javascript/#dropdowns">original Bootstrap way</a>.
-	
+
 	//       Working on progress, considered refactoring with directive. Currently the other components(Select, etc..) not depend on this component.
-	
+
 	//     </p>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -8894,395 +8894,401 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="input">
-	
+
 	//     <h1 class="page-header"><a href="#select" class="anchor">Input</a></h1>
-	
+
 	//     <p>
-	
+
 	//       This a <a target="_blank" href="https://silviomoreto.github.io/bootstrap-select/">bootstrap-select</a> implementation.
-	
+
 	//     </p>
-	
+
 	//     <div class="bs-example text-left">
-	
+
 	//       <h4>Simple select</h4>
-	
+
 	//       <p><pre>Select data : {{single}}</pre></p>
-	
+
 	//       <div class="row">
-	
+
 	//         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	
+
 	//           <bs-input
-	
+
 	//             :disabled="check.disabled"
-	
+
 	//             :error="check.error?'Insert user name':null"
-	
+
 	//             help="Only allows lowercase letters and numbers."
-	
+
 	//             :icon="check.icon"
-	
+
 	//             :label="check.label?'User Name':null"
-	
+
 	//             :mask="check.mask?mask:null"
-	
+
 	//             :minlength="check.minlength?5:0"
-	
+
 	//             pattern="^[a-z][a-z0-9]+$"
-	
+
 	//             :placeholder="check.placeholder?'Username can\'t start with a number.':null"
-	
+
+	//             :readonly="check.readonly"
+
 	//             :required="check.required"
-	
+
 	//             :value.sync="input"
-	
+
 	//           ></bs-input>
-	
+
 	//         </div>
-	
+
 	//         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	
-	//           <bs-input required label="Match value" type="password" :match="input" help="Match the User Name"></bs-input>
-	
+
+	//           <bs-input required label="Match value" type="password" :match="input" :icon="check.icon" help="Match the User Name"></bs-input>
+
 	//         </div>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//     <div class="row">
-	
+
 	//       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	
+
 	//         <div class="checkbox"><label><input type="checkbox" v-model="check.label"/> Label</label></div>
-	
+
 	//         <div class="checkbox"><label><input type="checkbox" v-model="check.placeholder"/> placeholder</label></div>
-	
+
 	//         <div class="checkbox"><label><input type="checkbox" v-model="check.disabled"/> disabled</label></div>
-	
+
 	//       </div>
-	
+
 	//       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	
+
 	//         <div class="checkbox"><label><input type="checkbox" v-model="check.error"/> error</label></div>
-	
+
 	//         <div class="checkbox"><label><input type="checkbox" v-model="check.icon"/> icon</label></div>
-	
+
 	//         <div class="checkbox"><label><input type="checkbox" v-model="check.mask"/> mask</label></div>
-	
+
 	//       </div>
-	
+
 	//       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	
+
 	//         <div class="checkbox"><label><input type="checkbox" v-model="check.minlength"/> minlength=5</label></div>
-	
+
+	//         <div class="checkbox"><label><input type="checkbox" v-model="check.readonly"/> readonly</label></div>
+
 	//         <div class="checkbox"><label><input type="checkbox" v-model="check.required"/> required</label></div>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup">
-	
+
 	// Input:
-	
+
 	// &lt;bs-input :value.sync="input"
-	
+
 	//   label="Username"
-	
+
 	//   help="Only allows lowercase letters and numbers."
-	
+
 	//   error="Insert username"
-	
+
 	//   placeholder="Username can't start with a number."
-	
+
 	//   pattern="^[a-z][a-z0-9]+$"
-	
+
 	//   :mask="mask"
-	
+
 	//   minlength="5"
-	
+
+	//   readonly
+
 	//   required
-	
+
 	//   icon
-	
+
 	// >&lt;/bs-input>
-	
+
 	// &lt;bs-input required label="Match value" type="password" :match="input">&lt;/bs-input>
-	
+
 	// Method:
-	
+
 	// mask: function (value) {
-	
+
 	//   // change to lowercase, remove first non-letter and all other unsupported characters
-	
+
 	//   return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\W/g,'');
-	
+
 	// }
-	
+
 	//     </code></pre>
-	
+
 	//     <h2>Input Options</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>value</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>''</code></td>
-	
+
 	//           <td>Input value. Use <code>:value.sync="value"</code></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>match</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>''</code></td>
-	
+
 	//           <td>Matching value. Both have to be the same value.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>disabled</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>false</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <!-- <tr>
-	
+
 	//           <td>enterSubmit</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>false</code></td>
-	
+
 	//           <td>Error message.</td>
-	
+
 	//         </tr> -->
-	
+
 	//         <tr>
-	
+
 	//           <td>error</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td>Error message.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>help</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td>Help text behind the input</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>hide-help</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>true</code></td>
-	
+
 	//           <td>Only work with help and error.<br/>Hide the help if have to show any error message.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>icon</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>false</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>label</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td>Enable input label (name).</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>lang</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td>Browser language</td>
-	
+
 	//           <td><abbr title="ISO 639-1 code"><a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>mask</td>
-	
+
 	//           <td><code>Function</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td>Mask function that receive and edit the value.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>maxlength</td>
-	
+
 	//           <td><code>Number</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>minlength</td>
-	
+
 	//           <td><code>Number</code></td>
-	
+
 	//           <td><code>0</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>name</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>pattern</td>
-	
+
 	//           <td><code>String</code> or <code>Function</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td>Validation pattern.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>placeholder</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>required</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>false</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>type</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>'text'</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>validation-delay</td>
-	
+
 	//           <td><code>Number</code></td>
-	
+
 	//           <td><code>250</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -9400,6 +9406,11 @@
 	      type: String,
 	      default: null
 	    },
+	    readonly: {
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: false
+	    },
 	    required: {
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
@@ -9508,91 +9519,59 @@
 	  }
 	};
 	// </script>
-	
+
 	// <!-- Add "scoped" attribute to limit CSS to this component only -->
-	
 	// <!-- <style scoped></style> -->
 	// <template>
-	
 	//   <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}">
-	
 	//     <label v-if="label" class="control-label">{{label}}</label>
-	
 	//     <div v-if="slots.before||slots.after" class="input-group">
-	
 	//       <slot name="before"></slot>
-	
 	//       <input class="form-control" v-el:input v-model="value"
-	
 	//         :name="name"
-	
 	//         :type="type"
-	
+	//         :readonly="readonly"
 	//         :required="required"
-	
 	//         :disabled="disabled"
-	
 	//         :minlength="minlength"
-	
 	//         :maxlength="maxlength"
-	
 	//         :placeholder="placeholder"
-	
 	//         @focus="toggleEvents(true)"
-	
 	//         @blur="toggleEvents(false)"
-	
 	//       />
-	
 	//       <slot name="after"></slot>
-	
 	//     </div>
-	
 	//     <input v-else class="form-control" v-el:input v-model="value"
-	
 	//       :name="name"
-	
 	//       :type="type"
-	
+	//       :readonly="readonly"
 	//       :required="required"
-	
 	//       :disabled="disabled"
-	
 	//       :minlength="minlength"
-	
 	//       :maxlength="maxlength"
-	
 	//       :placeholder="placeholder"
-	
 	//       @focus="toggleEvents(true)"
-	
 	//       @blur="toggleEvents(false)"
-	
 	//     />
-	
 	//     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
-	
 	//     <div v-if="showHelp" class="help-block">{{help}}</div>
-	
 	//     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
-	
 	//   </div>
-	
 	// </template>
-	
+
 	// <script>
 
 /***/ },
 /* 246 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}\">\r\n    <label v-if=\"label\" class=\"control-label\">{{label}}</label>\r\n    <div v-if=\"slots.before||slots.after\" class=\"input-group\">\r\n      <slot name=\"before\"></slot>\r\n      <input class=\"form-control\" v-el:input v-model=\"value\"\r\n        :name=\"name\"\r\n        :type=\"type\"\r\n        :required=\"required\"\r\n        :disabled=\"disabled\"\r\n        :minlength=\"minlength\"\r\n        :maxlength=\"maxlength\"\r\n        :placeholder=\"placeholder\"\r\n        @focus=\"toggleEvents(true)\"\r\n        @blur=\"toggleEvents(false)\"\r\n      />\r\n      <slot name=\"after\"></slot>\r\n    </div>\r\n    <input v-else class=\"form-control\" v-el:input v-model=\"value\"\r\n      :name=\"name\"\r\n      :type=\"type\"\r\n      :required=\"required\"\r\n      :disabled=\"disabled\"\r\n      :minlength=\"minlength\"\r\n      :maxlength=\"maxlength\"\r\n      :placeholder=\"placeholder\"\r\n      @focus=\"toggleEvents(true)\"\r\n      @blur=\"toggleEvents(false)\"\r\n    />\r\n    <span v-if=\"icon&&valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\"></span>\r\n    <div v-if=\"showHelp\" class=\"help-block\">{{help}}</div>\r\n    <div v-if=\"showError\" class=\"help-block with-errors\">{{errorText}}</div>\r\n  </div>";
+	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}\">\n    <label v-if=\"label\" class=\"control-label\">{{label}}</label>\n    <div v-if=\"slots.before||slots.after\" class=\"input-group\">\n      <slot name=\"before\"></slot>\n      <input class=\"form-control\" v-el:input v-model=\"value\"\n        :name=\"name\"\n        :type=\"type\"\n        :readonly=\"readonly\"\n        :required=\"required\"\n        :disabled=\"disabled\"\n        :minlength=\"minlength\"\n        :maxlength=\"maxlength\"\n        :placeholder=\"placeholder\"\n        @focus=\"toggleEvents(true)\"\n        @blur=\"toggleEvents(false)\"\n      />\n      <slot name=\"after\"></slot>\n    </div>\n    <input v-else class=\"form-control\" v-el:input v-model=\"value\"\n      :name=\"name\"\n      :type=\"type\"\n      :readonly=\"readonly\"\n      :required=\"required\"\n      :disabled=\"disabled\"\n      :minlength=\"minlength\"\n      :maxlength=\"maxlength\"\n      :placeholder=\"placeholder\"\n      @focus=\"toggleEvents(true)\"\n      @blur=\"toggleEvents(false)\"\n    />\n    <span v-if=\"icon&&valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\">{{errorText}}</div>\n  </div>";
 
 /***/ },
 /* 247 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"bs-docs-section\" id=\"input\">\r\n    <h1 class=\"page-header\"><a href=\"#select\" class=\"anchor\">Input</a></h1>\r\n    <p>\r\n      This a <a target=\"_blank\" href=\"https://silviomoreto.github.io/bootstrap-select/\">bootstrap-select</a> implementation.\r\n    </p>\r\n    <div class=\"bs-example text-left\">\r\n      <h4>Simple select</h4>\r\n      <p><pre>Select data : {{single}}</pre></p>\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n          <bs-input\r\n            :disabled=\"check.disabled\"\r\n            :error=\"check.error?'Insert user name':null\"\r\n            help=\"Only allows lowercase letters and numbers.\"\r\n            :icon=\"check.icon\"\r\n            :label=\"check.label?'User Name':null\"\r\n            :mask=\"check.mask?mask:null\"\r\n            :minlength=\"check.minlength?5:0\"\r\n            pattern=\"^[a-z][a-z0-9]+$\"\r\n            :placeholder=\"check.placeholder?'Username can\\'t start with a number.':null\"\r\n            :required=\"check.required\"\r\n            :value.sync=\"input\"\r\n          ></bs-input>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n          <bs-input required label=\"Match value\" type=\"password\" :match=\"input\" help=\"Match the User Name\"></bs-input>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4\">\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.label\"/> Label</label></div>\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.placeholder\"/> placeholder</label></div>\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.disabled\"/> disabled</label></div>\r\n      </div>\r\n      <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4\">\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.error\"/> error</label></div>\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.icon\"/> icon</label></div>\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.mask\"/> mask</label></div>\r\n      </div>\r\n      <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4\">\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.minlength\"/> minlength=5</label></div>\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.required\"/> required</label></div>\r\n      </div>\r\n    </div>\r\n    <pre><code class=\"language-markup\">\r\nInput:\r\n&lt;bs-input :value.sync=\"input\"\r\n  label=\"Username\"\r\n  help=\"Only allows lowercase letters and numbers.\"\r\n  error=\"Insert username\"\r\n  placeholder=\"Username can't start with a number.\"\r\n  pattern=\"^[a-z][a-z0-9]+$\"\r\n  :mask=\"mask\"\r\n  minlength=\"5\"\r\n  required\r\n  icon\r\n>&lt;/bs-input>\r\n&lt;bs-input required label=\"Match value\" type=\"password\" :match=\"input\">&lt;/bs-input>\r\n\r\nMethod:\r\nmask: function (value) {\r\n  // change to lowercase, remove first non-letter and all other unsupported characters\r\n  return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\\W/g,'');\r\n}\r\n    </code></pre>\r\n\r\n    <h2>Input Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>String</code></td>\r\n          <td><code>''</code></td>\r\n          <td>Input value. Use <code>:value.sync=\"value\"</code></td>\r\n        </tr>\r\n        <tr>\r\n          <td>match</td>\r\n          <td><code>String</code></td>\r\n          <td><code>''</code></td>\r\n          <td>Matching value. Both have to be the same value.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>disabled</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <!-- <tr>\r\n          <td>enterSubmit</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td>Error message.</td>\r\n        </tr> -->\r\n        <tr>\r\n          <td>error</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Error message.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>help</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Help text behind the input</td>\r\n        </tr>\r\n        <tr>\r\n          <td>hide-help</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>true</code></td>\r\n          <td>Only work with help and error.<br/>Hide the help if have to show any error message.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>icon</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>label</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Enable input label (name).</td>\r\n        </tr>\r\n        <tr>\r\n          <td>lang</td>\r\n          <td><code>String</code></td>\r\n          <td>Browser language</td>\r\n          <td><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>mask</td>\r\n          <td><code>Function</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Mask function that receive and edit the value.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>maxlength</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>null</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>minlength</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>0</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>name</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>pattern</td>\r\n          <td><code>String</code> or <code>Function</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Validation pattern.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>placeholder</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>required</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>type</td>\r\n          <td><code>String</code></td>\r\n          <td><code>'text'</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>validation-delay</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>250</code></td>\r\n          <td></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n  </div>";
+	module.exports = "<div class=\"bs-docs-section\" id=\"input\">\r\n    <h1 class=\"page-header\"><a href=\"#select\" class=\"anchor\">Input</a></h1>\r\n    <p>\r\n      This a <a target=\"_blank\" href=\"https://silviomoreto.github.io/bootstrap-select/\">bootstrap-select</a> implementation.\r\n    </p>\r\n    <div class=\"bs-example text-left\">\r\n      <h4>Simple select</h4>\r\n      <p><pre>Select data : {{single}}</pre></p>\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n          <bs-input\r\n            :disabled=\"check.disabled\"\r\n            :error=\"check.error?'Insert user name':null\"\r\n            help=\"Only allows lowercase letters and numbers.\"\r\n            :icon=\"check.icon\"\r\n            :label=\"check.label?'User Name':null\"\r\n            :mask=\"check.mask?mask:null\"\r\n            :minlength=\"check.minlength?5:0\"\r\n            pattern=\"^[a-z][a-z0-9]+$\"\r\n            :placeholder=\"check.placeholder?'Username can\\'t start with a number.':null\"\r\n            :readonly=\"check.readonly\"\r\n            :required=\"check.required\"\r\n            :value.sync=\"input\"\r\n          ></bs-input>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n          <bs-input required label=\"Match value\" type=\"password\" :match=\"input\" :icon=\"check.icon\" help=\"Match the User Name\"></bs-input>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4\">\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.label\"/> Label</label></div>\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.placeholder\"/> placeholder</label></div>\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.disabled\"/> disabled</label></div>\r\n      </div>\r\n      <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4\">\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.error\"/> error</label></div>\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.icon\"/> icon</label></div>\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.mask\"/> mask</label></div>\r\n      </div>\r\n      <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4\">\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.minlength\"/> minlength=5</label></div>\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.readonly\"/> readonly</label></div>\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.required\"/> required</label></div>\r\n      </div>\r\n    </div>\r\n    <pre><code class=\"language-markup\">\r\nInput:\r\n&lt;bs-input :value.sync=\"input\"\r\n  label=\"Username\"\r\n  help=\"Only allows lowercase letters and numbers.\"\r\n  error=\"Insert username\"\r\n  placeholder=\"Username can't start with a number.\"\r\n  pattern=\"^[a-z][a-z0-9]+$\"\r\n  :mask=\"mask\"\r\n  minlength=\"5\"\r\n  readonly\r\n  required\r\n  icon\r\n>&lt;/bs-input>\r\n&lt;bs-input required label=\"Match value\" type=\"password\" :match=\"input\">&lt;/bs-input>\r\n\r\nMethod:\r\nmask: function (value) {\r\n  // change to lowercase, remove first non-letter and all other unsupported characters\r\n  return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\\W/g,'');\r\n}\r\n    </code></pre>\r\n\r\n    <h2>Input Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>String</code></td>\r\n          <td><code>''</code></td>\r\n          <td>Input value. Use <code>:value.sync=\"value\"</code></td>\r\n        </tr>\r\n        <tr>\r\n          <td>match</td>\r\n          <td><code>String</code></td>\r\n          <td><code>''</code></td>\r\n          <td>Matching value. Both have to be the same value.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>disabled</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <!-- <tr>\r\n          <td>enterSubmit</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td>Error message.</td>\r\n        </tr> -->\r\n        <tr>\r\n          <td>error</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Error message.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>help</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Help text behind the input</td>\r\n        </tr>\r\n        <tr>\r\n          <td>hide-help</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>true</code></td>\r\n          <td>Only work with help and error.<br/>Hide the help if have to show any error message.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>icon</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>label</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Enable input label (name).</td>\r\n        </tr>\r\n        <tr>\r\n          <td>lang</td>\r\n          <td><code>String</code></td>\r\n          <td>Browser language</td>\r\n          <td><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>mask</td>\r\n          <td><code>Function</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Mask function that receive and edit the value.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>maxlength</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>null</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>minlength</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>0</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>name</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>pattern</td>\r\n          <td><code>String</code> or <code>Function</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Validation pattern.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>placeholder</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>required</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>type</td>\r\n          <td><code>String</code></td>\r\n          <td><code>'text'</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>validation-delay</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>250</code></td>\r\n          <td></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n  </div>";
 
 /***/ },
 /* 248 */
@@ -9652,439 +9631,439 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="modal">
-	
+
 	//     <h1 class="page-header"><a href="#modal" class="anchor">Modal</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <button class="btn btn-default" @click="showModal = true">Show modal</button>
-	
+
 	//       <modal title="Modal title" :show.sync="showModal">
-	
+
 	//         <div slot="modal-header" class="modal-header">
-	
+
 	//           <h4 class="modal-title">Modal <b>Title</b></h4>
-	
+
 	//         </div>
-	
+
 	//         <div slot="modal-body" class="modal-body">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
+
 	//         </div>
-	
+
 	//       </modal>
-	
+
 	//       <button class="btn btn-success" @click="fadeModal = true">Fade modal</button>
-	
+
 	//       <modal title="Fade Modal" :show.sync="fadeModal" effect="fade" width="800">
-	
+
 	//         <div slot="modal-body" class="modal-body">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
+
 	//         </div>
-	
+
 	//       </modal>
-	
+
 	//       <button class="btn btn-primary" @click="zoomModal = true">Zoom modal</button>
-	
+
 	//       <modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" width="400">
-	
+
 	//         <div slot="modal-body" class="modal-body">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
+
 	//         </div>
-	
+
 	//       </modal>
-	
+
 	//       <button class="btn btn-default" @click="showCustomModal = true">Show custom modal</button>
-	
+
 	//       <modal :show.sync="showCustomModal" effect="fade" width="50%">
-	
+
 	//         <div slot="modal-header" class="modal-header">
-	
+
 	//           <h4 class="modal-title"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>
-	
+
 	//         </div>
-	
+
 	//         <div slot="modal-body" class="modal-body">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
+
 	//         </div>
-	
+
 	//         <div slot="modal-footer" class="modal-footer">
-	
+
 	//           <button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit</button>
-	
+
 	//           <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
-	
+
 	//         </div>
-	
+
 	//       </modal>
-	
+
 	//       <button class="btn btn-warning" @click="largeModal = true">Large modal</button>
-	
+
 	//       <modal title="Large Modal" :show.sync="largeModal" large>
-	
+
 	//         <div slot="modal-body" class="modal-body">
-	
+
 	//           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	
+
 	//           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	
+
 	//           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	
+
 	//         </div>
-	
+
 	//       </modal>
-	
+
 	//       <button class="btn btn-danger" @click="smallModal = true">Small modal</button>
-	
+
 	//       <modal title="Small Modal" :show.sync="smallModal" small>
-	
+
 	//         <div slot="modal-body" class="modal-body">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat.
-	
+
 	//         </div>
-	
+
 	//       </modal>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <button class="btn btn-default"
-	
+
 	//   @click="showModal = true"
-	
+
 	//   >Show modal
-	
+
 	// </button>
-	
+
 	// <modal :show.sync="showModal">
-	
+
 	//   <div slot="modal-header" class="modal-header">
-	
+
 	//     <h4 class="modal-title">Modal title</h4>
-	
+
 	//   </div>
-	
+
 	//   <div slot="modal-body" class="modal-body">...</div>
-	
+
 	// </modal>
-	
+
 	// <button class="btn btn-primary"
-	
+
 	//   @click="fadeModal = true">
-	
+
 	//   Fade modal
-	
+
 	// </button>
-	
+
 	// <modal title="Fade Modal" :show.sync="fadeModal" effect="fade" width="800">
-	
+
 	//   <div slot="modal-body" class="modal-body">...</div>
-	
+
 	// </modal>
-	
+
 	// <button class="btn btn-success"
-	
+
 	//   @click="zoomModal = true">
-	
+
 	//   Zoom modal
-	
+
 	// </button>
-	
+
 	// <modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" width="400">
-	
+
 	//   <div slot="modal-body" class="modal-body">...</div>
-	
+
 	// </modal>
-	
+
 	// <button class="btn btn-default"
-	
+
 	//   @click="showCustomModal = true">
-	
+
 	//   Show custom modal
-	
+
 	// </button>
-	
+
 	// <modal :show.sync="showCustomModal" effect="fade" width="400">
-	
+
 	//   <div slot="modal-header" class="modal-header">
-	
+
 	//     <h4 class="modal-title">
-	
+
 	//       <i>Custom</i> <code>Modal</code> <b>Title</b>
-	
+
 	//     </h4>
-	
+
 	//   </div>
-	
+
 	//   <div slot="modal-body" class="modal-body">...</div>
-	
+
 	//   <div slot="modal-footer" class="modal-footer">
-	
+
 	//     <button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit</button>
-	
+
 	//     <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
-	
+
 	//   </div>
-	
+
 	// </modal>
-	
+
 	// <button class="btn btn-default"
-	
+
 	//   @click="largeModal = true"
-	
+
 	//   >Large Modal
-	
+
 	// </button>
-	
+
 	// <modal :show.sync="largeModal">
-	
+
 	//   <div slot="modal-body" class="modal-body">...</div>
-	
+
 	// </modal>
-	
+
 	// <button class="btn btn-default"
-	
+
 	//   @click="smallModal = true"
-	
+
 	//   >Small Modal
-	
+
 	// </button>
-	
+
 	// <modal :show.sync="smallModal">
-	
+
 	//   <div slot="modal-body" class="modal-body">...</div>
-	
+
 	// </modal>
-	
+
 	//   </script></code></pre>
-	
+
 	//   <h2>Options</h2>
-	
+
 	//   <table class="table table-bordered">
-	
+
 	//     <thead>
-	
+
 	//       <tr>
-	
+
 	//         <th>Name</th>
-	
+
 	//         <th>Type</th>
-	
+
 	//         <th>Default</th>
-	
+
 	//         <th>Description</th>
-	
+
 	//       </tr>
-	
+
 	//     </thead>
-	
+
 	//     <tbody>
-	
+
 	//       <tr>
-	
+
 	//         <td>title</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td>Title of the modal component.</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>ok-text</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td>Save changes</td>
-	
+
 	//         <td>Text for OK button</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>cancel-text</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td>Close</td>
-	
+
 	//         <td>Text for cancel button</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>width</td>
-	
+
 	//         <td><code>Number, String or null</code></td>
-	
+
 	//         <td><code>null</code></td>
-	
+
 	//         <td>Pass a Number in pixels or a String with relational sizes ( ex: '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>callback</td>
-	
+
 	//         <td><code>Function</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td>A callback Function when you click the modal primary button.</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>large</td>
-	
+
 	//         <td><code>Boolean</code></td>
-	
+
 	//         <td><code>false</code></td>
-	
+
 	//         <td>Creates a large modal ( see boostrap's documentation for .modal-lg )</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>small</td>
-	
+
 	//         <td><code>Boolean</code></td>
-	
+
 	//         <td><code>false</code></td>
-	
+
 	//         <td>Creates a small modal ( see boostrap's documentation for .modal-sm )</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>backdrop</td>
-	
+
 	//         <td><code>Boolean</code></td>
-	
+
 	//         <td><code>true</code></td>
-	
+
 	//         <td>Enables/disables closing the modal by clicking on the backdrop.</td>
-	
+
 	//       </tr>
-	
+
 	//     </tbody>
-	
+
 	//   </table>
-	
+
 	//   <h2>Usage</h2>
-	
+
 	//   <p>
-	
+
 	//     If you just need a simple modal, you can use the <code>title</code> prop and the default footer. However, if you
-	
+
 	//     need to put custom HTML or a custom footer, you can override the header or footer block by using
-	
+
 	//     <code>&lt;div slot="modal-title" class="modal-title"&gt;...&lt;/div&gt;</code> and
-	
+
 	//     <code>&lt;div slot="modal-footer" class="modal-footer"&gt;...&lt;/div&gt;</code>.
-	
+
 	//   </p>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -10128,8 +10107,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fe7d5dc8&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fe7d5dc8&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-43668a5a&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-43668a5a&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -10278,130 +10257,130 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .modal {
-	
+
 	//   transition: all 0.3s ease;
-	
+
 	// }
-	
+
 	// .modal.in {
-	
+
 	//   background-color: rgba(0,0,0,0.5);
-	
+
 	// }
-	
+
 	// .modal.zoom .modal-dialog {
-	
+
 	//   -webkit-transform: scale(0.1);
-	
+
 	//   -moz-transform: scale(0.1);
-	
+
 	//   -ms-transform: scale(0.1);
-	
+
 	//   transform: scale(0.1);
-	
+
 	//   top: 300px;
-	
+
 	//   opacity: 0;
-	
+
 	//   -webkit-transition: all 0.3s;
-	
+
 	//   -moz-transition: all 0.3s;
-	
+
 	//   transition: all 0.3s;
-	
+
 	// }
-	
+
 	// .modal.zoom.in .modal-dialog {
-	
+
 	//   -webkit-transform: scale(1);
-	
+
 	//   -moz-transform: scale(1);
-	
+
 	//   -ms-transform: scale(1);
-	
+
 	//   transform: scale(1);
-	
+
 	//   -webkit-transform: translate3d(0, -300px, 0);
-	
+
 	//   transform: translate3d(0, -300px, 0);
-	
+
 	//   opacity: 1;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div role="dialog"
-	
+
 	//     v-bind:class="{
-	
+
 	//     'modal':true,
-	
+
 	//     'fade':effect === 'fade',
-	
+
 	//     'zoom':effect === 'zoom'
-	
+
 	//     }"
-	
+
 	//     >
-	
+
 	//     <div v-bind:class="{'modal-dialog':true,'modal-lg':large,'modal-sm':small}" role="document"
-	
+
 	//       v-bind:style="{width: optionalWidth}">
-	
+
 	//       <div class="modal-content">
-	
+
 	//         <slot name="modal-header">
-	
+
 	//           <div class="modal-header">
-	
+
 	//             <button type="button" class="close" @click="close"><span>&times;</span></button>
-	
-	//             <h4 class="modal-title" > 
-	
+
+	//             <h4 class="modal-title" >
+
 	//               <slot name="title">
-	
+
 	//                 {{title}}
-	
+
 	//               </slot>
-	
+
 	//             </h4>
-	
+
 	//           </div>
-	
+
 	//         </slot>
-	
+
 	//         <slot name="modal-body">
-	
+
 	//           <div class="modal-body"></div>
-	
+
 	//         </slot>
-	
+
 	//         <slot name="modal-footer">
-	
+
 	//           <div class="modal-footer">
-	
+
 	//             <button type="button" class="btn btn-default" @click="close">{{ cancelText }}</button>
-	
+
 	//             <button type="button" class="btn btn-primary" @click="callback">{{ okText }}</button>
-	
+
 	//           </div>
-	
+
 	//         </slot>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -10503,213 +10482,213 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="popover">
-	
+
 	//     <h1 class="page-header"><a href="#popover" class="anchor">Popover</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <popover effect="fade" content="Lorem ipsum dolor sit amet" placement="top">
-	
+
 	//         <button class="btn btn-default ">Popover on top</button>
-	
+
 	//       </popover>
-	
+
 	//       <popover effect="fade" content="Lorem ipsum dolor sit amet" placement="left">
-	
+
 	//         <button class="btn btn-default ">Popover on left</button>
-	
+
 	//       </popover>
-	
+
 	//       <popover effect="fade" content="Lorem ipsum dolor sit amet" placement="right">
-	
+
 	//         <button class="btn btn-default ">Popover on right</button>
-	
+
 	//       </popover>
-	
+
 	//       <popover effect="fade" placement="bottom" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-	
+
 	//         <button class="btn btn-default ">Popover on bottom</button>
-	
+
 	//       </popover>
-	
+
 	//       <hr>
-	
+
 	//       <h4>Title</h4>
-	
+
 	//       <popover effect="fade" :header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="top">
-	
+
 	//         <button class="btn btn-default ">Popover on top</button>
-	
+
 	//       </popover>
-	
+
 	//       <popover effect="fade" :header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="left">
-	
+
 	//         <button class="btn btn-default ">Popover on left</button>
-	
+
 	//       </popover>
-	
+
 	//       <popover effect="fade" :header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="right">
-	
+
 	//         <button class="btn btn-default ">Popover on right</button>
-	
+
 	//       </popover>
-	
+
 	//       <popover effect="fade" placement="bottom" :header="true" title="Title" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-	
+
 	//         <button class="btn btn-default ">Popover on bottom</button>
-	
+
 	//       </popover>
-	
+
 	//       <hr>
-	
+
 	//       <h4>Triger</h4>
-	
+
 	//       <p>
-	
+
 	//         <popover effect="scale" title="Title" content="Lorem ipsum dolor sit amet" placement="top" trigger="hover">
-	
+
 	//             <button class="btn btn-default ">Mouseenter</button>
-	
+
 	//         </popover>
-	
+
 	//       </p>
-	
+
 	//       <popover effect="scale"
-	
+
 	//       title="Title" content="Lorem ipsum dolor sit amet" placement="bottom" trigger="focus">
-	
+
 	//         <input type="text" class="form-control" placeholder="Focus">
-	
+
 	//       </popover>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <popover effect="fade" placement="bottom" title="Title"
-	
+
 	//   content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-	
+
 	//   <button class="btn btn-default">Popover on bottom</button>
-	
+
 	// </popover>
-	
+
 	// </script></code></pre>
-	
+
 	//   <h2>Options</h2>
-	
+
 	//   <table class="table table-bordered">
-	
+
 	//     <thead>
-	
+
 	//       <tr>
-	
+
 	//         <th>Name</th>
-	
+
 	//         <th>Type</th>
-	
+
 	//         <th>Default</th>
-	
+
 	//         <th>Description</th>
-	
+
 	//       </tr>
-	
+
 	//     </thead>
-	
+
 	//     <tbody>
-	
+
 	//       <tr>
-	
+
 	//         <td>trigger</td>
-	
+
 	//         <td><code>String</code>, one of <code>click</code>
-	
+
 	//         <code>focus</code>
-	
+
 	//         <code>hover</code></td>
-	
+
 	//         <td><code>click</code></td>
-	
+
 	//         <td>How the popover is triggered.</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>effect</td>
-	
+
 	//         <td><code>String</code>, one of <code>scale</code> <code>fade</code></td>
-	
+
 	//         <td><code>fade</code></td>
-	
+
 	//         <td></td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>title</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td></td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>content</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td></td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>header</td>
-	
+
 	//         <td><code>Boolean</code></td>
-	
+
 	//         <td><code>true</code></td>
-	
+
 	//         <td>Whether to show the header.</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>placement</td>
-	
+
 	//         <td><code>String</code>, one of <code>top</code>
-	
+
 	//         <code>left</code>
-	
+
 	//         <code>right</code>
-	
+
 	//         <code>bottom</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td>How to position the popover.</td>
-	
+
 	//       </tr>
-	
+
 	//     </tbody>
-	
+
 	//   </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -10753,8 +10732,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2465bf54&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2465bf54&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5abcbddc&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5abcbddc&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -10797,126 +10776,126 @@
 	  mixins: [_popoverMixins2.default]
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .scale-transition,
-	
+
 	// .fade-transition {
-	
+
 	//   display: block;
-	
+
 	// }
-	
+
 	// .scale-enter {
-	
+
 	//   animation:scale-in 0.15s ease-in;
-	
+
 	// }
-	
+
 	// .scale-leave {
-	
+
 	//   animation:scale-out 0.15s ease-out;
-	
+
 	// }
-	
+
 	// @keyframes scale-in {
-	
+
 	//   0% {
-	
+
 	//     transform: scale(0);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: scale(1);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// @keyframes scale-out {
-	
+
 	//   0% {
-	
+
 	//     transform: scale(1);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: scale(0);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <span v-el:trigger>
-	
+
 	//     <slot>
-	
+
 	//     </slot>
-	
+
 	//   </span>
-	
+
 	//   <div class="popover"
-	
+
 	//     v-bind:class="{
-	
+
 	//     'top':placement === 'top',
-	
+
 	//     'left':placement === 'left',
-	
+
 	//     'right':placement === 'right',
-	
+
 	//     'bottom':placement === 'bottom'
-	
+
 	//     }"
-	
+
 	//     v-el:popover
-	
+
 	//     v-show="show"
-	
+
 	//     :transition="effect">
-	
+
 	//       <div class="arrow"></div>
-	
+
 	//       <h3 class="popover-title" v-show="title">
-	
+
 	//           <slot name="title">
-	
+
 	//             {{title}}
-	
+
 	//           </slot>
-	
+
 	//       </h3>
-	
+
 	//       <div class="popover-content">
-	
+
 	//         <slot name="content">
-	
+
 	//             {{{content}}}
-	
+
 	//         </slot>
-	
+
 	//       </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -11000,217 +10979,217 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="progressbar">
-	
+
 	//     <h1 class="page-header"><a href="#progressbar" class="anchor">Progressbar</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <h4>Static</h4>
-	
+
 	//       <div class="row">
-	
+
 	//         <div class="col-md-4">
-	
+
 	//           <div class="progress">
-	
+
 	//             <progressbar :now="20" type="success"></progressbar>
-	
+
 	//           </div>
-	
+
 	//         </div>
-	
+
 	//         <div class="col-md-4">
-	
+
 	//           <div class="progress">
-	
+
 	//             <progressbar :now="40" type="info"></progressbar>
-	
+
 	//           </div>
-	
+
 	//         </div>
-	
+
 	//         <div class="col-md-4">
-	
+
 	//           <div class="progress">
-	
+
 	//             <progressbar :now="60" type="primary"></progressbar>
-	
+
 	//           </div>
-	
+
 	//         </div>
-	
+
 	//       </div>
-	
+
 	//       <hr>
-	
+
 	//       <h4>
-	
+
 	//         Dynamic
-	
+
 	//         <button type="button" class="btn btn-default" @click="dynamicClick">Randomize</button>
-	
+
 	//       </h4>
-	
+
 	//       <div class="progress">
-	
+
 	//         <progressbar :now="dynamicData[0] * 2" type="info"></progressbar>
-	
+
 	//       </div>
-	
+
 	//       <div class="progress">
-	
+
 	//         <progressbar :now="dynamicData[1] * 2" type="warning"></progressbar>
-	
+
 	//       </div>
-	
+
 	//       <div class="progress">
-	
+
 	//         <progressbar :now="dynamicData[2] * 2" type="danger"></progressbar>
-	
+
 	//       </div>
-	
+
 	//       <div class="progress">
-	
+
 	//         <progressbar :now="dynamicData[3] * 2" type="success" striped></progressbar>
-	
+
 	//       </div>
-	
+
 	//       <div class="progress">
-	
+
 	//         <progressbar :now="dynamicData[4] * 2" type="success" striped animated></progressbar>
-	
+
 	//       </div>
-	
+
 	//       <hr>
-	
+
 	//       <h4>
-	
+
 	//         Stacked
-	
+
 	//         <button type="button" class="btn btn-default" @click="stackedClick">Randomize</button>
-	
+
 	//       </h4>
-	
+
 	//       <div class="progress">
-	
+
 	//         <progressbar :now="stackedData[0]" label type="warning" striped></progressbar>
-	
+
 	//         <progressbar :now="stackedData[1]" label type="success" ></progressbar>
-	
+
 	//         <progressbar :now="stackedData[2]" label type="danger"></progressbar>
-	
+
 	//         <progressbar :now="stackedData[3]" label type="primary" striped animated></progressbar>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <!-- Stacked -->
-	
+
 	// <div class="progress">
-	
+
 	//   <progressbar :now="" label type="warning" striped></progressbar>
-	
+
 	//   <progressbar :now="" label type="success" ></progressbar>
-	
+
 	//   <progressbar :now="" label type="danger"></progressbar>
-	
+
 	//   <progressbar :now="" label type="primary" striped animated></progressbar>
-	
+
 	// </div>
-	
+
 	// <!-- Single -->
-	
+
 	// <div class="progress">
-	
+
 	//   <progressbar :now="" label type="warning" striped></progressbar>
-	
+
 	// </div>
-	
+
 	// </script></code></pre>
-	
+
 	//     <h2>Options</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>now</td>
-	
+
 	//           <td><code>Number</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>The current value of progress completed.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>type</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>Style type. Possible values are 'success', 'warning' etc.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>label</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td>false</td>
-	
+
 	//           <td>Whether to show the label.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>striped</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>false</code></td>
-	
+
 	//           <td>Whether the progressbar has striped effect or not.</td>
-	
+
 	//         </tr>
-	
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -11281,35 +11260,35 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div role="progressbar"
-	
+
 	//     v-bind:class="{
-	
+
 	//     'progress-bar' : true,
-	
+
 	//     'progress-bar-success':type == 'success',
-	
+
 	//     'progress-bar-warning':type == 'warning',
-	
+
 	//     'progress-bar-info':type == 'info',
-	
+
 	//     'progress-bar-danger':type == 'danger',
-	
+
 	//     'progress-bar-striped':striped,
-	
+
 	//     'active':animated
-	
+
 	//     }"
-	
+
 	//     v-bind:style="{width: now + '%'}">
-	
+
 	//     {{label ? now + '%':'' }}
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -11365,8 +11344,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-9e6117de&file=selectDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./selectDocs.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-9e6117de&file=selectDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./selectDocs.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0c80a8cf&file=selectDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./selectDocs.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0c80a8cf&file=selectDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./selectDocs.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -11706,15 +11685,15 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .checkbox>label:not(:first-child) {
-	
+
 	//   margin-left: 15px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
@@ -11811,7 +11790,7 @@
 	
 	//     <pre><code class="language-markup"><script type="language-mark-up">
 	
-	// 		<spinner id="spinner-box" :size="(sm,md,lg...)" :fixed="(true,false)" 
+	// 		<spinner id="spinner-box" :size="(sm,md,lg...)" :fixed="(true,false)"
 	
 	// 			text="I will close in 2 secs" v-ref:spinner></spinner>
 	
@@ -12294,10 +12273,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-09e2754e&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-c8373860&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-09e2754e&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-c8373860&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -12319,8 +12298,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-09e2754e&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-09e2754e&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c8373860&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c8373860&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -12338,7 +12317,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".nav-tabs[_v-09e2754e] {\r\n  margin-bottom: 15px;\r\n}", ""]);
+	exports.push([module.id, ".nav-tabs[_v-c8373860] {\r\n  margin-bottom: 15px;\r\n}", ""]);
 	
 	// exports
 
@@ -12395,71 +12374,71 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .nav-tabs {
-	
+
 	//   margin-bottom: 15px;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div>
-	
+
 	//     <!-- Nav tabs -->
-	
+
 	//     <ul class="nav nav-{{navStyle}}" role="tablist">
-	
+
 	//       <li v-for="t in tabs" v-if="t"
-	
+
 	//         :class="{
-	
+
 	//           'active': ($index === active),
-	
+
 	//           'disabled': t.disabled
-	
+
 	//         }"
-	
+
 	//         @click.prevent="select($index)"
-	
+
 	//       >
-	
+
 	//         <a href="#">
-	
+
 	//           <slot name="header">
-	
+
 	//             {{{t.header}}}
-	
+
 	//           </slot>
-	
+
 	//         </a>
-	
+
 	//       </li>
-	
+
 	//     </ul>
-	
+
 	//     <!-- Tab panes -->
-	
+
 	//     <div class="tab-content" v-el:tab-content>
-	
+
 	//       <slot></slot>
-	
+
 	//     </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
 /* 291 */
 /***/ function(module, exports) {
 
-	module.exports = "<div _v-09e2754e=\"\">\n    <!-- Nav tabs -->\n    <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-09e2754e=\"\">\n      <li v-for=\"t in tabs\" v-if=\"t\" :class=\"{\n          'active': ($index === active),\n          'disabled': t.disabled\n        }\" @click.prevent=\"select($index)\" _v-09e2754e=\"\">\n        <a href=\"#\" _v-09e2754e=\"\">\n          <slot name=\"header\" _v-09e2754e=\"\">\n            {{{t.header}}}\n          </slot>\n        </a>\n      </li>\n    </ul>\n    <!-- Tab panes -->\n    <div class=\"tab-content\" v-el:tab-content=\"\" _v-09e2754e=\"\">\n      <slot _v-09e2754e=\"\"></slot>\n    </div>\n  </div>";
+	module.exports = "<div _v-c8373860=\"\">\n    <!-- Nav tabs -->\n    <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-c8373860=\"\">\n      <li v-for=\"t in tabs\" v-if=\"t\" :class=\"{\n          'active': ($index === active),\n          'disabled': t.disabled\n        }\" @click.prevent=\"select($index)\" _v-c8373860=\"\">\n        <a href=\"#\" _v-c8373860=\"\">\n          <slot name=\"header\" _v-c8373860=\"\">\n            {{{t.header}}}\n          </slot>\n        </a>\n      </li>\n    </ul>\n    <!-- Tab panes -->\n    <div class=\"tab-content\" v-el:tab-content=\"\" _v-c8373860=\"\">\n      <slot _v-c8373860=\"\"></slot>\n    </div>\n  </div>";
 
 /***/ },
 /* 292 */
@@ -12546,21 +12525,21 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div role="tabpanel" class="tab-pane active" v-show="show"
-	
+
 	//     :class="{hide:!show}"
-	
+
 	//     :transition="transition"
-	
+
 	//   >
-	
+
 	//     <slot></slot>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -12629,165 +12608,165 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="tooltip">
-	
+
 	//     <h1 class="page-header"><a href="#tooltip" class="anchor">Tooltip</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <tooltip  :header="true" content="Lorem ipsum dolor sit amet" placement="top">
-	
+
 	//         <button class="btn btn-default ">tooltip on top</button>
-	
+
 	//       </tooltip>
-	
+
 	//       <tooltip  :header="true" content="Lorem ipsum dolor sit amet" placement="left">
-	
+
 	//         <button class="btn btn-default ">tooltip on left</button>
-	
+
 	//       </tooltip>
-	
+
 	//       <tooltip  :header="true" content="Lorem ipsum dolor sit amet" placement="right">
-	
+
 	//         <button class="btn btn-default ">tooltip on right</button>
-	
+
 	//       </tooltip>
-	
+
 	//       <tooltip  placement="bottom" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-	
+
 	//         <button class="btn btn-default ">tooltip on bottom</button>
-	
+
 	//       </tooltip>
-	
+
 	//       <hr>
-	
+
 	//       <h4>Triger</h4>
-	
+
 	//       <p>
-	
+
 	//         <tooltip trigger="click"
-	
+
 	//         effect="scale" content="Lorem ipsum dolor sit amet" placement="top" trigger="hover">
-	
+
 	//             <button class="btn btn-default ">Click</button>
-	
+
 	//         </tooltip>
-	
+
 	//       </p>
-	
+
 	//       <tooltip effect="scale"
-	
+
 	//     content="Lorem ipsum dolor sit amet" placement="bottom" trigger="focus">
-	
+
 	//         <input type="text" class="form-control" placeholder="Focus">
-	
+
 	//       </tooltip>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <tooltip
-	
+
 	//   effect="scale"
-	
+
 	//   placement="bottom"
-	
+
 	//   content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-	
+
 	//   <button class="btn btn-default ">tooltip on bottom</button>
-	
+
 	// </tooltip>
-	
+
 	// </script></code></pre>
-	
+
 	//   <h2>Options</h2>
-	
+
 	//   <table class="table table-bordered">
-	
+
 	//     <thead>
-	
+
 	//       <tr>
-	
+
 	//         <th>Name</th>
-	
+
 	//         <th>Type</th>
-	
+
 	//         <th>Default</th>
-	
+
 	//         <th>Description</th>
-	
+
 	//       </tr>
-	
+
 	//     </thead>
-	
+
 	//     <tbody>
-	
+
 	//       <tr>
-	
+
 	//         <td>trigger</td>
-	
+
 	//         <td><code>String</code>, one of <code>hover</code>
-	
+
 	//         <code>focus</code>
-	
+
 	//         <code>hover</code></td>
-	
+
 	//         <td><code>click</code></td>
-	
+
 	//         <td>How the tooltip is triggered.</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>effect</td>
-	
+
 	//         <td><code>String</code>, one of <code>scale</code> <code>fadein</code></td>
-	
+
 	//         <td><code>scale</code></td>
-	
+
 	//         <td></td>
-	
+
 	//       <tr>
-	
+
 	//         <td>content</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td></td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>placement</td>
-	
+
 	//         <td><code>String</code>, one of <code>top</code>
-	
+
 	//         <code>left</code>
-	
+
 	//         <code>right</code>
-	
+
 	//         <code>bottom</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td>How to position the tooltip.</td>
-	
+
 	//       </tr>
-	
+
 	//     </tbody>
-	
+
 	//   </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -12854,9 +12833,9 @@
 	
 	//       </h4>
 	
-	//       <typeahead 
+	//       <typeahead
 	
-	//         :data="USstate" 
+	//         :data="USstate"
 	
 	//         placeholder="USA states"
 	
@@ -12876,7 +12855,7 @@
 	
 	//       </h4>
 	
-	//       <typeahead 
+	//       <typeahead
 	
 	//         placeholder="CCCAddress, async via maps.googleapis.com"
 	
@@ -12900,13 +12879,13 @@
 	
 	//       </h4>
 	
-	//       <typeahead 
+	//       <typeahead
 	
 	//         placeholder="Github users, async via api.github.com"
 	
 	//         key="items"
 	
-	//         async="https://api.github.com/search/users?q=" 
+	//         async="https://api.github.com/search/users?q="
 	
 	//         template-name="github"
 	
@@ -13212,8 +13191,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5b5f5e94&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5b5f5e94&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3dca8a18&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3dca8a18&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -13439,15 +13418,15 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .dropdown-menu > li > a {
-	
+
 	//   cursor: pointer;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
