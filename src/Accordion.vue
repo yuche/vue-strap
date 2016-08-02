@@ -9,10 +9,19 @@ import coerceBoolean from './utils/coerceBoolean.js'
 
 export default {
   props: {
+    type: {
+      type: String,
+      default: null
+    },
     oneAtATime: {
       type: Boolean,
       coerce: coerceBoolean,
       default: false
+    }
+  },
+  computed: {
+    isAccordion () {
+      return true
     }
   },
   created () {

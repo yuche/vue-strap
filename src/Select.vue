@@ -14,7 +14,7 @@
     >
       <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>
       <span class="caret"></span>
-      <span v-if="showResetButton&&values.length" class="close" @click="clear()">&times;</span>
+      <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
     </button>
     <ul class="dropdown-menu">
       <template v-if="options.length">
@@ -26,10 +26,10 @@
             @keyup.esc="show = false"
           />
         </li>
-        <li v-for="option in options | filterBy searchValue" :id="option.value">
-          <a @mousedown.prevent="select(option.value)">
-            {{ option.label }}
-            <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option.value)"></span>
+        <li v-for="option in options | filterBy searchValue" :id="option.value||option">
+          <a @mousedown.prevent="select(option.value||option)">
+            {{ option.label||option }}
+            <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option.value||option)"></span>
           </a>
         </li>
       </template>
@@ -104,7 +104,7 @@ export default {
       type: String,
       default: null
     },
-    showResetButton: {
+    clearButton: {
       type: Boolean,
       default: false
     },
@@ -162,12 +162,12 @@ export default {
             if (~['number', 'string'].indexOf(typeof item)) {
               let option
               this.options.some(o => {
-                if (o.value === item) {
+                if ((o instanceof Object && o.value === item) || o === item ) {
                   option = o
                   return true
                 }
               })
-              option && foundItems.push(option.label)
+              if (option) foundItems.push(option.label || option)
             }
           }
         }
@@ -191,6 +191,18 @@ export default {
     }
   },
   watch: {
+    options (options) {
+      let changed = false
+      if (options instanceof Array && options.length) {
+        for (let i in options) {
+          if (!(options[i] instanceof Object)) {
+            options[i] = {label: options[i], value: options[i]}
+            changed = true
+          }
+        }
+      }
+      if (changed) this.options = options
+    },
     value (val) {
       if (this.value instanceof Array && val.length > this.limit) {
         this.showNotify = true

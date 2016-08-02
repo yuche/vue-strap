@@ -1,5 +1,5 @@
 <template>
-  <div class="panel panel-default">
+  <div class="panel {{panelType}}">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a class="accordion-toggle"
@@ -27,13 +27,22 @@ import coerceBoolean from './utils/coerceBoolean.js'
 
 export default {
   props: {
+    header: {
+      type: String
+    },
     isOpen: {
       type: Boolean,
       coerce: coerceBoolean,
       default: false
     },
-    header: {
-      type: String
+    type: {
+      type: String,
+      default : null
+    }
+  },
+  computed: {
+    panelType () {
+      return 'panel-' + (this.type || (this.$parent && this.$parent.type) || 'default')
     }
   },
   methods: {

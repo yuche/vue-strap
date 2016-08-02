@@ -44,7 +44,6 @@ export default {
       this._tabset = {}
       console.warn('Warning: "tab" depend on "tabset" to work properly.')
     }
-    console.log(this)
   },
   beforeDestroy () {
     if (this._tabset.active === this.index) { this._tabset.active = 0 }

@@ -255,10 +255,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = {
 	  props: {
+	    type: {
+	      type: String,
+	      default: null
+	    },
 	    oneAtATime: {
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
 	      default: false
+	    }
+	  },
+	  computed: {
+	    isAccordion: function isAccordion() {
+	      return true;
 	    }
 	  },
 	  created: function created() {
@@ -5030,13 +5039,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = {
 	  props: {
+	    header: {
+	      type: String
+	    },
 	    isOpen: {
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
 	      default: false
 	    },
-	    header: {
-	      type: String
+	    type: {
+	      type: String,
+	      default: null
+	    }
+	  },
+	  computed: {
+	    panelType: function panelType() {
+	      return 'panel-' + (this.type || this.$parent && this.$parent.type || 'default');
 	    }
 	  },
 	  methods: {
@@ -5085,7 +5103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </style>
 	// <template>
 
-	//   <div class="panel panel-default">
+	//   <div class="panel {{panelType}}">
 
 	//     <div class="panel-heading">
 
@@ -5135,7 +5153,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 150 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel panel-default\">\r\n    <div class=\"panel-heading\">\r\n      <h4 class=\"panel-title\">\r\n        <a class=\"accordion-toggle\"\r\n          @click=\"toggle()\">\r\n          <slot name=\"header\"> \r\n            {{ header }}\r\n          </slot>\r\n        </a>\r\n      </h4>\r\n    </div>\r\n    <div class=\"panel-collapse\"\r\n      v-el:panel\r\n      v-show=\"isOpen\"\r\n      transition=\"collapse\"\r\n    >\r\n      <div class=\"panel-body\">\r\n        <slot></slot>\r\n      </div>\r\n    </div>\r\n  </div>";
+	module.exports = "<div class=\"panel {{panelType}}\">\r\n    <div class=\"panel-heading\">\r\n      <h4 class=\"panel-title\">\r\n        <a class=\"accordion-toggle\"\r\n          @click=\"toggle()\">\r\n          <slot name=\"header\"> \r\n            {{ header }}\r\n          </slot>\r\n        </a>\r\n      </h4>\r\n    </div>\r\n    <div class=\"panel-collapse\"\r\n      v-el:panel\r\n      v-show=\"isOpen\"\r\n      transition=\"collapse\"\r\n    >\r\n      <div class=\"panel-body\">\r\n        <slot></slot>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
 /* 151 */
@@ -5891,7 +5909,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//       <span class="caret"></span>
 	
-	//       <span v-if="showResetButton&&values.length" class="close" @click="clear()">&times;</span>
+	//       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
 	
 	//     </button>
 	
@@ -5915,13 +5933,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//         </li>
 	
-	//         <li v-for="option in options | filterBy searchValue" :id="option.value">
+	//         <li v-for="option in options | filterBy searchValue" :id="option.value||option">
 	
-	//           <a @mousedown.prevent="select(option.value)">
+	//           <a @mousedown.prevent="select(option.value||option)">
 	
-	//             {{ option.label }}
+	//             {{ option.label||option }}
 	
-	//             <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option.value)"></span>
+	//             <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option.value||option)"></span>
 	
 	//           </a>
 	
@@ -6005,7 +6023,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      type: String,
 	      default: null
 	    },
-	    showResetButton: {
+	    clearButton: {
 	      type: Boolean,
 	      default: false
 	    },
@@ -6073,12 +6091,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	              if (~['number', 'string'].indexOf(typeof item === 'undefined' ? 'undefined' : (0, _typeof3.default)(item))) {
 	                var option = void 0;
 	                this.options.some(function (o) {
-	                  if (o.value === item) {
+	                  if (o instanceof Object && o.value === item || o === item) {
 	                    option = o;
 	                    return true;
 	                  }
 	                });
-	                option && foundItems.push(option.label);
+	                if (option) foundItems.push(option.label || option);
 	              }
 	            }
 	          }
@@ -6116,6 +6134,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  watch: {
+	    options: function options(_options) {
+	      var changed = false;
+	      if (_options instanceof Array && _options.length) {
+	        for (var i in _options) {
+	          if (!(_options[i] instanceof Object)) {
+	            _options[i] = { label: _options[i], value: _options[i] };
+	            changed = true;
+	          }
+	        }
+	      }
+	      if (changed) this.options = _options;
+	    },
 	    value: function value(val) {
 	      var _this = this;
 	
@@ -7132,7 +7162,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 198 */
 /***/ function(module, exports) {
 
-	module.exports = "<select v-if=\"name &amp;&amp; (required || values.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"!values.length)\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-else=\"\" v-for=\"val in values\" value=\"{{val}}\" selected=\"\" _v-1f77809f=\"\">{{val}}</option>\n</select>\n<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-content\" _v-1f77809f=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"showResetButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value)\" _v-1f77809f=\"\">\n            {{ option.label }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n</div>";
+	module.exports = "<select v-if=\"name &amp;&amp; (required || values.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"!values.length)\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-else=\"\" v-for=\"val in values\" value=\"{{val}}\" selected=\"\" _v-1f77809f=\"\">{{val}}</option>\n</select>\n<div class=\"btn-select\" :class=\"{'btn-group btn-group-justified': justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-content\" _v-1f77809f=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value||option\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value||option)\" _v-1f77809f=\"\">\n            {{ option.label||option }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value||option)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n</div>";
 
 /***/ },
 /* 199 */
@@ -7434,7 +7464,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this._tabset = {};
 	      console.warn('Warning: "tab" depend on "tabset" to work properly.');
 	    }
-	    console.log(this);
 	  },
 	  beforeDestroy: function beforeDestroy() {
 	    if (this._tabset.active === this.index) {

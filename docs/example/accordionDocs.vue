@@ -6,8 +6,14 @@
         <input type="checkbox" v-model="checked">
         Open only one at a time.
       </p>
-      <accordion :one-at-atime="checked">
-        <panel header="Panel #1" :is-open="true">
+      <p>
+        <v-select :options="['default','primary','info','success','warning','danger']" clear-button :value.sync="selected" placeholder="Panel type"></v-select>
+      </p>
+      <p>
+        <v-select :options="['default','primary','info','success','warning','danger']" clear-button :value.sync="first" placeholder="First element type"></v-select>
+      </p>
+      <accordion :one-at-atime="checked" :type="selected">
+        <panel header="Panel #1" :is-open="true" :type="first=='panel'?null:first">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -45,8 +51,8 @@
 <input type="checkbox" v-model="checked">
 <label for="checked">Open only one at a time.</label>
 
-<accordion :one-at-atime="checked">
-  <panel header="Panel #1" :is-open="true">
+<accordion :one-at-atime="checked" type="info">
+  <panel header="Panel #1" :is-open="true" type="primary">
     ...
   </panel>
   <panel header="Panel #2">
@@ -110,16 +116,20 @@
 <script>
 import accordion from 'src/Accordion.vue'
 import panel from 'src/Panel.vue'
+import vSelect from 'src/Select.vue'
 
 export default {
   data () {
     return {
-      checked: true
+      checked: true,
+      selected: 'info',
+      first: 'primary'
     }
   },
   components: {
     accordion,
-    panel
+    panel,
+    vSelect
   }
 }
 </script>

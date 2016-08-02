@@ -21,7 +21,7 @@
       <form action="./#select" method="get">
         <v-select :options="select.options" :value.sync="select.value" :name="select.inputs?(select.multiple?'animals[]':'animal'):''"
           :multiple="select.multiple" :search="select.search" :justified="select.justified" :required="select.inputs&&select.required"
-          :show-reset-button="select.showResetButton" :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"></v-select>
+          :clear-button="select.resetButton" :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"></v-select>
         <button v-if="select.inputs" type="submit" class="btn btn-default">Submit form</button>
       </form>
       <div class="checkbox"><label><input type="checkbox" v-model="select.disabled"/> Disabled</label></div>
@@ -32,7 +32,7 @@
         <label v-if="select.multiple"><input type="checkbox" v-model="select.closeOnSelect"/> Close on Select</label>
       </div>
       <div class="checkbox"><label><input type="checkbox" v-model="select.justified"/> Justified</label></div>
-      <div class="checkbox"><label><input type="checkbox" v-model="select.showResetButton"/> Show Reset Button</label></div>
+      <div class="checkbox"><label><input type="checkbox" v-model="select.resetButton"/> Show Reset Button</label></div>
       <div class="checkbox">
         <label><input type="checkbox" v-model="select.inputs"/> Form input</label>
         <label v-if="select.inputs"><input type="checkbox" v-model="select.required"/> Required (add empty value if noting selected)</label>
@@ -52,7 +52,7 @@ Test options:
 <form action="./#select" method="get">
   <v-select :options="select.options" :value.sync="select.value" :name="select.inputs?(select.multiple?'animals[]':'animal'):''"
     :multiple="select.multiple" :search="select.search" :justified="select.justified" :required="select.inputs&&select.required"
-    :show-reset-button="select.showResetButton" :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"></v-select>
+    :clear-button="select.resetButton" :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"></v-select>
   <button v-if="select.inputs" type="submit" class="btn btn-default">Submit form</button>
 </form>
 <div class="checkbox"><label><input type="checkbox" v-model="select.disabled"/> Disabled</label></div>
@@ -63,7 +63,7 @@ Test options:
   <label v-if="select.multiple"><input type="checkbox" v-model="select.closeOnSelect"/> Close on Select</label>
 </div>
 <div class="checkbox"><label><input type="checkbox" v-model="select.justified"/> Justified</label></div>
-<div class="checkbox"><label><input type="checkbox" v-model="select.showResetButton"/> Show Reset Button</label></div>
+<div class="checkbox"><label><input type="checkbox" v-model="select.resetButton"/> Show Reset Button</label></div>
 <div class="checkbox">
   <label><input type="checkbox" v-model="select.inputs"/> Form input</label>
   <label v-if="select.inputs"><input type="checkbox" v-model="select.required"/> Required (add empty value if noting selected)</label>
@@ -85,11 +85,11 @@ options: [
       <p>
         The second element has inheritance. Enable when the first get some value & the ajax return values.
       </p>
-      <v-select url="docs/data.json" :value.sync="ajax.value" show-reset-button></v-select>
+      <v-select url="docs/data.json" :value.sync="ajax.value" clear-button></v-select>
       <v-select url="docs/data.json" multiple :parent="ajax.value"></v-select>
     <pre><code class="language-markup">
 Ajax:
-&lt;v-select url="docs/data.json" :value.sync="ajax.value" show-reset-button>&lt;/v-select>
+&lt;v-select url="docs/data.json" :value.sync="ajax.value" clear-button>&lt;/v-select>
 &lt;v-select url="docs/data.json" multiple :parent="ajax.value">&lt;/v-select>
     </code></pre>
 
