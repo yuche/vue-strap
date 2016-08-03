@@ -252,8 +252,10 @@ export default {
       .replace(/d/g, day)
     },
     parse(str) {
-      if (str.length == 10 && (this.format == 'dd-MM-yyyy' || this.format == 'dd/MM/yyyy')) {
+      if (str && str.length == 10 && (this.format == 'dd-MM-yyyy' || this.format == 'dd/MM/yyyy')) {
         str = str.substring(3,5)+'-'+str.substring(0,2)+'-'+str.substring(6,10);
+      } else {
+        str = (new Date()).getTime();
       }
       const date = new Date(str)
       return isNaN(date.getFullYear()) ? null : date
