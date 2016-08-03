@@ -107,6 +107,8 @@ const typeahead = {
     },
     methods: {
       update() {
+        // store initial query
+        var originalQuery = this.query;
         if (!this.query) {
           this.reset()
           return false
@@ -117,8 +119,12 @@ const typeahead = {
         }
         if (this.async) {
           callAjax(this.async + this.query, (data)=> {
-            this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
-            this.showDropdown = this.items.length ? true : false
+            //when the results come back check if they are still required by checking origianl query agains current query
+            if(originalQuery == this.query){
+              // only update items with request data if the query has not changed and is still valid
+              this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
+              this.showDropdown = this.items.length ? true : false
+            }
           })
         }
       },
