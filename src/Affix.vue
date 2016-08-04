@@ -9,11 +9,13 @@
 
 <script>
 import EventListener from './utils/EventListener.js'
+import coerceNumber from './utils/coerceNumber.js'
 
 export default {
   props: {
     offset: {
       type: Number,
+      coerce: coerceNumber,
       default: 0
     }
   },

@@ -1,6 +1,6 @@
 <template>
-  <li v-if="$parent.navbar||$parent.menu" v-el:dropdown class="dropdown" :class="{open: show}"
-    @click="show ? blur() : toggleDropdown()"
+  <li v-if="$parent.navbar||$parent.menu||$parent._tabset" v-el:dropdown class="dropdown {{disabled&&'disabled'}}" :class="classes"
+    @click="show ? blur() : toggle()"
   >
       <a v-if="text" v-el:btn class="dropdown-toggle" role="button" :class="{disabled: disabled}">
         {{ text }}
@@ -17,11 +17,11 @@
       <slot></slot>
     </ul>
   </li>
-  <div v-else v-el:dropdown class="btn-group" :class="{open: show}" @click="unblur">
+  <div v-else v-el:dropdown class="btn-group" :class="classes" @click="unblur">
       <button v-if="text" v-el:btn type="button" class="btn btn-{{type||'default'}} dropdown-toggle"
-        @click="toggleDropdown()"
-        @blur="blur()"
-        @keyup.esc="show = false"
+        @click="toggle()"
+        @blur="blur"
+        @keyup.esc="blur"
         :disabled="disabled"
       >
         {{ text }}
@@ -35,9 +35,22 @@
   </div>
 </template>
 <script>
-let timeout = {}
+import coerceBoolean from './utils/coerceBoolean.js'
+
 export default {
   props: {
+    'class': null,
+    show: {
+      twoWay: true,
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: false
+    },
     text: {
       type: String,
       default: null
@@ -47,12 +60,10 @@ export default {
       default: null
     }
   },
-  data () {
-    return {
-      show: false
-    }
-  },
   computed: {
+    classes () {
+      return [{open: this.show}, this.class]
+    },
     menu () {
       return !this.$parent || this.$parent.navbar
     },
@@ -63,22 +74,17 @@ export default {
       return this._slotContents
     }
   },
-  watch: {
-    show (val) {
-      if (val) this.focus()
-    }
-  },
   methods: {
     blur () {
-      timeout.hide = setTimeout(() => {
-        timeout.hide = false
+      this._hide = setTimeout(() => {
+        this._hide = false
         this.show = false
       }, 100)
     },
     unblur () {
-      if (timeout.hide) {
-        clearTimeout(timeout.hide)
-        timeout.hide = false
+      if (this._hide) {
+        clearTimeout(this._hide)
+        this._hide = false
       }
     },
     focus () {
@@ -90,21 +96,23 @@ export default {
       }
       if (el) el.focus()
     },
-    toggleDropdown (e) {
+    toggle (e) {
       if (e) e.preventDefault()
+      if (this.disabled) { return }
       this.show = !this.show
+      this.focus()
       this.unblur()
     }
   },
   ready () {
     const el = this.$els.dropdown
     el.querySelector('ul.dropdown-menu').addEventListener('click', (e) => {
-      if (e.target.nodeName.toLowerCase() === 'a') this.toggleDropdown()
+      if (e.target.nodeName.toLowerCase() === 'a') setTimeout(() => this.toggle(),10)
     })
     if (!this.text) {
       const toggle = el.querySelector('[data-toggle="dropdown"]')
       if (toggle) {
-        toggle.addEventListener('click', this.toggleDropdown)
+        toggle.addEventListener('click', this.toggle)
         toggle.addEventListener('blur', this.blur)
       }
     }

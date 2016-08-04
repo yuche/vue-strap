@@ -55,9 +55,11 @@ export default {
     collapse: {
       afterEnter (el) {
         el.style.maxHeight = ''
+        el.style.overflow = ''
       },
       beforeLeave (el) {
         el.style.maxHeight = el.offsetHeight + 'px'
+        el.style.overflow = 'hidden'
         // Recalculate DOM before the class gets added.
         return el.offsetHeight
       }
@@ -72,7 +74,6 @@ export default {
 }
 .collapse-transition {
   transition: max-height .5s ease;
-  overflow: hidden;
 }
 .collapse-enter, .collapse-leave {
   max-height: 0!important;

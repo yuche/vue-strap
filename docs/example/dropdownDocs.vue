@@ -34,6 +34,9 @@
           <li><a href="#">Separated link</a></li>
         </ul>
       </dropdown>
+      <dropdown text="Disabled" type="warning" disabled>
+        <li><a href="#">Action</a></li>
+      </dropdown>
       <div class="btn-group btn-group-justified" role="group">
         <a href="#" class="btn btn-default" role="button">Left</a>
         <dropdown>
@@ -74,6 +77,9 @@ Component style:
   <li><a href="#">Something else here</a></li>
   <li role="separator" class="divider"></li>
   <li><a href="#">Separated link</a></li>
+</dropdown>
+<dropdown text="Disabled" type="warning" disabled>
+  <li><a href="#">Action</a></li>
 </dropdown>
     </script></code></pre>
     <h2>Usage</h2>

@@ -3,7 +3,8 @@
   <option v-if="!values.length)" value=""></option>
   <option v-else v-for="val in values" value="{{val}}" selected>{{val}}</option>
 </select>
-<div class="btn-select" :class="{'btn-group btn-group-justified': justified}" @click="unblur">
+<div :class="{'btn-group btn-group-justified': justified, 'btn-select': !justified}" @click="unblur">
+  <slot name="before"></slot>
   <div class="btn-group" :class="{open: show}">
     <button v-el:btn type="button" class="form-control dropdown-toggle"
       :disabled="disabled || !hasParent"
@@ -38,6 +39,7 @@
     </ul>
     <div v-if="showNotify && closeOnSelect" class="notify" transition="fadein"><div>{{limitText}}</div></div>
   </div>
+  <slot name="after"></slot>
 </div>
 </template>
 

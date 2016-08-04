@@ -21,7 +21,8 @@
       <form action="./#select" method="get">
         <v-select :options="select.options" :value.sync="select.value" :name="select.inputs?(select.multiple?'animals[]':'animal'):''"
           :multiple="select.multiple" :search="select.search" :justified="select.justified" :required="select.inputs&&select.required"
-          :clear-button="select.resetButton" :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"></v-select>
+          :clear-button="select.resetButton" :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"
+        ></v-select>
         <button v-if="select.inputs" type="submit" class="btn btn-default">Submit form</button>
       </form>
       <div class="checkbox"><label><input type="checkbox" v-model="select.disabled"/> Disabled</label></div>
@@ -161,7 +162,8 @@ export default {
           {value: 6, label: 'Lion'},
           {value: 7, label: 'Tiger'},
           {value: 8, label: 'Turtle'}
-        ]
+        ],
+        justified: true
       },
       ajax: {
         value:null

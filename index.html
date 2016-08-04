@@ -12,7 +12,7 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
 </head>
-<body>
+<body style="position:relative;top:50px;">
 <div id="wrapper">
   <header-docs></header-docs>
   <div class="bs-docs-header">
@@ -50,7 +50,7 @@
       <spinner-docs></spinner-docs>
     </div>
     <div class="col-md-3">
-    <affix>
+    <affix offset="50">
       <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm ">
         <ul class="nav bs-docs-sidenav" id="sidenav">
           <li v-for="a in anchor"><a href="#{{ a.toLowerCase() }}">{{ a | space}}</a></li>

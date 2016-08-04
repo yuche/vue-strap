@@ -1,32 +1,28 @@
 <template>
-  <div>
-    <!-- Nav tabs -->
-    <ul class="nav nav-{{navStyle}}" role="tablist">
-      <li v-for="t in tabs" v-if="t"
-        :class="{
-          'active': ($index === active),
-          'disabled': t.disabled
-        }"
-        @click.prevent="select($index)"
-      >
-        <a href="#">
-          <slot name="header">
-            {{{t.header}}}
-          </slot>
-        </a>
+  <!-- Nav tabs -->
+  <ul class="nav nav-{{navStyle}}" role="tablist">
+    <template v-for="t in headers">
+      <li v-if="!t._tabgroup" :class="{active:t.active, disabled:t.disabled}" @click.prevent="select(t)">
+        <a href="#"><slot name="header">{{{t.header}}}</slot></a>
       </li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content" v-el:tab-content>
-      <slot></slot>
-    </div>
+      <dropdown v-else :text="t.header" :class="{active:t.active,disabled:t.disabled}" :disabled="t.disabled">
+        <li v-for="tab in t.tabs" :class="{disabled:tab.disabled}"><a href="#" @click.prevent="select(tab)">{{tab.header}}</a></li>
+      </dropdown>
+    </template>
+  </ul>
+  <div class="tab-content" v-el:tab-content>
+    <slot></slot>
   </div>
 </template>
 
 <script>
 import coerceNumber from './utils/coerceNumber.js'
+import dropdown from './Dropdown.vue'
 
 export default {
+  components: {
+    dropdown
+  },
   props: {
     navStyle: {
       type: String,
@@ -44,18 +40,27 @@ export default {
   },
   data () {
     return {
+      show: null,
+      headers: [],
       tabs: []
     }
   },
-  computed: {
-    isTabset () {
-      return true
+  created () {
+    this._tabset = true
+  },
+  watch: {
+    active (val) {
+      this.show = this.tabs[val]
     }
   },
+  ready () {
+    this.show = this.tabs[this.active]
+  },
   methods: {
-    select (index) {
-      if (!this.tabs[index].disabled) {
-        this.active = index
+    select (tab) {
+      console.log(tab.header,tab.index)
+      if (!tab.disabled) {
+        this.active = tab.index
       }
     }
   }

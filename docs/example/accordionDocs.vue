@@ -7,10 +7,10 @@
         Open only one at a time.
       </p>
       <p>
-        <v-select :options="['default','primary','info','success','warning','danger']" clear-button :value.sync="selected" placeholder="Panel type"></v-select>
+        <v-select :options="types" clear-button :value.sync="selected" placeholder="Global type"></v-select>
       </p>
       <p>
-        <v-select :options="['default','primary','info','success','warning','danger']" clear-button :value.sync="first" placeholder="First element type"></v-select>
+        <v-select :options="types" clear-button :value.sync="first" placeholder="First element type"></v-select>
       </p>
       <accordion :one-at-atime="checked" :type="selected">
         <panel header="Panel #1" :is-open="true" :type="first=='panel'?null:first">
@@ -48,9 +48,6 @@
       </accordion>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
-<input type="checkbox" v-model="checked">
-<label for="checked">Open only one at a time.</label>
-
 <accordion :one-at-atime="checked" type="info">
   <panel header="Panel #1" :is-open="true" type="primary">
     ...
@@ -78,6 +75,12 @@
       </thead>
       <tbody>
         <tr>
+          <td>type</td>
+          <td><code>String</code></td>
+          <td><code>null</code></td>
+          <td>Define the type of color for the tabs (global).</td>
+        </tr>
+        <tr>
           <td>one-at-time</td>
           <td><code>Boolean</code></td>
           <td><code>false</code></td>
@@ -97,16 +100,22 @@
       </thead>
       <tbody>
         <tr>
+          <td>header</td>
+          <td><code>String</code></td>
+          <td></td>
+          <td>The clickable text on the group's header. You need one to be able to click on the header for toggling.</td>
+        </tr>
+        <tr>
           <td>is-open</td>
           <td><code>Boolean</code></td>
           <td><code>false</code></td>
           <td>Whether accordion group is open or closed.</td>
         </tr>
         <tr>
-          <td>header</td>
+          <td>type</td>
           <td><code>String</code></td>
-          <td></td>
-          <td>The clickable text on the group's header. You need one to be able to click on the header for toggling.</td>
+          <td><code>null</code></td>
+          <td>Define the type of color for the tab (single).</td>
         </tr>
       </tbody>
     </table>
@@ -119,17 +128,18 @@ import panel from 'src/Panel.vue'
 import vSelect from 'src/Select.vue'
 
 export default {
-  data () {
-    return {
-      checked: true,
-      selected: 'info',
-      first: 'primary'
-    }
-  },
   components: {
     accordion,
     panel,
     vSelect
+  },
+  data () {
+    return {
+      checked: true,
+      selected: 'info',
+      first: 'primary',
+      types: ['default', 'primary', 'info', 'success', 'warning', 'danger']
+    }
   }
 }
 </script>
