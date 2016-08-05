@@ -1,12 +1,7 @@
 <template>
   <div class="bs-docs-section" id="input">
     <h1 class="page-header"><a href="#select" class="anchor">Input</a></h1>
-    <p>
-      This a <a target="_blank" href="https://silviomoreto.github.io/bootstrap-select/">bootstrap-select</a> implementation.
-    </p>
     <div class="bs-example text-left">
-      <h4>Simple select</h4>
-      <p><pre>Select data : {{single}}</pre></p>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <bs-input
@@ -28,26 +23,25 @@
           <bs-input required label="Match value" type="password" :match="input" :icon="check.icon" help="Match the User Name"></bs-input>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <div class="checkbox"><label><input type="checkbox" v-model="check.label"/> Label</label></div>
-        <div class="checkbox"><label><input type="checkbox" v-model="check.placeholder"/> placeholder</label></div>
-        <div class="checkbox"><label><input type="checkbox" v-model="check.disabled"/> disabled</label></div>
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <div class="checkbox"><label><input type="checkbox" v-model="check.error"/> error</label></div>
-        <div class="checkbox"><label><input type="checkbox" v-model="check.icon"/> icon</label></div>
-        <div class="checkbox"><label><input type="checkbox" v-model="check.mask"/> mask</label></div>
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <div class="checkbox"><label><input type="checkbox" v-model="check.minlength"/> minlength=5</label></div>
-        <div class="checkbox"><label><input type="checkbox" v-model="check.readonly"/> readonly</label></div>
-        <div class="checkbox"><label><input type="checkbox" v-model="check.required"/> required</label></div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <div class="checkbox"><label><input type="checkbox" v-model="check.label"/> Label</label></div>
+          <div class="checkbox"><label><input type="checkbox" v-model="check.placeholder"/> placeholder</label></div>
+          <div class="checkbox"><label><input type="checkbox" v-model="check.disabled"/> disabled</label></div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <div class="checkbox"><label><input type="checkbox" v-model="check.error"/> error</label></div>
+          <div class="checkbox"><label><input type="checkbox" v-model="check.icon"/> icon</label></div>
+          <div class="checkbox"><label><input type="checkbox" v-model="check.mask"/> mask</label></div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <div class="checkbox"><label><input type="checkbox" v-model="check.minlength"/> minlength=5</label></div>
+          <div class="checkbox"><label><input type="checkbox" v-model="check.readonly"/> readonly</label></div>
+          <div class="checkbox"><label><input type="checkbox" v-model="check.required"/> required</label></div>
+        </div>
       </div>
     </div>
     <pre><code class="language-markup">
-Input:
 &lt;bs-input :value.sync="input"
   label="Username"
   help="Only allows lowercase letters and numbers."
@@ -61,13 +55,13 @@ Input:
   icon
 >&lt;/bs-input>
 &lt;bs-input required label="Match value" type="password" :match="input">&lt;/bs-input>
-
-Method:
+    </code></pre>
+  <pre><code class="language-javascript"><script type="language-javascript">
 mask: function (value) {
   // change to lowercase, remove first non-letter and all other unsupported characters
   return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\W/g,'');
 }
-    </code></pre>
+  </script></code></pre>
 
     <h2>Input Options</h2>
     <table class="table table-bordered">

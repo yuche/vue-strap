@@ -1,6 +1,6 @@
 <template>
 <select v-if="name && (required || values.length)" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" @focus="focus()">
-  <option v-if="!values.length)" value=""></option>
+  <option v-if="!values.length" value=""></option>
   <option v-else v-for="val in values" value="{{val}}" selected>{{val}}</option>
 </select>
 <div :class="{'btn-group btn-group-justified': justified, 'btn-select': !justified}" @click="unblur">
@@ -11,7 +11,7 @@
       :readonly="readonly"
       @click="toggleDropdown()"
       @blur="search ? null : blur()"
-      @keyup.esc="show = false"
+      @keyup.esc="blur()"
     >
       <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>
       <span class="caret"></span>
@@ -24,7 +24,7 @@
             v-el:search
             v-model="searchValue"
             @blur="blur()"
-            @keyup.esc="show = false"
+            @keyup.esc="blur()"
           />
         </li>
         <li v-for="option in options | filterBy searchValue" :id="option.value||option">
@@ -60,16 +60,16 @@ export default {
       type: Array,
       default () { return [] }
     },
-    label: {
-      type: String,
-      default: null
-    },
     multiple: {
       type: Boolean,
       coerce: coerceBoolean,
       default: false
     },
-    search: { // Allow searching (only works when options are provided)
+    clearButton: {
+      type: Boolean,
+      default: false
+    },
+    closeOnSelect: { // only works when multiple
       type: Boolean,
       coerce: coerceBoolean,
       default: false
@@ -78,6 +78,31 @@ export default {
       type: Boolean,
       coerce: coerceBoolean,
       default: false
+    },
+    justified: {
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: false
+    },
+    lang: {
+      type: String,
+      default: navigator.language
+    },
+    limit: {
+      type: Number,
+      coerce: coerceNumber,
+      default: 1024
+    },
+    name: {
+      type: String,
+      default: null
+    },
+    parent: {
+      default: true
+    },
+    placeholder: {
+      type: String,
+      default: null
     },
     readonly: {
       type: Boolean,
@@ -89,50 +114,25 @@ export default {
       coerce: coerceBoolean,
       default: null
     },
-    placeholder: {
-      type: String,
-      default: null
-    },
-    limit: {
-      type: Number,
-      coerce: coerceNumber,
-      default: 1024
-    },
-    name: {
-      type: String,
-      default: null
+    search: { // Allow searching (only works when options are provided)
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: false
     },
     searchText: {
       type: String,
       default: null
     },
-    clearButton: {
-      type: Boolean,
-      default: false
-    },
-    closeOnSelect: { // only works when multiple
-      type: Boolean,
-      coerce: coerceBoolean,
-      default: false
-    },
-    lang: {
-      type: String,
-      default: navigator.language
-    },
-    justified: {
-      type: Boolean,
-      coerce: coerceBoolean,
-      default: false
-    },
     url: {
+      type: String,
+      default: null
+    },
+    label: {
       type: String,
       default: null
     },
     cache: { // save old data -- not working yet (experimental)
       type: Array,
-      default: true
-    },
-    parent: {
       default: true
     }
   },

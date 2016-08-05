@@ -191,6 +191,7 @@ export default {
       if (this.match!==null && this.match !== value) { return false }
       if (value.length < this.minlength) { return false }
       let valid = true
+      if (this.$els.input.checkValidity && !this.$els.input.checkValidity()){ return false }
       if (this.pattern instanceof Function) valid = this.pattern(this.value)
       if (typeof this.pattern === 'string') {
         let regex = new RegExp(this.pattern)
