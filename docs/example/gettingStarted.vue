@@ -21,7 +21,7 @@
     <pre><code class="language-javascript">
 $ npm install vue-strap
 
-var alert = require('vue-strap/lib/alert');
+var alert = require('vue-strap/src/alert');
 // or
 var alert = require('vue-strap').alert;
 
@@ -30,7 +30,7 @@ new Vue({
     'alert': alert
   }
 })
-    </code></pre>
+</code></pre>
     <h2>ES6</h2>
     <pre><code class="language-javascript">
 $ npm install vue-strap
@@ -42,13 +42,21 @@ import { alert } from 'vue-strap'
 new Vue({
   components: {
     alert
-  }
+  }``
 })
-    </code></pre>
+</code></pre>
+
+    <h2>AMD</h2>
+    <pre><code class="language-javascript">
+$ bower install vue-strap
+
+define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
+</code></pre>
     <h2>Browser globals</h2>
     <p>
-      The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.js</code> with
-      all components exported in the <code>window.VueStrap</code> object.
+      The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.min.js</code> with
+      all components exported in the <code>window.VueStrap</code> object. These bundles are also available on both the
+      Bower and NPM packages.
     </p>
     <pre><code class="language-markup">
 &lt;v-select :options="options"&gt;&lt;/v-select&gt;
@@ -65,6 +73,6 @@ new Vue({
     }
   })
 &lt;/script&gt;
-    </code></pre>
+</code></pre>
   </div>
 </template>

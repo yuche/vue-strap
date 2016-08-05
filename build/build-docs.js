@@ -1189,7 +1189,7 @@
 /* 102 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"bs-docs-section\" id=\"getting-started\">\r\n    <h1 class=\"page-header\"><a href=\"#getting-started\" class=\"anchor\">Getting started</a></h1>\r\n    <div class=\"bs-callout bs-callout-success\">\r\n      <h4>About this project</h4>\r\n      <p>\r\n        This repository contains a set of native Vue.js components based on Bootstrap's markup and CSS.\r\n        As a result no dependency on jQuery or Bootstrap's JavaScript is required.\r\n        The only required dependencies are:\r\n      </p>\r\n      <ul>\r\n        <li><a href=\"http://vuejs.org/\">Vue.js</a>\r\n          (required ^1.0.8, test with 1.0.8).</li>\r\n        <li><a href=\"http://getbootstrap.com/\">Bootstrap CSS</a>\r\n          (required 3.x.x, test with 3.3.5).\r\n          VueStrap doesn't depend on a very precise version of Bootstrap. Just pull the latest.\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <h2>CommonJS</h2>\r\n    <pre><code class=\"language-javascript\">\r\n$ npm install vue-strap\r\n\r\nvar alert = require('vue-strap/lib/alert');\r\n// or\r\nvar alert = require('vue-strap').alert;\r\n\r\nnew Vue({\r\n  components: {\r\n    'alert': alert\r\n  }\r\n})\r\n    </code></pre>\r\n    <h2>ES6</h2>\r\n    <pre><code class=\"language-javascript\">\r\n$ npm install vue-strap\r\n\r\nimport alert from 'vue-strap/src/alert'\r\n// or\r\nimport { alert } from 'vue-strap'\r\n\r\nnew Vue({\r\n  components: {\r\n    alert\r\n  }\r\n})\r\n    </code></pre>\r\n    <h2>Browser globals</h2>\r\n    <p>\r\n      The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.js</code> with\r\n      all components exported in the <code>window.VueStrap</code> object.\r\n    </p>\r\n    <pre><code class=\"language-markup\">\r\n&lt;v-select :options=\"options\"&gt;&lt;/v-select&gt;\r\n\r\n&lt;script src=&quot;path/to/vue.js&quot;&gt;&lt;/script&gt;\r\n&lt;script src=&quot;path/to/vue-strap.js&quot;&gt;&lt;/script&gt;\r\n&lt;script&gt;\r\n  new Vue({\r\n    components: {\r\n      vSelect: VueStrap.select\r\n    },\r\n    data: {\r\n      options: []\r\n    }\r\n  })\r\n&lt;/script&gt;\r\n    </code></pre>\r\n  </div>";
+	module.exports = "<div class=\"bs-docs-section\" id=\"getting-started\">\r\n    <h1 class=\"page-header\"><a href=\"#getting-started\" class=\"anchor\">Getting started</a></h1>\r\n    <div class=\"bs-callout bs-callout-success\">\r\n      <h4>About this project</h4>\r\n      <p>\r\n        This repository contains a set of native Vue.js components based on Bootstrap's markup and CSS.\r\n        As a result no dependency on jQuery or Bootstrap's JavaScript is required.\r\n        The only required dependencies are:\r\n      </p>\r\n      <ul>\r\n        <li><a href=\"http://vuejs.org/\">Vue.js</a>\r\n          (required ^1.0.8, test with 1.0.8).</li>\r\n        <li><a href=\"http://getbootstrap.com/\">Bootstrap CSS</a>\r\n          (required 3.x.x, test with 3.3.5).\r\n          VueStrap doesn't depend on a very precise version of Bootstrap. Just pull the latest.\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <h2>CommonJS</h2>\r\n    <pre><code class=\"language-javascript\">\r\n$ npm install vue-strap\r\n\r\nvar alert = require('vue-strap/src/alert');\r\n// or\r\nvar alert = require('vue-strap').alert;\r\n\r\nnew Vue({\r\n  components: {\r\n    'alert': alert\r\n  }\r\n})\r\n</code></pre>\r\n    <h2>ES6</h2>\r\n    <pre><code class=\"language-javascript\">\r\n$ npm install vue-strap\r\n\r\nimport alert from 'vue-strap/src/alert'\r\n// or\r\nimport { alert } from 'vue-strap'\r\n\r\nnew Vue({\r\n  components: {\r\n    alert\r\n  }``\r\n})\r\n</code></pre>\r\n\r\n    <h2>AMD</h2>\r\n    <pre><code class=\"language-javascript\">\r\n$ bower install vue-strap\r\n\r\ndefine(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });\r\n</code></pre>\r\n    <h2>Browser globals</h2>\r\n    <p>\r\n      The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.min.js</code> with\r\n      all components exported in the <code>window.VueStrap</code> object. These bundles are also available on both the\r\n      Bower and NPM packages.\r\n    </p>\r\n    <pre><code class=\"language-markup\">\r\n&lt;v-select :options=\"options\"&gt;&lt;/v-select&gt;\r\n\r\n&lt;script src=&quot;path/to/vue.js&quot;&gt;&lt;/script&gt;\r\n&lt;script src=&quot;path/to/vue-strap.js&quot;&gt;&lt;/script&gt;\r\n&lt;script&gt;\r\n  new Vue({\r\n    components: {\r\n      vSelect: VueStrap.select\r\n    },\r\n    data: {\r\n      options: []\r\n    }\r\n  })\r\n&lt;/script&gt;\r\n</code></pre>\r\n  </div>";
 
 /***/ },
 /* 103 */
@@ -1281,7 +1281,7 @@
 	
 	//     <li>
 	
-	//       <a href="https://github.com/wffranco/vue-strap" target="_blank">
+	//       <a href="https://github.com/yuche/vue-strap" target="_blank">
 	
 	//         Fork this project on Github
 	
@@ -2134,7 +2134,7 @@
 /* 117 */
 /***/ function(module, exports) {
 
-	module.exports = "<navbar>\r\n    <a href=\"/\" title=\"Home\" slot=\"brand\" class=\"navbar-brand\">VueStrap</a>\r\n\r\n    <dropdown text=\"Component List\" type=\"primary\">\r\n      <li><a href=\"#accordion\">Accordion</a></li>\r\n      <li><a href=\"#affix\">Affix</a></li>\r\n      <li><a href=\"#alert\">Alert</a></li>\r\n      <li><a href=\"#aside\">Aside</a></li>\r\n      <li><a href=\"#buttons\">Buttons</a></li>\r\n      <li><a href=\"#carousel\">Carousel</a></li>\r\n      <li><a href=\"#datepicker\">Datepicker</a></li>\r\n      <li><a href=\"#dropdown\">Dropdown</a></li>\r\n      <li><a href=\"#input\">Input</a></li>\r\n      <li><a href=\"#modal\">Modal</a></li>\r\n      <li><a href=\"#popover\">Popover</a></li>\r\n      <li><a href=\"#progressbar\">Progressbar</a></li>\r\n      <li><a href=\"#select\">Select</a></li>\r\n      <li><a href=\"#tabs\">Tabs</a></li>\r\n      <li><a href=\"#tooltip\">Tooltip</a></li>\r\n      <li><a href=\"#typeahead\">Typeahead</a></li>\r\n      <li><a href=\"#spnner\">Spnner</a></li>\r\n    </dropdown>\r\n\r\n    <li>\r\n      <a href=\"https://github.com/wffranco/vue-strap\" target=\"_blank\">\r\n        Fork this project on Github\r\n        <svg height=\"14\" fill=\"#777\" class=\"octicon octicon-mark-github\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"14\" aria-hidden=\"true\"><path d=\"M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z\"></path></svg>\r\n      </a>\r\n    </li>\r\n  </navbar>";
+	module.exports = "<navbar>\r\n    <a href=\"/\" title=\"Home\" slot=\"brand\" class=\"navbar-brand\">VueStrap</a>\r\n    <dropdown text=\"Component List\" type=\"primary\">\r\n      <li><a href=\"#accordion\">Accordion</a></li>\r\n      <li><a href=\"#affix\">Affix</a></li>\r\n      <li><a href=\"#alert\">Alert</a></li>\r\n      <li><a href=\"#aside\">Aside</a></li>\r\n      <li><a href=\"#buttons\">Buttons</a></li>\r\n      <li><a href=\"#carousel\">Carousel</a></li>\r\n      <li><a href=\"#datepicker\">Datepicker</a></li>\r\n      <li><a href=\"#dropdown\">Dropdown</a></li>\r\n      <li><a href=\"#input\">Input</a></li>\r\n      <li><a href=\"#modal\">Modal</a></li>\r\n      <li><a href=\"#popover\">Popover</a></li>\r\n      <li><a href=\"#progressbar\">Progressbar</a></li>\r\n      <li><a href=\"#select\">Select</a></li>\r\n      <li><a href=\"#tabs\">Tabs</a></li>\r\n      <li><a href=\"#tooltip\">Tooltip</a></li>\r\n      <li><a href=\"#typeahead\">Typeahead</a></li>\r\n      <li><a href=\"#spnner\">Spnner</a></li>\r\n    </dropdown>\r\n    <li>\r\n      <a href=\"https://github.com/yuche/vue-strap\" target=\"_blank\">\r\n        Fork this project on Github\r\n        <svg height=\"14\" fill=\"#777\" class=\"octicon octicon-mark-github\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"14\" aria-hidden=\"true\"><path d=\"M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z\"></path></svg>\r\n      </a>\r\n    </li>\r\n  </navbar>";
 
 /***/ },
 /* 118 */
@@ -9628,42 +9628,78 @@
 	// </script>
 
 	// <!-- Add "scoped" attribute to limit CSS to this component only -->
+
 	// <!-- <style scoped></style> -->
 	// <template>
+
 	//   <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}">
+
 	//     <label v-if="label" class="control-label">{{label}}</label>
+
 	//     <div v-if="slots.before||slots.after" class="input-group">
+
 	//       <slot name="before"></slot>
+
 	//       <input class="form-control" v-el:input v-model="value"
+
 	//         :name="name"
+
 	//         :type="type"
+
 	//         :readonly="readonly"
+
 	//         :required="required"
+
 	//         :disabled="disabled"
+
 	//         :minlength="minlength"
+
 	//         :maxlength="maxlength"
+
 	//         :placeholder="placeholder"
+
 	//         @focus="toggleEvents(true)"
+
 	//         @blur="toggleEvents(false)"
+
 	//       />
+
 	//       <slot name="after"></slot>
+
 	//     </div>
+
 	//     <input v-else class="form-control" v-el:input v-model="value"
+
 	//       :name="name"
+
 	//       :type="type"
+
 	//       :readonly="readonly"
+
 	//       :required="required"
+
 	//       :disabled="disabled"
+
 	//       :minlength="minlength"
+
 	//       :maxlength="maxlength"
+
 	//       :placeholder="placeholder"
+
 	//       @focus="toggleEvents(true)"
+
 	//       @blur="toggleEvents(false)"
+
 	//     />
+
 	//     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
+
 	//     <div v-if="showHelp" class="help-block">{{help}}</div>
+
 	//     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
+
 	//   </div>
+
 	// </template>
 
 	// <script>
@@ -9672,7 +9708,7 @@
 /* 247 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}\">\n    <label v-if=\"label\" class=\"control-label\">{{label}}</label>\n    <div v-if=\"slots.before||slots.after\" class=\"input-group\">\n      <slot name=\"before\"></slot>\n      <input class=\"form-control\" v-el:input v-model=\"value\"\n        :name=\"name\"\n        :type=\"type\"\n        :readonly=\"readonly\"\n        :required=\"required\"\n        :disabled=\"disabled\"\n        :minlength=\"minlength\"\n        :maxlength=\"maxlength\"\n        :placeholder=\"placeholder\"\n        @focus=\"toggleEvents(true)\"\n        @blur=\"toggleEvents(false)\"\n      />\n      <slot name=\"after\"></slot>\n    </div>\n    <input v-else class=\"form-control\" v-el:input v-model=\"value\"\n      :name=\"name\"\n      :type=\"type\"\n      :readonly=\"readonly\"\n      :required=\"required\"\n      :disabled=\"disabled\"\n      :minlength=\"minlength\"\n      :maxlength=\"maxlength\"\n      :placeholder=\"placeholder\"\n      @focus=\"toggleEvents(true)\"\n      @blur=\"toggleEvents(false)\"\n    />\n    <span v-if=\"icon&&valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\">{{errorText}}</div>\n  </div>";
+	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}\">\r\n    <label v-if=\"label\" class=\"control-label\">{{label}}</label>\r\n    <div v-if=\"slots.before||slots.after\" class=\"input-group\">\r\n      <slot name=\"before\"></slot>\r\n      <input class=\"form-control\" v-el:input v-model=\"value\"\r\n        :name=\"name\"\r\n        :type=\"type\"\r\n        :readonly=\"readonly\"\r\n        :required=\"required\"\r\n        :disabled=\"disabled\"\r\n        :minlength=\"minlength\"\r\n        :maxlength=\"maxlength\"\r\n        :placeholder=\"placeholder\"\r\n        @focus=\"toggleEvents(true)\"\r\n        @blur=\"toggleEvents(false)\"\r\n      />\r\n      <slot name=\"after\"></slot>\r\n    </div>\r\n    <input v-else class=\"form-control\" v-el:input v-model=\"value\"\r\n      :name=\"name\"\r\n      :type=\"type\"\r\n      :readonly=\"readonly\"\r\n      :required=\"required\"\r\n      :disabled=\"disabled\"\r\n      :minlength=\"minlength\"\r\n      :maxlength=\"maxlength\"\r\n      :placeholder=\"placeholder\"\r\n      @focus=\"toggleEvents(true)\"\r\n      @blur=\"toggleEvents(false)\"\r\n    />\r\n    <span v-if=\"icon&&valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\"></span>\r\n    <div v-if=\"showHelp\" class=\"help-block\">{{help}}</div>\r\n    <div v-if=\"showError\" class=\"help-block with-errors\">{{errorText}}</div>\r\n  </div>";
 
 /***/ },
 /* 248 */
@@ -9919,117 +9955,117 @@
 
 	//     </div>
 
-	//     <pre><code class="language-markup"><script type="language-mark-up">
+	//     <pre><code class="language-markup">
 
-	// <button class="btn btn-default"
+	// &lt;button class="btn btn-default"
 
 	//   @click="showModal = true"
 
 	//   >Show modal
 
-	// </button>
+	// &lt;/button>
 
-	// <modal :show.sync="showModal">
+	// &lt;modal :show.sync="showModal">
 
-	//   <div slot="modal-header" class="modal-header">
+	//   &lt;div slot="modal-header" class="modal-header">
 
-	//     <h4 class="modal-title">Modal title</h4>
+	//     &lt;h4 class="modal-title">Modal title&lt;/h4>
 
-	//   </div>
+	//   &lt;/div>
 
-	//   <div slot="modal-body" class="modal-body">...</div>
+	//   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
 
-	// </modal>
+	// &lt;/modal>
 
-	// <button class="btn btn-primary"
+	// &lt;button class="btn btn-primary"
 
 	//   @click="fadeModal = true">
 
 	//   Fade modal
 
-	// </button>
+	// &lt;/button>
 
-	// <modal title="Fade Modal" :show.sync="fadeModal" effect="fade" width="800">
+	// &lt;modal title="Fade Modal" :show.sync="fadeModal" effect="fade" width="800">
 
-	//   <div slot="modal-body" class="modal-body">...</div>
+	//   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
 
-	// </modal>
+	// &lt;/modal>
 
-	// <button class="btn btn-success"
+	// &lt;button class="btn btn-success"
 
 	//   @click="zoomModal = true">
 
 	//   Zoom modal
 
-	// </button>
+	// &lt;/button>
 
-	// <modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" width="400">
+	// &lt;modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" width="400">
 
-	//   <div slot="modal-body" class="modal-body">...</div>
+	//   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
 
-	// </modal>
+	// &lt;/modal>
 
-	// <button class="btn btn-default"
+	// &lt;button class="btn btn-default"
 
 	//   @click="showCustomModal = true">
 
 	//   Show custom modal
 
-	// </button>
+	// &lt;/button>
 
-	// <modal :show.sync="showCustomModal" effect="fade" width="400">
+	// &lt;modal :show.sync="showCustomModal" effect="fade" width="400">
 
-	//   <div slot="modal-header" class="modal-header">
+	//   &lt;div slot="modal-header" class="modal-header">
 
-	//     <h4 class="modal-title">
+	//     &lt;h4 class="modal-title">
 
-	//       <i>Custom</i> <code>Modal</code> <b>Title</b>
+	//       &lt;i>Custom&lt;/i> &lt;code>Modal&lt;/code> &lt;b>Title&lt;/b>
 
-	//     </h4>
+	//     &lt;/h4>
 
-	//   </div>
+	//   &lt;/div>
 
-	//   <div slot="modal-body" class="modal-body">...</div>
+	//   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
 
-	//   <div slot="modal-footer" class="modal-footer">
+	//   &lt;div slot="modal-footer" class="modal-footer">
 
-	//     <button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit</button>
+	//     &lt;button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit&lt;/button>
 
-	//     <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
+	//     &lt;button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save&lt;/button>
 
-	//   </div>
+	//   &lt;/div>
 
-	// </modal>
+	// &lt;/modal>
 
-	// <button class="btn btn-default"
+	// &lt;button class="btn btn-default"
 
 	//   @click="largeModal = true"
 
 	//   >Large Modal
 
-	// </button>
+	// &lt;/button>
 
-	// <modal :show.sync="largeModal">
+	// &lt;modal :show.sync="largeModal">
 
-	//   <div slot="modal-body" class="modal-body">...</div>
+	//   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
 
-	// </modal>
+	// &lt;/modal>
 
-	// <button class="btn btn-default"
+	// &lt;button class="btn btn-default"
 
 	//   @click="smallModal = true"
 
 	//   >Small Modal
 
-	// </button>
+	// &lt;/button>
 
-	// <modal :show.sync="smallModal">
+	// &lt;modal :show.sync="smallModal">
 
-	//   <div slot="modal-body" class="modal-body">...</div>
+	//   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
 
-	// </modal>
+	// &lt;/modal>
 
-	//   </script></code></pre>
+	//   </code></pre>
 
 	//   <h2>Options</h2>
 
@@ -10533,7 +10569,7 @@
 /* 260 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"bs-docs-section\" id=\"modal\">\r\n    <h1 class=\"page-header\"><a href=\"#modal\" class=\"anchor\">Modal</a></h1>\r\n    <div class=\"bs-example\">\r\n      <button class=\"btn btn-default\" @click=\"showModal = true\">Show modal</button>\r\n      <modal title=\"Modal title\" :show.sync=\"showModal\">\r\n        <div slot=\"modal-header\" class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Modal <b>Title</b></h4>\r\n        </div>\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-success\" @click=\"fadeModal = true\">Fade modal</button>\r\n      <modal title=\"Fade Modal\" :show.sync=\"fadeModal\" effect=\"fade\" width=\"800\">\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-primary\" @click=\"zoomModal = true\">Zoom modal</button>\r\n      <modal title=\"Zoom Modal\" :show.sync=\"zoomModal\" effect=\"zoom\" width=\"400\">\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-default\" @click=\"showCustomModal = true\">Show custom modal</button>\r\n      <modal :show.sync=\"showCustomModal\" effect=\"fade\" width=\"50%\">\r\n        <div slot=\"modal-header\" class=\"modal-header\">\r\n          <h4 class=\"modal-title\"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>\r\n        </div>\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </div>\r\n        <div slot=\"modal-footer\" class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" @click='showCustomModal = false'>Exit</button>\r\n          <button type=\"button\" class=\"btn btn-success\" @click='showCustomModal = false'>Custom Save</button>\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-warning\" @click=\"largeModal = true\">Large modal</button>\r\n      <modal title=\"Large Modal\" :show.sync=\"largeModal\" large>\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-danger\" @click=\"smallModal = true\">Small modal</button>\r\n      <modal title=\"Small Modal\" :show.sync=\"smallModal\" small>\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat.\r\n        </div>\r\n      </modal>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\n<button class=\"btn btn-default\"\r\n  @click=\"showModal = true\"\r\n  >Show modal\r\n</button>\r\n<modal :show.sync=\"showModal\">\r\n  <div slot=\"modal-header\" class=\"modal-header\">\r\n    <h4 class=\"modal-title\">Modal title</h4>\r\n  </div>\r\n  <div slot=\"modal-body\" class=\"modal-body\">...</div>\r\n</modal>\r\n\r\n<button class=\"btn btn-primary\"\r\n  @click=\"fadeModal = true\">\r\n  Fade modal\r\n</button>\r\n<modal title=\"Fade Modal\" :show.sync=\"fadeModal\" effect=\"fade\" width=\"800\">\r\n  <div slot=\"modal-body\" class=\"modal-body\">...</div>\r\n</modal>\r\n\r\n<button class=\"btn btn-success\"\r\n  @click=\"zoomModal = true\">\r\n  Zoom modal\r\n</button>\r\n<modal title=\"Zoom Modal\" :show.sync=\"zoomModal\" effect=\"zoom\" width=\"400\">\r\n  <div slot=\"modal-body\" class=\"modal-body\">...</div>\r\n</modal>\r\n\r\n<button class=\"btn btn-default\"\r\n  @click=\"showCustomModal = true\">\r\n  Show custom modal\r\n</button>\r\n<modal :show.sync=\"showCustomModal\" effect=\"fade\" width=\"400\">\r\n  <div slot=\"modal-header\" class=\"modal-header\">\r\n    <h4 class=\"modal-title\">\r\n      <i>Custom</i> <code>Modal</code> <b>Title</b>\r\n    </h4>\r\n  </div>\r\n  <div slot=\"modal-body\" class=\"modal-body\">...</div>\r\n  <div slot=\"modal-footer\" class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-default\" @click='showCustomModal = false'>Exit</button>\r\n    <button type=\"button\" class=\"btn btn-success\" @click='showCustomModal = false'>Custom Save</button>\r\n  </div>\r\n</modal>\r\n<button class=\"btn btn-default\"\r\n  @click=\"largeModal = true\"\r\n  >Large Modal\r\n</button>\r\n<modal :show.sync=\"largeModal\">\r\n  <div slot=\"modal-body\" class=\"modal-body\">...</div>\r\n</modal>\r\n<button class=\"btn btn-default\"\r\n  @click=\"smallModal = true\"\r\n  >Small Modal\r\n</button>\r\n<modal :show.sync=\"smallModal\">\r\n  <div slot=\"modal-body\" class=\"modal-body\">...</div>\r\n</modal>\r\n  </script></code></pre>\r\n  <h2>Options</h2>\r\n  <table class=\"table table-bordered\">\r\n    <thead>\r\n      <tr>\r\n        <th>Name</th>\r\n        <th>Type</th>\r\n        <th>Default</th>\r\n        <th>Description</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr>\r\n        <td>title</td>\r\n        <td><code>String</code></td>\r\n        <td></td>\r\n        <td>Title of the modal component.</td>\r\n      </tr>\r\n      <tr>\r\n        <td>ok-text</td>\r\n        <td><code>String</code></td>\r\n        <td>Save changes</td>\r\n        <td>Text for OK button</td>\r\n      </tr>\r\n      <tr>\r\n        <td>cancel-text</td>\r\n        <td><code>String</code></td>\r\n        <td>Close</td>\r\n        <td>Text for cancel button</td>\r\n      </tr>\r\n      <tr>\r\n        <td>width</td>\r\n        <td><code>Number, String or null</code></td>\r\n        <td><code>null</code></td>\r\n        <td>Pass a Number in pixels or a String with relational sizes ( ex: '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.</td>\r\n      </tr>\r\n      <tr>\r\n        <td>callback</td>\r\n        <td><code>Function</code></td>\r\n        <td></td>\r\n        <td>A callback Function when you click the modal primary button.</td>\r\n      </tr>\r\n      <tr>\r\n        <td>large</td>\r\n        <td><code>Boolean</code></td>\r\n        <td><code>false</code></td>\r\n        <td>Creates a large modal ( see boostrap's documentation for .modal-lg )</td>\r\n      </tr>\r\n      <tr>\r\n        <td>small</td>\r\n        <td><code>Boolean</code></td>\r\n        <td><code>false</code></td>\r\n        <td>Creates a small modal ( see boostrap's documentation for .modal-sm )</td>\r\n      </tr>\r\n      <tr>\r\n        <td>backdrop</td>\r\n        <td><code>Boolean</code></td>\r\n        <td><code>true</code></td>\r\n        <td>Enables/disables closing the modal by clicking on the backdrop.</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <h2>Usage</h2>\r\n  <p>\r\n    If you just need a simple modal, you can use the <code>title</code> prop and the default footer. However, if you\r\n    need to put custom HTML or a custom footer, you can override the header or footer block by using\r\n    <code>&lt;div slot=\"modal-title\" class=\"modal-title\"&gt;...&lt;/div&gt;</code> and\r\n    <code>&lt;div slot=\"modal-footer\" class=\"modal-footer\"&gt;...&lt;/div&gt;</code>.\r\n  </p>\r\n  </div>";
+	module.exports = "<div class=\"bs-docs-section\" id=\"modal\">\r\n    <h1 class=\"page-header\"><a href=\"#modal\" class=\"anchor\">Modal</a></h1>\r\n    <div class=\"bs-example\">\r\n      <button class=\"btn btn-default\" @click=\"showModal = true\">Show modal</button>\r\n      <modal title=\"Modal title\" :show.sync=\"showModal\">\r\n        <div slot=\"modal-header\" class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Modal <b>Title</b></h4>\r\n        </div>\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-success\" @click=\"fadeModal = true\">Fade modal</button>\r\n      <modal title=\"Fade Modal\" :show.sync=\"fadeModal\" effect=\"fade\" width=\"800\">\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-primary\" @click=\"zoomModal = true\">Zoom modal</button>\r\n      <modal title=\"Zoom Modal\" :show.sync=\"zoomModal\" effect=\"zoom\" width=\"400\">\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-default\" @click=\"showCustomModal = true\">Show custom modal</button>\r\n      <modal :show.sync=\"showCustomModal\" effect=\"fade\" width=\"50%\">\r\n        <div slot=\"modal-header\" class=\"modal-header\">\r\n          <h4 class=\"modal-title\"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>\r\n        </div>\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </div>\r\n        <div slot=\"modal-footer\" class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" @click='showCustomModal = false'>Exit</button>\r\n          <button type=\"button\" class=\"btn btn-success\" @click='showCustomModal = false'>Custom Save</button>\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-warning\" @click=\"largeModal = true\">Large modal</button>\r\n      <modal title=\"Large Modal\" :show.sync=\"largeModal\" large>\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-danger\" @click=\"smallModal = true\">Small modal</button>\r\n      <modal title=\"Small Modal\" :show.sync=\"smallModal\" small>\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat.\r\n        </div>\r\n      </modal>\r\n    </div>\r\n    <pre><code class=\"language-markup\">\r\n&lt;button class=\"btn btn-default\"\r\n  @click=\"showModal = true\"\r\n  >Show modal\r\n&lt;/button>\r\n&lt;modal :show.sync=\"showModal\">\r\n  &lt;div slot=\"modal-header\" class=\"modal-header\">\r\n    &lt;h4 class=\"modal-title\">Modal title&lt;/h4>\r\n  &lt;/div>\r\n  &lt;div slot=\"modal-body\" class=\"modal-body\">...&lt;/div>\r\n&lt;/modal>\r\n\r\n&lt;button class=\"btn btn-primary\"\r\n  @click=\"fadeModal = true\">\r\n  Fade modal\r\n&lt;/button>\r\n&lt;modal title=\"Fade Modal\" :show.sync=\"fadeModal\" effect=\"fade\" width=\"800\">\r\n  &lt;div slot=\"modal-body\" class=\"modal-body\">...&lt;/div>\r\n&lt;/modal>\r\n\r\n&lt;button class=\"btn btn-success\"\r\n  @click=\"zoomModal = true\">\r\n  Zoom modal\r\n&lt;/button>\r\n&lt;modal title=\"Zoom Modal\" :show.sync=\"zoomModal\" effect=\"zoom\" width=\"400\">\r\n  &lt;div slot=\"modal-body\" class=\"modal-body\">...&lt;/div>\r\n&lt;/modal>\r\n\r\n&lt;button class=\"btn btn-default\"\r\n  @click=\"showCustomModal = true\">\r\n  Show custom modal\r\n&lt;/button>\r\n&lt;modal :show.sync=\"showCustomModal\" effect=\"fade\" width=\"400\">\r\n  &lt;div slot=\"modal-header\" class=\"modal-header\">\r\n    &lt;h4 class=\"modal-title\">\r\n      &lt;i>Custom&lt;/i> &lt;code>Modal&lt;/code> &lt;b>Title&lt;/b>\r\n    &lt;/h4>\r\n  &lt;/div>\r\n  &lt;div slot=\"modal-body\" class=\"modal-body\">...&lt;/div>\r\n  &lt;div slot=\"modal-footer\" class=\"modal-footer\">\r\n    &lt;button type=\"button\" class=\"btn btn-default\" @click='showCustomModal = false'>Exit&lt;/button>\r\n    &lt;button type=\"button\" class=\"btn btn-success\" @click='showCustomModal = false'>Custom Save&lt;/button>\r\n  &lt;/div>\r\n&lt;/modal>\r\n&lt;button class=\"btn btn-default\"\r\n  @click=\"largeModal = true\"\r\n  >Large Modal\r\n&lt;/button>\r\n&lt;modal :show.sync=\"largeModal\">\r\n  &lt;div slot=\"modal-body\" class=\"modal-body\">...&lt;/div>\r\n&lt;/modal>\r\n&lt;button class=\"btn btn-default\"\r\n  @click=\"smallModal = true\"\r\n  >Small Modal\r\n&lt;/button>\r\n&lt;modal :show.sync=\"smallModal\">\r\n  &lt;div slot=\"modal-body\" class=\"modal-body\">...&lt;/div>\r\n&lt;/modal>\r\n  </code></pre>\r\n  <h2>Options</h2>\r\n  <table class=\"table table-bordered\">\r\n    <thead>\r\n      <tr>\r\n        <th>Name</th>\r\n        <th>Type</th>\r\n        <th>Default</th>\r\n        <th>Description</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr>\r\n        <td>title</td>\r\n        <td><code>String</code></td>\r\n        <td></td>\r\n        <td>Title of the modal component.</td>\r\n      </tr>\r\n      <tr>\r\n        <td>ok-text</td>\r\n        <td><code>String</code></td>\r\n        <td>Save changes</td>\r\n        <td>Text for OK button</td>\r\n      </tr>\r\n      <tr>\r\n        <td>cancel-text</td>\r\n        <td><code>String</code></td>\r\n        <td>Close</td>\r\n        <td>Text for cancel button</td>\r\n      </tr>\r\n      <tr>\r\n        <td>width</td>\r\n        <td><code>Number, String or null</code></td>\r\n        <td><code>null</code></td>\r\n        <td>Pass a Number in pixels or a String with relational sizes ( ex: '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.</td>\r\n      </tr>\r\n      <tr>\r\n        <td>callback</td>\r\n        <td><code>Function</code></td>\r\n        <td></td>\r\n        <td>A callback Function when you click the modal primary button.</td>\r\n      </tr>\r\n      <tr>\r\n        <td>large</td>\r\n        <td><code>Boolean</code></td>\r\n        <td><code>false</code></td>\r\n        <td>Creates a large modal ( see boostrap's documentation for .modal-lg )</td>\r\n      </tr>\r\n      <tr>\r\n        <td>small</td>\r\n        <td><code>Boolean</code></td>\r\n        <td><code>false</code></td>\r\n        <td>Creates a small modal ( see boostrap's documentation for .modal-sm )</td>\r\n      </tr>\r\n      <tr>\r\n        <td>backdrop</td>\r\n        <td><code>Boolean</code></td>\r\n        <td><code>true</code></td>\r\n        <td>Enables/disables closing the modal by clicking on the backdrop.</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <h2>Usage</h2>\r\n  <p>\r\n    If you just need a simple modal, you can use the <code>title</code> prop and the default footer. However, if you\r\n    need to put custom HTML or a custom footer, you can override the header or footer block by using\r\n    <code>&lt;div slot=\"modal-title\" class=\"modal-title\"&gt;...&lt;/div&gt;</code> and\r\n    <code>&lt;div slot=\"modal-footer\" class=\"modal-footer\"&gt;...&lt;/div&gt;</code>.\r\n  </p>\r\n  </div>";
 
 /***/ },
 /* 261 */

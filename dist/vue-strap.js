@@ -4243,42 +4243,78 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </script>
 
 	// <!-- Add "scoped" attribute to limit CSS to this component only -->
+
 	// <!-- <style scoped></style> -->
 	// <template>
+
 	//   <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}">
+
 	//     <label v-if="label" class="control-label">{{label}}</label>
+
 	//     <div v-if="slots.before||slots.after" class="input-group">
+
 	//       <slot name="before"></slot>
+
 	//       <input class="form-control" v-el:input v-model="value"
+
 	//         :name="name"
+
 	//         :type="type"
+
 	//         :readonly="readonly"
+
 	//         :required="required"
+
 	//         :disabled="disabled"
+
 	//         :minlength="minlength"
+
 	//         :maxlength="maxlength"
+
 	//         :placeholder="placeholder"
+
 	//         @focus="toggleEvents(true)"
+
 	//         @blur="toggleEvents(false)"
+
 	//       />
+
 	//       <slot name="after"></slot>
+
 	//     </div>
+
 	//     <input v-else class="form-control" v-el:input v-model="value"
+
 	//       :name="name"
+
 	//       :type="type"
+
 	//       :readonly="readonly"
+
 	//       :required="required"
+
 	//       :disabled="disabled"
+
 	//       :minlength="minlength"
+
 	//       :maxlength="maxlength"
+
 	//       :placeholder="placeholder"
+
 	//       @focus="toggleEvents(true)"
+
 	//       @blur="toggleEvents(false)"
+
 	//     />
+
 	//     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
+
 	//     <div v-if="showHelp" class="help-block">{{help}}</div>
+
 	//     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
+
 	//   </div>
+
 	// </template>
 
 	// <script>
@@ -4287,7 +4323,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 128 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}\">\n    <label v-if=\"label\" class=\"control-label\">{{label}}</label>\n    <div v-if=\"slots.before||slots.after\" class=\"input-group\">\n      <slot name=\"before\"></slot>\n      <input class=\"form-control\" v-el:input v-model=\"value\"\n        :name=\"name\"\n        :type=\"type\"\n        :readonly=\"readonly\"\n        :required=\"required\"\n        :disabled=\"disabled\"\n        :minlength=\"minlength\"\n        :maxlength=\"maxlength\"\n        :placeholder=\"placeholder\"\n        @focus=\"toggleEvents(true)\"\n        @blur=\"toggleEvents(false)\"\n      />\n      <slot name=\"after\"></slot>\n    </div>\n    <input v-else class=\"form-control\" v-el:input v-model=\"value\"\n      :name=\"name\"\n      :type=\"type\"\n      :readonly=\"readonly\"\n      :required=\"required\"\n      :disabled=\"disabled\"\n      :minlength=\"minlength\"\n      :maxlength=\"maxlength\"\n      :placeholder=\"placeholder\"\n      @focus=\"toggleEvents(true)\"\n      @blur=\"toggleEvents(false)\"\n    />\n    <span v-if=\"icon&&valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\">{{errorText}}</div>\n  </div>";
+	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}\">\r\n    <label v-if=\"label\" class=\"control-label\">{{label}}</label>\r\n    <div v-if=\"slots.before||slots.after\" class=\"input-group\">\r\n      <slot name=\"before\"></slot>\r\n      <input class=\"form-control\" v-el:input v-model=\"value\"\r\n        :name=\"name\"\r\n        :type=\"type\"\r\n        :readonly=\"readonly\"\r\n        :required=\"required\"\r\n        :disabled=\"disabled\"\r\n        :minlength=\"minlength\"\r\n        :maxlength=\"maxlength\"\r\n        :placeholder=\"placeholder\"\r\n        @focus=\"toggleEvents(true)\"\r\n        @blur=\"toggleEvents(false)\"\r\n      />\r\n      <slot name=\"after\"></slot>\r\n    </div>\r\n    <input v-else class=\"form-control\" v-el:input v-model=\"value\"\r\n      :name=\"name\"\r\n      :type=\"type\"\r\n      :readonly=\"readonly\"\r\n      :required=\"required\"\r\n      :disabled=\"disabled\"\r\n      :minlength=\"minlength\"\r\n      :maxlength=\"maxlength\"\r\n      :placeholder=\"placeholder\"\r\n      @focus=\"toggleEvents(true)\"\r\n      @blur=\"toggleEvents(false)\"\r\n    />\r\n    <span v-if=\"icon&&valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\"></span>\r\n    <div v-if=\"showHelp\" class=\"help-block\">{{help}}</div>\r\n    <div v-if=\"showError\" class=\"help-block with-errors\">{{errorText}}</div>\r\n  </div>";
 
 /***/ },
 /* 129 */
