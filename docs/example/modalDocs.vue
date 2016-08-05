@@ -220,20 +220,21 @@
 </template>
 
 <script>
-  import modal from 'src/Modal.vue'
-  export default {
-    data() {
-      return {
-        showModal: false,
-        fadeModal: false,
-        zoomModal: false,
-        showCustomModal: false,
-        largeModal: false,
-        smallModal: false
-      }
-    },
-    components: {
-      modal
+import modal from 'src/Modal.vue'
+
+export default {
+  data () {
+    return {
+      showModal: false,
+      fadeModal: false,
+      zoomModal: false,
+      showCustomModal: false,
+      largeModal: false,
+      smallModal: false
     }
+  },
+  components: {
+    modal
   }
+}
 </script>

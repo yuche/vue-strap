@@ -51,10 +51,19 @@ new Vue({
       all components exported in the <code>window.VueStrap</code> object.
     </p>
     <pre><code class="language-markup">
+&lt;v-select :options="options"&gt;&lt;/v-select&gt;
+
 &lt;script src=&quot;path/to/vue.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;path/to/vue-strap.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
-  var alert = VueStrap.alert
+  new Vue({
+    components: {
+      vSelect: VueStrap.select
+    },
+    data: {
+      options: []
+    }
+  })
 &lt;/script&gt;
     </code></pre>
   </div>

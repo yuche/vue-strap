@@ -1,28 +1,7 @@
-<style>
-  input.datepicker-input.with-reset-button {
-    padding-right: 25px;
-  }
-
-  div.datepicker > button.close {
-    position: absolute;
-    top: calc(50% - 13px);
-    right: 10px;
-  }
-
-  div.datepicker > button.close {
-    outline: none;
-    z-index: 2;
-  }
-
-  div.datepicker > button.close:focus {
-    opacity: .2;
-  }
-</style>
-
 <template>
   <div class="datepicker">
     <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text"
-        v-bind:style="{width:width}"
+        :style="{width:width}"
         @click="inputClick"
         v-model="value"/>
     <button v-if="showResetButton" type="button" class="close" @click="value = ''">
@@ -37,7 +16,7 @@
             <p @click="switchMonthView">{{stringifyDayHeader(currDate)}}</p>
           </div>
           <div class="datepicker-weekRange">
-            <span v-for="w in weekRange">{{w}}</span>
+            <span v-for="w in text.daysOfWeek">{{w}}</span>
           </div>
           <div class="datepicker-dateRange">
             <span v-for="d in dateRange" v-bind:class="d.sclass" @click="daySelect(d.date,this)">{{d.text}}</span>
@@ -54,9 +33,9 @@
             <p @click="switchDecadeView">{{stringifyYearHeader(currDate)}}</p>
           </div>
           <div class="datepicker-monthRange">
-            <template v-for="m in monthNames">
+            <template v-for="m in text.months">
               <span   v-bind:class="{'datepicker-dateRange-item-active':
-                  (this.monthNames[this.parse(this.value).getMonth()]  === m) &&
+                  (this.text.months[this.parse(this.value).getMonth()]  === m) &&
                   this.currDate.getFullYear() === this.parse(this.value).getFullYear()}"
                   @click="monthSelect($index)"
                 >{{m.substr(0,3)}}</span>
@@ -89,6 +68,7 @@
 
 <script>
 import EventListener from './utils/EventListener.js'
+import translations from './translations.js'
 
 export default {
   props: {
@@ -97,11 +77,11 @@ export default {
       twoWay: true
     },
     format: {
-      default: 'MMMM/dd/yyyy'
+      default: 'dd/MM/yyyy'
     },
     disabledDaysOfWeek: {
       type: Array,
-      default() {
+      default () {
         return []
       }
     },
@@ -112,42 +92,54 @@ export default {
     showResetButton: {
       type: Boolean,
       default: false
+    },
+    lang: {
+      type: String,
+      default: navigator.language
     }
   },
-  data() {
+  ready () {
+    this.$dispatch('child-created', this)
+    this.currDate = this.parse(this.value) || this.parse(new Date())
+    this._closeEvent = EventListener.listen(window, 'click', (e) => {
+      if (!this.$el.contains(e.target)) this.close()
+    })
+  },
+  beforeDestroy () {
+    if (this._closeEvent) this._closeEvent.remove()
+  },
+  data () {
     return {
-      weekRange: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+      currDate: new Date(),
       dateRange: [],
       decadeRange: [],
-      currDate: new Date,
       displayDayView: false,
       displayMonthView: false,
-      displayYearView: false,
-      monthNames: [
-        'January', 'February', 'March',
-        'April', 'May', 'June',
-        'July', 'August', 'September',
-        'October', 'November', 'December'
-      ]
+      displayYearView: false
     }
   },
   watch: {
-    currDate() {
+    currDate () {
       this.getDateRange()
     }
   },
+  computed: {
+    text () {
+      return translations(this.lang)
+    }
+  },
   methods: {
-    close() {
+    close () {
       this.displayDayView = this.displayMonthView = this.displayYearView = false
     },
-    inputClick() {
+    inputClick () {
       if (this.displayMonthView || this.displayYearView) {
         this.displayDayView = false
       } else {
         this.displayDayView = !this.displayDayView
       }
     },
-    preNextDecadeClick(flag) {
+    preNextDecadeClick (flag) {
       const year = this.currDate.getFullYear()
       const months = this.currDate.getMonth()
       const date = this.currDate.getDate()
@@ -158,11 +150,10 @@ export default {
         this.currDate = new Date(year + 10, months, date)
       }
     },
-    preNextMonthClick(flag) {
+    preNextMonthClick (flag) {
       const year = this.currDate.getFullYear()
       const month = this.currDate.getMonth()
       const date = this.currDate.getDate()
-
 
       if (flag === 0) {
         const preMonth = this.getYearMonth(year, month - 1)
@@ -172,7 +163,7 @@ export default {
         this.currDate = new Date(nextMonth.year, nextMonth.month, date)
       }
     },
-    preNextYearClick(flag) {
+    preNextYearClick (flag) {
       const year = this.currDate.getFullYear()
       const months = this.currDate.getMonth()
       const date = this.currDate.getDate()
@@ -183,12 +174,12 @@ export default {
         this.currDate = new Date(year + 1, months, date)
       }
     },
-    yearSelect(year) {
+    yearSelect (year) {
       this.displayYearView = false
       this.displayMonthView = true
       this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())
     },
-    daySelect(date, el) {
+    daySelect (date, el) {
       if (el.$el.classList[0] === 'datepicker-item-disable') {
         return false
       } else {
@@ -197,45 +188,45 @@ export default {
         this.displayDayView = false
       }
     },
-    switchMonthView() {
+    switchMonthView () {
       this.displayDayView = false
       this.displayMonthView = true
     },
-    switchDecadeView() {
+    switchDecadeView () {
       this.displayMonthView = false
       this.displayYearView = true
     },
-    monthSelect(index) {
+    monthSelect (index) {
       this.displayMonthView = false
       this.displayDayView = true
       this.currDate = new Date(this.currDate.getFullYear(), index, this.currDate.getDate())
     },
-    getYearMonth(year, month) {
+    getYearMonth (year, month) {
       if (month > 11) {
         year++
-          month = 0
+        month = 0
       } else if (month < 0) {
         year--
-          month = 11
+        month = 11
       }
       return {year: year, month: month}
     },
-    stringifyDecadeHeader(date) {
+    stringifyDecadeHeader (date) {
       const yearStr = date.getFullYear().toString()
       const firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0
       const lastYearOfDecade = parseInt(firstYearOfDecade, 10) + 10
       return firstYearOfDecade + '-' + lastYearOfDecade
     },
-    stringifyDayHeader(date) {
-      return this.monthNames[date.getMonth()] + ' ' + date.getFullYear()
+    stringifyDayHeader (date) {
+      return this.text.months[date.getMonth()] + ' ' + date.getFullYear()
     },
-    parseMonth(date) {
-      return this.monthNames[date.getMonth()]
+    parseMonth (date) {
+      return this.text.months[date.getMonth()]
     },
-    stringifyYearHeader(date) {
+    stringifyYearHeader (date) {
       return date.getFullYear()
     },
-    stringify(date, format = this.format) {
+    stringify (date, format = this.format) {
       const year = date.getFullYear()
       const month = date.getMonth() + 1
       const day = date.getDate()
@@ -251,26 +242,23 @@ export default {
       .replace(/M(?!a)/g, month)
       .replace(/d/g, day)
     },
-    parse(str) {
-      if (str.length == 10 && (this.format == 'dd-MM-yyyy' || this.format == 'dd/MM/yyyy')) {
-        str = str.substring(3,5)+'-'+str.substring(0,2)+'-'+str.substring(6,10);
+    parse (str) {
+      if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {
+        str = str.substring(3, 5) + '-' + str.substring(0, 2) + '-' + str.substring(6, 10)
       }
       const date = new Date(str)
       return isNaN(date.getFullYear()) ? null : date
     },
-    getDayCount(year, month) {
+    getDayCount (year, month) {
       const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
       if (month === 1) {
-        if ( (year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0) ) {
+        if ((year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0)) {
           return 29
         }
-        return 28
       }
-
       return dict[month]
     },
-    getDateRange() {
+    getDateRange () {
       this.dateRange = []
       this.decadeRange = []
       const time = {
@@ -309,25 +297,24 @@ export default {
         const date = new Date(time.year, time.month, i)
         const week = date.getDay()
         let sclass = ''
-        this.disabledDaysOfWeek.forEach((el)=> {
+        this.disabledDaysOfWeek.forEach((el) => {
           if (week === parseInt(el, 10)) sclass = 'datepicker-item-disable'
         })
-
-      if (i === time.day) {
-        if (this.value) {
-          const valueDate = this.parse(this.value)
-          if (valueDate) {
-            if (valueDate.getFullYear() === time.year && valueDate.getMonth() === time.month) {
-              sclass = 'datepicker-dateRange-item-active'
+        if (i === time.day) {
+          if (this.value) {
+            const valueDate = this.parse(this.value)
+            if (valueDate) {
+              if (valueDate.getFullYear() === time.year && valueDate.getMonth() === time.month) {
+                sclass = 'datepicker-dateRange-item-active'
+              }
             }
           }
         }
-      }
-      this.dateRange.push({
-        text: i,
-        date: date,
-        sclass: sclass
-      })
+        this.dateRange.push({
+          text: i,
+          date: date,
+          sclass: sclass
+        })
       }
 
       if (this.dateRange.length < 42) {
@@ -343,53 +330,54 @@ export default {
         }
       }
     }
-  },
-  ready() {
-    this.$dispatch('child-created', this)
-    this.currDate = this.parse(this.value) || this.parse(new Date())
-    this._closeEvent = EventListener.listen(window, 'click', (e)=> {
-      if (!this.$el.contains(e.target)) this.close()
-    })
-  },
-  beforeDestroy() {
-    if (this._closeEvent) this._closeEvent.remove()
   }
 }
 </script>
 
 <style>
 .datepicker{
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
-
+input.datepicker-input.with-reset-button {
+  padding-right: 25px;
+}
+.datepicker > button.close {
+  position: absolute;
+  top: calc(50% - 13px);
+  right: 10px;
+  outline: none;
+  z-index: 2;
+}
+.datepicker > button.close:focus {
+  opacity: .2;
+}
 .datepicker-popup{
-    position: absolute;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #fff;
-    margin-top: 2px;
-    z-index: 1000;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+  position: absolute;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  margin-top: 2px;
+  z-index: 1000;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.175);
 }
 .datepicker-inner{
-    width: 218px;
-
+  width: 218px;
 }
 .datepicker-body{
-    padding: 10px 10px;
+  padding: 10px 10px;
 }
 .datepicker-ctrl p,
 .datepicker-ctrl span,
 .datepicker-body span{
-    display: inline-block;
-    width: 28px;
-    line-height: 28px;
-    height: 28px;
-    border-radius: 4px;
+  display: inline-block;
+  width: 28px;
+  line-height: 28px;
+  height: 28px;
+  border-radius: 4px;
 }
 .datepicker-ctrl p {
-    width: 65%;
+  width: 65%;
 }
 .datepicker-ctrl span {
   position: absolute;
@@ -410,13 +398,13 @@ export default {
 .decadeRange span:last-child,
 .datepicker-item-disable,
 .datepicker-item-gray{
-    color: #999;
+  color: #999;
 }
 
 .datepicker-dateRange-item-active:hover,
 .datepicker-dateRange-item-active {
-    background: rgb(50, 118, 177)!important;
-    color: white!important;
+  background: rgb(50, 118, 177)!important;
+  color: white!important;
 }
 .datepicker-monthRange {
   margin-top: 10px
@@ -432,36 +420,35 @@ export default {
 .datepicker-ctrl i:hover,
 .datepicker-dateRange span:hover,
 .datepicker-dateRange-item-hover {
-    background-color : #eeeeee;
+  background-color : #eeeeee;
 }
-
 .datepicker-weekRange span{
-    font-weight: bold;
+  font-weight: bold;
 }
 .datepicker-label{
-    background-color: #f8f8f8;
-    font-weight: 700;
-    padding: 7px 0;
-    text-align: center;
+  background-color: #f8f8f8;
+  font-weight: 700;
+  padding: 7px 0;
+  text-align: center;
 }
 .datepicker-ctrl{
-    position: relative;
-    height: 30px;
-    line-height: 30px;
-    font-weight: bold;
-    text-align: center;
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  font-weight: bold;
+  text-align: center;
 }
 .month-btn{
   font-weight: bold;
   -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 }
 .datepicker-preBtn{
-    left: 2px;
+  left: 2px;
 }
 .datepicker-nextBtn{
-    right: 2px;
+  right: 2px;
 }
 </style>

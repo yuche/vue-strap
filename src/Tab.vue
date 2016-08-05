@@ -1,8 +1,7 @@
 <template>
-  <div role="tabpanel" class="tab-pane"
-      v-bind:class="{hide:!show}"
-      v-show="show"
-      :transition="transition"
+  <div role="tabpanel" class="tab-pane active" v-show="show"
+    :class="{hide:!show}"
+    :transition="transition"
   >
     <slot></slot>
   </div>
@@ -11,55 +10,58 @@
 <script>
 import coerceBoolean from './utils/coerceBoolean.js'
 
-  export default {
-    props: {
-      header: {
-        type: String
-      },
-      disabled: {
-        type: Boolean,
-        coerce: coerceBoolean,
-        default: false
-      }
+export default {
+  props: {
+    header: {
+      type: String
     },
-    data() {
-      return {
-        index: 0,
-        show: false
-      }
-    },
-    computed: {
-      show() {
-        return (this.$parent.active == this.index);
-      },
-      transition() {
-        return this.$parent.effect
-      }
-    },
-    created() {
-      this.$parent.renderData.push({
-        header: this.header,
-        disabled: this.disabled
-      })
-    },
-    ready() {
-        for (var c in this.$parent.$children)
-        {
-            if (this.$parent.$children[c].$el == this.$el)
-            {
-                this.index= c;
-                break;
-            }
-        }
-    },
-    beforeDestroy() {
-      this.$parent.renderData.splice(this.index, 1);
+    disabled: {
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: false
     }
+  },
+  computed: {
+    active () {
+      return this._tabset.show == this
+    },
+    index () {
+      return this._tabset.tabs.indexOf(this)
+    },
+    show () {
+      return this._tabset && this._tabset.show === this
+    },
+    transition () {
+      return this._tabset ? this._tabset.effect : null
+    }
+  },
+  created () {
+    this._ingroup = this.$parent && this.$parent._tabgroup
+    let tabset = this
+    while (tabset && tabset._tabset!==true && tabset.$parent) {
+      tabset = tabset.$parent
+    }
+    if (!tabset._tabset) {
+      this._tabset = {}
+      console.warn('Warning: "tab" depend on "tabset" to work properly.')
+    } else {
+      tabset.tabs.push(this)
+      if (!this._ingroup) {
+        tabset.headers.push(this)
+      } else {
+        if (!~tabset.headers.indexOf(this.$parent)) {
+          tabset.headers.push(this.$parent)
+        }
+      }
+      this._tabset = tabset
+    }
+    if (this._ingroup) {
+      this.$parent.tabs.push(this)
+    }
+  },
+  beforeDestroy () {
+    if (this._tabset.active === this.index) { this._tabset.active = 0 }
+    this._tabset.tabs.splice(this.index, 1)
   }
+}
 </script>
-
-<style scoped>
-  .tab-content > .tab-pane {
-    display: block;
-  }
-</style>

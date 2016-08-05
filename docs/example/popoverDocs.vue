@@ -2,6 +2,20 @@
   <div class="bs-docs-section" id="popover">
     <h1 class="page-header"><a href="#popover" class="anchor">Popover</a></h1>
     <div class="bs-example">
+      <popover effect="fade" content="Lorem ipsum dolor sit amet" placement="top">
+        <button class="btn btn-default ">Popover on top</button>
+      </popover>
+      <popover effect="fade" content="Lorem ipsum dolor sit amet" placement="left">
+        <button class="btn btn-default ">Popover on left</button>
+      </popover>
+      <popover effect="fade" content="Lorem ipsum dolor sit amet" placement="right">
+        <button class="btn btn-default ">Popover on right</button>
+      </popover>
+      <popover effect="fade" placement="bottom" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
+        <button class="btn btn-default ">Popover on bottom</button>
+      </popover>
+      <hr>
+      <h4>Title</h4>
       <popover effect="fade" :header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="top">
         <button class="btn btn-default ">Popover on top</button>
       </popover>
@@ -15,23 +29,9 @@
         <button class="btn btn-default ">Popover on bottom</button>
       </popover>
       <hr>
-      <h4>No title</h4>
-      <popover effect="fade"  title="Title" content="Lorem ipsum dolor sit amet" placement="top">
-        <button class="btn btn-default ">Popover on top</button>
-      </popover>
-      <popover effect="fade"  title="Title" content="Lorem ipsum dolor sit amet" placement="left">
-        <button class="btn btn-default ">Popover on left</button>
-      </popover>
-      <popover effect="fade"  title="Title" content="Lorem ipsum dolor sit amet" placement="right">
-        <button class="btn btn-default ">Popover on right</button>
-      </popover>
-      <popover effect="fade" placement="bottom"  title="Title" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-        <button class="btn btn-default ">Popover on bottom</button>
-      </popover>
-      <hr>
       <h4>Triger</h4>
       <p>
-        <popover effect="scale"  title="Title" content="Lorem ipsum dolor sit amet" placement="top" trigger="hover">
+        <popover effect="scale" title="Title" content="Lorem ipsum dolor sit amet" placement="top" trigger="hover">
             <button class="btn btn-default ">Mouseenter</button>
         </popover>
       </p>
@@ -41,12 +41,9 @@
       </popover>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
-<popover
-  effect="fade"
-  placement="bottom"
-  title="Title"
+<popover effect="fade" placement="bottom" title="Title"
   content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-  <button class="btn btn-default ">Popover on bottom</button>
+  <button class="btn btn-default">Popover on bottom</button>
 </popover>
 </script></code></pre>
   <h2>Options</h2>
@@ -107,16 +104,17 @@
 </template>
 
 <script>
-  import popover from 'src/Popover.vue'
-  export default {
-    data() {
-      return {
-        title: 'Title',
-        text: 'Lorem ipsum dolor sit amet'
-      }
-    },
-    components: {
-      popover
+import popover from 'src/Popover.vue'
+
+export default {
+  data () {
+    return {
+      title: 'Title',
+      text: 'Lorem ipsum dolor sit amet'
     }
+  },
+  components: {
+    popover
   }
+}
 </script>

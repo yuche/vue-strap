@@ -7,18 +7,18 @@ const EventListener = {
    * @param {function} callback Callback function.
    * @return {object} Object with a `remove` method.
    */
-  listen(target, eventType, callback) {
+  listen (target, eventType, callback) {
     if (target.addEventListener) {
       target.addEventListener(eventType, callback, false)
       return {
-        remove() {
+        remove () {
           target.removeEventListener(eventType, callback, false)
         }
       }
     } else if (target.attachEvent) {
       target.attachEvent('on' + eventType, callback)
       return {
-        remove() {
+        remove () {
           target.detachEvent('on' + eventType, callback)
         }
       }
@@ -26,4 +26,4 @@ const EventListener = {
   }
 }
 
-module.exports = EventListener
+export default EventListener

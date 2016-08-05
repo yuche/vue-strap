@@ -80,16 +80,17 @@
 </template>
 
 <script>
-  import tooltip from 'src/Tooltip.vue'
-  export default {
-    data() {
-      return {
-        title: 'Title',
-        text: 'Lorem ipsum dolor sit amet'
-      }
-    },
-    components: {
-      tooltip
+import tooltip from 'src/Tooltip.vue'
+
+export default {
+  data () {
+    return {
+      title: 'Title',
+      text: 'Lorem ipsum dolor sit amet'
     }
+  },
+  components: {
+    tooltip
   }
+}
 </script>
