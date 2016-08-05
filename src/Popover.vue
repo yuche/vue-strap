@@ -14,25 +14,27 @@
     v-show="show"
     :transition="effect">
       <div class="arrow"></div>
-      <h3 class="popover-title" v-show="title"> 
+      <h3 class="popover-title" v-show="title">
           <slot name="title">
-            {{title}} 
-          </slot> 
+            {{title}}
+          </slot>
       </h3>
       <div class="popover-content">
-        <slot name="content"> 
-            {{{content}}} 
-        </slot> 
+        <slot name="content">
+            {{{content}}}
+        </slot>
       </div>
   </div>
 </template>
 
 <script>
 import PopoverMixin from './popoverMixins.js'
-  export default {
-    mixins: [PopoverMixin]
-  }
+
+export default {
+  mixins: [PopoverMixin]
+}
 </script>
+
 <style>
 .scale-transition,
 .fade-transition {
@@ -64,6 +66,4 @@ import PopoverMixin from './popoverMixins.js'
     opacity: 0;
   }
 }
-
-
 </style>

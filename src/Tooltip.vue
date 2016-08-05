@@ -18,32 +18,33 @@
     <div class="tooltip-inner">
        <slot name="content">
         {{{content}}}
-      </slot> 
+      </slot>
    </div>
   </div>
 </template>
 
 <script>
 import PopoverMixin from './popoverMixins.js'
-  export default {
-    mixins: [PopoverMixin],
-    props: {
-      trigger: {
-        type: String,
-        default: 'hover'
-      },
-      effect: {
-        type: String,
-        default: 'scale'
-      }
+
+export default {
+  mixins: [PopoverMixin],
+  props: {
+    trigger: {
+      type: String,
+      default: 'hover'
+    },
+    effect: {
+      type: String,
+      default: 'scale'
     }
   }
+}
 </script>
 
 <style>
-  .tooltip {
-    opacity: .9
-  }
+.tooltip {
+  opacity: .9
+}
 .fadein-enter {
   animation:fadein-in 0.3s ease-in;
 }
@@ -66,5 +67,4 @@ import PopoverMixin from './popoverMixins.js'
     opacity: 0;
   }
 }
-
 </style>

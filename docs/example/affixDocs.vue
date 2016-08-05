@@ -43,12 +43,13 @@
 </template>
 
 <script>
-  import tooltip from 'src/Tooltip.vue'
-  export default {
-    components: {
-      tooltip
-    }
+import tooltip from 'src/Tooltip.vue'
+
+export default {
+  components: {
+    tooltip
   }
+}
 </script>
 
 <style>

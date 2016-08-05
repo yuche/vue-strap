@@ -58,41 +58,35 @@
     </tbody>
   </table>
   </div>
+  <div></div>
 </template>
 
 <script>
-  import spinner from 'src/Spinner.vue';
+import spinner from 'src/Spinner.vue'
 
-  const sizes = [
-    {
-      text: 'sm',
-      value: 'sm'
-    }, {
-      text: 'md',
-      value: 'md'
-    }, {
-      text: 'lg',
-      value: 'lg'
+const sizes = [
+  {text: 'sm', value: 'sm'},
+  {text: 'md', value: 'md'},
+  {text: 'lg', value: 'lg'}
+]
+
+export default {
+  data () {
+    return {
+      fixed: false,
+      size: 'lg',
+      sizes: sizes.concat({text: 'xl', value: 'xl'})
     }
-  ]
-
-  export default {
-    data() {
-      return {
-        fixed: false,
-        size: 'lg',
-        sizes: sizes.concat({text: 'xl', value: 'xl'}),
-      }
-    },
-    components: {
-      spinner
-    },
-    events: {
-      'shown::spinner'(id) {
-        setTimeout(() => {
-          this.$root.$broadcast('hide::spinner', id)
-	    }, 2000)
-      }
+  },
+  components: {
+    spinner
+  },
+  events: {
+    'shown::spinner' (id) {
+      setTimeout(() => {
+        this.$root.$broadcast('hide::spinner', id)
+      }, 2000)
     }
   }
+}
 </script>

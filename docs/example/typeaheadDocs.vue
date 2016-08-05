@@ -122,8 +122,8 @@ new Vue {
         <tr>
           <td>key</td>
           <td><code>String</code></td>
-          <td></td>
-          <td>The remote JSON key you want to render.</td>
+          <td><code>null</code></td>
+          <td>The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).</td>
         </tr>
         <tr>
           <td>match-case</td>
@@ -155,31 +155,30 @@ new Vue {
 </template>
 
 <script>
-  import typeahead from 'src/Typeahead.vue'
-  import tooltip from 'src/Tooltip.vue'
-  export default {
-    components: {
-      typeahead,
-      tooltip
+import typeahead from 'src/Typeahead.vue'
+import tooltip from 'src/Tooltip.vue'
+
+export default {
+  components: {
+    typeahead,
+    tooltip
+  },
+  partials: {},
+  data () {
+    return {
+      USstate: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
+      'asyncTemplate': '{{ item.formatted_address }}',
+      'githubTemplate': '<img width="18px" height="18px" :src="item.avatar_url"/> <span>{{item.login}}</span>'
+    }
+  },
+  methods: {
+    googleCallback (items, targetVM) {
+      targetVM.reset()
+      targetVM.query = items.formatted_address
     },
-    partials: {
-    },
-    data() {
-      return {
-        USstate: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
-        'asyncTemplate': '{{ item.formatted_address }}',
-        'githubTemplate': '<img width="18px" height="18px" :src="item.avatar_url"/> <span>{{item.login}}</span>'
-      }
-    },
-    methods: {
-      googleCallback(items, targetVM) {
-        const that = targetVM;
-        that.reset()
-        that.query = items.formatted_address
-      },
-      githubCallback(items) {
-        window.open(items.html_url, '_blank')
-      }
+    githubCallback (items) {
+      window.open(items.html_url, '_blank')
     }
   }
+}
 </script>

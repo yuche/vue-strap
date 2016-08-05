@@ -45,17 +45,17 @@ if (talk === cheap){
 class="btn btn-success btn-lg"
 @click="showRight = true">Show Aside on right</button>
 
-<sidebar :show.sync="showRight" placement="right" header="Title" :width="350">
+<aside :show.sync="showRight" placement="right" header="Title" :width="350">
 ...
-</sidebar>
+</aside>
 
 <button
 class="btn btn-danger btn-lg"
 @click="showLeft = true">Show Aside on left</button>
 
-<sidebar :show.sync="showLeft" placement="left" header="Title" :width="350">
+<aside :show.sync="showLeft" placement="left" header="Title" :width="350">
 ...
-</sidebar></script></code></pre>
+</aside></script></code></pre>
 
     <h2>Options</h2>
     <table class="table table-bordered">
@@ -98,16 +98,17 @@ class="btn btn-danger btn-lg"
 </template>
 
 <script>
-  import sidebar from 'src/Aside.vue'
-  export default {
-    components: {
-      sidebar
-    },
-    data() {
-      return {
-        showLeft: false,
-        showRight: false
-      }
+import sidebar from 'src/Aside.vue'
+
+export default {
+  components: {
+    sidebar
+  },
+  data () {
+    return {
+      showLeft: false,
+      showRight: false
     }
   }
+}
 </script>

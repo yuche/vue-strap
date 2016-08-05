@@ -5,18 +5,18 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      value: {
-        type: Array,
-        default() {
-          return []
-        }
-      },
-      type: {
-        type: String,
-        default: 'default'
+export default {
+  props: {
+    value: {
+      type: Array,
+      default () {
+        return []
       }
+    },
+    type: {
+      type: String,
+      default: 'default'
     }
   }
+}
 </script>

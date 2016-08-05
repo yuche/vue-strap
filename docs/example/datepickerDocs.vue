@@ -22,14 +22,16 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
       </v-select>
 
       <h4>Format</h4>
-      <v-select :value.sync="format" >
+      <v-select :value.sync="format">
+        <v-option value="dd/MM/yyyy">dd/MM/yyyy</v-option>
+        <v-option value="dd-MM-yyyy">dd-MM-yyyy</v-option>
         <v-option value="yyyy,MM,dd">yyyy,MM,dd</v-option>
         <v-option value="yyyy-MM-dd">yyyy-MM-dd</v-option>
         <v-option value="yyyy.MM.dd">yyyy.MM.dd</v-option>
         <v-option value="MMM/dd/yyyy">MMM/dd/yyyy</v-option>
         <v-option value="MMMM/dd/yyyy">MMMM/dd/yyyy</v-option>
-        <v-option value="dd/MM/yyyy">dd/MM/yyyy</v-option>
-        <v-option value="dd-MM-yyyy">dd-MM-yyyy</v-option>
+        <v-option value="MM/dd/yyyy">MM/dd/yyyy</v-option>
+        <v-option value="MM-dd-yyyy">MM-dd-yyyy</v-option>
       </v-select>
 
       <h4>Reset button</h4>
@@ -89,7 +91,7 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
           <td>format</td>
           <td><code>String</code></td>
           <td><code>MMMM/dd/yyyy</code></td>
-          <td>The date format, combination of d, dd, M, MM ,MMM , MMMM, yyyy.</td>
+          <td>The date format, combination of d, dd, M, MM, MMM, MMMM, yyyy.</td>
         </tr>
         <tr>
           <td>disabledDaysOfWeek</td>
@@ -108,33 +110,35 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
       </tbody>
     </table>
   </div>
+  <div></div>
 </template>
 
 <script>
-  import datepicker from 'src/Datepicker.vue'
-  import select from 'src/Select.vue'
-  import option from 'src/Option.vue'
-  export default {
-    components: {
-      datepicker,
-      'v-select': select,
-      'v-option': option
+import datepicker from 'src/Datepicker.vue'
+import vSelect from 'src/Select.vue'
+import vOption from 'src/Option.vue'
+
+export default {
+  components: {
+    datepicker,
+    vSelect,
+    vOption
+  },
+  data () {
+    return {
+      disabled: [],
+      value: '06/10/2015',
+      format: ['dd/MM/yyyy'],
+      reset: true
+    }
+  },
+  watch: {
+    disabled () {
+      this.$refs.dp.getDateRange()
     },
-    data() {
-      return {
-        disabled: [],
-        value: 'Oct/06/2015',
-        format: ['MMM/dd/yyyy'],
-        reset: true
-      }
-    },
-    watch: {
-      disabled() {
-        this.$refs.dp.getDateRange()
-      },
-      format(newV) {
-        this.value = this.$refs.dp.stringify(new Date(this.value))
-      }
+    format (newV) {
+      this.value = this.$refs.dp.stringify(new Date(this.value))
     }
   }
+}
 </script>

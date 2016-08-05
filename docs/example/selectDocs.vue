@@ -5,126 +5,95 @@
       This a <a target="_blank" href="https://silviomoreto.github.io/bootstrap-select/">bootstrap-select</a> implementation.
     </p>
     <div class="bs-example">
-      <p>
-        <pre>
-Select data : {{single}}
-        </pre>
-      </p>
+      <h4>Simple select</h4>
+      <p><pre>Select data : {{show(single)}}</pre></p>
       <v-select :value.sync="single">
-        <v-option value="Apple">Apple</v-option>
-        <v-option value="Banana">Banana</v-option>
-        <v-option value="Cherry">Cherry</v-option>
-        <v-option value="Orange">Orange</v-option>
-        <v-option value="Grape">Grape</v-option>
-      </v-select>
-      <hr>
-      <h4>Multiple select</h4>
-      <p>
-        <pre>
-Select data : {{multiple.join(', ')}}
-        </pre>
-      </p>
-      <v-select multiple :value.sync="multiple">
-        <v-option value="Apple">Apple</v-option>
-        <v-option value="Banana">Banana</v-option>
-        <v-option value="Cherry">Cherry</v-option>
-        <v-option value="Orange">Orange</v-option>
-        <v-option value="Grape">Grape</v-option>
-      </v-select>
-      <hr>
-      <h4>Multiple select limit</h4>
-      <p>
-        <pre>
-Select data : {{multipleLimit.join(', ')}}
-        </pre>
-      </p>
-      <v-select multiple :limit="2" :value.sync="multipleLimit">
-        <v-option value="Apple">Apple</v-option>
-        <v-option value="Banana">Banana</v-option>
-        <v-option value="Cherry">Cherry</v-option>
-        <v-option value="Orange">Orange</v-option>
-        <v-option value="Grape">Grape</v-option>
-      </v-select>
-      <hr>
-      <h4>Custom template</h4>
-      <p>
-        <pre>
-Select data : {{custom.join(', ')}}
-        </pre>
-      </p>
-      <v-select multiple :value.sync="custom">
-        <v-option value="Star"><span slot="span" class="glyphicon glyphicon-star"></span> Star</v-option>
-        <v-option value="Heart"><span slot="span" class="glyphicon glyphicon-heart"></span> Heart</v-option>
-        <v-option value="Film"><span slot="span" class="glyphicon glyphicon-film"></span> Film</v-option>
-        <v-option value="Inbox"><span slot="span" class="glyphicon glyphicon-inbox"></span> Inbox</v-option>
-      </v-select>
-      <hr />
-      <h4>Array/Collection driven w/ search</h4>
-      <p>
-        Optionally specify an options (array/collection) which will drive the contents of the property. You can enable search mode in this case.
-        <pre>
-Select data : {{arr}}
-        </pre>
-      </p>
-      <v-select :value.sync="arr" :options="fruitOptions" :search="true" :close-on-select="true">
+        <v-option value="apple">Apple</v-option>
+        <v-option value="banana">Banana</v-option>
+        <v-option value="cherry">Cherry</v-option>
+        <v-option value="orange">Orange</v-option>
+        <v-option value="grape">Grape</v-option>
       </v-select>
 
       <hr />
-      <h4>Automatically close array driven selects</h4>
-      <p>Using the property :close-on-select="true" array driven selects will auto-close after selecting an entry.</p>
-      <v-select :value.sync="arr2" :options="fruitOptions" :close-on-select="true">
-      </v-select>
-
-      <h4>Disabled selects</h4>
-      <v-select :value.sync="disabled" :options="fruitOptions" :close-on-select="true" :disabled="true">
-      </v-select>
-
+      <h4>Test options:</h4>
+      <p><pre>Selected data : {{show(select.value)}}</pre></p>
+      <form action="./#select" method="get">
+        <v-select :options="select.options" :value.sync="select.value" :name="select.inputs?(select.multiple?'animals[]':'animal'):''"
+          :multiple="select.multiple" :search="select.search" :justified="select.justified" :required="select.inputs&&select.required"
+          :clear-button="select.resetButton" :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"
+        ></v-select>
+        <button v-if="select.inputs" type="submit" class="btn btn-default">Submit form</button>
+      </form>
+      <div class="checkbox"><label><input type="checkbox" v-model="select.disabled"/> Disabled</label></div>
+      <div class="checkbox"><label><input type="checkbox" v-model="select.search"/> Search</label></div>
+      <div class="checkbox">
+        <label><input type="checkbox" v-model="select.multiple"/> Multiple</label>
+        <label v-if="select.multiple"><input type="checkbox" v-model="select.limit"/> Limit (e.g. 3)</label>
+        <label v-if="select.multiple"><input type="checkbox" v-model="select.closeOnSelect"/> Close on Select</label>
+      </div>
+      <div class="checkbox"><label><input type="checkbox" v-model="select.justified"/> Justified</label></div>
+      <div class="checkbox"><label><input type="checkbox" v-model="select.resetButton"/> Show Reset Button</label></div>
+      <div class="checkbox">
+        <label><input type="checkbox" v-model="select.inputs"/> Form input</label>
+        <label v-if="select.inputs"><input type="checkbox" v-model="select.required"/> Required (add empty value if noting selected)</label>
+      </div>
     </div>
     <pre><code class="language-markup"><script type="language-mark-up">
+Simple:
 <v-select>
-  <v-option value="Apple">Apple</v-option>
-  <v-option value="Banana">Banana</v-option>
-  <v-option value="Cherry">Cherry</v-option>
-  <v-option value="Orange">Orange</v-option>
-  <v-option value="Grape">Grape</v-option>
-</v-select>
-<hr>
-<v-select multiple>
-  <v-option value="Apple">Apple</v-option>
-  <v-option value="Banana">Banana</v-option>
-  <v-option value="Cherry">Cherry</v-option>
-  <v-option value="Orange">Orange</v-option>
-  <v-option value="Grape">Grape</v-option>
-</v-select>
-<hr>
- <v-select multiple :limit="2">
-  <v-option value="Apple">Apple</v-option>
-  <v-option value="Banana">Banana</v-option>
-  <v-option value="Cherry">Cherry</v-option>
-  <v-option value="Orange">Orange</v-option>
-  <v-option value="Grape">Grape</v-option>
-</v-select>
-<hr>
-<v-select multiple>
-  <v-option value="Star"><span slot="span" class="glyphicon glyphicon-star"></span> Star</v-option>
-  <v-option value="Heart"><span slot="span" class="glyphicon glyphicon-heart"></span> Heart</v-option>
-  <v-option value="Film"><span slot="span" class="glyphicon glyphicon-film"></span> Film</v-option>
-  <v-option value="Inbox"><span slot="span" class="glyphicon glyphicon-inbox"></span> Inbox</v-option>
+  <v-option value="apple">Apple</v-option>
+  <v-option value="banana">Banana</v-option>
+  <v-option value="cherry">Cherry</v-option>
+  <v-option value="orange">Orange</v-option>
+  <v-option value="grape">Grape</v-option>
 </v-select>
 
-<v-select :value.sync="arr" :options="fruitOptions" :search="true">
-</v-select>
-fruitOptions = [
-  {value:'apple', label:'Apple'},
-  {value:'banana', label:'Banana'},
-  {value:'cherry', label:'Cherry'},
-  {value:'orange', label:'Orange'},
-  {value:'grape', label:'Grape'},
+Test options:
+<form action="./#select" method="get">
+  <v-select :options="select.options" :value.sync="select.value" :name="select.inputs?(select.multiple?'animals[]':'animal'):''"
+    :multiple="select.multiple" :search="select.search" :justified="select.justified" :required="select.inputs&&select.required"
+    :clear-button="select.resetButton" :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"></v-select>
+  <button v-if="select.inputs" type="submit" class="btn btn-default">Submit form</button>
+</form>
+<div class="checkbox"><label><input type="checkbox" v-model="select.disabled"/> Disabled</label></div>
+<div class="checkbox"><label><input type="checkbox" v-model="select.search"/> Search</label></div>
+<div class="checkbox">
+  <label><input type="checkbox" v-model="select.multiple"/> Multiple</label>
+  <label v-if="select.multiple"><input type="checkbox" v-model="select.limit"/> Limit (e.g. 3)</label>
+  <label v-if="select.multiple"><input type="checkbox" v-model="select.closeOnSelect"/> Close on Select</label>
+</div>
+<div class="checkbox"><label><input type="checkbox" v-model="select.justified"/> Justified</label></div>
+<div class="checkbox"><label><input type="checkbox" v-model="select.resetButton"/> Show Reset Button</label></div>
+<div class="checkbox">
+  <label><input type="checkbox" v-model="select.inputs"/> Form input</label>
+  <label v-if="select.inputs"><input type="checkbox" v-model="select.required"/> Required (add empty value if noting selected)</label>
+</div>
+options: [
+  {value:1, label:'Cat'},
+  {value:2, label:'Cow'},
+  {value:3, label:'Dog'},
+  {value:4, label:'Elephant'},
+  {value:5, label:'Fish'},
+  {value:6, label:'Lion'},
+  {value:7, label:'Tiger'},
+  {value:8, label:'Turtle'}
 ]
-
-<v-select :value.sync="arr2" :options="fruitOptions" :close-on-select="true">
-</v-select>
     </script></code></pre>
+
+      <hr />
+      <h4>Ajax data & parent dependency:</h4>
+      <p>
+        The second element has inheritance. Enable when the first get some value & the ajax return values.
+      </p>
+      <v-select url="docs/data.json" :value.sync="ajax.value" clear-button></v-select>
+      <v-select url="docs/data.json" multiple :parent="ajax.value"></v-select>
+    <pre><code class="language-markup">
+Ajax:
+&lt;v-select url="docs/data.json" :value.sync="ajax.value" clear-button>&lt;/v-select>
+&lt;v-select url="docs/data.json" multiple :parent="ajax.value">&lt;/v-select>
+    </code></pre>
+
     <h2>Select Options</h2>
     <table class="table table-bordered">
       <thead>
@@ -173,30 +142,45 @@ fruitOptions = [
 </template>
 
 <script>
-  import vSelect from 'src/Select.vue'
-  import vOption from 'src/Option.vue'
-  export default {
-    components: {
-      vSelect,
-      vOption
-    },
-    data() {
-      return {
-        fruitOptions: [
-          {value:'Apple', label:'Apple'},
-          {value:'Banana', label:'Banana'},
-          {value:'Cherry', label:'Cherry'},
-          {value:'Orange', label:'Orange'},
-          {value:'Grape', label:'Grape'},
+import vSelect from 'src/Select.vue'
+import vOption from 'src/Option.vue'
+
+export default {
+  components: {
+    vSelect,
+    vOption
+  },
+  data () {
+    return {
+      select: {
+        options: [
+          {value: 1, label: 'Cat'},
+          {value: 2, label: 'Cow'},
+          {value: 3, label: 'Dog'},
+          {value: 4, label: 'Elephant'},
+          {value: 5, label: 'Fish'},
+          {value: 6, label: 'Lion'},
+          {value: 7, label: 'Tiger'},
+          {value: 8, label: 'Turtle'}
         ],
-        arr: [],
-        arr2: [],
-        single: [],
-        multiple: [],
-        multipleLimit: [],
-        custom: [],
-        disabled: []
-      }
+        justified: true
+      },
+      ajax: {
+        value:null
+      },
+      single: []
+    }
+  },
+  methods: {
+    show (value) {
+      return value instanceof Array ? value.join(', ') : value
     }
   }
+}
 </script>
+
+<style>
+.checkbox>label:not(:first-child) {
+  margin-left: 15px;
+}
+</style>
