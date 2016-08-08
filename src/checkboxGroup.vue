@@ -17,6 +17,9 @@ export default {
       type: String,
       default: 'default'
     }
+  },
+  created () {
+    this._checkboxGroup = true
   }
 }
 </script>
