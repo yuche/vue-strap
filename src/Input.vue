@@ -1,34 +1,46 @@
 <template>
   <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}">
     <label v-if="label" class="control-label">{{label}}</label>
-    <div v-if="slots.before||slots.after" class="input-group">
-      <slot name="before"></slot>
-      <input class="form-control" v-el:input v-model="value"
+    <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
+      :cols="cols"
+      :rows="rows"
+      :name="name"
+      :readonly="readonly"
+      :required="required"
+      :disabled="disabled"
+      :maxlength="maxlength"
+      :placeholder="placeholder"
+      @focus="toggleEvents(true)"
+      @blur="toggleEvents(false)"
+    ></textarea>
+    <template v-else>
+      <div v-if="slots.before||slots.after" class="input-group">
+        <slot name="before"></slot>
+        <input class="form-control" v-el:input v-model="value"
+          :name="name"
+          :type="type"
+          :readonly="readonly"
+          :required="required"
+          :disabled="disabled"
+          :maxlength="maxlength"
+          :placeholder="placeholder"
+          @focus="toggleEvents(true)"
+          @blur="toggleEvents(false)"
+        />
+        <slot name="after"></slot>
+      </div>
+      <input v-else class="form-control" v-el:input v-model="value"
         :name="name"
         :type="type"
         :readonly="readonly"
         :required="required"
         :disabled="disabled"
-        :minlength="minlength"
         :maxlength="maxlength"
         :placeholder="placeholder"
         @focus="toggleEvents(true)"
         @blur="toggleEvents(false)"
       />
-      <slot name="after"></slot>
-    </div>
-    <input v-else class="form-control" v-el:input v-model="value"
-      :name="name"
-      :type="type"
-      :readonly="readonly"
-      :required="required"
-      :disabled="disabled"
-      :minlength="minlength"
-      :maxlength="maxlength"
-      :placeholder="placeholder"
-      @focus="toggleEvents(true)"
-      @blur="toggleEvents(false)"
-    />
+    </template>
     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
     <div v-if="showHelp" class="help-block">{{help}}</div>
     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
@@ -116,6 +128,11 @@ export default {
       type: Boolean,
       coerce: coerceBoolean,
       default: false
+    },
+    rows: {
+      type: Number,
+      coerce: coerceNumber,
+      default: 3
     },
     type: {
       type: String,

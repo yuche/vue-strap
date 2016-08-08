@@ -22,6 +22,9 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <bs-input required label="Match value" type="password" :match="input" :icon="check.icon" help="Match the User Name"></bs-input>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <bs-input label="Textarea" type="textarea" :icon="check.icon"></bs-input>
+        </div>
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -55,6 +58,7 @@
   icon
 >&lt;/bs-input>
 &lt;bs-input required label="Match value" type="password" :match="input">&lt;/bs-input>
+&lt;bs-input label="Textarea" type="textarea">&lt;/bs-input>
     </code></pre>
   <pre><code class="language-javascript"><script type="language-javascript">
 mask: function (value) {
