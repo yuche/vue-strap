@@ -114,6 +114,11 @@ export default {
       type: String,
       default: null
     },
+    noValidate: {
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: false
+    },
     pattern: null,
     placeholder: {
       type: String,
@@ -197,10 +202,14 @@ export default {
       if (this.mask instanceof Function) value = this.mask(value)
       if (this.value !== value) this.value = value
       if (this.timeout) clearTimeout(this.timeout)
-      this.timeout = setTimeout(() => {
-        this.valid = this.validate()
-        this.timeout = null
-      }, coerceNumber(this.validationDelay, 250))
+      if (this.noValidate) {
+        if (this.valid !== null) this.valid = null
+      } else {
+        this.timeout = setTimeout(() => {
+          this.valid = this.validate()
+          this.timeout = null
+        }, coerceNumber(this.validationDelay, 250))
+      }
     },
     validate () {
       let value = (this.value || '').trim()
@@ -217,7 +226,7 @@ export default {
       return valid
     },
     toggleEvents (enable) {
-      if (!enable) { this.valid = this.validate() }
+      if (!this.noValidate && !enable) { this.valid = this.validate() }
       ['change', 'keypress', 'keydown', 'keyup'].forEach((event) => {
         enable
         ? this.$els.input.addEventListener(event, this.eval)
