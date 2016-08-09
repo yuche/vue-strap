@@ -1,13 +1,13 @@
 <template>
-  <div class="bs-docs-section" id="buttons">
-    <h1 class="page-header"><a href="#buttons" class="anchor">Buttons</a></h1>
+  <div class="bs-docs-section" id="button-group">
+    <h1 class="page-header"><a href="#button-group" class="anchor">Button Group</a></h1>
     <div class="bs-example">
       <h4>Checkbox</h4>
-      <checkbox-group :value.sync="checkboxValue">
+      <button-group :value.sync="checkboxValue">
         <checkbox value="left">Left</checkbox>
-        <checkbox value="middle" checked>Middle</checkbox>
+        <checkbox value="middle">Middle</checkbox>
         <checkbox value="right">Right</checkbox>
-      </checkbox-group>
+      </button-group>
       <p>
         <pre>
 Checkbox value: {{checkboxValue | json}}
@@ -15,17 +15,20 @@ Checkbox value: {{checkboxValue | json}}
       </p>
       <hr>
       <h4>Radio</h4>
-      <radio-group :value.sync="radioValue" type="primary">
-        <radio value="left">Left</radio>
-        <radio value="middle" checked>Middle</radio>
-        <radio value="right">Right</radio>
-      </radio-group>
-
-      <radio-group :value.sync="radioValue" type="success">
-        <radio value="left">Left</radio>
-        <radio value="middle" checked>Middle</radio>
-        <radio value="right">Right</radio>
-      </radio-group>
+      <p>
+        <button-group :value.sync="radioValue" type="primary">
+          <radio value="left">Left</radio>
+          <radio value="middle">Middle</radio>
+          <radio value="right">Right</radio>
+        </button-group>
+      </p>
+      <p>
+        <button-group :value.sync="radioValue" type="success">
+          <radio value="left">Left</radio>
+          <radio value="middle">Middle</radio>
+          <radio value="right">Right</radio>
+        </button-group>
+      </p>
       <p>
         <pre>
 Radio value: {{radioValue}}
@@ -34,24 +37,24 @@ Radio value: {{radioValue}}
     </div>
 
     <pre><code class="language-markup"><script type="language-mark-up">
-<checkbox-group :value.sync="checkboxValue">
+<button-group :value.sync="checkboxValue">
   <checkbox value="left">Left</checkbox>
-  <checkbox value="middle" checked>Middle</checkbox>
+  <checkbox value="middle">Middle</checkbox>
   <checkbox value="right">Right</checkbox>
-</checkbox-group>
+</button-group>
 
-<radio-group :value.sync="radioValue" type="primary">
+<button-group :value.sync="radioValue" type="primary">
   <radio value="left">Left</radio>
-  <radio value="middle" checked>Middle</radio>
+  <radio value="middle">Middle</radio>
   <radio value="right">Right</radio>
-</radio-group>
+</button-group>
 
-<radio-group :value.sync="radioValue" type="success">
+<button-group :value.sync="radioValue" type="success">
   <radio value="left">Left</radio>
-  <radio value="middle" checked>Middle</radio>
+  <radio value="middle">Middle</radio>
   <radio value="right">Right</radio>
-</radio-group>
-</script></code></pre>
+</button-group>
+    </script></code></pre>
 
     <h2>Group options</h2>
     <table class="table table-bordered">
@@ -88,22 +91,20 @@ Radio value: {{radioValue}}
 </template>
 
 <script>
-import radioGroup from 'src/radioGroup.vue'
-import radio from 'src/radioBtn.vue'
-import checkboxGroup from 'src/checkboxGroup.vue'
-import checkbox from 'src/checkboxBtn.vue'
+import buttonGroup from 'src/buttonGroup.vue'
+import checkbox from 'src/Checkbox.vue'
+import radio from 'src/Radio.vue'
 
 export default {
   components: {
-    radio,
-    radioGroup,
-    checkboxGroup,
-    checkbox
+    buttonGroup,
+    checkbox,
+    radio
   },
   data () {
     return {
       checkboxValue: [],
-      radioValue: ''
+      radioValue: 'middle'
     }
   }
 }

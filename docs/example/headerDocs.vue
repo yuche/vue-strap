@@ -6,7 +6,8 @@
       <li><a href="#affix">Affix</a></li>
       <li><a href="#alert">Alert</a></li>
       <li><a href="#aside">Aside</a></li>
-      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#button-groups">Button groups</a></li>
+      <li><a href="#checkbox">Checkbox</a></li>
       <li><a href="#carousel">Carousel</a></li>
       <li><a href="#datepicker">Datepicker</a></li>
       <li><a href="#dropdown">Dropdown</a></li>
@@ -14,6 +15,7 @@
       <li><a href="#modal">Modal</a></li>
       <li><a href="#popover">Popover</a></li>
       <li><a href="#progressbar">Progressbar</a></li>
+      <li><a href="#radio">Radio</a></li>
       <li><a href="#select">Select</a></li>
       <li><a href="#tabs">Tabs</a></li>
       <li><a href="#tooltip">Tooltip</a></li>

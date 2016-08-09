@@ -1,8 +1,9 @@
 <template>
-  <label :class="[(group||button?'btn btn-':'cb cb-')+typeColor,{'active':checked}]">
-    <input type="checkbox" autocomplete="off"
+  <label :class="[(group||button?'btn btn-':'rb rb-')+typeColor,{'active':active}]">
+    <input type="radio" autocomplete="off"
       v-el:input
-      :checked="checked"
+      :checked="active"
+      :value="value"
       :name="name"
       :readonly="readonly"
       :disabled="disabled"
@@ -51,10 +52,10 @@ export default {
   },
   computed: {
     active () {
-      return this.group ? ~this.$parent.value.indexOf(this.value) : this.checked === this.value
+      return this.group ? this.$parent.value === this.value : this.value === this.checked
     },
     group () {
-      return this.$parent && this.$parent._checkboxGroup
+      return this.$parent && this.$parent._radioGroup
     },
     typeColor () {
       return (this.type || (this.$parent && this.$parent.type)) || 'default'
@@ -63,16 +64,16 @@ export default {
   created () {
     const parent = this.$parent
     if (!parent) return
-    if (parent._btnGroup && !parent._radioGroup) {
-      parent._checkboxGroup = true
+    if (parent._btnGroup && !parent._checkboxGroup) {
+      parent._radioGroup = true
     }
   },
   ready () {
-    if (!this.$parent._checkboxGroup) return
-    if (this.$parent.value.length) {
-      this.checked = ~this.$parent.value.indexOf(this.value)
+    if (!this.$parent._radioGroup) return
+    if (this.$parent.value) {
+      this.checked = (this.$parent.value === this.value)
     } else if (this.checked) {
-      this.$parent.value.push(this.value)
+      this.$parent.value = this.value
     }
   },
   methods: {
@@ -81,11 +82,9 @@ export default {
     },
     toggle () {
       this.focus()
-      this.checked = this.checked === this.value ? null : this.value
+      this.checked = this.value
       if (this.group) {
-        const parent = this.$parent
-        const index = parent.value.indexOf(this.value)
-        index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1)
+        this.$parent.value = this.value
       }
     }
   }
@@ -93,7 +92,7 @@ export default {
 </script>
 
 <style scoped>
-label.cb {
+label.rb {
   position: relative;
   min-height: 20px;
   padding-left: 20px;
@@ -101,7 +100,7 @@ label.cb {
   font-weight: 400;
   cursor: pointer;
 }
-label.cb > input {
+label.rb > input {
   position: absolute;
   margin: 0;
   padding: 0;
@@ -109,9 +108,9 @@ label.cb > input {
   z-index: -1;
   box-sizing: border-box;
 }
-label.cb > input ~ .icon {
+label.rb > input ~ .icon {
   position: absolute;
-  top: .2rem;
+  top: .15rem;
   left: 0;
   display: block;
   width: 1.4rem;
@@ -123,45 +122,45 @@ label.cb > input ~ .icon {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border-radius: .35rem;
+  border-radius: .7rem;
   background-color: #ddd;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 50% 50%;
 }
-label.cb > input:checked ~ .icon {
+label.rb > input:checked ~ .icon {
   background-size: .6em .6em;
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);
 }
-label.cb > input:not(:checked) ~ .icon {
+label.rb > input:not(:checked) ~ .icon {
   border: 1px solid #aaa;
 }
-label.cb > input:disabled ~ .icon,
-label.cb > input[readonly] ~ .icon {
+label.rb > input:disabled ~ .icon,
+label.rb > input[readonly] ~ .icon {
   background-color: #eee;
 }
-label.cb > input:focus ~ .icon {
+label.rb > input:focus ~ .icon {
   outline: 0;
   border: 1px solid #66afe9;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
 }
-label.cb.active > .icon {
+label.rb.active > .icon {
   background-color: #bbb;
 }
-label.cb.active.cb-primary > input:not(:disabled):not([readonly]) ~ .icon {
+label.rb.active.rb-primary > input:not(:disabled):not([readonly]) ~ .icon {
   background-color: #337ab7;
 }
-label.cb.active.cb-success > input:not(:disabled):not([readonly]) ~ .icon {
+label.rb.active.rb-success > input:not(:disabled):not([readonly]) ~ .icon {
   background-color: #5cb85c;
 }
-label.cb.active.cb-info > input:not(:disabled):not([readonly]) ~ .icon {
+label.rb.active.rb-info > input:not(:disabled):not([readonly]) ~ .icon {
   background-color: #5bc0de;
 }
-label.cb.active.cb-warning > input:not(:disabled):not([readonly]) ~ .icon {
+label.rb.active.rb-warning > input:not(:disabled):not([readonly]) ~ .icon {
   background-color: #f0ad4e;
 }
-label.cb.active.cb-danger > input:not(:disabled):not([readonly]) ~ .icon {
+label.rb.active.rb-danger > input:not(:disabled):not([readonly]) ~ .icon {
   background-color: #d9534f;
 }
 label.btn > input {
