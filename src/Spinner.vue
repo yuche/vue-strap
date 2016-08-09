@@ -9,7 +9,7 @@
 
 <script>
 // import styling
-// import './spinner.scss'
+import './spinner.scss'
 
 const MIN_WAIT = 500 // in ms
 
@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     spinnerSize () {
-      return (this.size) ? 'spinner-${this.size}' : 'spinner-sm'
+      return (this.size) ? `spinner-${this.size}` : `spinner-sm`
     }
   },
   methods: {

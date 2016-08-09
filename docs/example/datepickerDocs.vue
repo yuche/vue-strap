@@ -4,21 +4,20 @@
     <div class="bs-example">
       <p>
         <pre>
-Selected date is: {{new Date(value).toString().slice(0, -23)}}
+Selected date is: {{new Date(value).toString()}}
         </pre>
       </p>
-      <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled"
-      :format="format.toString()" :show-reset-button="reset"></datepicker>
+      <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled" :format="format.toString()" :show-reset-button="reset"></datepicker>
       <h4>Disabled days of week</h4>
 
       <v-select multiple :value.sync="disabled">
-  <v-option value="0">0</v-option>
-  <v-option value="1">1</v-option>
-  <v-option value="2">2</v-option>
-  <v-option value="3">3</v-option>
-  <v-option value="4">4</v-option>
-  <v-option value="5">5</v-option>
-  <v-option value="6">6</v-option>
+        <v-option value="0">0</v-option>
+        <v-option value="1">1</v-option>
+        <v-option value="2">2</v-option>
+        <v-option value="3">3</v-option>
+        <v-option value="4">4</v-option>
+        <v-option value="5">5</v-option>
+        <v-option value="6">6</v-option>
       </v-select>
 
       <h4>Format</h4>
@@ -35,35 +34,16 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
       </v-select>
 
       <h4>Reset button</h4>
-      <label><input type="checkbox" v-model="reset" @click="x"> toggle reset button</label>
+      <checkbox :checked.sync="reset" type="primary">toggle reset button</checkbox>
     </div>
-    <pre><code class="language-markup"><script type="language-mark-up">
-<datepicker
+    <pre><code class="language-markup">
+&lt;datepicker
   :value.sync="value"
   :disabled-days-of-Week="disabled"
   :format="format"
   :show-reset-button="reset">
-</datepicker>
-
-<select multiple :value.sync="disabled" size=5>
-  <v-option value="0">0</v-option>
-  <v-option value="1">1</v-option>
-  <v-option value="2">2</v-option>
-  <v-option value="3">3</v-option>
-  <v-option value="4">4</v-option>
-  <v-option value="5">5</v-option>
-  <v-option value="6">6</v-option>
-</select>
-<select  :value.sync="format">
-  <v-option value="yyyy,MM,dd">yyyy,MM,dd</v-option>
-  <v-option value="yyyy-MM-dd">yyyy-MM-dd</v-option>
-  <v-option value="yyyy.MM.dd">yyyy.MM.dd</v-option>
-  <v-option value="MMM/dd/yyyy">MMM/dd/yyyy</v-option>
-  <v-option value="MMMM/dd/yyyy">MMMM/dd/yyyy</v-option>
-  <v-option value="dd/MM/yyyy">dd/MM/yyyy</v-option>
-  <v-option value="dd-MM-yyyy">dd-MM-yyyy</v-option>
-</select>
-    </script></code></pre>
+&lt;/datepicker>
+    </code></pre>
     <h2>Option</h2>
     <table class="table table-bordered">
       <thead>
@@ -114,12 +94,14 @@ Selected date is: {{new Date(value).toString().slice(0, -23)}}
 </template>
 
 <script>
+import checkbox from 'src/Checkbox.vue'
 import datepicker from 'src/Datepicker.vue'
 import vSelect from 'src/Select.vue'
 import vOption from 'src/Option.vue'
 
 export default {
   components: {
+    checkbox,
     datepicker,
     vSelect,
     vOption

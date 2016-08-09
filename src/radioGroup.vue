@@ -5,16 +5,19 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      value: {
-        type: String,
-        twoWay: true
-      },
-      type: {
-        type: String,
-        default: 'default'
-      }
+export default {
+  props: {
+    value: {
+      type: String,
+      twoWay: true
+    },
+    type: {
+      type: String,
+      default: 'default'
     }
+  },
+  created () {
+    this._radioGroup = true
   }
+}
 </script>

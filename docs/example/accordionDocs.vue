@@ -2,16 +2,9 @@
   <div class="bs-docs-section" id="accordion">
     <h1 class="page-header"><a href="#accordion" class="anchor">Accordion</a></h1>
     <div class="bs-example">
-      <p>
-        <input type="checkbox" v-model="checked">
-        Open only one at a time.
-      </p>
-      <p>
-        <v-select :options="types" clear-button :value.sync="selected" placeholder="Global type"></v-select>
-      </p>
-      <p>
-        <v-select :options="types" clear-button :value.sync="first" placeholder="First element type"></v-select>
-      </p>
+      <checkbox :checked.sync="checked" type="primary">Open only one at a time.</checkbox>
+      <p><v-select :options="types" clear-button :value.sync="selected" placeholder="Global type"></v-select></p>
+      <p><v-select :options="types" clear-button :value.sync="first" placeholder="First element type"></v-select></p>
       <accordion :one-at-atime="checked" :type="selected">
         <panel header="Panel #1" :is-open="true" :type="first=='panel'?null:first">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -47,22 +40,22 @@
         </panel>
       </accordion>
     </div>
-    <pre><code class="language-markup"><script type="language-mark-up">
-<accordion :one-at-atime="checked" type="info">
-  <panel header="Panel #1" :is-open="true" type="primary">
+    <pre><code class="language-markup">
+&lt;accordion :one-at-atime="checked" type="info">
+  &lt;panel header="Panel #1" :is-open="true" type="primary">
     ...
-  </panel>
-  <panel header="Panel #2">
+  &lt;/panel>
+  &lt;panel header="Panel #2">
     ...
-  </panel>
-  <panel header="Panel #3">
+  &lt;/panel>
+  &lt;panel header="Panel #3">
     ...
-  </panel>
-  <panel header="Panel #4">
+  &lt;/panel>
+  &lt;panel header="Panel #4">
     ...
-  </panel>
-</accordion>
-</script></code></pre>
+  &lt;/panel>
+&lt;/accordion>
+    </code></pre>
     <h2>Accordion Options</h2>
     <table class="table table-bordered">
       <thead>
@@ -124,12 +117,14 @@
 
 <script>
 import accordion from 'src/Accordion.vue'
+import checkbox from 'src/Checkbox.vue'
 import panel from 'src/Panel.vue'
 import vSelect from 'src/Select.vue'
 
 export default {
   components: {
     accordion,
+    checkbox,
     panel,
     vSelect
   },

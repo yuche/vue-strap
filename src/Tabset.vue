@@ -58,7 +58,6 @@ export default {
   },
   methods: {
     select (tab) {
-      console.log(tab.header,tab.index)
       if (!tab.disabled) {
         this.active = tab.index
       }

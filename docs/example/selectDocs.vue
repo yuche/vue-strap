@@ -25,38 +25,41 @@
         ></v-select>
         <button v-if="select.inputs" type="submit" class="btn btn-default">Submit form</button>
       </form>
-      <div class="checkbox"><label><input type="checkbox" v-model="select.disabled"/> Disabled</label></div>
-      <div class="checkbox"><label><input type="checkbox" v-model="select.search"/> Search</label></div>
-      <div class="checkbox">
-        <label><input type="checkbox" v-model="select.multiple"/> Multiple</label>
-        <label v-if="select.multiple"><input type="checkbox" v-model="select.limit"/> Limit (e.g. 3)</label>
-        <label v-if="select.multiple"><input type="checkbox" v-model="select.closeOnSelect"/> Close on Select</label>
-      </div>
-      <div class="checkbox"><label><input type="checkbox" v-model="select.justified"/> Justified</label></div>
-      <div class="checkbox"><label><input type="checkbox" v-model="select.clearButton"/> Clear Button</label></div>
-      <div class="checkbox">
-        <label><input type="checkbox" v-model="select.inputs"/> Form input</label>
-        <label v-if="select.inputs"><input type="checkbox" v-model="select.required"/> Required (add empty value if noting selected)</label>
-      </div>
+      <br/>
+      <button-group type="primary" buttons="false">
+        <p><checkbox :checked.sync="select.disabled">Disabled</checkbox></p>
+        <p><checkbox :checked.sync="select.search">Search</checkbox></p>
+        <p>
+          <checkbox :checked.sync="select.multiple">Multiple</checkbox>
+          <checkbox v-if="select.multiple" :checked.sync="select.limit">Limit (e.g. 3)</checkbox>
+          <checkbox v-if="select.multiple" :checked.sync="select.closeOnSelect">Close on Select</checkbox>
+        </p>
+        <p><checkbox :checked.sync="select.justified">Justified</checkbox></p>
+        <p><checkbox :checked.sync="select.clearButton">Clear Button</checkbox></p>
+        <p>
+          <checkbox :checked.sync="select.inputs">Form input</checkbox>
+          <checkbox v-if="select.inputs" :checked.sync="select.required">Required (add empty value if noting selected)</checkbox>
+        </p>
+      </button-group>
     </div>
-    <pre><code class="language-markup"><script type="language-mark-up">
-<v-select>
-  <v-option value="apple">Apple</v-option>
-  <v-option value="banana">Banana</v-option>
-  <v-option value="cherry">Cherry</v-option>
-  <v-option value="orange">Orange</v-option>
-  <v-option value="grape">Grape</v-option>
-</v-select>
+    <pre><code class="language-markup">
+&lt;v-select>
+  &lt;v-option value="apple">Apple&lt;/v-option>
+  &lt;v-option value="banana">Banana&lt;/v-option>
+  &lt;v-option value="cherry">Cherry&lt;/v-option>
+  &lt;v-option value="orange">Orange&lt;/v-option>
+  &lt;v-option value="grape">Grape&lt;/v-option>
+&lt;/v-select>
 
-<form action="./#select" method="get">
-  <v-select :value.sync="select.value" :options="select.options"
+&lt;form action="./#select" method="get">
+  &lt;v-select :value.sync="select.value" :options="select.options"
     multiple name="animals[]" limit="3"
     search justified required disabled
     clear-button close-on-select
-  ></v-select>
-  <button type="submit" class="btn btn-default">Submit form</button>
-</form>
-    </script></code></pre>
+  >&lt;/v-select>
+  &lt;button type="submit" class="btn btn-default">Submit form&lt;/button>
+&lt;/form>
+    </code></pre>
     <pre><code class="language-javascript"><script type="language-javascript">
 options: [
   {value: 1, label: 'Cat'},
@@ -124,11 +127,15 @@ options: [
 </template>
 
 <script>
+import buttonGroup from 'src/buttonGroup.vue'
+import checkbox from 'src/Checkbox.vue'
 import vSelect from 'src/Select.vue'
 import vOption from 'src/Option.vue'
 
 export default {
   components: {
+    buttonGroup,
+    checkbox,
     vSelect,
     vOption
   },
