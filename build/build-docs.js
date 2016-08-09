@@ -62,23 +62,23 @@
 	
 	var _accordionDocs2 = _interopRequireDefault(_accordionDocs);
 	
-	var _Affix = __webpack_require__(165);
+	var _Affix = __webpack_require__(170);
 	
 	var _Affix2 = _interopRequireDefault(_Affix);
 	
-	var _affixDocs = __webpack_require__(170);
+	var _affixDocs = __webpack_require__(175);
 	
 	var _affixDocs2 = _interopRequireDefault(_affixDocs);
 	
-	var _alertDocs = __webpack_require__(181);
+	var _alertDocs = __webpack_require__(186);
 	
 	var _alertDocs2 = _interopRequireDefault(_alertDocs);
 	
-	var _asideDocs = __webpack_require__(191);
+	var _asideDocs = __webpack_require__(196);
 	
 	var _asideDocs2 = _interopRequireDefault(_asideDocs);
 	
-	var _buttonGroupDocs = __webpack_require__(200);
+	var _buttonGroupDocs = __webpack_require__(205);
 	
 	var _buttonGroupDocs2 = _interopRequireDefault(_buttonGroupDocs);
 	
@@ -130,24 +130,24 @@
 	
 	var _spinnerDocs2 = _interopRequireDefault(_spinnerDocs);
 	
-	var _tabsDocs = __webpack_require__(294);
+	var _tabsDocs = __webpack_require__(296);
 	
 	var _tabsDocs2 = _interopRequireDefault(_tabsDocs);
 	
-	var _tooltipDocs = __webpack_require__(310);
+	var _tooltipDocs = __webpack_require__(312);
 	
 	var _tooltipDocs2 = _interopRequireDefault(_tooltipDocs);
 	
-	var _typeaheadDocs = __webpack_require__(313);
+	var _typeaheadDocs = __webpack_require__(315);
 	
 	var _typeaheadDocs2 = _interopRequireDefault(_typeaheadDocs);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(321);
 	__webpack_require__(323);
 	__webpack_require__(325);
-	__webpack_require__(326);
+	__webpack_require__(327);
+	__webpack_require__(328);
 	
 	Vue.config.debug = true;
 	
@@ -1437,67 +1437,67 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <nav class="navbar" :class="{
-	
+
 	//         'navbar-inverse':(type == 'inverse'),
-	
+
 	//         'navbar-default':(type == 'default'),
-	
+
 	//         'navbar-fixed-top':      (placement === 'top'),
-	
+
 	//         'navbar-fixed-bottom':  (placement === 'bottom'),
-	
+
 	//         'navbar-static-top':  (placement === 'static')
-	
+
 	//       }">
-	
+
 	//      <div class="container-fluid">
-	
+
 	//        <!-- Brand and toggle get grouped for better mobile display -->
-	
+
 	//        <div class="navbar-header">
-	
+
 	//          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#{{ id }}" aria-expanded="false">
-	
+
 	//            <span class="sr-only">Toggle navigation</span>
-	
+
 	//            <span class="icon-bar"></span>
-	
+
 	//            <span class="icon-bar"></span>
-	
+
 	//            <span class="icon-bar"></span>
-	
+
 	//          </button>
-	
+
 	//          <slot name="brand"></slot>
-	
+
 	//        </div>
-	
+
 	//        <!-- Collect the nav links, forms, and other content for toggling -->
-	
+
 	//        <div class="collapse navbar-collapse" id="{{ id }}">
-	
+
 	//         <ul class="nav navbar-nav">
-	
+
 	//           <slot></slot>
-	
+
 	//         </ul>
-	
+
 	//         <ul class="nav navbar-nav navbar-right">
-	
+
 	//           <slot name="right"></slot>
-	
+
 	//         </ul>
-	
+
 	//       </div>
-	
+
 	//     </div><!-- /.container-fluid -->
-	
+
 	//   </nav>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -1562,10 +1562,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-39be1072&file=Dropdown.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-52fe6674&file=Dropdown.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-39be1072&file=Dropdown.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-52fe6674&file=Dropdown.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -1587,8 +1587,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-39be1072&file=Dropdown.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dropdown.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-39be1072&file=Dropdown.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dropdown.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52fe6674&file=Dropdown.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dropdown.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52fe6674&file=Dropdown.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dropdown.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -1606,7 +1606,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".secret[_v-39be1072] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
+	exports.push([module.id, ".secret[_v-52fe6674] {\r\n  position: absolute;\r\n  clip: rect(0 0 0 0);\r\n  overflow: hidden;\r\n  margin: -1px;\r\n  height: 1px;\r\n  width: 1px;\r\n  padding: 0;\r\n  border: 0;\r\n}", ""]);
 	
 	// exports
 
@@ -1937,13 +1937,13 @@
 	
 	exports.default = {
 	  props: {
-	    'class': null,
 	    show: {
 	      twoWay: true,
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
 	      default: false
 	    },
+	    'class': null,
 	    disabled: {
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
@@ -1962,6 +1962,10 @@
 	    classes: function classes() {
 	      return [{ open: this.show }, this.class];
 	    },
+	    button: function button() {
+	      if (this.text) return this.$els.btn;
+	      return this.$els.dropdown.querySelector('[data-toggle="dropdown"]');
+	    },
 	    menu: function menu() {
 	      return !this.$parent || this.$parent.navbar;
 	    },
@@ -1977,24 +1981,18 @@
 	      var _this = this;
 	
 	      this._hide = setTimeout(function () {
-	        _this._hide = false;
+	        _this._hide = null;
 	        _this.show = false;
 	      }, 100);
 	    },
 	    unblur: function unblur() {
 	      if (this._hide) {
 	        clearTimeout(this._hide);
-	        this._hide = false;
+	        this._hide = null;
 	      }
 	    },
 	    focus: function focus() {
-	      var el = void 0;
-	      if (!this.text) {
-	        el = this.$els.dropdown.querySelector('[data-toggle="dropdown"]');
-	      } else {
-	        el = this.$els.btn;
-	      }
-	      if (el) el.focus();
+	      this.button.focus();
 	    },
 	    toggle: function toggle(e) {
 	      if (e) e.preventDefault();
@@ -2010,11 +2008,6 @@
 	    var _this2 = this;
 	
 	    var el = this.$els.dropdown;
-	    el.querySelector('ul.dropdown-menu').addEventListener('click', function (e) {
-	      if (e.target.nodeName.toLowerCase() === 'a') setTimeout(function () {
-	        return _this2.toggle();
-	      }, 25);
-	    });
 	    if (!this.text) {
 	      var toggle = el.querySelector('[data-toggle="dropdown"]');
 	      if (toggle) {
@@ -2022,105 +2015,114 @@
 	        toggle.addEventListener('blur', this.blur);
 	      }
 	    }
+	    el.querySelector('ul').addEventListener('click', function (e) {
+	      if (e.target.nodeName.toLowerCase() === 'a') _this2.blur();
+	    });
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .secret {
-	
-	//   border: 0;
-	
-	//   clip: rect(0 0 0 0);
-	
-	//   height: 1px;
-	
-	//   margin: -1px;
-	
-	//   overflow: hidden;
-	
-	//   padding: 0;
-	
+
 	//   position: absolute;
-	
+
+	//   clip: rect(0 0 0 0);
+
+	//   overflow: hidden;
+
+	//   margin: -1px;
+
+	//   height: 1px;
+
 	//   width: 1px;
-	
+
+	//   padding: 0;
+
+	//   border: 0;
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
-	//   <li v-if="$parent.navbar||$parent.menu||$parent._tabset" v-el:dropdown class="dropdown {{disabled&&'disabled'}}" :class="classes"
-	
-	//     @click="show ? blur() : toggle()"
-	
-	//   >
-	
-	//       <a v-if="text" v-el:btn class="dropdown-toggle" role="button" :class="{disabled: disabled}">
-	
-	//         {{ text }}
-	
-	//         <span class="caret"></span>
-	
-	//       </a>
-	
-	//       <button type="button" class="secret" v-el:btn
-	
-	//         @blur="blur()"
-	
-	//         @keyup.esc="show = false"
-	
-	//         :disabled="disabled"
-	
-	//       ></button>
-	
-	//       <slot v-else name="button"></slot>
-	
-	//     <slot v-if="slots['dropdown-menu']" name="dropdown-menu"></slot>
-	
-	//     <ul v-else class="dropdown-menu" @click="unblur">
-	
-	//       <slot></slot>
-	
-	//     </ul>
-	
-	//   </li>
-	
-	//   <div v-else v-el:dropdown class="btn-group" :class="classes" @click="unblur">
-	
-	//       <button v-if="text" v-el:btn type="button" class="btn btn-{{type||'default'}} dropdown-toggle"
-	
+
+	//   <li v-if="$parent.navbar||$parent.menu||$parent._tabset" v-el:dropdown class="dropdown {{disabled&&'disabled'}}" :class="classes">
+
+	//       <a v-if="text" v-el:btn class="dropdown-toggle" role="button" :class="{disabled: disabled}"
+
 	//         @click="toggle()"
-	
-	//         @blur="blur"
-	
-	//         @keyup.esc="blur"
-	
-	//         :disabled="disabled"
-	
+
+	//         @blur="blur()"
+
+	//         @keyup.esc="show = false"
+
 	//       >
-	
+
 	//         {{ text }}
-	
+
 	//         <span class="caret"></span>
-	
-	//       </button>
-	
+
+	//       </a>
+
+	//       <button type="button" class="secret" v-el:btn
+
+	//         @click="toggle()"
+
+	//         @blur="blur()"
+
+	//         @keyup.esc="show = false"
+
+	//         :disabled="disabled"
+
+	//       ></button>
+
 	//       <slot v-else name="button"></slot>
-	
+
 	//     <slot v-if="slots['dropdown-menu']" name="dropdown-menu"></slot>
-	
-	//     <ul v-else class="dropdown-menu" @click="unblur">
-	
+
+	//     <ul v-else class="dropdown-menu">
+
 	//       <slot></slot>
-	
+
 	//     </ul>
-	
+
+	//   </li>
+
+	//   <div v-else v-el:dropdown class="btn-group" :class="classes">
+
+	//       <button v-if="text" v-el:btn type="button" class="btn btn-{{type||'default'}} dropdown-toggle"
+
+	//         @click="toggle()"
+
+	//         @blur="blur"
+
+	//         @keyup.esc="show = false"
+
+	//         :disabled="disabled"
+
+	//       >
+
+	//         {{ text }}
+
+	//         <span class="caret"></span>
+
+	//       </button>
+
+	//       <slot v-else name="button"></slot>
+
+	//     <slot v-if="slots['dropdown-menu']" name="dropdown-menu"></slot>
+
+	//     <ul v-else class="dropdown-menu">
+
+	//       <slot></slot>
+
+	//     </ul>
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -2143,7 +2145,7 @@
 /* 117 */
 /***/ function(module, exports) {
 
-	module.exports = "<li v-if=\"$parent.navbar||$parent.menu||$parent._tabset\" v-el:dropdown=\"\" class=\"dropdown {{disabled&amp;&amp;'disabled'}}\" :class=\"classes\" @click=\"show ? blur() : toggle()\" _v-39be1072=\"\">\n      <a v-if=\"text\" v-el:btn=\"\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" _v-39be1072=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-39be1072=\"\"></span>\n      </a>\n      <button type=\"button\" class=\"secret\" v-el:btn=\"\" @blur=\"blur()\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-39be1072=\"\"></button>\n      <slot v-else=\"\" name=\"button\" _v-39be1072=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-39be1072=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" @click=\"unblur\" _v-39be1072=\"\">\n      <slot _v-39be1072=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"classes\" @click=\"unblur\" _v-39be1072=\"\">\n      <button v-if=\"text\" v-el:btn=\"\" type=\"button\" class=\"btn btn-{{type||'default'}} dropdown-toggle\" @click=\"toggle()\" @blur=\"blur\" @keyup.esc=\"blur\" :disabled=\"disabled\" _v-39be1072=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-39be1072=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-39be1072=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-39be1072=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" @click=\"unblur\" _v-39be1072=\"\">\n      <slot _v-39be1072=\"\"></slot>\n    </ul>\n  </div>";
+	module.exports = "<li v-if=\"$parent.navbar||$parent.menu||$parent._tabset\" v-el:dropdown=\"\" class=\"dropdown {{disabled&amp;&amp;'disabled'}}\" :class=\"classes\" _v-52fe6674=\"\">\n      <a v-if=\"text\" v-el:btn=\"\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" @click=\"toggle()\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-52fe6674=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-52fe6674=\"\"></span>\n      </a>\n      <button type=\"button\" class=\"secret\" v-el:btn=\"\" @click=\"toggle()\" @blur=\"blur()\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-52fe6674=\"\"></button>\n      <slot v-else=\"\" name=\"button\" _v-52fe6674=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-52fe6674=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-52fe6674=\"\">\n      <slot _v-52fe6674=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"classes\" _v-52fe6674=\"\">\n      <button v-if=\"text\" v-el:btn=\"\" type=\"button\" class=\"btn btn-{{type||'default'}} dropdown-toggle\" @click=\"toggle()\" @blur=\"blur\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-52fe6674=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-52fe6674=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-52fe6674=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-52fe6674=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-52fe6674=\"\">\n      <slot _v-52fe6674=\"\"></slot>\n    </ul>\n  </div>";
 
 /***/ },
 /* 118 */
@@ -2158,7 +2160,7 @@
 	module.exports = __webpack_require__(120)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(164)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(169)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -2189,32 +2191,20 @@
 	
 	var _Accordion2 = _interopRequireDefault(_Accordion);
 	
-	var _Panel = __webpack_require__(124);
+	var _Checkbox = __webpack_require__(124);
+	
+	var _Checkbox2 = _interopRequireDefault(_Checkbox);
+	
+	var _Panel = __webpack_require__(129);
 	
 	var _Panel2 = _interopRequireDefault(_Panel);
 	
-	var _Select = __webpack_require__(129);
+	var _Select = __webpack_require__(134);
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = {
-	  components: {
-	    accordion: _Accordion2.default,
-	    panel: _Panel2.default,
-	    vSelect: _Select2.default
-	  },
-	  data: function data() {
-	    return {
-	      checked: true,
-	      selected: 'info',
-	      first: 'primary',
-	      types: ['default', 'primary', 'info', 'success', 'warning', 'danger']
-	    };
-	  }
-	};
-	// </script>
 	// <template>
 	
 	//   <div class="bs-docs-section" id="accordion">
@@ -2223,25 +2213,11 @@
 	
 	//     <div class="bs-example">
 	
-	//       <p>
+	//       <checkbox :checked.sync="checked" type="primary">Open only one at a time.</checkbox>
 	
-	//         <input type="checkbox" v-model="checked">
+	//       <p><v-select :options="types" clear-button :value.sync="selected" placeholder="Global type"></v-select></p>
 	
-	//         Open only one at a time.
-	
-	//       </p>
-	
-	//       <p>
-	
-	//         <v-select :options="types" clear-button :value.sync="selected" placeholder="Global type"></v-select>
-	
-	//       </p>
-	
-	//       <p>
-	
-	//         <v-select :options="types" clear-button :value.sync="first" placeholder="First element type"></v-select>
-	
-	//       </p>
+	//       <p><v-select :options="types" clear-button :value.sync="first" placeholder="First element type"></v-select></p>
 	
 	//       <accordion :one-at-atime="checked" :type="selected">
 	
@@ -2313,37 +2289,37 @@
 	
 	//     </div>
 	
-	//     <pre><code class="language-markup"><script type="language-mark-up">
+	//     <pre><code class="language-markup">
 	
-	// <accordion :one-at-atime="checked" type="info">
+	// &lt;accordion :one-at-atime="checked" type="info">
 	
-	//   <panel header="Panel #1" :is-open="true" type="primary">
-	
-	//     ...
-	
-	//   </panel>
-	
-	//   <panel header="Panel #2">
+	//   &lt;panel header="Panel #1" :is-open="true" type="primary">
 	
 	//     ...
 	
-	//   </panel>
+	//   &lt;/panel>
 	
-	//   <panel header="Panel #3">
-	
-	//     ...
-	
-	//   </panel>
-	
-	//   <panel header="Panel #4">
+	//   &lt;panel header="Panel #2">
 	
 	//     ...
 	
-	//   </panel>
+	//   &lt;/panel>
 	
-	// </accordion>
+	//   &lt;panel header="Panel #3">
 	
-	// </script></code></pre>
+	//     ...
+	
+	//   &lt;/panel>
+	
+	//   &lt;panel header="Panel #4">
+	
+	//     ...
+	
+	//   &lt;/panel>
+	
+	// &lt;/accordion>
+	
+	//     </code></pre>
 	
 	//     <h2>Accordion Options</h2>
 	
@@ -2462,6 +2438,23 @@
 	// </template>
 	
 	// <script>
+	exports.default = {
+	  components: {
+	    accordion: _Accordion2.default,
+	    checkbox: _Checkbox2.default,
+	    panel: _Panel2.default,
+	    vSelect: _Select2.default
+	  },
+	  data: function data() {
+	    return {
+	      checked: true,
+	      selected: 'info',
+	      first: 'primary',
+	      types: ['default', 'primary', 'info', 'success', 'warning', 'danger']
+	    };
+	  }
+	};
+	// </script>
 
 /***/ },
 /* 121 */
@@ -2536,15 +2529,15 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="panel-group">
-	
+
 	//     <slot></slot>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -2567,12 +2560,12 @@
 	var hotAPI = require("vue-hot-reload-api")
 	hotAPI.install(require("vue"))
 	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue"
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Panel.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue")
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-fb39d5b4&file=Checkbox.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Checkbox.vue"], function () {
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Panel.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-fb39d5b4&file=Checkbox.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Checkbox.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -2594,8 +2587,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-b1e0461a&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-b1e0461a&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fb39d5b4&file=Checkbox.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Checkbox.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fb39d5b4&file=Checkbox.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Checkbox.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -2613,13 +2606,365 @@
 	
 	
 	// module
-	exports.push([module.id, ".accordion-toggle {\r\n  cursor: pointer;\r\n}\r\n.collapse-transition {\r\n  -webkit-transition: max-height .5s ease;\r\n  transition: max-height .5s ease;\r\n}\r\n.collapse-enter, .collapse-leave {\r\n  max-height: 0!important;\r\n}", ""]);
+	exports.push([module.id, "label.cb[_v-fb39d5b4] {\r\n  position: relative;\r\n  min-height: 20px;\r\n  padding-left: 20px;\r\n  margin-bottom: 0;\r\n  font-weight: 400;\r\n  cursor: pointer;\r\n}\r\nlabel.cb > input[_v-fb39d5b4] {\r\n  position: absolute;\r\n  margin: 0;\r\n  padding: 0;\r\n  opacity: 0;\r\n  z-index: -1;\r\n  box-sizing: border-box;\r\n}\r\nlabel.cb > input ~ .icon[_v-fb39d5b4] {\r\n  position: absolute;\r\n  top: .2rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  line-height:1rem;\r\n  color: #ddd;\r\n  text-align: center;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n  border-radius: .35rem;\r\n  background-color: #ddd;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\r\n}\r\nlabel.cb > input:checked ~ .icon[_v-fb39d5b4] {\r\n  background-size: .6em .6em;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);\r\n}\r\nlabel.cb > input:not(:checked) ~ .icon[_v-fb39d5b4] {\r\n  border: 1px solid #aaa;\r\n}\r\nlabel.cb > input:disabled ~ .icon[_v-fb39d5b4],\r\nlabel.cb > input[readonly] ~ .icon[_v-fb39d5b4] {\r\n  background-color: #eee;\r\n}\r\nlabel.cb > input:focus ~ .icon[_v-fb39d5b4] {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\nlabel.cb.active > .icon[_v-fb39d5b4] {\r\n  background-color: #bbb;\r\n}\r\nlabel.cb.active.cb-primary > input:not(:disabled):not([readonly]) ~ .icon[_v-fb39d5b4] {\r\n  background-color: #337ab7;\r\n}\r\nlabel.cb.active.cb-success > input:not(:disabled):not([readonly]) ~ .icon[_v-fb39d5b4] {\r\n  background-color: #5cb85c;\r\n}\r\nlabel.cb.active.cb-info > input:not(:disabled):not([readonly]) ~ .icon[_v-fb39d5b4] {\r\n  background-color: #5bc0de;\r\n}\r\nlabel.cb.active.cb-warning > input:not(:disabled):not([readonly]) ~ .icon[_v-fb39d5b4] {\r\n  background-color: #f0ad4e;\r\n}\r\nlabel.cb.active.cb-danger > input:not(:disabled):not([readonly]) ~ .icon[_v-fb39d5b4] {\r\n  background-color: #d9534f;\r\n}\r\nlabel.btn > input[_v-fb39d5b4] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\r\n}", ""]);
 	
 	// exports
 
 
 /***/ },
 /* 127 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _coerceBoolean = __webpack_require__(116);
+	
+	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  props: {
+	    value: {
+	      default: true
+	    },
+	    checked: {
+	      twoWay: true
+	    },
+	    button: {
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: false
+	    },
+	    disabled: {
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: false
+	    },
+	    name: {
+	      type: String,
+	      default: null
+	    },
+	    readonly: {
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: false
+	    },
+	    type: {
+	      type: String,
+	      default: null
+	    }
+	  },
+	  computed: {
+	    active: function active() {
+	      return this.group ? ~this.$parent.value.indexOf(this.value) : this.checked === this.value;
+	    },
+	    buttonStyle: function buttonStyle() {
+	      return this.button || this.group && this.$parent.buttons;
+	    },
+	    group: function group() {
+	      return this.$parent && this.$parent._checkboxGroup;
+	    },
+	    typeColor: function typeColor() {
+	      return this.type || this.$parent && this.$parent.type || 'default';
+	    }
+	  },
+	  created: function created() {
+	    var parent = this.$parent;
+	    if (!parent) return;
+	    if (parent._btnGroup && !parent._radioGroup) {
+	      parent._checkboxGroup = true;
+	    }
+	  },
+	  ready: function ready() {
+	    if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') return;
+	    if (!(this.$parent.value instanceof Array)) this.$parent.value = [];
+	    if (this.$parent.value.length) {
+	      this.checked = ~this.$parent.value.indexOf(this.value);
+	    } else if (this.checked) {
+	      this.$parent.value.push(this.value);
+	    }
+	  },
+	
+	  methods: {
+	    focus: function focus() {
+	      this.$els.input.focus();
+	    },
+	    toggle: function toggle() {
+	      this.focus();
+	      this.checked = this.checked === this.value ? null : this.value;
+	      if (this.group && typeof this.value !== 'boolean') {
+	        var parent = this.$parent;
+	        var index = parent.value.indexOf(this.value);
+	        index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1);
+	      }
+	    }
+	  }
+	};
+	// </script>
+
+	// <style scoped>
+
+	// label.cb {
+
+	//   position: relative;
+
+	//   min-height: 20px;
+
+	//   padding-left: 20px;
+
+	//   margin-bottom: 0;
+
+	//   font-weight: 400;
+
+	//   cursor: pointer;
+
+	// }
+
+	// label.cb > input {
+
+	//   position: absolute;
+
+	//   margin: 0;
+
+	//   padding: 0;
+
+	//   opacity: 0;
+
+	//   z-index: -1;
+
+	//   box-sizing: border-box;
+
+	// }
+
+	// label.cb > input ~ .icon {
+
+	//   position: absolute;
+
+	//   top: .2rem;
+
+	//   left: 0;
+
+	//   display: block;
+
+	//   width: 1.4rem;
+
+	//   height: 1.4rem;
+
+	//   line-height:1rem;
+
+	//   color: #ddd;
+
+	//   text-align: center;
+
+	//   -webkit-user-select: none;
+
+	//   -moz-user-select: none;
+
+	//   -ms-user-select: none;
+
+	//   user-select: none;
+
+	//   border-radius: .35rem;
+
+	//   background-color: #ddd;
+
+	//   background-repeat: no-repeat;
+
+	//   background-position: center center;
+
+	//   background-size: 50% 50%;
+
+	// }
+
+	// label.cb > input:checked ~ .icon {
+
+	//   background-size: .6em .6em;
+
+	//   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);
+
+	// }
+
+	// label.cb > input:not(:checked) ~ .icon {
+
+	//   border: 1px solid #aaa;
+
+	// }
+
+	// label.cb > input:disabled ~ .icon,
+
+	// label.cb > input[readonly] ~ .icon {
+
+	//   background-color: #eee;
+
+	// }
+
+	// label.cb > input:focus ~ .icon {
+
+	//   outline: 0;
+
+	//   border: 1px solid #66afe9;
+
+	//   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+
+	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+
+	// }
+
+	// label.cb.active > .icon {
+
+	//   background-color: #bbb;
+
+	// }
+
+	// label.cb.active.cb-primary > input:not(:disabled):not([readonly]) ~ .icon {
+
+	//   background-color: #337ab7;
+
+	// }
+
+	// label.cb.active.cb-success > input:not(:disabled):not([readonly]) ~ .icon {
+
+	//   background-color: #5cb85c;
+
+	// }
+
+	// label.cb.active.cb-info > input:not(:disabled):not([readonly]) ~ .icon {
+
+	//   background-color: #5bc0de;
+
+	// }
+
+	// label.cb.active.cb-warning > input:not(:disabled):not([readonly]) ~ .icon {
+
+	//   background-color: #f0ad4e;
+
+	// }
+
+	// label.cb.active.cb-danger > input:not(:disabled):not([readonly]) ~ .icon {
+
+	//   background-color: #d9534f;
+
+	// }
+
+	// label.btn > input {
+
+	//   position: absolute;
+
+	//   clip: rect(0,0,0,0);
+
+	//   pointer-events: none;
+
+	// }
+
+	// </style>
+	// <template>
+
+	//   <label :class="[(buttonStyle?'btn btn-':'cb cb-')+typeColor,{'active':checked}]">
+
+	//     <input type="checkbox" autocomplete="off"
+
+	//       v-el:input
+
+	//       :checked="checked"
+
+	//       :name="name"
+
+	//       :readonly="readonly"
+
+	//       :disabled="disabled"
+
+	//       @click="toggle"
+
+	//     />
+
+	//     <span class="icon"></span>
+
+	//     <span><slot></slot></span>
+
+	//   </label>
+
+	// </template>
+
+	// <script>
+
+/***/ },
+/* 128 */
+/***/ function(module, exports) {
+
+	module.exports = "<label :class=\"[(buttonStyle?'btn btn-':'cb cb-')+typeColor,{'active':checked}]\" _v-fb39d5b4=\"\">\n    <input type=\"checkbox\" autocomplete=\"off\" v-el:input=\"\" :checked=\"checked\" :name=\"name\" :readonly=\"readonly\" :disabled=\"disabled\" @click=\"toggle\" _v-fb39d5b4=\"\">\n    <span class=\"icon\" _v-fb39d5b4=\"\"></span>\n    <span _v-fb39d5b4=\"\"><slot _v-fb39d5b4=\"\"></slot></span>\n  </label>";
+
+/***/ },
+/* 129 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(130)
+	module.exports = __webpack_require__(132)
+	
+	if (module.exports.__esModule) module.exports = module.exports.default
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(133)
+	if (false) {
+	(function () {
+	var hotAPI = require("vue-hot-reload-api")
+	hotAPI.install(require("vue"))
+	if (!hotAPI.compatible) return
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue"
+	hotAPI.createRecord(id, module.exports)
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Panel.vue"], function () {
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Panel.vue")
+	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Panel.vue")
+	hotAPI.update(id, newOptions, newTemplate)
+	})
+	})()
+	}
+
+/***/ },
+/* 130 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(131);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(114)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-69b51631&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-69b51631&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 131 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(113)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".accordion-toggle {\r\n  cursor: pointer;\r\n}\r\n.collapse-transition {\r\n  -webkit-transition: max-height .5s ease;\r\n  transition: max-height .5s ease;\r\n}\r\n.collapse-enter, .collapse-leave {\r\n  max-height: 0!important;\r\n}", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2676,91 +3021,91 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .accordion-toggle {
-	
+
 	//   cursor: pointer;
-	
+
 	// }
-	
+
 	// .collapse-transition {
-	
+
 	//   transition: max-height .5s ease;
-	
+
 	// }
-	
+
 	// .collapse-enter, .collapse-leave {
-	
+
 	//   max-height: 0!important;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div class="panel {{panelType}}">
-	
+
 	//     <div class="panel-heading">
-	
+
 	//       <h4 class="panel-title">
-	
+
 	//         <a class="accordion-toggle"
-	
+
 	//           @click="toggle()">
-	
-	//           <slot name="header"> 
-	
+
+	//           <slot name="header">
+
 	//             {{ header }}
-	
+
 	//           </slot>
-	
+
 	//         </a>
-	
+
 	//       </h4>
-	
+
 	//     </div>
-	
+
 	//     <div class="panel-collapse"
-	
+
 	//       v-el:panel
-	
+
 	//       v-show="isOpen"
-	
+
 	//       transition="collapse"
-	
+
 	//     >
-	
+
 	//       <div class="panel-body">
-	
+
 	//         <slot></slot>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
-/* 128 */
+/* 133 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"panel {{panelType}}\">\r\n    <div class=\"panel-heading\">\r\n      <h4 class=\"panel-title\">\r\n        <a class=\"accordion-toggle\"\r\n          @click=\"toggle()\">\r\n          <slot name=\"header\"> \r\n            {{ header }}\r\n          </slot>\r\n        </a>\r\n      </h4>\r\n    </div>\r\n    <div class=\"panel-collapse\"\r\n      v-el:panel\r\n      v-show=\"isOpen\"\r\n      transition=\"collapse\"\r\n    >\r\n      <div class=\"panel-body\">\r\n        <slot></slot>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 129 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(130)
-	module.exports = __webpack_require__(132)
+	__webpack_require__(135)
+	module.exports = __webpack_require__(137)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(163)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(168)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -2768,23 +3113,23 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-e514dbc6&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1f77809f&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-e514dbc6&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1f77809f&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-/* 130 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(131);
+	var content = __webpack_require__(136);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(114)(content, {});
@@ -2793,8 +3138,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e514dbc6&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e514dbc6&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1f77809f&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1f77809f&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -2804,7 +3149,7 @@
 	}
 
 /***/ },
-/* 131 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(113)();
@@ -2812,13 +3157,13 @@
 	
 	
 	// module
-	exports.push([module.id, ".btn-select[_v-e514dbc6] {\r\n  display: inline-block;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li[_v-e514dbc6] {\r\n  position:relative;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li>a[_v-e514dbc6] {\r\n  cursor:pointer;\r\n}\r\n.bs-searchbox[_v-e514dbc6] {\r\n  padding: 4px 8px;\r\n}\r\n.bs-searchbox input[_v-e514dbc6] {\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;\r\n}\r\nbutton>.close[_v-e514dbc6] {\r\n  margin-left: 5px;\r\n}\r\n.btn-group>.notify[_v-e514dbc6] {\r\n  position: relative;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-e514dbc6],\r\n.btn-group .notify > div[_v-e514dbc6] {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.btn-group .notify > div[_v-e514dbc6] {\r\n  top: 5px;\r\n  z-index: 1;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-e514dbc6] {\r\n  opacity: .9;\r\n  bottom: 5px;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-e514dbc6] {\r\n  width:100%;\r\n}\r\nspan.caret[_v-e514dbc6] {\r\n  float: right;\r\n  margin-top: 9px;\r\n  margin-left: 5px;\r\n}\r\n.secret[_v-e514dbc6] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
+	exports.push([module.id, ".btn-select[_v-1f77809f] {\r\n  display: inline-block;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li[_v-1f77809f] {\r\n  position:relative;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li>a[_v-1f77809f] {\r\n  cursor:pointer;\r\n}\r\n.bs-searchbox[_v-1f77809f] {\r\n  padding: 4px 8px;\r\n}\r\n.bs-searchbox input[_v-1f77809f] {\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;\r\n}\r\nbutton>.close[_v-1f77809f] {\r\n  margin-left: 5px;\r\n}\r\n.btn-group>.notify[_v-1f77809f] {\r\n  position: relative;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f],\r\n.btn-group .notify > div[_v-1f77809f] {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.btn-group .notify > div[_v-1f77809f] {\r\n  top: 5px;\r\n  z-index: 1;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f] {\r\n  opacity: .9;\r\n  bottom: 5px;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-1f77809f] {\r\n  width:100%;\r\n}\r\nspan.caret[_v-1f77809f] {\r\n  float: right;\r\n  margin-top: 9px;\r\n  margin-left: 5px;\r\n}\r\n.secret[_v-1f77809f] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 132 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2827,15 +3172,15 @@
 	  value: true
 	});
 	
-	var _typeof2 = __webpack_require__(133);
+	var _typeof2 = __webpack_require__(138);
 	
 	var _typeof3 = _interopRequireDefault(_typeof2);
 	
-	var _getIterator2 = __webpack_require__(157);
+	var _getIterator2 = __webpack_require__(162);
 	
 	var _getIterator3 = _interopRequireDefault(_getIterator2);
 	
-	var _callAjax = __webpack_require__(160);
+	var _callAjax = __webpack_require__(165);
 	
 	var _callAjax2 = _interopRequireDefault(_callAjax);
 	
@@ -2843,11 +3188,11 @@
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
-	var _coerceNumber = __webpack_require__(161);
+	var _coerceNumber = __webpack_require__(166);
 	
 	var _coerceNumber2 = _interopRequireDefault(_coerceNumber);
 	
-	var _translations = __webpack_require__(162);
+	var _translations = __webpack_require__(167);
 	
 	var _translations2 = _interopRequireDefault(_translations);
 	
@@ -3256,146 +3601,146 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .btn-select {
-	
+
 	//   display: inline-block;
-	
+
 	// }
-	
+
 	// .btn-select>.btn-group>.dropdown-menu>li {
-	
+
 	//   position:relative;
-	
+
 	// }
-	
+
 	// .btn-select>.btn-group>.dropdown-menu>li>a {
-	
+
 	//   cursor:pointer;
-	
+
 	// }
-	
+
 	// .bs-searchbox {
-	
+
 	//   padding: 4px 8px;
-	
+
 	// }
-	
+
 	// .bs-searchbox input {
-	
+
 	//   border-color: #66afe9 !important;
-	
+
 	//   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
-	
+
 	//           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
-	
+
 	// }
-	
+
 	// button>.close {
-	
+
 	//   margin-left: 5px;
-	
+
 	// }
-	
+
 	// .btn-group>.notify {
-	
+
 	//   position: relative;
-	
+
 	// }
-	
+
 	// .btn-group .dropdown-menu .notify,
-	
+
 	// .btn-group .notify > div {
-	
+
 	//   position: absolute;
-	
+
 	//   width: 96%;
-	
+
 	//   margin: 0 2%;
-	
+
 	//   min-height: 26px;
-	
+
 	//   padding: 3px 5px;
-	
+
 	//   background: #f5f5f5;
-	
+
 	//   border: 1px solid #e3e3e3;
-	
+
 	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-	
+
 	//   pointer-events: none;
-	
+
 	// }
-	
+
 	// .btn-group .notify > div {
-	
+
 	//   top: 5px;
-	
+
 	//   z-index: 1;
-	
+
 	// }
-	
+
 	// .btn-group .dropdown-menu .notify {
-	
+
 	//   opacity: .9;
-	
+
 	//   bottom: 5px;
-	
+
 	// }
-	
+
 	// .btn-group.btn-group-justified .dropdown-menu {
-	
+
 	//   width:100%;
-	
+
 	// }
-	
+
 	// span.caret {
-	
+
 	//   float: right;
-	
+
 	//   margin-top: 9px;
-	
+
 	//   margin-left: 5px;
-	
+
 	// }
-	
+
 	// .secret {
-	
+
 	//   border: 0;
-	
+
 	//   clip: rect(0 0 0 0);
-	
+
 	//   height: 1px;
-	
+
 	//   margin: -1px;
-	
+
 	//   overflow: hidden;
-	
+
 	//   padding: 0;
-	
+
 	//   position: absolute;
-	
+
 	//   width: 1px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
-/* 133 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	exports.__esModule = true;
 	
-	var _iterator = __webpack_require__(134);
+	var _iterator = __webpack_require__(139);
 	
 	var _iterator2 = _interopRequireDefault(_iterator);
 	
-	var _symbol = __webpack_require__(141);
+	var _symbol = __webpack_require__(146);
 	
 	var _symbol2 = _interopRequireDefault(_symbol);
 	
@@ -3410,24 +3755,24 @@
 	};
 
 /***/ },
-/* 134 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(135), __esModule: true };
+	module.exports = { "default": __webpack_require__(140), __esModule: true };
 
 /***/ },
-/* 135 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(51);
-	__webpack_require__(136);
-	module.exports = __webpack_require__(140).f('iterator');
+	__webpack_require__(141);
+	module.exports = __webpack_require__(145).f('iterator');
 
 /***/ },
-/* 136 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(137);
+	__webpack_require__(142);
 	var global        = __webpack_require__(58)
 	  , hide          = __webpack_require__(62)
 	  , Iterators     = __webpack_require__(74)
@@ -3442,12 +3787,12 @@
 	}
 
 /***/ },
-/* 137 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var addToUnscopables = __webpack_require__(138)
-	  , step             = __webpack_require__(139)
+	var addToUnscopables = __webpack_require__(143)
+	  , step             = __webpack_require__(144)
 	  , Iterators        = __webpack_require__(74)
 	  , toIObject        = __webpack_require__(80);
 	
@@ -3481,13 +3826,13 @@
 	addToUnscopables('entries');
 
 /***/ },
-/* 138 */
+/* 143 */
 /***/ function(module, exports) {
 
 	module.exports = function(){ /* empty */ };
 
 /***/ },
-/* 139 */
+/* 144 */
 /***/ function(module, exports) {
 
 	module.exports = function(done, value){
@@ -3495,29 +3840,29 @@
 	};
 
 /***/ },
-/* 140 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports.f = __webpack_require__(92);
 
 /***/ },
-/* 141 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(142), __esModule: true };
+	module.exports = { "default": __webpack_require__(147), __esModule: true };
 
 /***/ },
-/* 142 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(143);
-	__webpack_require__(154);
-	__webpack_require__(155);
-	__webpack_require__(156);
+	__webpack_require__(148);
+	__webpack_require__(159);
+	__webpack_require__(160);
+	__webpack_require__(161);
 	module.exports = __webpack_require__(59).Symbol;
 
 /***/ },
-/* 143 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3527,24 +3872,24 @@
 	  , DESCRIPTORS    = __webpack_require__(67)
 	  , $export        = __webpack_require__(57)
 	  , redefine       = __webpack_require__(72)
-	  , META           = __webpack_require__(144).KEY
+	  , META           = __webpack_require__(149).KEY
 	  , $fails         = __webpack_require__(68)
 	  , shared         = __webpack_require__(87)
 	  , setToStringTag = __webpack_require__(91)
 	  , uid            = __webpack_require__(88)
 	  , wks            = __webpack_require__(92)
-	  , wksExt         = __webpack_require__(140)
-	  , wksDefine      = __webpack_require__(145)
-	  , keyOf          = __webpack_require__(146)
-	  , enumKeys       = __webpack_require__(147)
-	  , isArray        = __webpack_require__(150)
+	  , wksExt         = __webpack_require__(145)
+	  , wksDefine      = __webpack_require__(150)
+	  , keyOf          = __webpack_require__(151)
+	  , enumKeys       = __webpack_require__(152)
+	  , isArray        = __webpack_require__(155)
 	  , anObject       = __webpack_require__(64)
 	  , toIObject      = __webpack_require__(80)
 	  , toPrimitive    = __webpack_require__(70)
 	  , createDesc     = __webpack_require__(71)
 	  , _create        = __webpack_require__(76)
-	  , gOPNExt        = __webpack_require__(151)
-	  , $GOPD          = __webpack_require__(153)
+	  , gOPNExt        = __webpack_require__(156)
+	  , $GOPD          = __webpack_require__(158)
 	  , $DP            = __webpack_require__(63)
 	  , $keys          = __webpack_require__(78)
 	  , gOPD           = $GOPD.f
@@ -3669,9 +4014,9 @@
 	
 	  $GOPD.f = $getOwnPropertyDescriptor;
 	  $DP.f   = $defineProperty;
-	  __webpack_require__(152).f = gOPNExt.f = $getOwnPropertyNames;
-	  __webpack_require__(149).f  = $propertyIsEnumerable;
-	  __webpack_require__(148).f = $getOwnPropertySymbols;
+	  __webpack_require__(157).f = gOPNExt.f = $getOwnPropertyNames;
+	  __webpack_require__(154).f  = $propertyIsEnumerable;
+	  __webpack_require__(153).f = $getOwnPropertySymbols;
 	
 	  if(DESCRIPTORS && !__webpack_require__(56)){
 	    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
@@ -3757,7 +4102,7 @@
 	setToStringTag(global.JSON, 'JSON', true);
 
 /***/ },
-/* 144 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var META     = __webpack_require__(88)('meta')
@@ -3815,13 +4160,13 @@
 	};
 
 /***/ },
-/* 145 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var global         = __webpack_require__(58)
 	  , core           = __webpack_require__(59)
 	  , LIBRARY        = __webpack_require__(56)
-	  , wksExt         = __webpack_require__(140)
+	  , wksExt         = __webpack_require__(145)
 	  , defineProperty = __webpack_require__(63).f;
 	module.exports = function(name){
 	  var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
@@ -3829,7 +4174,7 @@
 	};
 
 /***/ },
-/* 146 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var getKeys   = __webpack_require__(78)
@@ -3844,13 +4189,13 @@
 	};
 
 /***/ },
-/* 147 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// all enumerable object keys, includes symbols
 	var getKeys = __webpack_require__(78)
-	  , gOPS    = __webpack_require__(148)
-	  , pIE     = __webpack_require__(149);
+	  , gOPS    = __webpack_require__(153)
+	  , pIE     = __webpack_require__(154);
 	module.exports = function(it){
 	  var result     = getKeys(it)
 	    , getSymbols = gOPS.f;
@@ -3864,19 +4209,19 @@
 	};
 
 /***/ },
-/* 148 */
+/* 153 */
 /***/ function(module, exports) {
 
 	exports.f = Object.getOwnPropertySymbols;
 
 /***/ },
-/* 149 */
+/* 154 */
 /***/ function(module, exports) {
 
 	exports.f = {}.propertyIsEnumerable;
 
 /***/ },
-/* 150 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.2.2 IsArray(argument)
@@ -3886,12 +4231,12 @@
 	};
 
 /***/ },
-/* 151 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
 	var toIObject = __webpack_require__(80)
-	  , gOPN      = __webpack_require__(152).f
+	  , gOPN      = __webpack_require__(157).f
 	  , toString  = {}.toString;
 	
 	var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
@@ -3911,7 +4256,7 @@
 
 
 /***/ },
-/* 152 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
@@ -3923,10 +4268,10 @@
 	};
 
 /***/ },
-/* 153 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pIE            = __webpack_require__(149)
+	var pIE            = __webpack_require__(154)
 	  , createDesc     = __webpack_require__(71)
 	  , toIObject      = __webpack_require__(80)
 	  , toPrimitive    = __webpack_require__(70)
@@ -3944,39 +4289,39 @@
 	};
 
 /***/ },
-/* 154 */
+/* 159 */
 /***/ function(module, exports) {
 
 
 
 /***/ },
-/* 155 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(145)('asyncIterator');
+	__webpack_require__(150)('asyncIterator');
 
 /***/ },
-/* 156 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(145)('observable');
+	__webpack_require__(150)('observable');
 
 /***/ },
-/* 157 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(158), __esModule: true };
+	module.exports = { "default": __webpack_require__(163), __esModule: true };
 
 /***/ },
-/* 158 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(136);
+	__webpack_require__(141);
 	__webpack_require__(51);
-	module.exports = __webpack_require__(159);
+	module.exports = __webpack_require__(164);
 
 /***/ },
-/* 159 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var anObject = __webpack_require__(64)
@@ -3988,7 +4333,7 @@
 	};
 
 /***/ },
-/* 160 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3997,7 +4342,7 @@
 	  value: true
 	});
 	
-	var _getIterator2 = __webpack_require__(157);
+	var _getIterator2 = __webpack_require__(162);
 	
 	var _getIterator3 = _interopRequireDefault(_getIterator2);
 	
@@ -4139,7 +4484,7 @@
 	};
 
 /***/ },
-/* 161 */
+/* 166 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4156,7 +4501,7 @@
 	};
 
 /***/ },
-/* 162 */
+/* 167 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4211,26 +4556,26 @@
 	};
 
 /***/ },
-/* 163 */
+/* 168 */
 /***/ function(module, exports) {
 
-	module.exports = "<select v-if=\"name &amp;&amp; (required || values.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" @focus=\"focus()\" _v-e514dbc6=\"\">\n  <option v-if=\"!values.length\" value=\"\" _v-e514dbc6=\"\"></option>\n  <option v-else=\"\" v-for=\"val in values\" value=\"{{val}}\" selected=\"\" _v-e514dbc6=\"\">{{val}}</option>\n</select>\n<div :class=\"{'btn-group btn-group-justified': justified, 'btn-select': !justified}\" @click=\"unblur\" _v-e514dbc6=\"\">\n  <slot name=\"before\" _v-e514dbc6=\"\"></slot>\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-e514dbc6=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"blur()\" _v-e514dbc6=\"\">\n      <span class=\"btn-content\" _v-e514dbc6=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-e514dbc6=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-e514dbc6=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-e514dbc6=\"\">\n      <template v-if=\"options.length\" _v-e514dbc6=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-e514dbc6=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"blur()\" _v-e514dbc6=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value||option\" _v-e514dbc6=\"\">\n          <a @mousedown.prevent=\"select(option.value||option)\" _v-e514dbc6=\"\">\n            {{ option.label||option }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value||option)\" _v-e514dbc6=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-e514dbc6=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-e514dbc6=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-e514dbc6=\"\"><div _v-e514dbc6=\"\">{{limitText}}</div></div>\n  </div>\n  <slot name=\"after\" _v-e514dbc6=\"\"></slot>\n</div>";
+	module.exports = "<select v-if=\"name &amp;&amp; (required || values.length)\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"!values.length\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-else=\"\" v-for=\"val in values\" value=\"{{val}}\" selected=\"\" _v-1f77809f=\"\">{{val}}</option>\n</select>\n<div :class=\"{'btn-group btn-group-justified': justified, 'btn-select': !justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <slot name=\"before\" _v-1f77809f=\"\"></slot>\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"blur()\" _v-1f77809f=\"\">\n      <span class=\"btn-content\" _v-1f77809f=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"blur()\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value||option\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value||option)\" _v-1f77809f=\"\">\n            {{ option.label||option }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value||option)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n  <slot name=\"after\" _v-1f77809f=\"\"></slot>\n</div>";
 
 /***/ },
-/* 164 */
+/* 169 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"bs-docs-section\" id=\"accordion\">\r\n    <h1 class=\"page-header\"><a href=\"#accordion\" class=\"anchor\">Accordion</a></h1>\r\n    <div class=\"bs-example\">\r\n      <p>\r\n        <input type=\"checkbox\" v-model=\"checked\">\r\n        Open only one at a time.\r\n      </p>\r\n      <p>\r\n        <v-select :options=\"types\" clear-button :value.sync=\"selected\" placeholder=\"Global type\"></v-select>\r\n      </p>\r\n      <p>\r\n        <v-select :options=\"types\" clear-button :value.sync=\"first\" placeholder=\"First element type\"></v-select>\r\n      </p>\r\n      <accordion :one-at-atime=\"checked\" :type=\"selected\">\r\n        <panel header=\"Panel #1\" :is-open=\"true\" :type=\"first=='panel'?null:first\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </panel>\r\n        <panel header=\"Panel #2\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </panel>\r\n        <panel header=\"Panel #3\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </panel>\r\n        <panel header=\"Panel #4\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </panel>\r\n      </accordion>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\n<accordion :one-at-atime=\"checked\" type=\"info\">\r\n  <panel header=\"Panel #1\" :is-open=\"true\" type=\"primary\">\r\n    ...\r\n  </panel>\r\n  <panel header=\"Panel #2\">\r\n    ...\r\n  </panel>\r\n  <panel header=\"Panel #3\">\r\n    ...\r\n  </panel>\r\n  <panel header=\"Panel #4\">\r\n    ...\r\n  </panel>\r\n</accordion>\r\n</script></code></pre>\r\n    <h2>Accordion Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>type</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Define the type of color for the tabs (global).</td>\r\n        </tr>\r\n        <tr>\r\n          <td>one-at-time</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td>Control whether expanding an item will cause the other items to close.</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n    <h2>Panel Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>header</td>\r\n          <td><code>String</code></td>\r\n          <td></td>\r\n          <td>The clickable text on the group's header. You need one to be able to click on the header for toggling.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>is-open</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td>Whether accordion group is open or closed.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>type</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Define the type of color for the tab (single).</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>";
+	module.exports = "<div class=\"bs-docs-section\" id=\"accordion\">\r\n    <h1 class=\"page-header\"><a href=\"#accordion\" class=\"anchor\">Accordion</a></h1>\r\n    <div class=\"bs-example\">\r\n      <checkbox :checked.sync=\"checked\" type=\"primary\">Open only one at a time.</checkbox>\r\n      <p><v-select :options=\"types\" clear-button :value.sync=\"selected\" placeholder=\"Global type\"></v-select></p>\r\n      <p><v-select :options=\"types\" clear-button :value.sync=\"first\" placeholder=\"First element type\"></v-select></p>\r\n      <accordion :one-at-atime=\"checked\" :type=\"selected\">\r\n        <panel header=\"Panel #1\" :is-open=\"true\" :type=\"first=='panel'?null:first\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </panel>\r\n        <panel header=\"Panel #2\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </panel>\r\n        <panel header=\"Panel #3\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </panel>\r\n        <panel header=\"Panel #4\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </panel>\r\n      </accordion>\r\n    </div>\r\n    <pre><code class=\"language-markup\">\r\n&lt;accordion :one-at-atime=\"checked\" type=\"info\">\r\n  &lt;panel header=\"Panel #1\" :is-open=\"true\" type=\"primary\">\r\n    ...\r\n  &lt;/panel>\r\n  &lt;panel header=\"Panel #2\">\r\n    ...\r\n  &lt;/panel>\r\n  &lt;panel header=\"Panel #3\">\r\n    ...\r\n  &lt;/panel>\r\n  &lt;panel header=\"Panel #4\">\r\n    ...\r\n  &lt;/panel>\r\n&lt;/accordion>\r\n    </code></pre>\r\n    <h2>Accordion Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>type</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Define the type of color for the tabs (global).</td>\r\n        </tr>\r\n        <tr>\r\n          <td>one-at-time</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td>Control whether expanding an item will cause the other items to close.</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n    <h2>Panel Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>header</td>\r\n          <td><code>String</code></td>\r\n          <td></td>\r\n          <td>The clickable text on the group's header. You need one to be able to click on the header for toggling.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>is-open</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td>Whether accordion group is open or closed.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>type</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Define the type of color for the tab (single).</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>";
 
 /***/ },
-/* 165 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(166)
-	module.exports = __webpack_require__(168)
+	__webpack_require__(171)
+	module.exports = __webpack_require__(173)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(169)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(174)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -4248,13 +4593,13 @@
 	}
 
 /***/ },
-/* 166 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(167);
+	var content = __webpack_require__(172);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(114)(content, {});
@@ -4263,8 +4608,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5ebddebf&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5ebddebf&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-216317fd&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-216317fd&file=Affix.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Affix.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -4274,7 +4619,7 @@
 	}
 
 /***/ },
-/* 167 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(113)();
@@ -4288,7 +4633,7 @@
 
 
 /***/ },
-/* 168 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4301,7 +4646,7 @@
 	
 	var _EventListener2 = _interopRequireDefault(_EventListener);
 	
-	var _coerceNumber = __webpack_require__(161);
+	var _coerceNumber = __webpack_require__(166);
 	
 	var _coerceNumber2 = _interopRequireDefault(_coerceNumber);
 	
@@ -4399,32 +4744,32 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	//   .vue-affix {
-	
+
 	//     position: fixed;
-	
+
 	//   }
-	
+
 	// </style>
 
 /***/ },
-/* 169 */
+/* 174 */
 /***/ function(module, exports) {
 
 	module.exports = "<div>\r\n    <div v-bind:class=\"{'vue-affix': affixed}\"\r\n      v-bind:style=\"styles\">\r\n      <slot></slot>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 170 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(171)
-	module.exports = __webpack_require__(173)
+	__webpack_require__(176)
+	module.exports = __webpack_require__(178)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(180)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(185)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -4442,13 +4787,13 @@
 	}
 
 /***/ },
-/* 171 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(172);
+	var content = __webpack_require__(177);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(114)(content, {});
@@ -4457,8 +4802,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-81085d3e&file=affixDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./affixDocs.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-81085d3e&file=affixDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./affixDocs.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-46920ce3&file=affixDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./affixDocs.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-46920ce3&file=affixDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./affixDocs.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -4468,7 +4813,7 @@
 	}
 
 /***/ },
-/* 172 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(113)();
@@ -4482,7 +4827,7 @@
 
 
 /***/ },
-/* 173 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4491,7 +4836,7 @@
 	  value: true
 	});
 	
-	var _Tooltip = __webpack_require__(174);
+	var _Tooltip = __webpack_require__(179);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
@@ -4503,139 +4848,139 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .animated {
-	
+
 	//     -webkit-animation-duration: 3s;
-	
+
 	//     animation-duration: 3s;
-	
+
 	//     -webkit-animation-fill-mode: both;
-	
+
 	//     animation-fill-mode: both;
-	
+
 	//     animation-iteration-count: infinite
-	
+
 	// }
-	
+
 	// @keyframes shake {
-	
+
 	//     0%, 100% {transform: translateX(0);}
-	
+
 	//     10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);}
-	
+
 	//     20%, 40%, 60%, 80% {transform: translateX(5px);}
-	
+
 	// }
-	
+
 	// .shake {
-	
+
 	//     -webkit-animation-name: shake;
-	
+
 	//     animation-name: shake;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="affix">
-	
+
 	//     <h1 class="page-header"><a href="#affix" class="anchor">Affix</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <h3>
-	
+
 	//         The sub-navigation on the RIGHT is a live demo of the affix.
-	
+
 	//         <tooltip trigger="hover" effect="fadein" content="I'm a direction, not jerking off!" placement="left">
-	
+
 	//           <span class="glyphicon glyphicon-hand-right pull-right animated shake"></span>
-	
+
 	//         </tooltip>
-	
+
 	//       </h3>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <affix offset="">
-	
+
 	//   <nav class="sidebar">
-	
+
 	//     <ul>
-	
+
 	//       <li>...</li>
-	
+
 	//       <li>...</li>
-	
+
 	//       <li>...</li>
-	
+
 	//     </ul>
-	
+
 	//   </nav>
-	
+
 	// </affix>
-	
+
 	// </script></code></pre>
-	
+
 	//     <h2>Options</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>offset</td>
-	
+
 	//           <td><code>Number</code></td>
-	
+
 	//           <td><code>0</code></td>
-	
+
 	//           <td>Pixels to offset from top of screen when calculating position of scroll.</td>
-	
+
 	//         </tr>
-	
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
-/* 174 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(175)
-	module.exports = __webpack_require__(177)
+	__webpack_require__(180)
+	module.exports = __webpack_require__(182)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(179)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(184)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -4653,13 +4998,13 @@
 	}
 
 /***/ },
-/* 175 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(176);
+	var content = __webpack_require__(181);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(114)(content, {});
@@ -4668,8 +5013,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-48fb51b2&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-48fb51b2&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-11919920&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-11919920&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -4679,7 +5024,7 @@
 	}
 
 /***/ },
-/* 176 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(113)();
@@ -4693,7 +5038,7 @@
 
 
 /***/ },
-/* 177 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4702,7 +5047,7 @@
 	  value: true
 	});
 	
-	var _popoverMixins = __webpack_require__(178);
+	var _popoverMixins = __webpack_require__(183);
 	
 	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
 	
@@ -4722,112 +5067,112 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .tooltip {
-	
+
 	//   opacity: .9
-	
+
 	// }
-	
+
 	// .fadein-enter {
-	
+
 	//   animation:fadein-in 0.3s ease-in;
-	
+
 	// }
-	
+
 	// .fadein-leave {
-	
+
 	//   animation:fadein-out 0.3s ease-out;
-	
+
 	// }
-	
+
 	// @keyframes fadein-in {
-	
+
 	//   0% {
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// @keyframes fadein-out {
-	
+
 	//   0% {
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <span v-el:trigger>
-	
+
 	//     <slot>
-	
+
 	//     </slot>
-	
+
 	//   </span>
-	
+
 	//   <div class="tooltip"
-	
+
 	//     v-bind:class="{
-	
+
 	//     'top':    placement === 'top',
-	
+
 	//     'left':   placement === 'left',
-	
+
 	//     'right':  placement === 'right',
-	
+
 	//     'bottom': placement === 'bottom'
-	
+
 	//     }"
-	
+
 	//     v-el:popover
-	
+
 	//     v-show="show"
-	
+
 	//     :transition="effect"
-	
+
 	//     role="tooltip">
-	
+
 	//     <div class="tooltip-arrow"></div>
-	
+
 	//     <div class="tooltip-inner">
-	
+
 	//        <slot name="content">
-	
+
 	//         {{{content}}}
-	
+
 	//       </slot>
-	
+
 	//    </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
-/* 178 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4949,26 +5294,26 @@
 	};
 
 /***/ },
-/* 179 */
+/* 184 */
 /***/ function(module, exports) {
 
 	module.exports = "<span v-el:trigger>\r\n    <slot>\r\n    </slot>\r\n  </span>\r\n  <div class=\"tooltip\"\r\n    v-bind:class=\"{\r\n    'top':    placement === 'top',\r\n    'left':   placement === 'left',\r\n    'right':  placement === 'right',\r\n    'bottom': placement === 'bottom'\r\n    }\"\r\n    v-el:popover\r\n    v-show=\"show\"\r\n    :transition=\"effect\"\r\n    role=\"tooltip\">\r\n    <div class=\"tooltip-arrow\"></div>\r\n    <div class=\"tooltip-inner\">\r\n       <slot name=\"content\">\r\n        {{{content}}}\r\n      </slot>\r\n   </div>\r\n  </div>";
 
 /***/ },
-/* 180 */
+/* 185 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"bs-docs-section\" id=\"affix\">\r\n    <h1 class=\"page-header\"><a href=\"#affix\" class=\"anchor\">Affix</a></h1>\r\n    <div class=\"bs-example\">\r\n      <h3>\r\n        The sub-navigation on the RIGHT is a live demo of the affix.\r\n        <tooltip trigger=\"hover\" effect=\"fadein\" content=\"I'm a direction, not jerking off!\" placement=\"left\">\r\n          <span class=\"glyphicon glyphicon-hand-right pull-right animated shake\"></span>\r\n        </tooltip>\r\n      </h3>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\n<affix offset=\"\">\r\n  <nav class=\"sidebar\">\r\n    <ul>\r\n      <li>...</li>\r\n      <li>...</li>\r\n      <li>...</li>\r\n    </ul>\r\n  </nav>\r\n</affix>\r\n</script></code></pre>\r\n    <h2>Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>offset</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>0</code></td>\r\n          <td>Pixels to offset from top of screen when calculating position of scroll.</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>";
 
 /***/ },
-/* 181 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(182)
-	module.exports = __webpack_require__(184)
+	__webpack_require__(187)
+	module.exports = __webpack_require__(189)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(190)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(195)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -4986,13 +5331,13 @@
 	}
 
 /***/ },
-/* 182 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(183);
+	var content = __webpack_require__(188);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(114)(content, {});
@@ -5001,8 +5346,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c3778626&file=alertDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./alertDocs.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c3778626&file=alertDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./alertDocs.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-255a786f&file=alertDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./alertDocs.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-255a786f&file=alertDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./alertDocs.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -5012,7 +5357,7 @@
 	}
 
 /***/ },
-/* 183 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(113)();
@@ -5026,7 +5371,7 @@
 
 
 /***/ },
-/* 184 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5035,7 +5380,7 @@
 	  value: true
 	});
 	
-	var _Alert = __webpack_require__(185);
+	var _Alert = __webpack_require__(190);
 	
 	var _Alert2 = _interopRequireDefault(_Alert);
 	
@@ -5054,333 +5399,333 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	//   .alert-icon-float-left {
-	
+
 	//     font-size:32px;float:left;margin-right:5px;
-	
+
 	//   }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="alert">
-	
+
 	//     <h1 class="page-header">
-	
+
 	//       <a href="#alert" class="anchor">Alert</a>
-	
+
 	//     </h1>
-	
+
 	//     <div class="bs-example" >
-	
+
 	//       <button class="btn btn-success btn-lg"
-	
+
 	//         @click="showRight = !showRight">
-	
+
 	//         Click to toggle alert on right
-	
+
 	//       </button>
-	
+
 	//       <button class="btn btn-danger btn-lg"
-	
+
 	//         @click="showTop = !showTop">
-	
+
 	//         Click to toggle alert on top
-	
+
 	//       </button>
-	
+
 	//       <hr>
-	
+
 	//       <alert type="success" >
-	
+
 	//         <strong>Well Done!</strong>
-	
+
 	//         You successfully read this important alert message.
-	
+
 	//       </alert>
-	
+
 	//       <alert type="info" >
-	
+
 	//         <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-	
+
 	//       </alert>
-	
+
 	//       <alert type="danger" dismissable>
-	
+
 	//         <strong>Oh snap!</strong> Change a few things up and try submitting again.
-	
+
 	//       </alert>
-	
+
 	//       <alert type="warning" dismissable>
-	
+
 	//         <strong>Warning!</strong> Better check yourself, you're not looking too good.
-	
+
 	//       </alert>
-	
+
 	//       <alert
-	
+
 	//         :show.sync="showRight"
-	
+
 	//         :duration="3000"
-	
+
 	//         type="success"
-	
+
 	//         width="400px"
-	
+
 	//         placement="top-right"
-	
+
 	//         dismissable
-	
+
 	//       >
-	
+
 	//         <span class="icon-ok-circled alert-icon-float-left"></span>
-	
+
 	//         <strong>Well Done!</strong>
-	
+
 	//         <p>You successfully read this important alert message.</p>
-	
+
 	//       </alert>
-	
+
 	//       <alert
-	
+
 	//         :show.sync="showTop"
-	
+
 	//         :duration="3000"
-	
+
 	//         type="danger"
-	
+
 	//         width="400px"
-	
+
 	//         placement="top"
-	
+
 	//         dismissable>
-	
+
 	//         <span class="icon-info-circled alert-icon-float-left"></span>
-	
+
 	//         <strong>Heads up!</strong>
-	
+
 	//         <p>This alert needs your attention.</p>
-	
+
 	//       </alert>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <button class="btn btn-default btn-lg"
-	
+
 	//   @click="showRight = !showRight">
-	
+
 	//   Click to toggle alert on right
-	
+
 	// </button>
-	
+
 	// <button class="btn btn-default btn-lg"
-	
+
 	//   @click="showTop = !showTop">
-	
+
 	//   Click to toggle alert on top
-	
+
 	// </button>
-	
+
 	// <hr>
-	
+
 	// <alert type="success" >
-	
+
 	//   <strong>Well Done!</strong>
-	
+
 	//   You successfully read this important alert message.
-	
+
 	// </alert>
-	
+
 	// <alert type="info" >
-	
+
 	//   <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-	
+
 	// </alert>
-	
+
 	// <alert type="danger" dismissable>
-	
+
 	//   <strong>Oh snap!</strong> Change a few things up and try submitting again.
-	
+
 	// </alert>
-	
+
 	// <alert type="warning" dismissable>
-	
+
 	//   <strong>Warning!</strong> Better check yourself, you're not looking too good.
-	
+
 	// </alert>
-	
+
 	// <alert
-	
+
 	//   :show.sync="showRight"
-	
+
 	//   :duration="3000"
-	
+
 	//   type="success"
-	
+
 	//   width="400px"
-	
+
 	//   placement="top-right"
-	
+
 	//   dismissable
-	
+
 	// >
-	
+
 	//   <span class="icon-ok-circled alert-icon-float-left"></span>
-	
+
 	//   <strong>Well Done!</strong>
-	
+
 	//   <p>You successfully read this important alert message.</p>
-	
+
 	// </alert>
-	
+
 	// <alert
-	
+
 	//   :show.sync="showTop"
-	
+
 	//   :duration="3000"
-	
+
 	//   type="danger"
-	
+
 	//   width="400px"
-	
+
 	//   placement="top"
-	
+
 	//   dismissable>
-	
+
 	//   <span class="icon-info-circled alert-icon-float-left"></span>
-	
+
 	//   <strong>Heads up!</strong>
-	
+
 	//   <p>This alert needs your attention.</p>
-	
+
 	// </alert>
-	
+
 	// </script></code></pre>
-	
+
 	//     <h2>Options</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>show</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>true</code></td>
-	
+
 	//           <td>Whether show the component</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>dismissable</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>false</code></td>
-	
+
 	//           <td>Whether show close button</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>type</td>
-	
+
 	//           <td><code>String</code>, one of
-	
+
 	//           <code>success</code>
-	
+
 	//           <code>info</code>
-	
+
 	//           <code>warning</code>
-	
+
 	//           <code>danger</code></td>
-	
+
 	//           <td><code>success</code></td>
-	
+
 	//           <td>Components styles</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>duration</td>
-	
+
 	//           <td><code>Number</code></td>
-	
+
 	//           <td><code>0</code></td>
-	
+
 	//           <td>Auto close duration. Set <code>0</code> or a negative number will NOT be auto-close.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>width</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>placement</td>
-	
+
 	//           <td><code>String</code>. one of <code>top</code>, <code>top-right</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>how to position the component.</td>
-	
+
 	//         </tr>
-	
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
-/* 185 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(186)
-	module.exports = __webpack_require__(188)
+	__webpack_require__(191)
+	module.exports = __webpack_require__(193)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(189)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(194)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -5398,13 +5743,13 @@
 	}
 
 /***/ },
-/* 186 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(187);
+	var content = __webpack_require__(192);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(114)(content, {});
@@ -5413,8 +5758,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-af7c1f6a&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-af7c1f6a&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6ae72989&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6ae72989&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -5424,7 +5769,7 @@
 	}
 
 /***/ },
-/* 187 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(113)();
@@ -5438,7 +5783,7 @@
 
 
 /***/ },
-/* 188 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5494,120 +5839,120 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .fade-transition {
-	
+
 	//   transition: opacity .3s ease;
-	
+
 	// }
-	
+
 	// .fade-enter,
-	
+
 	// .fade-leave {
-	
+
 	//   height: 0;
-	
+
 	//   opacity: 0;
-	
+
 	// }
-	
+
 	// .alert.top {
-	
+
 	//   position: fixed;
-	
+
 	//   top: 30px;
-	
+
 	//   margin: 0 auto;
-	
+
 	//   left: 0;
-	
+
 	//   right: 0;
-	
+
 	//   z-index: 2;
-	
+
 	// }
-	
+
 	// .alert.top-right {
-	
+
 	//   position: fixed;
-	
+
 	//   top: 30px;
-	
+
 	//   right: 50px;
-	
+
 	//   z-index: 2;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div
-	
+
 	//     v-show="show"
-	
+
 	//     v-bind:class="{
-	
+
 	//       'alert':		true,
-	
+
 	//       'alert-success':(type == 'success'),
-	
+
 	//       'alert-warning':(type == 'warning'),
-	
+
 	//       'alert-info':	(type == 'info'),
-	
+
 	//       'alert-danger':	(type == 'danger'),
-	
+
 	//       'top': 			(placement === 'top'),
-	
+
 	//       'top-right': 	(placement === 'top-right')
-	
+
 	//     }"
-	
+
 	//     transition="fade"
-	
+
 	//     v-bind:style="{width:width}"
-	
+
 	//     role="alert">
-	
+
 	//     <button v-show="dismissable" type="button" class="close"
-	
+
 	//       @click="show = false">
-	
+
 	//       <span>&times;</span>
-	
+
 	//     </button>
-	
+
 	//     <slot></slot>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
-/* 189 */
+/* 194 */
 /***/ function(module, exports) {
 
 	module.exports = "<div\r\n    v-show=\"show\"\r\n    v-bind:class=\"{\r\n      'alert':\t\ttrue,\r\n      'alert-success':(type == 'success'),\r\n      'alert-warning':(type == 'warning'),\r\n      'alert-info':\t(type == 'info'),\r\n      'alert-danger':\t(type == 'danger'),\r\n      'top': \t\t\t(placement === 'top'),\r\n      'top-right': \t(placement === 'top-right')\r\n    }\"\r\n    transition=\"fade\"\r\n    v-bind:style=\"{width:width}\"\r\n    role=\"alert\">\r\n    <button v-show=\"dismissable\" type=\"button\" class=\"close\"\r\n      @click=\"show = false\">\r\n      <span>&times;</span>\r\n    </button>\r\n    <slot></slot>\r\n  </div>";
 
 /***/ },
-/* 190 */
+/* 195 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"bs-docs-section\" id=\"alert\">\r\n    <h1 class=\"page-header\">\r\n      <a href=\"#alert\" class=\"anchor\">Alert</a>\r\n    </h1>\r\n    <div class=\"bs-example\" >\r\n      <button class=\"btn btn-success btn-lg\"\r\n        @click=\"showRight = !showRight\">\r\n        Click to toggle alert on right\r\n      </button>\r\n\r\n      <button class=\"btn btn-danger btn-lg\"\r\n        @click=\"showTop = !showTop\">\r\n        Click to toggle alert on top\r\n      </button>\r\n      <hr>\r\n      <alert type=\"success\" >\r\n        <strong>Well Done!</strong>\r\n        You successfully read this important alert message.\r\n      </alert>\r\n\r\n      <alert type=\"info\" >\r\n        <strong>Heads up!</strong> This alert needs your attention, but it's not super important.\r\n      </alert>\r\n\r\n      <alert type=\"danger\" dismissable>\r\n        <strong>Oh snap!</strong> Change a few things up and try submitting again.\r\n      </alert>\r\n\r\n      <alert type=\"warning\" dismissable>\r\n        <strong>Warning!</strong> Better check yourself, you're not looking too good.\r\n      </alert>\r\n\r\n      <alert\r\n        :show.sync=\"showRight\"\r\n        :duration=\"3000\"\r\n        type=\"success\"\r\n        width=\"400px\"\r\n        placement=\"top-right\"\r\n        dismissable\r\n      >\r\n        <span class=\"icon-ok-circled alert-icon-float-left\"></span>\r\n        <strong>Well Done!</strong>\r\n        <p>You successfully read this important alert message.</p>\r\n      </alert>\r\n\r\n      <alert\r\n        :show.sync=\"showTop\"\r\n        :duration=\"3000\"\r\n        type=\"danger\"\r\n        width=\"400px\"\r\n        placement=\"top\"\r\n        dismissable>\r\n        <span class=\"icon-info-circled alert-icon-float-left\"></span>\r\n        <strong>Heads up!</strong>\r\n        <p>This alert needs your attention.</p>\r\n      </alert>\r\n    </div>\r\n\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\n<button class=\"btn btn-default btn-lg\"\r\n  @click=\"showRight = !showRight\">\r\n  Click to toggle alert on right\r\n</button>\r\n\r\n<button class=\"btn btn-default btn-lg\"\r\n  @click=\"showTop = !showTop\">\r\n  Click to toggle alert on top\r\n</button>\r\n<hr>\r\n<alert type=\"success\" >\r\n  <strong>Well Done!</strong>\r\n  You successfully read this important alert message.\r\n</alert>\r\n\r\n<alert type=\"info\" >\r\n  <strong>Heads up!</strong> This alert needs your attention, but it's not super important.\r\n</alert>\r\n\r\n<alert type=\"danger\" dismissable>\r\n  <strong>Oh snap!</strong> Change a few things up and try submitting again.\r\n</alert>\r\n\r\n<alert type=\"warning\" dismissable>\r\n  <strong>Warning!</strong> Better check yourself, you're not looking too good.\r\n</alert>\r\n\r\n<alert\r\n  :show.sync=\"showRight\"\r\n  :duration=\"3000\"\r\n  type=\"success\"\r\n  width=\"400px\"\r\n  placement=\"top-right\"\r\n  dismissable\r\n>\r\n  <span class=\"icon-ok-circled alert-icon-float-left\"></span>\r\n  <strong>Well Done!</strong>\r\n  <p>You successfully read this important alert message.</p>\r\n</alert>\r\n\r\n<alert\r\n  :show.sync=\"showTop\"\r\n  :duration=\"3000\"\r\n  type=\"danger\"\r\n  width=\"400px\"\r\n  placement=\"top\"\r\n  dismissable>\r\n  <span class=\"icon-info-circled alert-icon-float-left\"></span>\r\n  <strong>Heads up!</strong>\r\n  <p>This alert needs your attention.</p>\r\n</alert>\r\n\r\n</script></code></pre>\r\n\r\n    <h2>Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>show</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>true</code></td>\r\n          <td>Whether show the component</td>\r\n        </tr>\r\n        <tr>\r\n          <td>dismissable</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td>Whether show close button</td>\r\n        </tr>\r\n        <tr>\r\n          <td>type</td>\r\n          <td><code>String</code>, one of\r\n          <code>success</code>\r\n          <code>info</code>\r\n          <code>warning</code>\r\n          <code>danger</code></td>\r\n          <td><code>success</code></td>\r\n          <td>Components styles</td>\r\n        </tr>\r\n        <tr>\r\n          <td>duration</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>0</code></td>\r\n          <td>Auto close duration. Set <code>0</code> or a negative number will NOT be auto-close.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>width</td>\r\n          <td><code>String</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>placement</td>\r\n          <td><code>String</code>. one of <code>top</code>, <code>top-right</code></td>\r\n          <td></td>\r\n          <td>how to position the component.</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>";
 
 /***/ },
-/* 191 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(192)
+	module.exports = __webpack_require__(197)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(199)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(204)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -5625,7 +5970,7 @@
 	}
 
 /***/ },
-/* 192 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5634,7 +5979,7 @@
 	  value: true
 	});
 	
-	var _Aside = __webpack_require__(193);
+	var _Aside = __webpack_require__(198);
 	
 	var _Aside2 = _interopRequireDefault(_Aside);
 	
@@ -5653,198 +5998,198 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="aside">
-	
+
 	//     <h1 class="page-header"><a href="#aside" class="anchor">Aside</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <button class="btn btn-success btn-lg" @click="showRight = true">Show Aside on right</button>
-	
+
 	//       <sidebar :show.sync="showRight" placement="right" header="Title" :width="350">
-	
+
 	//         <h4>Text in aside</h4>
-	
+
 	//         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//         tempor incididunt ut labore et dolore magna aliqua.</p>
-	
+
 	//         <p> Ut enim ad minim veniam,
-	
+
 	//         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//         consequat.</p>
-	
+
 	//           <pre><code class="language-javascript">
-	
+
 	// if (talk === cheap){
-	
+
 	//   code.style.display = 'block'
-	
+
 	// }
-	
+
 	//         </code></pre>
-	
+
 	//         <div class="aside-footer">
-	
+
 	//           <button type="button" class="btn btn-default" @click="showRight=false">Close</button>
-	
+
 	//         </div>
-	
+
 	//       </sidebar>
-	
+
 	//       <button class="btn btn-danger btn-lg" @click="showLeft = true">Show Aside on left</button>
-	
+
 	//       <sidebar  :show.sync="showLeft" placement="left" header="Title" :width="350">
-	
+
 	//         <h4>Text in aside</h4>
-	
+
 	//         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//         tempor incididunt ut labore et dolore magna aliqua.</p>
-	
+
 	//         <p> Ut enim ad minim veniam,
-	
+
 	//         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//         consequat.</p>
-	
+
 	//         <pre><code class="language-javascript">
-	
+
 	// if (talk === cheap){
-	
+
 	//   code.style.display = 'block'
-	
+
 	// }
-	
+
 	//         </code></pre>
-	
+
 	//         <div class="aside-footer">
-	
+
 	//           <button type="button" class="btn btn-default" @click="showLeft=false">Close</button>
-	
+
 	//         </div>
-	
+
 	//       </sidebar>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <button
-	
+
 	// class="btn btn-success btn-lg"
-	
+
 	// @click="showRight = true">Show Aside on right</button>
-	
+
 	// <aside :show.sync="showRight" placement="right" header="Title" :width="350">
-	
+
 	// ...
-	
+
 	// </aside>
-	
+
 	// <button
-	
+
 	// class="btn btn-danger btn-lg"
-	
+
 	// @click="showLeft = true">Show Aside on left</button>
-	
+
 	// <aside :show.sync="showLeft" placement="left" header="Title" :width="350">
-	
+
 	// ...
-	
+
 	// </aside></script></code></pre>
-	
+
 	//     <h2>Options</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>show</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>Whether show the component.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>placement</td>
-	
+
 	//           <td><code>String</code>, one of <code>left</code>, <code>right</code></td>
-	
+
 	//           <td><code>right</code></td>
-	
+
 	//           <td>how to position the component.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>header</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>Header text of the aside component.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>width</td>
-	
+
 	//           <td><code>Number</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
-/* 193 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(194)
-	module.exports = __webpack_require__(196)
+	__webpack_require__(199)
+	module.exports = __webpack_require__(201)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(198)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(203)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -5862,13 +6207,13 @@
 	}
 
 /***/ },
-/* 194 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(195);
+	var content = __webpack_require__(200);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(114)(content, {});
@@ -5877,8 +6222,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3a4bde27&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3a4bde27&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-061dd136&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-061dd136&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -5888,7 +6233,7 @@
 	}
 
 /***/ },
-/* 195 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(113)();
@@ -5902,7 +6247,7 @@
 
 
 /***/ },
-/* 196 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5915,7 +6260,7 @@
 	
 	var _EventListener2 = _interopRequireDefault(_EventListener);
 	
-	var _getScrollBarWidth = __webpack_require__(197);
+	var _getScrollBarWidth = __webpack_require__(202);
 	
 	var _getScrollBarWidth2 = _interopRequireDefault(_getScrollBarWidth);
 	
@@ -5980,342 +6325,342 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .aside-open {
-	
+
 	//   transition: transform 0.3s;
-	
+
 	// }
-	
+
 	// .aside-open.has-push-right {
-	
+
 	//   transform: translateX(-300px);
-	
+
 	// }
-	
+
 	// .aside {
-	
+
 	//     position: fixed;
-	
+
 	//     top: 0;
-	
+
 	//     bottom: 0;
-	
+
 	//     z-index: 1049;
-	
+
 	//     overflow: auto;
-	
+
 	//     background: #fff;
-	
+
 	// }
-	
+
 	// .aside.left {
-	
+
 	//   left: 0;
-	
+
 	//   right: auto;
-	
+
 	// }
-	
+
 	// .aside.right {
-	
+
 	//   left: auto;
-	
+
 	//   right: 0;
-	
+
 	// }
-	
+
 	// .slideleft-enter {
-	
+
 	//   animation:slideleft-in .3s;
-	
+
 	// }
-	
+
 	// .slideleft-leave {
-	
+
 	//   animation:slideleft-out .3s;
-	
+
 	// }
-	
+
 	// @keyframes slideleft-in {
-	
+
 	//   0% {
-	
+
 	//     transform: translateX(-100%);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: translateX(0);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// @keyframes slideleft-out {
-	
+
 	//   0% {
-	
+
 	//     transform: translateX(0);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: translateX(-100%);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// .slideright-enter {
-	
+
 	//   animation:slideright-in .3s;
-	
+
 	// }
-	
+
 	// .slideright-leave {
-	
+
 	//   animation:slideright-out .3s;
-	
+
 	// }
-	
+
 	// @keyframes slideright-in {
-	
+
 	//   0% {
-	
+
 	//     transform: translateX(100%);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: translateX(0);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// @keyframes slideright-out {
-	
+
 	//   0% {
-	
+
 	//     transform: translateX(0);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: translateX(100%);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// .aside:focus {
-	
+
 	//     outline: 0
-	
+
 	// }
-	
+
 	// @media (max-width: 991px) {
-	
+
 	//   .aside {
-	
+
 	//     min-width:240px
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// .aside.left {
-	
+
 	//   right: auto;
-	
+
 	//   left: 0
-	
+
 	// }
-	
+
 	// .aside.right {
-	
+
 	//   right: 0;
-	
+
 	//   left: auto
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-header {
-	
+
 	//   border-bottom: 1px solid #e5e5e5;
-	
+
 	//   min-height: 16.43px;
-	
+
 	//   padding: 6px 15px;
-	
+
 	//   background: #337ab7;
-	
+
 	//   color: #fff
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-header .close {
-	
+
 	//   margin-right: -8px;
-	
+
 	//   padding: 4px 8px;
-	
+
 	//   color: #fff;
-	
+
 	//   font-size: 25px;
-	
+
 	//   opacity: .8
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-body {
-	
+
 	//   position: relative;
-	
+
 	//   padding: 15px
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-footer {
-	
+
 	//   padding: 15px;
-	
+
 	//   text-align: right;
-	
+
 	//   border-top: 1px solid #e5e5e5
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-footer .btn+.btn {
-	
+
 	//   margin-left: 5px;
-	
+
 	//   margin-bottom: 0
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-footer .btn-group .btn+.btn {
-	
+
 	//   margin-left: -1px
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-footer .btn-block+.btn-block {
-	
+
 	//   margin-left: 0
-	
+
 	// }
-	
+
 	// .aside-backdrop {
-	
+
 	//   position: fixed;
-	
+
 	//   top: 0;
-	
+
 	//   right: 0;
-	
+
 	//   bottom: 0;
-	
+
 	//   left: 0;
-	
+
 	//   z-index: 1040;
-	
+
 	//   opacity: 0;
-	
+
 	//   transition: opacity .3s ease;
-	
+
 	//   background-color: #000
-	
+
 	// }
-	
+
 	// .aside-backdrop.in {
-	
+
 	//   opacity: .5;
-	
+
 	//   filter: alpha(opacity=50)
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div class="aside"
-	
+
 	//     v-bind:style="{width:width + 'px'}"
-	
+
 	//     v-bind:class="{
-	
+
 	//     left:placement === 'left',
-	
+
 	//     right:placement === 'right'
-	
+
 	//     }"
-	
+
 	//     v-show="show"
-	
+
 	//     :transition="(this.placement === 'left') ? 'slideleft' : 'slideright'">
-	
+
 	//     <div class="aside-dialog">
-	
+
 	//       <div class="aside-content">
-	
+
 	//         <div class="aside-header">
-	
+
 	//           <button type="button" class="close" @click='close'><span>&times;</span></button>
-	
-	//           <h4 class="aside-title">   
-	
-	//           <slot name="header"> 
-	
+
+	//           <h4 class="aside-title">  
+
+	//           <slot name="header">
+
 	//             {{ header }}
-	
+
 	//           </slot>
-	
+
 	//           </h4>
-	
+
 	//         </div>
-	
+
 	//         <div class="aside-body">
-	
+
 	//           <slot></slot>
-	
+
 	//         </div>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
-/* 197 */
+/* 202 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6354,22 +6699,22 @@
 	};
 
 /***/ },
-/* 198 */
+/* 203 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"aside\"\r\n    v-bind:style=\"{width:width + 'px'}\"\r\n    v-bind:class=\"{\r\n    left:placement === 'left',\r\n    right:placement === 'right'\r\n    }\"\r\n    v-show=\"show\"\r\n    :transition=\"(this.placement === 'left') ? 'slideleft' : 'slideright'\">\r\n    <div class=\"aside-dialog\">\r\n      <div class=\"aside-content\">\r\n        <div class=\"aside-header\">\r\n          <button type=\"button\" class=\"close\" @click='close'><span>&times;</span></button>\r\n          <h4 class=\"aside-title\">   \r\n          <slot name=\"header\"> \r\n            {{ header }}\r\n          </slot>\r\n          </h4>\r\n        </div>\r\n        <div class=\"aside-body\">\r\n          <slot></slot>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 199 */
+/* 204 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"bs-docs-section\" id=\"aside\">\r\n    <h1 class=\"page-header\"><a href=\"#aside\" class=\"anchor\">Aside</a></h1>\r\n    <div class=\"bs-example\">\r\n      <button class=\"btn btn-success btn-lg\" @click=\"showRight = true\">Show Aside on right</button>\r\n\r\n      <sidebar :show.sync=\"showRight\" placement=\"right\" header=\"Title\" :width=\"350\">\r\n        <h4>Text in aside</h4>\r\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n        tempor incididunt ut labore et dolore magna aliqua.</p>\r\n        <p> Ut enim ad minim veniam,\r\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n        consequat.</p>\r\n          <pre><code class=\"language-javascript\">\r\nif (talk === cheap){\r\n  code.style.display = 'block'\r\n}\r\n        </code></pre>\r\n        <div class=\"aside-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" @click=\"showRight=false\">Close</button>\r\n        </div>\r\n      </sidebar>\r\n\r\n      <button class=\"btn btn-danger btn-lg\" @click=\"showLeft = true\">Show Aside on left</button>\r\n\r\n      <sidebar  :show.sync=\"showLeft\" placement=\"left\" header=\"Title\" :width=\"350\">\r\n        <h4>Text in aside</h4>\r\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n        tempor incididunt ut labore et dolore magna aliqua.</p>\r\n        <p> Ut enim ad minim veniam,\r\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n        consequat.</p>\r\n        <pre><code class=\"language-javascript\">\r\nif (talk === cheap){\r\n  code.style.display = 'block'\r\n}\r\n        </code></pre>\r\n        <div class=\"aside-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" @click=\"showLeft=false\">Close</button>\r\n        </div>\r\n      </sidebar>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\n<button\r\nclass=\"btn btn-success btn-lg\"\r\n@click=\"showRight = true\">Show Aside on right</button>\r\n\r\n<aside :show.sync=\"showRight\" placement=\"right\" header=\"Title\" :width=\"350\">\r\n...\r\n</aside>\r\n\r\n<button\r\nclass=\"btn btn-danger btn-lg\"\r\n@click=\"showLeft = true\">Show Aside on left</button>\r\n\r\n<aside :show.sync=\"showLeft\" placement=\"left\" header=\"Title\" :width=\"350\">\r\n...\r\n</aside></script></code></pre>\r\n\r\n    <h2>Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>show</td>\r\n          <td><code>Boolean</code></td>\r\n          <td></td>\r\n          <td>Whether show the component.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>placement</td>\r\n          <td><code>String</code>, one of <code>left</code>, <code>right</code></td>\r\n          <td><code>right</code></td>\r\n          <td>how to position the component.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>header</td>\r\n          <td><code>String</code></td>\r\n          <td></td>\r\n          <td>Header text of the aside component.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>width</td>\r\n          <td><code>Number</code></td>\r\n          <td></td>\r\n          <td></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>";
 
 /***/ },
-/* 200 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(201)
+	module.exports = __webpack_require__(206)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
 	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(215)
@@ -6390,7 +6735,7 @@
 	}
 
 /***/ },
-/* 201 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6399,11 +6744,11 @@
 	  value: true
 	});
 	
-	var _buttonGroup = __webpack_require__(202);
+	var _buttonGroup = __webpack_require__(207);
 	
 	var _buttonGroup2 = _interopRequireDefault(_buttonGroup);
 	
-	var _Checkbox = __webpack_require__(205);
+	var _Checkbox = __webpack_require__(124);
 	
 	var _Checkbox2 = _interopRequireDefault(_Checkbox);
 	
@@ -6428,189 +6773,225 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="button-group">
-	
+
 	//     <h1 class="page-header"><a href="#button-group" class="anchor">Button Group</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <h4>Checkbox</h4>
-	
+
 	//       <button-group :value.sync="checkboxValue">
-	
+
 	//         <checkbox value="left">Left</checkbox>
-	
+
 	//         <checkbox value="middle">Middle</checkbox>
-	
+
 	//         <checkbox value="right">Right</checkbox>
-	
+
 	//       </button-group>
-	
+
 	//       <p>
-	
+
 	//         <pre>
-	
+
 	// Checkbox value: {{checkboxValue | json}}
-	
+
 	//         </pre>
-	
+
 	//       </p>
-	
+
 	//       <hr>
-	
+
 	//       <h4>Radio</h4>
-	
+
 	//       <p>
-	
+
 	//         <button-group :value.sync="radioValue" type="primary">
-	
+
 	//           <radio value="left">Left</radio>
-	
+
 	//           <radio value="middle">Middle</radio>
-	
+
 	//           <radio value="right">Right</radio>
-	
+
 	//         </button-group>
-	
+
 	//       </p>
-	
+
 	//       <p>
-	
+
 	//         <button-group :value.sync="radioValue" type="success">
-	
+
 	//           <radio value="left">Left</radio>
-	
+
 	//           <radio value="middle">Middle</radio>
-	
+
 	//           <radio value="right">Right</radio>
-	
+
 	//         </button-group>
-	
+
 	//       </p>
-	
+
 	//       <p>
-	
-	//         <pre>
-	
-	// Radio value: {{radioValue}}
-	
-	//         </pre>
-	
+
+	//         <label>Not buttons:</label>
+
+	//         <button-group :value.sync="radioValue" type="info" buttons="false">
+
+	//           <radio value="left">Left</radio>
+
+	//           <radio value="middle">Middle</radio>
+
+	//           <radio value="right">Right</radio>
+
+	//         </button-group>
+
 	//       </p>
-	
+
+	//       <p>
+
+	//         <pre>
+
+	// Radio value: {{radioValue}}
+
+	//         </pre>
+
+	//       </p>
+
 	//     </div>
-	
-	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
-	// <button-group :value.sync="checkboxValue">
-	
-	//   <checkbox value="left">Left</checkbox>
-	
-	//   <checkbox value="middle">Middle</checkbox>
-	
-	//   <checkbox value="right">Right</checkbox>
-	
-	// </button-group>
-	
-	// <button-group :value.sync="radioValue" type="primary">
-	
-	//   <radio value="left">Left</radio>
-	
-	//   <radio value="middle">Middle</radio>
-	
-	//   <radio value="right">Right</radio>
-	
-	// </button-group>
-	
-	// <button-group :value.sync="radioValue" type="success">
-	
-	//   <radio value="left">Left</radio>
-	
-	//   <radio value="middle">Middle</radio>
-	
-	//   <radio value="right">Right</radio>
-	
-	// </button-group>
-	
-	//     </script></code></pre>
-	
+
+	//     <pre><code class="language-markup">
+
+	// &lt;button-group :value.sync="checkboxValue">
+
+	//   &lt;checkbox value="left">Left&lt;/checkbox>
+
+	//   &lt;checkbox value="middle">Middle&lt;/checkbox>
+
+	//   &lt;checkbox value="right">Right&lt;/checkbox>
+
+	// &lt;/button-group>
+
+	// &lt;button-group :value.sync="radioValue" type="primary">
+
+	//   &lt;radio value="left">Left&lt;/radio>
+
+	//   &lt;radio value="middle">Middle&lt;/radio>
+
+	//   &lt;radio value="right">Right&lt;/radio>
+
+	// &lt;/button-group>
+
+	// Not Buttons:
+
+	// &lt;button-group :value.sync="radioValue" type="info" buttons="false">
+
+	//   &lt;radio value="left">Left&lt;/radio>
+
+	//   &lt;radio value="middle">Middle&lt;/radio>
+
+	//   &lt;radio value="right">Right&lt;/radio>
+
+	// &lt;/button-group>
+
+	//     </code></pre>
+
 	//     <h2>Group options</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>value</td>
-	
+
 	//           <td><code>Array</code> or <code>String</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>If defined, then the defined values will be checked otherwise the elements with a checked attribute
-	
+
 	//           will be checked.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
-	//           <td>type</td>
-	
-	//           <td><code>String</code>, one of <code>default</code>
-	
-	//           <code>primary</code>
-	
-	//           <code>danger</code>
-	
-	//           <code>info</code>
-	
-	//           <code>warning</code>
-	
-	//           <code>success</code></td>
-	
-	//           <td><code>default</code></td>
-	
-	//           <td></td>
-	
+
+	//           <td>buttons</td>
+
+	//           <td><code>Boolean</code></td>
+
+	//           <td><code>true</code></td>
+
+	//           <td>
+
+	//             <p>Can enable/disable button style.</p>
+
+	//             <p>Group normal checks if you want to set the same type color for all.</p>
+
+	//           </td>
+
 	//         </tr>
-	
+
+	//         <tr>
+
+	//           <td>type</td>
+
+	//           <td><code>String</code>, one of <code>default</code>
+
+	//           <code>primary</code>
+
+	//           <code>danger</code>
+
+	//           <code>info</code>
+
+	//           <code>warning</code>
+
+	//           <code>success</code></td>
+
+	//           <td><code>default</code></td>
+
+	//           <td></td>
+
+	//         </tr>
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
-/* 202 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(203)
+	module.exports = __webpack_require__(208)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(204)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(209)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -6626,111 +7007,6 @@
 	})
 	})()
 	}
-
-/***/ },
-/* 203 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	// <template>
-	
-	//   <div class="btn-group" data-toggle="buttons">
-	
-	//     <slot></slot>
-	
-	//   </div>
-	
-	// </template>
-	
-	// <script>
-	exports.default = {
-	  props: {
-	    value: null,
-	    type: {
-	      type: String,
-	      default: 'default'
-	    }
-	  },
-	  created: function created() {
-	    this._btnGroup = true;
-	  }
-	};
-	// </script>
-
-/***/ },
-/* 204 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"btn-group\" data-toggle=\"buttons\">\r\n    <slot></slot>\r\n  </div>";
-
-/***/ },
-/* 205 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(206)
-	module.exports = __webpack_require__(208)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(209)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-6922bf24&file=Checkbox.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Checkbox.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-6922bf24&file=Checkbox.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Checkbox.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
-	}
-
-/***/ },
-/* 206 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(207);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(114)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6922bf24&file=Checkbox.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Checkbox.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6922bf24&file=Checkbox.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Checkbox.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 207 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(113)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "label.cb[_v-6922bf24] {\r\n  position: relative;\r\n  min-height: 20px;\r\n  padding-left: 20px;\r\n  margin-bottom: 0;\r\n  font-weight: 400;\r\n  cursor: pointer;\r\n}\r\nlabel.cb > input[_v-6922bf24] {\r\n  position: absolute;\r\n  margin: 0;\r\n  padding: 0;\r\n  opacity: 0;\r\n  z-index: -1;\r\n  box-sizing: border-box;\r\n}\r\nlabel.cb > input ~ .icon[_v-6922bf24] {\r\n  position: absolute;\r\n  top: .2rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  line-height:1rem;\r\n  color: #ddd;\r\n  text-align: center;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n  border-radius: .35rem;\r\n  background-color: #ddd;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\r\n}\r\nlabel.cb > input:checked ~ .icon[_v-6922bf24] {\r\n  background-size: .6em .6em;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);\r\n}\r\nlabel.cb > input:not(:checked) ~ .icon[_v-6922bf24] {\r\n  border: 1px solid #aaa;\r\n}\r\nlabel.cb > input:disabled ~ .icon[_v-6922bf24],\r\nlabel.cb > input[readonly] ~ .icon[_v-6922bf24] {\r\n  background-color: #eee;\r\n}\r\nlabel.cb > input:focus ~ .icon[_v-6922bf24] {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\nlabel.cb.active > .icon[_v-6922bf24] {\r\n  background-color: #bbb;\r\n}\r\nlabel.cb.active.cb-primary > input:not(:disabled):not([readonly]) ~ .icon[_v-6922bf24] {\r\n  background-color: #337ab7;\r\n}\r\nlabel.cb.active.cb-success > input:not(:disabled):not([readonly]) ~ .icon[_v-6922bf24] {\r\n  background-color: #5cb85c;\r\n}\r\nlabel.cb.active.cb-info > input:not(:disabled):not([readonly]) ~ .icon[_v-6922bf24] {\r\n  background-color: #5bc0de;\r\n}\r\nlabel.cb.active.cb-warning > input:not(:disabled):not([readonly]) ~ .icon[_v-6922bf24] {\r\n  background-color: #f0ad4e;\r\n}\r\nlabel.cb.active.cb-danger > input:not(:disabled):not([readonly]) ~ .icon[_v-6922bf24] {\r\n  background-color: #d9534f;\r\n}\r\nlabel.btn > input[_v-6922bf24] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\r\n}", ""]);
-	
-	// exports
-
 
 /***/ },
 /* 208 */
@@ -6750,271 +7026,39 @@
 	
 	exports.default = {
 	  props: {
-	    value: {
-	      type: String,
-	      default: null
-	    },
-	    checked: {
-	      twoWay: true
-	    },
-	    button: {
+	    value: null,
+	    buttons: {
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
-	      default: false
-	    },
-	    disabled: {
-	      type: Boolean,
-	      coerce: _coerceBoolean2.default,
-	      default: false
-	    },
-	    name: {
-	      type: String,
-	      default: null
-	    },
-	    readonly: {
-	      type: Boolean,
-	      coerce: _coerceBoolean2.default,
-	      default: false
+	      default: true
 	    },
 	    type: {
 	      type: String,
-	      default: null
-	    }
-	  },
-	  computed: {
-	    active: function active() {
-	      return this.group ? ~this.$parent.value.indexOf(this.value) : this.checked === this.value;
-	    },
-	    group: function group() {
-	      return this.$parent && this.$parent._checkboxGroup;
-	    },
-	    typeColor: function typeColor() {
-	      return this.type || this.$parent && this.$parent.type || 'default';
+	      default: 'default'
 	    }
 	  },
 	  created: function created() {
-	    var parent = this.$parent;
-	    if (!parent) return;
-	    if (parent._btnGroup && !parent._radioGroup) {
-	      parent._checkboxGroup = true;
-	    }
-	  },
-	  ready: function ready() {
-	    if (!this.$parent._checkboxGroup) return;
-	    if (this.$parent.value.length) {
-	      this.checked = ~this.$parent.value.indexOf(this.value);
-	    } else if (this.checked) {
-	      this.$parent.value.push(this.value);
-	    }
-	  },
-	
-	  methods: {
-	    focus: function focus() {
-	      this.$els.input.focus();
-	    },
-	    toggle: function toggle() {
-	      this.focus();
-	      this.checked = this.checked === this.value ? null : this.value;
-	      if (this.group) {
-	        var parent = this.$parent;
-	        var index = parent.value.indexOf(this.value);
-	        index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1);
-	      }
-	    }
+	    this._btnGroup = true;
 	  }
 	};
 	// </script>
-	
-	// <style scoped>
-	
-	// label.cb {
-	
-	//   position: relative;
-	
-	//   min-height: 20px;
-	
-	//   padding-left: 20px;
-	
-	//   margin-bottom: 0;
-	
-	//   font-weight: 400;
-	
-	//   cursor: pointer;
-	
-	// }
-	
-	// label.cb > input {
-	
-	//   position: absolute;
-	
-	//   margin: 0;
-	
-	//   padding: 0;
-	
-	//   opacity: 0;
-	
-	//   z-index: -1;
-	
-	//   box-sizing: border-box;
-	
-	// }
-	
-	// label.cb > input ~ .icon {
-	
-	//   position: absolute;
-	
-	//   top: .2rem;
-	
-	//   left: 0;
-	
-	//   display: block;
-	
-	//   width: 1.4rem;
-	
-	//   height: 1.4rem;
-	
-	//   line-height:1rem;
-	
-	//   color: #ddd;
-	
-	//   text-align: center;
-	
-	//   -webkit-user-select: none;
-	
-	//   -moz-user-select: none;
-	
-	//   -ms-user-select: none;
-	
-	//   user-select: none;
-	
-	//   border-radius: .35rem;
-	
-	//   background-color: #ddd;
-	
-	//   background-repeat: no-repeat;
-	
-	//   background-position: center center;
-	
-	//   background-size: 50% 50%;
-	
-	// }
-	
-	// label.cb > input:checked ~ .icon {
-	
-	//   background-size: .6em .6em;
-	
-	//   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);
-	
-	// }
-	
-	// label.cb > input:not(:checked) ~ .icon {
-	
-	//   border: 1px solid #aaa;
-	
-	// }
-	
-	// label.cb > input:disabled ~ .icon,
-	
-	// label.cb > input[readonly] ~ .icon {
-	
-	//   background-color: #eee;
-	
-	// }
-	
-	// label.cb > input:focus ~ .icon {
-	
-	//   outline: 0;
-	
-	//   border: 1px solid #66afe9;
-	
-	//   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-	
-	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-	
-	// }
-	
-	// label.cb.active > .icon {
-	
-	//   background-color: #bbb;
-	
-	// }
-	
-	// label.cb.active.cb-primary > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #337ab7;
-	
-	// }
-	
-	// label.cb.active.cb-success > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #5cb85c;
-	
-	// }
-	
-	// label.cb.active.cb-info > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #5bc0de;
-	
-	// }
-	
-	// label.cb.active.cb-warning > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #f0ad4e;
-	
-	// }
-	
-	// label.cb.active.cb-danger > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #d9534f;
-	
-	// }
-	
-	// label.btn > input {
-	
-	//   position: absolute;
-	
-	//   clip: rect(0,0,0,0);
-	
-	//   pointer-events: none;
-	
-	// }
-	
-	// </style>
 	// <template>
-	
-	//   <label :class="[(group||button?'btn btn-':'cb cb-')+typeColor,{'active':checked}]">
-	
-	//     <input type="checkbox" autocomplete="off"
-	
-	//       v-el:input
-	
-	//       :checked="checked"
-	
-	//       :name="name"
-	
-	//       :readonly="readonly"
-	
-	//       :disabled="disabled"
-	
-	//       @click="toggle"
-	
-	//     />
-	
-	//     <span class="icon"></span>
-	
-	//     <span><slot></slot></span>
-	
-	//   </label>
-	
+
+	//   <div :class="{'btn-group':buttons}" :data-toggle="buttons&&'buttons'">
+
+	//     <slot></slot>
+
+	//   </div>
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
 /* 209 */
 /***/ function(module, exports) {
 
-	module.exports = "<label :class=\"[(group||button?'btn btn-':'cb cb-')+typeColor,{'active':checked}]\" _v-6922bf24=\"\">\n    <input type=\"checkbox\" autocomplete=\"off\" v-el:input=\"\" :checked=\"checked\" :name=\"name\" :readonly=\"readonly\" :disabled=\"disabled\" @click=\"toggle\" _v-6922bf24=\"\">\n    <span class=\"icon\" _v-6922bf24=\"\"></span>\n    <span _v-6922bf24=\"\"><slot _v-6922bf24=\"\"></slot></span>\n  </label>";
+	module.exports = "<div :class=\"{'btn-group':buttons}\" :data-toggle=\"buttons&&'buttons'\">\r\n    <slot></slot>\r\n  </div>";
 
 /***/ },
 /* 210 */
@@ -7032,10 +7076,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Radio.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Radio.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-74cfd92c&file=Radio.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Radio.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Radio.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-ef8566b0&file=Radio.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Radio.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Radio.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-74cfd92c&file=Radio.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Radio.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-ef8566b0&file=Radio.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Radio.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -7057,8 +7101,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-74cfd92c&file=Radio.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Radio.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-74cfd92c&file=Radio.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Radio.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-ef8566b0&file=Radio.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Radio.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-ef8566b0&file=Radio.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Radio.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -7076,7 +7120,7 @@
 	
 	
 	// module
-	exports.push([module.id, "label.rb[_v-74cfd92c] {\r\n  position: relative;\r\n  min-height: 20px;\r\n  padding-left: 20px;\r\n  margin-bottom: 0;\r\n  font-weight: 400;\r\n  cursor: pointer;\r\n}\r\nlabel.rb > input[_v-74cfd92c] {\r\n  position: absolute;\r\n  margin: 0;\r\n  padding: 0;\r\n  opacity: 0;\r\n  z-index: -1;\r\n  box-sizing: border-box;\r\n}\r\nlabel.rb > input ~ .icon[_v-74cfd92c] {\r\n  position: absolute;\r\n  top: .15rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  line-height:1rem;\r\n  color: #ddd;\r\n  text-align: center;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n  border-radius: .7rem;\r\n  background-color: #ddd;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\r\n}\r\nlabel.rb > input:checked ~ .icon[_v-74cfd92c] {\r\n  background-size: .6em .6em;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);\r\n}\r\nlabel.rb > input:not(:checked) ~ .icon[_v-74cfd92c] {\r\n  border: 1px solid #aaa;\r\n}\r\nlabel.rb > input:disabled ~ .icon[_v-74cfd92c],\r\nlabel.rb > input[readonly] ~ .icon[_v-74cfd92c] {\r\n  background-color: #eee;\r\n}\r\nlabel.rb > input:focus ~ .icon[_v-74cfd92c] {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\nlabel.rb.active > .icon[_v-74cfd92c] {\r\n  background-color: #bbb;\r\n}\r\nlabel.rb.active.rb-primary > input:not(:disabled):not([readonly]) ~ .icon[_v-74cfd92c] {\r\n  background-color: #337ab7;\r\n}\r\nlabel.rb.active.rb-success > input:not(:disabled):not([readonly]) ~ .icon[_v-74cfd92c] {\r\n  background-color: #5cb85c;\r\n}\r\nlabel.rb.active.rb-info > input:not(:disabled):not([readonly]) ~ .icon[_v-74cfd92c] {\r\n  background-color: #5bc0de;\r\n}\r\nlabel.rb.active.rb-warning > input:not(:disabled):not([readonly]) ~ .icon[_v-74cfd92c] {\r\n  background-color: #f0ad4e;\r\n}\r\nlabel.rb.active.rb-danger > input:not(:disabled):not([readonly]) ~ .icon[_v-74cfd92c] {\r\n  background-color: #d9534f;\r\n}\r\nlabel.btn > input[_v-74cfd92c] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\r\n}", ""]);
+	exports.push([module.id, "label.rb[_v-ef8566b0] {\r\n  position: relative;\r\n  min-height: 20px;\r\n  padding-left: 20px;\r\n  margin-bottom: 0;\r\n  font-weight: 400;\r\n  cursor: pointer;\r\n}\r\nlabel.rb > input[_v-ef8566b0] {\r\n  position: absolute;\r\n  margin: 0;\r\n  padding: 0;\r\n  opacity: 0;\r\n  z-index: -1;\r\n  box-sizing: border-box;\r\n}\r\nlabel.rb > input ~ .icon[_v-ef8566b0] {\r\n  position: absolute;\r\n  top: .15rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  line-height:1rem;\r\n  color: #ddd;\r\n  text-align: center;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n  border-radius: .7rem;\r\n  background-color: #ddd;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\r\n}\r\nlabel.rb > input:checked ~ .icon[_v-ef8566b0] {\r\n  background-size: .6em .6em;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);\r\n}\r\nlabel.rb > input:not(:checked) ~ .icon[_v-ef8566b0] {\r\n  border: 1px solid #aaa;\r\n}\r\nlabel.rb > input:disabled ~ .icon[_v-ef8566b0],\r\nlabel.rb > input[readonly] ~ .icon[_v-ef8566b0] {\r\n  background-color: #eee;\r\n}\r\nlabel.rb > input:focus ~ .icon[_v-ef8566b0] {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\nlabel.rb.active > .icon[_v-ef8566b0] {\r\n  background-color: #bbb;\r\n}\r\nlabel.rb.active.rb-primary > input:not(:disabled):not([readonly]) ~ .icon[_v-ef8566b0] {\r\n  background-color: #337ab7;\r\n}\r\nlabel.rb.active.rb-success > input:not(:disabled):not([readonly]) ~ .icon[_v-ef8566b0] {\r\n  background-color: #5cb85c;\r\n}\r\nlabel.rb.active.rb-info > input:not(:disabled):not([readonly]) ~ .icon[_v-ef8566b0] {\r\n  background-color: #5bc0de;\r\n}\r\nlabel.rb.active.rb-warning > input:not(:disabled):not([readonly]) ~ .icon[_v-ef8566b0] {\r\n  background-color: #f0ad4e;\r\n}\r\nlabel.rb.active.rb-danger > input:not(:disabled):not([readonly]) ~ .icon[_v-ef8566b0] {\r\n  background-color: #d9534f;\r\n}\r\nlabel.btn > input[_v-ef8566b0] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\r\n}", ""]);
 	
 	// exports
 
@@ -7100,8 +7144,7 @@
 	exports.default = {
 	  props: {
 	    value: {
-	      type: String,
-	      default: null
+	      default: true
 	    },
 	    checked: {
 	      twoWay: true
@@ -7133,6 +7176,9 @@
 	  computed: {
 	    active: function active() {
 	      return this.group ? this.$parent.value === this.value : this.value === this.checked;
+	    },
+	    buttonStyle: function buttonStyle() {
+	      return this.button || this.group && this.$parent.buttons;
 	    },
 	    group: function group() {
 	      return this.$parent && this.$parent._radioGroup;
@@ -7171,205 +7217,205 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// label.rb {
-	
+
 	//   position: relative;
-	
+
 	//   min-height: 20px;
-	
+
 	//   padding-left: 20px;
-	
+
 	//   margin-bottom: 0;
-	
+
 	//   font-weight: 400;
-	
+
 	//   cursor: pointer;
-	
+
 	// }
-	
+
 	// label.rb > input {
-	
+
 	//   position: absolute;
-	
+
 	//   margin: 0;
-	
+
 	//   padding: 0;
-	
+
 	//   opacity: 0;
-	
+
 	//   z-index: -1;
-	
+
 	//   box-sizing: border-box;
-	
+
 	// }
-	
+
 	// label.rb > input ~ .icon {
-	
+
 	//   position: absolute;
-	
+
 	//   top: .15rem;
-	
+
 	//   left: 0;
-	
+
 	//   display: block;
-	
+
 	//   width: 1.4rem;
-	
+
 	//   height: 1.4rem;
-	
+
 	//   line-height:1rem;
-	
+
 	//   color: #ddd;
-	
+
 	//   text-align: center;
-	
+
 	//   -webkit-user-select: none;
-	
+
 	//   -moz-user-select: none;
-	
+
 	//   -ms-user-select: none;
-	
+
 	//   user-select: none;
-	
+
 	//   border-radius: .7rem;
-	
+
 	//   background-color: #ddd;
-	
+
 	//   background-repeat: no-repeat;
-	
+
 	//   background-position: center center;
-	
+
 	//   background-size: 50% 50%;
-	
+
 	// }
-	
+
 	// label.rb > input:checked ~ .icon {
-	
+
 	//   background-size: .6em .6em;
-	
+
 	//   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);
-	
+
 	// }
-	
+
 	// label.rb > input:not(:checked) ~ .icon {
-	
+
 	//   border: 1px solid #aaa;
-	
+
 	// }
-	
+
 	// label.rb > input:disabled ~ .icon,
-	
+
 	// label.rb > input[readonly] ~ .icon {
-	
+
 	//   background-color: #eee;
-	
+
 	// }
-	
+
 	// label.rb > input:focus ~ .icon {
-	
+
 	//   outline: 0;
-	
+
 	//   border: 1px solid #66afe9;
-	
+
 	//   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-	
+
 	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-	
+
 	// }
-	
+
 	// label.rb.active > .icon {
-	
+
 	//   background-color: #bbb;
-	
+
 	// }
-	
+
 	// label.rb.active.rb-primary > input:not(:disabled):not([readonly]) ~ .icon {
-	
+
 	//   background-color: #337ab7;
-	
+
 	// }
-	
+
 	// label.rb.active.rb-success > input:not(:disabled):not([readonly]) ~ .icon {
-	
+
 	//   background-color: #5cb85c;
-	
+
 	// }
-	
+
 	// label.rb.active.rb-info > input:not(:disabled):not([readonly]) ~ .icon {
-	
+
 	//   background-color: #5bc0de;
-	
+
 	// }
-	
+
 	// label.rb.active.rb-warning > input:not(:disabled):not([readonly]) ~ .icon {
-	
+
 	//   background-color: #f0ad4e;
-	
+
 	// }
-	
+
 	// label.rb.active.rb-danger > input:not(:disabled):not([readonly]) ~ .icon {
-	
+
 	//   background-color: #d9534f;
-	
+
 	// }
-	
+
 	// label.btn > input {
-	
+
 	//   position: absolute;
-	
+
 	//   clip: rect(0,0,0,0);
-	
+
 	//   pointer-events: none;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
-	//   <label :class="[(group||button?'btn btn-':'rb rb-')+typeColor,{'active':active}]">
-	
+
+	//   <label :class="[(buttonStyle?'btn btn-':'rb rb-')+typeColor,{'active':active}]">
+
 	//     <input type="radio" autocomplete="off"
-	
+
 	//       v-el:input
-	
+
 	//       :checked="active"
-	
+
 	//       :value="value"
-	
+
 	//       :name="name"
-	
+
 	//       :readonly="readonly"
-	
+
 	//       :disabled="disabled"
-	
+
 	//       @click="toggle"
-	
+
 	//     />
-	
+
 	//     <span class="icon"></span>
-	
+
 	//     <span><slot></slot></span>
-	
+
 	//   </label>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
 /* 214 */
 /***/ function(module, exports) {
 
-	module.exports = "<label :class=\"[(group||button?'btn btn-':'rb rb-')+typeColor,{'active':active}]\" _v-74cfd92c=\"\">\n    <input type=\"radio\" autocomplete=\"off\" v-el:input=\"\" :checked=\"active\" :value=\"value\" :name=\"name\" :readonly=\"readonly\" :disabled=\"disabled\" @click=\"toggle\" _v-74cfd92c=\"\">\n    <span class=\"icon\" _v-74cfd92c=\"\"></span>\n    <span _v-74cfd92c=\"\"><slot _v-74cfd92c=\"\"></slot></span>\n  </label>";
+	module.exports = "<label :class=\"[(buttonStyle?'btn btn-':'rb rb-')+typeColor,{'active':active}]\" _v-ef8566b0=\"\">\n    <input type=\"radio\" autocomplete=\"off\" v-el:input=\"\" :checked=\"active\" :value=\"value\" :name=\"name\" :readonly=\"readonly\" :disabled=\"disabled\" @click=\"toggle\" _v-ef8566b0=\"\">\n    <span class=\"icon\" _v-ef8566b0=\"\"></span>\n    <span _v-ef8566b0=\"\"><slot _v-ef8566b0=\"\"></slot></span>\n  </label>";
 
 /***/ },
 /* 215 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"bs-docs-section\" id=\"button-group\">\r\n    <h1 class=\"page-header\"><a href=\"#button-group\" class=\"anchor\">Button Group</a></h1>\r\n    <div class=\"bs-example\">\r\n      <h4>Checkbox</h4>\r\n      <button-group :value.sync=\"checkboxValue\">\r\n        <checkbox value=\"left\">Left</checkbox>\r\n        <checkbox value=\"middle\">Middle</checkbox>\r\n        <checkbox value=\"right\">Right</checkbox>\r\n      </button-group>\r\n      <p>\r\n        <pre>\r\nCheckbox value: {{checkboxValue | json}}\r\n        </pre>\r\n      </p>\r\n      <hr>\r\n      <h4>Radio</h4>\r\n      <p>\r\n        <button-group :value.sync=\"radioValue\" type=\"primary\">\r\n          <radio value=\"left\">Left</radio>\r\n          <radio value=\"middle\">Middle</radio>\r\n          <radio value=\"right\">Right</radio>\r\n        </button-group>\r\n      </p>\r\n      <p>\r\n        <button-group :value.sync=\"radioValue\" type=\"success\">\r\n          <radio value=\"left\">Left</radio>\r\n          <radio value=\"middle\">Middle</radio>\r\n          <radio value=\"right\">Right</radio>\r\n        </button-group>\r\n      </p>\r\n      <p>\r\n        <pre>\r\nRadio value: {{radioValue}}\r\n        </pre>\r\n      </p>\r\n    </div>\r\n\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\n<button-group :value.sync=\"checkboxValue\">\r\n  <checkbox value=\"left\">Left</checkbox>\r\n  <checkbox value=\"middle\">Middle</checkbox>\r\n  <checkbox value=\"right\">Right</checkbox>\r\n</button-group>\r\n\r\n<button-group :value.sync=\"radioValue\" type=\"primary\">\r\n  <radio value=\"left\">Left</radio>\r\n  <radio value=\"middle\">Middle</radio>\r\n  <radio value=\"right\">Right</radio>\r\n</button-group>\r\n\r\n<button-group :value.sync=\"radioValue\" type=\"success\">\r\n  <radio value=\"left\">Left</radio>\r\n  <radio value=\"middle\">Middle</radio>\r\n  <radio value=\"right\">Right</radio>\r\n</button-group>\r\n    </script></code></pre>\r\n\r\n    <h2>Group options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>Array</code> or <code>String</code></td>\r\n          <td></td>\r\n          <td>If defined, then the defined values will be checked otherwise the elements with a checked attribute\r\n          will be checked.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>type</td>\r\n          <td><code>String</code>, one of <code>default</code>\r\n          <code>primary</code>\r\n          <code>danger</code>\r\n          <code>info</code>\r\n          <code>warning</code>\r\n          <code>success</code></td>\r\n          <td><code>default</code></td>\r\n          <td></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>";
+	module.exports = "<div class=\"bs-docs-section\" id=\"button-group\">\r\n    <h1 class=\"page-header\"><a href=\"#button-group\" class=\"anchor\">Button Group</a></h1>\r\n    <div class=\"bs-example\">\r\n      <h4>Checkbox</h4>\r\n      <button-group :value.sync=\"checkboxValue\">\r\n        <checkbox value=\"left\">Left</checkbox>\r\n        <checkbox value=\"middle\">Middle</checkbox>\r\n        <checkbox value=\"right\">Right</checkbox>\r\n      </button-group>\r\n      <p>\r\n        <pre>\r\nCheckbox value: {{checkboxValue | json}}\r\n        </pre>\r\n      </p>\r\n      <hr>\r\n      <h4>Radio</h4>\r\n      <p>\r\n        <button-group :value.sync=\"radioValue\" type=\"primary\">\r\n          <radio value=\"left\">Left</radio>\r\n          <radio value=\"middle\">Middle</radio>\r\n          <radio value=\"right\">Right</radio>\r\n        </button-group>\r\n      </p>\r\n      <p>\r\n        <button-group :value.sync=\"radioValue\" type=\"success\">\r\n          <radio value=\"left\">Left</radio>\r\n          <radio value=\"middle\">Middle</radio>\r\n          <radio value=\"right\">Right</radio>\r\n        </button-group>\r\n      </p>\r\n      <p>\r\n        <label>Not buttons:</label>\r\n        <button-group :value.sync=\"radioValue\" type=\"info\" buttons=\"false\">\r\n          <radio value=\"left\">Left</radio>\r\n          <radio value=\"middle\">Middle</radio>\r\n          <radio value=\"right\">Right</radio>\r\n        </button-group>\r\n      </p>\r\n      <p>\r\n        <pre>\r\nRadio value: {{radioValue}}\r\n        </pre>\r\n      </p>\r\n    </div>\r\n\r\n    <pre><code class=\"language-markup\">\r\n&lt;button-group :value.sync=\"checkboxValue\">\r\n  &lt;checkbox value=\"left\">Left&lt;/checkbox>\r\n  &lt;checkbox value=\"middle\">Middle&lt;/checkbox>\r\n  &lt;checkbox value=\"right\">Right&lt;/checkbox>\r\n&lt;/button-group>\r\n\r\n&lt;button-group :value.sync=\"radioValue\" type=\"primary\">\r\n  &lt;radio value=\"left\">Left&lt;/radio>\r\n  &lt;radio value=\"middle\">Middle&lt;/radio>\r\n  &lt;radio value=\"right\">Right&lt;/radio>\r\n&lt;/button-group>\r\n\r\nNot Buttons:\r\n&lt;button-group :value.sync=\"radioValue\" type=\"info\" buttons=\"false\">\r\n  &lt;radio value=\"left\">Left&lt;/radio>\r\n  &lt;radio value=\"middle\">Middle&lt;/radio>\r\n  &lt;radio value=\"right\">Right&lt;/radio>\r\n&lt;/button-group>\r\n    </code></pre>\r\n\r\n    <h2>Group options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>Array</code> or <code>String</code></td>\r\n          <td></td>\r\n          <td>If defined, then the defined values will be checked otherwise the elements with a checked attribute\r\n          will be checked.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>buttons</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>true</code></td>\r\n          <td>\r\n            <p>Can enable/disable button style.</p>\r\n            <p>Group normal checks if you want to set the same type color for all.</p>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>type</td>\r\n          <td><code>String</code>, one of <code>default</code>\r\n          <code>primary</code>\r\n          <code>danger</code>\r\n          <code>info</code>\r\n          <code>warning</code>\r\n          <code>success</code></td>\r\n          <td><code>default</code></td>\r\n          <td></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>";
 
 /***/ },
 /* 216 */
@@ -7405,7 +7451,7 @@
 	  value: true
 	});
 	
-	var _Checkbox = __webpack_require__(205);
+	var _Checkbox = __webpack_require__(124);
 	
 	var _Checkbox2 = _interopRequireDefault(_Checkbox);
 	
@@ -7428,127 +7474,127 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="checkbox">
-	
+
 	//     <h1 class="page-header"><a href="#checkbox" class="anchor">Checkbox</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <h4>Checkbox</h4>
-	
+
 	//       <checkbox :checked.sync="checkboxValue.one" value="one">One</checkbox>
-	
+
 	//       <checkbox :checked.sync="checkboxValue.two" value="two" type="primary">Two</checkbox>
-	
+
 	//       <checkbox :checked.sync="checkboxValue.three" value="three" type="danger">Three</checkbox>
-	
+
 	//       <hr>
-	
+
 	//       <h4>Checkbox Button (Single button)</h4>
-	
+
 	//       <checkbox button :checked.sync="checkboxValue.four" value="four" type="primary">Four</checkbox>
-	
+
 	//       <p>
-	
+
 	//         <pre>
-	
+
 	// Checkbox value: {{checkboxValue | json}}
-	
+
 	//         </pre>
-	
+
 	//       </p>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup">
-	
+
 	// &lt;checkbox :checked.sync="checkboxValue.one" value="one">One&lt;/checkbox>
-	
+
 	// &lt;checkbox :checked.sync="checkboxValue.two" value="two" type="primary">Two&lt;/checkbox>
-	
+
 	// &lt;checkbox :checked.sync="checkboxValue.three" value="three" type="danger">Three&lt;/checkbox>
-	
+
 	// &lt;checkbox button :checked.sync="checkboxValue.four" value="four" type="primary">Four&lt;/checkbox>
-	
+
 	//     </code></pre>
-	
+
 	//     <h2>Checkbox options</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>value</td>
-	
+
 	//           <td><code>Array</code> or <code>String</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>If defined, then the defined values will be checked otherwise the elements with a checked attribute will be checked.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>type</td>
-	
+
 	//           <td><code>String</code>, one of <code>default</code>
-	
+
 	//           <code>primary</code>
-	
+
 	//           <code>danger</code>
-	
+
 	//           <code>info</code>
-	
+
 	//           <code>warning</code>
-	
+
 	//           <code>success</code></td>
-	
+
 	//           <td><code>default</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>button</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td>false</td>
-	
+
 	//           <td>Button style. If is in a button group (set as checkbox group), all checkboxes will be buttons automaticaly.</td>
-	
+
 	//         </tr>
-	
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -7784,10 +7830,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-322dee41&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4b6e4443&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-322dee41&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4b6e4443&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -7809,8 +7855,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-322dee41&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-322dee41&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4b6e4443&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4b6e4443&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -7828,7 +7874,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".carousel-control[_v-322dee41] {\r\n  cursor: pointer;\r\n}", ""]);
+	exports.push([module.id, ".carousel-control[_v-4b6e4443] {\r\n  cursor: pointer;\r\n}", ""]);
 	
 	// exports
 
@@ -8005,22 +8051,22 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .carousel-control {
-	
+
 	//   cursor: pointer;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
 /* 225 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-322dee41=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-322dee41=\"\">\n    <indicator :indicator.sync=\"indicator\" :active-index.sync=\"activeIndex\" :is-animating.sync=\"isAnimating\" _v-322dee41=\"\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-322dee41=\"\">\n    <slot _v-322dee41=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <div v-show=\"controls\" class=\"carousel-controls hidden-xs\" _v-322dee41=\"\">\n    <a class=\"left carousel-control\" role=\"button\" @click=\"prevClick\" _v-322dee41=\"\">\n      <span class=\"fa fa-arrow-left\" aria-hidden=\"true\" _v-322dee41=\"\"></span>\n    </a>\n    <a class=\"right carousel-control\" role=\"button\" @click=\"nextClick\" _v-322dee41=\"\">\n      <span class=\"fa fa-arrow-right\" aria-hidden=\"true\" _v-322dee41=\"\"></span>\n    </a>\n  </div>\n</div>";
+	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-4b6e4443=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-4b6e4443=\"\">\n    <indicator :indicator.sync=\"indicator\" :active-index.sync=\"activeIndex\" :is-animating.sync=\"isAnimating\" _v-4b6e4443=\"\"></indicator>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-4b6e4443=\"\">\n    <slot _v-4b6e4443=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <div v-show=\"controls\" class=\"carousel-controls hidden-xs\" _v-4b6e4443=\"\">\n    <a class=\"left carousel-control\" role=\"button\" @click=\"prevClick\" _v-4b6e4443=\"\">\n      <span class=\"fa fa-arrow-left\" aria-hidden=\"true\" _v-4b6e4443=\"\"></span>\n    </a>\n    <a class=\"right carousel-control\" role=\"button\" @click=\"nextClick\" _v-4b6e4443=\"\">\n      <span class=\"fa fa-arrow-right\" aria-hidden=\"true\" _v-4b6e4443=\"\"></span>\n    </a>\n  </div>\n</div>";
 
 /***/ },
 /* 226 */
@@ -8168,11 +8214,15 @@
 	  value: true
 	});
 	
+	var _Checkbox = __webpack_require__(124);
+	
+	var _Checkbox2 = _interopRequireDefault(_Checkbox);
+	
 	var _Datepicker = __webpack_require__(234);
 	
 	var _Datepicker2 = _interopRequireDefault(_Datepicker);
 	
-	var _Select = __webpack_require__(129);
+	var _Select = __webpack_require__(134);
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
@@ -8182,31 +8232,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = {
-	  components: {
-	    datepicker: _Datepicker2.default,
-	    vSelect: _Select2.default,
-	    vOption: _Option2.default
-	  },
-	  data: function data() {
-	    return {
-	      disabled: [],
-	      value: '06/10/2015',
-	      format: ['dd/MM/yyyy'],
-	      reset: true
-	    };
-	  },
-	
-	  watch: {
-	    disabled: function disabled() {
-	      this.$refs.dp.getDateRange();
-	    },
-	    format: function format(newV) {
-	      this.value = this.$refs.dp.stringify(new Date(this.value));
-	    }
-	  }
-	};
-	// </script>
 	// <template>
 	
 	//   <div class="bs-docs-section" id="datepicker">
@@ -8219,33 +8244,31 @@
 	
 	//         <pre>
 	
-	// Selected date is: {{new Date(value).toString().slice(0, -23)}}
+	// Selected date is: {{new Date(value).toString()}}
 	
 	//         </pre>
 	
 	//       </p>
 	
-	//       <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled"
-	
-	//       :format="format.toString()" :show-reset-button="reset"></datepicker>
+	//       <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled" :format="format.toString()" :show-reset-button="reset"></datepicker>
 	
 	//       <h4>Disabled days of week</h4>
 	
 	//       <v-select multiple :value.sync="disabled">
 	
-	//   <v-option value="0">0</v-option>
+	//         <v-option value="0">0</v-option>
 	
-	//   <v-option value="1">1</v-option>
+	//         <v-option value="1">1</v-option>
 	
-	//   <v-option value="2">2</v-option>
+	//         <v-option value="2">2</v-option>
 	
-	//   <v-option value="3">3</v-option>
+	//         <v-option value="3">3</v-option>
 	
-	//   <v-option value="4">4</v-option>
+	//         <v-option value="4">4</v-option>
 	
-	//   <v-option value="5">5</v-option>
+	//         <v-option value="5">5</v-option>
 	
-	//   <v-option value="6">6</v-option>
+	//         <v-option value="6">6</v-option>
 	
 	//       </v-select>
 	
@@ -8275,13 +8298,13 @@
 	
 	//       <h4>Reset button</h4>
 	
-	//       <label><input type="checkbox" v-model="reset" @click="x"> toggle reset button</label>
+	//       <checkbox :checked.sync="reset" type="primary">toggle reset button</checkbox>
 	
 	//     </div>
 	
-	//     <pre><code class="language-markup"><script type="language-mark-up">
+	//     <pre><code class="language-markup">
 	
-	// <datepicker
+	// &lt;datepicker
 	
 	//   :value.sync="value"
 	
@@ -8291,45 +8314,9 @@
 	
 	//   :show-reset-button="reset">
 	
-	// </datepicker>
+	// &lt;/datepicker>
 	
-	// <select multiple :value.sync="disabled" size=5>
-	
-	//   <v-option value="0">0</v-option>
-	
-	//   <v-option value="1">1</v-option>
-	
-	//   <v-option value="2">2</v-option>
-	
-	//   <v-option value="3">3</v-option>
-	
-	//   <v-option value="4">4</v-option>
-	
-	//   <v-option value="5">5</v-option>
-	
-	//   <v-option value="6">6</v-option>
-	
-	// </select>
-	
-	// <select  :value.sync="format">
-	
-	//   <v-option value="yyyy,MM,dd">yyyy,MM,dd</v-option>
-	
-	//   <v-option value="yyyy-MM-dd">yyyy-MM-dd</v-option>
-	
-	//   <v-option value="yyyy.MM.dd">yyyy.MM.dd</v-option>
-	
-	//   <v-option value="MMM/dd/yyyy">MMM/dd/yyyy</v-option>
-	
-	//   <v-option value="MMMM/dd/yyyy">MMMM/dd/yyyy</v-option>
-	
-	//   <v-option value="dd/MM/yyyy">dd/MM/yyyy</v-option>
-	
-	//   <v-option value="dd-MM-yyyy">dd-MM-yyyy</v-option>
-	
-	// </select>
-	
-	//     </script></code></pre>
+	//     </code></pre>
 	
 	//     <h2>Option</h2>
 	
@@ -8428,6 +8415,32 @@
 	// </template>
 	
 	// <script>
+	exports.default = {
+	  components: {
+	    checkbox: _Checkbox2.default,
+	    datepicker: _Datepicker2.default,
+	    vSelect: _Select2.default,
+	    vOption: _Option2.default
+	  },
+	  data: function data() {
+	    return {
+	      disabled: [],
+	      value: '06/10/2015',
+	      format: ['dd/MM/yyyy'],
+	      reset: true
+	    };
+	  },
+	
+	  watch: {
+	    disabled: function disabled() {
+	      this.$refs.dp.getDateRange();
+	    },
+	    format: function format(newV) {
+	      this.value = this.$refs.dp.stringify(new Date(this.value));
+	    }
+	  }
+	};
+	// </script>
 
 /***/ },
 /* 234 */
@@ -8470,8 +8483,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-477b8e5d&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-477b8e5d&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-11fe6bdf&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-11fe6bdf&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -8508,7 +8521,7 @@
 	
 	var _EventListener2 = _interopRequireDefault(_EventListener);
 	
-	var _translations = __webpack_require__(162);
+	var _translations = __webpack_require__(167);
 	
 	var _translations2 = _interopRequireDefault(_translations);
 	
@@ -8915,239 +8928,239 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .datepicker{
-	
+
 	//   position: relative;
-	
+
 	//   display: inline-block;
-	
+
 	// }
-	
+
 	// input.datepicker-input.with-reset-button {
-	
+
 	//   padding-right: 25px;
-	
+
 	// }
-	
+
 	// .datepicker > button.close {
-	
+
 	//   position: absolute;
-	
+
 	//   top: calc(50% - 13px);
-	
+
 	//   right: 10px;
-	
+
 	//   outline: none;
-	
+
 	//   z-index: 2;
-	
+
 	// }
-	
+
 	// .datepicker > button.close:focus {
-	
+
 	//   opacity: .2;
-	
+
 	// }
-	
+
 	// .datepicker-popup{
-	
+
 	//   position: absolute;
-	
+
 	//   border: 1px solid #ccc;
-	
+
 	//   border-radius: 5px;
-	
+
 	//   background: #fff;
-	
+
 	//   margin-top: 2px;
-	
+
 	//   z-index: 1000;
-	
+
 	//   box-shadow: 0 6px 12px rgba(0,0,0,0.175);
-	
+
 	// }
-	
+
 	// .datepicker-inner{
-	
+
 	//   width: 218px;
-	
+
 	// }
-	
+
 	// .datepicker-body{
-	
+
 	//   padding: 10px 10px;
-	
+
 	// }
-	
+
 	// .datepicker-ctrl p,
-	
+
 	// .datepicker-ctrl span,
-	
+
 	// .datepicker-body span{
-	
+
 	//   display: inline-block;
-	
+
 	//   width: 28px;
-	
+
 	//   line-height: 28px;
-	
+
 	//   height: 28px;
-	
+
 	//   border-radius: 4px;
-	
+
 	// }
-	
+
 	// .datepicker-ctrl p {
-	
+
 	//   width: 65%;
-	
+
 	// }
-	
+
 	// .datepicker-ctrl span {
-	
+
 	//   position: absolute;
-	
+
 	// }
-	
+
 	// .datepicker-body span {
-	
+
 	//   text-align: center;
-	
+
 	// }
-	
+
 	// .datepicker-monthRange span{
-	
+
 	//   width: 48px;
-	
+
 	//   height: 50px;
-	
+
 	//   line-height: 45px;
-	
+
 	// }
-	
+
 	// .datepicker-item-disable {
-	
+
 	//   background-color: white!important;
-	
+
 	//   cursor: not-allowed!important;
-	
+
 	// }
-	
+
 	// .decadeRange span:first-child,
-	
+
 	// .decadeRange span:last-child,
-	
+
 	// .datepicker-item-disable,
-	
+
 	// .datepicker-item-gray{
-	
+
 	//   color: #999;
-	
+
 	// }
-	
+
 	// .datepicker-dateRange-item-active:hover,
-	
+
 	// .datepicker-dateRange-item-active {
-	
+
 	//   background: rgb(50, 118, 177)!important;
-	
+
 	//   color: white!important;
-	
+
 	// }
-	
+
 	// .datepicker-monthRange {
-	
+
 	//   margin-top: 10px
-	
+
 	// }
-	
+
 	// .datepicker-monthRange span,
-	
+
 	// .datepicker-ctrl span,
-	
+
 	// .datepicker-ctrl p,
-	
+
 	// .datepicker-dateRange span {
-	
+
 	//   cursor: pointer;
-	
+
 	// }
-	
+
 	// .datepicker-monthRange span:hover,
-	
+
 	// .datepicker-ctrl p:hover,
-	
+
 	// .datepicker-ctrl i:hover,
-	
+
 	// .datepicker-dateRange span:hover,
-	
+
 	// .datepicker-dateRange-item-hover {
-	
+
 	//   background-color : #eeeeee;
-	
+
 	// }
-	
+
 	// .datepicker-weekRange span{
-	
+
 	//   font-weight: bold;
-	
+
 	// }
-	
+
 	// .datepicker-label{
-	
+
 	//   background-color: #f8f8f8;
-	
+
 	//   font-weight: 700;
-	
+
 	//   padding: 7px 0;
-	
+
 	//   text-align: center;
-	
+
 	// }
-	
+
 	// .datepicker-ctrl{
-	
+
 	//   position: relative;
-	
+
 	//   height: 30px;
-	
+
 	//   line-height: 30px;
-	
+
 	//   font-weight: bold;
-	
+
 	//   text-align: center;
-	
+
 	// }
-	
+
 	// .month-btn{
-	
+
 	//   font-weight: bold;
-	
+
 	//   -webkit-user-select:none;
-	
+
 	//   -moz-user-select:none;
-	
+
 	//   -ms-user-select:none;
-	
+
 	//   user-select:none;
-	
+
 	// }
-	
+
 	// .datepicker-preBtn{
-	
+
 	//   left: 2px;
-	
+
 	// }
-	
+
 	// .datepicker-nextBtn{
-	
+
 	//   right: 2px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
@@ -9172,10 +9185,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-42088116&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-57eb20d0&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-42088116&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-57eb20d0&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -9197,8 +9210,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-42088116&file=Option.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-42088116&file=Option.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-57eb20d0&file=Option.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-57eb20d0&file=Option.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -9216,7 +9229,7 @@
 	
 	
 	// module
-	exports.push([module.id, "a span.check-mark[_v-42088116] {\r\n  position: absolute;\r\n  display: inline-block;\r\n  right: 15px;\r\n  margin-top: 5px;\r\n}", ""]);
+	exports.push([module.id, "a span.check-mark[_v-57eb20d0] {\r\n  position: absolute;\r\n  display: inline-block;\r\n  right: 15px;\r\n  margin-top: 5px;\r\n}", ""]);
 	
 	// exports
 
@@ -9278,34 +9291,34 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// a span.check-mark {
-	
+
 	//   position: absolute;
-	
+
 	//   display: inline-block;
-	
+
 	//   right: 15px;
-	
+
 	//   margin-top: 5px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
 /* 243 */
 /***/ function(module, exports) {
 
-	module.exports = "<li style=\"position:relative\" _v-42088116=\"\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\" _v-42088116=\"\">\n      <span v-el:v=\"\" _v-42088116=\"\"><slot _v-42088116=\"\"></slot></span>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\" _v-42088116=\"\"></span>\n    </a>\n  </li>";
+	module.exports = "<li style=\"position:relative\" _v-57eb20d0=\"\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\" _v-57eb20d0=\"\">\n      <span v-el:v=\"\" _v-57eb20d0=\"\"><slot _v-57eb20d0=\"\"></slot></span>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\" _v-57eb20d0=\"\"></span>\n    </a>\n  </li>";
 
 /***/ },
 /* 244 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"bs-docs-section\" id=\"datepicker\">\r\n    <h1 class=\"page-header\"><a href=\"#datepicker\" class=\"anchor\">Datepicker</a></h1>\r\n    <div class=\"bs-example\">\r\n      <p>\r\n        <pre>\r\nSelected date is: {{new Date(value).toString().slice(0, -23)}}\r\n        </pre>\r\n      </p>\r\n      <datepicker v-ref:dp :value.sync=\"value\" :disabled-days-of-Week=\"disabled\"\r\n      :format=\"format.toString()\" :show-reset-button=\"reset\"></datepicker>\r\n      <h4>Disabled days of week</h4>\r\n\r\n      <v-select multiple :value.sync=\"disabled\">\r\n  <v-option value=\"0\">0</v-option>\r\n  <v-option value=\"1\">1</v-option>\r\n  <v-option value=\"2\">2</v-option>\r\n  <v-option value=\"3\">3</v-option>\r\n  <v-option value=\"4\">4</v-option>\r\n  <v-option value=\"5\">5</v-option>\r\n  <v-option value=\"6\">6</v-option>\r\n      </v-select>\r\n\r\n      <h4>Format</h4>\r\n      <v-select :value.sync=\"format\">\r\n        <v-option value=\"dd/MM/yyyy\">dd/MM/yyyy</v-option>\r\n        <v-option value=\"dd-MM-yyyy\">dd-MM-yyyy</v-option>\r\n        <v-option value=\"yyyy,MM,dd\">yyyy,MM,dd</v-option>\r\n        <v-option value=\"yyyy-MM-dd\">yyyy-MM-dd</v-option>\r\n        <v-option value=\"yyyy.MM.dd\">yyyy.MM.dd</v-option>\r\n        <v-option value=\"MMM/dd/yyyy\">MMM/dd/yyyy</v-option>\r\n        <v-option value=\"MMMM/dd/yyyy\">MMMM/dd/yyyy</v-option>\r\n        <v-option value=\"MM/dd/yyyy\">MM/dd/yyyy</v-option>\r\n        <v-option value=\"MM-dd-yyyy\">MM-dd-yyyy</v-option>\r\n      </v-select>\r\n\r\n      <h4>Reset button</h4>\r\n      <label><input type=\"checkbox\" v-model=\"reset\" @click=\"x\"> toggle reset button</label>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\n<datepicker\r\n  :value.sync=\"value\"\r\n  :disabled-days-of-Week=\"disabled\"\r\n  :format=\"format\"\r\n  :show-reset-button=\"reset\">\r\n</datepicker>\r\n\r\n<select multiple :value.sync=\"disabled\" size=5>\r\n  <v-option value=\"0\">0</v-option>\r\n  <v-option value=\"1\">1</v-option>\r\n  <v-option value=\"2\">2</v-option>\r\n  <v-option value=\"3\">3</v-option>\r\n  <v-option value=\"4\">4</v-option>\r\n  <v-option value=\"5\">5</v-option>\r\n  <v-option value=\"6\">6</v-option>\r\n</select>\r\n<select  :value.sync=\"format\">\r\n  <v-option value=\"yyyy,MM,dd\">yyyy,MM,dd</v-option>\r\n  <v-option value=\"yyyy-MM-dd\">yyyy-MM-dd</v-option>\r\n  <v-option value=\"yyyy.MM.dd\">yyyy.MM.dd</v-option>\r\n  <v-option value=\"MMM/dd/yyyy\">MMM/dd/yyyy</v-option>\r\n  <v-option value=\"MMMM/dd/yyyy\">MMMM/dd/yyyy</v-option>\r\n  <v-option value=\"dd/MM/yyyy\">dd/MM/yyyy</v-option>\r\n  <v-option value=\"dd-MM-yyyy\">dd-MM-yyyy</v-option>\r\n</select>\r\n    </script></code></pre>\r\n    <h2>Option</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>String</code></td>\r\n          <td></td>\r\n          <td>Value of the input DOM</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Width</td>\r\n          <td><code>String</code></td>\r\n          <td>200px</td>\r\n          <td>Width of the input DOM</td>\r\n        </tr>\r\n        <tr>\r\n          <td>format</td>\r\n          <td><code>String</code></td>\r\n          <td><code>MMMM/dd/yyyy</code></td>\r\n          <td>The date format, combination of d, dd, M, MM, MMM, MMMM, yyyy.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>disabledDaysOfWeek</td>\r\n          <td><code>Array</code></td>\r\n          <td></td>\r\n          <td>Days of the week that should be disabled. Values are 0 (Sunday) to 6 (Saturday).\r\n             Multiple values should be comma-separated.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>showResetButton</td>\r\n          <td><code>Boolean</code></td>\r\n          <td>false</td>\r\n          <td>If <strong>true</strong> shows an &times; shaped button to clear the selected date.\r\n            Usefull in forms where date entry is optional.</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div></div>";
+	module.exports = "<div class=\"bs-docs-section\" id=\"datepicker\">\r\n    <h1 class=\"page-header\"><a href=\"#datepicker\" class=\"anchor\">Datepicker</a></h1>\r\n    <div class=\"bs-example\">\r\n      <p>\r\n        <pre>\r\nSelected date is: {{new Date(value).toString()}}\r\n        </pre>\r\n      </p>\r\n      <datepicker v-ref:dp :value.sync=\"value\" :disabled-days-of-Week=\"disabled\" :format=\"format.toString()\" :show-reset-button=\"reset\"></datepicker>\r\n      <h4>Disabled days of week</h4>\r\n\r\n      <v-select multiple :value.sync=\"disabled\">\r\n        <v-option value=\"0\">0</v-option>\r\n        <v-option value=\"1\">1</v-option>\r\n        <v-option value=\"2\">2</v-option>\r\n        <v-option value=\"3\">3</v-option>\r\n        <v-option value=\"4\">4</v-option>\r\n        <v-option value=\"5\">5</v-option>\r\n        <v-option value=\"6\">6</v-option>\r\n      </v-select>\r\n\r\n      <h4>Format</h4>\r\n      <v-select :value.sync=\"format\">\r\n        <v-option value=\"dd/MM/yyyy\">dd/MM/yyyy</v-option>\r\n        <v-option value=\"dd-MM-yyyy\">dd-MM-yyyy</v-option>\r\n        <v-option value=\"yyyy,MM,dd\">yyyy,MM,dd</v-option>\r\n        <v-option value=\"yyyy-MM-dd\">yyyy-MM-dd</v-option>\r\n        <v-option value=\"yyyy.MM.dd\">yyyy.MM.dd</v-option>\r\n        <v-option value=\"MMM/dd/yyyy\">MMM/dd/yyyy</v-option>\r\n        <v-option value=\"MMMM/dd/yyyy\">MMMM/dd/yyyy</v-option>\r\n        <v-option value=\"MM/dd/yyyy\">MM/dd/yyyy</v-option>\r\n        <v-option value=\"MM-dd-yyyy\">MM-dd-yyyy</v-option>\r\n      </v-select>\r\n\r\n      <h4>Reset button</h4>\r\n      <checkbox :checked.sync=\"reset\" type=\"primary\">toggle reset button</checkbox>\r\n    </div>\r\n    <pre><code class=\"language-markup\">\r\n&lt;datepicker\r\n  :value.sync=\"value\"\r\n  :disabled-days-of-Week=\"disabled\"\r\n  :format=\"format\"\r\n  :show-reset-button=\"reset\">\r\n&lt;/datepicker>\r\n    </code></pre>\r\n    <h2>Option</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>String</code></td>\r\n          <td></td>\r\n          <td>Value of the input DOM</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Width</td>\r\n          <td><code>String</code></td>\r\n          <td>200px</td>\r\n          <td>Width of the input DOM</td>\r\n        </tr>\r\n        <tr>\r\n          <td>format</td>\r\n          <td><code>String</code></td>\r\n          <td><code>MMMM/dd/yyyy</code></td>\r\n          <td>The date format, combination of d, dd, M, MM, MMM, MMMM, yyyy.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>disabledDaysOfWeek</td>\r\n          <td><code>Array</code></td>\r\n          <td></td>\r\n          <td>Days of the week that should be disabled. Values are 0 (Sunday) to 6 (Saturday).\r\n             Multiple values should be comma-separated.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>showResetButton</td>\r\n          <td><code>Boolean</code></td>\r\n          <td>false</td>\r\n          <td>If <strong>true</strong> shows an &times; shaped button to clear the selected date.\r\n            Usefull in forms where date entry is optional.</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div></div>";
 
 /***/ },
 /* 245 */
@@ -9354,185 +9367,185 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="dropdown">
-	
+
 	//     <h1 class="page-header"><a href="#dropdown" class="anchor">Dropdown</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <dropdown>
-	
+
 	//         <button slot="button" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-	
+
 	//           Action
-	
+
 	//           <span class="caret"></span>
-	
+
 	//         </button>
-	
+
 	//         <ul slot="dropdown-menu" class="dropdown-menu">
-	
+
 	//           <li><a href="#">Action</a></li>
-	
+
 	//           <li><a href="#">Another action</a></li>
-	
+
 	//           <li><a href="#">Something else here</a></li>
-	
+
 	//           <li role="separator" class="divider"></li>
-	
+
 	//           <li><a href="#">Separated link</a></li>
-	
+
 	//         </ul>
-	
+
 	//       </dropdown>
-	
+
 	//       <dropdown text="Action" type="primary">
-	
+
 	//         <li><a href="#">Action</a></li>
-	
+
 	//         <li><a href="#">Another action</a></li>
-	
+
 	//         <li><a href="#">Something else here</a></li>
-	
+
 	//         <li role="separator" class="divider"></li>
-	
+
 	//         <li><a href="#">Separated link</a></li>
-	
+
 	//       </dropdown>
-	
+
 	//       <dropdown>
-	
+
 	//         <button slot="button" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-	
+
 	//           Action <span class="caret"></span>
-	
+
 	//         </button>
-	
+
 	//         <ul slot="dropdown-menu" class="dropdown-menu">
-	
+
 	//           <li><a href="#">Action</a></li>
-	
+
 	//           <li><a href="#">Another action</a></li>
-	
+
 	//           <li><a href="#">Something else here</a></li>
-	
+
 	//           <li role="separator" class="divider"></li>
-	
+
 	//           <li><a href="#">Separated link</a></li>
-	
+
 	//         </ul>
-	
+
 	//       </dropdown>
-	
+
 	//       <dropdown text="Disabled" type="warning" disabled>
-	
+
 	//         <li><a href="#">Action</a></li>
-	
+
 	//       </dropdown>
-	
+
 	//       <div class="btn-group btn-group-justified" role="group">
-	
+
 	//         <a href="#" class="btn btn-default" role="button">Left</a>
-	
+
 	//         <dropdown>
-	
+
 	//           <a slot="button" href="#" class="btn btn-default" data-toggle="dropdown">
-	
+
 	//             Dropdown <span class="caret"></span>
-	
+
 	//           </a>
-	
+
 	//           <ul slot="dropdown-menu" class="dropdown-menu">
-	
+
 	//             <li><a href="#">Action</a></li>
-	
+
 	//             <li><a href="#">Another action</a></li>
-	
+
 	//             <li><a href="#">Something else here</a></li>
-	
+
 	//             <li role="separator" class="divider"></li>
-	
+
 	//             <li><a href="#">Separated link</a></li>
-	
+
 	//           </ul>
-	
+
 	//         </dropdown>
-	
+
 	//         <a href="#" class="btn btn-default" role="button">Right</a>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// Boostrap style:
-	
+
 	// <dropdown>
-	
+
 	//   <button type="button" class="btn btn-default" data-toggle="dropdown">
-	
+
 	//     Action
-	
+
 	//     <span class="caret"></span>
-	
+
 	//   </button>
-	
+
 	//   <ul slot="dropdown-menu" class="dropdown-menu">
-	
+
 	//     <li><a href="#">Action</a></li>
-	
+
 	//     <li><a href="#">Another action</a></li>
-	
+
 	//     <li><a href="#">Something else here</a></li>
-	
+
 	//     <li role="separator" class="divider"></li>
-	
+
 	//     <li><a href="#">Separated link</a></li>
-	
+
 	//   </ul>
-	
+
 	// </dropdown>
-	
+
 	// Component style:
-	
+
 	// <dropdown text="Action" type="primary">
-	
+
 	//   <li><a href="#">Action</a></li>
-	
+
 	//   <li><a href="#">Another action</a></li>
-	
+
 	//   <li><a href="#">Something else here</a></li>
-	
+
 	//   <li role="separator" class="divider"></li>
-	
+
 	//   <li><a href="#">Separated link</a></li>
-	
+
 	// </dropdown>
-	
+
 	// <dropdown text="Disabled" type="warning" disabled>
-	
+
 	//   <li><a href="#">Action</a></li>
-	
+
 	// </dropdown>
-	
+
 	//     </script></code></pre>
-	
+
 	//     <h2>Usage</h2>
-	
+
 	//     <p>
-	
+
 	//       Just use as <a target="_blank" href="http://getbootstrap.com/javascript/#dropdowns">original Bootstrap way</a>.
-	
+
 	//       Working on progress, considered refactoring with directive. Currently the other components(Select, etc..) not depend on this component.
-	
+
 	//     </p>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -9579,11 +9592,21 @@
 	
 	var _Input2 = _interopRequireDefault(_Input);
 	
+	var _buttonGroup = __webpack_require__(207);
+	
+	var _buttonGroup2 = _interopRequireDefault(_buttonGroup);
+	
+	var _Checkbox = __webpack_require__(124);
+	
+	var _Checkbox2 = _interopRequireDefault(_Checkbox);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
 	  components: {
-	    bsInput: _Input2.default
+	    bsInput: _Input2.default,
+	    buttonGroup: _buttonGroup2.default,
+	    checkbox: _Checkbox2.default
 	  },
 	  data: function data() {
 	    return {
@@ -9603,399 +9626,411 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="input">
-	
+
 	//     <h1 class="page-header"><a href="#select" class="anchor">Input</a></h1>
-	
+
 	//     <div class="bs-example text-left">
-	
+
 	//       <div class="row">
-	
+
 	//         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	
+
 	//           <bs-input
-	
+
 	//             :disabled="check.disabled"
-	
+
 	//             :error="check.error?'Insert user name':null"
-	
+
 	//             help="Only allows lowercase letters and numbers."
-	
+
 	//             :icon="check.icon"
-	
+
 	//             :label="check.label?'User Name':null"
-	
+
 	//             :mask="check.mask?mask:null"
-	
+
 	//             :minlength="check.minlength?5:0"
-	
+
 	//             pattern="^[a-z][a-z0-9]+$"
-	
+
 	//             :placeholder="check.placeholder?'Username can\'t start with a number.':null"
-	
+
 	//             :readonly="check.readonly"
-	
+
 	//             :required="check.required"
-	
+
 	//             :value.sync="input"
-	
+
 	//           ></bs-input>
-	
+
 	//         </div>
-	
+
 	//         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	
+
 	//           <bs-input required label="Match value" type="password" :match="input" :icon="check.icon" help="Match the User Name"></bs-input>
-	
+
 	//         </div>
-	
-	//         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	
-	//           <bs-input label="Textarea" type="textarea" :icon="check.icon"></bs-input>
-	
-	//         </div>
-	
+
 	//       </div>
-	
+
 	//       <div class="row">
-	
-	//         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	
-	//           <div class="checkbox"><label><input type="checkbox" v-model="check.label"/> Label</label></div>
-	
-	//           <div class="checkbox"><label><input type="checkbox" v-model="check.placeholder"/> placeholder</label></div>
-	
-	//           <div class="checkbox"><label><input type="checkbox" v-model="check.disabled"/> disabled</label></div>
-	
-	//         </div>
-	
-	//         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	
-	//           <div class="checkbox"><label><input type="checkbox" v-model="check.error"/> error</label></div>
-	
-	//           <div class="checkbox"><label><input type="checkbox" v-model="check.icon"/> icon</label></div>
-	
-	//           <div class="checkbox"><label><input type="checkbox" v-model="check.mask"/> mask</label></div>
-	
-	//         </div>
-	
-	//         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	
-	//           <div class="checkbox"><label><input type="checkbox" v-model="check.minlength"/> minlength=5</label></div>
-	
-	//           <div class="checkbox"><label><input type="checkbox" v-model="check.readonly"/> readonly</label></div>
-	
-	//           <div class="checkbox"><label><input type="checkbox" v-model="check.required"/> required</label></div>
-	
-	//         </div>
-	
+
+	//         <button-group type="primary" buttons="false">
+
+	//           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+
+	//             <p><checkbox :checked.sync="check.label">Label</checkbox></p>
+
+	//             <p><checkbox :checked.sync="check.placeholder">placeholder</checkbox></p>
+
+	//             <p><checkbox :checked.sync="check.disabled">disabled</checkbox></p>
+
+	//           </div>
+
+	//           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+
+	//             <p><checkbox :checked.sync="check.error">error</checkbox></p>
+
+	//             <p><checkbox :checked.sync="check.icon">icon</checkbox></p>
+
+	//             <p><checkbox :checked.sync="check.mask">mask</checkbox></p>
+
+	//           </div>
+
+	//           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+
+	//             <p><checkbox :checked.sync="check.minlength">minlength=5</checkbox></p>
+
+	//             <p><checkbox :checked.sync="check.readonly">readonly</checkbox></p>
+
+	//             <p><checkbox :checked.sync="check.required">required</checkbox></p>
+
+	//           </div>
+
+	//         </button-group>
+
 	//       </div>
-	
+
+	//       <bs-input label="Textarea" type="textarea" :icon="check.icon" no-validate></bs-input>
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup">
-	
+
 	// &lt;bs-input :value.sync="input"
-	
+
 	//   label="Username"
-	
+
 	//   help="Only allows lowercase letters and numbers."
-	
+
 	//   error="Insert username"
-	
+
 	//   placeholder="Username can't start with a number."
-	
+
 	//   pattern="^[a-z][a-z0-9]+$"
-	
+
 	//   :mask="mask"
-	
+
 	//   minlength="5"
-	
+
 	//   readonly
-	
+
 	//   required
-	
+
 	//   icon
-	
+
 	// >&lt;/bs-input>
-	
+
 	// &lt;bs-input required label="Match value" type="password" :match="input">&lt;/bs-input>
-	
-	// &lt;bs-input label="Textarea" type="textarea">&lt;/bs-input>
-	
+
+	// &lt;bs-input label="Textarea" type="textarea" no-validate>&lt;/bs-input>
+
 	//     </code></pre>
-	
+
 	//   <pre><code class="language-javascript"><script type="language-javascript">
-	
+
 	// mask: function (value) {
-	
+
 	//   // change to lowercase, remove first non-letter and all other unsupported characters
-	
+
 	//   return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\W/g,'');
-	
+
 	// }
-	
+
 	//   </script></code></pre>
-	
+
 	//     <h2>Input Options</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>value</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>''</code></td>
-	
+
 	//           <td>Input value. Use <code>:value.sync="value"</code></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>match</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>''</code></td>
-	
+
 	//           <td>Matching value. Both have to be the same value.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>disabled</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>false</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <!-- <tr>
-	
+
 	//           <td>enterSubmit</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>false</code></td>
-	
+
 	//           <td>Error message.</td>
-	
+
 	//         </tr> -->
-	
+
 	//         <tr>
-	
+
 	//           <td>error</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td>Error message.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>help</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td>Help text behind the input</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>hide-help</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>true</code></td>
-	
+
 	//           <td>Only work with help and error.<br/>Hide the help if have to show any error message.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>icon</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>false</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>label</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td>Enable input label (name).</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>lang</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td>Browser language</td>
-	
+
 	//           <td><abbr title="ISO 639-1 code"><a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>mask</td>
-	
+
 	//           <td><code>Function</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td>Mask function that receive and edit the value.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>maxlength</td>
-	
+
 	//           <td><code>Number</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>minlength</td>
-	
+
 	//           <td><code>Number</code></td>
-	
+
 	//           <td><code>0</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>name</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td><code>null</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
-	//           <td>pattern</td>
-	
-	//           <td><code>String</code> or <code>Function</code></td>
-	
-	//           <td><code>null</code></td>
-	
-	//           <td>Validation pattern.</td>
-	
-	//         </tr>
-	
-	//         <tr>
-	
-	//           <td>placeholder</td>
-	
-	//           <td><code>String</code></td>
-	
-	//           <td><code>null</code></td>
-	
-	//           <td></td>
-	
-	//         </tr>
-	
-	//         <tr>
-	
-	//           <td>required</td>
-	
+
+	//           <td>no-validate</td>
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>false</code></td>
-	
-	//           <td></td>
-	
+
+	//           <td>Disable validations (don't affect masking).</td>
+
 	//         </tr>
-	
+
 	//         <tr>
-	
-	//           <td>type</td>
-	
+
+	//           <td>pattern</td>
+
+	//           <td><code>String</code> or <code>Function</code></td>
+
+	//           <td><code>null</code></td>
+
+	//           <td>Validation pattern.</td>
+
+	//         </tr>
+
+	//         <tr>
+
+	//           <td>placeholder</td>
+
 	//           <td><code>String</code></td>
-	
-	//           <td><code>'text'</code></td>
-	
+
+	//           <td><code>null</code></td>
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
-	//           <td>validation-delay</td>
-	
-	//           <td><code>Number</code></td>
-	
-	//           <td><code>250</code></td>
-	
+
+	//           <td>required</td>
+
+	//           <td><code>Boolean</code></td>
+
+	//           <td><code>false</code></td>
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
+	//         <tr>
+
+	//           <td>type</td>
+
+	//           <td><code>String</code></td>
+
+	//           <td><code>'text'</code></td>
+
+	//           <td></td>
+
+	//         </tr>
+
+	//         <tr>
+
+	//           <td>validation-delay</td>
+
+	//           <td><code>Number</code></td>
+
+	//           <td><code>250</code></td>
+
+	//           <td></td>
+
+	//         </tr>
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -10036,11 +10071,11 @@
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
-	var _coerceNumber = __webpack_require__(161);
+	var _coerceNumber = __webpack_require__(166);
 	
 	var _coerceNumber2 = _interopRequireDefault(_coerceNumber);
 	
-	var _translations = __webpack_require__(162);
+	var _translations = __webpack_require__(167);
 	
 	var _translations2 = _interopRequireDefault(_translations);
 	
@@ -10107,6 +10142,11 @@
 	    name: {
 	      type: String,
 	      default: null
+	    },
+	    noValidate: {
+	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
+	      default: false
 	    },
 	    pattern: null,
 	    placeholder: {
@@ -10194,10 +10234,14 @@
 	      if (this.mask instanceof Function) value = this.mask(value);
 	      if (this.value !== value) this.value = value;
 	      if (this.timeout) clearTimeout(this.timeout);
-	      this.timeout = setTimeout(function () {
-	        _this.valid = _this.validate();
-	        _this.timeout = null;
-	      }, (0, _coerceNumber2.default)(this.validationDelay, 250));
+	      if (this.noValidate) {
+	        if (this.valid !== null) this.valid = null;
+	      } else {
+	        this.timeout = setTimeout(function () {
+	          _this.valid = _this.validate();
+	          _this.timeout = null;
+	        }, (0, _coerceNumber2.default)(this.validationDelay, 250));
+	      }
 	    },
 	    validate: function validate() {
 	      var value = (this.value || '').trim();
@@ -10224,7 +10268,7 @@
 	    toggleEvents: function toggleEvents(enable) {
 	      var _this2 = this;
 	
-	      if (!enable) {
+	      if (!this.noValidate && !enable) {
 	        this.valid = this.validate();
 	      }
 	      ['change', 'keypress', 'keydown', 'keyup'].forEach(function (event) {
@@ -10234,106 +10278,106 @@
 	  }
 	};
 	// </script>
-	
+
 	// <!-- Add "scoped" attribute to limit CSS to this component only -->
-	
+
 	// <!-- <style scoped></style> -->
 	// <template>
-	
+
 	//   <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}">
-	
+
 	//     <label v-if="label" class="control-label">{{label}}</label>
-	
+
 	//     <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
-	
+
 	//       :cols="cols"
-	
+
 	//       :rows="rows"
-	
+
 	//       :name="name"
-	
+
 	//       :readonly="readonly"
-	
+
 	//       :required="required"
-	
+
 	//       :disabled="disabled"
-	
+
 	//       :maxlength="maxlength"
-	
+
 	//       :placeholder="placeholder"
-	
+
 	//       @focus="toggleEvents(true)"
-	
+
 	//       @blur="toggleEvents(false)"
-	
+
 	//     ></textarea>
-	
+
 	//     <template v-else>
-	
+
 	//       <div v-if="slots.before||slots.after" class="input-group">
-	
+
 	//         <slot name="before"></slot>
-	
+
 	//         <input class="form-control" v-el:input v-model="value"
-	
+
 	//           :name="name"
-	
+
 	//           :type="type"
-	
+
 	//           :readonly="readonly"
-	
+
 	//           :required="required"
-	
+
 	//           :disabled="disabled"
-	
+
 	//           :maxlength="maxlength"
-	
+
 	//           :placeholder="placeholder"
-	
+
 	//           @focus="toggleEvents(true)"
-	
+
 	//           @blur="toggleEvents(false)"
-	
+
 	//         />
-	
+
 	//         <slot name="after"></slot>
-	
+
 	//       </div>
-	
+
 	//       <input v-else class="form-control" v-el:input v-model="value"
-	
+
 	//         :name="name"
-	
+
 	//         :type="type"
-	
+
 	//         :readonly="readonly"
-	
+
 	//         :required="required"
-	
+
 	//         :disabled="disabled"
-	
+
 	//         :maxlength="maxlength"
-	
+
 	//         :placeholder="placeholder"
-	
+
 	//         @focus="toggleEvents(true)"
-	
+
 	//         @blur="toggleEvents(false)"
-	
+
 	//       />
-	
+
 	//     </template>
-	
+
 	//     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
-	
+
 	//     <div v-if="showHelp" class="help-block">{{help}}</div>
-	
+
 	//     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -10346,7 +10390,7 @@
 /* 253 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"bs-docs-section\" id=\"input\">\r\n    <h1 class=\"page-header\"><a href=\"#select\" class=\"anchor\">Input</a></h1>\r\n    <div class=\"bs-example text-left\">\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n          <bs-input\r\n            :disabled=\"check.disabled\"\r\n            :error=\"check.error?'Insert user name':null\"\r\n            help=\"Only allows lowercase letters and numbers.\"\r\n            :icon=\"check.icon\"\r\n            :label=\"check.label?'User Name':null\"\r\n            :mask=\"check.mask?mask:null\"\r\n            :minlength=\"check.minlength?5:0\"\r\n            pattern=\"^[a-z][a-z0-9]+$\"\r\n            :placeholder=\"check.placeholder?'Username can\\'t start with a number.':null\"\r\n            :readonly=\"check.readonly\"\r\n            :required=\"check.required\"\r\n            :value.sync=\"input\"\r\n          ></bs-input>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n          <bs-input required label=\"Match value\" type=\"password\" :match=\"input\" :icon=\"check.icon\" help=\"Match the User Name\"></bs-input>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">\r\n          <bs-input label=\"Textarea\" type=\"textarea\" :icon=\"check.icon\"></bs-input>\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4\">\r\n          <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.label\"/> Label</label></div>\r\n          <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.placeholder\"/> placeholder</label></div>\r\n          <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.disabled\"/> disabled</label></div>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4\">\r\n          <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.error\"/> error</label></div>\r\n          <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.icon\"/> icon</label></div>\r\n          <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.mask\"/> mask</label></div>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4\">\r\n          <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.minlength\"/> minlength=5</label></div>\r\n          <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.readonly\"/> readonly</label></div>\r\n          <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"check.required\"/> required</label></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <pre><code class=\"language-markup\">\r\n&lt;bs-input :value.sync=\"input\"\r\n  label=\"Username\"\r\n  help=\"Only allows lowercase letters and numbers.\"\r\n  error=\"Insert username\"\r\n  placeholder=\"Username can't start with a number.\"\r\n  pattern=\"^[a-z][a-z0-9]+$\"\r\n  :mask=\"mask\"\r\n  minlength=\"5\"\r\n  readonly\r\n  required\r\n  icon\r\n>&lt;/bs-input>\r\n&lt;bs-input required label=\"Match value\" type=\"password\" :match=\"input\">&lt;/bs-input>\r\n&lt;bs-input label=\"Textarea\" type=\"textarea\">&lt;/bs-input>\r\n    </code></pre>\r\n  <pre><code class=\"language-javascript\"><script type=\"language-javascript\">\r\nmask: function (value) {\r\n  // change to lowercase, remove first non-letter and all other unsupported characters\r\n  return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\\W/g,'');\r\n}\r\n  </script></code></pre>\r\n\r\n    <h2>Input Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>String</code></td>\r\n          <td><code>''</code></td>\r\n          <td>Input value. Use <code>:value.sync=\"value\"</code></td>\r\n        </tr>\r\n        <tr>\r\n          <td>match</td>\r\n          <td><code>String</code></td>\r\n          <td><code>''</code></td>\r\n          <td>Matching value. Both have to be the same value.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>disabled</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <!-- <tr>\r\n          <td>enterSubmit</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td>Error message.</td>\r\n        </tr> -->\r\n        <tr>\r\n          <td>error</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Error message.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>help</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Help text behind the input</td>\r\n        </tr>\r\n        <tr>\r\n          <td>hide-help</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>true</code></td>\r\n          <td>Only work with help and error.<br/>Hide the help if have to show any error message.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>icon</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>label</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Enable input label (name).</td>\r\n        </tr>\r\n        <tr>\r\n          <td>lang</td>\r\n          <td><code>String</code></td>\r\n          <td>Browser language</td>\r\n          <td><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>mask</td>\r\n          <td><code>Function</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Mask function that receive and edit the value.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>maxlength</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>null</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>minlength</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>0</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>name</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>pattern</td>\r\n          <td><code>String</code> or <code>Function</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Validation pattern.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>placeholder</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>required</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>type</td>\r\n          <td><code>String</code></td>\r\n          <td><code>'text'</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>validation-delay</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>250</code></td>\r\n          <td></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n  </div>";
+	module.exports = "<div class=\"bs-docs-section\" id=\"input\">\r\n    <h1 class=\"page-header\"><a href=\"#select\" class=\"anchor\">Input</a></h1>\r\n    <div class=\"bs-example text-left\">\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n          <bs-input\r\n            :disabled=\"check.disabled\"\r\n            :error=\"check.error?'Insert user name':null\"\r\n            help=\"Only allows lowercase letters and numbers.\"\r\n            :icon=\"check.icon\"\r\n            :label=\"check.label?'User Name':null\"\r\n            :mask=\"check.mask?mask:null\"\r\n            :minlength=\"check.minlength?5:0\"\r\n            pattern=\"^[a-z][a-z0-9]+$\"\r\n            :placeholder=\"check.placeholder?'Username can\\'t start with a number.':null\"\r\n            :readonly=\"check.readonly\"\r\n            :required=\"check.required\"\r\n            :value.sync=\"input\"\r\n          ></bs-input>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n          <bs-input required label=\"Match value\" type=\"password\" :match=\"input\" :icon=\"check.icon\" help=\"Match the User Name\"></bs-input>\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <button-group type=\"primary\" buttons=\"false\">\r\n          <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4\">\r\n            <p><checkbox :checked.sync=\"check.label\">Label</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.placeholder\">placeholder</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.disabled\">disabled</checkbox></p>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4\">\r\n            <p><checkbox :checked.sync=\"check.error\">error</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.icon\">icon</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.mask\">mask</checkbox></p>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4\">\r\n            <p><checkbox :checked.sync=\"check.minlength\">minlength=5</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.readonly\">readonly</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.required\">required</checkbox></p>\r\n          </div>\r\n        </button-group>\r\n      </div>\r\n      <bs-input label=\"Textarea\" type=\"textarea\" :icon=\"check.icon\" no-validate></bs-input>\r\n    </div>\r\n    <pre><code class=\"language-markup\">\r\n&lt;bs-input :value.sync=\"input\"\r\n  label=\"Username\"\r\n  help=\"Only allows lowercase letters and numbers.\"\r\n  error=\"Insert username\"\r\n  placeholder=\"Username can't start with a number.\"\r\n  pattern=\"^[a-z][a-z0-9]+$\"\r\n  :mask=\"mask\"\r\n  minlength=\"5\"\r\n  readonly\r\n  required\r\n  icon\r\n>&lt;/bs-input>\r\n&lt;bs-input required label=\"Match value\" type=\"password\" :match=\"input\">&lt;/bs-input>\r\n&lt;bs-input label=\"Textarea\" type=\"textarea\" no-validate>&lt;/bs-input>\r\n    </code></pre>\r\n  <pre><code class=\"language-javascript\"><script type=\"language-javascript\">\r\nmask: function (value) {\r\n  // change to lowercase, remove first non-letter and all other unsupported characters\r\n  return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\\W/g,'');\r\n}\r\n  </script></code></pre>\r\n\r\n    <h2>Input Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>String</code></td>\r\n          <td><code>''</code></td>\r\n          <td>Input value. Use <code>:value.sync=\"value\"</code></td>\r\n        </tr>\r\n        <tr>\r\n          <td>match</td>\r\n          <td><code>String</code></td>\r\n          <td><code>''</code></td>\r\n          <td>Matching value. Both have to be the same value.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>disabled</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <!-- <tr>\r\n          <td>enterSubmit</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td>Error message.</td>\r\n        </tr> -->\r\n        <tr>\r\n          <td>error</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Error message.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>help</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Help text behind the input</td>\r\n        </tr>\r\n        <tr>\r\n          <td>hide-help</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>true</code></td>\r\n          <td>Only work with help and error.<br/>Hide the help if have to show any error message.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>icon</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>label</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Enable input label (name).</td>\r\n        </tr>\r\n        <tr>\r\n          <td>lang</td>\r\n          <td><code>String</code></td>\r\n          <td>Browser language</td>\r\n          <td><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>mask</td>\r\n          <td><code>Function</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Mask function that receive and edit the value.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>maxlength</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>null</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>minlength</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>0</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>name</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>no-validate</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td>Disable validations (don't affect masking).</td>\r\n        </tr>\r\n        <tr>\r\n          <td>pattern</td>\r\n          <td><code>String</code> or <code>Function</code></td>\r\n          <td><code>null</code></td>\r\n          <td>Validation pattern.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>placeholder</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>required</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>type</td>\r\n          <td><code>String</code></td>\r\n          <td><code>'text'</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>validation-delay</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>250</code></td>\r\n          <td></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n  </div>";
 
 /***/ },
 /* 254 */
@@ -10406,439 +10450,439 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="modal">
-	
+
 	//     <h1 class="page-header"><a href="#modal" class="anchor">Modal</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <button class="btn btn-default" @click="showModal = true">Show modal</button>
-	
+
 	//       <modal title="Modal title" :show.sync="showModal">
-	
+
 	//         <div slot="modal-header" class="modal-header">
-	
+
 	//           <h4 class="modal-title">Modal <b>Title</b></h4>
-	
+
 	//         </div>
-	
+
 	//         <div slot="modal-body" class="modal-body">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
+
 	//         </div>
-	
+
 	//       </modal>
-	
+
 	//       <button class="btn btn-success" @click="fadeModal = true">Fade modal</button>
-	
+
 	//       <modal title="Fade Modal" :show.sync="fadeModal" effect="fade" width="800">
-	
+
 	//         <div slot="modal-body" class="modal-body">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
+
 	//         </div>
-	
+
 	//       </modal>
-	
+
 	//       <button class="btn btn-primary" @click="zoomModal = true">Zoom modal</button>
-	
+
 	//       <modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" width="400">
-	
+
 	//         <div slot="modal-body" class="modal-body">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
+
 	//         </div>
-	
+
 	//       </modal>
-	
+
 	//       <button class="btn btn-default" @click="showCustomModal = true">Show custom modal</button>
-	
+
 	//       <modal :show.sync="showCustomModal" effect="fade" width="50%">
-	
+
 	//         <div slot="modal-header" class="modal-header">
-	
+
 	//           <h4 class="modal-title"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>
-	
+
 	//         </div>
-	
+
 	//         <div slot="modal-body" class="modal-body">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
+
 	//         </div>
-	
+
 	//         <div slot="modal-footer" class="modal-footer">
-	
+
 	//           <button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit</button>
-	
+
 	//           <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
-	
+
 	//         </div>
-	
+
 	//       </modal>
-	
+
 	//       <button class="btn btn-warning" @click="largeModal = true">Large modal</button>
-	
+
 	//       <modal title="Large Modal" :show.sync="largeModal" large>
-	
+
 	//         <div slot="modal-body" class="modal-body">
-	
+
 	//           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	
+
 	//           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	
+
 	//           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	
+
 	//         </div>
-	
+
 	//       </modal>
-	
+
 	//       <button class="btn btn-danger" @click="smallModal = true">Small modal</button>
-	
+
 	//       <modal title="Small Modal" :show.sync="smallModal" small>
-	
+
 	//         <div slot="modal-body" class="modal-body">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat.
-	
+
 	//         </div>
-	
+
 	//       </modal>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup">
-	
+
 	// &lt;button class="btn btn-default"
-	
+
 	//   @click="showModal = true"
-	
+
 	//   >Show modal
-	
+
 	// &lt;/button>
-	
+
 	// &lt;modal :show.sync="showModal">
-	
+
 	//   &lt;div slot="modal-header" class="modal-header">
-	
+
 	//     &lt;h4 class="modal-title">Modal title&lt;/h4>
-	
+
 	//   &lt;/div>
-	
+
 	//   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
-	
+
 	// &lt;/modal>
-	
+
 	// &lt;button class="btn btn-primary"
-	
+
 	//   @click="fadeModal = true">
-	
+
 	//   Fade modal
-	
+
 	// &lt;/button>
-	
+
 	// &lt;modal title="Fade Modal" :show.sync="fadeModal" effect="fade" width="800">
-	
+
 	//   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
-	
+
 	// &lt;/modal>
-	
+
 	// &lt;button class="btn btn-success"
-	
+
 	//   @click="zoomModal = true">
-	
+
 	//   Zoom modal
-	
+
 	// &lt;/button>
-	
+
 	// &lt;modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" width="400">
-	
+
 	//   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
-	
+
 	// &lt;/modal>
-	
+
 	// &lt;button class="btn btn-default"
-	
+
 	//   @click="showCustomModal = true">
-	
+
 	//   Show custom modal
-	
+
 	// &lt;/button>
-	
+
 	// &lt;modal :show.sync="showCustomModal" effect="fade" width="400">
-	
+
 	//   &lt;div slot="modal-header" class="modal-header">
-	
+
 	//     &lt;h4 class="modal-title">
-	
+
 	//       &lt;i>Custom&lt;/i> &lt;code>Modal&lt;/code> &lt;b>Title&lt;/b>
-	
+
 	//     &lt;/h4>
-	
+
 	//   &lt;/div>
-	
+
 	//   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
-	
+
 	//   &lt;div slot="modal-footer" class="modal-footer">
-	
+
 	//     &lt;button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit&lt;/button>
-	
+
 	//     &lt;button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save&lt;/button>
-	
+
 	//   &lt;/div>
-	
+
 	// &lt;/modal>
-	
+
 	// &lt;button class="btn btn-default"
-	
+
 	//   @click="largeModal = true"
-	
+
 	//   >Large Modal
-	
+
 	// &lt;/button>
-	
+
 	// &lt;modal :show.sync="largeModal">
-	
+
 	//   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
-	
+
 	// &lt;/modal>
-	
+
 	// &lt;button class="btn btn-default"
-	
+
 	//   @click="smallModal = true"
-	
+
 	//   >Small Modal
-	
+
 	// &lt;/button>
-	
+
 	// &lt;modal :show.sync="smallModal">
-	
+
 	//   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
-	
+
 	// &lt;/modal>
-	
+
 	//   </code></pre>
-	
+
 	//   <h2>Options</h2>
-	
+
 	//   <table class="table table-bordered">
-	
+
 	//     <thead>
-	
+
 	//       <tr>
-	
+
 	//         <th>Name</th>
-	
+
 	//         <th>Type</th>
-	
+
 	//         <th>Default</th>
-	
+
 	//         <th>Description</th>
-	
+
 	//       </tr>
-	
+
 	//     </thead>
-	
+
 	//     <tbody>
-	
+
 	//       <tr>
-	
+
 	//         <td>title</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td>Title of the modal component.</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>ok-text</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td>Save changes</td>
-	
+
 	//         <td>Text for OK button</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>cancel-text</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td>Close</td>
-	
+
 	//         <td>Text for cancel button</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>width</td>
-	
+
 	//         <td><code>Number, String or null</code></td>
-	
+
 	//         <td><code>null</code></td>
-	
+
 	//         <td>Pass a Number in pixels or a String with relational sizes ( ex: '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>callback</td>
-	
+
 	//         <td><code>Function</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td>A callback Function when you click the modal primary button.</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>large</td>
-	
+
 	//         <td><code>Boolean</code></td>
-	
+
 	//         <td><code>false</code></td>
-	
+
 	//         <td>Creates a large modal ( see boostrap's documentation for .modal-lg )</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>small</td>
-	
+
 	//         <td><code>Boolean</code></td>
-	
+
 	//         <td><code>false</code></td>
-	
+
 	//         <td>Creates a small modal ( see boostrap's documentation for .modal-sm )</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>backdrop</td>
-	
+
 	//         <td><code>Boolean</code></td>
-	
+
 	//         <td><code>true</code></td>
-	
+
 	//         <td>Enables/disables closing the modal by clicking on the backdrop.</td>
-	
+
 	//       </tr>
-	
+
 	//     </tbody>
-	
+
 	//   </table>
-	
+
 	//   <h2>Usage</h2>
-	
+
 	//   <p>
-	
+
 	//     If you just need a simple modal, you can use the <code>title</code> prop and the default footer. However, if you
-	
+
 	//     need to put custom HTML or a custom footer, you can override the header or footer block by using
-	
+
 	//     <code>&lt;div slot="modal-title" class="modal-title"&gt;...&lt;/div&gt;</code> and
-	
+
 	//     <code>&lt;div slot="modal-footer" class="modal-footer"&gt;...&lt;/div&gt;</code>.
-	
+
 	//   </p>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -10882,8 +10926,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fe7d5dc8&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fe7d5dc8&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-43668a5a&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-43668a5a&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -10920,7 +10964,7 @@
 	
 	var _isInteger2 = _interopRequireDefault(_isInteger);
 	
-	var _getScrollBarWidth = __webpack_require__(197);
+	var _getScrollBarWidth = __webpack_require__(202);
 	
 	var _getScrollBarWidth2 = _interopRequireDefault(_getScrollBarWidth);
 	
@@ -11032,130 +11076,130 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .modal {
-	
+
 	//   transition: all 0.3s ease;
-	
+
 	// }
-	
+
 	// .modal.in {
-	
+
 	//   background-color: rgba(0,0,0,0.5);
-	
+
 	// }
-	
+
 	// .modal.zoom .modal-dialog {
-	
+
 	//   -webkit-transform: scale(0.1);
-	
+
 	//   -moz-transform: scale(0.1);
-	
+
 	//   -ms-transform: scale(0.1);
-	
+
 	//   transform: scale(0.1);
-	
+
 	//   top: 300px;
-	
+
 	//   opacity: 0;
-	
+
 	//   -webkit-transition: all 0.3s;
-	
+
 	//   -moz-transition: all 0.3s;
-	
+
 	//   transition: all 0.3s;
-	
+
 	// }
-	
+
 	// .modal.zoom.in .modal-dialog {
-	
+
 	//   -webkit-transform: scale(1);
-	
+
 	//   -moz-transform: scale(1);
-	
+
 	//   -ms-transform: scale(1);
-	
+
 	//   transform: scale(1);
-	
+
 	//   -webkit-transform: translate3d(0, -300px, 0);
-	
+
 	//   transform: translate3d(0, -300px, 0);
-	
+
 	//   opacity: 1;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div role="dialog"
-	
+
 	//     v-bind:class="{
-	
+
 	//     'modal':true,
-	
+
 	//     'fade':effect === 'fade',
-	
+
 	//     'zoom':effect === 'zoom'
-	
+
 	//     }"
-	
+
 	//     >
-	
+
 	//     <div v-bind:class="{'modal-dialog':true,'modal-lg':large,'modal-sm':small}" role="document"
-	
+
 	//       v-bind:style="{width: optionalWidth}">
-	
+
 	//       <div class="modal-content">
-	
+
 	//         <slot name="modal-header">
-	
+
 	//           <div class="modal-header">
-	
+
 	//             <button type="button" class="close" @click="close"><span>&times;</span></button>
-	
-	//             <h4 class="modal-title" > 
-	
+
+	//             <h4 class="modal-title" >
+
 	//               <slot name="title">
-	
+
 	//                 {{title}}
-	
+
 	//               </slot>
-	
+
 	//             </h4>
-	
+
 	//           </div>
-	
+
 	//         </slot>
-	
+
 	//         <slot name="modal-body">
-	
+
 	//           <div class="modal-body"></div>
-	
+
 	//         </slot>
-	
+
 	//         <slot name="modal-footer">
-	
+
 	//           <div class="modal-footer">
-	
+
 	//             <button type="button" class="btn btn-default" @click="close">{{ cancelText }}</button>
-	
+
 	//             <button type="button" class="btn btn-primary" @click="callback">{{ okText }}</button>
-	
+
 	//           </div>
-	
+
 	//         </slot>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -11257,213 +11301,213 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="popover">
-	
+
 	//     <h1 class="page-header"><a href="#popover" class="anchor">Popover</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <popover effect="fade" content="Lorem ipsum dolor sit amet" placement="top">
-	
+
 	//         <button class="btn btn-default ">Popover on top</button>
-	
+
 	//       </popover>
-	
+
 	//       <popover effect="fade" content="Lorem ipsum dolor sit amet" placement="left">
-	
+
 	//         <button class="btn btn-default ">Popover on left</button>
-	
+
 	//       </popover>
-	
+
 	//       <popover effect="fade" content="Lorem ipsum dolor sit amet" placement="right">
-	
+
 	//         <button class="btn btn-default ">Popover on right</button>
-	
+
 	//       </popover>
-	
+
 	//       <popover effect="fade" placement="bottom" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-	
+
 	//         <button class="btn btn-default ">Popover on bottom</button>
-	
+
 	//       </popover>
-	
+
 	//       <hr>
-	
+
 	//       <h4>Title</h4>
-	
+
 	//       <popover effect="fade" :header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="top">
-	
+
 	//         <button class="btn btn-default ">Popover on top</button>
-	
+
 	//       </popover>
-	
+
 	//       <popover effect="fade" :header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="left">
-	
+
 	//         <button class="btn btn-default ">Popover on left</button>
-	
+
 	//       </popover>
-	
+
 	//       <popover effect="fade" :header="true" title="Title" content="Lorem ipsum dolor sit amet" placement="right">
-	
+
 	//         <button class="btn btn-default ">Popover on right</button>
-	
+
 	//       </popover>
-	
+
 	//       <popover effect="fade" placement="bottom" :header="true" title="Title" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-	
+
 	//         <button class="btn btn-default ">Popover on bottom</button>
-	
+
 	//       </popover>
-	
+
 	//       <hr>
-	
+
 	//       <h4>Triger</h4>
-	
+
 	//       <p>
-	
+
 	//         <popover effect="scale" title="Title" content="Lorem ipsum dolor sit amet" placement="top" trigger="hover">
-	
+
 	//             <button class="btn btn-default ">Mouseenter</button>
-	
+
 	//         </popover>
-	
+
 	//       </p>
-	
+
 	//       <popover effect="scale"
-	
+
 	//       title="Title" content="Lorem ipsum dolor sit amet" placement="bottom" trigger="focus">
-	
+
 	//         <input type="text" class="form-control" placeholder="Focus">
-	
+
 	//       </popover>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <popover effect="fade" placement="bottom" title="Title"
-	
+
 	//   content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-	
+
 	//   <button class="btn btn-default">Popover on bottom</button>
-	
+
 	// </popover>
-	
+
 	// </script></code></pre>
-	
+
 	//   <h2>Options</h2>
-	
+
 	//   <table class="table table-bordered">
-	
+
 	//     <thead>
-	
+
 	//       <tr>
-	
+
 	//         <th>Name</th>
-	
+
 	//         <th>Type</th>
-	
+
 	//         <th>Default</th>
-	
+
 	//         <th>Description</th>
-	
+
 	//       </tr>
-	
+
 	//     </thead>
-	
+
 	//     <tbody>
-	
+
 	//       <tr>
-	
+
 	//         <td>trigger</td>
-	
+
 	//         <td><code>String</code>, one of <code>click</code>
-	
+
 	//         <code>focus</code>
-	
+
 	//         <code>hover</code></td>
-	
+
 	//         <td><code>click</code></td>
-	
+
 	//         <td>How the popover is triggered.</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>effect</td>
-	
+
 	//         <td><code>String</code>, one of <code>scale</code> <code>fade</code></td>
-	
+
 	//         <td><code>fade</code></td>
-	
+
 	//         <td></td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>title</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td></td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>content</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td></td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>header</td>
-	
+
 	//         <td><code>Boolean</code></td>
-	
+
 	//         <td><code>true</code></td>
-	
+
 	//         <td>Whether to show the header.</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>placement</td>
-	
+
 	//         <td><code>String</code>, one of <code>top</code>
-	
+
 	//         <code>left</code>
-	
+
 	//         <code>right</code>
-	
+
 	//         <code>bottom</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td>How to position the popover.</td>
-	
+
 	//       </tr>
-	
+
 	//     </tbody>
-	
+
 	//   </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -11507,8 +11551,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2465bf54&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2465bf54&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5abcbddc&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5abcbddc&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -11541,7 +11585,7 @@
 	  value: true
 	});
 	
-	var _popoverMixins = __webpack_require__(178);
+	var _popoverMixins = __webpack_require__(183);
 	
 	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
 	
@@ -11551,126 +11595,126 @@
 	  mixins: [_popoverMixins2.default]
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .scale-transition,
-	
+
 	// .fade-transition {
-	
+
 	//   display: block;
-	
+
 	// }
-	
+
 	// .scale-enter {
-	
+
 	//   animation:scale-in 0.15s ease-in;
-	
+
 	// }
-	
+
 	// .scale-leave {
-	
+
 	//   animation:scale-out 0.15s ease-out;
-	
+
 	// }
-	
+
 	// @keyframes scale-in {
-	
+
 	//   0% {
-	
+
 	//     transform: scale(0);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: scale(1);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// @keyframes scale-out {
-	
+
 	//   0% {
-	
+
 	//     transform: scale(1);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: scale(0);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <span v-el:trigger>
-	
+
 	//     <slot>
-	
+
 	//     </slot>
-	
+
 	//   </span>
-	
+
 	//   <div class="popover"
-	
+
 	//     v-bind:class="{
-	
+
 	//     'top':placement === 'top',
-	
+
 	//     'left':placement === 'left',
-	
+
 	//     'right':placement === 'right',
-	
+
 	//     'bottom':placement === 'bottom'
-	
+
 	//     }"
-	
+
 	//     v-el:popover
-	
+
 	//     v-show="show"
-	
+
 	//     :transition="effect">
-	
+
 	//       <div class="arrow"></div>
-	
+
 	//       <h3 class="popover-title" v-show="title">
-	
+
 	//           <slot name="title">
-	
+
 	//             {{title}}
-	
+
 	//           </slot>
-	
+
 	//       </h3>
-	
+
 	//       <div class="popover-content">
-	
+
 	//         <slot name="content">
-	
+
 	//             {{{content}}}
-	
+
 	//         </slot>
-	
+
 	//       </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -11754,217 +11798,217 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="progressbar">
-	
+
 	//     <h1 class="page-header"><a href="#progressbar" class="anchor">Progressbar</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <h4>Static</h4>
-	
+
 	//       <div class="row">
-	
+
 	//         <div class="col-md-4">
-	
+
 	//           <div class="progress">
-	
+
 	//             <progressbar :now="20" type="success"></progressbar>
-	
+
 	//           </div>
-	
+
 	//         </div>
-	
+
 	//         <div class="col-md-4">
-	
+
 	//           <div class="progress">
-	
+
 	//             <progressbar :now="40" type="info"></progressbar>
-	
+
 	//           </div>
-	
+
 	//         </div>
-	
+
 	//         <div class="col-md-4">
-	
+
 	//           <div class="progress">
-	
+
 	//             <progressbar :now="60" type="primary"></progressbar>
-	
+
 	//           </div>
-	
+
 	//         </div>
-	
+
 	//       </div>
-	
+
 	//       <hr>
-	
+
 	//       <h4>
-	
+
 	//         Dynamic
-	
+
 	//         <button type="button" class="btn btn-default" @click="dynamicClick">Randomize</button>
-	
+
 	//       </h4>
-	
+
 	//       <div class="progress">
-	
+
 	//         <progressbar :now="dynamicData[0] * 2" type="info"></progressbar>
-	
+
 	//       </div>
-	
+
 	//       <div class="progress">
-	
+
 	//         <progressbar :now="dynamicData[1] * 2" type="warning"></progressbar>
-	
+
 	//       </div>
-	
+
 	//       <div class="progress">
-	
+
 	//         <progressbar :now="dynamicData[2] * 2" type="danger"></progressbar>
-	
+
 	//       </div>
-	
+
 	//       <div class="progress">
-	
+
 	//         <progressbar :now="dynamicData[3] * 2" type="success" striped></progressbar>
-	
+
 	//       </div>
-	
+
 	//       <div class="progress">
-	
+
 	//         <progressbar :now="dynamicData[4] * 2" type="success" striped animated></progressbar>
-	
+
 	//       </div>
-	
+
 	//       <hr>
-	
+
 	//       <h4>
-	
+
 	//         Stacked
-	
+
 	//         <button type="button" class="btn btn-default" @click="stackedClick">Randomize</button>
-	
+
 	//       </h4>
-	
+
 	//       <div class="progress">
-	
+
 	//         <progressbar :now="stackedData[0]" label type="warning" striped></progressbar>
-	
+
 	//         <progressbar :now="stackedData[1]" label type="success" ></progressbar>
-	
+
 	//         <progressbar :now="stackedData[2]" label type="danger"></progressbar>
-	
+
 	//         <progressbar :now="stackedData[3]" label type="primary" striped animated></progressbar>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <!-- Stacked -->
-	
+
 	// <div class="progress">
-	
+
 	//   <progressbar :now="" label type="warning" striped></progressbar>
-	
+
 	//   <progressbar :now="" label type="success" ></progressbar>
-	
+
 	//   <progressbar :now="" label type="danger"></progressbar>
-	
+
 	//   <progressbar :now="" label type="primary" striped animated></progressbar>
-	
+
 	// </div>
-	
+
 	// <!-- Single -->
-	
+
 	// <div class="progress">
-	
+
 	//   <progressbar :now="" label type="warning" striped></progressbar>
-	
+
 	// </div>
-	
+
 	// </script></code></pre>
-	
+
 	//     <h2>Options</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>now</td>
-	
+
 	//           <td><code>Number</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>The current value of progress completed.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>type</td>
-	
+
 	//           <td><code>String</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>Style type. Possible values are 'success', 'warning' etc.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>label</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td>false</td>
-	
+
 	//           <td>Whether to show the label.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>striped</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td><code>false</code></td>
-	
+
 	//           <td>Whether the progressbar has striped effect or not.</td>
-	
+
 	//         </tr>
-	
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -12035,35 +12079,35 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div role="progressbar"
-	
+
 	//     v-bind:class="{
-	
+
 	//     'progress-bar' : true,
-	
+
 	//     'progress-bar-success':type == 'success',
-	
+
 	//     'progress-bar-warning':type == 'warning',
-	
+
 	//     'progress-bar-info':type == 'info',
-	
+
 	//     'progress-bar-danger':type == 'danger',
-	
+
 	//     'progress-bar-striped':striped,
-	
+
 	//     'active':animated
-	
+
 	//     }"
-	
+
 	//     v-bind:style="{width: now + '%'}">
-	
+
 	//     {{label ? now + '%':'' }}
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -12130,138 +12174,138 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="radio">
-	
+
 	//     <h1 class="page-header"><a href="#radio" class="anchor">Radio</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <h4>Checkbox</h4>
-	
+
 	//       <radio :checked.sync="radioValue" value="one">One</radio>
-	
+
 	//       <radio :checked.sync="radioValue" value="two" type="primary">Two</radio>
-	
+
 	//       <radio :checked.sync="radioValue" value="three" type="danger">Three</radio>
-	
+
 	//       <hr>
-	
-	//       <h4>Checkbox Button (Single button)</h4>
-	
+
+	//       <h4>Checkbox Button (Single buttons)</h4>
+
 	//       <radio button :checked.sync="radioValue" value="four" type="warning">Four</radio>
-	
+
 	//       <radio button :checked.sync="radioValue" value="five" type="info">Five</radio>
-	
+
 	//       <p>
-	
+
 	//         <pre>
-	
+
 	// Checkbox value: {{radioValue | json}}
-	
+
 	//         </pre>
-	
+
 	//       </p>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup">
-	
+
 	// &lt;radio :checked.sync="radioValue" value="one">One&lt;/radio>
-	
+
 	// &lt;radio :checked.sync="radioValue" value="two" type="primary">Two&lt;/radio>
-	
+
 	// &lt;radio :checked.sync="radioValue" value="three" type="danger">Three&lt;/radio>
-	
+
 	// &lt;radio button :checked.sync="radioValue" value="four" type="warning">Four&lt;/radio>
-	
+
 	// &lt;radio button :checked.sync="radioValue" value="five" type="info">Five&lt;/radio>
-	
+
 	//     </code></pre>
-	
+
 	//     <h2>Checkbox options</h2>
-	
+
 	//     <table class="table table-bordered">
-	
+
 	//       <thead>
-	
+
 	//         <tr>
-	
+
 	//           <th>Name</th>
-	
+
 	//           <th>Type</th>
-	
+
 	//           <th>Default</th>
-	
+
 	//           <th>Description</th>
-	
+
 	//         </tr>
-	
+
 	//       </thead>
-	
+
 	//       <tbody>
-	
+
 	//         <tr>
-	
+
 	//           <td>value</td>
-	
+
 	//           <td><code>Array</code> or <code>String</code></td>
-	
+
 	//           <td></td>
-	
+
 	//           <td>If defined, then the defined values will be checked otherwise the elements with a checked attribute will be checked.</td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>type</td>
-	
+
 	//           <td><code>String</code>, one of <code>default</code>
-	
+
 	//           <code>primary</code>
-	
+
 	//           <code>danger</code>
-	
+
 	//           <code>info</code>
-	
+
 	//           <code>warning</code>
-	
+
 	//           <code>success</code></td>
-	
+
 	//           <td><code>default</code></td>
-	
+
 	//           <td></td>
-	
+
 	//         </tr>
-	
+
 	//         <tr>
-	
+
 	//           <td>button</td>
-	
+
 	//           <td><code>Boolean</code></td>
-	
+
 	//           <td>false</td>
-	
+
 	//           <td>Button style. If is in a button group (set as radio group), all radios will be buttons automaticaly.</td>
-	
+
 	//         </tr>
-	
+
 	//       </tbody>
-	
+
 	//     </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
 /* 282 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"bs-docs-section\" id=\"radio\">\r\n    <h1 class=\"page-header\"><a href=\"#radio\" class=\"anchor\">Radio</a></h1>\r\n    <div class=\"bs-example\">\r\n      <h4>Checkbox</h4>\r\n      <radio :checked.sync=\"radioValue\" value=\"one\">One</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"two\" type=\"primary\">Two</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"three\" type=\"danger\">Three</radio>\r\n      <hr>\r\n      <h4>Checkbox Button (Single button)</h4>\r\n      <radio button :checked.sync=\"radioValue\" value=\"four\" type=\"warning\">Four</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"five\" type=\"info\">Five</radio>\r\n      <p>\r\n        <pre>\r\nCheckbox value: {{radioValue | json}}\r\n        </pre>\r\n      </p>\r\n    </div>\r\n    <pre><code class=\"language-markup\">\r\n&lt;radio :checked.sync=\"radioValue\" value=\"one\">One&lt;/radio>\r\n&lt;radio :checked.sync=\"radioValue\" value=\"two\" type=\"primary\">Two&lt;/radio>\r\n&lt;radio :checked.sync=\"radioValue\" value=\"three\" type=\"danger\">Three&lt;/radio>\r\n\r\n&lt;radio button :checked.sync=\"radioValue\" value=\"four\" type=\"warning\">Four&lt;/radio>\r\n&lt;radio button :checked.sync=\"radioValue\" value=\"five\" type=\"info\">Five&lt;/radio>\r\n    </code></pre>\r\n\r\n    <h2>Checkbox options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>Array</code> or <code>String</code></td>\r\n          <td></td>\r\n          <td>If defined, then the defined values will be checked otherwise the elements with a checked attribute will be checked.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>type</td>\r\n          <td><code>String</code>, one of <code>default</code>\r\n          <code>primary</code>\r\n          <code>danger</code>\r\n          <code>info</code>\r\n          <code>warning</code>\r\n          <code>success</code></td>\r\n          <td><code>default</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>button</td>\r\n          <td><code>Boolean</code></td>\r\n          <td>false</td>\r\n          <td>Button style. If is in a button group (set as radio group), all radios will be buttons automaticaly.</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>";
+	module.exports = "<div class=\"bs-docs-section\" id=\"radio\">\r\n    <h1 class=\"page-header\"><a href=\"#radio\" class=\"anchor\">Radio</a></h1>\r\n    <div class=\"bs-example\">\r\n      <h4>Checkbox</h4>\r\n      <radio :checked.sync=\"radioValue\" value=\"one\">One</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"two\" type=\"primary\">Two</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"three\" type=\"danger\">Three</radio>\r\n      <hr>\r\n      <h4>Checkbox Button (Single buttons)</h4>\r\n      <radio button :checked.sync=\"radioValue\" value=\"four\" type=\"warning\">Four</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"five\" type=\"info\">Five</radio>\r\n      <p>\r\n        <pre>\r\nCheckbox value: {{radioValue | json}}\r\n        </pre>\r\n      </p>\r\n    </div>\r\n    <pre><code class=\"language-markup\">\r\n&lt;radio :checked.sync=\"radioValue\" value=\"one\">One&lt;/radio>\r\n&lt;radio :checked.sync=\"radioValue\" value=\"two\" type=\"primary\">Two&lt;/radio>\r\n&lt;radio :checked.sync=\"radioValue\" value=\"three\" type=\"danger\">Three&lt;/radio>\r\n\r\n&lt;radio button :checked.sync=\"radioValue\" value=\"four\" type=\"warning\">Four&lt;/radio>\r\n&lt;radio button :checked.sync=\"radioValue\" value=\"five\" type=\"info\">Five&lt;/radio>\r\n    </code></pre>\r\n\r\n    <h2>Checkbox options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>value</td>\r\n          <td><code>Array</code> or <code>String</code></td>\r\n          <td></td>\r\n          <td>If defined, then the defined values will be checked otherwise the elements with a checked attribute will be checked.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>type</td>\r\n          <td><code>String</code>, one of <code>default</code>\r\n          <code>primary</code>\r\n          <code>danger</code>\r\n          <code>info</code>\r\n          <code>warning</code>\r\n          <code>success</code></td>\r\n          <td><code>default</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>button</td>\r\n          <td><code>Boolean</code></td>\r\n          <td>false</td>\r\n          <td>Button style. If is in a button group (set as radio group), all radios will be buttons automaticaly.</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>";
 
 /***/ },
 /* 283 */
@@ -12304,8 +12348,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-9e6117de&file=selectDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./selectDocs.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-9e6117de&file=selectDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./selectDocs.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0c80a8cf&file=selectDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./selectDocs.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0c80a8cf&file=selectDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./selectDocs.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -12338,7 +12382,15 @@
 	  value: true
 	});
 	
-	var _Select = __webpack_require__(129);
+	var _buttonGroup = __webpack_require__(207);
+	
+	var _buttonGroup2 = _interopRequireDefault(_buttonGroup);
+	
+	var _Checkbox = __webpack_require__(124);
+	
+	var _Checkbox2 = _interopRequireDefault(_Checkbox);
+	
+	var _Select = __webpack_require__(134);
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
@@ -12400,53 +12452,59 @@
 	
 	//       </form>
 	
-	//       <div class="checkbox"><label><input type="checkbox" v-model="select.disabled"/> Disabled</label></div>
+	//       <br/>
 	
-	//       <div class="checkbox"><label><input type="checkbox" v-model="select.search"/> Search</label></div>
+	//       <button-group type="primary" buttons="false">
 	
-	//       <div class="checkbox">
+	//         <p><checkbox :checked.sync="select.disabled">Disabled</checkbox></p>
 	
-	//         <label><input type="checkbox" v-model="select.multiple"/> Multiple</label>
+	//         <p><checkbox :checked.sync="select.search">Search</checkbox></p>
 	
-	//         <label v-if="select.multiple"><input type="checkbox" v-model="select.limit"/> Limit (e.g. 3)</label>
+	//         <p>
 	
-	//         <label v-if="select.multiple"><input type="checkbox" v-model="select.closeOnSelect"/> Close on Select</label>
+	//           <checkbox :checked.sync="select.multiple">Multiple</checkbox>
 	
-	//       </div>
+	//           <checkbox v-if="select.multiple" :checked.sync="select.limit">Limit (e.g. 3)</checkbox>
 	
-	//       <div class="checkbox"><label><input type="checkbox" v-model="select.justified"/> Justified</label></div>
+	//           <checkbox v-if="select.multiple" :checked.sync="select.closeOnSelect">Close on Select</checkbox>
 	
-	//       <div class="checkbox"><label><input type="checkbox" v-model="select.clearButton"/> Clear Button</label></div>
+	//         </p>
 	
-	//       <div class="checkbox">
+	//         <p><checkbox :checked.sync="select.justified">Justified</checkbox></p>
 	
-	//         <label><input type="checkbox" v-model="select.inputs"/> Form input</label>
+	//         <p><checkbox :checked.sync="select.clearButton">Clear Button</checkbox></p>
 	
-	//         <label v-if="select.inputs"><input type="checkbox" v-model="select.required"/> Required (add empty value if noting selected)</label>
+	//         <p>
 	
-	//       </div>
+	//           <checkbox :checked.sync="select.inputs">Form input</checkbox>
+	
+	//           <checkbox v-if="select.inputs" :checked.sync="select.required">Required (add empty value if noting selected)</checkbox>
+	
+	//         </p>
+	
+	//       </button-group>
 	
 	//     </div>
 	
-	//     <pre><code class="language-markup"><script type="language-mark-up">
+	//     <pre><code class="language-markup">
 	
-	// <v-select>
+	// &lt;v-select>
 	
-	//   <v-option value="apple">Apple</v-option>
+	//   &lt;v-option value="apple">Apple&lt;/v-option>
 	
-	//   <v-option value="banana">Banana</v-option>
+	//   &lt;v-option value="banana">Banana&lt;/v-option>
 	
-	//   <v-option value="cherry">Cherry</v-option>
+	//   &lt;v-option value="cherry">Cherry&lt;/v-option>
 	
-	//   <v-option value="orange">Orange</v-option>
+	//   &lt;v-option value="orange">Orange&lt;/v-option>
 	
-	//   <v-option value="grape">Grape</v-option>
+	//   &lt;v-option value="grape">Grape&lt;/v-option>
 	
-	// </v-select>
+	// &lt;/v-select>
 	
-	// <form action="./#select" method="get">
+	// &lt;form action="./#select" method="get">
 	
-	//   <v-select :value.sync="select.value" :options="select.options"
+	//   &lt;v-select :value.sync="select.value" :options="select.options"
 	
 	//     multiple name="animals[]" limit="3"
 	
@@ -12454,13 +12512,13 @@
 	
 	//     clear-button close-on-select
 	
-	//   ></v-select>
+	//   >&lt;/v-select>
 	
-	//   <button type="submit" class="btn btn-default">Submit form</button>
+	//   &lt;button type="submit" class="btn btn-default">Submit form&lt;/button>
 	
-	// </form>
+	// &lt;/form>
 	
-	//     </script></code></pre>
+	//     </code></pre>
 	
 	//     <pre><code class="language-javascript"><script type="language-javascript">
 	
@@ -12589,6 +12647,8 @@
 	// <script>
 	exports.default = {
 	  components: {
+	    buttonGroup: _buttonGroup2.default,
+	    checkbox: _Checkbox2.default,
 	    vSelect: _Select2.default,
 	    vOption: _Option2.default
 	  },
@@ -12612,22 +12672,22 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .checkbox>label:not(:first-child) {
-	
+
 	//   margin-left: 15px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
 /* 287 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"bs-docs-section\" id=\"select\">\r\n    <h1 class=\"page-header\"><a href=\"#select\" class=\"anchor\">Select</a></h1>\r\n    <p>\r\n      This a <a target=\"_blank\" href=\"https://silviomoreto.github.io/bootstrap-select/\">bootstrap-select</a> implementation.\r\n    </p>\r\n    <div class=\"bs-example\">\r\n      <h4>Simple select</h4>\r\n      <p><pre>Select data : {{show(single)}}</pre></p>\r\n      <v-select :value.sync=\"single\">\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n\r\n      <hr />\r\n      <h4>Test options:</h4>\r\n      <p><pre>Selected data : {{show(select.value)}}</pre></p>\r\n      <form action=\"./#select\" method=\"get\">\r\n        <v-select :options=\"select.options\" :value.sync=\"select.value\" :name=\"select.inputs?(select.multiple?'animals[]':'animal'):''\"\r\n          :multiple=\"select.multiple\" :search=\"select.search\" :justified=\"select.justified\" :required=\"select.inputs&&select.required\"\r\n          :clear-button=\"select.clearButton\" :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"\r\n        ></v-select>\r\n        <button v-if=\"select.inputs\" type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n      </form>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.disabled\"/> Disabled</label></div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.search\"/> Search</label></div>\r\n      <div class=\"checkbox\">\r\n        <label><input type=\"checkbox\" v-model=\"select.multiple\"/> Multiple</label>\r\n        <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.limit\"/> Limit (e.g. 3)</label>\r\n        <label v-if=\"select.multiple\"><input type=\"checkbox\" v-model=\"select.closeOnSelect\"/> Close on Select</label>\r\n      </div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.justified\"/> Justified</label></div>\r\n      <div class=\"checkbox\"><label><input type=\"checkbox\" v-model=\"select.clearButton\"/> Clear Button</label></div>\r\n      <div class=\"checkbox\">\r\n        <label><input type=\"checkbox\" v-model=\"select.inputs\"/> Form input</label>\r\n        <label v-if=\"select.inputs\"><input type=\"checkbox\" v-model=\"select.required\"/> Required (add empty value if noting selected)</label>\r\n      </div>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\n<v-select>\r\n  <v-option value=\"apple\">Apple</v-option>\r\n  <v-option value=\"banana\">Banana</v-option>\r\n  <v-option value=\"cherry\">Cherry</v-option>\r\n  <v-option value=\"orange\">Orange</v-option>\r\n  <v-option value=\"grape\">Grape</v-option>\r\n</v-select>\r\n\r\n<form action=\"./#select\" method=\"get\">\r\n  <v-select :value.sync=\"select.value\" :options=\"select.options\"\r\n    multiple name=\"animals[]\" limit=\"3\"\r\n    search justified required disabled\r\n    clear-button close-on-select\r\n  ></v-select>\r\n  <button type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n</form>\r\n    </script></code></pre>\r\n    <pre><code class=\"language-javascript\"><script type=\"language-javascript\">\r\noptions: [\r\n  {value: 1, label: 'Cat'},\r\n  {value: 2, label: 'Cow'},\r\n  {value: 3, label: 'Dog'},\r\n  {value: 4, label: 'Elephant'},\r\n  {value: 5, label: 'Fish'},\r\n  {value: 6, label: 'Lion'},\r\n  {value: 7, label: 'Tiger'},\r\n  {value: 8, label: 'Turtle'}\r\n]\r\n    </script></code></pre>\r\n\r\n      <hr />\r\n      <h4>Ajax data and parent dependency:</h4>\r\n      <p>\r\n        The second element has inheritance. Enable when the first get some value and the ajax return values.\r\n      </p>\r\n      <v-select url=\"docs/data.json\" :value.sync=\"ajax.value\" clear-button></v-select>\r\n      <v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\"></v-select>\r\n    <pre><code class=\"language-markup\">\r\n&lt;v-select url=\"docs/data.json\" :value.sync=\"ajax.value\" clear-button>&lt;/v-select>\r\n&lt;v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\">&lt;/v-select>\r\n    </code></pre>\r\n\r\n    <h2>Other Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>close-on-select</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>lang</td>\r\n          <td><code>String</code></td>\r\n          <td>Browser language</td>\r\n          <td><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>placeholder</td>\r\n          <td><code>String</code></td>\r\n          <td>Nothing Selected</td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>search-text</td>\r\n          <td><code>String</code></td>\r\n          <td></td>\r\n          <td></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n  </div>";
+	module.exports = "<div class=\"bs-docs-section\" id=\"select\">\r\n    <h1 class=\"page-header\"><a href=\"#select\" class=\"anchor\">Select</a></h1>\r\n    <p>\r\n      This a <a target=\"_blank\" href=\"https://silviomoreto.github.io/bootstrap-select/\">bootstrap-select</a> implementation.\r\n    </p>\r\n    <div class=\"bs-example\">\r\n      <h4>Simple select</h4>\r\n      <p><pre>Select data : {{show(single)}}</pre></p>\r\n      <v-select :value.sync=\"single\">\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n\r\n      <hr />\r\n      <h4>Test options:</h4>\r\n      <p><pre>Selected data : {{show(select.value)}}</pre></p>\r\n      <form action=\"./#select\" method=\"get\">\r\n        <v-select :options=\"select.options\" :value.sync=\"select.value\" :name=\"select.inputs?(select.multiple?'animals[]':'animal'):''\"\r\n          :multiple=\"select.multiple\" :search=\"select.search\" :justified=\"select.justified\" :required=\"select.inputs&&select.required\"\r\n          :clear-button=\"select.clearButton\" :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"\r\n        ></v-select>\r\n        <button v-if=\"select.inputs\" type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n      </form>\r\n      <br/>\r\n      <button-group type=\"primary\" buttons=\"false\">\r\n        <p><checkbox :checked.sync=\"select.disabled\">Disabled</checkbox></p>\r\n        <p><checkbox :checked.sync=\"select.search\">Search</checkbox></p>\r\n        <p>\r\n          <checkbox :checked.sync=\"select.multiple\">Multiple</checkbox>\r\n          <checkbox v-if=\"select.multiple\" :checked.sync=\"select.limit\">Limit (e.g. 3)</checkbox>\r\n          <checkbox v-if=\"select.multiple\" :checked.sync=\"select.closeOnSelect\">Close on Select</checkbox>\r\n        </p>\r\n        <p><checkbox :checked.sync=\"select.justified\">Justified</checkbox></p>\r\n        <p><checkbox :checked.sync=\"select.clearButton\">Clear Button</checkbox></p>\r\n        <p>\r\n          <checkbox :checked.sync=\"select.inputs\">Form input</checkbox>\r\n          <checkbox v-if=\"select.inputs\" :checked.sync=\"select.required\">Required (add empty value if noting selected)</checkbox>\r\n        </p>\r\n      </button-group>\r\n    </div>\r\n    <pre><code class=\"language-markup\">\r\n&lt;v-select>\r\n  &lt;v-option value=\"apple\">Apple&lt;/v-option>\r\n  &lt;v-option value=\"banana\">Banana&lt;/v-option>\r\n  &lt;v-option value=\"cherry\">Cherry&lt;/v-option>\r\n  &lt;v-option value=\"orange\">Orange&lt;/v-option>\r\n  &lt;v-option value=\"grape\">Grape&lt;/v-option>\r\n&lt;/v-select>\r\n\r\n&lt;form action=\"./#select\" method=\"get\">\r\n  &lt;v-select :value.sync=\"select.value\" :options=\"select.options\"\r\n    multiple name=\"animals[]\" limit=\"3\"\r\n    search justified required disabled\r\n    clear-button close-on-select\r\n  >&lt;/v-select>\r\n  &lt;button type=\"submit\" class=\"btn btn-default\">Submit form&lt;/button>\r\n&lt;/form>\r\n    </code></pre>\r\n    <pre><code class=\"language-javascript\"><script type=\"language-javascript\">\r\noptions: [\r\n  {value: 1, label: 'Cat'},\r\n  {value: 2, label: 'Cow'},\r\n  {value: 3, label: 'Dog'},\r\n  {value: 4, label: 'Elephant'},\r\n  {value: 5, label: 'Fish'},\r\n  {value: 6, label: 'Lion'},\r\n  {value: 7, label: 'Tiger'},\r\n  {value: 8, label: 'Turtle'}\r\n]\r\n    </script></code></pre>\r\n\r\n      <hr />\r\n      <h4>Ajax data and parent dependency:</h4>\r\n      <p>\r\n        The second element has inheritance. Enable when the first get some value and the ajax return values.\r\n      </p>\r\n      <v-select url=\"docs/data.json\" :value.sync=\"ajax.value\" clear-button></v-select>\r\n      <v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\"></v-select>\r\n    <pre><code class=\"language-markup\">\r\n&lt;v-select url=\"docs/data.json\" :value.sync=\"ajax.value\" clear-button>&lt;/v-select>\r\n&lt;v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\">&lt;/v-select>\r\n    </code></pre>\r\n\r\n    <h2>Other Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>close-on-select</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>lang</td>\r\n          <td><code>String</code></td>\r\n          <td>Browser language</td>\r\n          <td><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>placeholder</td>\r\n          <td><code>String</code></td>\r\n          <td>Nothing Selected</td>\r\n          <td></td>\r\n        </tr>\r\n        <tr>\r\n          <td>search-text</td>\r\n          <td><code>String</code></td>\r\n          <td></td>\r\n          <td></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n\r\n  </div>";
 
 /***/ },
 /* 288 */
@@ -12636,7 +12696,7 @@
 	module.exports = __webpack_require__(289)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(293)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(295)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -12663,141 +12723,34 @@
 	  value: true
 	});
 	
+	var _Checkbox = __webpack_require__(124);
+	
+	var _Checkbox2 = _interopRequireDefault(_Checkbox);
+	
+	var _Select = __webpack_require__(134);
+	
+	var _Select2 = _interopRequireDefault(_Select);
+	
 	var _Spinner = __webpack_require__(290);
 	
 	var _Spinner2 = _interopRequireDefault(_Spinner);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var sizes = [{ text: 'sm', value: 'sm' }, { text: 'md', value: 'md' }, { text: 'lg', value: 'lg' }]; // <template>
-	
-	//   <div class="bs-docs-section" id="spnner">
-	
-	//     <h1 class="page-header"><a href="#spnner" class="anchor">Spnner</a></h1>
-	
-	//     <div class="bs-example">
-	
-	//       <!-- Html controls start-->
-	
-	//       <div >
-	
-	//         <label>fixed <input type="checkbox" v-model="fixed"></label>
-	
-	//         <label>size
-	
-	//           <select v-model="size">
-	
-	//             <option v-for="option in sizes" v-bind:value="option.value">
-	
-	//               {{ option.text }}
-	
-	//             </option>
-	
-	//           </select>
-	
-	//         </label>
-	
-	//       </div>
-	
-	//       <!-- Html controls end-->
-	
-	//       <!-- Html markup start-->
-	
-	//       <div >
-	
-	//         <button v-on:click="$broadcast('show::spinner')">show spinner</button>
-	
-	//         <spinner id="spinner-box" :size="size" :fixed="fixed" text="I will close in 2 secs"></spinner>
-	
-	//       </div>
-	
-	//       <!-- Html markup end-->
-	
-	//     </div>
-	
-	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
-	// 		<spinner id="spinner-box" :size="(sm,md,lg...)" :fixed="(true,false)" 
-	
-	// 			text="I will close in 2 secs" v-ref:spinner></spinner>
-	
-	// 	</script></code></pre>
-	
-	// 	<p>To close the spinner, use the following code:</p>
-	
-	// 	<pre><code class="language-markup"><script type="language-mark-up">this.$refs.spinner.hide()</script></code></pre>
-	
-	//   <h2>Spinner Options</h2>
-	
-	//   <table class="table table-bordered">
-	
-	//     <thead>
-	
-	//       <tr>
-	
-	//         <th>Name</th>
-	
-	//         <th>Type</th>
-	
-	//         <th>Default</th>
-	
-	//         <th>Description</th>
-	
-	//       </tr>
-	
-	//     </thead>
-	
-	//     <tbody>
-	
-	//       <tr>
-	
-	//         <td>size</td>
-	
-	//         <td><code>Text</code></td>
-	
-	//         <td>md</td>
-	
-	//         <td>The size of the spinner (either [sm, md, lg]).</td>
-	
-	//       </tr>
-	
-	//       <tr>
-	
-	//         <td>fixed</td>
-	
-	//         <td><code>Boolean</code></td>
-	
-	//         <td>false</td>
-	
-	//         <td>Set to true if you want the spinner to occupy the entire window space.</td>
-	
-	//       </tr>
-	
-	//     </tbody>
-	
-	//   </table>
-	
-	//   </div>
-	
-	//   <div></div>
-	
-	// </template>
-	
-	// <script>
-	
-	
 	exports.default = {
+	  components: {
+	    checkbox: _Checkbox2.default,
+	    spinner: _Spinner2.default,
+	    vSelect: _Select2.default
+	  },
 	  data: function data() {
 	    return {
 	      fixed: false,
 	      size: 'lg',
-	      sizes: sizes.concat({ text: 'xl', value: 'xl' })
+	      sizes: ['sm', 'md', 'lg', 'xl']
 	    };
 	  },
 	
-	  components: {
-	    spinner: _Spinner2.default
-	  },
 	  events: {
 	    'shown::spinner': function shownSpinner(id) {
 	      var _this = this;
@@ -12809,6 +12762,91 @@
 	  }
 	};
 	// </script>
+	// <template>
+
+	//   <div class="bs-docs-section" id="spnner">
+
+	//     <h1 class="page-header"><a href="#spnner" class="anchor">Spnner</a></h1>
+
+	//     <div class="bs-example">
+
+	//       <p><checkbox :checked.sync="fixed" type="info">fixed</checkbox></p>
+
+	//       <p><v-select :options="sizes" :value.sync="size">size</v-select></p>
+
+	//       <p><button class="btn btn-info" v-on:click="$broadcast('show::spinner')">show spinner</button></p>
+
+	//       <div><spinner id="spinner-box" :size="size" :fixed="fixed" text="I will close in 2 secs"></spinner></div>
+
+	//     </div>
+
+	//     <pre><code class="language-markup">
+
+	// &lt;spinner id="spinner-box" :size="(sm,md,lg...)" :fixed="(true,false)"
+
+	//   text="I will close in 2 secs" v-ref:spinner>&lt;/spinner>
+
+	//     </code></pre>
+
+	//     <p>To close the spinner, use the following code:</p>
+
+	//     <pre><code class="language-markup"><script type="language-mark-up">this.$refs.spinner.hide()</script></code></pre>
+
+	//     <h2>Spinner Options</h2>
+
+	//     <table class="table table-bordered">
+
+	//       <thead>
+
+	//         <tr>
+
+	//           <th>Name</th>
+
+	//           <th>Type</th>
+
+	//           <th>Default</th>
+
+	//           <th>Description</th>
+
+	//         </tr>
+
+	//       </thead>
+
+	//       <tbody>
+
+	//         <tr>
+
+	//           <td>size</td>
+
+	//           <td><code>Text</code></td>
+
+	//           <td>md</td>
+
+	//           <td>The size of the spinner (either [sm, md, lg]).</td>
+
+	//         </tr>
+
+	//         <tr>
+
+	//           <td>fixed</td>
+
+	//           <td><code>Boolean</code></td>
+
+	//           <td>false</td>
+
+	//           <td>Set to true if you want the spinner to occupy the entire window space.</td>
+
+	//         </tr>
+
+	//       </tbody>
+
+	//     </table>
+
+	//   </div>
+
+	// </template>
+
+	// <script>
 
 /***/ },
 /* 290 */
@@ -12817,7 +12855,7 @@
 	module.exports = __webpack_require__(291)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(292)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(294)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -12836,13 +12874,18 @@
 
 /***/ },
 /* 291 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	__webpack_require__(292);
+	
+	var MIN_WAIT = 500; // in ms
+	
 	// <template>
 	
 	//   <div class="spinner spinner-gritcode {{spinnerSize}} {{fixed ? 'spinner-fixed' : ''}}" v-show="active">
@@ -12861,10 +12904,6 @@
 	
 	// <script>
 	// import styling
-	// import './spinner.scss'
-	
-	var MIN_WAIT = 500; // in ms
-	
 	exports.default = {
 	  data: function data() {
 	    return {
@@ -12888,7 +12927,7 @@
 	  },
 	  computed: {
 	    spinnerSize: function spinnerSize() {
-	      return this.size ? 'spinner-${this.size}' : 'spinner-sm';
+	      return this.size ? 'spinner-' + this.size : 'spinner-sm';
 	    }
 	  },
 	  methods: {
@@ -12953,24 +12992,64 @@
 
 /***/ },
 /* 292 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(293);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(114)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./spinner.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./spinner.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 293 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(113)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "/*!\r\n *\r\n * Spinner\r\n * With fallback to IE9\r\n *\r\n */\n@keyframes spin {\n  100% {\n    transform: rotate(360deg); } }\n\n.spinner-gritcode {\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  z-index: 9998;\n  position: absolute;\n  width: 100%;\n  text-align: center;\n  background: rgba(255, 255, 255, 0.9); }\n  .spinner-gritcode.spinner-fixed {\n    position: fixed; }\n  .spinner-gritcode .spinner-wrapper {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%); }\n  .spinner-gritcode .spinner-circle {\n    position: relative;\n    border: 4px solid #ccc;\n    border-right-color: #337ab7;\n    border-radius: 50%;\n    display: inline-block;\n    animation: spin 0.6s linear;\n    animation-iteration-count: infinite;\n    width: 3em;\n    height: 3em;\n    z-index: 2; }\n  .spinner-gritcode .spinner-text {\n    position: relative;\n    text-align: center;\n    margin-top: 0.5em;\n    z-index: 2;\n    width: 100%;\n    font-size: 95%;\n    color: #337ab7; }\n\n.spinner-gritcode.spinner-sm .spinner-circle {\n  width: 1.5em;\n  height: 1.5em; }\n\n.spinner-gritcode.spinner-md .spinner-circle {\n  width: 2em;\n  height: 2em; }\n\n.spinner-gritcode.spinner-lg .spinner-circle {\n  width: 2.5em;\n  height: 2.5em; }\n\n.spinner-gritcode.spinner-xl .spinner-circle {\n  width: 3.5em;\n  height: 3.5em; }\n\n.lt-ie10 .spinner-gritcode .spinner-circle, .ie9 .spinner-gritcode .spinner-circle, .oldie .spinner-gritcode .spinner-circle, .no-csstransitions .spinner-gritcode .spinner-circle, .no-csstransforms3d .spinner-gritcode .spinner-circle {\n  background: url(\"http://i2.wp.com/www.thegreatnovelingadventure.com/wp-content/plugins/wp-polls/images/loading.gif\") center center no-repeat;\n  animation: none;\n  margin-left: 0;\n  margin-top: 5px;\n  border: none;\n  width: 32px;\n  height: 32px; }\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 294 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"spinner spinner-gritcode {{spinnerSize}} {{fixed ? 'spinner-fixed' : ''}}\" v-show=\"active\">\r\n    <div class=\"spinner-wrapper\">\r\n      <div class=\"spinner-circle\"></div>\r\n      <div class=\"spinner-text\">{{text}}</div>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 293 */
+/* 295 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"bs-docs-section\" id=\"spnner\">\r\n    <h1 class=\"page-header\"><a href=\"#spnner\" class=\"anchor\">Spnner</a></h1>\r\n    <div class=\"bs-example\">\r\n\r\n      <!-- Html controls start-->\r\n      <div >\r\n        <label>fixed <input type=\"checkbox\" v-model=\"fixed\"></label>\r\n        <label>size\r\n          <select v-model=\"size\">\r\n            <option v-for=\"option in sizes\" v-bind:value=\"option.value\">\r\n              {{ option.text }}\r\n            </option>\r\n          </select>\r\n        </label>\r\n      </div>\r\n      <!-- Html controls end-->\r\n\r\n      <!-- Html markup start-->\r\n      <div >\r\n        <button v-on:click=\"$broadcast('show::spinner')\">show spinner</button>\r\n        <spinner id=\"spinner-box\" :size=\"size\" :fixed=\"fixed\" text=\"I will close in 2 secs\"></spinner>\r\n      </div>\r\n      <!-- Html markup end-->\r\n\r\n    </div>\r\n\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\n\t\t<spinner id=\"spinner-box\" :size=\"(sm,md,lg...)\" :fixed=\"(true,false)\" \r\n\t\t\ttext=\"I will close in 2 secs\" v-ref:spinner></spinner>\r\n\t</script></code></pre>\r\n\r\n\t<p>To close the spinner, use the following code:</p>\r\n\t<pre><code class=\"language-markup\"><script type=\"language-mark-up\">this.$refs.spinner.hide()</script></code></pre>\r\n  <h2>Spinner Options</h2>\r\n  <table class=\"table table-bordered\">\r\n    <thead>\r\n      <tr>\r\n        <th>Name</th>\r\n        <th>Type</th>\r\n        <th>Default</th>\r\n        <th>Description</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr>\r\n        <td>size</td>\r\n        <td><code>Text</code></td>\r\n        <td>md</td>\r\n        <td>The size of the spinner (either [sm, md, lg]).</td>\r\n      </tr>\r\n      <tr>\r\n        <td>fixed</td>\r\n        <td><code>Boolean</code></td>\r\n        <td>false</td>\r\n        <td>Set to true if you want the spinner to occupy the entire window space.</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  </div>\r\n  <div></div>";
+	module.exports = "<div class=\"bs-docs-section\" id=\"spnner\">\r\n    <h1 class=\"page-header\"><a href=\"#spnner\" class=\"anchor\">Spnner</a></h1>\r\n    <div class=\"bs-example\">\r\n      <p><checkbox :checked.sync=\"fixed\" type=\"info\">fixed</checkbox></p>\r\n      <p><v-select :options=\"sizes\" :value.sync=\"size\">size</v-select></p>\r\n      <p><button class=\"btn btn-info\" v-on:click=\"$broadcast('show::spinner')\">show spinner</button></p>\r\n      <div><spinner id=\"spinner-box\" :size=\"size\" :fixed=\"fixed\" text=\"I will close in 2 secs\"></spinner></div>\r\n    </div>\r\n\r\n    <pre><code class=\"language-markup\">\r\n&lt;spinner id=\"spinner-box\" :size=\"(sm,md,lg...)\" :fixed=\"(true,false)\"\r\n  text=\"I will close in 2 secs\" v-ref:spinner>&lt;/spinner>\r\n    </code></pre>\r\n\r\n    <p>To close the spinner, use the following code:</p>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">this.$refs.spinner.hide()</script></code></pre>\r\n    <h2>Spinner Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>size</td>\r\n          <td><code>Text</code></td>\r\n          <td>md</td>\r\n          <td>The size of the spinner (either [sm, md, lg]).</td>\r\n        </tr>\r\n        <tr>\r\n          <td>fixed</td>\r\n          <td><code>Boolean</code></td>\r\n          <td>false</td>\r\n          <td>Set to true if you want the spinner to occupy the entire window space.</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>";
 
 /***/ },
-/* 294 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(295)
+	module.exports = __webpack_require__(297)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(309)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(311)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -12988,7 +13067,7 @@
 	}
 
 /***/ },
-/* 295 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12997,15 +13076,15 @@
 	  value: true
 	});
 	
-	var _Tabset = __webpack_require__(296);
+	var _Tabset = __webpack_require__(298);
 	
 	var _Tabset2 = _interopRequireDefault(_Tabset);
 	
-	var _TabGroup = __webpack_require__(301);
+	var _TabGroup = __webpack_require__(303);
 	
 	var _TabGroup2 = _interopRequireDefault(_TabGroup);
 	
-	var _Tab = __webpack_require__(306);
+	var _Tab = __webpack_require__(308);
 	
 	var _Tab2 = _interopRequireDefault(_Tab);
 	
@@ -13020,288 +13099,288 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="tabs">
-	
+
 	//     <h1 class="page-header"><a href="#tabs" class="anchor">Tabs</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <tabs>
-	
+
 	//         <tab header="one">
-	
+
 	//           <p>
-	
+
 	//             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//             consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
+
 	//           </p>
-	
+
 	//         </tab>
-	
+
 	//         <tab header="two" disabled>
-	
+
 	//           ...
-	
+
 	//         </tab>
-	
+
 	//         <tab-group header="group1">
-	
+
 	//           <tab header="three">
-	
+
 	//            <p>
-	
+
 	//               Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
-	
+
 	//            </p>
-	
+
 	//           </tab>
-	
+
 	//           <tab header="four" disabled>
-	
+
 	//             ...
-	
+
 	//           </tab>
-	
+
 	//         </tab-group>
-	
+
 	//         <tab-group header="group2" disabled>
-	
+
 	//           <tab header="five">
-	
+
 	//             ...
-	
+
 	//           </tab>
-	
+
 	//         </tab-group>
-	
+
 	//       </tabs>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup">
-	
+
 	// &lt;tabs>
-	
+
 	//   &lt;tab header="one">
-	
+
 	//     ...
-	
+
 	//   &lt;/tab>
-	
+
 	//   &lt;tab header="two" disabled>
-	
+
 	//     ...
-	
+
 	//   &lt;/tab>
-	
+
 	//   &lt;tab-group header="group1">
-	
+
 	//     &lt;tab header="three">
-	
+
 	//       ...
-	
+
 	//     &lt;/tab>
-	
+
 	//     &lt;tab header="four" disabled>
-	
+
 	//       ...
-	
+
 	//     &lt;/tab>
-	
+
 	//   &lt;/tab-group>
-	
+
 	//   &lt;tab-group header="group2">
-	
+
 	//     &lt;tab header="five">
-	
+
 	//       ...
-	
+
 	//     &lt;/tab>
-	
+
 	//   &lt;/tab-group>
-	
+
 	// &lt;/tabs>
-	
+
 	//   </code></pre>
-	
+
 	//   <pre><code class="language-javascript"><script type="language-javascript">
-	
+
 	// components: {
-	
+
 	//   tabs: VueStrap.Tabset,
-	
+
 	//   tabGroup: VueStrap.TabGroup,
-	
+
 	//   tab: VueStrap.Tab
-	
+
 	// }
-	
+
 	//   </script></code></pre>
-	
+
 	//   <h2>Tabset Options (Container)</h2>
-	
+
 	//   <table class="table table-bordered">
-	
+
 	//     <thead>
-	
+
 	//       <tr>
-	
+
 	//         <th>Name</th>
-	
+
 	//         <th>Type</th>
-	
+
 	//         <th>Default</th>
-	
+
 	//         <th>Description</th>
-	
+
 	//       </tr>
-	
+
 	//     </thead>
-	
+
 	//     <tbody>
-	
+
 	//       <tr>
-	
+
 	//         <td>active</td>
-	
+
 	//         <td><code>Number</code></td>
-	
+
 	//         <td><code>0</code></td>
-	
+
 	//         <td>Active tab index (0 based)</td>
-	
+
 	//       </tr>
-	
+
 	//     </tbody>
-	
+
 	//   </table>
-	
+
 	//   <h2>TabGroup Options (Dropdown)</h2>
-	
+
 	//   <table class="table table-bordered">
-	
+
 	//     <thead>
-	
+
 	//       <tr>
-	
+
 	//         <th>Name</th>
-	
+
 	//         <th>Type</th>
-	
+
 	//         <th>Default</th>
-	
+
 	//         <th>Description</th>
-	
+
 	//       </tr>
-	
+
 	//     </thead>
-	
+
 	//     <tbody>
-	
+
 	//       <tr>
-	
+
 	//         <td>disabled</td>
-	
+
 	//         <td><code>Boolean</code></td>
-	
+
 	//         <td><code>false</code></td>
-	
+
 	//         <td>Whether tabgroup is clickable.</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>header</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td><code>null</code></td>
-	
+
 	//         <td>Group Title</td>
-	
+
 	//       </tr>
-	
+
 	//     </tbody>
-	
+
 	//   </table>
-	
+
 	//   <h2>Tab Options (Element)</h2>
-	
+
 	//   <table class="table table-bordered">
-	
+
 	//     <thead>
-	
+
 	//       <tr>
-	
+
 	//         <th>Name</th>
-	
+
 	//         <th>Type</th>
-	
+
 	//         <th>Default</th>
-	
+
 	//         <th>Description</th>
-	
+
 	//       </tr>
-	
+
 	//     </thead>
-	
+
 	//     <tbody>
-	
+
 	//       <tr>
-	
+
 	//         <td>header</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td>Tab Title</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>disabled</td>
-	
+
 	//         <td><code>Boolean</code></td>
-	
+
 	//         <td>false</td>
-	
+
 	//         <td>Whether tab is clickable and can be activated.</td>
-	
+
 	//       </tr>
-	
+
 	//     </tbody>
-	
+
 	//   </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
-/* 296 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(297)
-	module.exports = __webpack_require__(299)
+	__webpack_require__(299)
+	module.exports = __webpack_require__(301)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(300)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(302)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -13309,23 +13388,23 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-09e2754e&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-c8373860&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-09e2754e&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-c8373860&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-/* 297 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(298);
+	var content = __webpack_require__(300);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(114)(content, {});
@@ -13334,8 +13413,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-09e2754e&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-09e2754e&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c8373860&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c8373860&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -13345,7 +13424,7 @@
 	}
 
 /***/ },
-/* 298 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(113)();
@@ -13353,13 +13432,13 @@
 	
 	
 	// module
-	exports.push([module.id, ".nav-tabs[_v-09e2754e] {\r\n  margin-bottom: 15px;\r\n}", ""]);
+	exports.push([module.id, ".nav-tabs[_v-c8373860] {\r\n  margin-bottom: 15px;\r\n}", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 299 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13368,7 +13447,7 @@
 	  value: true
 	});
 	
-	var _coerceNumber = __webpack_require__(161);
+	var _coerceNumber = __webpack_require__(166);
 	
 	var _coerceNumber2 = _interopRequireDefault(_coerceNumber);
 	
@@ -13452,7 +13531,6 @@
 	
 	  methods: {
 	    select: function select(tab) {
-	      console.log(tab.header, tab.index);
 	      if (!tab.disabled) {
 	        this.active = tab.index;
 	      }
@@ -13460,32 +13538,32 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .nav-tabs {
-	
+
 	//   margin-bottom: 15px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
-/* 300 */
+/* 302 */
 /***/ function(module, exports) {
 
-	module.exports = "<!-- Nav tabs -->\n  <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-09e2754e=\"\">\n    <template v-for=\"t in headers\" _v-09e2754e=\"\">\n      <li v-if=\"!t._tabgroup\" :class=\"{active:t.active, disabled:t.disabled}\" @click.prevent=\"select(t)\" _v-09e2754e=\"\">\n        <a href=\"#\" _v-09e2754e=\"\"><slot name=\"header\" _v-09e2754e=\"\">{{{t.header}}}</slot></a>\n      </li>\n      <dropdown v-else=\"\" :text=\"t.header\" :class=\"{active:t.active,disabled:t.disabled}\" :disabled=\"t.disabled\" _v-09e2754e=\"\">\n        <li v-for=\"tab in t.tabs\" :class=\"{disabled:tab.disabled}\" _v-09e2754e=\"\"><a href=\"#\" @click.prevent=\"select(tab)\" _v-09e2754e=\"\">{{tab.header}}</a></li>\n      </dropdown>\n    </template>\n  </ul>\n  <div class=\"tab-content\" v-el:tab-content=\"\" _v-09e2754e=\"\">\n    <slot _v-09e2754e=\"\"></slot>\n  </div>";
+	module.exports = "<!-- Nav tabs -->\n  <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-c8373860=\"\">\n    <template v-for=\"t in headers\" _v-c8373860=\"\">\n      <li v-if=\"!t._tabgroup\" :class=\"{active:t.active, disabled:t.disabled}\" @click.prevent=\"select(t)\" _v-c8373860=\"\">\n        <a href=\"#\" _v-c8373860=\"\"><slot name=\"header\" _v-c8373860=\"\">{{{t.header}}}</slot></a>\n      </li>\n      <dropdown v-else=\"\" :text=\"t.header\" :class=\"{active:t.active,disabled:t.disabled}\" :disabled=\"t.disabled\" _v-c8373860=\"\">\n        <li v-for=\"tab in t.tabs\" :class=\"{disabled:tab.disabled}\" _v-c8373860=\"\"><a href=\"#\" @click.prevent=\"select(tab)\" _v-c8373860=\"\">{{tab.header}}</a></li>\n      </dropdown>\n    </template>\n  </ul>\n  <div class=\"tab-content\" v-el:tab-content=\"\" _v-c8373860=\"\">\n    <slot _v-c8373860=\"\"></slot>\n  </div>";
 
 /***/ },
-/* 301 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(302)
-	module.exports = __webpack_require__(304)
+	__webpack_require__(304)
+	module.exports = __webpack_require__(306)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(305)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(307)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -13493,23 +13571,23 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./TabGroup.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./TabGroup.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-55faf3cb&file=TabGroup.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./TabGroup.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./TabGroup.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-6f3b49cd&file=TabGroup.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./TabGroup.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./TabGroup.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-55faf3cb&file=TabGroup.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./TabGroup.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-6f3b49cd&file=TabGroup.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./TabGroup.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-/* 302 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(303);
+	var content = __webpack_require__(305);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(114)(content, {});
@@ -13518,8 +13596,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-55faf3cb&file=TabGroup.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./TabGroup.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-55faf3cb&file=TabGroup.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./TabGroup.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6f3b49cd&file=TabGroup.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./TabGroup.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6f3b49cd&file=TabGroup.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./TabGroup.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -13529,7 +13607,7 @@
 	}
 
 /***/ },
-/* 303 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(113)();
@@ -13537,13 +13615,13 @@
 	
 	
 	// module
-	exports.push([module.id, ".nav-tabs[_v-55faf3cb] {\r\n  margin-bottom: 15px;\r\n}", ""]);
+	exports.push([module.id, ".nav-tabs[_v-6f3b49cd] {\r\n  margin-bottom: 15px;\r\n}", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 304 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13556,7 +13634,7 @@
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
-	var _coerceNumber = __webpack_require__(161);
+	var _coerceNumber = __webpack_require__(166);
 	
 	var _coerceNumber2 = _interopRequireDefault(_coerceNumber);
 	
@@ -13616,31 +13694,31 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .nav-tabs {
-	
+
 	//   margin-bottom: 15px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
-/* 305 */
+/* 307 */
 /***/ function(module, exports) {
 
-	module.exports = "<slot _v-55faf3cb=\"\"></slot>";
+	module.exports = "<slot _v-6f3b49cd=\"\"></slot>";
 
 /***/ },
-/* 306 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(307)
+	module.exports = __webpack_require__(309)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(308)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(310)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -13658,7 +13736,7 @@
 	}
 
 /***/ },
-/* 307 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13731,43 +13809,43 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div role="tabpanel" class="tab-pane active" v-show="show"
-	
+
 	//     :class="{hide:!show}"
-	
+
 	//     :transition="transition"
-	
+
 	//   >
-	
+
 	//     <slot></slot>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
-/* 308 */
+/* 310 */
 /***/ function(module, exports) {
 
 	module.exports = "<div role=\"tabpanel\" class=\"tab-pane active\" v-show=\"show\"\r\n    :class=\"{hide:!show}\"\r\n    :transition=\"transition\"\r\n  >\r\n    <slot></slot>\r\n  </div>";
 
 /***/ },
-/* 309 */
+/* 311 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"bs-docs-section\" id=\"tabs\">\r\n    <h1 class=\"page-header\"><a href=\"#tabs\" class=\"anchor\">Tabs</a></h1>\r\n    <div class=\"bs-example\">\r\n      <tabs>\r\n        <tab header=\"one\">\r\n          <p>\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n            consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n          </p>\r\n        </tab>\r\n        <tab header=\"two\" disabled>\r\n          ...\r\n        </tab>\r\n        <tab-group header=\"group1\">\r\n          <tab header=\"three\">\r\n           <p>\r\n              Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.\r\n           </p>\r\n          </tab>\r\n          <tab header=\"four\" disabled>\r\n            ...\r\n          </tab>\r\n        </tab-group>\r\n        <tab-group header=\"group2\" disabled>\r\n          <tab header=\"five\">\r\n            ...\r\n          </tab>\r\n        </tab-group>\r\n      </tabs>\r\n    </div>\r\n    <pre><code class=\"language-markup\">\r\n&lt;tabs>\r\n  &lt;tab header=\"one\">\r\n    ...\r\n  &lt;/tab>\r\n  &lt;tab header=\"two\" disabled>\r\n    ...\r\n  &lt;/tab>\r\n  &lt;tab-group header=\"group1\">\r\n    &lt;tab header=\"three\">\r\n      ...\r\n    &lt;/tab>\r\n    &lt;tab header=\"four\" disabled>\r\n      ...\r\n    &lt;/tab>\r\n  &lt;/tab-group>\r\n  &lt;tab-group header=\"group2\">\r\n    &lt;tab header=\"five\">\r\n      ...\r\n    &lt;/tab>\r\n  &lt;/tab-group>\r\n&lt;/tabs>\r\n  </code></pre>\r\n  <pre><code class=\"language-javascript\"><script type=\"language-javascript\">\r\ncomponents: {\r\n  tabs: VueStrap.Tabset,\r\n  tabGroup: VueStrap.TabGroup,\r\n  tab: VueStrap.Tab\r\n}\r\n  </script></code></pre>\r\n  <h2>Tabset Options (Container)</h2>\r\n  <table class=\"table table-bordered\">\r\n    <thead>\r\n      <tr>\r\n        <th>Name</th>\r\n        <th>Type</th>\r\n        <th>Default</th>\r\n        <th>Description</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr>\r\n        <td>active</td>\r\n        <td><code>Number</code></td>\r\n        <td><code>0</code></td>\r\n        <td>Active tab index (0 based)</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <h2>TabGroup Options (Dropdown)</h2>\r\n  <table class=\"table table-bordered\">\r\n    <thead>\r\n      <tr>\r\n        <th>Name</th>\r\n        <th>Type</th>\r\n        <th>Default</th>\r\n        <th>Description</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr>\r\n        <td>disabled</td>\r\n        <td><code>Boolean</code></td>\r\n        <td><code>false</code></td>\r\n        <td>Whether tabgroup is clickable.</td>\r\n      </tr>\r\n      <tr>\r\n        <td>header</td>\r\n        <td><code>String</code></td>\r\n        <td><code>null</code></td>\r\n        <td>Group Title</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <h2>Tab Options (Element)</h2>\r\n  <table class=\"table table-bordered\">\r\n    <thead>\r\n      <tr>\r\n        <th>Name</th>\r\n        <th>Type</th>\r\n        <th>Default</th>\r\n        <th>Description</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr>\r\n        <td>header</td>\r\n        <td><code>String</code></td>\r\n        <td></td>\r\n        <td>Tab Title</td>\r\n      </tr>\r\n      <tr>\r\n        <td>disabled</td>\r\n        <td><code>Boolean</code></td>\r\n        <td>false</td>\r\n        <td>Whether tab is clickable and can be activated.</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  </div>";
 
 /***/ },
-/* 310 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(311)
+	module.exports = __webpack_require__(313)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(312)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(314)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -13785,7 +13863,7 @@
 	}
 
 /***/ },
-/* 311 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13794,7 +13872,7 @@
 	  value: true
 	});
 	
-	var _Tooltip = __webpack_require__(174);
+	var _Tooltip = __webpack_require__(179);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
@@ -13814,181 +13892,181 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="tooltip">
-	
+
 	//     <h1 class="page-header"><a href="#tooltip" class="anchor">Tooltip</a></h1>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <tooltip  :header="true" content="Lorem ipsum dolor sit amet" placement="top">
-	
+
 	//         <button class="btn btn-default ">tooltip on top</button>
-	
+
 	//       </tooltip>
-	
+
 	//       <tooltip  :header="true" content="Lorem ipsum dolor sit amet" placement="left">
-	
+
 	//         <button class="btn btn-default ">tooltip on left</button>
-	
+
 	//       </tooltip>
-	
+
 	//       <tooltip  :header="true" content="Lorem ipsum dolor sit amet" placement="right">
-	
+
 	//         <button class="btn btn-default ">tooltip on right</button>
-	
+
 	//       </tooltip>
-	
+
 	//       <tooltip  placement="bottom" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-	
+
 	//         <button class="btn btn-default ">tooltip on bottom</button>
-	
+
 	//       </tooltip>
-	
+
 	//       <hr>
-	
+
 	//       <h4>Triger</h4>
-	
+
 	//       <p>
-	
+
 	//         <tooltip trigger="click"
-	
+
 	//         effect="scale" content="Lorem ipsum dolor sit amet" placement="top" trigger="hover">
-	
+
 	//             <button class="btn btn-default ">Click</button>
-	
+
 	//         </tooltip>
-	
+
 	//       </p>
-	
+
 	//       <tooltip effect="scale"
-	
+
 	//     content="Lorem ipsum dolor sit amet" placement="bottom" trigger="focus">
-	
+
 	//         <input type="text" class="form-control" placeholder="Focus">
-	
+
 	//       </tooltip>
-	
+
 	//     </div>
-	
+
 	//     <pre><code class="language-markup"><script type="language-mark-up">
-	
+
 	// <tooltip
-	
+
 	//   effect="scale"
-	
+
 	//   placement="bottom"
-	
+
 	//   content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-	
+
 	//   <button class="btn btn-default ">tooltip on bottom</button>
-	
+
 	// </tooltip>
-	
+
 	// </script></code></pre>
-	
+
 	//   <h2>Options</h2>
-	
+
 	//   <table class="table table-bordered">
-	
+
 	//     <thead>
-	
+
 	//       <tr>
-	
+
 	//         <th>Name</th>
-	
+
 	//         <th>Type</th>
-	
+
 	//         <th>Default</th>
-	
+
 	//         <th>Description</th>
-	
+
 	//       </tr>
-	
+
 	//     </thead>
-	
+
 	//     <tbody>
-	
+
 	//       <tr>
-	
+
 	//         <td>trigger</td>
-	
+
 	//         <td><code>String</code>, one of <code>hover</code>
-	
+
 	//         <code>focus</code>
-	
+
 	//         <code>hover</code></td>
-	
+
 	//         <td><code>click</code></td>
-	
+
 	//         <td>How the tooltip is triggered.</td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>effect</td>
-	
+
 	//         <td><code>String</code>, one of <code>scale</code> <code>fadein</code></td>
-	
+
 	//         <td><code>scale</code></td>
-	
+
 	//         <td></td>
-	
+
 	//       <tr>
-	
+
 	//         <td>content</td>
-	
+
 	//         <td><code>String</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td></td>
-	
+
 	//       </tr>
-	
+
 	//       <tr>
-	
+
 	//         <td>placement</td>
-	
+
 	//         <td><code>String</code>, one of <code>top</code>
-	
+
 	//         <code>left</code>
-	
+
 	//         <code>right</code>
-	
+
 	//         <code>bottom</code></td>
-	
+
 	//         <td></td>
-	
+
 	//         <td>How to position the tooltip.</td>
-	
+
 	//       </tr>
-	
+
 	//     </tbody>
-	
+
 	//   </table>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
-/* 312 */
+/* 314 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"bs-docs-section\" id=\"tooltip\">\r\n    <h1 class=\"page-header\"><a href=\"#tooltip\" class=\"anchor\">Tooltip</a></h1>\r\n    <div class=\"bs-example\">\r\n      <tooltip  :header=\"true\" content=\"Lorem ipsum dolor sit amet\" placement=\"top\">\r\n        <button class=\"btn btn-default \">tooltip on top</button>\r\n      </tooltip>\r\n      <tooltip  :header=\"true\" content=\"Lorem ipsum dolor sit amet\" placement=\"left\">\r\n        <button class=\"btn btn-default \">tooltip on left</button>\r\n      </tooltip>\r\n      <tooltip  :header=\"true\" content=\"Lorem ipsum dolor sit amet\" placement=\"right\">\r\n        <button class=\"btn btn-default \">tooltip on right</button>\r\n      </tooltip>\r\n      <tooltip  placement=\"bottom\" content=\"Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod\">\r\n        <button class=\"btn btn-default \">tooltip on bottom</button>\r\n      </tooltip>\r\n      <hr>\r\n      <h4>Triger</h4>\r\n      <p>\r\n        <tooltip trigger=\"click\"\r\n        effect=\"scale\" content=\"Lorem ipsum dolor sit amet\" placement=\"top\" trigger=\"hover\">\r\n            <button class=\"btn btn-default \">Click</button>\r\n        </tooltip>\r\n      </p>\r\n      <tooltip effect=\"scale\"\r\n    content=\"Lorem ipsum dolor sit amet\" placement=\"bottom\" trigger=\"focus\">\r\n        <input type=\"text\" class=\"form-control\" placeholder=\"Focus\">\r\n      </tooltip>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\n<tooltip\r\n  effect=\"scale\"\r\n  placement=\"bottom\"\r\n  content=\"Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod\">\r\n  <button class=\"btn btn-default \">tooltip on bottom</button>\r\n</tooltip>\r\n</script></code></pre>\r\n  <h2>Options</h2>\r\n  <table class=\"table table-bordered\">\r\n    <thead>\r\n      <tr>\r\n        <th>Name</th>\r\n        <th>Type</th>\r\n        <th>Default</th>\r\n        <th>Description</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr>\r\n        <td>trigger</td>\r\n        <td><code>String</code>, one of <code>hover</code>\r\n        <code>focus</code>\r\n        <code>hover</code></td>\r\n        <td><code>click</code></td>\r\n        <td>How the tooltip is triggered.</td>\r\n      </tr>\r\n      <tr>\r\n        <td>effect</td>\r\n        <td><code>String</code>, one of <code>scale</code> <code>fadein</code></td>\r\n        <td><code>scale</code></td>\r\n        <td></td>\r\n      <tr>\r\n        <td>content</td>\r\n        <td><code>String</code></td>\r\n        <td></td>\r\n        <td></td>\r\n      </tr>\r\n      <tr>\r\n        <td>placement</td>\r\n        <td><code>String</code>, one of <code>top</code>\r\n        <code>left</code>\r\n        <code>right</code>\r\n        <code>bottom</code></td>\r\n        <td></td>\r\n        <td>How to position the tooltip.</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  </div>";
 
 /***/ },
-/* 313 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(314)
+	module.exports = __webpack_require__(316)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(320)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(322)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -14006,7 +14084,7 @@
 	}
 
 /***/ },
-/* 314 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14015,11 +14093,11 @@
 	  value: true
 	});
 	
-	var _Typeahead = __webpack_require__(315);
+	var _Typeahead = __webpack_require__(317);
 	
 	var _Typeahead2 = _interopRequireDefault(_Typeahead);
 	
-	var _Tooltip = __webpack_require__(174);
+	var _Tooltip = __webpack_require__(179);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
@@ -14039,9 +14117,9 @@
 	
 	//       </h4>
 	
-	//       <typeahead 
+	//       <typeahead
 	
-	//         :data="USstate" 
+	//         :data="USstate"
 	
 	//         placeholder="USA states"
 	
@@ -14061,7 +14139,7 @@
 	
 	//       </h4>
 	
-	//       <typeahead 
+	//       <typeahead
 	
 	//         placeholder="CCCAddress, async via maps.googleapis.com"
 	
@@ -14085,13 +14163,13 @@
 	
 	//       </h4>
 	
-	//       <typeahead 
+	//       <typeahead
 	
 	//         placeholder="Github users, async via api.github.com"
 	
 	//         key="items"
 	
-	//         async="https://api.github.com/search/users?q=" 
+	//         async="https://api.github.com/search/users?q="
 	
 	//         template-name="github"
 	
@@ -14357,14 +14435,14 @@
 	// </script>
 
 /***/ },
-/* 315 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(316)
-	module.exports = __webpack_require__(318)
+	__webpack_require__(318)
+	module.exports = __webpack_require__(320)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(319)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(321)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -14382,13 +14460,13 @@
 	}
 
 /***/ },
-/* 316 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(317);
+	var content = __webpack_require__(319);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(114)(content, {});
@@ -14397,8 +14475,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5b5f5e94&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5b5f5e94&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3dca8a18&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3dca8a18&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -14408,7 +14486,7 @@
 	}
 
 /***/ },
-/* 317 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(113)();
@@ -14422,7 +14500,7 @@
 
 
 /***/ },
-/* 318 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14431,7 +14509,7 @@
 	  value: true
 	});
 	
-	var _callAjax = __webpack_require__(160);
+	var _callAjax = __webpack_require__(165);
 	
 	var _callAjax2 = _interopRequireDefault(_callAjax);
 	
@@ -14624,37 +14702,37 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .dropdown-menu > li > a {
-	
+
 	//   cursor: pointer;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
-/* 319 */
+/* 321 */
 /***/ function(module, exports) {
 
 	module.exports = "<div style=\"position: relative\"\r\n    v-bind:class=\"{'open':showDropdown}\"\r\n  >\r\n    <input type=\"text\" class=\"form-control\"\r\n      :placeholder=\"placeholder\"\r\n      autocomplete=\"off\"\r\n      v-model=\"query\"\r\n      @input=\"update\"\r\n      @keydown.up=\"up\"\r\n      @keydown.down=\"down\"\r\n      @keydown.enter= \"hit\"\r\n      @keydown.esc=\"reset\"\r\n      @blur=\"showDropdown = false\"\r\n    />\r\n    <ul class=\"dropdown-menu\" v-el:dropdown>\r\n      <li v-for=\"item in items\" v-bind:class=\"{'active': isActive($index)}\">\r\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive($index)\">\r\n          <partial :name=\"templateName\"></partial>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>";
 
 /***/ },
-/* 320 */
+/* 322 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"bs-docs-section\" id=\"typeahead\">\r\n    <h1 class=\"page-header\"><a href=\"#typeahead\" class=\"anchor\">Typeahead</a></h1>\r\n    <div class=\"bs-example\">\r\n      <h4>\r\n        Static arrays\r\n      </h4>\r\n      <typeahead \r\n        :data=\"USstate\" \r\n        placeholder=\"USA states\"\r\n      ></typeahead>\r\n      <hr>\r\n      <h4>\r\n      Asynchronous results\r\n      <tooltip trigger=\"click\" content=\"The suggestions via a Google Map API, are you behind a FireWall?\" placement=\"top\">\r\n        <small style=\"cursor:pointer\">(not working?)</small>\r\n      </tooltip>\r\n      </h4>\r\n      <typeahead \r\n        placeholder=\"CCCAddress, async via maps.googleapis.com\"\r\n        key=\"results\"\r\n        async=\"https://maps.googleapis.com/maps/api/geocode/json?address=\"\r\n        template-name=\"async\"\r\n        :template=\"asyncTemplate\"\r\n        :on-hit=\"googleCallback\"\r\n      ></typeahead>\r\n      <hr>\r\n      <h4>\r\n      Custom templates for results\r\n      </h4>\r\n      <typeahead \r\n        placeholder=\"Github users, async via api.github.com\"\r\n        key=\"items\"\r\n        async=\"https://api.github.com/search/users?q=\" \r\n        template-name=\"github\"\r\n        :template=\"githubTemplate\"\r\n        :on-hit=\"githubCallback\"\r\n      ></typeahead>\r\n    </div>\r\n    <pre><code class=\"language-markup\"><script type=\"language-mark-up\">\r\n<h4>Static arrays</h4>\r\n<typeahead\r\n  :data=\"USstate\"\r\n  placeholder=\"USA states\">\r\n</typeahead>\r\n\r\n<h4>Asynchronous results</h4>\r\n  <typeahead\r\n    placeholder=\"Address, async via maps.googleapis.com\"\r\n    key=\"results\"\r\n    src=\"https://maps.googleapis.com/maps/api/geocode/json?address=\"\r\n    template-name=\"async\"\r\n    :template=\"asyncTemplate\"\r\n    :on-hit=\"googleCallback\">\r\n</typeahead>\r\n\r\n<h4>Custom templates for results</h4>\r\n  <typeahead\r\n    placeholder=\"Github users, async via api.github.com\"\r\n    key=\"items\"\r\n    src=\"https://api.github.com/search/users?q=\"\r\n    template-name=\"typeahead-github-template\"\r\n    :template=\"githubTemplate\"\r\n    :on-hit=\"githubCallback\">\r\n</typeahead>\r\n  </script></code></pre>\r\n    <pre><code class=\"language-javascript\"><script type=\"language-javascript\">\r\nnew Vue {\r\n  components: {\r\n    typeahead\r\n  },\r\n  data() {\r\n    return {\r\n      USstate: ['Alabama', 'Alaska', 'Arizona',...],\r\n      asynchronous: '{{formatted_address}}',\r\n      customTemplate: '<img width=\"18px\" height=\"18px\" v-attr=\"src:avatar_url\"/>' +\r\n      '<span>{{login}}</span>'\r\n    }\r\n  },\r\n  methods: {\r\n    googleCallback(items, targetVM) {\r\n      const that = targetVM;\r\n      that.reset()\r\n      that.query = items.formatted_address\r\n    },\r\n    githubCallback(items) {\r\n      window.open(items.html_url, '_blank')\r\n    }\r\n  }\r\n}\r\n    </script></code></pre>\r\n\r\n    <h2>Options</h2>\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>data</td>\r\n          <td><code>Array</code></td>\r\n          <td></td>\r\n          <td>The local data source for suggestions. Expected to be a primitive array.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>async</td>\r\n          <td><code>String</code></td>\r\n          <td></td>\r\n          <td>An HTTP URL for asynchronous suggestions. Expected to return a JSON object.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>limit</td>\r\n          <td><code>Number</code></td>\r\n          <td><code>8</code></td>\r\n          <td>The max number of suggestions to be displayed.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>key</td>\r\n          <td><code>String</code></td>\r\n          <td><code>null</code></td>\r\n          <td>The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).</td>\r\n        </tr>\r\n        <tr>\r\n          <td>match-case</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td>Case sensitive for suggestions.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>match-start</td>\r\n          <td><code>Boolean</code></td>\r\n          <td><code>false</code></td>\r\n          <td>Match only against start of suggestions. E.g. if true, \"a\" matches \"ab\" but not \"ba\".</td>\r\n        </tr>\r\n        <tr>\r\n          <td>on-hit</td>\r\n          <td><code>Function</code></td>\r\n          <td></td>\r\n          <td>A callback function when you click or hit return on an item.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>template</td>\r\n          <td><code>String</code></td>\r\n          <td><code>&lt;span v-html=&quot;$value | highlight query&quot;&gt;&lt;/span&gt;</code></td>\r\n          <td>Used to render suggestion.</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>";
 
 /***/ },
-/* 321 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(322);
+	var content = __webpack_require__(324);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(114)(content, {});
@@ -14674,7 +14752,7 @@
 	}
 
 /***/ },
-/* 322 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(113)();
@@ -14688,13 +14766,13 @@
 
 
 /***/ },
-/* 323 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(324);
+	var content = __webpack_require__(326);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(114)(content, {});
@@ -14714,7 +14792,7 @@
 	}
 
 /***/ },
-/* 324 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(113)();
@@ -14728,7 +14806,7 @@
 
 
 /***/ },
-/* 325 */
+/* 327 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
@@ -15516,7 +15594,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 326 */
+/* 328 */
 /***/ function(module, exports) {
 
 	"use strict";
