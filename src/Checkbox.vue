@@ -1,5 +1,5 @@
 <template>
-  <label :class="[(group||button?'btn btn-':'cb cb-')+typeColor,{'active':checked}]">
+  <label :class="[(buttonStyle?'btn btn-':'cb cb-')+typeColor,{'active':checked}]">
     <input type="checkbox" autocomplete="off"
       v-el:input
       :checked="checked"
@@ -19,8 +19,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
 export default {
   props: {
     value: {
-      type: String,
-      default: null
+      default: true
     },
     checked: {
       twoWay: true
@@ -53,6 +52,9 @@ export default {
     active () {
       return this.group ? ~this.$parent.value.indexOf(this.value) : this.checked === this.value
     },
+    buttonStyle () {
+      return this.button || (this.group && this.$parent.buttons)
+    },
     group () {
       return this.$parent && this.$parent._checkboxGroup
     },
@@ -68,7 +70,8 @@ export default {
     }
   },
   ready () {
-    if (!this.$parent._checkboxGroup) return
+    if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') return
+    if (!(this.$parent.value instanceof Array)) this.$parent.value = []
     if (this.$parent.value.length) {
       this.checked = ~this.$parent.value.indexOf(this.value)
     } else if (this.checked) {
@@ -82,7 +85,7 @@ export default {
     toggle () {
       this.focus()
       this.checked = this.checked === this.value ? null : this.value
-      if (this.group) {
+      if (this.group && typeof this.value !== 'boolean') {
         const parent = this.$parent
         const index = parent.value.indexOf(this.value)
         index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1)

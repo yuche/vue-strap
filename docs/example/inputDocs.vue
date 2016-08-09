@@ -22,27 +22,27 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <bs-input required label="Match value" type="password" :match="input" :icon="check.icon" help="Match the User Name"></bs-input>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <bs-input label="Textarea" type="textarea" :icon="check.icon"></bs-input>
-        </div>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-          <div class="checkbox"><label><input type="checkbox" v-model="check.label"/> Label</label></div>
-          <div class="checkbox"><label><input type="checkbox" v-model="check.placeholder"/> placeholder</label></div>
-          <div class="checkbox"><label><input type="checkbox" v-model="check.disabled"/> disabled</label></div>
-        </div>
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-          <div class="checkbox"><label><input type="checkbox" v-model="check.error"/> error</label></div>
-          <div class="checkbox"><label><input type="checkbox" v-model="check.icon"/> icon</label></div>
-          <div class="checkbox"><label><input type="checkbox" v-model="check.mask"/> mask</label></div>
-        </div>
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-          <div class="checkbox"><label><input type="checkbox" v-model="check.minlength"/> minlength=5</label></div>
-          <div class="checkbox"><label><input type="checkbox" v-model="check.readonly"/> readonly</label></div>
-          <div class="checkbox"><label><input type="checkbox" v-model="check.required"/> required</label></div>
-        </div>
+        <button-group type="primary" buttons="false">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <p><checkbox :checked.sync="check.label">Label</checkbox></p>
+            <p><checkbox :checked.sync="check.placeholder">placeholder</checkbox></p>
+            <p><checkbox :checked.sync="check.disabled">disabled</checkbox></p>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <p><checkbox :checked.sync="check.error">error</checkbox></p>
+            <p><checkbox :checked.sync="check.icon">icon</checkbox></p>
+            <p><checkbox :checked.sync="check.mask">mask</checkbox></p>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <p><checkbox :checked.sync="check.minlength">minlength=5</checkbox></p>
+            <p><checkbox :checked.sync="check.readonly">readonly</checkbox></p>
+            <p><checkbox :checked.sync="check.required">required</checkbox></p>
+          </div>
+        </button-group>
       </div>
+      <bs-input label="Textarea" type="textarea" :icon="check.icon" no-validate></bs-input>
     </div>
     <pre><code class="language-markup">
 &lt;bs-input :value.sync="input"
@@ -58,7 +58,7 @@
   icon
 >&lt;/bs-input>
 &lt;bs-input required label="Match value" type="password" :match="input">&lt;/bs-input>
-&lt;bs-input label="Textarea" type="textarea">&lt;/bs-input>
+&lt;bs-input label="Textarea" type="textarea" no-validate>&lt;/bs-input>
     </code></pre>
   <pre><code class="language-javascript"><script type="language-javascript">
 mask: function (value) {
@@ -163,6 +163,12 @@ mask: function (value) {
           <td></td>
         </tr>
         <tr>
+          <td>no-validate</td>
+          <td><code>Boolean</code></td>
+          <td><code>false</code></td>
+          <td>Disable validations (don't affect masking).</td>
+        </tr>
+        <tr>
           <td>pattern</td>
           <td><code>String</code> or <code>Function</code></td>
           <td><code>null</code></td>
@@ -200,10 +206,14 @@ mask: function (value) {
 
 <script>
 import bsInput from 'src/Input.vue'
+import buttonGroup from 'src/buttonGroup.vue'
+import checkbox from 'src/Checkbox.vue'
 
 export default {
   components: {
-    bsInput
+    bsInput,
+    buttonGroup,
+    checkbox
   },
   data () {
     return {

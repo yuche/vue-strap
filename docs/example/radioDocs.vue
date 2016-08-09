@@ -7,7 +7,7 @@
       <radio :checked.sync="radioValue" value="two" type="primary">Two</radio>
       <radio :checked.sync="radioValue" value="three" type="danger">Three</radio>
       <hr>
-      <h4>Checkbox Button (Single button)</h4>
+      <h4>Checkbox Button (Single buttons)</h4>
       <radio button :checked.sync="radioValue" value="four" type="warning">Four</radio>
       <radio button :checked.sync="radioValue" value="five" type="info">Five</radio>
       <p>

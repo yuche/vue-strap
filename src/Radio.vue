@@ -1,5 +1,5 @@
 <template>
-  <label :class="[(group||button?'btn btn-':'rb rb-')+typeColor,{'active':active}]">
+  <label :class="[(buttonStyle?'btn btn-':'rb rb-')+typeColor,{'active':active}]">
     <input type="radio" autocomplete="off"
       v-el:input
       :checked="active"
@@ -20,8 +20,7 @@ import coerceBoolean from './utils/coerceBoolean.js'
 export default {
   props: {
     value: {
-      type: String,
-      default: null
+      default: true
     },
     checked: {
       twoWay: true
@@ -53,6 +52,9 @@ export default {
   computed: {
     active () {
       return this.group ? this.$parent.value === this.value : this.value === this.checked
+    },
+    buttonStyle () {
+      return this.button || (this.group && this.$parent.buttons)
     },
     group () {
       return this.$parent && this.$parent._radioGroup
