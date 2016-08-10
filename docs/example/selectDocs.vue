@@ -75,14 +75,16 @@ options: [
 
       <hr />
       <h4>Ajax data and parent dependency:</h4>
-      <p>
-        The second element has inheritance. Enable when the first get some value and the ajax return values.
-      </p>
-      <v-select url="docs/data.json" :value.sync="ajax.value" clear-button></v-select>
+      <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>
+      <v-select url="docs/data.json" :value.sync="ajax.value" clear-button v-ref:ajax></v-select>
       <v-select url="docs/data.json" multiple :parent="ajax.value"></v-select>
     <pre><code class="language-markup">
 &lt;v-select url="docs/data.json" :value.sync="ajax.value" clear-button>&lt;/v-select>
 &lt;v-select url="docs/data.json" multiple :parent="ajax.value">&lt;/v-select>
+    </code></pre>
+    <p>Ajax response:</p>
+    <pre><code class="language-javascript">
+<span v-html="$refs.ajax.options|json"></span>
     </code></pre>
 
     <h2>Other Options</h2>
