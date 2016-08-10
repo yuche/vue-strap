@@ -1,20 +1,24 @@
 <template>
-  <div class="bs-docs-section" id="spnner">
-    <h1 class="page-header"><a href="#spnner" class="anchor">Spnner</a></h1>
+  <div class="bs-docs-section" id="spinner">
+    <h1 class="page-header"><a href="#spinner" class="anchor">Spinner</a></h1>
     <div class="bs-example">
       <p><checkbox :checked.sync="fixed" type="info">fixed</checkbox></p>
       <p><v-select :options="sizes" :value.sync="size">size</v-select></p>
-      <p><button class="btn btn-info" v-on:click="$broadcast('show::spinner')">show spinner</button></p>
+      <p><button class="btn btn-info" @click="$broadcast('show::spinner')">show spinner</button></p>
       <div><spinner id="spinner-box" :size="size" :fixed="fixed" text="I will close in 2 secs"></spinner></div>
     </div>
 
     <pre><code class="language-markup">
-&lt;spinner id="spinner-box" :size="(sm,md,lg...)" :fixed="(true,false)"
-  text="I will close in 2 secs" v-ref:spinner>&lt;/spinner>
+&lt;spinner v-ref:spinner :size="(sm,md,lg...)" :fixed="(true,false)" text="I will close in 2 secs">&lt;/spinner>
     </code></pre>
-
-    <p>To close the spinner, use the following code:</p>
-    <pre><code class="language-markup"><script type="language-mark-up">this.$refs.spinner.hide()</script></code></pre>
+    <pre><code class="language-javascript"><script type="language-javascript">
+// using ref
+this.$refs.spinner.show()
+this.$refs.spinner.hide()
+// using broadcast
+this.$broadcast('show::spinner')
+this.$broadcast('hide::spinner')
+    </script></code></pre>
     <h2>Spinner Options</h2>
     <table class="table table-bordered">
       <thead>

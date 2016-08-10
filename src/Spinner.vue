@@ -1,5 +1,5 @@
 <template>
-  <div class="spinner spinner-gritcode {{spinnerSize}} {{fixed ? 'spinner-fixed' : ''}}" v-show="active">
+  <div :class="['spinner spinner-gritcode',spinnerSize,{'spinner-fixed':fixed}]" v-show="active">
     <div class="spinner-wrapper">
       <div class="spinner-circle"></div>
       <div class="spinner-text">{{text}}</div>
@@ -10,15 +10,11 @@
 <script>
 // import styling
 import './spinner.scss'
+import coerceBoolean from './utils/coerceBoolean.js'
 
 const MIN_WAIT = 500 // in ms
 
 export default {
-  data () {
-    return {
-      active: false
-    }
-  },
   props: {
     size: {
       type: String,
@@ -30,13 +26,23 @@ export default {
     },
     fixed: {
       type: Boolean,
+      coerce: coerceBoolean,
       default: false
+    }
+  },
+  data () {
+    return {
+      active: false
     }
   },
   computed: {
     spinnerSize () {
-      return (this.size) ? `spinner-${this.size}` : `spinner-sm`
+      return this.size ? 'spinner-' + this.size : 'spinner-sm'
     }
+  },
+  ready () {
+    this._body = document.querySelector('body')
+    this._bodyOverflow = this._body.style.overflowY || ''
   },
   methods: {
     getMinWait (delay) {
@@ -88,10 +94,6 @@ export default {
   destroyed () {
     clearTimeout(this._spinnerAnimation)
     this._body.style.overflowY = this._bodyOverflow
-  },
-  ready () {
-    this._body = document.querySelector('body')
-    this._bodyOverflow = this._body.style.overflowY || ''
   }
 }
 </script>

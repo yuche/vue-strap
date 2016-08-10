@@ -1,7 +1,7 @@
 <template>
   <li v-if="$parent.navbar||$parent.menu||$parent._tabset" v-el:dropdown class="dropdown {{disabled&&'disabled'}}" :class="classes">
       <a v-if="text" v-el:btn class="dropdown-toggle" role="button" :class="{disabled: disabled}"
-        @click="toggle()"
+        @click="show?blur():toggle()"
         @blur="blur()"
         @keyup.esc="show = false"
       >
@@ -9,7 +9,7 @@
         <span class="caret"></span>
       </a>
       <button type="button" class="secret" v-el:btn
-        @click="toggle()"
+        @click="show?blur():toggle()"
         @blur="blur()"
         @keyup.esc="show = false"
         :disabled="disabled"
@@ -22,7 +22,7 @@
   </li>
   <div v-else v-el:dropdown class="btn-group" :class="classes">
       <button v-if="text" v-el:btn type="button" class="btn btn-{{type||'default'}} dropdown-toggle"
-        @click="toggle()"
+        @click="show?blur():toggle()"
         @blur="blur"
         @keyup.esc="show = false"
         :disabled="disabled"
@@ -68,7 +68,7 @@ export default {
       return [{open: this.show}, this.class]
     },
     button () {
-      if (this.text) return this.$els.btn
+      if (this.$els.btn) return this.$els.btn
       return this.$els.dropdown.querySelector('[data-toggle="dropdown"]')
     },
     menu () {
@@ -83,6 +83,7 @@ export default {
   },
   methods: {
     blur () {
+      this.unblur()
       this._hide = setTimeout(() => {
         this._hide = null
         this.show = false
@@ -98,11 +99,11 @@ export default {
       this.button.focus()
     },
     toggle (e) {
+      this.focus()
+      this.unblur()
       if (e) e.preventDefault()
       if (this.disabled) { return }
       this.show = !this.show
-      this.focus()
-      this.unblur()
     }
   },
   ready () {
@@ -110,7 +111,7 @@ export default {
     if (!this.text) {
       const toggle = el.querySelector('[data-toggle="dropdown"]')
       if (toggle) {
-        toggle.addEventListener('click', this.toggle)
+        toggle.addEventListener('click', () => { this.show ? this.blur() : this.toggle() })
         toggle.addEventListener('blur', this.blur)
       }
     }

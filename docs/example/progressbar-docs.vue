@@ -6,77 +6,62 @@
       <div class="row">
         <div class="col-md-4">
           <div class="progress">
-            <progressbar :now="20" type="success"></progressbar>
+            <progressbar now="20" type="success"></progressbar>
           </div>
         </div>
         <div class="col-md-4">
           <div class="progress">
-            <progressbar :now="40" type="info"></progressbar>
+            <progressbar now="40" type="info"></progressbar>
           </div>
         </div>
         <div class="col-md-4">
           <div class="progress">
-            <progressbar :now="60" type="primary"></progressbar>
+            <progressbar now="60" type="primary"></progressbar>
           </div>
         </div>
       </div>
 
-      <hr>
-
-      <h4>
-        Dynamic
-        <button type="button" class="btn btn-default" @click="dynamicClick">Randomize</button>
-      </h4>
+      <hr/>
+      <h4>Dynamic <button type="button" class="btn btn-default" @click="dynamicClick">Randomize</button></h4>
       <div class="progress">
-        <progressbar :now="dynamicData[0] * 2" type="info"></progressbar>
+        <progressbar :now="dynamicData[0]" type="info"></progressbar>
       </div>
       <div class="progress">
-        <progressbar :now="dynamicData[1] * 2" type="warning"></progressbar>
+        <progressbar :now="dynamicData[1]" type="warning"></progressbar>
       </div>
       <div class="progress">
-        <progressbar :now="dynamicData[2] * 2" type="danger"></progressbar>
+        <progressbar :now="dynamicData[2]" type="danger"></progressbar>
       </div>
       <div class="progress">
-        <progressbar :now="dynamicData[3] * 2" type="success" striped></progressbar>
+        <progressbar :now="dynamicData[3]" type="success" striped></progressbar>
       </div>
       <div class="progress">
-        <progressbar :now="dynamicData[4] * 2" type="success" striped animated></progressbar>
+        <progressbar :now="dynamicData[4]" type="success" striped animated></progressbar>
       </div>
 
-      <hr>
-
-      <h4>
-        Stacked
-        <button type="button" class="btn btn-default" @click="stackedClick">Randomize</button>
-      </h4>
-
+      <hr/>
+      <h4>Stacked <button type="button" class="btn btn-default" @click="stackedClick">Randomize</button></h4>
       <div class="progress">
         <progressbar :now="stackedData[0]" label type="warning" striped></progressbar>
-
         <progressbar :now="stackedData[1]" label type="success" ></progressbar>
-
         <progressbar :now="stackedData[2]" label type="danger"></progressbar>
-
         <progressbar :now="stackedData[3]" label type="primary" striped animated></progressbar>
       </div>
 
     </div>
-    <pre><code class="language-markup"><script type="language-mark-up">
-<!-- Stacked -->
-<div class="progress">
-  <progressbar :now="" label type="warning" striped></progressbar>
-
-  <progressbar :now="" label type="success" ></progressbar>
-
-  <progressbar :now="" label type="danger"></progressbar>
-
-  <progressbar :now="" label type="primary" striped animated></progressbar>
-</div>
-<!-- Single -->
-<div class="progress">
-  <progressbar :now="" label type="warning" striped></progressbar>
-</div>
-</script></code></pre>
+    <pre><code class="language-markup">
+&lt;!-- Stacked -->
+&lt;div class="progress">
+  &lt;progressbar now="" label type="warning" striped>&lt;/progressbar>
+  &lt;progressbar now="" label type="success" >&lt;/progressbar>
+  &lt;progressbar now="" label type="danger">&lt;/progressbar>
+  &lt;progressbar now="" label type="primary" striped animated>&lt;/progressbar>
+&lt;/div>
+&lt;!-- Single -->
+&lt;div class="progress">
+  &lt;progressbar now="" label type="warning" striped>&lt;/progressbar>
+&lt;/div>
+    </code></pre>
 
     <h2>Options</h2>
     <table class="table table-bordered">
@@ -93,7 +78,7 @@
           <td>now</td>
           <td><code>Number</code></td>
           <td></td>
-          <td>The current value of progress completed.</td>
+          <td>The current value of progress completed. Required.</td>
         </tr>
         <tr>
           <td>type</td>
@@ -124,7 +109,7 @@ import progressbar from 'src/Progressbar.vue'
 export default {
   data () {
     return {
-      dynamicData: [5, 15, 25, 35, 45],
+      dynamicData: [10, 30, 50, 70, 90],
       stackedData: [10, 20, 30, 40]
     }
   },
@@ -134,7 +119,7 @@ export default {
   methods: {
     dynamicClick () {
       this.dynamicData = this.dynamicData.map(() => {
-        return Math.floor(Math.random() * 50)
+        return Math.floor(Math.random() * 100)
       })
     },
     stackedClick () {

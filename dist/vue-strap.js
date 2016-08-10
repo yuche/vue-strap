@@ -3850,7 +3850,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return [{ open: this.show }, this.class];
 	    },
 	    button: function button() {
-	      if (this.text) return this.$els.btn;
+	      if (this.$els.btn) return this.$els.btn;
 	      return this.$els.dropdown.querySelector('[data-toggle="dropdown"]');
 	    },
 	    menu: function menu() {
@@ -3867,6 +3867,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    blur: function blur() {
 	      var _this = this;
 	
+	      this.unblur();
 	      this._hide = setTimeout(function () {
 	        _this._hide = null;
 	        _this.show = false;
@@ -3882,13 +3883,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.button.focus();
 	    },
 	    toggle: function toggle(e) {
+	      this.focus();
+	      this.unblur();
 	      if (e) e.preventDefault();
 	      if (this.disabled) {
 	        return;
 	      }
 	      this.show = !this.show;
-	      this.focus();
-	      this.unblur();
 	    }
 	  },
 	  ready: function ready() {
@@ -3898,7 +3899,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (!this.text) {
 	      var toggle = el.querySelector('[data-toggle="dropdown"]');
 	      if (toggle) {
-	        toggle.addEventListener('click', this.toggle);
+	        toggle.addEventListener('click', function () {
+	          _this2.show ? _this2.blur() : _this2.toggle();
+	        });
 	        toggle.addEventListener('blur', this.blur);
 	      }
 	    }
@@ -3938,7 +3941,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	//       <a v-if="text" v-el:btn class="dropdown-toggle" role="button" :class="{disabled: disabled}"
 
-	//         @click="toggle()"
+	//         @click="show?blur():toggle()"
 
 	//         @blur="blur()"
 
@@ -3954,7 +3957,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	//       <button type="button" class="secret" v-el:btn
 
-	//         @click="toggle()"
+	//         @click="show?blur():toggle()"
 
 	//         @blur="blur()"
 
@@ -3980,7 +3983,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	//       <button v-if="text" v-el:btn type="button" class="btn btn-{{type||'default'}} dropdown-toggle"
 
-	//         @click="toggle()"
+	//         @click="show?blur():toggle()"
 
 	//         @blur="blur"
 
@@ -4016,7 +4019,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 125 */
 /***/ function(module, exports) {
 
-	module.exports = "<li v-if=\"$parent.navbar||$parent.menu||$parent._tabset\" v-el:dropdown=\"\" class=\"dropdown {{disabled&amp;&amp;'disabled'}}\" :class=\"classes\" _v-52fe6674=\"\">\n      <a v-if=\"text\" v-el:btn=\"\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" @click=\"toggle()\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-52fe6674=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-52fe6674=\"\"></span>\n      </a>\n      <button type=\"button\" class=\"secret\" v-el:btn=\"\" @click=\"toggle()\" @blur=\"blur()\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-52fe6674=\"\"></button>\n      <slot v-else=\"\" name=\"button\" _v-52fe6674=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-52fe6674=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-52fe6674=\"\">\n      <slot _v-52fe6674=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"classes\" _v-52fe6674=\"\">\n      <button v-if=\"text\" v-el:btn=\"\" type=\"button\" class=\"btn btn-{{type||'default'}} dropdown-toggle\" @click=\"toggle()\" @blur=\"blur\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-52fe6674=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-52fe6674=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-52fe6674=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-52fe6674=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-52fe6674=\"\">\n      <slot _v-52fe6674=\"\"></slot>\n    </ul>\n  </div>";
+	module.exports = "<li v-if=\"$parent.navbar||$parent.menu||$parent._tabset\" v-el:dropdown=\"\" class=\"dropdown {{disabled&amp;&amp;'disabled'}}\" :class=\"classes\" _v-52fe6674=\"\">\n      <a v-if=\"text\" v-el:btn=\"\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" @click=\"show?blur():toggle()\" @blur=\"blur()\" @keyup.esc=\"show = false\" _v-52fe6674=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-52fe6674=\"\"></span>\n      </a>\n      <button type=\"button\" class=\"secret\" v-el:btn=\"\" @click=\"show?blur():toggle()\" @blur=\"blur()\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-52fe6674=\"\"></button>\n      <slot v-else=\"\" name=\"button\" _v-52fe6674=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-52fe6674=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-52fe6674=\"\">\n      <slot _v-52fe6674=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"classes\" _v-52fe6674=\"\">\n      <button v-if=\"text\" v-el:btn=\"\" type=\"button\" class=\"btn btn-{{type||'default'}} dropdown-toggle\" @click=\"show?blur():toggle()\" @blur=\"blur\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-52fe6674=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-52fe6674=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-52fe6674=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-52fe6674=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-52fe6674=\"\">\n      <slot _v-52fe6674=\"\"></slot>\n    </ul>\n  </div>";
 
 /***/ },
 /* 126 */
@@ -4804,20 +4807,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	  ready: function ready() {
 	    var _this = this;
 	
-	    var dropdowns = document.querySelector('.dropdown > .dropdown-toggle');
+	    var dropdowns = this.$el.querySelector('.dropdown > .dropdown-toggle');
 	    var toggle = this.$el.querySelector('[data-toggle="collapse"]');
 	    if (dropdowns) {
 	      // Al hacer click en un dropdown
 	      dropdowns.addEventListener('click', function (e) {
 	        e.preventDefault();
-	        var dropDown = e.target.offsetParent.classList.add('open');
-	        var dropDownItems = dropDown.target.nextElementSibling.children;
+	        var dropDown = e.target.offsetParent;
+	        var dropDownItems = dropDown.nextElementSibling.children;
+	        dropDown.classList.add('open');
 	
 	        // Al hacer click en un elemento del dropdown
 	        if (dropDownItems) {
 	          for (var i = 0; i < dropDownItems.length; i++) {
 	            dropDownItems[i].addEventListener('click', function () {
-	              dropDown.target.offsetParent.classList.remove('open');
+	              dropDown.offsetParent.classList.remove('open');
 	            });
 	          }
 	        }
@@ -4846,45 +4850,45 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </script>
 	// <template>
 
-	//   <nav class="navbar" :class="{
+	//   <nav v-el:navbar :class="['navbar',{
 
-	//         'navbar-inverse':(type == 'inverse'),
+	//     'navbar-inverse':(type == 'inverse'),
 
-	//         'navbar-default':(type == 'default'),
+	//     'navbar-default':(type == 'default'),
 
-	//         'navbar-fixed-top':      (placement === 'top'),
+	//     'navbar-fixed-top':(placement === 'top'),
 
-	//         'navbar-fixed-bottom':  (placement === 'bottom'),
+	//     'navbar-fixed-bottom':(placement === 'bottom'),
 
-	//         'navbar-static-top':  (placement === 'static')
+	//     'navbar-static-top':(placement === 'static')
 
-	//       }">
+	//   }]">
 
-	//      <div class="container-fluid">
+	//     <div class="container-fluid">
 
-	//        <!-- Brand and toggle get grouped for better mobile display -->
+	//       <!-- Brand and toggle get grouped for better mobile display -->
 
-	//        <div class="navbar-header">
+	//       <div class="navbar-header">
 
-	//          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#{{ id }}" aria-expanded="false">
+	//         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#{{ id }}" aria-expanded="false">
 
-	//            <span class="sr-only">Toggle navigation</span>
+	//           <span class="sr-only">Toggle navigation</span>
 
-	//            <span class="icon-bar"></span>
+	//           <span class="icon-bar"></span>
 
-	//            <span class="icon-bar"></span>
+	//           <span class="icon-bar"></span>
 
-	//            <span class="icon-bar"></span>
+	//           <span class="icon-bar"></span>
 
-	//          </button>
+	//         </button>
 
-	//          <slot name="brand"></slot>
+	//         <slot name="brand"></slot>
 
-	//        </div>
+	//       </div>
 
-	//        <!-- Collect the nav links, forms, and other content for toggling -->
+	//       <!-- Collect the nav links, forms, and other content for toggling -->
 
-	//        <div class="collapse navbar-collapse" id="{{ id }}">
+	//       <div class="collapse navbar-collapse" id="{{ id }}">
 
 	//         <ul class="nav navbar-nav">
 
@@ -4912,7 +4916,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 140 */
 /***/ function(module, exports) {
 
-	module.exports = "<nav class=\"navbar\" :class=\"{\r\n        'navbar-inverse':(type == 'inverse'),\r\n        'navbar-default':(type == 'default'),\r\n        'navbar-fixed-top':      (placement === 'top'),\r\n        'navbar-fixed-bottom':  (placement === 'bottom'),\r\n        'navbar-static-top':  (placement === 'static')\r\n      }\">\r\n     <div class=\"container-fluid\">\r\n       <!-- Brand and toggle get grouped for better mobile display -->\r\n       <div class=\"navbar-header\">\r\n         <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#{{ id }}\" aria-expanded=\"false\">\r\n           <span class=\"sr-only\">Toggle navigation</span>\r\n           <span class=\"icon-bar\"></span>\r\n           <span class=\"icon-bar\"></span>\r\n           <span class=\"icon-bar\"></span>\r\n         </button>\r\n         <slot name=\"brand\"></slot>\r\n       </div>\r\n\r\n       <!-- Collect the nav links, forms, and other content for toggling -->\r\n       <div class=\"collapse navbar-collapse\" id=\"{{ id }}\">\r\n        <ul class=\"nav navbar-nav\">\r\n          <slot></slot>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <slot name=\"right\"></slot>\r\n        </ul>\r\n      </div>\r\n    </div><!-- /.container-fluid -->\r\n  </nav>";
+	module.exports = "<nav v-el:navbar :class=\"['navbar',{\r\n    'navbar-inverse':(type == 'inverse'),\r\n    'navbar-default':(type == 'default'),\r\n    'navbar-fixed-top':(placement === 'top'),\r\n    'navbar-fixed-bottom':(placement === 'bottom'),\r\n    'navbar-static-top':(placement === 'static')\r\n  }]\">\r\n    <div class=\"container-fluid\">\r\n      <!-- Brand and toggle get grouped for better mobile display -->\r\n      <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#{{ id }}\" aria-expanded=\"false\">\r\n          <span class=\"sr-only\">Toggle navigation</span>\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>\r\n        </button>\r\n        <slot name=\"brand\"></slot>\r\n      </div>\r\n      <!-- Collect the nav links, forms, and other content for toggling -->\r\n      <div class=\"collapse navbar-collapse\" id=\"{{ id }}\">\r\n        <ul class=\"nav navbar-nav\">\r\n          <slot></slot>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <slot name=\"right\"></slot>\r\n        </ul>\r\n      </div>\r\n    </div><!-- /.container-fluid -->\r\n  </nav>";
 
 /***/ },
 /* 141 */
@@ -5631,12 +5635,48 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
+	var _coerceNumber = __webpack_require__(37);
+	
+	var _coerceNumber2 = _interopRequireDefault(_coerceNumber);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	// <template>
+	
+	//   <div role="progressbar"
+	
+	//     :class="['progress-bar',{
+	
+	//       'progress-bar-success':type == 'success',
+	
+	//       'progress-bar-warning':type == 'warning',
+	
+	//       'progress-bar-info':type == 'info',
+	
+	//       'progress-bar-danger':type == 'danger',
+	
+	//       'progress-bar-striped':striped,
+	
+	//       'active':animated
+	
+	//     }]"
+	
+	//     :style="{width: now + '%'}"
+	
+	//   >
+	
+	//     {{label ? now + '%' : ''}}
+	
+	//   </div>
+	
+	// </template>
+	
+	// <script>
 	exports.default = {
 	  props: {
 	    now: {
 	      type: Number,
+	      coerce: _coerceNumber2.default,
 	      require: true
 	    },
 	    label: {
@@ -5660,43 +5700,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	};
 	// </script>
-	// <template>
-
-	//   <div role="progressbar"
-
-	//     v-bind:class="{
-
-	//     'progress-bar' : true,
-
-	//     'progress-bar-success':type == 'success',
-
-	//     'progress-bar-warning':type == 'warning',
-
-	//     'progress-bar-info':type == 'info',
-
-	//     'progress-bar-danger':type == 'danger',
-
-	//     'progress-bar-striped':striped,
-
-	//     'active':animated
-
-	//     }"
-
-	//     v-bind:style="{width: now + '%'}">
-
-	//     {{label ? now + '%':'' }}
-
-	//   </div>
-
-	// </template>
-
-	// <script>
 
 /***/ },
 /* 159 */
 /***/ function(module, exports) {
 
-	module.exports = "<div role=\"progressbar\"\r\n    v-bind:class=\"{\r\n    'progress-bar' : true,\r\n    'progress-bar-success':type == 'success',\r\n    'progress-bar-warning':type == 'warning',\r\n    'progress-bar-info':type == 'info',\r\n    'progress-bar-danger':type == 'danger',\r\n    'progress-bar-striped':striped,\r\n    'active':animated\r\n    }\"\r\n    v-bind:style=\"{width: now + '%'}\">\r\n    {{label ? now + '%':'' }}\r\n  </div>";
+	module.exports = "<div role=\"progressbar\" \r\n    :class=\"['progress-bar',{\r\n      'progress-bar-success':type == 'success',\r\n      'progress-bar-warning':type == 'warning',\r\n      'progress-bar-info':type == 'info',\r\n      'progress-bar-danger':type == 'danger',\r\n      'progress-bar-striped':striped,\r\n      'active':animated\r\n    }]\"\r\n    :style=\"{width: now + '%'}\"\r\n  >\r\n    {{label ? now + '%' : ''}}\r\n  </div>";
 
 /***/ },
 /* 160 */
@@ -7389,11 +7398,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	__webpack_require__(204);
 	
-	var MIN_WAIT = 500; // in ms
+	var _coerceBoolean = __webpack_require__(28);
+	
+	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// <template>
 	
-	//   <div class="spinner spinner-gritcode {{spinnerSize}} {{fixed ? 'spinner-fixed' : ''}}" v-show="active">
+	//   <div :class="['spinner spinner-gritcode',spinnerSize,{'spinner-fixed':fixed}]" v-show="active">
 	
 	//     <div class="spinner-wrapper">
 	
@@ -7409,13 +7422,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <script>
 	// import styling
-	exports.default = {
-	  data: function data() {
-	    return {
-	      active: false
-	    };
-	  },
 	
+	
+	var MIN_WAIT = 500; // in ms
+	
+	exports.default = {
 	  props: {
 	    size: {
 	      type: String,
@@ -7427,14 +7438,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    fixed: {
 	      type: Boolean,
+	      coerce: _coerceBoolean2.default,
 	      default: false
 	    }
 	  },
+	  data: function data() {
+	    return {
+	      active: false
+	    };
+	  },
+	
 	  computed: {
 	    spinnerSize: function spinnerSize() {
 	      return this.size ? 'spinner-' + this.size : 'spinner-sm';
 	    }
 	  },
+	  ready: function ready() {
+	    this._body = document.querySelector('body');
+	    this._bodyOverflow = this._body.style.overflowY || '';
+	  },
+	
 	  methods: {
 	    getMinWait: function getMinWait(delay) {
 	      delay = delay || 0;
@@ -7487,10 +7510,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  destroyed: function destroyed() {
 	    clearTimeout(this._spinnerAnimation);
 	    this._body.style.overflowY = this._bodyOverflow;
-	  },
-	  ready: function ready() {
-	    this._body = document.querySelector('body');
-	    this._bodyOverflow = this._body.style.overflowY || '';
 	  }
 	};
 	// </script>
@@ -7539,7 +7558,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 206 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"spinner spinner-gritcode {{spinnerSize}} {{fixed ? 'spinner-fixed' : ''}}\" v-show=\"active\">\r\n    <div class=\"spinner-wrapper\">\r\n      <div class=\"spinner-circle\"></div>\r\n      <div class=\"spinner-text\">{{text}}</div>\r\n    </div>\r\n  </div>";
+	module.exports = "<div :class=\"['spinner spinner-gritcode',spinnerSize,{'spinner-fixed':fixed}]\" v-show=\"active\">\r\n    <div class=\"spinner-wrapper\">\r\n      <div class=\"spinner-circle\"></div>\r\n      <div class=\"spinner-text\">{{text}}</div>\r\n    </div>\r\n  </div>";
 
 /***/ },
 /* 207 */
