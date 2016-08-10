@@ -2,25 +2,7 @@
   <navbar>
     <a href="/" title="Home" slot="brand" class="navbar-brand">VueStrap</a>
     <dropdown text="Component List" type="primary">
-      <li><a href="#accordion">Accordion</a></li>
-      <li><a href="#affix">Affix</a></li>
-      <li><a href="#alert">Alert</a></li>
-      <li><a href="#aside">Aside</a></li>
-      <li><a href="#button-groups">Button groups</a></li>
-      <li><a href="#checkbox">Checkbox</a></li>
-      <li><a href="#carousel">Carousel</a></li>
-      <li><a href="#datepicker">Datepicker</a></li>
-      <li><a href="#dropdown">Dropdown</a></li>
-      <li><a href="#input">Input</a></li>
-      <li><a href="#modal">Modal</a></li>
-      <li><a href="#popover">Popover</a></li>
-      <li><a href="#progressbar">Progressbar</a></li>
-      <li><a href="#radio">Radio</a></li>
-      <li><a href="#select">Select</a></li>
-      <li><a href="#tabs">Tabs</a></li>
-      <li><a href="#tooltip">Tooltip</a></li>
-      <li><a href="#typeahead">Typeahead</a></li>
-      <li><a href="#spnner">Spnner</a></li>
+      <li v-for="s in sections"><a :href="'#'+s.id" v-text="s.name"></a></li>
     </dropdown>
     <li>
       <a href="https://github.com/yuche/vue-strap" target="_blank">
@@ -32,6 +14,7 @@
 </template>
 
 <script>
+import getSections from './getSections.js'
 import navbar from 'src/Navbar.vue'
 import dropdown from 'src/Dropdown.vue'
 
@@ -39,6 +22,14 @@ export default {
   components: {
     navbar,
     dropdown
+  },
+  data () {
+    return {
+      sections: []
+    }
+  },
+  created () {
+    getSections(this)
   }
 }
 </script>

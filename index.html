@@ -12,6 +12,9 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style type="text/css" media="screen">
     .page-header { padding-top: 50px; }
+    code[class*="language"] {
+      max-height: calc(30em - 19px);
+    }
   </style>
 </head>
 <body style="position:relative;top:50px;">
@@ -54,15 +57,7 @@
       <spinner-docs></spinner-docs>
     </div>
     <div class="col-md-3">
-    <affix offset="50">
-      <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm ">
-        <ul class="nav bs-docs-sidenav" id="sidenav">
-          <li v-for="a in anchor"><a href="#{{ a.toLowerCase() }}">{{ a | space}}</a></li>
-        </ul>
-        <a href="#top" class="back-to-top">Back to top</a>
-        <a href="https://github.com/yuche/vue-strap" class="back-to-top">GitHub</a>
-      </nav>
-    </affix>
+      <affix-sidebar></affix-sidebar>
     </div>
   </container>
 </div>
