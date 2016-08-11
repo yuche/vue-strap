@@ -11,10 +11,10 @@
   <!-- Controls -->
   <div v-show="controls" class="carousel-controls hidden-xs">
     <a class="left carousel-control" role="button" @click="prevClick">
-      <span class="fa fa-arrow-left" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     </a>
     <a class="right carousel-control" role="button" @click="nextClick">
-      <span class="fa fa-arrow-right" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     </a>
   </div>
 </div>
