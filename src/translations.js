@@ -33,10 +33,12 @@ let text = {
       'Julio', 'Agosto', 'Septiembre',
       'Octubre', 'Noviembre', 'Diciembre'
     ],
-    fr: 'Janvier', 'Février', 'Mars',
+    fr: [
+        'Janvier', 'Février', 'Mars',
       'Avril', 'Mai', 'Juin',
       'Juillet', 'Août', 'Septembre',
       'Octobre', 'Novembre', 'Décembre'
+    ]
   },
   notSelected: {
     en: 'Nothing Selected',
