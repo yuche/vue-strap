@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import getSections from './getSections.js'
 import navbar from 'src/Navbar.vue'
 import dropdown from 'src/Dropdown.vue'
 
@@ -29,7 +28,10 @@ export default {
     }
   },
   created () {
-    getSections(this)
+    if (!this.$root.sections) {
+      this.$root.sections = []
+    }
+    this.sections = this.$root.sections
   }
 }
 </script>

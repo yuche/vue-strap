@@ -59,5 +59,36 @@ new Vue({
       inherit: true,
       template: ''
     }
+  },
+  methods: {
+    fixOffset () {
+      for(let item of this.$root.sections) {
+        item.top = item.el.offsetTop
+      }
+    }
+  },
+  created () {
+    if (!this.$root.sections) {
+      this.$root.sections = []
+    }
+  },
+  ready () {
+    window.addEventListener('load', () => {
+      console.log('load')
+      this.fixOffset()
+    })
+    window.addEventListener('resize', () => {
+      this.fixOffset()
+    })
+    const list = this.$root.sections
+    while(list.length) list.pop()
+    this.$els.sections.querySelectorAll('.bs-docs-section').forEach((el) => {
+      list.push({
+        id: el.id,
+        name: el.querySelector('.anchor').innerText,
+        el: el
+      })
+    })
+    this.fixOffset()
   }
 })

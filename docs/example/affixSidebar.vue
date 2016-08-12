@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import getSections from './getSections.js'
 import affix from 'src/Affix.vue'
 
 export default {
@@ -33,7 +32,16 @@ export default {
     window.onscroll = () => {
       this.scrollSpy()
     }
-    getSections(this,this.scrollSpy)
+    window.addEventListener('resize', () => {
+      this.scrollSpy()
+    })
+    if (!this.$root.sections) {
+      this.$root.sections = []
+    }
+    this.sections = this.$root.sections
+  },
+  ready () {
+    this.scrollSpy()
   },
   methods: {
     scrollSpy () {
