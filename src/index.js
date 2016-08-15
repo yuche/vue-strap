@@ -1,3 +1,4 @@
+import $ from './utils/NodeList.js'
 import accordion from './Accordion.vue'
 import affix from './Affix.vue'
 import alert from './Alert.vue'
@@ -25,6 +26,7 @@ import tooltip from './Tooltip.vue'
 import typeahead from './Typeahead.vue'
 
 const VueStrap = {
+  $,
   accordion,
   affix,
   alert,
