@@ -3,6 +3,7 @@ require('./assets/style.css')
 require('./js/showLanguage')
 require('prismjs')
 
+import $ from 'src/utils/NodeList.js'
 import gettingStarted from './example/gettingStarted.vue'
 import headerDocs from './example/headerDocs.vue'
 import accordionDocs from './example/accordionDocs.vue'
@@ -73,19 +74,13 @@ new Vue({
     }
   },
   ready () {
-    window.addEventListener('load', () => {
-      console.log('load')
-      this.fixOffset()
-    })
-    window.addEventListener('resize', () => {
-      this.fixOffset()
-    })
-    const list = this.$root.sections
+    $(window).on('load resize', this.fixOffset)
+    var list = this.$root.sections
     while(list.length) list.pop()
-    this.$els.sections.querySelectorAll('.bs-docs-section').forEach((el) => {
+    $('.bs-docs-section', this.$els.sections).each((el) => {
       list.push({
         id: el.id,
-        name: el.querySelector('.anchor').innerText,
+        name: $('.anchor', el).textContent,
         el: el
       })
     })
