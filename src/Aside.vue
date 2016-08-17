@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import EventListener from './utils/EventListener.js'
 import getScrollBarWidth from './utils/getScrollBarWidth.js'
 import coerceBoolean from './utils/coerceBoolean.js'
+import $ from './utils/NodeList.js'
 
 export default {
   props: {
@@ -65,9 +65,9 @@ export default {
         // request property that requires layout to force a layout
         // var x = backdrop.clientHeight
         backdrop.className += ' in'
-        this._clickEvent = EventListener.listen(backdrop, 'click', this.close)
+        this._clickEvent = $(backdrop).on('click', this.close)
       } else {
-        if (this._clickEvent) this._clickEvent.remove()
+        if (this._clickEvent) this._clickEvent.off('click')
         backdrop = document.querySelector('.aside-backdrop')
         try {
           backdrop.className = 'aside-backdrop'

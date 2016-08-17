@@ -55,7 +55,7 @@ Checkbox value: {{checkboxValue | json}}
           <td>button</td>
           <td><code>Boolean</code></td>
           <td>false</td>
-          <td>Button style. If is in a button group (set as checkbox group), all checkboxes will be buttons automaticaly.</td>
+          <td>Button style. Inside a button group (if is a checkbox group) all checkboxes are buttons by default.</td>
         </tr>
       </tbody>
     </table>

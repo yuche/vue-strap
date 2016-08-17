@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import EventListener from './utils/EventListener.js'
 import coerceNumber from './utils/coerceNumber.js'
+import $ from './utils/NodeList.js'
 
 export default {
   props: {
@@ -71,16 +71,10 @@ export default {
     }
   },
   ready () {
-    this._scrollEvent = EventListener.listen(window, 'scroll', this.scrolling)
-    this._resizeEvent = EventListener.listen(window, 'resize', this.scrolling)
+    $(window).on('scroll resize', this.scrolling)
   },
   beforeDestroy () {
-    if (this._scrollEvent) {
-      this._scrollEvent.remove()
-    }
-    if (this._resizeEvent) {
-      this._resizeEvent.remove()
-    }
+    $(window).off('scroll resize', this.scrolling)
   }
 }
 </script>

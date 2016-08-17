@@ -196,7 +196,7 @@ class NodeList {
     return this
   }
 
-  function get (prop) {
+  get (prop) {
     let arr = []
     for (let el of this) {
       if (el !== null) { el = el[prop] }
@@ -204,7 +204,7 @@ class NodeList {
     }
     return flatten(arr, this)
   }
-  function set (prop, value) {
+  set (prop, value) {
     if (prop.constructor === Object) {
       for (let el of this) {
         if (el) {
@@ -222,7 +222,7 @@ class NodeList {
     }
     return this
   }
-  function call () {
+  call () {
     const method = ArrayProto.shift.call(arguments)
     let arr = []
     let returnThis = true
@@ -239,10 +239,10 @@ class NodeList {
     }
     return returnThis ? this : flatten(arr, this)
   }
-  function item (index) {
+  item (index) {
     return new NodeList([[this[index]], this])
   }
-  function get asArray () {
+  get asArray () {
     return ArrayProto.slice.call(this)
   }
 }
