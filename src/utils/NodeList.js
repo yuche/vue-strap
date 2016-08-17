@@ -132,17 +132,18 @@ class NodeList {
       callback = selector
       selector = null
     }
-    if (selector) {
-      const fn = callback
-      callback = function (e) {
-        let els = new NodeList([selector, this])
-        if (!els.length) { return }
-        let target = e.target
-        while (!els.includes(target) && target !== document.body) {
-          target = target.parentElement
-        }
-        if (els.includes(target)) fn.apply(target, arguments)
-      }
+    if (!callback) return this
+    const fn = callback
+    callback = selector ? function (e) {
+      let els = new NodeList([selector, this])
+      if (!els.length) { return }
+      els.some((el) => {
+        let target = el.contains(e.target) || el === e.target
+        if (target) fn.apply(el, [e, el])
+        return target;
+      })
+    } : function (e) {
+      fn.apply(this, [e, this])
     }
     for (let event of events.split(' ')) {
       for (let el of this) {
@@ -193,6 +194,19 @@ class NodeList {
       if (!(arg instanceof Node)) throw nodeError
       if (!~this.indexOf(arg)) unshift(arg)
     }
+    return this
+  }
+
+  addClass (classes) {
+    classes.trim().replace(/\s+/,' ').split(' ').forEach((c) => {
+      this.each((el) => el.classList.add(c))
+    })
+    return this
+  }
+  removeClass (classes) {
+    classes.trim().replace(/\s+/,' ').split(' ').forEach((c) => {
+      this.each((el) => el.classList.remove(c))
+    })
     return this
   }
 

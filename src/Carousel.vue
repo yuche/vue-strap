@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import EventListener from './utils/EventListener.js'
 import coerceBoolean from './utils/coerceBoolean.js'
 import coerceNumber from './utils/coerceNumber.js'
+import $ from './utils/NodeList.js'
 
   export default {
     props: {
@@ -57,7 +57,7 @@ import coerceNumber from './utils/coerceNumber.js'
     },
     watch: {
       index(newVal, oldVal) {
-        newVal > oldVal ? this.slide('left', newVal, oldVal) : this.slide('right', newVal, oldVal)
+        this.slide(newVal > oldVal ? 'left' : 'right', newVal, oldVal)
       }
     },
     methods: {
@@ -66,25 +66,16 @@ import coerceNumber from './utils/coerceNumber.js'
         this.isAnimating = true
         this.index = index
       },
-      slide (direction, selected, prev) {
-        if (this._prevSelectedEvent) this._prevSelectedEvent.remove()
-        if (this._selectedEvent) this._selectedEvent.remove()
-
-        const prevSelectedEl = this.slider[prev]
-        const selectedEl = this.slider[selected]
-        const transitionendFn = () => {
-          [...this.slider].forEach((el) => el.className = 'item')
-          selectedEl.classList.add('active')
-          this.isAnimating = false
-        }
-
-        direction === 'left' ? selectedEl.classList.add('next') : selectedEl.classList.add('prev')
+      slide (direction, next, prev) {
+        const selected = this.slider[next]
+        $(selected).addClass(direction === 'left' ? 'next' : 'prev')
         // request property that requires layout to force a layout
-        var x = selectedEl.clientHeight
-        this._prevSelectedEvent = EventListener.listen(prevSelectedEl, 'transitionend', transitionendFn)
-        this._selectedEvent = EventListener.listen(selectedEl, 'transitionend', transitionendFn)
-        prevSelectedEl.classList.add(direction)
-        selectedEl.classList.add(direction)
+        var x = selected.clientHeight
+        $([this.slider[prev], selected]).addClass(direction).on('transitionend', () => {
+          $(this.slider).off('transitionend').className = 'item'
+          $(selected).addClass('active')
+          this.isAnimating = false
+        })
       },
       next() {
         if (this.isAnimating) return false
@@ -98,15 +89,13 @@ import coerceNumber from './utils/coerceNumber.js'
       }
     },
     ready () {
-      let intervalID = null
-      const el = this.$el
-      function intervalManager (flag, func, time) {
-        flag ? intervalID = setInterval(func, time) : clearInterval(intervalID)
-      }
       if (this.interval > 0) {
-        intervalManager(true, this.next, this.interval)
-        el.addEventListener('mouseenter', () => intervalManager(false))
-        el.addEventListener('mouseleave', () => intervalManager(true, this.next, this.interval))
+        let intervalID = null
+        const intervalManager = () => {
+          intervalID = setInterval(this.next, this.interval)
+        }
+        $(this.$el).on('mouseenter', () => clearInterval(intervalID)).on('mouseleave', () => intervalManager())
+        intervalManager()
       }
     }
   }

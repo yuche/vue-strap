@@ -117,6 +117,11 @@ export default {
         return false
       }).on('blur', this.blur)
     }
+  },
+  beforeDestroy () {
+    const $el = $(this.$els.dropdown)
+    $el.findChildren('ul').off()
+    $el.find('[data-toggle="dropdown"]').off()
   }
 }
 </script>

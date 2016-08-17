@@ -11,8 +11,8 @@
       <div class="aside-content">
         <div class="aside-header">
           <button type="button" class="close" @click='close'><span>&times;</span></button>
-          <h4 class="aside-title">   
-          <slot name="header"> 
+          <h4 class="aside-title">
+          <slot name="header">
             {{ header }}
           </slot>
           </h4>
@@ -52,29 +52,33 @@ export default {
   },
   watch: {
     show (val) {
-      let backdrop = document.createElement('div')
       const body = document.body
-      backdrop.className = 'aside-backdrop'
       const scrollBarWidth = getScrollBarWidth()
       if (val) {
-        body.appendChild(backdrop)
+        if (!this._backdrop) {
+          this._backdrop = document.createElement('div')
+        }
+        this._backdrop.className = 'aside-backdrop'
+        body.appendChild(this._backdrop)
         body.classList.add('modal-open')
         if (scrollBarWidth !== 0) {
           body.style.paddingRight = scrollBarWidth + 'px'
         }
         // request property that requires layout to force a layout
-        // var x = backdrop.clientHeight
-        backdrop.className += ' in'
-        this._clickEvent = $(backdrop).on('click', this.close)
+        var x = this._backdrop.clientHeight
+        this._backdrop.classList.add('in')
+        $(this._backdrop).on('click', () => this.close())
       } else {
-        if (this._clickEvent) this._clickEvent.off('click')
-        backdrop = document.querySelector('.aside-backdrop')
-        try {
-          backdrop.className = 'aside-backdrop'
-          body.classList.remove('modal-open')
-          body.style.paddingRight = '0'
-          body.removeChild(backdrop)
-        } catch (e) {}
+        $(this._backdrop).on('transitionend', () => {
+          $(this._backdrop).off()
+          try {
+            body.classList.remove('modal-open')
+            body.style.paddingRight = '0'
+            body.removeChild(this._backdrop)
+            this._backdrop = null
+          } catch (e) {}
+        })
+        this._backdrop.className = 'aside-backdrop'
       }
     }
   },

@@ -71,10 +71,10 @@ export default {
     }
   },
   ready () {
-    $(window).on('scroll resize', this.scrolling)
+    $(window).on('scroll resize', () => this.scrolling())
   },
   beforeDestroy () {
-    $(window).off('scroll resize', this.scrolling)
+    $(window).off('scroll resize', () => this.scrolling())
   }
 }
 </script>
