@@ -85,8 +85,6 @@ export default {
       default: false
     }
   },
-  ready () {
-  },
   computed: {
     optionalWidth () {
       if (this.width === null) {
