@@ -9,11 +9,10 @@ class NodeList {
       nodes = [window]
     } else if (typeof args[0] === 'string') {
       nodes = (args[1] || document).querySelectorAll(args[0])
+      if (args[1]) { this.owner = args[1] }
     } else if (0 in args && !(args[0] instanceof Node) && 'length' in args[0]) {
       nodes = args[0];
-      if (args[1]) {
-        this.owner = args[1]
-      }
+      if (args[1]) { this.owner = args[1] }
     }
     if (nodes) {
       for(let i in nodes) {
@@ -166,10 +165,24 @@ class NodeList {
     return new NodeList([nodes, this])
   }
   push () {
-    const push = ArrayProto.push.bind(this)
     for (let arg of arguments) {
       if (!(arg instanceof Node)) throw nodeError
-      if (!~this.indexOf(arg)) push(arg)
+      if (!~this.indexOf(arg)) ArrayProto.push.call(this, arg)
+    }
+    return this
+  }
+  delete () {
+    let list = new NodeList([[],this.owner])
+    let splice = (index) => ArrayProto.splice.apply()
+    let i = this.length - 1
+    for(let el = this[i]; el; el = this[--i]) {
+      if (el.remove) {
+        el.remove()
+        ArrayProto.splice.apply(this, [i, 1])
+      } else if (el.parentNode) {
+        el.parentNode.removeChild(el)
+        ArrayProto.splice.apply(this, [i, 1])
+      }
     }
     return this
   }
@@ -190,10 +203,9 @@ class NodeList {
     return new NodeList([ArrayProto.splice.apply(this, arguments), this])
   }
   unshift () {
-    let unshift = ArrayProto.unshift.bind(this)
     for (let arg of arguments) {
       if (!(arg instanceof Node)) throw nodeError
-      if (!~this.indexOf(arg)) unshift(arg)
+      if (!~this.indexOf(arg)) ArrayProto.unshift.call(this, arg)
     }
     return this
   }
