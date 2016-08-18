@@ -10,8 +10,6 @@
       :disabled="disabled"
       :maxlength="maxlength"
       :placeholder="placeholder"
-      @focus="toggleEvents(true)"
-      @blur="toggleEvents(false)"
     ></textarea>
     <template v-else>
       <div v-if="slots.before||slots.after" class="input-group">
@@ -24,8 +22,6 @@
           :disabled="disabled"
           :maxlength="maxlength"
           :placeholder="placeholder"
-          @focus="toggleEvents(true)"
-          @blur="toggleEvents(false)"
         />
         <slot name="after"></slot>
       </div>
@@ -37,8 +33,6 @@
         :disabled="disabled"
         :maxlength="maxlength"
         :placeholder="placeholder"
-        @focus="toggleEvents(true)"
-        @blur="toggleEvents(false)"
       />
     </template>
     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
@@ -224,11 +218,15 @@ export default {
         valid = regex.test(this.value)
       }
       return valid
-    },
-    toggleEvents (enable) {
-      if (!this.noValidate && !enable) { this.valid = this.validate() }
-      $(this.$els.input)[enable?'on':'off']('change keypress keydown keyup', () => this.eval())
     }
+  },
+  ready () {
+    $(this.$els.input).on('change keypress keydown keyup', () => this.eval()).on('blur', () => {
+      if (!this.noValidate) { this.valid = this.validate() }
+    })
+  },
+  beforeDestroy () {
+    $(this.$els.input).off()
   }
 }
 </script>

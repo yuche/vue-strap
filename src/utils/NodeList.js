@@ -127,6 +127,7 @@ class NodeList {
     return this
   }
   on (events, selector, callback) {
+    if (typeof events === 'string') { events = events.trim().replace(/\s+/,' ').split(' ') }
     if (!this || !this.length) return this
     if (callback === undefined) {
       callback = selector
@@ -145,7 +146,7 @@ class NodeList {
     } : function (e) {
       fn.apply(this, [e, this])
     }
-    for (let event of events.split(' ')) {
+    for (let event of events) {
       for (let el of this) {
         el.addEventListener(event, callback, false)
         Events.push({

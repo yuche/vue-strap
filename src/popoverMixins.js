@@ -1,5 +1,5 @@
-import EventListener from './utils/EventListener.js'
 import coerceBoolean from './utils/coerceBoolean.js'
+import $ from './utils/NodeList.js'
 
 export default {
   props: {
@@ -36,24 +36,17 @@ export default {
     }
   },
   methods: {
-    toggle () {
-      this.show = !this.show
+    toggle (val) {
+      this.show = val instanceof Boolean ? val : !this.show
     }
   },
   ready () {
-    if (!this.$els.popover) return console.error("Couldn't find popover v-el in your component that uses popoverMixin.")
-    const popover = this.$els.popover
+    if (!this.$els.popover) return console.error('Couldn\'t find popover v-el in your component that uses popoverMixin.')
     const triger = this.$els.trigger.children[0]
-    if (this.trigger === 'hover') {
-      this._mouseenterEvent = EventListener.listen(triger, 'mouseenter', () => { this.show = true })
-      this._mouseleaveEvent = EventListener.listen(triger, 'mouseleave', () => { this.show = false })
-    } else if (this.trigger === 'focus') {
-      this._focusEvent = EventListener.listen(triger, 'focus', () => { this.show = true })
-      this._blurEvent = EventListener.listen(triger, 'blur', () => { this.show = false })
-    } else {
-      this._clickEvent = EventListener.listen(triger, 'click', this.toggle)
-    }
+    let events = this.trigger === 'hover' ? ['mouseleave', 'mouseenter'] : this.trigger === 'focus' ? ['blur', 'focus'] : ['click']
+    $(triger).on(events, () => this.toggle(events[1]))
 
+    const popover = this.$els.popover
     switch (this.placement) {
       case 'top' :
         this.position.left = triger.offsetLeft - popover.offsetWidth / 2 + triger.offsetWidth / 2
@@ -72,7 +65,7 @@ export default {
         this.position.top = triger.offsetTop + triger.offsetHeight
         break
       default:
-        console.log('Wrong placement prop')
+        console.warn('Wrong placement prop')
     }
     popover.style.top = this.position.top + 'px'
     popover.style.left = this.position.left + 'px'
@@ -80,14 +73,6 @@ export default {
     this.show = !this.show
   },
   beforeDestroy () {
-    if (this._blurEvent) {
-      this._blurEvent.remove()
-      this._focusEvent.remove()
-    }
-    if (this._mouseenterEvent) {
-      this._mouseenterEvent.remove()
-      this._mouseleaveEvent.remove()
-    }
-    if (this._clickEvent) this._clickEvent.remove()
+    $(triger).off()
   }
 }
