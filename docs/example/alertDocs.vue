@@ -8,7 +8,6 @@
         @click="showRight = !showRight">
         Click to toggle alert on right
       </button>
-
       <button class="btn btn-danger btn-lg"
         @click="showTop = !showTop">
         Click to toggle alert on top
@@ -18,19 +17,15 @@
         <strong>Well Done!</strong>
         You successfully read this important alert message.
       </alert>
-
       <alert type="info" >
         <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
       </alert>
-
       <alert type="danger" dismissable>
         <strong>Oh snap!</strong> Change a few things up and try submitting again.
       </alert>
-
       <alert type="warning" dismissable>
         <strong>Warning!</strong> Better check yourself, you're not looking too good.
       </alert>
-
       <alert
         :show.sync="showRight"
         :duration="3000"
@@ -43,7 +38,6 @@
         <strong>Well Done!</strong>
         <p>You successfully read this important alert message.</p>
       </alert>
-
       <alert
         :show.sync="showTop"
         :duration="3000"
@@ -57,35 +51,35 @@
       </alert>
     </div>
 
-    <pre><code class="language-markup"><script type="language-mark-up">
-<button class="btn btn-default btn-lg"
+    <pre><code class="language-markup">
+&lt;button class="btn btn-default btn-lg"
   @click="showRight = !showRight">
   Click to toggle alert on right
-</button>
+&lt;/button>
 
-<button class="btn btn-default btn-lg"
+&lt;button class="btn btn-default btn-lg"
   @click="showTop = !showTop">
   Click to toggle alert on top
-</button>
-<hr>
-<alert type="success" >
-  <strong>Well Done!</strong>
+&lt;/button>
+
+&lt;alert type="success" >
+  &lt;strong>Well Done!&lt;/strong>
   You successfully read this important alert message.
-</alert>
+&lt;/alert>
 
-<alert type="info" >
-  <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-</alert>
+&lt;alert type="info" >
+  &lt;strong>Heads up!&lt;/strong> This alert needs your attention, but it's not super important.
+&lt;/alert>
 
-<alert type="danger" dismissable>
-  <strong>Oh snap!</strong> Change a few things up and try submitting again.
-</alert>
+&lt;alert type="danger" dismissable>
+  &lt;strong>Oh snap!&lt;/strong> Change a few things up and try submitting again.
+&lt;/alert>
 
-<alert type="warning" dismissable>
-  <strong>Warning!</strong> Better check yourself, you're not looking too good.
-</alert>
+&lt;alert type="warning" dismissable>
+  &lt;strong>Warning!&lt;/strong> Better check yourself, you're not looking too good.
+&lt;/alert>
 
-<alert
+&lt;alert
   :show.sync="showRight"
   :duration="3000"
   type="success"
@@ -93,24 +87,23 @@
   placement="top-right"
   dismissable
 >
-  <span class="icon-ok-circled alert-icon-float-left"></span>
-  <strong>Well Done!</strong>
-  <p>You successfully read this important alert message.</p>
-</alert>
+  &lt;span class="icon-ok-circled alert-icon-float-left">&lt;/span>
+  &lt;strong>Well Done!&lt;/strong>
+  &lt;p>You successfully read this important alert message.&lt;/p>
+&lt;/alert>
 
-<alert
+&lt;alert
   :show.sync="showTop"
   :duration="3000"
   type="danger"
   width="400px"
   placement="top"
   dismissable>
-  <span class="icon-info-circled alert-icon-float-left"></span>
-  <strong>Heads up!</strong>
-  <p>This alert needs your attention.</p>
-</alert>
-
-</script></code></pre>
+  &lt;span class="icon-info-circled alert-icon-float-left">&lt;/span>
+  &lt;strong>Heads up!&lt;/strong>
+  &lt;p>This alert needs your attention.&lt;/p>
+&lt;/alert>
+    </code></pre>
 
     <h2>Options</h2>
     <table class="table table-bordered">
@@ -171,14 +164,14 @@
 import alert from 'src/Alert.vue'
 
 export default {
+  components: {
+    alert
+  },
   data () {
     return {
       showRight: false,
       showTop: false
     }
-  },
-  components: {
-    alert
   }
 }
 </script>

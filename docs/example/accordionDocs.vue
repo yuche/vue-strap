@@ -1,6 +1,5 @@
 <template>
-  <div class="bs-docs-section" id="accordion">
-    <h1 class="page-header"><a href="#accordion" class="anchor">Accordion</a></h1>
+  <doc-section id="accordion" name="Accordion">
     <div class="bs-example">
       <checkbox :checked.sync="checked" type="primary">Open only one at a time.</checkbox>
       <p><v-select :options="types" clear-button :value.sync="selected" placeholder="Global type"></v-select></p>
@@ -56,66 +55,46 @@
   &lt;/panel>
 &lt;/accordion>
     </code></pre>
-    <h2>Accordion Options</h2>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>type</td>
-          <td><code>String</code></td>
-          <td><code>null</code></td>
-          <td>Define the type of color for the tabs (global).</td>
-        </tr>
-        <tr>
-          <td>one-at-time</td>
-          <td><code>Boolean</code></td>
-          <td><code>false</code></td>
-          <td>Control whether expanding an item will cause the other items to close.</td>
-        </tr>
-      </tbody>
-    </table>
-    <h2>Panel Options</h2>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>header</td>
-          <td><code>String</code></td>
-          <td></td>
-          <td>The clickable text on the group's header. You need one to be able to click on the header for toggling.</td>
-        </tr>
-        <tr>
-          <td>is-open</td>
-          <td><code>Boolean</code></td>
-          <td><code>false</code></td>
-          <td>Whether accordion group is open or closed.</td>
-        </tr>
-        <tr>
-          <td>type</td>
-          <td><code>String</code></td>
-          <td><code>null</code></td>
-          <td>Define the type of color for the tab (single).</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <doc-options>
+      <div>
+        <p>type</p>
+        <p><code>String</code></p>
+        <p><code>null</code></p>
+        <p>Define the type of color for the tabs (global).</p>
+      </div>
+      <div>
+        <p>one-at-time</p>
+        <p><code>Boolean</code></p>
+        <p><code>false</code></p>
+        <p>Control whether expanding an item will cause the other items to close.</p>
+      </div>
+    </doc-options>
+    <doc-options name="Panel">
+      <div>
+        <p>header</p>
+        <p><code>String</code></p>
+        <p></p>
+        <p>The clickable text on the group's header. You need one to be able to click on the header for toggling.</p>
+      </div>
+      <div>
+        <p>is-open</p>
+        <p><code>Boolean</code></p>
+        <p><code>false</code></p>
+        <p>Whether accordion group is open or closed.</p>
+      </div>
+      <div>
+        <p>type</p>
+        <p><code>String</code></p>
+        <p><code>null</code></p>
+        <p>Define the type of color for the tab (single).</p>
+      </div>
+    </doc-options>
+  </doc-section>
 </template>
 
 <script>
+import docSection from './docSection.vue'
+import docOptions from './docOptions.vue'
 import accordion from 'src/Accordion.vue'
 import checkbox from 'src/Checkbox.vue'
 import panel from 'src/Panel.vue'
@@ -123,6 +102,8 @@ import vSelect from 'src/Select.vue'
 
 export default {
   components: {
+    docSection,
+    docOptions,
     accordion,
     checkbox,
     panel,
