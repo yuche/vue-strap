@@ -10,8 +10,6 @@
       :disabled="disabled"
       :maxlength="maxlength"
       :placeholder="placeholder"
-      @focus="toggleEvents(true)"
-      @blur="toggleEvents(false)"
     ></textarea>
     <template v-else>
       <div v-if="slots.before||slots.after" class="input-group">
@@ -24,8 +22,6 @@
           :disabled="disabled"
           :maxlength="maxlength"
           :placeholder="placeholder"
-          @focus="toggleEvents(true)"
-          @blur="toggleEvents(false)"
         />
         <slot name="after"></slot>
       </div>
@@ -37,8 +33,6 @@
         :disabled="disabled"
         :maxlength="maxlength"
         :placeholder="placeholder"
-        @focus="toggleEvents(true)"
-        @blur="toggleEvents(false)"
       />
     </template>
     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
@@ -51,6 +45,7 @@
 import coerceBoolean from './utils/coerceBoolean.js'
 import coerceNumber from './utils/coerceNumber.js'
 import translations from './translations.js'
+import $ from './utils/NodeList.js'
 
 export default {
   props: {
@@ -179,7 +174,6 @@ export default {
       let error = [this.error]
       if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')')
       if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')
-      // if (valid && this.match && this.match !== valid) { return false }
       return error.join(' ')
     }
   },
@@ -224,15 +218,15 @@ export default {
         valid = regex.test(this.value)
       }
       return valid
-    },
-    toggleEvents (enable) {
-      if (!this.noValidate && !enable) { this.valid = this.validate() }
-      ['change', 'keypress', 'keydown', 'keyup'].forEach((event) => {
-        enable
-        ? this.$els.input.addEventListener(event, this.eval)
-        : this.$els.input.removeEventListener(event, this.eval)
-      })
     }
+  },
+  ready () {
+    $(this.$els.input).on('change keypress keydown keyup', () => this.eval()).on('blur', () => {
+      if (!this.noValidate) { this.valid = this.validate() }
+    })
+  },
+  beforeDestroy () {
+    $(this.$els.input).off()
   }
 }
 </script>

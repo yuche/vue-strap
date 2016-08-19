@@ -35,8 +35,8 @@
 
 <script>
 import getScrollBarWidth from './utils/getScrollBarWidth.js'
-import EventListener from './utils/EventListener.js'
 import coerceBoolean from './utils/coerceBoolean.js'
+import $ from './utils/NodeList.js'
 
 export default {
   props: {
@@ -85,35 +85,6 @@ export default {
       default: false
     }
   },
-  ready () {
-    this.$watch('show', (val) => {
-      const el = this.$el
-      const body = document.body
-      const scrollBarWidth = getScrollBarWidth()
-      if (val) {
-        el.querySelector('.modal-content').focus()
-        el.style.display = 'block'
-        setTimeout(() => el.classList.add('in'), 0)
-        body.classList.add('modal-open')
-        if (scrollBarWidth !== 0) {
-          body.style.paddingRight = scrollBarWidth + 'px'
-        }
-        if (this.backdrop) {
-          this._blurModalContentEvent = EventListener.listen(this.$el, 'click', (e) => {
-            if (e.target === el) this.show = false
-          })
-        }
-      } else {
-        if (this._blurModalContentEvent) this._blurModalContentEvent.remove()
-        el.classList.remove('in')
-        setTimeout(() => {
-          el.style.display = 'none'
-          body.classList.remove('modal-open')
-          body.style.paddingRight = '0'
-        }, 300)
-      }
-    }, { immediate: true })
-  },
   computed: {
     optionalWidth () {
       if (this.width === null) {
@@ -122,6 +93,34 @@ export default {
         return this.width + 'px'
       }
       return this.width
+    }
+  },
+  watch: {
+    show (val) {
+      const el = this.$el
+      const body = document.body
+      const scrollBarWidth = getScrollBarWidth()
+      if (val) {
+        $(el).find('.modal-content').focus()
+        el.style.display = 'block'
+        setTimeout(() => $(el).addClass('in'), 0)
+        $(body).addClass('modal-open')
+        if (scrollBarWidth !== 0) {
+          body.style.paddingRight = scrollBarWidth + 'px'
+        }
+        if (this.backdrop) {
+          $(el).on('click', (e) => {
+            if (e.target === el) this.show = false
+          })
+        }
+      } else {
+        $(el).on('transitionend', () => {
+          $(el).off('click transitionend')
+          el.style.display = 'none'
+          body.style.paddingRight = '0'
+        }).removeClass('in')
+        $(body).removeClass('modal-open')
+      }
     }
   },
   methods: {

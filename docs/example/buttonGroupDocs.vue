@@ -1,6 +1,5 @@
 <template>
-  <div class="bs-docs-section" id="button-group">
-    <h1 class="page-header"><a href="#button-group" class="anchor">Button Group</a></h1>
+  <doc-section id="button-group" name="Button Group">
     <div class="bs-example">
       <h4>Checkbox</h4>
       <button-group :value.sync="checkboxValue">
@@ -43,27 +42,26 @@ Radio value: {{radioValue}}
         </pre>
       </p>
     </div>
+<doc-code language="markup">
+<button-group :value.sync="checkboxValue">
+  <checkbox value="left">Left</checkbox>
+  <checkbox value="middle">Middle</checkbox>
+  <checkbox value="right">Right</checkbox>
+</button-group>
 
-    <pre><code class="language-markup">
-&lt;button-group :value.sync="checkboxValue">
-  &lt;checkbox value="left">Left&lt;/checkbox>
-  &lt;checkbox value="middle">Middle&lt;/checkbox>
-  &lt;checkbox value="right">Right&lt;/checkbox>
-&lt;/button-group>
-
-&lt;button-group :value.sync="radioValue" type="primary">
-  &lt;radio value="left">Left&lt;/radio>
-  &lt;radio value="middle">Middle&lt;/radio>
-  &lt;radio value="right">Right&lt;/radio>
-&lt;/button-group>
+<button-group :value.sync="radioValue" type="primary">
+  <radio value="left">Left</radio>
+  <radio value="middle">Middle</radio>
+  <radio value="right">Right</radio>
+</button-group>
 
 Not Buttons:
-&lt;button-group :value.sync="radioValue" type="info" buttons="false">
-  &lt;radio value="left">Left&lt;/radio>
-  &lt;radio value="middle">Middle&lt;/radio>
-  &lt;radio value="right">Right&lt;/radio>
-&lt;/button-group>
-    </code></pre>
+<button-group :value.sync="radioValue" type="info" buttons="false">
+  <radio value="left">Left</radio>
+  <radio value="middle">Middle</radio>
+  <radio value="right">Right</radio>
+</button-group>
+</doc-code>
 
     <h2>Group options</h2>
     <table class="table table-bordered">
@@ -105,16 +103,22 @@ Not Buttons:
         </tr>
       </tbody>
     </table>
-  </div>
+  </doc-section>
 </template>
 
 <script>
+import docSection from './docSection.vue'
+import docOptions from './docOptions.vue'
+import docCode from './docCode.vue'
 import buttonGroup from 'src/buttonGroup.vue'
 import checkbox from 'src/Checkbox.vue'
 import radio from 'src/Radio.vue'
 
 export default {
   components: {
+    docSection,
+    docOptions,
+    docCode,
     buttonGroup,
     checkbox,
     radio

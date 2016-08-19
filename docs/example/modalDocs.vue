@@ -90,37 +90,21 @@
       </modal>
     </div>
     <pre><code class="language-markup">
-&lt;button class="btn btn-default"
-  @click="showModal = true"
-  >Show modal
-&lt;/button>
-&lt;modal :show.sync="showModal">
+&lt;modal :show.sync="...">
   &lt;div slot="modal-header" class="modal-header">
     &lt;h4 class="modal-title">Modal title&lt;/h4>
   &lt;/div>
   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
 &lt;/modal>
 
-&lt;button class="btn btn-primary"
-  @click="fadeModal = true">
-  Fade modal
-&lt;/button>
-&lt;modal title="Fade Modal" :show.sync="fadeModal" effect="fade" width="800">
+&lt;modal title="Fade Modal" :show.sync="..." effect="fade" width="800">
   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
 &lt;/modal>
 
-&lt;button class="btn btn-success"
-  @click="zoomModal = true">
-  Zoom modal
-&lt;/button>
-&lt;modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" width="400">
+&lt;modal title="Zoom Modal" :show.sync="..." effect="zoom" width="400">
   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
 &lt;/modal>
 
-&lt;button class="btn btn-default"
-  @click="showCustomModal = true">
-  Show custom modal
-&lt;/button>
 &lt;modal :show.sync="showCustomModal" effect="fade" width="400">
   &lt;div slot="modal-header" class="modal-header">
     &lt;h4 class="modal-title">
@@ -133,18 +117,10 @@
     &lt;button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save&lt;/button>
   &lt;/div>
 &lt;/modal>
-&lt;button class="btn btn-default"
-  @click="largeModal = true"
-  >Large Modal
-&lt;/button>
-&lt;modal :show.sync="largeModal">
+&lt;modal title="Large Modal" large :show.sync="...">
   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
 &lt;/modal>
-&lt;button class="btn btn-default"
-  @click="smallModal = true"
-  >Small Modal
-&lt;/button>
-&lt;modal :show.sync="smallModal">
+&lt;modal title="Small Modal" small :show.sync="...">
   &lt;div slot="modal-body" class="modal-body">...&lt;/div>
 &lt;/modal>
   </code></pre>

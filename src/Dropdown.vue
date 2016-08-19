@@ -39,6 +39,7 @@
 </template>
 <script>
 import coerceBoolean from './utils/coerceBoolean.js'
+import $ from './utils/NodeList.js'
 
 export default {
   props: {
@@ -107,17 +108,20 @@ export default {
     }
   },
   ready () {
-    const el = this.$els.dropdown
+    const $el = $(this.$els.dropdown)
+    $el.findChildren('ul').on('click', 'li>a', this.blur)
     if (!this.text) {
-      const toggle = el.querySelector('[data-toggle="dropdown"]')
-      if (toggle) {
-        toggle.addEventListener('click', () => { this.show ? this.blur() : this.toggle() })
-        toggle.addEventListener('blur', this.blur)
-      }
+      $el.find('[data-toggle="dropdown"]').on('click', (e) => {
+        this[this.show ? 'blur' : 'toggle']()
+        e.preventDefault()
+        return false
+      }).on('blur', this.blur)
     }
-    el.querySelector('ul').addEventListener('click', (e) => {
-      if (e.target.nodeName.toLowerCase() === 'a') this.blur()
-    })
+  },
+  beforeDestroy () {
+    const $el = $(this.$els.dropdown)
+    $el.findChildren('ul').off()
+    $el.find('[data-toggle="dropdown"]').off()
   }
 }
 </script>

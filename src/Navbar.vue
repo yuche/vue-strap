@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import EventListener from './utils/EventListener'
+import $ from './utils/NodeList.js'
 
 export default {
   props: {
@@ -58,7 +58,6 @@ export default {
   methods: {
     toggleCollapse (e) {
       e.preventDefault()
-
       // collapse data-target
       var tmp = this.$el.querySelector('[data-target]')
       var id = tmp.getAttribute('data-target')
@@ -67,44 +66,32 @@ export default {
     }
   },
   ready () {
-    const dropdowns = this.$el.querySelector('.dropdown > .dropdown-toggle')
-    const toggle = this.$el.querySelector('[data-toggle="collapse"]')
-    if (dropdowns) {
-      // Al hacer click en un dropdown
-      dropdowns.addEventListener('click', (e) => {
+    const $dropdowns = $('.dropdown > .dropdown-toggle',this.$el)
+    if ($dropdowns.length) {
+      $dropdowns.on('click', (e) => {
         e.preventDefault()
         let dropDown = e.target.offsetParent
         let dropDownItems = dropDown.nextElementSibling.children
         dropDown.classList.add('open')
 
-        // Al hacer click en un elemento del dropdown
-        if (dropDownItems) {
-          for (let i = 0; i < dropDownItems.length; i++) {
-            dropDownItems[i].addEventListener('click', () => {
-              dropDown.offsetParent.classList.remove('open')
-            })
-          }
-        }
-
-        // dropdowns.addEventListener('focusout',function(){
-        //   dropDown.target.offsetParent.classList.remove('open')
-        // });
+        $(dropDownItems).on('click', () => {
+          dropDown.offsetParent.classList.remove('open')
+        })
       })
     }
-    if (toggle) {
-      toggle.style.borderRadius = '4px'
-      toggle.addEventListener('click', this.toggleCollapse)
-    }
-    this._closeEvent = EventListener.listen(window, 'click', (e) => {
+    $('[data-toggle="collapse"]',this.$el).on('click', (e) => this.toggleCollapse(e)).each((el) => {
+      el.style.borderRadius = '4px'
+    })
+    this._close = (e) => {
       if (!this.$el.contains(e.target)) {
         this.$el.classList.remove('open')
       }
-    })
+    }
+    $(window).on('click', this._close)
   },
   beforeDestroy () {
-    if (this._closeEvent) {
-      this._closeEvent.remove()
-    }
+    $('[data-toggle="collapse"]',this.$el).off('click')
+    $(window).off('click', this._close)
   }
 }
 </script>

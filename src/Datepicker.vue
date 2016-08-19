@@ -67,8 +67,8 @@
 </template>
 
 <script>
-import EventListener from './utils/EventListener.js'
 import translations from './translations.js'
+import $ from './utils/NodeList.js'
 
 export default {
   props: {
@@ -99,14 +99,15 @@ export default {
     }
   },
   ready () {
+    this._blur = (e) => {
+      if (!this.$el.contains(e.target)) this.close()
+    }
     this.$dispatch('child-created', this)
     this.currDate = this.parse(this.value) || this.parse(new Date())
-    this._closeEvent = EventListener.listen(window, 'click', (e) => {
-      if (!this.$el.contains(e.target)) this.close()
-    })
+    $(window).on('click', this._blur)
   },
   beforeDestroy () {
-    if (this._closeEvent) this._closeEvent.remove()
+    $(window).off('click', this._blur)
   },
   data () {
     return {
