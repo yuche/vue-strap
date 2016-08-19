@@ -27,10 +27,10 @@ var alert = require('vue-strap').alert;
 
 new Vue({
   components: {
-    'alert': alert
+    alert: alert
   }
 })
-</code></pre>
+    </code></pre>
     <h2>ES6</h2>
     <pre><code class="language-javascript">
 $ npm install vue-strap
@@ -44,14 +44,14 @@ new Vue({
     alert
   }``
 })
-</code></pre>
+    </code></pre>
 
     <h2>AMD</h2>
     <pre><code class="language-javascript">
 $ bower install vue-strap
 
 define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
-</code></pre>
+    </code></pre>
     <h2>Browser globals</h2>
     <p>
       The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.min.js</code> with
@@ -73,6 +73,6 @@ define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
     }
   })
 &lt;/script&gt;
-</code></pre>
+    </code></pre>
   </div>
 </template>
