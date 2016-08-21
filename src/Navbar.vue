@@ -7,26 +7,25 @@
     'navbar-static-top':(placement === 'static')
   }]">
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#{{ id }}" aria-expanded="false">
+        <button v-if="!slots.collapse" type="button" class="navbar-toggle collapsed"  aria-expanded="false" @click="toggleCollapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <slot name="collapse"></slot>
         <slot name="brand"></slot>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="{{ id }}">
+      <div :class="['navbar-collapse',{collapse:collapsed}]">
         <ul class="nav navbar-nav">
           <slot></slot>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <ul v-if="slots.right" class="nav navbar-nav navbar-right">
           <slot name="right"></slot>
         </ul>
       </div>
-    </div><!-- /.container-fluid -->
+    </div>
   </nav>
 </template>
 
@@ -47,51 +46,58 @@ export default {
   data () {
     return {
       id: 'bs-example-navbar-collapse-1',
+      collapsed: true,
       styles: {}
     }
   },
   computed: {
-    navbar () {
-      return true
+    slots () {
+      return this._slotContents
     }
   },
   methods: {
     toggleCollapse (e) {
-      e.preventDefault()
-      // collapse data-target
-      var tmp = this.$el.querySelector('[data-target]')
-      var id = tmp.getAttribute('data-target')
-      var o = document.getElementById(id.substring(1))
-      o.classList.toggle('collapse')
+      e && e.preventDefault()
+      this.collapsed = !this.collapsed
     }
+  },
+  created () {
+    this._navbar = true
   },
   ready () {
-    const $dropdowns = $('.dropdown > .dropdown-toggle',this.$el)
-    if ($dropdowns.length) {
-      $dropdowns.on('click', (e) => {
-        e.preventDefault()
-        let dropDown = e.target.offsetParent
-        let dropDownItems = dropDown.nextElementSibling.children
-        dropDown.classList.add('open')
-
-        $(dropDownItems).on('click', () => {
-          dropDown.offsetParent.classList.remove('open')
-        })
+    let $dropdown = $('.dropdown>[data-toggle="dropdown"]',this.$el).parent()
+    $dropdown.on('click', '.dropdown-toggle', (e) => {
+      e.preventDefault()
+      $dropdown.each((content) => {
+        if (content.contains(e.target)) {
+          content.classList.toggle('open')
+        }
       })
-    }
-    $('[data-toggle="collapse"]',this.$el).on('click', (e) => this.toggleCollapse(e)).each((el) => {
-      el.style.borderRadius = '4px'
+    }).on('click', '.dropdown-menu>li>a', (e) => {
+      $dropdown.each((content) => {
+        if (content.contains(e.target)) {
+          content.classList.remove('open')
+        }
+      })
+    }).onBlur((e) => {
+      $dropdown.each((content) => {
+        if (!content.contains(e.target)) {
+          content.classList.remove('open')
+        }
+      })
     })
-    this._close = (e) => {
-      if (!this.$el.contains(e.target)) {
-        this.$el.classList.remove('open')
-      }
+    let height = this.$el.offsetHeight
+    if (this.placement === 'top') {
+      document.body.style.paddingTop = height + 'px'
     }
-    $(window).on('click', this._close)
+    if (this.placement === 'bottom') {
+      document.body.style.paddingBottom = height + 'px'
+    }
+    if (this.slots.collapse) $('[data-toggle="collapse"]',this.$el).on('click', (e) => this.toggleCollapse(e))
   },
   beforeDestroy () {
-    $('[data-toggle="collapse"]',this.$el).off('click')
-    $(window).off('click', this._close)
+    $('.dropdown',this.$el).off('click').offBlur()
+    if (this.slots.collapse) $('[data-toggle="collapse"]',this.$el).off('click')
   }
 }
 </script>
