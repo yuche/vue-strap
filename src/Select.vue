@@ -67,6 +67,7 @@ export default {
     },
     clearButton: {
       type: Boolean,
+      coerce: coerceBoolean,
       default: false
     },
     closeOnSelect: { // only works when multiple
