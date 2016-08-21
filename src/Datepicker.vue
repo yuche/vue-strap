@@ -1,25 +1,25 @@
 <template>
   <div class="datepicker">
-    <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text"
+    <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text"
         :style="{width:width}"
         @click="inputClick"
         v-model="value"/>
-    <button v-if="showResetButton" type="button" class="close" @click="value = ''">
+    <button v-if="clearButton && value" type="button" class="close" @click="value = ''">
       <span>&times;</span>
     </button>
     <div class="datepicker-popup" v-show="displayDayView">
       <div class="datepicker-inner">
         <div class="datepicker-body">
           <div class="datepicker-ctrl">
-            <span class="month-btn datepicker-preBtn" @click="preNextMonthClick(0)">&lt;</span>
-            <span class="month-btn datepicker-nextBtn" @click="preNextMonthClick(1)">&gt;</span>
+            <span class="datepicker-preBtn glyphicon glyphicon-chevron-left" aria-hidden="true" @click="preNextMonthClick(0)"></span>
+            <span class="datepicker-nextBtn glyphicon glyphicon-chevron-right" aria-hidden="true" @click="preNextMonthClick(1)"></span>
             <p @click="switchMonthView">{{stringifyDayHeader(currDate)}}</p>
           </div>
           <div class="datepicker-weekRange">
             <span v-for="w in text.daysOfWeek">{{w}}</span>
           </div>
           <div class="datepicker-dateRange">
-            <span v-for="d in dateRange" v-bind:class="d.sclass" @click="daySelect(d.date,this)">{{d.text}}</span>
+            <span v-for="d in dateRange" :class="d.sclass" @click="daySelect(d.date,this)">{{d.text}}</span>
           </div>
         </div>
       </div>
@@ -28,13 +28,13 @@
       <div class="datepicker-inner">
         <div class="datepicker-body">
           <div class="datepicker-ctrl">
-            <span class="month-btn datepicker-preBtn" @click="preNextYearClick(0)">&lt;</span>
-            <span class="month-btn datepicker-nextBtn" @click="preNextYearClick(1)">&gt;</span>
+            <span class="datepicker-preBtn glyphicon glyphicon-chevron-left" aria-hidden="true" @click="preNextYearClick(0)"></span>
+            <span class="datepicker-nextBtn glyphicon glyphicon-chevron-right" aria-hidden="true" @click="preNextYearClick(1)"></span>
             <p @click="switchDecadeView">{{stringifyYearHeader(currDate)}}</p>
           </div>
           <div class="datepicker-monthRange">
             <template v-for="m in text.months">
-              <span   v-bind:class="{'datepicker-dateRange-item-active':
+              <span   :class="{'datepicker-dateRange-item-active':
                   (this.text.months[this.parse(this.value).getMonth()]  === m) &&
                   this.currDate.getFullYear() === this.parse(this.value).getFullYear()}"
                   @click="monthSelect($index)"
@@ -48,13 +48,13 @@
       <div class="datepicker-inner">
         <div class="datepicker-body">
           <div class="datepicker-ctrl">
-            <span class="month-btn datepicker-preBtn" @click="preNextDecadeClick(0)">&lt;</span>
-            <span class="month-btn datepicker-nextBtn" @click="preNextDecadeClick(1)">&gt;</span>
+            <span class="datepicker-preBtn glyphicon glyphicon-chevron-left" aria-hidden="true" @click="preNextDecadeClick(0)"></span>
+            <span class="datepicker-nextBtn glyphicon glyphicon-chevron-right" aria-hidden="true" @click="preNextDecadeClick(1)"></span>
             <p>{{stringifyDecadeHeader(currDate)}}</p>
           </div>
           <div class="datepicker-monthRange decadeRange">
             <template v-for="decade in decadeRange">
-              <span v-bind:class="{'datepicker-dateRange-item-active':
+              <span :class="{'datepicker-dateRange-item-active':
                   this.parse(this.value).getFullYear() === decade.text}"
                   @click.stop="yearSelect(decade.text)"
                 >{{decade.text}}</span>
@@ -77,7 +77,7 @@ export default {
       twoWay: true
     },
     format: {
-      default: 'dd/MM/yyyy'
+      default: 'MM/dd/yyyy'
     },
     disabledDaysOfWeek: {
       type: Array,
@@ -89,7 +89,7 @@ export default {
       type: String,
       default: '200px'
     },
-    showResetButton: {
+    clearButton: {
       type: Boolean,
       default: false
     },
@@ -228,6 +228,8 @@ export default {
       return date.getFullYear()
     },
     stringify (date, format = this.format) {
+      if (!date) date = this.parse()
+      if (!date) return ''
       const year = date.getFullYear()
       const month = date.getMonth() + 1
       const day = date.getDate()
@@ -243,11 +245,13 @@ export default {
       .replace(/M(?!a)/g, month)
       .replace(/d/g, day)
     },
-    parse (str) {
+    parse (str = this.value) {
+      let date
       if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {
-        str = str.substring(3, 5) + '-' + str.substring(0, 2) + '-' + str.substring(6, 10)
+        date = new Date(str.substring(6, 10), str.substring(3, 5), str.substring(0, 2))
+      } else {
+        date = new Date(str)
       }
-      const date = new Date(str)
       return isNaN(date.getFullYear()) ? null : date
     },
     getDayCount (year, month) {
@@ -345,10 +349,15 @@ input.datepicker-input.with-reset-button {
 }
 .datepicker > button.close {
   position: absolute;
-  top: calc(50% - 13px);
-  right: 10px;
+  top: 0;
+  right: 0;
   outline: none;
   z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
 }
 .datepicker > button.close:focus {
   opacity: .2;
