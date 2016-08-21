@@ -13,6 +13,7 @@ import modal from './Modal.vue'
 import navbar from './Navbar.vue'
 import option from './Option.vue'
 import panel from './Panel.vue'
+import pagination from './Pagination.vue'
 import popover from './Popover.vue'
 import progressbar from './Progressbar.vue'
 import radio from './Radio.vue'
@@ -41,6 +42,7 @@ const VueStrap = {
   navbar,
   option,
   panel,
+  pagination,
   popover,
   progressbar,
   radio,

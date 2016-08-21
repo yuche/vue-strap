@@ -19,6 +19,7 @@ import gettingStarted from './example/gettingStarted.vue'
 import headerDocs from './example/headerDocs.vue'
 import inputDocs from './example/inputDocs.vue'
 import modalDocs from './example/modalDocs.vue'
+import paginationDocs from './example/paginationDocs.vue'
 import popoverDocs from './example/popoverDocs.vue'
 import progressbarDocs from './example/progressbar-docs.vue'
 import radioDocs from './example/radioDocs.vue'
@@ -49,6 +50,7 @@ new Vue({
     inputDocs,
     list: {inherit: true, template: ''},
     modalDocs,
+    paginationDocs,
     popoverDocs,
     progressbarDocs,
     radioDocs,

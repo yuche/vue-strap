@@ -65,7 +65,7 @@
 </typeahead>
   </script></code></pre>
     <pre><code class="language-javascript"><script type="language-javascript">
-new Vue {
+new Vue({
   components: {
     typeahead
   },
@@ -87,7 +87,7 @@ new Vue {
       window.open(items.html_url, '_blank')
     }
   }
-}
+})
     </script></code></pre>
 
     <h2>Options</h2>
