@@ -1,7 +1,7 @@
 require('./assets/docs.css')
 require('./assets/style.css')
-require('./js/showLanguage')
 require('prismjs')
+require('./js/showLanguage')
 
 import $ from 'src/utils/NodeList.js'
 import accordionDocs from './example/accordionDocs.vue'
