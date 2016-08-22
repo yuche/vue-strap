@@ -11,11 +11,11 @@
         <p> Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.</p>
-<doc-code language="javascript">
-if (talk === cheap){
-  code.style.display = 'block'
-}
-</doc-code>
+        <doc-code language="javascript">
+          if (talk === cheap){
+            code.style.display = 'block'
+          }
+        </doc-code>
         <div class="aside-footer">
           <button type="button" class="btn btn-default" @click="showLeft=false">Close</button>
         </div>
@@ -27,26 +27,24 @@ if (talk === cheap){
         <p> Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.</p>
-          <pre><code class="language-javascript">
-if (talk === cheap){
-  code.style.display = 'block'
-}
-        </code></pre>
+        <doc-code language="javascript">
+          if (talk === cheap){
+            code.style.display = 'block'
+          }
+        </doc-code>
         <div class="aside-footer">
           <button type="button" class="btn btn-default" @click="showRight=false">Close</button>
         </div>
       </sidebar>
     </div>
-
-<doc-code language="markup">
-<aside :show.sync="showRight" placement="right" header="Title" :width="350">
-  ...
-</aside>
-<aside :show.sync="showLeft" placement="left" header="Title" :width="350">
-  ...
-</aside>
-</doc-code>
-
+    <doc-code language="markup">
+      <aside :show.sync="showRight" placement="right" header="Title" width="350">
+        ...
+      </aside>
+      <aside :show.sync="showLeft" placement="left" header="Title" width="350">
+        ...
+      </aside>
+    </doc-code>
     <doc-options>
       <div>
         <p>show</p>
