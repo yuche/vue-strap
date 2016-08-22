@@ -23,6 +23,7 @@
 
 <script>
 import coerceBoolean from './utils/coerceBoolean.js'
+import coerceNumber from './utils/coerceNumber.js'
 
 export default {
   props: {
@@ -42,6 +43,7 @@ export default {
     },
     duration: {
       type: Number,
+      coerce: coerceNumber,
       default: 0
     },
     width: {
@@ -77,12 +79,12 @@ export default {
   margin: 0 auto;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 1050;
 }
 .alert.top-right {
   position: fixed;
   top: 30px;
   right: 50px;
-  z-index: 2;
+  z-index: 1050;
 }
 </style>

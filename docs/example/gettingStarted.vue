@@ -18,61 +18,69 @@
       </ul>
     </div>
     <h2>CommonJS</h2>
-    <pre><code class="language-javascript">
-$ npm install vue-strap
+    <doc-code language="javascript">
+      $ npm install vue-strap
 
-var alert = require('vue-strap/src/alert');
-// or
-var alert = require('vue-strap').alert;
+      var alert = require('vue-strap/src/alert');
+      // or
+      var alert = require('vue-strap').alert;
 
-new Vue({
-  components: {
-    alert: alert
-  }
-})
-    </code></pre>
+      new Vue({
+        components: {
+          alert: alert
+        }
+      })
+    </doc-code>
     <h2>ES6</h2>
-    <pre><code class="language-javascript">
-$ npm install vue-strap
+    <doc-code language="javascript">
+      $ npm install vue-strap
 
-import alert from 'vue-strap/src/alert'
-// or
-import { alert } from 'vue-strap'
+      import alert from 'vue-strap/src/alert'
+      // or
+      import { alert } from 'vue-strap'
 
-new Vue({
-  components: {
-    alert
-  }``
-})
-    </code></pre>
+      new Vue({
+        components: {
+          alert
+        }``
+      })
+    </doc-code>
 
     <h2>AMD</h2>
-    <pre><code class="language-javascript">
-$ bower install vue-strap
+    <doc-code language="javascript">
+      $ bower install vue-strap
 
-define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
-    </code></pre>
+      define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
+    </doc-code>
     <h2>Browser globals</h2>
     <p>
       The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.min.js</code> with
       all components exported in the <code>window.VueStrap</code> object. These bundles are also available on both the
       Bower and NPM packages.
     </p>
-    <pre><code class="language-markup">
-&lt;v-select :options="options"&gt;&lt;/v-select&gt;
+    <doc-code language="markup">
+      <v-select :options="options"></v-select>
 
-&lt;script src=&quot;path/to/vue.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;path/to/vue-strap.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-  new Vue({
-    components: {
-      vSelect: VueStrap.select
-    },
-    data: {
-      options: []
-    }
-  })
-&lt;/script&gt;
-    </code></pre>
+      <script src="path/to/vue.js"></script>
+      <script src="path/to/vue-strap.js"></script>
+      <script>
+        new Vue({
+          components: {
+            vSelect: VueStrap.select
+          },
+          data: {
+            options: []
+          }
+        })
+      </script>
+    </doc-code>
   </div>
 </template>
+<script>
+import docCode from './docCode.vue'
+export default {
+  components: {
+    docCode
+  }
+}
+</script>

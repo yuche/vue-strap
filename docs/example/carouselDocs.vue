@@ -1,6 +1,5 @@
 <template>
-  <div class="bs-docs-section" id="carousel">
-    <h1 class="page-header"><a href="#caoursel" class="anchor">Carousel</a></h1>
+  <doc-section id="carousel" name="Carousel">
     <div class="bs-example">
       <carousel>
         <slider>
@@ -26,65 +25,59 @@
         </slider>
       </carousel>
     </div>
-    <pre><code class="language-markup">
-&lt;carousel>
-  &lt;slider>
-    &lt;img src="http://placehold.it/1200x400?text=one">
-      &lt;div class="carousel-caption">
-       ...
-     &lt;/div>
-  &lt;/slider>
-  &lt;slider>
-    &lt;img src="http://placehold.it/1200x400?text=two">
-  &lt;/slider>
-  &lt;slider>
-    &lt;img src="http://placehold.it/1200x400?text=three">
-  &lt;/slider>
-&lt;/carousel>
-    </code></pre>
-
-  <h2>Options</h2>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>indicators</td>
-        <td><code>Boolean</code></td>
-        <td><code>true</code></td>
-        <td>Whether to show the indicators.</td>
-      </tr>
-      <tr>
-        <td>controls</td>
-        <td><code>Boolean</code></td>
-        <td><code>true</code></td>
-        <td>Whether to show the direction controls.</td>
-      </tr>
-      <tr>
-        <td>interval</td>
-        <td><code>Number</code></td>
-        <td><code>5000</code></td>
-        <td>The amount of time to delay between automatically cycling an item. If set to 0 or a negative number,
+    <doc-code language="markup">
+      <carousel>
+        <slider>
+          <img src="http://placehold.it/1200x400?text=one">
+          <div class="carousel-caption">
+            ...
+          </div>
+        </slider>
+        <slider>
+          <img src="http://placehold.it/1200x400?text=two">
+        </slider>
+        <slider>
+          <img src="http://placehold.it/1200x400?text=three">
+        </slider>
+      </carousel>
+    </doc-code>
+    <doc-options>
+      <div>
+        <p>indicators</p>
+        <p><code>Boolean</code></p>
+        <p><code>true</code></p>
+        <p>Whether to show the indicators.</p>
+      </div>
+      <div>
+        <p>controls</p>
+        <p><code>Boolean</code></p>
+        <p><code>true</code></p>
+        <p>Whether to show the direction controls.</p>
+      </div>
+      <div>
+        <p>interval</p>
+        <p><code>Number</code></p>
+        <p><code>5000</code></p>
+        <p>The amount of time to delay between automatically cycling an item. If set to 0 or a negative number,
           carousel will not automatically cycle.
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </p>
+      </div>
+    </doc-options>
   </div>
 </template>
 
 <script>
+import docSection from './docSection.vue'
+import docOptions from './docOptions.vue'
+import docCode from './docCode.vue'
 import carousel from 'src/Carousel.vue'
 import slider from 'src/Slider.vue'
 
 export default {
   components: {
+    docSection,
+    docOptions,
+    docCode,
     carousel,
     slider
   }

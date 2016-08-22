@@ -1,16 +1,15 @@
 <template>
   <affix offset="50">
-    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm ">
-      <ul class="nav bs-docs-sidenav" id="sidenav">
-        <li v-for="s in sections" :class="{active:active==s.id}"><a href="#{{ s.id }}">{{ s.name }}</a></li>
-      </ul>
-      <a href="#top" class="back-to-top">Back to top</a>
-      <a href="https://github.com/yuche/vue-strap" class="back-to-top">GitHub</a>
-    </nav>
+    <ul class="nav bs-docs-sidenav" id="sidenav">
+      <li v-for="s in sections" :class="{active:active==s.id}"><a href="#{{ s.id }}">{{ s.name }}</a></li>
+    </ul>
+    <a href="#" class="back-to-top">Back to top</a>
+    <a href="https://github.com/yuche/vue-strap" class="back-to-top">GitHub</a>
   </affix>
 </template>
 
 <script>
+import $ from 'src/utils/NodeList.js'
 import affix from 'src/Affix.vue'
 
 export default {
@@ -29,19 +28,11 @@ export default {
     }
   },
   created () {
-    window.onscroll = () => {
-      this.scrollSpy()
-    }
-    window.addEventListener('resize', () => {
-      this.scrollSpy()
-    })
+    $(window).on('scroll load resize', () => this.scrollSpy())
     if (!this.$root.sections) {
       this.$root.sections = []
     }
     this.sections = this.$root.sections
-  },
-  ready () {
-    this.scrollSpy()
   },
   methods: {
     scrollSpy () {
@@ -49,7 +40,7 @@ export default {
       for (let s of this.sections) {
         // 420 = firstSection.getBoundingClientRect().top (when body.scrollTop = 0)
         // = nav.height + header.height + firstSection.margin-top - 6 (for offset)
-        if (s.top + 420 <= scrollPosition) {
+        if (s.el.offsetTop + 420 <= scrollPosition) {
           this.active = s.id
         }
       }

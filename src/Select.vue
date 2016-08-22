@@ -1,7 +1,7 @@
 <template>
-<select v-if="name && (required || values.length)" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" @focus="focus()">
-  <option v-if="!values.length" value=""></option>
-  <option v-else v-for="val in values" value="{{val}}" selected>{{val}}</option>
+<select v-model="value" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" @focus="focus()">
+  <option v-if="required" value=""></option>
+  <option v-for="option in options" :value="option.value||option" :selected="isSelected(option.value||option)">{{ option.label||option }}</option>
 </select>
 <div :class="{'btn-group btn-group-justified': justified, 'btn-select': !justified}" @click="unblur">
   <slot name="before"></slot>
@@ -67,6 +67,7 @@ export default {
     },
     clearButton: {
       type: Boolean,
+      coerce: coerceBoolean,
       default: false
     },
     closeOnSelect: { // only works when multiple
@@ -260,7 +261,7 @@ export default {
       }
     },
     isSelected (v) {
-      return ~this.values.indexOf(v)
+      return this.values.indexOf(v) > -1
     },
     toggleDropdown () {
       this.show = !this.show

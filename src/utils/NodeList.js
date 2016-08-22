@@ -1,6 +1,8 @@
 const ArrayProto = Array.prototype
-let Events = []
 const nodeError = new Error('Passed arguments must be of Node')
+let blurEvent
+let blurList = []
+let Events = []
 
 class NodeList {
   constructor (args) {
@@ -10,7 +12,7 @@ class NodeList {
     } else if (typeof args[0] === 'string') {
       nodes = (args[1] || document).querySelectorAll(args[0])
       if (args[1]) { this.owner = args[1] }
-    } else if (0 in args && !(args[0] instanceof Node) && 'length' in args[0]) {
+    } else if (0 in args && !(args[0] instanceof Node) && args[0] && 'length' in args[0]) {
       nodes = args[0];
       if (args[1]) { this.owner = args[1] }
     }
@@ -50,6 +52,9 @@ class NodeList {
     ArrayProto.forEach.apply(this, arguments)
     return this
   }
+  parent () {
+    return this.map((el) => { return el.parentNode })
+  }
   filter () {
     return new NodeList([ArrayProto.filter.apply(this, arguments), this])
   }
@@ -75,87 +80,6 @@ class NodeList {
   }
   map () {
     return flatten(ArrayProto.map.apply(this, arguments), this)
-  }
-  off (events, callback) {
-    if (events instanceof Function) {
-      callback = events
-      events = null
-    }
-    if (typeof events === 'string' && callback instanceof Function) {
-      for (let el of this) {
-        for(let e in Events) {
-          for (let event of events.split(' ')) {
-            if(Events[e] && Events[e].el === el && Events[e].event === event && Events[e].callback === callback) {
-              Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-              delete Events[e]
-            }
-          }
-        }
-      }
-    } else if (typeof events === 'string') {
-      for (let el of this) {
-        for (let e in Events) {
-          for (let event of events.split(' ')) {
-            if (Events[e] && Events[e].el === el && Events[e].event === event) {
-              Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-              delete Events[e]
-            }
-          }
-        }
-      }
-    } else if (callback instanceof Function) {
-      for (let el of this) {
-        for (let e in Events) {
-          if (Events[e] && Events[e].el === el && Events[e].callback === callback) {
-            Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-            delete Events[e]
-          }
-        }
-      }
-    } else {
-      for (let el of this) {
-        for (let e in Events) {
-          if (Events[e] && Events[e].el === el) {
-            Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-            delete Events[e]
-          }
-        }
-      }
-    }
-    Events = Events.filter((el) => { return el !== undefined })
-    return this
-  }
-  on (events, selector, callback) {
-    if (typeof events === 'string') { events = events.trim().replace(/\s+/,' ').split(' ') }
-    if (!this || !this.length) return this
-    if (callback === undefined) {
-      callback = selector
-      selector = null
-    }
-    if (!callback) return this
-    const fn = callback
-    callback = selector ? function (e) {
-      let els = new NodeList([selector, this])
-      if (!els.length) { return }
-      els.some((el) => {
-        let target = el.contains(e.target) || el === e.target
-        if (target) fn.apply(el, [e, el])
-        return target;
-      })
-    } : function (e) {
-      fn.apply(this, [e, this])
-    }
-    for (let event of events) {
-      for (let el of this) {
-        el.addEventListener(event, callback, false)
-        Events.push({
-          el: el,
-          event: event,
-          callback: callback
-        })
-      }
-    }
-    return this
   }
   pop (amount) {
     if (typeof amount !== 'number') { amount = 1 }
@@ -203,23 +127,28 @@ class NodeList {
     return new NodeList([ArrayProto.splice.apply(this, arguments), this])
   }
   unshift () {
+    let unshift = ArrayProto.unshift.bind(this)
     for (let arg of arguments) {
       if (!(arg instanceof Node)) throw nodeError
-      if (!~this.indexOf(arg)) ArrayProto.unshift.call(this, arg)
+      if (!~this.indexOf(arg)) unshift(arg)
     }
     return this
   }
 
   addClass (classes) {
-    classes.trim().replace(/\s+/,' ').split(' ').forEach((c) => {
-      this.each((el) => el.classList.add(c))
-    })
+    if (typeof classes === 'string') classes = classes.trim().replace(/\s+/,' ').split(' ')
+    classes.forEach((c) => this.each((el) => el.classList.add(c)))
     return this
   }
   removeClass (classes) {
-    classes.trim().replace(/\s+/,' ').split(' ').forEach((c) => {
-      this.each((el) => el.classList.remove(c))
-    })
+    if (typeof classes === 'string') classes = classes.trim().replace(/\s+/,' ').split(' ')
+    classes.forEach((c) => this.each((el) => el.classList.remove(c)))
+    return this
+  }
+  toggleClass (classes, value) {
+    if (value !== undefined && value !== null) return this[value ? 'addClass' : 'removeClass'](classes)
+    if (typeof classes === 'string') classes = classes.trim().replace(/\s+/,' ').split(' ')
+    classes.forEach((c) => this.each((el) => el.classList.toggle(c)))
     return this
   }
 
@@ -271,6 +200,120 @@ class NodeList {
   }
   get asArray () {
     return ArrayProto.slice.call(this)
+  }
+
+  // event handlers
+  on (events, selector, callback) {
+    if (typeof events === 'string') { events = events.trim().replace(/\s+/,' ').split(' ') }
+    if (!this || !this.length) return this
+    if (callback === undefined) {
+      callback = selector
+      selector = null
+    }
+    if (!callback) return this
+    const fn = callback
+    callback = selector ? function (e) {
+      let els = new NodeList([selector,this])
+      if (!els.length) { return }
+      els.some((el) => {
+        let target = el.contains(e.target)
+        if (target) fn.call(el, e, el)
+        return target;
+      })
+    } : function (e) {
+      fn.apply(this, [e, this])
+    }
+    for (let event of events) {
+      for (let el of this) {
+        el.addEventListener(event, callback, false)
+        Events.push({
+          el: el,
+          event: event,
+          callback: callback
+        })
+      }
+    }
+    return this
+  }
+  off (events, callback) {
+    if (events instanceof Function) {
+      callback = events
+      events = null
+    }
+    if (typeof events === 'string' && callback instanceof Function) {
+      for (let el of this) {
+        for(let e in Events) {
+          for (let event of events.split(' ')) {
+            if(Events[e] && Events[e].el === el && Events[e].event === event && Events[e].callback === callback) {
+              Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
+              delete Events[e]
+            }
+          }
+        }
+      }
+    } else if (typeof events === 'string') {
+      for (let el of this) {
+        for (let e in Events) {
+          for (let event of events.split(' ')) {
+            if (Events[e] && Events[e].el === el && Events[e].event === event) {
+              Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
+              delete Events[e]
+            }
+          }
+        }
+      }
+    } else if (callback instanceof Function) {
+      for (let el of this) {
+        for (let e in Events) {
+          if (Events[e] && Events[e].el === el && Events[e].callback === callback) {
+            Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
+            delete Events[e]
+          }
+        }
+      }
+    } else {
+      for (let el of this) {
+        for (let e in Events) {
+          if (Events[e] && Events[e].el === el) {
+            Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
+            delete Events[e]
+          }
+        }
+      }
+    }
+    Events = Events.filter((el) => { return el !== undefined })
+    return this
+  }
+  onBlur (callback) {
+    if (!this || !this.length) return this
+    if (!callback) return this
+    this.each((el) => {
+      blurList.push({
+        el: el,
+        callback: callback
+      })
+    })
+    if (!blurEvent) {
+      blurEvent = (e) => {
+        for (let item of blurList) {
+          let target = item.el.contains(e.target) || item.el === e.target
+          if (!target) item.callback.call(item.el, e, item.el)
+        }
+      }
+      document.addEventListener('click', blurEvent, false)
+    }
+    return this
+  }
+  offBlur (callback) {
+    this.each((el) => {
+      for (let e in blurList) {
+        if (blurList[e] && blurList[e].el === el && (!callback || blurList[e].callback === callback)) {
+          delete blurList[e]
+        }
+      }
+    })
+    blurList = blurList.filter((el) => { return el !== undefined })
+    return this
   }
 }
 

@@ -28,6 +28,7 @@
 <script>
 import getScrollBarWidth from './utils/getScrollBarWidth.js'
 import coerceBoolean from './utils/coerceBoolean.js'
+import coerceNumber from './utils/coerceNumber.js'
 import $ from './utils/NodeList.js'
 
 export default {
@@ -47,7 +48,8 @@ export default {
     },
     width: {
       type: Number,
-      default: '320'
+      coerce: coerceNumber,
+      default: 320
     }
   },
   watch: {

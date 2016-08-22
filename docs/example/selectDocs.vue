@@ -1,9 +1,6 @@
 <template>
-  <div class="bs-docs-section" id="select">
-    <h1 class="page-header"><a href="#select" class="anchor">Select</a></h1>
-    <p>
-      This a <a target="_blank" href="https://silviomoreto.github.io/bootstrap-select/">bootstrap-select</a> implementation.
-    </p>
+  <doc-section id="select" name="Select">
+    <p>Based in a <a target="_blank" href="https://silviomoreto.github.io/bootstrap-select/">bootstrap-select</a> implementation.</p>
     <div class="bs-example">
       <h4>Simple select</h4>
       <p><pre>Select data : {{show(single)}}</pre></p>
@@ -42,93 +39,81 @@
         </p>
       </button-group>
     </div>
-    <pre><code class="language-markup">
-&lt;v-select>
-  &lt;v-option value="apple">Apple&lt;/v-option>
-  &lt;v-option value="banana">Banana&lt;/v-option>
-  &lt;v-option value="cherry">Cherry&lt;/v-option>
-  &lt;v-option value="orange">Orange&lt;/v-option>
-  &lt;v-option value="grape">Grape&lt;/v-option>
-&lt;/v-select>
+    <doc-code language="markup">
+      <v-select>
+        <v-option value="apple">Apple</v-option>
+        <v-option value="banana">Banana</v-option>
+        <v-option value="cherry">Cherry</v-option>
+        <v-option value="orange">Orange</v-option>
+        <v-option value="grape">Grape</v-option>
+      </v-select>
+      <form action="./#select" method="get">
+        <v-select :value.sync="select.value" :options="select.options"
+          multiple name="animals[]" limit="3"
+          search justified required disabled
+          clear-button close-on-select
+        ></v-select>
+        <button type="submit" class="btn btn-default">Submit form</button>
+      </form>
+    </doc-code>
+    <doc-code language="javascript">
+      options: [
+        {value: 1, label: 'Cat'},
+        {value: 2, label: 'Cow'},
+        {value: 3, label: 'Dog'},
+        {value: 4, label: 'Elephant'},
+        {value: 5, label: 'Fish'},
+        {value: 6, label: 'Lion'},
+        {value: 7, label: 'Tiger'},
+        {value: 8, label: 'Turtle'}
+      ]
+    </doc-code>
 
-&lt;form action="./#select" method="get">
-  &lt;v-select :value.sync="select.value" :options="select.options"
-    multiple name="animals[]" limit="3"
-    search justified required disabled
-    clear-button close-on-select
-  >&lt;/v-select>
-  &lt;button type="submit" class="btn btn-default">Submit form&lt;/button>
-&lt;/form>
-    </code></pre>
-    <pre><code class="language-javascript"><script type="language-javascript">
-options: [
-  {value: 1, label: 'Cat'},
-  {value: 2, label: 'Cow'},
-  {value: 3, label: 'Dog'},
-  {value: 4, label: 'Elephant'},
-  {value: 5, label: 'Fish'},
-  {value: 6, label: 'Lion'},
-  {value: 7, label: 'Tiger'},
-  {value: 8, label: 'Turtle'}
-]
-    </script></code></pre>
-
-      <hr />
-      <h4>Ajax data and parent dependency:</h4>
-      <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>
-      <v-select url="docs/data.json" :value.sync="ajax.value" clear-button v-ref:ajax></v-select>
+    <hr />
+    <h4>Ajax data and parent dependency:</h4>
+    <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>
+    <v-select url="docs/data.json" :value.sync="ajax.value" clear-button v-ref:ajax></v-select>
+    <v-select url="docs/data.json" multiple :parent="ajax.value"></v-select>
+    <doc-code language="markup">
+      <v-select url="docs/data.json" :value.sync="ajax.value" clear-button></v-select>
       <v-select url="docs/data.json" multiple :parent="ajax.value"></v-select>
-    <pre><code class="language-markup">
-&lt;v-select url="docs/data.json" :value.sync="ajax.value" clear-button>&lt;/v-select>
-&lt;v-select url="docs/data.json" multiple :parent="ajax.value">&lt;/v-select>
-    </code></pre>
+    </doc-code>
     <p>Ajax response:</p>
-    <pre><code class="language-javascript">
-<span v-html="$refs.ajax.options|json"></span>
-    </code></pre>
+    <doc-code language="markup"><span v-html="$refs.ajax.options|json"></span></doc-code>
 
-    <h2>Other Options</h2>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>close-on-select</td>
-          <td><code>Boolean</code></td>
-          <td><code>false</code></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>lang</td>
-          <td><code>String</code></td>
-          <td>Browser language</td>
-          <td><abbr title="ISO 639-1 code"><a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</td>
-        </tr>
-        <tr>
-          <td>placeholder</td>
-          <td><code>String</code></td>
-          <td>Nothing Selected</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>search-text</td>
-          <td><code>String</code></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
+    <doc-options name="Other">
+      <div>
+        <p>close-on-select</p>
+        <p><code>Boolean</code></p>
+        <p><code>false</code></p>
+        <p></p>
+      </div>
+      <div>
+        <p>lang</p>
+        <p><code>String</code></p>
+        <p>Browser language</p>
+        <p><abbr title="ISO 639-1 code"><a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>
+      </div>
+      <div>
+        <p>placeholder</p>
+        <p><code>String</code></p>
+        <p>Nothing Selected</p>
+        <p></p>
+      </div>
+      <div>
+        <p>search-text</p>
+        <p><code>String</code></p>
+        <p></p>
+        <p></p>
+      </div>
+    </doc-options>
+  </doc-section>
 </template>
 
 <script>
+import docSection from './docSection.vue'
+import docOptions from './docOptions.vue'
+import docCode from './docCode.vue'
 import buttonGroup from 'src/buttonGroup.vue'
 import checkbox from 'src/Checkbox.vue'
 import vSelect from 'src/Select.vue'
@@ -136,6 +121,9 @@ import vOption from 'src/Option.vue'
 
 export default {
   components: {
+    docSection,
+    docOptions,
+    docCode,
     buttonGroup,
     checkbox,
     vSelect,
@@ -154,7 +142,8 @@ export default {
           {value: 7, label: 'Tiger'},
           {value: 8, label: 'Turtle'}
         ],
-        justified: true
+        justified: true,
+        multiple: true
       },
       ajax: {
         value:null

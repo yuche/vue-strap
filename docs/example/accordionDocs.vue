@@ -5,7 +5,7 @@
       <p><v-select :options="types" clear-button :value.sync="selected" placeholder="Global type"></v-select></p>
       <p><v-select :options="types" clear-button :value.sync="first" placeholder="First element type"></v-select></p>
       <accordion :one-at-atime="checked" :type="selected">
-        <panel header="Panel #1" :is-open="true" :type="first=='panel'?null:first">
+        <panel header="Panel #1" is-open :type="first=='panel'?null:first">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -39,22 +39,22 @@
         </panel>
       </accordion>
     </div>
-    <pre><code class="language-markup">
-&lt;accordion :one-at-atime="checked" type="info">
-  &lt;panel header="Panel #1" :is-open="true" type="primary">
-    ...
-  &lt;/panel>
-  &lt;panel header="Panel #2">
-    ...
-  &lt;/panel>
-  &lt;panel header="Panel #3">
-    ...
-  &lt;/panel>
-  &lt;panel header="Panel #4">
-    ...
-  &lt;/panel>
-&lt;/accordion>
-    </code></pre>
+    <doc-code language="markup">
+      <accordion :one-at-atime="checked" type="info">
+        <panel header="Panel #1" is-open type="primary">
+          ...
+        </panel>
+        <panel header="Panel #2">
+          ...
+        </panel>
+        <panel header="Panel #3">
+          ...
+        </panel>
+        <panel header="Panel #4">
+          ...
+        </panel>
+      </accordion>
+    </doc-code>
     <doc-options>
       <div>
         <p>type</p>
@@ -95,6 +95,7 @@
 <script>
 import docSection from './docSection.vue'
 import docOptions from './docOptions.vue'
+import docCode from './docCode.vue'
 import accordion from 'src/Accordion.vue'
 import checkbox from 'src/Checkbox.vue'
 import panel from 'src/Panel.vue'
@@ -104,6 +105,7 @@ export default {
   components: {
     docSection,
     docOptions,
+    docCode,
     accordion,
     checkbox,
     panel,

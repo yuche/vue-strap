@@ -1,7 +1,7 @@
 require('./assets/docs.css')
 require('./assets/style.css')
-require('./js/showLanguage')
 require('prismjs')
+require('./js/showLanguage')
 
 import $ from 'src/utils/NodeList.js'
 import accordionDocs from './example/accordionDocs.vue'
@@ -58,20 +58,12 @@ new Vue({
     tooltipDocs,
     typeaheadDocs
   },
-  methods: {
-    fixOffset () {
-      for(let item of this.$root.sections) {
-        item.top = item.el.offsetTop
-      }
-    }
-  },
   created () {
     if (!this.$root.sections) {
       this.$root.sections = []
     }
   },
   ready () {
-    $(window).on('load resize', this.fixOffset)
     var list = this.$root.sections
     while(list.length) list.pop()
     $('.bs-docs-section', this.$els.sections).each((el) => {
@@ -81,6 +73,5 @@ new Vue({
         el: el
       })
     })
-    this.fixOffset()
   }
 })

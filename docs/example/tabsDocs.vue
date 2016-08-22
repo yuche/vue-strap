@@ -1,6 +1,5 @@
 <template>
-  <div class="bs-docs-section" id="tabs">
-    <h1 class="page-header"><a href="#tabs" class="anchor">Tabs</a></h1>
+  <doc-section id="tabs" name="Tabs">
     <div class="bs-example">
       <tabs>
         <tab header="one">
@@ -9,8 +8,8 @@
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse
-             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </tab>
         <tab header="two" disabled>
@@ -33,115 +32,88 @@
         </tab-group>
       </tabs>
     </div>
-    <pre><code class="language-markup">
-&lt;tabs>
-  &lt;tab header="one">
-    ...
-  &lt;/tab>
-  &lt;tab header="two" disabled>
-    ...
-  &lt;/tab>
-  &lt;tab-group header="group1">
-    &lt;tab header="three">
-      ...
-    &lt;/tab>
-    &lt;tab header="four" disabled>
-      ...
-    &lt;/tab>
-  &lt;/tab-group>
-  &lt;tab-group header="group2">
-    &lt;tab header="five">
-      ...
-    &lt;/tab>
-  &lt;/tab-group>
-&lt;/tabs>
-  </code></pre>
-  <pre><code class="language-javascript"><script type="language-javascript">
-components: {
-  tabs: VueStrap.Tabset,
-  tabGroup: VueStrap.TabGroup,
-  tab: VueStrap.Tab
-}
-  </script></code></pre>
-  <h2>Tabset Options (Container)</h2>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>active</td>
-        <td><code>Number</code></td>
-        <td><code>0</code></td>
-        <td>Active tab index (0 based)</td>
-      </tr>
-    </tbody>
-  </table>
-  <h2>TabGroup Options (Dropdown)</h2>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>disabled</td>
-        <td><code>Boolean</code></td>
-        <td><code>false</code></td>
-        <td>Whether tabgroup is clickable.</td>
-      </tr>
-      <tr>
-        <td>header</td>
-        <td><code>String</code></td>
-        <td><code>null</code></td>
-        <td>Group Title</td>
-      </tr>
-    </tbody>
-  </table>
-  <h2>Tab Options (Element)</h2>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>header</td>
-        <td><code>String</code></td>
-        <td></td>
-        <td>Tab Title</td>
-      </tr>
-      <tr>
-        <td>disabled</td>
-        <td><code>Boolean</code></td>
-        <td>false</td>
-        <td>Whether tab is clickable and can be activated.</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
+    <doc-code language="markup">
+      <tabs>
+        <tab header="one">
+          ...
+        </tab>
+        <tab header="two" disabled>
+          ...
+        </tab>
+        <tab-group header="group1">
+          <tab header="three">
+            ...
+          </tab>
+          <tab header="four" disabled>
+            ...
+          </tab>
+        </tab-group>
+        <tab-group header="group2">
+          <tab header="five">
+            ...
+          </tab>
+        </tab-group>
+      </tabs>
+    </doc-code>
+    <doc-code language="javascript">
+      components: {
+        tabs: VueStrap.Tabset,
+        tabGroup: VueStrap.TabGroup,
+        tab: VueStrap.Tab
+      }
+    </doc-code>
+    <doc-options name="Tabset (container)">
+      <div>
+        <p>active</p>
+        <p><code>Number</code></p>
+        <p><code>0</code></p>
+        <p>Active tab index (0 based)</p>
+      </div>
+    </doc-options>
+    <doc-options name="TabGroup (dropdown)">
+      <div>
+        <p>disabled</p>
+        <p><code>Boolean</code></p>
+        <p><code>false</code></p>
+        <p>Whether tabgroup is clickable.</p>
+      </div>
+      <div>
+        <p>header</p>
+        <p><code>String</code></p>
+        <p><code>null</code></p>
+        <p>Group Title</p>
+      </div>
+    </doc-options>
+    <doc-options name="Tab (element)">
+      <div>
+        <p>header</p>
+        <p><code>String</code></p>
+        <p></p>
+        <p>Tab Title</p>
+      </div>
+      <div>
+        <p>disabled</p>
+        <p><code>Boolean</code></p>
+        <p>false</p>
+        <p>Whether tab is clickable and can be activated.</p>
+      </div>
+    </doc-options>
+  </doc-section>
 </template>
 
 <script>
+import docSection from './docSection.vue'
+import docOptions from './docOptions.vue'
+import docCode from './docCode.vue'
 import tabs from 'src/Tabset.vue'
 import tabGroup from 'src/TabGroup.vue'
 import tab from 'src/Tab.vue'
 
 export default {
   components: {
+    docSection,
+    docOptions,
+    docCode,
     tabGroup,
     tabs,
     tab

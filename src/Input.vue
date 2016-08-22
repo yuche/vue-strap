@@ -35,6 +35,9 @@
         :placeholder="placeholder"
       />
     </template>
+    <button v-if="clearButton && value" type="button" class="close" @click="value = ''">
+      <span>&times;</span>
+    </button>
     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
     <div v-if="showHelp" class="help-block">{{help}}</div>
     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
@@ -57,6 +60,11 @@ export default {
     match: {
       type: String,
       default: null
+    },
+    clearButton: {
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: false
     },
     disabled: {
       type: Boolean,
@@ -231,5 +239,26 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<!-- <style scoped></style> -->
+<style scoped>
+.form-group {
+  position: relative;
+}
+label~button.close {
+    top: 25px;
+}
+button.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+.has-feedback.has-success button.close,
+.has-feedback.has-error button.close {
+  right:20px;
+}
+</style>
