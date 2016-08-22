@@ -3,28 +3,35 @@
     <div class="bs-example">
       <h4>Radio</h4>
       <radio :checked.sync="radioValue" value="one">One</radio>
-      <radio :checked.sync="radioValue" value="two" type="primary">Two</radio>
-      <radio :checked.sync="radioValue" value="three" type="danger">Three</radio>
+      <radio :checked.sync="radioValue" value="two" type="danger" disabled>Two (disabled)</radio>
+      <radio :checked.sync="radioValue" value="two" type="warning" readonly>Two (readonly)</radio>
+      <radio :checked.sync="radioValue" value="two" type="success">Two</radio>
       <hr>
       <h4>Radio Button (Single buttons)</h4>
-      <radio button :checked.sync="radioValue" value="four" type="warning">Four</radio>
-      <radio button :checked.sync="radioValue" value="five" type="info">Five</radio>
+      <radio button :checked.sync="radioValue" value="three" type="primary">Three</radio>
+      <radio button :checked.sync="radioValue" value="four" type="info" disabled>Four (disabled)</radio>
+      <radio button :checked.sync="radioValue" value="four" type="info" readonly>Four (readonly)</radio>
+      <radio button :checked.sync="radioValue" value="four" type="info">Four</radio>
       <p><pre>Radio value: {{radioValue | json}}</pre></p>
     </div>
     <doc-code language="markup">
       <radio :checked.sync="radioValue" value="one">One</radio>
       <radio :checked.sync="radioValue" value="two" type="primary">Two</radio>
-      <radio :checked.sync="radioValue" value="three" type="danger">Three</radio>
-
-      <radio button :checked.sync="radioValue" value="four" type="warning">Four</radio>
-      <radio button :checked.sync="radioValue" value="five" type="info">Five</radio>
+      <radio button :checked.sync="radioValue" value="three" type="danger">Three</radio>
+      <radio button :checked.sync="radioValue" value="four" type="info">Four</radio>
     </doc-code>
     <doc-options>
       <div>
-        <p>value</p>
-        <p><code>Array</code> or <code>String</code></p>
+        <p>checked</p>
+        <p><code>Number</code> or <code>String</code></p>
         <p></p>
-        <p>If defined, then the defined values will be checked otherwise the elements with a checked attribute will be checked.</p>
+        <p>Handle the selected value.</p>
+      </div>
+      <div>
+        <p>value</p>
+        <p><code>Number</code> or <code>String</code></p>
+        <p></p>
+        <p>Value to return if the radio item is selected.</p>
       </div>
       <div>
         <p>type</p>
@@ -41,9 +48,10 @@
         <p>button</p>
         <p><code>Boolean</code></p>
         <p>false</p>
-        <p>Button style. If is in a button group (set as radio group), all radios will be buttons automaticaly.</p>
+        <p>Button style.</p>
       </div>
     </doc-options>
+    <p>See <a href="#button-group">Button Group</a> for more options.</p>
   </doc-section>
 </template>
 

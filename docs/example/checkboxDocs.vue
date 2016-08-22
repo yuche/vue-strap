@@ -3,27 +3,37 @@
     <div class="bs-example">
       <h4>Checkbox</h4>
       <checkbox :checked.sync="checkboxValue.one" value="one">One</checkbox>
-      <checkbox :checked.sync="checkboxValue.two" value="two" type="primary">Two</checkbox>
-      <checkbox :checked.sync="checkboxValue.three" value="three" type="danger">Three</checkbox>
+      <checkbox :checked.sync="checkboxValue.two" value="two" type="danger" disabled>Two (disabled)</checkbox>
+      <checkbox :checked.sync="checkboxValue.two" value="two" type="warning" readonly>Two (readonly)</checkbox>
+      <checkbox :checked.sync="checkboxValue.two" value="two" type="success">Two</checkbox>
       <hr>
       <h4>Checkbox Button (Single button)</h4>
-      <checkbox button :checked.sync="checkboxValue.four" value="four" type="primary">Four</checkbox>
+      <checkbox button :checked.sync="checkboxValue.three" value="three" type="primary">Three</checkbox>
+      <checkbox button :checked.sync="checkboxValue.four" value="four" type="info" disabled>Four (disabled)</checkbox>
+      <checkbox button :checked.sync="checkboxValue.four" value="four" type="info" readonly>Four (readonly)</checkbox>
+      <checkbox button :checked.sync="checkboxValue.four" value="four" type="info">Four</checkbox>
       <p>
-        <pre>Checkbox value: {{checkboxValue | json}}</pre>
+        <pre>Checkbox values: {{checkboxValue | json}}</pre>
       </p>
     </div>
     <doc-code language="markup">
       <checkbox :checked.sync="checkboxValue.one" value="one">One</checkbox>
       <checkbox :checked.sync="checkboxValue.two" value="two" type="primary">Two</checkbox>
-      <checkbox :checked.sync="checkboxValue.three" value="three" type="danger">Three</checkbox>
-      <checkbox button :checked.sync="checkboxValue.four" value="four" type="primary">Four</checkbox>
+      <checkbox :checked.sync="checkboxValue.three" value="three" type="info">Three</checkbox>
+      <checkbox button :checked.sync="checkboxValue.four" value="four" type="danger">Four</checkbox>
     </doc-code>
     <doc-options>
       <div>
-        <p>value</p>
-        <p><code>Array</code> or <code>String</code></p>
+        <p>checked</p>
+        <p><code>Number</code> or <code>String</code></p>
         <p></p>
-        <p>If defined, then the defined values will be checked otherwise the elements with a checked attribute will be checked.</p>
+        <p>Handle the selected value.</p>
+      </div>
+      <div>
+        <p>value</p>
+        <p><code>Number</code> or <code>String</code></p>
+        <p></p>
+        <p>Value to return if the checkbox item is selected.</p>
       </div>
       <div>
         <p>type</p>
@@ -40,9 +50,10 @@
         <p>button</p>
         <p><code>Boolean</code></p>
         <p>false</p>
-        <p>Button style. Inside a button group (if is a checkbox group) all checkboxes are buttons by default.</p>
+        <p>Button style.</p>
       </div>
     </doc-options>
+    <p>See <a href="#button-group">Button Group</a> for more options.</p>
   </doc-section>
 </template>
 
