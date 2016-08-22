@@ -33,7 +33,9 @@ export default {
     }
   },
   created () {
-    if (!this.name && this.$parent._section) this.name = this.$parent.name
+    if (!this.name && this.$parent._section) {
+      this.name = this.$parent.name
+    }
   },
   ready () {
     const container = this._slotContents.default

@@ -5,14 +5,14 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <bs-input
             :disabled="check.disabled"
-            :error="check.error?'Insert user name':null"
+            :error="check.error && 'Insert user name'"
             help="Only allows lowercase letters and numbers."
             :icon="check.icon"
-            :label="check.label?'User Name':null"
+            :label="check.label && 'User Name'"
             :mask="check.mask?mask:null"
             :minlength="check.minlength?5:0"
             pattern="^[a-z][a-z0-9]+$"
-            :placeholder="check.placeholder?'Username can\'t start with a number.':null"
+            :placeholder="check.placeholder && 'Username can\'t start with a number.'"
             :readonly="check.readonly"
             :required="check.required"
             :clear-button="check.clearButton"
