@@ -78,8 +78,8 @@ class NodeList {
   includes (element, index) {
     return ~this.indexOf(element, index)
   }
-  map () {
-    return flatten(ArrayProto.map.apply(this, arguments), this)
+  map (...args) {
+    return flatten(ArrayProto.map.apply(this, args), this)
   }
   pop (amount) {
     if (typeof amount !== 'number') { amount = 1 }
@@ -102,10 +102,10 @@ class NodeList {
     for(let el = this[i]; el; el = this[--i]) {
       if (el.remove) {
         el.remove()
-        ArrayProto.splice.apply(this, [i, 1])
+        ArrayProto.splice.call(this, i, 1)
       } else if (el.parentNode) {
         el.parentNode.removeChild(el)
-        ArrayProto.splice.apply(this, [i, 1])
+        ArrayProto.splice.call(this, i, 1)
       }
     }
     return this
@@ -136,26 +136,26 @@ class NodeList {
   }
 
   addClass (classes) {
-    if (typeof classes === 'string') classes = classes.trim().replace(/\s+/,' ').split(' ')
-    classes.forEach((c) => this.each((el) => el.classList.add(c)))
-    return this
+    return this.toggleClass(classes, true)
   }
   removeClass (classes) {
-    if (typeof classes === 'string') classes = classes.trim().replace(/\s+/,' ').split(' ')
-    classes.forEach((c) => this.each((el) => el.classList.remove(c)))
-    return this
+    return this.toggleClass(classes, false)
   }
   toggleClass (classes, value) {
-    if (value !== undefined && value !== null) return this[value ? 'addClass' : 'removeClass'](classes)
-    if (typeof classes === 'string') classes = classes.trim().replace(/\s+/,' ').split(' ')
-    classes.forEach((c) => this.each((el) => el.classList.toggle(c)))
+    const method = (value === undefined || value === null) ? 'toggle' : value ? 'add' : 'remove'
+    if (typeof classes === 'string') {
+      classes = classes.trim().replace(/\s+/,' ').split(' ')
+    }
+    classes.forEach((c) => this.each((el) => el.classList[method](c)))
     return this
   }
 
   get (prop) {
     let arr = []
     for (let el of this) {
-      if (el !== null) { el = el[prop] }
+      if (el !== null) {
+        el = el[prop]
+      }
       arr.push(el)
     }
     return flatten(arr, this)
@@ -165,7 +165,9 @@ class NodeList {
       for (let el of this) {
         if (el) {
           for (key in prop) {
-            if (key in el) el[key] = prop[key]
+            if (key in el) {
+              el[key] = prop[key]
+            }
           }
         }
       }
@@ -178,13 +180,13 @@ class NodeList {
     }
     return this
   }
-  call () {
-    const method = ArrayProto.shift.call(arguments)
+  call (...args) {
+    const method = ArrayProto.shift.call(args)
     let arr = []
     let returnThis = true
     for (let el of this) {
       if (el && el[method] instanceof Function) {
-        el = el[method].apply(el, arguments)
+        el = el[method].apply(el, args)
         arr.push(el)
         if (returnThis && el !== undefined) {
           returnThis = false
