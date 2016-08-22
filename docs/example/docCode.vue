@@ -30,7 +30,7 @@ export default {
         return nr + s.substr(min)
       })
     }
-    this.$els.container.innerHTML = content.replace(/^\s*|\s*$/g,'')
+    this.$els.container.innerHTML = content.replace(/^\s+|\s+$/g,'')
   }
 }
 </script>

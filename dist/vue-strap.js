@@ -430,7 +430,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'map',
 	    value: function map() {
-	      return flatten(ArrayProto.map.apply(this, arguments), this);
+	      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	        args[_key] = arguments[_key];
+	      }
+	
+	      return flatten(ArrayProto.map.apply(this, args), this);
 	    }
 	  }, {
 	    key: 'pop',
@@ -486,10 +490,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      for (var el = this[i]; el; el = this[--i]) {
 	        if (el.remove) {
 	          el.remove();
-	          ArrayProto.splice.apply(this, [i, 1]);
+	          ArrayProto.splice.call(this, i, 1);
 	        } else if (el.parentNode) {
 	          el.parentNode.removeChild(el);
-	          ArrayProto.splice.apply(this, [i, 1]);
+	          ArrayProto.splice.call(this, i, 1);
 	        }
 	      }
 	      return this;
@@ -554,39 +558,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'addClass',
 	    value: function addClass(classes) {
-	      var _this2 = this;
-	
-	      if (typeof classes === 'string') classes = classes.trim().replace(/\s+/, ' ').split(' ');
-	      classes.forEach(function (c) {
-	        return _this2.each(function (el) {
-	          return el.classList.add(c);
-	        });
-	      });
-	      return this;
+	      return this.toggleClass(classes, true);
 	    }
 	  }, {
 	    key: 'removeClass',
 	    value: function removeClass(classes) {
-	      var _this3 = this;
-	
-	      if (typeof classes === 'string') classes = classes.trim().replace(/\s+/, ' ').split(' ');
-	      classes.forEach(function (c) {
-	        return _this3.each(function (el) {
-	          return el.classList.remove(c);
-	        });
-	      });
-	      return this;
+	      return this.toggleClass(classes, false);
 	    }
 	  }, {
 	    key: 'toggleClass',
 	    value: function toggleClass(classes, value) {
-	      var _this4 = this;
+	      var _this2 = this;
 	
-	      if (value !== undefined && value !== null) return this[value ? 'addClass' : 'removeClass'](classes);
-	      if (typeof classes === 'string') classes = classes.trim().replace(/\s+/, ' ').split(' ');
+	      var method = value === undefined || value === null ? 'toggle' : value ? 'add' : 'remove';
+	      if (typeof classes === 'string') {
+	        classes = classes.trim().replace(/\s+/, ' ').split(' ');
+	      }
 	      classes.forEach(function (c) {
-	        return _this4.each(function (el) {
-	          return el.classList.toggle(c);
+	        return _this2.each(function (el) {
+	          return el.classList[method](c);
 	        });
 	      });
 	      return this;
@@ -639,7 +629,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	            if (el) {
 	              for (key in prop) {
-	                if (key in el) el[key] = prop[key];
+	                if (key in el) {
+	                  el[key] = prop[key];
+	                }
 	              }
 	            }
 	          }
@@ -690,7 +682,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'call',
 	    value: function call() {
-	      var method = ArrayProto.shift.call(arguments);
+	      for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	        args[_key2] = arguments[_key2];
+	      }
+	
+	      var method = ArrayProto.shift.call(args);
 	      var arr = [];
 	      var returnThis = true;
 	      var _iteratorNormalCompletion9 = true;
@@ -702,7 +698,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          var el = _step9.value;
 	
 	          if (el && el[method] instanceof Function) {
-	            el = el[method].apply(el, arguments);
+	            el = el[method].apply(el, args);
 	            arr.push(el);
 	            if (returnThis && el !== undefined) {
 	              returnThis = false;
@@ -1136,7 +1132,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	var div = document.createElement('div');
 	function setterGetter(prop) {
-	  var _this5 = this,
+	  var _this3 = this,
 	      _arguments = arguments;
 	
 	  if (div[prop] instanceof Function) {
@@ -1176,7 +1172,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      }
 	
-	      return returnThis ? _this5 : flatten(arr, _this5);
+	      return returnThis ? _this3 : flatten(arr, _this3);
 	    };
 	  } else {
 	    (0, _defineProperty2.default)(NL, prop, {
@@ -5246,8 +5242,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      _this2.show = false;
 	    });
 	    $el.findChildren('a,button').on('click', function (e) {
-	      _this2.show = !_this2.show;
 	      e.preventDefault();
+	      if (_this2.disabled) {
+	        return false;
+	      }
+	      _this2.show = !_this2.show;
 	      return false;
 	    });
 	    $el.findChildren('ul').on('click', 'li>a', function (e) {
@@ -9276,7 +9275,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//       </li>
 	
-	//       <dropdown v-else :text="t.header" :class="{active:t.active,disabled:t.disabled}" :disabled="t.disabled">
+	//       <dropdown v-else :text="t.header" :class="{active:t.active}" :disabled="t.disabled">
 	
 	//         <li v-for="tab in t.tabs" :class="{disabled:tab.disabled}"><a href="#" @click.prevent="select(tab)">{{tab.header}}</a></li>
 	
@@ -9358,7 +9357,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 221 */
 /***/ function(module, exports) {
 
-	module.exports = "<!-- Nav tabs -->\n  <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-c8373860=\"\">\n    <template v-for=\"t in headers\" _v-c8373860=\"\">\n      <li v-if=\"!t._tabgroup\" :class=\"{active:t.active, disabled:t.disabled}\" @click.prevent=\"select(t)\" _v-c8373860=\"\">\n        <a href=\"#\" _v-c8373860=\"\"><slot name=\"header\" _v-c8373860=\"\">{{{t.header}}}</slot></a>\n      </li>\n      <dropdown v-else=\"\" :text=\"t.header\" :class=\"{active:t.active,disabled:t.disabled}\" :disabled=\"t.disabled\" _v-c8373860=\"\">\n        <li v-for=\"tab in t.tabs\" :class=\"{disabled:tab.disabled}\" _v-c8373860=\"\"><a href=\"#\" @click.prevent=\"select(tab)\" _v-c8373860=\"\">{{tab.header}}</a></li>\n      </dropdown>\n    </template>\n  </ul>\n  <div class=\"tab-content\" v-el:tab-content=\"\" _v-c8373860=\"\">\n    <slot _v-c8373860=\"\"></slot>\n  </div>";
+	module.exports = "<!-- Nav tabs -->\n  <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-c8373860=\"\">\n    <template v-for=\"t in headers\" _v-c8373860=\"\">\n      <li v-if=\"!t._tabgroup\" :class=\"{active:t.active, disabled:t.disabled}\" @click.prevent=\"select(t)\" _v-c8373860=\"\">\n        <a href=\"#\" _v-c8373860=\"\"><slot name=\"header\" _v-c8373860=\"\">{{{t.header}}}</slot></a>\n      </li>\n      <dropdown v-else=\"\" :text=\"t.header\" :class=\"{active:t.active}\" :disabled=\"t.disabled\" _v-c8373860=\"\">\n        <li v-for=\"tab in t.tabs\" :class=\"{disabled:tab.disabled}\" _v-c8373860=\"\"><a href=\"#\" @click.prevent=\"select(tab)\" _v-c8373860=\"\">{{tab.header}}</a></li>\n      </dropdown>\n    </template>\n  </ul>\n  <div class=\"tab-content\" v-el:tab-content=\"\" _v-c8373860=\"\">\n    <slot _v-c8373860=\"\"></slot>\n  </div>";
 
 /***/ },
 /* 222 */

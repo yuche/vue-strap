@@ -461,7 +461,11 @@
 	  }, {
 	    key: 'map',
 	    value: function map() {
-	      return flatten(ArrayProto.map.apply(this, arguments), this);
+	      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	        args[_key] = arguments[_key];
+	      }
+	
+	      return flatten(ArrayProto.map.apply(this, args), this);
 	    }
 	  }, {
 	    key: 'pop',
@@ -517,10 +521,10 @@
 	      for (var el = this[i]; el; el = this[--i]) {
 	        if (el.remove) {
 	          el.remove();
-	          ArrayProto.splice.apply(this, [i, 1]);
+	          ArrayProto.splice.call(this, i, 1);
 	        } else if (el.parentNode) {
 	          el.parentNode.removeChild(el);
-	          ArrayProto.splice.apply(this, [i, 1]);
+	          ArrayProto.splice.call(this, i, 1);
 	        }
 	      }
 	      return this;
@@ -585,39 +589,25 @@
 	  }, {
 	    key: 'addClass',
 	    value: function addClass(classes) {
-	      var _this2 = this;
-	
-	      if (typeof classes === 'string') classes = classes.trim().replace(/\s+/, ' ').split(' ');
-	      classes.forEach(function (c) {
-	        return _this2.each(function (el) {
-	          return el.classList.add(c);
-	        });
-	      });
-	      return this;
+	      return this.toggleClass(classes, true);
 	    }
 	  }, {
 	    key: 'removeClass',
 	    value: function removeClass(classes) {
-	      var _this3 = this;
-	
-	      if (typeof classes === 'string') classes = classes.trim().replace(/\s+/, ' ').split(' ');
-	      classes.forEach(function (c) {
-	        return _this3.each(function (el) {
-	          return el.classList.remove(c);
-	        });
-	      });
-	      return this;
+	      return this.toggleClass(classes, false);
 	    }
 	  }, {
 	    key: 'toggleClass',
 	    value: function toggleClass(classes, value) {
-	      var _this4 = this;
+	      var _this2 = this;
 	
-	      if (value !== undefined && value !== null) return this[value ? 'addClass' : 'removeClass'](classes);
-	      if (typeof classes === 'string') classes = classes.trim().replace(/\s+/, ' ').split(' ');
+	      var method = value === undefined || value === null ? 'toggle' : value ? 'add' : 'remove';
+	      if (typeof classes === 'string') {
+	        classes = classes.trim().replace(/\s+/, ' ').split(' ');
+	      }
 	      classes.forEach(function (c) {
-	        return _this4.each(function (el) {
-	          return el.classList.toggle(c);
+	        return _this2.each(function (el) {
+	          return el.classList[method](c);
 	        });
 	      });
 	      return this;
@@ -670,7 +660,9 @@
 	
 	            if (el) {
 	              for (key in prop) {
-	                if (key in el) el[key] = prop[key];
+	                if (key in el) {
+	                  el[key] = prop[key];
+	                }
 	              }
 	            }
 	          }
@@ -721,7 +713,11 @@
 	  }, {
 	    key: 'call',
 	    value: function call() {
-	      var method = ArrayProto.shift.call(arguments);
+	      for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	        args[_key2] = arguments[_key2];
+	      }
+	
+	      var method = ArrayProto.shift.call(args);
 	      var arr = [];
 	      var returnThis = true;
 	      var _iteratorNormalCompletion9 = true;
@@ -733,7 +729,7 @@
 	          var el = _step9.value;
 	
 	          if (el && el[method] instanceof Function) {
-	            el = el[method].apply(el, arguments);
+	            el = el[method].apply(el, args);
 	            arr.push(el);
 	            if (returnThis && el !== undefined) {
 	              returnThis = false;
@@ -1167,7 +1163,7 @@
 	}
 	var div = document.createElement('div');
 	function setterGetter(prop) {
-	  var _this5 = this,
+	  var _this3 = this,
 	      _arguments = arguments;
 	
 	  if (div[prop] instanceof Function) {
@@ -1207,7 +1203,7 @@
 	        }
 	      }
 	
-	      return returnThis ? _this5 : flatten(arr, _this5);
+	      return returnThis ? _this3 : flatten(arr, _this3);
 	    };
 	  } else {
 	    (0, _defineProperty2.default)(NL, prop, {
@@ -2612,13 +2608,13 @@
 	exports.default = {
 	  props: {
 	    id: {
-	      type: String,
 	      required: true,
+	      type: String,
 	      default: null
 	    },
 	    name: {
-	      type: String,
 	      required: true,
+	      type: String,
 	      default: null
 	    }
 	  },
@@ -2687,7 +2683,9 @@
 	    };
 	  },
 	  created: function created() {
-	    if (!this.name && this.$parent._section) this.name = this.$parent.name;
+	    if (!this.name && this.$parent._section) {
+	      this.name = this.$parent.name;
+	    }
 	  },
 	  ready: function ready() {
 	    var _this = this;
@@ -2810,7 +2808,7 @@
 	        });
 	      })();
 	    }
-	    this.$els.container.innerHTML = content.replace(/^\s*|\s*$/g, '');
+	    this.$els.container.innerHTML = content.replace(/^\s+|\s+$/g, '');
 	  }
 	};
 	// </script>
@@ -10256,8 +10254,11 @@
 	      _this2.show = false;
 	    });
 	    $el.findChildren('a,button').on('click', function (e) {
-	      _this2.show = !_this2.show;
 	      e.preventDefault();
+	      if (_this2.disabled) {
+	        return false;
+	      }
+	      _this2.show = !_this2.show;
 	      return false;
 	    });
 	    $el.findChildren('ul').on('click', 'li>a', function (e) {
@@ -10871,13 +10872,13 @@
 	
 	//             :disabled="check.disabled"
 	
-	//             :error="check.error?'Insert user name':null"
+	//             :error="check.error && 'Insert user name'"
 	
 	//             help="Only allows lowercase letters and numbers."
 	
 	//             :icon="check.icon"
 	
-	//             :label="check.label?'User Name':null"
+	//             :label="check.label && 'User Name'"
 	
 	//             :mask="check.mask?mask:null"
 	
@@ -10885,7 +10886,7 @@
 	
 	//             pattern="^[a-z][a-z0-9]+$"
 	
-	//             :placeholder="check.placeholder?'Username can\'t start with a number.':null"
+	//             :placeholder="check.placeholder && 'Username can\'t start with a number.'"
 	
 	//             :readonly="check.readonly"
 	
@@ -11713,7 +11714,7 @@
 /* 271 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"input\" name=\"Input\">\r\n    <div class=\"bs-example text-left\">\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n          <bs-input\r\n            :disabled=\"check.disabled\"\r\n            :error=\"check.error?'Insert user name':null\"\r\n            help=\"Only allows lowercase letters and numbers.\"\r\n            :icon=\"check.icon\"\r\n            :label=\"check.label?'User Name':null\"\r\n            :mask=\"check.mask?mask:null\"\r\n            :minlength=\"check.minlength?5:0\"\r\n            pattern=\"^[a-z][a-z0-9]+$\"\r\n            :placeholder=\"check.placeholder?'Username can\\'t start with a number.':null\"\r\n            :readonly=\"check.readonly\"\r\n            :required=\"check.required\"\r\n            :clear-button=\"check.clearButton\"\r\n            :value.sync=\"input\"\r\n          ></bs-input>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n          <bs-input required label=\"Match value\" type=\"password\" :match=\"input\" :icon=\"check.icon\" help=\"Match the User Name\"></bs-input>\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <button-group type=\"primary\" buttons=\"false\">\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <p><checkbox :checked.sync=\"check.label\">Label</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.placeholder\">placeholder</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.disabled\">disabled</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.error\">error</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.icon\">icon</checkbox></p>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <p><checkbox :checked.sync=\"check.mask\">mask</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.minlength\">minlength=5</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.readonly\">readonly</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.required\">required</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.clearButton\">clear button</checkbox></p>\r\n          </div>\r\n        </button-group>\r\n      </div>\r\n      <bs-input label=\"Textarea\" type=\"textarea\" :icon=\"check.icon\" no-validate></bs-input>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <bs-input :value.sync=\"input\"\r\n        label=\"Username\"\r\n        help=\"Only allows lowercase letters and numbers.\"\r\n        error=\"Insert username\"\r\n        placeholder=\"Username can't start with a number.\"\r\n        pattern=\"^[a-z][a-z0-9]+$\"\r\n        :mask=\"mask\"\r\n        minlength=\"5\"\r\n        readonly\r\n        required\r\n        icon\r\n      ></bs-input>\r\n      <bs-input required label=\"Match value\" type=\"password\" :match=\"input\"></bs-input>\r\n      <bs-input label=\"Textarea\" type=\"textarea\" no-validate></bs-input>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      mask: function (value) {\r\n        // change to lowercase, remove first non-letter and all other unsupported characters\r\n        return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\\W/g,'');\r\n      }\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Input value. Use <code>:value.sync=\"value\"</code></p>\r\n      </div>\r\n      <div>\r\n        <p>match</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Matching value. Both have to be the same value.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <!-- <div>\r\n        <p>enterSubmit</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Error message.</p>\r\n      </div> -->\r\n      <div>\r\n        <p>error</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>help</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Help text behind the input</p>\r\n      </div>\r\n      <div>\r\n        <p>hide-help</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Only work with help and error.<br/>Hide the help if have to show any error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>icon</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>label</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Enable input label (name).</p>\r\n      </div>\r\n      <div>\r\n        <p>lang</p>\r\n        <p><code>String</code></p>\r\n        <p>Browser language</p>\r\n        <p><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>\r\n      </div>\r\n      <div>\r\n        <p>mask</p>\r\n        <p><code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Mask function that receive and edit the value.</p>\r\n      </div>\r\n      <div>\r\n        <p>maxlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>minlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>name</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>no-validate</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Disable validations (don't affect masking).</p>\r\n      </div>\r\n      <div>\r\n        <p>pattern</p>\r\n        <p><code>String</code> or <code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Validation pattern.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>required</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code></p>\r\n        <p><code>'text'</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>validation-delay</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>250</code></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n\r\n  </doc-section>";
+	module.exports = "<doc-section id=\"input\" name=\"Input\">\r\n    <div class=\"bs-example text-left\">\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n          <bs-input\r\n            :disabled=\"check.disabled\"\r\n            :error=\"check.error && 'Insert user name'\"\r\n            help=\"Only allows lowercase letters and numbers.\"\r\n            :icon=\"check.icon\"\r\n            :label=\"check.label && 'User Name'\"\r\n            :mask=\"check.mask?mask:null\"\r\n            :minlength=\"check.minlength?5:0\"\r\n            pattern=\"^[a-z][a-z0-9]+$\"\r\n            :placeholder=\"check.placeholder && 'Username can\\'t start with a number.'\"\r\n            :readonly=\"check.readonly\"\r\n            :required=\"check.required\"\r\n            :clear-button=\"check.clearButton\"\r\n            :value.sync=\"input\"\r\n          ></bs-input>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n          <bs-input required label=\"Match value\" type=\"password\" :match=\"input\" :icon=\"check.icon\" help=\"Match the User Name\"></bs-input>\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <button-group type=\"primary\" buttons=\"false\">\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <p><checkbox :checked.sync=\"check.label\">Label</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.placeholder\">placeholder</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.disabled\">disabled</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.error\">error</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.icon\">icon</checkbox></p>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <p><checkbox :checked.sync=\"check.mask\">mask</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.minlength\">minlength=5</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.readonly\">readonly</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.required\">required</checkbox></p>\r\n            <p><checkbox :checked.sync=\"check.clearButton\">clear button</checkbox></p>\r\n          </div>\r\n        </button-group>\r\n      </div>\r\n      <bs-input label=\"Textarea\" type=\"textarea\" :icon=\"check.icon\" no-validate></bs-input>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <bs-input :value.sync=\"input\"\r\n        label=\"Username\"\r\n        help=\"Only allows lowercase letters and numbers.\"\r\n        error=\"Insert username\"\r\n        placeholder=\"Username can't start with a number.\"\r\n        pattern=\"^[a-z][a-z0-9]+$\"\r\n        :mask=\"mask\"\r\n        minlength=\"5\"\r\n        readonly\r\n        required\r\n        icon\r\n      ></bs-input>\r\n      <bs-input required label=\"Match value\" type=\"password\" :match=\"input\"></bs-input>\r\n      <bs-input label=\"Textarea\" type=\"textarea\" no-validate></bs-input>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      mask: function (value) {\r\n        // change to lowercase, remove first non-letter and all other unsupported characters\r\n        return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\\W/g,'');\r\n      }\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Input value. Use <code>:value.sync=\"value\"</code></p>\r\n      </div>\r\n      <div>\r\n        <p>match</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Matching value. Both have to be the same value.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <!-- <div>\r\n        <p>enterSubmit</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Error message.</p>\r\n      </div> -->\r\n      <div>\r\n        <p>error</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>help</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Help text behind the input</p>\r\n      </div>\r\n      <div>\r\n        <p>hide-help</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Only work with help and error.<br/>Hide the help if have to show any error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>icon</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>label</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Enable input label (name).</p>\r\n      </div>\r\n      <div>\r\n        <p>lang</p>\r\n        <p><code>String</code></p>\r\n        <p>Browser language</p>\r\n        <p><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>\r\n      </div>\r\n      <div>\r\n        <p>mask</p>\r\n        <p><code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Mask function that receive and edit the value.</p>\r\n      </div>\r\n      <div>\r\n        <p>maxlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>minlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>name</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>no-validate</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Disable validations (don't affect masking).</p>\r\n      </div>\r\n      <div>\r\n        <p>pattern</p>\r\n        <p><code>String</code> or <code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Validation pattern.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>required</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code></p>\r\n        <p><code>'text'</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>validation-delay</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>250</code></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n\r\n  </doc-section>";
 
 /***/ },
 /* 272 */
@@ -14653,7 +14654,7 @@
 	
 	//       </li>
 	
-	//       <dropdown v-else :text="t.header" :class="{active:t.active,disabled:t.disabled}" :disabled="t.disabled">
+	//       <dropdown v-else :text="t.header" :class="{active:t.active}" :disabled="t.disabled">
 	
 	//         <li v-for="tab in t.tabs" :class="{disabled:tab.disabled}"><a href="#" @click.prevent="select(tab)">{{tab.header}}</a></li>
 	
@@ -14735,7 +14736,7 @@
 /* 320 */
 /***/ function(module, exports) {
 
-	module.exports = "<!-- Nav tabs -->\n  <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-c8373860=\"\">\n    <template v-for=\"t in headers\" _v-c8373860=\"\">\n      <li v-if=\"!t._tabgroup\" :class=\"{active:t.active, disabled:t.disabled}\" @click.prevent=\"select(t)\" _v-c8373860=\"\">\n        <a href=\"#\" _v-c8373860=\"\"><slot name=\"header\" _v-c8373860=\"\">{{{t.header}}}</slot></a>\n      </li>\n      <dropdown v-else=\"\" :text=\"t.header\" :class=\"{active:t.active,disabled:t.disabled}\" :disabled=\"t.disabled\" _v-c8373860=\"\">\n        <li v-for=\"tab in t.tabs\" :class=\"{disabled:tab.disabled}\" _v-c8373860=\"\"><a href=\"#\" @click.prevent=\"select(tab)\" _v-c8373860=\"\">{{tab.header}}</a></li>\n      </dropdown>\n    </template>\n  </ul>\n  <div class=\"tab-content\" v-el:tab-content=\"\" _v-c8373860=\"\">\n    <slot _v-c8373860=\"\"></slot>\n  </div>";
+	module.exports = "<!-- Nav tabs -->\n  <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-c8373860=\"\">\n    <template v-for=\"t in headers\" _v-c8373860=\"\">\n      <li v-if=\"!t._tabgroup\" :class=\"{active:t.active, disabled:t.disabled}\" @click.prevent=\"select(t)\" _v-c8373860=\"\">\n        <a href=\"#\" _v-c8373860=\"\"><slot name=\"header\" _v-c8373860=\"\">{{{t.header}}}</slot></a>\n      </li>\n      <dropdown v-else=\"\" :text=\"t.header\" :class=\"{active:t.active}\" :disabled=\"t.disabled\" _v-c8373860=\"\">\n        <li v-for=\"tab in t.tabs\" :class=\"{disabled:tab.disabled}\" _v-c8373860=\"\"><a href=\"#\" @click.prevent=\"select(tab)\" _v-c8373860=\"\">{{tab.header}}</a></li>\n      </dropdown>\n    </template>\n  </ul>\n  <div class=\"tab-content\" v-el:tab-content=\"\" _v-c8373860=\"\">\n    <slot _v-c8373860=\"\"></slot>\n  </div>";
 
 /***/ },
 /* 321 */

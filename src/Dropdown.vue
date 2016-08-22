@@ -82,8 +82,9 @@ export default {
     const $el = $(this.$els.dropdown)
     $el.onBlur((e) => { this.show = false })
     $el.findChildren('a,button').on('click', (e) => {
-      this.show = !this.show
       e.preventDefault()
+      if (this.disabled) { return false }
+      this.show = !this.show
       return false
     })
     $el.findChildren('ul').on('click', 'li>a', (e) => { this.show = false })
