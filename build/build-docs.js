@@ -2376,191 +2376,191 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <doc-section id="accordion" name="Accordion">
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <checkbox :checked.sync="checked" type="primary">Open only one at a time.</checkbox>
-	
+
 	//       <p><v-select :options="types" clear-button :value.sync="selected" placeholder="Global type"></v-select></p>
-	
+
 	//       <p><v-select :options="types" clear-button :value.sync="first" placeholder="First element type"></v-select></p>
-	
+
 	//       <accordion :one-at-atime="checked" :type="selected">
-	
+
 	//         <panel header="Panel #1" is-open :type="first=='panel'?null:first">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
+
 	//         </panel>
-	
+
 	//         <panel header="Panel #2">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
+
 	//         </panel>
-	
+
 	//         <panel header="Panel #3">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
+
 	//         </panel>
-	
+
 	//         <panel header="Panel #4">
-	
+
 	//           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	
+
 	//           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	
+
 	//           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	
+
 	//           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	
+
 	//           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	
+
 	//           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
+
 	//         </panel>
-	
+
 	//       </accordion>
-	
+
 	//     </div>
-	
+
 	//     <doc-code language="markup">
-	
+
 	//       <accordion :one-at-atime="checked" type="info">
-	
+
 	//         <panel header="Panel #1" is-open type="primary">
-	
+
 	//           ...
-	
+
 	//         </panel>
-	
+
 	//         <panel header="Panel #2">
-	
+
 	//           ...
-	
+
 	//         </panel>
-	
+
 	//         <panel header="Panel #3">
-	
+
 	//           ...
-	
+
 	//         </panel>
-	
+
 	//         <panel header="Panel #4">
-	
+
 	//           ...
-	
+
 	//         </panel>
-	
+
 	//       </accordion>
-	
+
 	//     </doc-code>
-	
+
 	//     <doc-options>
-	
+
 	//       <div>
-	
+
 	//         <p>type</p>
-	
+
 	//         <p><code>String</code></p>
-	
+
 	//         <p><code>null</code></p>
-	
+
 	//         <p>Define the type of color for the tabs (global).</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>one-at-time</p>
-	
+
 	//         <p><code>Boolean</code></p>
-	
+
 	//         <p><code>false</code></p>
-	
+
 	//         <p>Control whether expanding an item will cause the other items to close.</p>
-	
+
 	//       </div>
-	
+
 	//     </doc-options>
-	
+
 	//     <doc-options name="Panel">
-	
+
 	//       <div>
-	
+
 	//         <p>header</p>
-	
+
 	//         <p><code>String</code></p>
-	
+
 	//         <p></p>
-	
+
 	//         <p>The clickable text on the group's header. You need one to be able to click on the header for toggling.</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>is-open</p>
-	
+
 	//         <p><code>Boolean</code></p>
-	
+
 	//         <p><code>false</code></p>
-	
+
 	//         <p>Whether accordion group is open or closed.</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>type</p>
-	
+
 	//         <p><code>String</code></p>
-	
+
 	//         <p><code>null</code></p>
-	
+
 	//         <p>Define the type of color for the tab (single).</p>
-	
+
 	//       </div>
-	
+
 	//     </doc-options>
-	
+
 	//   </doc-section>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -2702,41 +2702,41 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <h2 v-if="options.length">{{name}} Options</h2>
-	
+
 	//   <table v-if="options.length" class="table table-bordered">
-	
+
 	//     <thead>
-	
+
 	//       <tr>
-	
+
 	//         <th>Name</th>
-	
+
 	//         <th>Type</th>
-	
+
 	//         <th>Default</th>
-	
+
 	//         <th>Description</th>
-	
+
 	//       </tr>
-	
+
 	//     </thead>
-	
+
 	//     <tbody>
-	
+
 	//       <tr v-for="option in options">
-	
+
 	//         <td v-for="el in option" v-html="el" v-if="$index<4"></td>
-	
+
 	//       </tr>
-	
+
 	//     </tbody>
-	
+
 	//   </table>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -2815,19 +2815,19 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <pre v-if="!language" v-el:container></pre>
-	
+
 	//   <template v-else>
-	
+
 	//     <pre v-if="language=='markup'"><code class="language-markup"><script v-el:container type="language-mark-up"></script></code></pre>
-	
+
 	//     <pre v-else><code class="language-{{language}}"><script v-el:container type="language-{{language}}"></script></code></pre>
-	
+
 	//   </template>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -2909,15 +2909,15 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="panel-group">
-	
+
 	//     <slot></slot>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -2958,10 +2958,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-6922bf24&file=Checkbox.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Checkbox.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Checkbox.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-6922bf24&file=Checkbox.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Checkbox.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Checkbox.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -2983,8 +2983,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6922bf24&file=Checkbox.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Checkbox.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6922bf24&file=Checkbox.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Checkbox.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fb39d5b4&file=Checkbox.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Checkbox.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fb39d5b4&file=Checkbox.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Checkbox.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3002,7 +3002,7 @@
 	
 	
 	// module
-	exports.push([module.id, "label.cb[_v-6922bf24] {\r\n  position: relative;\r\n  min-height: 20px;\r\n  padding-left: 20px;\r\n  margin-bottom: 0;\r\n  font-weight: 400;\r\n  cursor: pointer;\r\n}\r\nlabel.cb > input[_v-6922bf24] {\r\n  position: absolute;\r\n  margin: 0;\r\n  padding: 0;\r\n  opacity: 0;\r\n  z-index: -1;\r\n  box-sizing: border-box;\r\n}\r\nlabel.cb > input ~ .icon[_v-6922bf24] {\r\n  position: absolute;\r\n  top: .2rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  line-height:1rem;\r\n  color: #ddd;\r\n  text-align: center;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n  border-radius: .35rem;\r\n  background-color: #ddd;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\r\n}\r\nlabel.cb > input:checked ~ .icon[_v-6922bf24] {\r\n  background-size: .6em .6em;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);\r\n}\r\nlabel.cb > input:not(:checked) ~ .icon[_v-6922bf24] {\r\n  border: 1px solid #aaa;\r\n}\r\nlabel.cb > input:disabled ~ .icon[_v-6922bf24],\r\nlabel.cb > input[readonly] ~ .icon[_v-6922bf24] {\r\n  background-color: #eee;\r\n}\r\nlabel.cb > input:focus ~ .icon[_v-6922bf24] {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\nlabel.cb.active > .icon[_v-6922bf24] {\r\n  background-color: #bbb;\r\n}\r\nlabel.cb.active.cb-primary > input:not(:disabled):not([readonly]) ~ .icon[_v-6922bf24] {\r\n  background-color: #337ab7;\r\n}\r\nlabel.cb.active.cb-success > input:not(:disabled):not([readonly]) ~ .icon[_v-6922bf24] {\r\n  background-color: #5cb85c;\r\n}\r\nlabel.cb.active.cb-info > input:not(:disabled):not([readonly]) ~ .icon[_v-6922bf24] {\r\n  background-color: #5bc0de;\r\n}\r\nlabel.cb.active.cb-warning > input:not(:disabled):not([readonly]) ~ .icon[_v-6922bf24] {\r\n  background-color: #f0ad4e;\r\n}\r\nlabel.cb.active.cb-danger > input:not(:disabled):not([readonly]) ~ .icon[_v-6922bf24] {\r\n  background-color: #d9534f;\r\n}\r\nlabel.btn > input[_v-6922bf24] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\r\n}", ""]);
+	exports.push([module.id, ".checkbox { position: relative; }\r\n.checkbox > label > input {\r\n  position: absolute;\r\n  margin: 0;\r\n  padding: 0;\r\n  opacity: 0;\r\n  z-index: -1;\r\n  box-sizing: border-box;\r\n}\r\n.checkbox > label > .icon {\r\n  position: absolute;\r\n  top: .2rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  line-height:1rem;\r\n  text-align: center;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n  border-radius: .35rem;\r\n  background-color: #ddd;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\r\n}\r\n.checkbox > label > input:focus ~ .icon {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\n.checkbox.active > label > .icon {\r\n  background-size: 1rem 1rem;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);\r\n}\r\n.checkbox.active.default > label > .icon { background-color: #bbb; }\r\n.checkbox.active.primary > label > .icon { background-color: #337ab7; }\r\n.checkbox.active.success > label > .icon { background-color: #5cb85c; }\r\n.checkbox.active.info > label > .icon { background-color: #5bc0de; }\r\n.checkbox.active.warning > label > .icon { background-color: #f0ad4e; }\r\n.checkbox.active.danger > label > .icon { background-color: #d9534f; }\r\n\r\n.checkbox.disabled > label > .icon,\r\n.checkbox.readonly > label > .icon,\r\n.btn.readonly {\r\n  filter: alpha(opacity=65);\r\n  box-shadow: none;\r\n  opacity: .65;\r\n}\r\nlabel.btn > input[type=checkbox] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\r\n}", ""]);
 	
 	// exports
 
@@ -3398,209 +3398,205 @@
 	    focus: function focus() {
 	      this.$els.input.focus();
 	    },
-	    toggle: function toggle() {
-	      this.focus();
-	      this.checked = this.checked === this.value ? null : this.value;
-	      if (this.group && typeof this.value !== 'boolean') {
-	        var parent = this.$parent;
-	        var index = parent.value.indexOf(this.value);
-	        index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1);
+	    toggle: function toggle(e) {
+	      e.preventDefault();
+	      if (!this.disabled) {
+	        this.focus();
+	        if (!this.readonly) {
+	          this.checked = this.checked ? null : this.value;
+	          if (this.group && typeof this.value !== 'boolean') {
+	            var parent = this.$parent;
+	            var index = parent.value.indexOf(this.value);
+	            index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1);
+	          }
+	        }
 	      }
+	      return false;
 	    }
 	  }
 	};
 	// </script>
-	
-	// <style scoped>
-	
-	// label.cb {
-	
-	//   position: relative;
-	
-	//   min-height: 20px;
-	
-	//   padding-left: 20px;
-	
-	//   margin-bottom: 0;
-	
-	//   font-weight: 400;
-	
-	//   cursor: pointer;
-	
-	// }
-	
-	// label.cb > input {
-	
+
+	// <style scope>
+
+	// .checkbox { position: relative; }
+
+	// .checkbox > label > input {
+
 	//   position: absolute;
-	
+
 	//   margin: 0;
-	
+
 	//   padding: 0;
-	
+
 	//   opacity: 0;
-	
+
 	//   z-index: -1;
-	
+
 	//   box-sizing: border-box;
-	
+
 	// }
-	
-	// label.cb > input ~ .icon {
-	
+
+	// .checkbox > label > .icon {
+
 	//   position: absolute;
-	
+
 	//   top: .2rem;
-	
+
 	//   left: 0;
-	
+
 	//   display: block;
-	
+
 	//   width: 1.4rem;
-	
+
 	//   height: 1.4rem;
-	
+
 	//   line-height:1rem;
-	
-	//   color: #ddd;
-	
+
 	//   text-align: center;
-	
+
 	//   -webkit-user-select: none;
-	
+
 	//   -moz-user-select: none;
-	
+
 	//   -ms-user-select: none;
-	
+
 	//   user-select: none;
-	
+
 	//   border-radius: .35rem;
-	
+
 	//   background-color: #ddd;
-	
+
 	//   background-repeat: no-repeat;
-	
+
 	//   background-position: center center;
-	
+
 	//   background-size: 50% 50%;
-	
+
 	// }
-	
-	// label.cb > input:checked ~ .icon {
-	
-	//   background-size: .6em .6em;
-	
-	//   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);
-	
-	// }
-	
-	// label.cb > input:not(:checked) ~ .icon {
-	
-	//   border: 1px solid #aaa;
-	
-	// }
-	
-	// label.cb > input:disabled ~ .icon,
-	
-	// label.cb > input[readonly] ~ .icon {
-	
-	//   background-color: #eee;
-	
-	// }
-	
-	// label.cb > input:focus ~ .icon {
-	
+
+	// .checkbox > label > input:focus ~ .icon {
+
 	//   outline: 0;
-	
+
 	//   border: 1px solid #66afe9;
-	
+
 	//   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-	
+
 	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-	
+
 	// }
-	
-	// label.cb.active > .icon {
-	
-	//   background-color: #bbb;
-	
+
+	// .checkbox.active > label > .icon {
+
+	//   background-size: 1rem 1rem;
+
+	//   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);
+
 	// }
-	
-	// label.cb.active.cb-primary > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #337ab7;
-	
+
+	// .checkbox.active.default > label > .icon { background-color: #bbb; }
+
+	// .checkbox.active.primary > label > .icon { background-color: #337ab7; }
+
+	// .checkbox.active.success > label > .icon { background-color: #5cb85c; }
+
+	// .checkbox.active.info > label > .icon { background-color: #5bc0de; }
+
+	// .checkbox.active.warning > label > .icon { background-color: #f0ad4e; }
+
+	// .checkbox.active.danger > label > .icon { background-color: #d9534f; }
+
+	// .checkbox.disabled > label > .icon,
+
+	// .checkbox.readonly > label > .icon,
+
+	// .btn.readonly {
+
+	//   filter: alpha(opacity=65);
+
+	//   -webkit-box-shadow: none;
+
+	//   box-shadow: none;
+
+	//   opacity: .65;
+
 	// }
-	
-	// label.cb.active.cb-success > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #5cb85c;
-	
-	// }
-	
-	// label.cb.active.cb-info > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #5bc0de;
-	
-	// }
-	
-	// label.cb.active.cb-warning > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #f0ad4e;
-	
-	// }
-	
-	// label.cb.active.cb-danger > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #d9534f;
-	
-	// }
-	
-	// label.btn > input {
-	
+
+	// label.btn > input[type=checkbox] {
+
 	//   position: absolute;
-	
+
 	//   clip: rect(0,0,0,0);
-	
+
 	//   pointer-events: none;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
-	//   <label :class="[(buttonStyle?'btn btn-':'cb cb-')+typeColor,{'active':checked}]">
-	
+
+	//   <label v-if="buttonStyle" :class="['btn btn-'+typeColor,{active:checked,disabled:disabled,readonly:readonly}]" @click="toggle">
+
 	//     <input type="checkbox" autocomplete="off"
-	
+
 	//       v-el:input
-	
-	//       :checked="checked"
-	
+
+	//       v-show="!readonly"
+
+	//       :checked="active"
+
+	//       :value="value"
+
 	//       :name="name"
-	
+
 	//       :readonly="readonly"
-	
+
 	//       :disabled="disabled"
-	
-	//       @click="toggle"
-	
+
 	//     />
-	
-	//     <span class="icon"></span>
-	
-	//     <span><slot></slot></span>
-	
+
+	//     <slot></slot>
+
 	//   </label>
-	
+
+	//   <div v-else :class="['checkbox',typeColor,{active:checked,disabled:disabled,readonly:readonly}]" @click="toggle">
+
+	//     <label>
+
+	//       <input type="checkbox" autocomplete="off"
+
+	//         v-el:input
+
+	//         :checked="active"
+
+	//         :value="value"
+
+	//         :name="name"
+
+	//         :readonly="readonly"
+
+	//         :disabled="disabled"
+
+	//       />
+
+	//       <span class="icon"></span>
+
+	//       <slot></slot>
+
+	//     </label>
+
+	//   </div>
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
 /* 141 */
 /***/ function(module, exports) {
 
-	module.exports = "<label :class=\"[(buttonStyle?'btn btn-':'cb cb-')+typeColor,{'active':checked}]\" _v-6922bf24=\"\">\n    <input type=\"checkbox\" autocomplete=\"off\" v-el:input=\"\" :checked=\"checked\" :name=\"name\" :readonly=\"readonly\" :disabled=\"disabled\" @click=\"toggle\" _v-6922bf24=\"\">\n    <span class=\"icon\" _v-6922bf24=\"\"></span>\n    <span _v-6922bf24=\"\"><slot _v-6922bf24=\"\"></slot></span>\n  </label>";
+	module.exports = "<label v-if=\"buttonStyle\" :class=\"['btn btn-'+typeColor,{active:checked,disabled:disabled,readonly:readonly}]\" @click=\"toggle\">\r\n    <input type=\"checkbox\" autocomplete=\"off\"\r\n      v-el:input\r\n      v-show=\"!readonly\"\r\n      :checked=\"active\"\r\n      :value=\"value\"\r\n      :name=\"name\"\r\n      :readonly=\"readonly\"\r\n      :disabled=\"disabled\"\r\n    />\r\n    <slot></slot>\r\n  </label>\r\n  <div v-else :class=\"['checkbox',typeColor,{active:checked,disabled:disabled,readonly:readonly}]\" @click=\"toggle\">\r\n    <label>\r\n      <input type=\"checkbox\" autocomplete=\"off\"\r\n        v-el:input\r\n        :checked=\"active\"\r\n        :value=\"value\"\r\n        :name=\"name\"\r\n        :readonly=\"readonly\"\r\n        :disabled=\"disabled\"\r\n      />\r\n      <span class=\"icon\"></span>\r\n      <slot></slot>\r\n    </label>\r\n  </div>";
 
 /***/ },
 /* 142 */
@@ -3643,8 +3639,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-b1e0461a&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-b1e0461a&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-69b51631&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-69b51631&file=Panel.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Panel.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3725,74 +3721,74 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .accordion-toggle {
-	
+
 	//   cursor: pointer;
-	
+
 	// }
-	
+
 	// .collapse-transition {
-	
+
 	//   transition: max-height .5s ease;
-	
+
 	// }
-	
+
 	// .collapse-enter, .collapse-leave {
-	
+
 	//   max-height: 0!important;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div class="panel {{panelType}}">
-	
+
 	//     <div class="panel-heading">
-	
+
 	//       <h4 class="panel-title">
-	
+
 	//         <a class="accordion-toggle"
-	
+
 	//           @click="toggle()">
-	
-	//           <slot name="header"> 
-	
+
+	//           <slot name="header">
+
 	//             {{ header }}
-	
+
 	//           </slot>
-	
+
 	//         </a>
-	
+
 	//       </h4>
-	
+
 	//     </div>
-	
+
 	//     <div class="panel-collapse"
-	
+
 	//       v-el:panel
-	
+
 	//       v-show="isOpen"
-	
+
 	//       transition="collapse"
-	
+
 	//     >
-	
+
 	//       <div class="panel-body">
-	
+
 	//         <slot></slot>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -3817,10 +3813,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-e514dbc6&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1f77809f&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-e514dbc6&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-1f77809f&file=Select.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -3842,8 +3838,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e514dbc6&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e514dbc6&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1f77809f&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1f77809f&file=Select.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Select.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3861,7 +3857,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".btn-select[_v-e514dbc6] {\r\n  display: inline-block;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li[_v-e514dbc6] {\r\n  position:relative;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li>a[_v-e514dbc6] {\r\n  cursor:pointer;\r\n}\r\n.bs-searchbox[_v-e514dbc6] {\r\n  padding: 4px 8px;\r\n}\r\n.bs-searchbox input[_v-e514dbc6] {\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;\r\n}\r\nbutton>.close[_v-e514dbc6] {\r\n  margin-left: 5px;\r\n}\r\n.btn-group>.notify[_v-e514dbc6] {\r\n  position: relative;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-e514dbc6],\r\n.btn-group .notify > div[_v-e514dbc6] {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.btn-group .notify > div[_v-e514dbc6] {\r\n  top: 5px;\r\n  z-index: 1;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-e514dbc6] {\r\n  opacity: .9;\r\n  bottom: 5px;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-e514dbc6] {\r\n  width:100%;\r\n}\r\nspan.caret[_v-e514dbc6] {\r\n  float: right;\r\n  margin-top: 9px;\r\n  margin-left: 5px;\r\n}\r\n.secret[_v-e514dbc6] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
+	exports.push([module.id, ".btn-select[_v-1f77809f] {\r\n  display: inline-block;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li[_v-1f77809f] {\r\n  position:relative;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li>a[_v-1f77809f] {\r\n  cursor:pointer;\r\n}\r\n.bs-searchbox[_v-1f77809f] {\r\n  padding: 4px 8px;\r\n}\r\n.bs-searchbox input[_v-1f77809f] {\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;\r\n}\r\nbutton>.close[_v-1f77809f] {\r\n  margin-left: 5px;\r\n}\r\n.btn-group>.notify[_v-1f77809f] {\r\n  position: relative;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f],\r\n.btn-group .notify > div[_v-1f77809f] {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.btn-group .notify > div[_v-1f77809f] {\r\n  top: 5px;\r\n  z-index: 1;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f] {\r\n  opacity: .9;\r\n  bottom: 5px;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-1f77809f] {\r\n  width:100%;\r\n}\r\nspan.caret[_v-1f77809f] {\r\n  float: right;\r\n  margin-top: 9px;\r\n  margin-left: 5px;\r\n}\r\n.secret[_v-1f77809f] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
 	
 	// exports
 
@@ -4306,131 +4302,131 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .btn-select {
-	
+
 	//   display: inline-block;
-	
+
 	// }
-	
+
 	// .btn-select>.btn-group>.dropdown-menu>li {
-	
+
 	//   position:relative;
-	
+
 	// }
-	
+
 	// .btn-select>.btn-group>.dropdown-menu>li>a {
-	
+
 	//   cursor:pointer;
-	
+
 	// }
-	
+
 	// .bs-searchbox {
-	
+
 	//   padding: 4px 8px;
-	
+
 	// }
-	
+
 	// .bs-searchbox input {
-	
+
 	//   border-color: #66afe9 !important;
-	
+
 	//   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
-	
+
 	//           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
-	
+
 	// }
-	
+
 	// button>.close {
-	
+
 	//   margin-left: 5px;
-	
+
 	// }
-	
+
 	// .btn-group>.notify {
-	
+
 	//   position: relative;
-	
+
 	// }
-	
+
 	// .btn-group .dropdown-menu .notify,
-	
+
 	// .btn-group .notify > div {
-	
+
 	//   position: absolute;
-	
+
 	//   width: 96%;
-	
+
 	//   margin: 0 2%;
-	
+
 	//   min-height: 26px;
-	
+
 	//   padding: 3px 5px;
-	
+
 	//   background: #f5f5f5;
-	
+
 	//   border: 1px solid #e3e3e3;
-	
+
 	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-	
+
 	//   pointer-events: none;
-	
+
 	// }
-	
+
 	// .btn-group .notify > div {
-	
+
 	//   top: 5px;
-	
+
 	//   z-index: 1;
-	
+
 	// }
-	
+
 	// .btn-group .dropdown-menu .notify {
-	
+
 	//   opacity: .9;
-	
+
 	//   bottom: 5px;
-	
+
 	// }
-	
+
 	// .btn-group.btn-group-justified .dropdown-menu {
-	
+
 	//   width:100%;
-	
+
 	// }
-	
+
 	// span.caret {
-	
+
 	//   float: right;
-	
+
 	//   margin-top: 9px;
-	
+
 	//   margin-left: 5px;
-	
+
 	// }
-	
+
 	// .secret {
-	
+
 	//   border: 0;
-	
+
 	//   clip: rect(0 0 0 0);
-	
+
 	//   height: 1px;
-	
+
 	//   margin: -1px;
-	
+
 	//   overflow: hidden;
-	
+
 	//   padding: 0;
-	
+
 	//   position: absolute;
-	
+
 	//   width: 1px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
@@ -5110,7 +5106,7 @@
 /* 169 */
 /***/ function(module, exports) {
 
-	module.exports = "<select v-model=\"value\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" @focus=\"focus()\" _v-e514dbc6=\"\">\n  <option v-if=\"required\" value=\"\" _v-e514dbc6=\"\"></option>\n  <option v-for=\"option in options\" :value=\"option.value||option\" :selected=\"isSelected(option.value||option)\" _v-e514dbc6=\"\">{{ option.label||option }}</option>\n</select>\n<div :class=\"{'btn-group btn-group-justified': justified, 'btn-select': !justified}\" @click=\"unblur\" _v-e514dbc6=\"\">\n  <slot name=\"before\" _v-e514dbc6=\"\"></slot>\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-e514dbc6=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"blur()\" _v-e514dbc6=\"\">\n      <span class=\"btn-content\" _v-e514dbc6=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-e514dbc6=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-e514dbc6=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-e514dbc6=\"\">\n      <template v-if=\"options.length\" _v-e514dbc6=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-e514dbc6=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"blur()\" _v-e514dbc6=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value||option\" _v-e514dbc6=\"\">\n          <a @mousedown.prevent=\"select(option.value||option)\" _v-e514dbc6=\"\">\n            {{ option.label||option }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value||option)\" _v-e514dbc6=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-e514dbc6=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-e514dbc6=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-e514dbc6=\"\"><div _v-e514dbc6=\"\">{{limitText}}</div></div>\n  </div>\n  <slot name=\"after\" _v-e514dbc6=\"\"></slot>\n</div>";
+	module.exports = "<select v-model=\"value\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"required\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-for=\"option in options\" :value=\"option.value||option\" :selected=\"isSelected(option.value||option)\" _v-1f77809f=\"\">{{ option.label||option }}</option>\n</select>\n<div :class=\"{'btn-group btn-group-justified': justified, 'btn-select': !justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <slot name=\"before\" _v-1f77809f=\"\"></slot>\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"blur()\" _v-1f77809f=\"\">\n      <span class=\"btn-content\" _v-1f77809f=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"blur()\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value||option\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value||option)\" _v-1f77809f=\"\">\n            {{ option.label||option }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value||option)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n  <slot name=\"after\" _v-1f77809f=\"\"></slot>\n</div>";
 
 /***/ },
 /* 170 */
@@ -5159,8 +5155,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-81085d3e&file=affixDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./affixDocs.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-81085d3e&file=affixDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./affixDocs.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-46920ce3&file=affixDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./affixDocs.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-46920ce3&file=affixDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./affixDocs.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -5283,41 +5279,41 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .animated {
-	
+
 	//     -webkit-animation-duration: 3s;
-	
+
 	//     animation-duration: 3s;
-	
+
 	//     -webkit-animation-fill-mode: both;
-	
+
 	//     animation-fill-mode: both;
-	
+
 	//     animation-iteration-count: infinite
-	
+
 	// }
-	
+
 	// @keyframes shake {
-	
+
 	//     0%, 100% {transform: translateX(0);}
-	
+
 	//     10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);}
-	
+
 	//     20%, 40%, 60%, 80% {transform: translateX(5px);}
-	
+
 	// }
-	
+
 	// .shake {
-	
+
 	//     -webkit-animation-name: shake;
-	
+
 	//     animation-name: shake;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
@@ -5361,8 +5357,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-48fb51b2&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-48fb51b2&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-11919920&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-11919920&file=Tooltip.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tooltip.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -5415,108 +5411,108 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .tooltip {
-	
+
 	//   opacity: .9
-	
+
 	// }
-	
+
 	// .fadein-enter {
-	
+
 	//   animation:fadein-in 0.3s ease-in;
-	
+
 	// }
-	
+
 	// .fadein-leave {
-	
+
 	//   animation:fadein-out 0.3s ease-out;
-	
+
 	// }
-	
+
 	// @keyframes fadein-in {
-	
+
 	//   0% {
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// @keyframes fadein-out {
-	
+
 	//   0% {
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <span v-el:trigger>
-	
+
 	//     <slot>
-	
+
 	//     </slot>
-	
+
 	//   </span>
-	
+
 	//   <div class="tooltip"
-	
+
 	//     v-bind:class="{
-	
+
 	//     'top':    placement === 'top',
-	
+
 	//     'left':   placement === 'left',
-	
+
 	//     'right':  placement === 'right',
-	
+
 	//     'bottom': placement === 'bottom'
-	
+
 	//     }"
-	
+
 	//     v-el:popover
-	
+
 	//     v-show="show"
-	
+
 	//     :transition="effect"
-	
+
 	//     role="tooltip">
-	
+
 	//     <div class="tooltip-arrow"></div>
-	
+
 	//     <div class="tooltip-inner">
-	
+
 	//        <slot name="content">
-	
+
 	//         {{{content}}}
-	
+
 	//       </slot>
-	
+
 	//    </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -5947,8 +5943,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c3778626&file=alertDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./alertDocs.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c3778626&file=alertDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./alertDocs.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-255a786f&file=alertDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./alertDocs.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-255a786f&file=alertDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./alertDocs.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -6211,19 +6207,19 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .alert-icon-float-left {
-	
+
 	//   font-size:32px;
-	
+
 	//   float:left;
-	
+
 	//   margin-right:5px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
@@ -6267,8 +6263,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-af7c1f6a&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-af7c1f6a&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6ae72989&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6ae72989&file=Alert.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Alert.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -6398,53 +6394,53 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .fade-transition {
-	
+
 	//   transition: opacity .3s ease;
-	
+
 	// }
-	
+
 	// .fade-enter,
-	
+
 	// .fade-leave {
-	
+
 	//   height: 0;
-	
+
 	//   opacity: 0;
-	
+
 	// }
-	
+
 	// .alert.top {
-	
+
 	//   position: fixed;
-	
+
 	//   top: 30px;
-	
+
 	//   margin: 0 auto;
-	
+
 	//   left: 0;
-	
+
 	//   right: 0;
-	
+
 	//   z-index: 1050;
-	
+
 	// }
-	
+
 	// .alert.top-right {
-	
+
 	//   position: fixed;
-	
+
 	//   top: 30px;
-	
+
 	//   right: 50px;
-	
+
 	//   z-index: 1050;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
@@ -6717,8 +6713,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3a4bde27&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3a4bde27&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-061dd136&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-061dd136&file=Aside.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Aside.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -6886,285 +6882,285 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .aside-open {
-	
+
 	//   transition: transform 0.3s;
-	
+
 	// }
-	
+
 	// .aside-open.has-push-right {
-	
+
 	//   transform: translateX(-300px);
-	
+
 	// }
-	
+
 	// .aside {
-	
+
 	//     position: fixed;
-	
+
 	//     top: 0;
-	
+
 	//     bottom: 0;
-	
+
 	//     z-index: 1049;
-	
+
 	//     overflow: auto;
-	
+
 	//     background: #fff;
-	
+
 	// }
-	
+
 	// .aside.left {
-	
+
 	//   left: 0;
-	
+
 	//   right: auto;
-	
+
 	// }
-	
+
 	// .aside.right {
-	
+
 	//   left: auto;
-	
+
 	//   right: 0;
-	
+
 	// }
-	
+
 	// .slideleft-enter {
-	
+
 	//   animation:slideleft-in .3s;
-	
+
 	// }
-	
+
 	// .slideleft-leave {
-	
+
 	//   animation:slideleft-out .3s;
-	
+
 	// }
-	
+
 	// @keyframes slideleft-in {
-	
+
 	//   0% {
-	
+
 	//     transform: translateX(-100%);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: translateX(0);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// @keyframes slideleft-out {
-	
+
 	//   0% {
-	
+
 	//     transform: translateX(0);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: translateX(-100%);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// .slideright-enter {
-	
+
 	//   animation:slideright-in .3s;
-	
+
 	// }
-	
+
 	// .slideright-leave {
-	
+
 	//   animation:slideright-out .3s;
-	
+
 	// }
-	
+
 	// @keyframes slideright-in {
-	
+
 	//   0% {
-	
+
 	//     transform: translateX(100%);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: translateX(0);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// @keyframes slideright-out {
-	
+
 	//   0% {
-	
+
 	//     transform: translateX(0);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: translateX(100%);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// .aside:focus {
-	
+
 	//     outline: 0
-	
+
 	// }
-	
+
 	// @media (max-width: 991px) {
-	
+
 	//   .aside {
-	
+
 	//     min-width:240px
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// .aside.left {
-	
+
 	//   right: auto;
-	
+
 	//   left: 0
-	
+
 	// }
-	
+
 	// .aside.right {
-	
+
 	//   right: 0;
-	
+
 	//   left: auto
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-header {
-	
+
 	//   border-bottom: 1px solid #e5e5e5;
-	
+
 	//   min-height: 16.43px;
-	
+
 	//   padding: 6px 15px;
-	
+
 	//   background: #337ab7;
-	
+
 	//   color: #fff
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-header .close {
-	
+
 	//   margin-right: -8px;
-	
+
 	//   padding: 4px 8px;
-	
+
 	//   color: #fff;
-	
+
 	//   font-size: 25px;
-	
+
 	//   opacity: .8
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-body {
-	
+
 	//   position: relative;
-	
+
 	//   padding: 15px
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-footer {
-	
+
 	//   padding: 15px;
-	
+
 	//   text-align: right;
-	
+
 	//   border-top: 1px solid #e5e5e5
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-footer .btn+.btn {
-	
+
 	//   margin-left: 5px;
-	
+
 	//   margin-bottom: 0
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-footer .btn-group .btn+.btn {
-	
+
 	//   margin-left: -1px
-	
+
 	// }
-	
+
 	// .aside .aside-dialog .aside-footer .btn-block+.btn-block {
-	
+
 	//   margin-left: 0
-	
+
 	// }
-	
+
 	// .aside-backdrop {
-	
+
 	//   position: fixed;
-	
+
 	//   top: 0;
-	
+
 	//   right: 0;
-	
+
 	//   bottom: 0;
-	
+
 	//   left: 0;
-	
+
 	//   z-index: 1040;
-	
+
 	//   opacity: 0;
-	
+
 	//   transition: opacity .3s ease;
-	
+
 	//   background-color: #000
-	
+
 	// }
-	
+
 	// .aside-backdrop.in {
-	
+
 	//   opacity: .5;
-	
+
 	//   filter: alpha(opacity=50)
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
@@ -7534,15 +7530,15 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div :class="{'btn-group':buttons}" :data-toggle="buttons&&'buttons'">
-	
+
 	//     <slot></slot>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -7567,10 +7563,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Radio.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Radio.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-74cfd92c&file=Radio.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Radio.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Radio.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Radio.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Radio.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-74cfd92c&file=Radio.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Radio.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Radio.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -7592,8 +7588,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-74cfd92c&file=Radio.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Radio.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-74cfd92c&file=Radio.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Radio.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-ef8566b0&file=Radio.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Radio.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-ef8566b0&file=Radio.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Radio.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -7611,7 +7607,7 @@
 	
 	
 	// module
-	exports.push([module.id, "label.rb[_v-74cfd92c] {\r\n  position: relative;\r\n  min-height: 20px;\r\n  padding-left: 20px;\r\n  margin-bottom: 0;\r\n  font-weight: 400;\r\n  cursor: pointer;\r\n}\r\nlabel.rb > input[_v-74cfd92c] {\r\n  position: absolute;\r\n  margin: 0;\r\n  padding: 0;\r\n  opacity: 0;\r\n  z-index: -1;\r\n  box-sizing: border-box;\r\n}\r\nlabel.rb > input ~ .icon[_v-74cfd92c] {\r\n  position: absolute;\r\n  top: .15rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  line-height:1rem;\r\n  color: #ddd;\r\n  text-align: center;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n  border-radius: .7rem;\r\n  background-color: #ddd;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\r\n}\r\nlabel.rb > input:checked ~ .icon[_v-74cfd92c] {\r\n  background-size: .6em .6em;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);\r\n}\r\nlabel.rb > input:not(:checked) ~ .icon[_v-74cfd92c] {\r\n  border: 1px solid #aaa;\r\n}\r\nlabel.rb > input:disabled ~ .icon[_v-74cfd92c],\r\nlabel.rb > input[readonly] ~ .icon[_v-74cfd92c] {\r\n  background-color: #eee;\r\n}\r\nlabel.rb > input:focus ~ .icon[_v-74cfd92c] {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\nlabel.rb.active > .icon[_v-74cfd92c] {\r\n  background-color: #bbb;\r\n}\r\nlabel.rb.active.rb-primary > input:not(:disabled):not([readonly]) ~ .icon[_v-74cfd92c] {\r\n  background-color: #337ab7;\r\n}\r\nlabel.rb.active.rb-success > input:not(:disabled):not([readonly]) ~ .icon[_v-74cfd92c] {\r\n  background-color: #5cb85c;\r\n}\r\nlabel.rb.active.rb-info > input:not(:disabled):not([readonly]) ~ .icon[_v-74cfd92c] {\r\n  background-color: #5bc0de;\r\n}\r\nlabel.rb.active.rb-warning > input:not(:disabled):not([readonly]) ~ .icon[_v-74cfd92c] {\r\n  background-color: #f0ad4e;\r\n}\r\nlabel.rb.active.rb-danger > input:not(:disabled):not([readonly]) ~ .icon[_v-74cfd92c] {\r\n  background-color: #d9534f;\r\n}\r\nlabel.btn > input[_v-74cfd92c] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\r\n}", ""]);
+	exports.push([module.id, ".radio { position: relative; }\r\n.radio > label > input {\r\n  position: absolute;\r\n  margin: 0;\r\n  padding: 0;\r\n  opacity: 0;\r\n  z-index: -1;\r\n  box-sizing: border-box;\r\n}\r\n.radio > label > .icon {\r\n  position: absolute;\r\n  top: .15rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  text-align: center;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n  border-radius: .7rem;\r\n  border: 1px solid #aaa;\r\n  background-color: #ddd;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\r\n}\r\n.radio > label > input:focus ~ .icon {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\n.radio.active > label > .icon {\r\n  background-size: 1rem 1rem;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);\r\n}\r\n.radio.active.default > label > .icon { background-color: #bbb; }\r\n.radio.active.primary > label > .icon { background-color: #337ab7; }\r\n.radio.active.success > label > .icon { background-color: #5cb85c; }\r\n.radio.active.info > label > .icon { background-color: #5bc0de; }\r\n.radio.active.warning > label > .icon { background-color: #f0ad4e; }\r\n.radio.active.danger > label > .icon { background-color: #d9534f; }\r\n\r\n.radio.disabled > label > .icon,\r\n.radio.readonly > label > .icon,\r\n.btn.readonly {\r\n  filter: alpha(opacity=65);\r\n  box-shadow: none;\r\n  opacity: .65;\r\n}\r\nlabel.btn > input[type=radio] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\r\n}", ""]);
 	
 	// exports
 
@@ -7699,7 +7695,13 @@
 	      this.$els.input.focus();
 	    },
 	    toggle: function toggle() {
+	      if (this.disabled) {
+	        return;
+	      }
 	      this.focus();
+	      if (this.readonly) {
+	        return;
+	      }
 	      this.checked = this.value;
 	      if (this.group) {
 	        this.$parent.value = this.value;
@@ -7708,199 +7710,187 @@
 	  }
 	};
 	// </script>
-	
-	// <style scoped>
-	
-	// label.rb {
-	
-	//   position: relative;
-	
-	//   min-height: 20px;
-	
-	//   padding-left: 20px;
-	
-	//   margin-bottom: 0;
-	
-	//   font-weight: 400;
-	
-	//   cursor: pointer;
-	
-	// }
-	
-	// label.rb > input {
-	
+
+	// <style scope>
+
+	// .radio { position: relative; }
+
+	// .radio > label > input {
+
 	//   position: absolute;
-	
+
 	//   margin: 0;
-	
+
 	//   padding: 0;
-	
+
 	//   opacity: 0;
-	
+
 	//   z-index: -1;
-	
+
 	//   box-sizing: border-box;
-	
+
 	// }
-	
-	// label.rb > input ~ .icon {
-	
+
+	// .radio > label > .icon {
+
 	//   position: absolute;
-	
+
 	//   top: .15rem;
-	
+
 	//   left: 0;
-	
+
 	//   display: block;
-	
+
 	//   width: 1.4rem;
-	
+
 	//   height: 1.4rem;
-	
-	//   line-height:1rem;
-	
-	//   color: #ddd;
-	
+
 	//   text-align: center;
-	
+
 	//   -webkit-user-select: none;
-	
+
 	//   -moz-user-select: none;
-	
+
 	//   -ms-user-select: none;
-	
+
 	//   user-select: none;
-	
+
 	//   border-radius: .7rem;
-	
-	//   background-color: #ddd;
-	
-	//   background-repeat: no-repeat;
-	
-	//   background-position: center center;
-	
-	//   background-size: 50% 50%;
-	
-	// }
-	
-	// label.rb > input:checked ~ .icon {
-	
-	//   background-size: .6em .6em;
-	
-	//   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);
-	
-	// }
-	
-	// label.rb > input:not(:checked) ~ .icon {
-	
+
 	//   border: 1px solid #aaa;
-	
+
+	//   background-color: #ddd;
+
+	//   background-repeat: no-repeat;
+
+	//   background-position: center center;
+
+	//   background-size: 50% 50%;
+
 	// }
-	
-	// label.rb > input:disabled ~ .icon,
-	
-	// label.rb > input[readonly] ~ .icon {
-	
-	//   background-color: #eee;
-	
-	// }
-	
-	// label.rb > input:focus ~ .icon {
-	
+
+	// .radio > label > input:focus ~ .icon {
+
 	//   outline: 0;
-	
+
 	//   border: 1px solid #66afe9;
-	
+
 	//   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-	
+
 	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-	
+
 	// }
-	
-	// label.rb.active > .icon {
-	
-	//   background-color: #bbb;
-	
+
+	// .radio.active > label > .icon {
+
+	//   background-size: 1rem 1rem;
+
+	//   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);
+
 	// }
-	
-	// label.rb.active.rb-primary > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #337ab7;
-	
+
+	// .radio.active.default > label > .icon { background-color: #bbb; }
+
+	// .radio.active.primary > label > .icon { background-color: #337ab7; }
+
+	// .radio.active.success > label > .icon { background-color: #5cb85c; }
+
+	// .radio.active.info > label > .icon { background-color: #5bc0de; }
+
+	// .radio.active.warning > label > .icon { background-color: #f0ad4e; }
+
+	// .radio.active.danger > label > .icon { background-color: #d9534f; }
+
+	// .radio.disabled > label > .icon,
+
+	// .radio.readonly > label > .icon,
+
+	// .btn.readonly {
+
+	//   filter: alpha(opacity=65);
+
+	//   -webkit-box-shadow: none;
+
+	//   box-shadow: none;
+
+	//   opacity: .65;
+
 	// }
-	
-	// label.rb.active.rb-success > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #5cb85c;
-	
-	// }
-	
-	// label.rb.active.rb-info > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #5bc0de;
-	
-	// }
-	
-	// label.rb.active.rb-warning > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #f0ad4e;
-	
-	// }
-	
-	// label.rb.active.rb-danger > input:not(:disabled):not([readonly]) ~ .icon {
-	
-	//   background-color: #d9534f;
-	
-	// }
-	
-	// label.btn > input {
-	
+
+	// label.btn > input[type=radio] {
+
 	//   position: absolute;
-	
+
 	//   clip: rect(0,0,0,0);
-	
+
 	//   pointer-events: none;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
-	//   <label :class="[(buttonStyle?'btn btn-':'rb rb-')+typeColor,{'active':active}]">
-	
+
+	//   <label v-if="buttonStyle" :class="['btn btn-'+typeColor,{active:active,disabled:disabled,readonly:readonly}]" @click="toggle">
+
 	//     <input type="radio" autocomplete="off"
-	
+
 	//       v-el:input
-	
+
+	//       v-show="!readonly"
+
 	//       :checked="active"
-	
+
 	//       :value="value"
-	
+
 	//       :name="name"
-	
+
 	//       :readonly="readonly"
-	
+
 	//       :disabled="disabled"
-	
-	//       @click="toggle"
-	
+
 	//     />
-	
-	//     <span class="icon"></span>
-	
-	//     <span><slot></slot></span>
-	
+
+	//     <slot></slot>
+
 	//   </label>
-	
+
+	//   <div v-else :class="['radio',typeColor,{active:active,disabled:disabled,readonly:readonly}]" @click="toggle">
+
+	//     <label>
+
+	//       <input type="radio" autocomplete="off"
+
+	//         v-el:input
+
+	//         :checked="active"
+
+	//         :value="value"
+
+	//         :name="name"
+
+	//         :readonly="readonly"
+
+	//         :disabled="disabled"
+
+	//       />
+
+	//       <span class="icon"></span>
+
+	//       <slot></slot>
+
+	//     </label>
+
+	//   </div>
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
 /* 216 */
 /***/ function(module, exports) {
 
-	module.exports = "<label :class=\"[(buttonStyle?'btn btn-':'rb rb-')+typeColor,{'active':active}]\" _v-74cfd92c=\"\">\n    <input type=\"radio\" autocomplete=\"off\" v-el:input=\"\" :checked=\"active\" :value=\"value\" :name=\"name\" :readonly=\"readonly\" :disabled=\"disabled\" @click=\"toggle\" _v-74cfd92c=\"\">\n    <span class=\"icon\" _v-74cfd92c=\"\"></span>\n    <span _v-74cfd92c=\"\"><slot _v-74cfd92c=\"\"></slot></span>\n  </label>";
+	module.exports = "<label v-if=\"buttonStyle\" :class=\"['btn btn-'+typeColor,{active:active,disabled:disabled,readonly:readonly}]\" @click=\"toggle\">\r\n    <input type=\"radio\" autocomplete=\"off\"\r\n      v-el:input\r\n      v-show=\"!readonly\"\r\n      :checked=\"active\"\r\n      :value=\"value\"\r\n      :name=\"name\"\r\n      :readonly=\"readonly\"\r\n      :disabled=\"disabled\"\r\n    />\r\n    <slot></slot>\r\n  </label>\r\n  <div v-else :class=\"['radio',typeColor,{active:active,disabled:disabled,readonly:readonly}]\" @click=\"toggle\">\r\n    <label>\r\n      <input type=\"radio\" autocomplete=\"off\"\r\n        v-el:input\r\n        :checked=\"active\"\r\n        :value=\"value\"\r\n        :name=\"name\"\r\n        :readonly=\"readonly\"\r\n        :disabled=\"disabled\"\r\n      />\r\n      <span class=\"icon\"></span>\r\n      <slot></slot>\r\n    </label>\r\n  </div>";
 
 /***/ },
 /* 217 */
@@ -7975,139 +7965,139 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <doc-section id="carousel" name="Carousel">
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <carousel>
-	
+
 	//         <slider>
-	
+
 	//           <img src="http://placehold.it/1200x500?text=one">
-	
+
 	//           <div class="carousel-caption">
-	
+
 	//            <h3>Slide #1</h3>
-	
+
 	//            <p>sunt in culpa qui officia deserunt mollit a.</p>
-	
+
 	//          </div>
-	
+
 	//         </slider>
-	
+
 	//         <slider>
-	
+
 	//           <img src="http://placehold.it/1200x500?text=two">
-	
+
 	//           <div class="carousel-caption">
-	
+
 	//            <h3>Slide #2</h3>
-	
+
 	//            <p>sunt in culpa qui officia deserunt mollit a.</p>
-	
+
 	//          </div>
-	
+
 	//         </slider>
-	
+
 	//         <slider>
-	
+
 	//           <img src="http://placehold.it/1200x500?text=three">
-	
+
 	//           <div class="carousel-caption">
-	
+
 	//            <h3>Slide #3</h3>
-	
+
 	//            <p>sunt in culpa qui officia deserunt mollit a.</p>
-	
+
 	//          </div>
-	
+
 	//         </slider>
-	
+
 	//       </carousel>
-	
+
 	//     </div>
-	
+
 	//     <doc-code language="markup">
-	
+
 	//       <carousel>
-	
+
 	//         <slider>
-	
+
 	//           <img src="http://placehold.it/1200x400?text=one">
-	
+
 	//           <div class="carousel-caption">
-	
+
 	//             ...
-	
+
 	//           </div>
-	
+
 	//         </slider>
-	
+
 	//         <slider>
-	
+
 	//           <img src="http://placehold.it/1200x400?text=two">
-	
+
 	//         </slider>
-	
+
 	//         <slider>
-	
+
 	//           <img src="http://placehold.it/1200x400?text=three">
-	
+
 	//         </slider>
-	
+
 	//       </carousel>
-	
+
 	//     </doc-code>
-	
+
 	//     <doc-options>
-	
+
 	//       <div>
-	
+
 	//         <p>indicators</p>
-	
+
 	//         <p><code>Boolean</code></p>
-	
+
 	//         <p><code>true</code></p>
-	
+
 	//         <p>Whether to show the indicators.</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>controls</p>
-	
+
 	//         <p><code>Boolean</code></p>
-	
+
 	//         <p><code>true</code></p>
-	
+
 	//         <p>Whether to show the direction controls.</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>interval</p>
-	
+
 	//         <p><code>Number</code></p>
-	
+
 	//         <p><code>5000</code></p>
-	
+
 	//         <p>The amount of time to delay between automatically cycling an item. If set to 0 or a negative number,
-	
+
 	//           carousel will not automatically cycle.
-	
+
 	//         </p>
-	
+
 	//       </div>
-	
+
 	//     </doc-options>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -8126,10 +8116,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-322dee41&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4b6e4443&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Carousel.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-322dee41&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4b6e4443&file=Carousel.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Carousel.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -8151,8 +8141,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-322dee41&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-322dee41&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4b6e4443&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4b6e4443&file=Carousel.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Carousel.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -8170,7 +8160,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".carousel-control[_v-322dee41] {\r\n  cursor: pointer;\r\n}", ""]);
+	exports.push([module.id, ".carousel-control[_v-4b6e4443] {\r\n  cursor: pointer;\r\n}", ""]);
 	
 	// exports
 
@@ -8285,65 +8275,65 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .carousel-control {
-	
+
 	//   cursor: pointer;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	// <div class="carousel slide" data-ride="carousel">
-	
+
 	//   <!-- Indicators -->
-	
+
 	//   <ol class="carousel-indicators" v-show="indicators">
-	
+
 	//     <li v-for="i in indicator" @click="indicatorClick($index)" v-bind:class="{active:$index === index}"><span></span></li>
-	
+
 	//   </ol>
-	
+
 	//   <!-- Wrapper for slides -->
-	
+
 	//   <div class="carousel-inner" role="listbox">
-	
+
 	//     <slot></slot>
-	
+
 	//   </div>
-	
+
 	//   <!-- Controls -->
-	
+
 	//   <div v-show="controls" class="carousel-controls hidden-xs">
-	
+
 	//     <a class="left carousel-control" role="button" @click="prev">
-	
+
 	//       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-	
+
 	//     </a>
-	
+
 	//     <a class="right carousel-control" role="button" @click="next">
-	
+
 	//       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-	
+
 	//     </a>
-	
+
 	//   </div>
-	
+
 	// </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
 /* 224 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-322dee41=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-322dee41=\"\">\n    <li v-for=\"i in indicator\" @click=\"indicatorClick($index)\" v-bind:class=\"{active:$index === index}\" _v-322dee41=\"\"><span _v-322dee41=\"\"></span></li>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-322dee41=\"\">\n    <slot _v-322dee41=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <div v-show=\"controls\" class=\"carousel-controls hidden-xs\" _v-322dee41=\"\">\n    <a class=\"left carousel-control\" role=\"button\" @click=\"prev\" _v-322dee41=\"\">\n      <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" _v-322dee41=\"\"></span>\n    </a>\n    <a class=\"right carousel-control\" role=\"button\" @click=\"next\" _v-322dee41=\"\">\n      <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" _v-322dee41=\"\"></span>\n    </a>\n  </div>\n</div>";
+	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-4b6e4443=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-4b6e4443=\"\">\n    <li v-for=\"i in indicator\" @click=\"indicatorClick($index)\" v-bind:class=\"{active:$index === index}\" _v-4b6e4443=\"\"><span _v-4b6e4443=\"\"></span></li>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-4b6e4443=\"\">\n    <slot _v-4b6e4443=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <div v-show=\"controls\" class=\"carousel-controls hidden-xs\" _v-4b6e4443=\"\">\n    <a class=\"left carousel-control\" role=\"button\" @click=\"prev\" _v-4b6e4443=\"\">\n      <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" _v-4b6e4443=\"\"></span>\n    </a>\n    <a class=\"right carousel-control\" role=\"button\" @click=\"next\" _v-4b6e4443=\"\">\n      <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" _v-4b6e4443=\"\"></span>\n    </a>\n  </div>\n</div>";
 
 /***/ },
 /* 225 */
@@ -8492,19 +8482,27 @@
 	
 	//       <checkbox :checked.sync="checkboxValue.one" value="one">One</checkbox>
 	
-	//       <checkbox :checked.sync="checkboxValue.two" value="two" type="primary">Two</checkbox>
+	//       <checkbox :checked.sync="checkboxValue.two" value="two" type="danger" disabled>Two (disabled)</checkbox>
 	
-	//       <checkbox :checked.sync="checkboxValue.three" value="three" type="danger">Three</checkbox>
+	//       <checkbox :checked.sync="checkboxValue.two" value="two" type="warning" readonly>Two (readonly)</checkbox>
+	
+	//       <checkbox :checked.sync="checkboxValue.two" value="two" type="success">Two</checkbox>
 	
 	//       <hr>
 	
 	//       <h4>Checkbox Button (Single button)</h4>
 	
-	//       <checkbox button :checked.sync="checkboxValue.four" value="four" type="primary">Four</checkbox>
+	//       <checkbox button :checked.sync="checkboxValue.three" value="three" type="primary">Three</checkbox>
+	
+	//       <checkbox button :checked.sync="checkboxValue.four" value="four" type="info" disabled>Four (disabled)</checkbox>
+	
+	//       <checkbox button :checked.sync="checkboxValue.four" value="four" type="info" readonly>Four (readonly)</checkbox>
+	
+	//       <checkbox button :checked.sync="checkboxValue.four" value="four" type="info">Four</checkbox>
 	
 	//       <p>
 	
-	//         <pre>Checkbox value: {{checkboxValue | json}}</pre>
+	//         <pre>Checkbox values: {{checkboxValue | json}}</pre>
 	
 	//       </p>
 	
@@ -8516,9 +8514,9 @@
 	
 	//       <checkbox :checked.sync="checkboxValue.two" value="two" type="primary">Two</checkbox>
 	
-	//       <checkbox :checked.sync="checkboxValue.three" value="three" type="danger">Three</checkbox>
+	//       <checkbox :checked.sync="checkboxValue.three" value="three" type="info">Three</checkbox>
 	
-	//       <checkbox button :checked.sync="checkboxValue.four" value="four" type="primary">Four</checkbox>
+	//       <checkbox button :checked.sync="checkboxValue.four" value="four" type="danger">Four</checkbox>
 	
 	//     </doc-code>
 	
@@ -8526,13 +8524,25 @@
 	
 	//       <div>
 	
-	//         <p>value</p>
+	//         <p>checked</p>
 	
-	//         <p><code>Array</code> or <code>String</code></p>
+	//         <p><code>Number</code> or <code>String</code></p>
 	
 	//         <p></p>
 	
-	//         <p>If defined, then the defined values will be checked otherwise the elements with a checked attribute will be checked.</p>
+	//         <p>Handle the selected value.</p>
+	
+	//       </div>
+	
+	//       <div>
+	
+	//         <p>value</p>
+	
+	//         <p><code>Number</code> or <code>String</code></p>
+	
+	//         <p></p>
+	
+	//         <p>Value to return if the checkbox item is selected.</p>
 	
 	//       </div>
 	
@@ -8566,11 +8576,13 @@
 	
 	//         <p>false</p>
 	
-	//         <p>Button style. Inside a button group (if is a checkbox group) all checkboxes are buttons by default.</p>
+	//         <p>Button style.</p>
 	
 	//       </div>
 	
 	//     </doc-options>
+	
+	//     <p>See <a href="#button-group">Button Group</a> for more options.</p>
 	
 	//   </doc-section>
 	
@@ -8601,7 +8613,7 @@
 /* 231 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"checkbox\" name=\"Checkbox\">\r\n    <div class=\"bs-example\">\r\n      <h4>Checkbox</h4>\r\n      <checkbox :checked.sync=\"checkboxValue.one\" value=\"one\">One</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.two\" value=\"two\" type=\"primary\">Two</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.three\" value=\"three\" type=\"danger\">Three</checkbox>\r\n      <hr>\r\n      <h4>Checkbox Button (Single button)</h4>\r\n      <checkbox button :checked.sync=\"checkboxValue.four\" value=\"four\" type=\"primary\">Four</checkbox>\r\n      <p>\r\n        <pre>Checkbox value: {{checkboxValue | json}}</pre>\r\n      </p>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <checkbox :checked.sync=\"checkboxValue.one\" value=\"one\">One</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.two\" value=\"two\" type=\"primary\">Two</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.three\" value=\"three\" type=\"danger\">Three</checkbox>\r\n      <checkbox button :checked.sync=\"checkboxValue.four\" value=\"four\" type=\"primary\">Four</checkbox>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>Array</code> or <code>String</code></p>\r\n        <p></p>\r\n        <p>If defined, then the defined values will be checked otherwise the elements with a checked attribute will be checked.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>button</p>\r\n        <p><code>Boolean</code></p>\r\n        <p>false</p>\r\n        <p>Button style. Inside a button group (if is a checkbox group) all checkboxes are buttons by default.</p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
+	module.exports = "<doc-section id=\"checkbox\" name=\"Checkbox\">\r\n    <div class=\"bs-example\">\r\n      <h4>Checkbox</h4>\r\n      <checkbox :checked.sync=\"checkboxValue.one\" value=\"one\">One</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.two\" value=\"two\" type=\"danger\" disabled>Two (disabled)</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.two\" value=\"two\" type=\"warning\" readonly>Two (readonly)</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.two\" value=\"two\" type=\"success\">Two</checkbox>\r\n      <hr>\r\n      <h4>Checkbox Button (Single button)</h4>\r\n      <checkbox button :checked.sync=\"checkboxValue.three\" value=\"three\" type=\"primary\">Three</checkbox>\r\n      <checkbox button :checked.sync=\"checkboxValue.four\" value=\"four\" type=\"info\" disabled>Four (disabled)</checkbox>\r\n      <checkbox button :checked.sync=\"checkboxValue.four\" value=\"four\" type=\"info\" readonly>Four (readonly)</checkbox>\r\n      <checkbox button :checked.sync=\"checkboxValue.four\" value=\"four\" type=\"info\">Four</checkbox>\r\n      <p>\r\n        <pre>Checkbox values: {{checkboxValue | json}}</pre>\r\n      </p>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <checkbox :checked.sync=\"checkboxValue.one\" value=\"one\">One</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.two\" value=\"two\" type=\"primary\">Two</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.three\" value=\"three\" type=\"info\">Three</checkbox>\r\n      <checkbox button :checked.sync=\"checkboxValue.four\" value=\"four\" type=\"danger\">Four</checkbox>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>checked</p>\r\n        <p><code>Number</code> or <code>String</code></p>\r\n        <p></p>\r\n        <p>Handle the selected value.</p>\r\n      </div>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>Number</code> or <code>String</code></p>\r\n        <p></p>\r\n        <p>Value to return if the checkbox item is selected.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>button</p>\r\n        <p><code>Boolean</code></p>\r\n        <p>false</p>\r\n        <p>Button style.</p>\r\n      </div>\r\n    </doc-options>\r\n    <p>See <a href=\"#button-group\">Button Group</a> for more options.</p>\r\n  </doc-section>";
 
 /***/ },
 /* 232 */
@@ -8725,123 +8737,123 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <doc-section id="datepicker" name="Datepicker">
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <p>
-	
+
 	//         <pre>Selected date is: {{new Date($refs.dp.parse()).toString()}}</pre>
-	
+
 	//       </p>
-	
+
 	//       <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled" :format="format.toString()" :clear-button="clear"></datepicker>
-	
+
 	//       <h4>Disabled days of week</h4>
-	
+
 	//       <v-select multiple :value.sync="disabled" :options="[0,1,2,3,4,5,6]"></v-select>
-	
+
 	//       <h4>Format</h4>
-	
+
 	//       <v-select :value.sync="format" :options="formats"></v-select>
-	
+
 	//       <h4>Reset button</h4>
-	
+
 	//       <checkbox :checked.sync="clear" type="primary">toggle clear button</checkbox>
-	
+
 	//     </div>
-	
+
 	//     <doc-code language="markup">
-	
+
 	//       <datepicker
-	
+
 	//         :value.sync="value"
-	
+
 	//         :disabled-days-of-Week="disabled"
-	
+
 	//         :format="format"
-	
+
 	//         :clear-button="clear">
-	
+
 	//       </datepicker>
-	
+
 	//     </doc-code>
-	
+
 	//     <doc-options>
-	
+
 	//       <div>
-	
+
 	//         <p>value</p>
-	
+
 	//         <p><code>String</code></p>
-	
+
 	//         <p></p>
-	
+
 	//         <p>Value of the input DOM</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>width</p>
-	
+
 	//         <p><code>String</code></p>
-	
+
 	//         <p>200px</p>
-	
+
 	//         <p>Width of the input DOM</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>format</p>
-	
+
 	//         <p><code>String</code></p>
-	
+
 	//         <p><code>MMMM/dd/yyyy</code></p>
-	
+
 	//         <p>The date format, combination of d, dd, M, MM, MMM, MMMM, yyyy.</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>disabled-days-of-week</p>
-	
+
 	//         <p><code>Array</code></p>
-	
+
 	//         <p></p>
-	
+
 	//         <p>Days of the week that should be disabled. Values are 0 (Sunday) to 6 (Saturday).
-	
+
 	//            Multiple values should be comma-separated.</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>clear-button</p>
-	
+
 	//         <p><code>Boolean</code></p>
-	
+
 	//         <p>false</p>
-	
+
 	//         <p>If <strong>true</strong> shows an &times; shaped button to clear the selected date.
-	
+
 	//           Usefull in forms where date entry is optional.</p>
-	
+
 	//       </div>
-	
+
 	//     </doc-options>
-	
+
 	//   </div>
-	
+
 	//   <div></div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -8885,8 +8897,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-477b8e5d&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-477b8e5d&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-11fe6bdf&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-11fe6bdf&file=Datepicker.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Datepicker.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -9337,249 +9349,249 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .datepicker{
-	
+
 	//   position: relative;
-	
+
 	//   display: inline-block;
-	
+
 	// }
-	
+
 	// input.datepicker-input.with-reset-button {
-	
+
 	//   padding-right: 25px;
-	
+
 	// }
-	
+
 	// .datepicker > button.close {
-	
+
 	//   position: absolute;
-	
+
 	//   top: 0;
-	
+
 	//   right: 0;
-	
+
 	//   outline: none;
-	
+
 	//   z-index: 2;
-	
+
 	//   display: block;
-	
+
 	//   width: 34px;
-	
+
 	//   height: 34px;
-	
+
 	//   line-height: 34px;
-	
+
 	//   text-align: center;
-	
+
 	// }
-	
+
 	// .datepicker > button.close:focus {
-	
+
 	//   opacity: .2;
-	
+
 	// }
-	
+
 	// .datepicker-popup{
-	
+
 	//   position: absolute;
-	
+
 	//   border: 1px solid #ccc;
-	
+
 	//   border-radius: 5px;
-	
+
 	//   background: #fff;
-	
+
 	//   margin-top: 2px;
-	
+
 	//   z-index: 1000;
-	
+
 	//   box-shadow: 0 6px 12px rgba(0,0,0,0.175);
-	
+
 	// }
-	
+
 	// .datepicker-inner{
-	
+
 	//   width: 218px;
-	
+
 	// }
-	
+
 	// .datepicker-body{
-	
+
 	//   padding: 10px 10px;
-	
+
 	// }
-	
+
 	// .datepicker-ctrl p,
-	
+
 	// .datepicker-ctrl span,
-	
+
 	// .datepicker-body span{
-	
+
 	//   display: inline-block;
-	
+
 	//   width: 28px;
-	
+
 	//   line-height: 28px;
-	
+
 	//   height: 28px;
-	
+
 	//   border-radius: 4px;
-	
+
 	// }
-	
+
 	// .datepicker-ctrl p {
-	
+
 	//   width: 65%;
-	
+
 	// }
-	
+
 	// .datepicker-ctrl span {
-	
+
 	//   position: absolute;
-	
+
 	// }
-	
+
 	// .datepicker-body span {
-	
+
 	//   text-align: center;
-	
+
 	// }
-	
+
 	// .datepicker-monthRange span{
-	
+
 	//   width: 48px;
-	
+
 	//   height: 50px;
-	
+
 	//   line-height: 45px;
-	
+
 	// }
-	
+
 	// .datepicker-item-disable {
-	
+
 	//   background-color: white!important;
-	
+
 	//   cursor: not-allowed!important;
-	
+
 	// }
-	
+
 	// .decadeRange span:first-child,
-	
+
 	// .decadeRange span:last-child,
-	
+
 	// .datepicker-item-disable,
-	
+
 	// .datepicker-item-gray{
-	
+
 	//   color: #999;
-	
+
 	// }
-	
+
 	// .datepicker-dateRange-item-active:hover,
-	
+
 	// .datepicker-dateRange-item-active {
-	
+
 	//   background: rgb(50, 118, 177)!important;
-	
+
 	//   color: white!important;
-	
+
 	// }
-	
+
 	// .datepicker-monthRange {
-	
+
 	//   margin-top: 10px
-	
+
 	// }
-	
+
 	// .datepicker-monthRange span,
-	
+
 	// .datepicker-ctrl span,
-	
+
 	// .datepicker-ctrl p,
-	
+
 	// .datepicker-dateRange span {
-	
+
 	//   cursor: pointer;
-	
+
 	// }
-	
+
 	// .datepicker-monthRange span:hover,
-	
+
 	// .datepicker-ctrl p:hover,
-	
+
 	// .datepicker-ctrl i:hover,
-	
+
 	// .datepicker-dateRange span:hover,
-	
+
 	// .datepicker-dateRange-item-hover {
-	
+
 	//   background-color : #eeeeee;
-	
+
 	// }
-	
+
 	// .datepicker-weekRange span{
-	
+
 	//   font-weight: bold;
-	
+
 	// }
-	
+
 	// .datepicker-label{
-	
+
 	//   background-color: #f8f8f8;
-	
+
 	//   font-weight: 700;
-	
+
 	//   padding: 7px 0;
-	
+
 	//   text-align: center;
-	
+
 	// }
-	
+
 	// .datepicker-ctrl{
-	
+
 	//   position: relative;
-	
+
 	//   height: 30px;
-	
+
 	//   line-height: 30px;
-	
+
 	//   font-weight: bold;
-	
+
 	//   text-align: center;
-	
+
 	// }
-	
+
 	// .month-btn{
-	
+
 	//   font-weight: bold;
-	
+
 	//   -webkit-user-select:none;
-	
+
 	//   -moz-user-select:none;
-	
+
 	//   -ms-user-select:none;
-	
+
 	//   user-select:none;
-	
+
 	// }
-	
+
 	// .datepicker-preBtn{
-	
+
 	//   left: 2px;
-	
+
 	// }
-	
+
 	// .datepicker-nextBtn{
-	
+
 	//   right: 2px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
@@ -9604,10 +9616,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-42088116&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-57eb20d0&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Option.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-42088116&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-57eb20d0&file=Option.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Option.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -9629,8 +9641,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-42088116&file=Option.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-42088116&file=Option.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-57eb20d0&file=Option.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-57eb20d0&file=Option.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Option.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -9648,7 +9660,7 @@
 	
 	
 	// module
-	exports.push([module.id, "a span.check-mark[_v-42088116] {\r\n  position: absolute;\r\n  display: inline-block;\r\n  right: 15px;\r\n  margin-top: 5px;\r\n}", ""]);
+	exports.push([module.id, "a span.check-mark[_v-57eb20d0] {\r\n  position: absolute;\r\n  display: inline-block;\r\n  right: 15px;\r\n  margin-top: 5px;\r\n}", ""]);
 	
 	// exports
 
@@ -9710,28 +9722,28 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// a span.check-mark {
-	
+
 	//   position: absolute;
-	
+
 	//   display: inline-block;
-	
+
 	//   right: 15px;
-	
+
 	//   margin-top: 5px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
 /* 245 */
 /***/ function(module, exports) {
 
-	module.exports = "<li style=\"position:relative\" _v-42088116=\"\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\" _v-42088116=\"\">\n      <span v-el:v=\"\" _v-42088116=\"\"><slot _v-42088116=\"\"></slot></span>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\" _v-42088116=\"\"></span>\n    </a>\n  </li>";
+	module.exports = "<li style=\"position:relative\" _v-57eb20d0=\"\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\" _v-57eb20d0=\"\">\n      <span v-el:v=\"\" _v-57eb20d0=\"\"><slot _v-57eb20d0=\"\"></slot></span>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\" _v-57eb20d0=\"\"></span>\n    </a>\n  </li>";
 
 /***/ },
 /* 246 */
@@ -10064,10 +10076,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-39be1072&file=Dropdown.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-52fe6674&file=Dropdown.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Dropdown.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-39be1072&file=Dropdown.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-52fe6674&file=Dropdown.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Dropdown.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -10089,8 +10101,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-39be1072&file=Dropdown.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dropdown.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-39be1072&file=Dropdown.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dropdown.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52fe6674&file=Dropdown.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dropdown.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-52fe6674&file=Dropdown.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dropdown.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -10108,7 +10120,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".secret[_v-39be1072] {\r\n  position: absolute;\r\n  clip: rect(0 0 0 0);\r\n  overflow: hidden;\r\n  margin: -1px;\r\n  height: 1px;\r\n  width: 1px;\r\n  padding: 0;\r\n  border: 0;\r\n}", ""]);
+	exports.push([module.id, ".secret[_v-52fe6674] {\r\n  position: absolute;\r\n  clip: rect(0 0 0 0);\r\n  overflow: hidden;\r\n  margin: -1px;\r\n  height: 1px;\r\n  width: 1px;\r\n  padding: 0;\r\n  border: 0;\r\n}", ""]);
 	
 	// exports
 
@@ -10260,36 +10272,36 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .secret {
-	
+
 	//   position: absolute;
-	
+
 	//   clip: rect(0 0 0 0);
-	
+
 	//   overflow: hidden;
-	
+
 	//   margin: -1px;
-	
+
 	//   height: 1px;
-	
+
 	//   width: 1px;
-	
+
 	//   padding: 0;
-	
+
 	//   border: 0;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
 /* 253 */
 /***/ function(module, exports) {
 
-	module.exports = "<li v-if=\"$parent._navbar||$parent.menu||$parent._tabset\" v-el:dropdown=\"\" class=\"dropdown {{disabled&amp;&amp;'disabled'}}\" :class=\"classes\" _v-39be1072=\"\">\n      <a v-if=\"text\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" @keyup.esc=\"show = false\" _v-39be1072=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-39be1072=\"\"></span>\n      </a>\n      <slot v-else=\"\" name=\"button\" _v-39be1072=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-39be1072=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-39be1072=\"\">\n      <slot _v-39be1072=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"classes\" _v-39be1072=\"\">\n      <button v-if=\"text\" type=\"button\" class=\"btn btn-{{type||'default'}} dropdown-toggle\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-39be1072=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-39be1072=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-39be1072=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-39be1072=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-39be1072=\"\">\n      <slot _v-39be1072=\"\"></slot>\n    </ul>\n  </div>";
+	module.exports = "<li v-if=\"$parent._navbar||$parent.menu||$parent._tabset\" v-el:dropdown=\"\" class=\"dropdown {{disabled&amp;&amp;'disabled'}}\" :class=\"classes\" _v-52fe6674=\"\">\n      <a v-if=\"text\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" @keyup.esc=\"show = false\" _v-52fe6674=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-52fe6674=\"\"></span>\n      </a>\n      <slot v-else=\"\" name=\"button\" _v-52fe6674=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-52fe6674=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-52fe6674=\"\">\n      <slot _v-52fe6674=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"classes\" _v-52fe6674=\"\">\n      <button v-if=\"text\" type=\"button\" class=\"btn btn-{{type||'default'}} dropdown-toggle\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-52fe6674=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-52fe6674=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-52fe6674=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-52fe6674=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-52fe6674=\"\">\n      <slot _v-52fe6674=\"\"></slot>\n    </ul>\n  </div>";
 
 /***/ },
 /* 254 */
@@ -10344,147 +10356,147 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div class="bs-docs-section" id="getting-started">
-	
+
 	//     <h1 class="page-header"><a href="#getting-started" class="anchor">Getting started</a></h1>
-	
+
 	//     <div class="bs-callout bs-callout-success">
-	
+
 	//       <h4>About this project</h4>
-	
+
 	//       <p>
-	
+
 	//         This repository contains a set of native Vue.js components based on Bootstrap's markup and CSS.
-	
+
 	//         As a result no dependency on jQuery or Bootstrap's JavaScript is required.
-	
+
 	//         The only required dependencies are:
-	
+
 	//       </p>
-	
+
 	//       <ul>
-	
+
 	//         <li><a href="http://vuejs.org/">Vue.js</a>
-	
+
 	//           (required ^1.0.8, test with 1.0.8).</li>
-	
+
 	//         <li><a href="http://getbootstrap.com/">Bootstrap CSS</a>
-	
+
 	//           (required 3.x.x, test with 3.3.5).
-	
+
 	//           VueStrap doesn't depend on a very precise version of Bootstrap. Just pull the latest.
-	
+
 	//         </li>
-	
+
 	//       </ul>
-	
+
 	//     </div>
-	
+
 	//     <h2>CommonJS</h2>
-	
+
 	//     <doc-code language="javascript">
-	
+
 	//       $ npm install vue-strap
-	
+
 	//       var alert = require('vue-strap/src/alert');
-	
+
 	//       // or
-	
+
 	//       var alert = require('vue-strap').alert;
-	
+
 	//       new Vue({
-	
+
 	//         components: {
-	
+
 	//           alert: alert
-	
+
 	//         }
-	
+
 	//       })
-	
+
 	//     </doc-code>
-	
+
 	//     <h2>ES6</h2>
-	
+
 	//     <doc-code language="javascript">
-	
+
 	//       $ npm install vue-strap
-	
+
 	//       import alert from 'vue-strap/src/alert'
-	
+
 	//       // or
-	
+
 	//       import { alert } from 'vue-strap'
-	
+
 	//       new Vue({
-	
+
 	//         components: {
-	
+
 	//           alert
-	
+
 	//         }``
-	
+
 	//       })
-	
+
 	//     </doc-code>
-	
+
 	//     <h2>AMD</h2>
-	
+
 	//     <doc-code language="javascript">
-	
+
 	//       $ bower install vue-strap
-	
+
 	//       define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
-	
+
 	//     </doc-code>
-	
+
 	//     <h2>Browser globals</h2>
-	
+
 	//     <p>
-	
+
 	//       The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.min.js</code> with
-	
+
 	//       all components exported in the <code>window.VueStrap</code> object. These bundles are also available on both the
-	
+
 	//       Bower and NPM packages.
-	
+
 	//     </p>
-	
+
 	//     <doc-code language="markup">
-	
+
 	//       <v-select :options="options"></v-select>
-	
+
 	//       <script src="path/to/vue.js"></script>
-	
+
 	//       <script src="path/to/vue-strap.js"></script>
-	
+
 	//       <script>
-	
+
 	//         new Vue({
-	
+
 	//           components: {
-	
+
 	//             vSelect: VueStrap.select
-	
+
 	//           },
-	
+
 	//           data: {
-	
+
 	//             options: []
-	
+
 	//           }
-	
+
 	//         })
-	
+
 	//       </script>
-	
+
 	//     </doc-code>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -10712,65 +10724,65 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <nav v-el:navbar :class="['navbar',{
-	
+
 	//     'navbar-inverse':(type == 'inverse'),
-	
+
 	//     'navbar-default':(type == 'default'),
-	
+
 	//     'navbar-fixed-top':(placement === 'top'),
-	
+
 	//     'navbar-fixed-bottom':(placement === 'bottom'),
-	
+
 	//     'navbar-static-top':(placement === 'static')
-	
+
 	//   }]">
-	
+
 	//     <div class="container-fluid">
-	
+
 	//       <div class="navbar-header">
-	
+
 	//         <button v-if="!slots.collapse" type="button" class="navbar-toggle collapsed"  aria-expanded="false" @click="toggleCollapse">
-	
+
 	//           <span class="sr-only">Toggle navigation</span>
-	
+
 	//           <span class="icon-bar"></span>
-	
+
 	//           <span class="icon-bar"></span>
-	
+
 	//           <span class="icon-bar"></span>
-	
+
 	//         </button>
-	
+
 	//         <slot name="collapse"></slot>
-	
+
 	//         <slot name="brand"></slot>
-	
+
 	//       </div>
-	
+
 	//       <div :class="['navbar-collapse',{collapse:collapsed}]">
-	
+
 	//         <ul class="nav navbar-nav">
-	
+
 	//           <slot></slot>
-	
+
 	//         </ul>
-	
+
 	//         <ul v-if="slots.right" class="nav navbar-nav navbar-right">
-	
+
 	//           <slot name="right"></slot>
-	
+
 	//         </ul>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//   </nav>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -11271,10 +11283,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Input.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Input.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-652ad7b9&file=Input.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Input.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Input.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-27d010f7&file=Input.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Input.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Input.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-652ad7b9&file=Input.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Input.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-27d010f7&file=Input.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Input.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -11296,8 +11308,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-652ad7b9&file=Input.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Input.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-652ad7b9&file=Input.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Input.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-27d010f7&file=Input.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Input.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-27d010f7&file=Input.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Input.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -11315,7 +11327,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".form-group[_v-652ad7b9] {\r\n  position: relative;\r\n}\r\nlabel~button.close[_v-652ad7b9] {\r\n    top: 25px;\r\n}\r\nbutton.close[_v-652ad7b9] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.has-feedback.has-success button.close[_v-652ad7b9],\r\n.has-feedback.has-error button.close[_v-652ad7b9] {\r\n  right:20px;\r\n}", ""]);
+	exports.push([module.id, ".form-group[_v-27d010f7] {\r\n  position: relative;\r\n}\r\nlabel~button.close[_v-27d010f7] {\r\n    top: 25px;\r\n}\r\nbutton.close[_v-27d010f7] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.has-feedback.has-success button.close[_v-27d010f7],\r\n.has-feedback.has-error button.close[_v-27d010f7] {\r\n  right:20px;\r\n}", ""]);
 	
 	// exports
 
@@ -11644,58 +11656,58 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .form-group {
-	
+
 	//   position: relative;
-	
+
 	// }
-	
+
 	// label~button.close {
-	
+
 	//     top: 25px;
-	
+
 	// }
-	
+
 	// button.close {
-	
+
 	//   position: absolute;
-	
+
 	//   top: 0;
-	
+
 	//   right: 0;
-	
+
 	//   z-index: 2;
-	
+
 	//   display: block;
-	
+
 	//   width: 34px;
-	
+
 	//   height: 34px;
-	
+
 	//   line-height: 34px;
-	
+
 	//   text-align: center;
-	
+
 	// }
-	
+
 	// .has-feedback.has-success button.close,
-	
+
 	// .has-feedback.has-error button.close {
-	
+
 	//   right:20px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
 /* 270 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}\" _v-652ad7b9=\"\">\n    <label v-if=\"label\" class=\"control-label\" _v-652ad7b9=\"\">{{label}}</label>\n    <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-652ad7b9=\"\"></textarea>\n    <template v-else=\"\" _v-652ad7b9=\"\">\n      <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-652ad7b9=\"\">\n        <slot name=\"before\" _v-652ad7b9=\"\"></slot>\n        <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-652ad7b9=\"\">\n        <slot name=\"after\" _v-652ad7b9=\"\"></slot>\n      </div>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-652ad7b9=\"\">\n    </template>\n    <button v-if=\"clearButton &amp;&amp; value\" type=\"button\" class=\"close\" @click=\"value = ''\" _v-652ad7b9=\"\">\n      <span _v-652ad7b9=\"\">×</span>\n    </button>\n    <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-652ad7b9=\"\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\" _v-652ad7b9=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" _v-652ad7b9=\"\">{{errorText}}</div>\n  </div>";
+	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}\" _v-27d010f7=\"\">\n    <label v-if=\"label\" class=\"control-label\" _v-27d010f7=\"\">{{label}}</label>\n    <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-27d010f7=\"\"></textarea>\n    <template v-else=\"\" _v-27d010f7=\"\">\n      <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-27d010f7=\"\">\n        <slot name=\"before\" _v-27d010f7=\"\"></slot>\n        <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-27d010f7=\"\">\n        <slot name=\"after\" _v-27d010f7=\"\"></slot>\n      </div>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-27d010f7=\"\">\n    </template>\n    <button v-if=\"clearButton &amp;&amp; value\" type=\"button\" class=\"close\" @click=\"value = ''\" _v-27d010f7=\"\">\n      <span _v-27d010f7=\"\">×</span>\n    </button>\n    <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-27d010f7=\"\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\" _v-27d010f7=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" _v-27d010f7=\"\">{{errorText}}</div>\n  </div>";
 
 /***/ },
 /* 271 */
@@ -12179,8 +12191,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fe7d5dc8&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fe7d5dc8&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-43668a5a&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-43668a5a&file=Modal.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Modal.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -12327,130 +12339,130 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .modal {
-	
+
 	//   transition: all 0.3s ease;
-	
+
 	// }
-	
+
 	// .modal.in {
-	
+
 	//   background-color: rgba(0,0,0,0.5);
-	
+
 	// }
-	
+
 	// .modal.zoom .modal-dialog {
-	
+
 	//   -webkit-transform: scale(0.1);
-	
+
 	//   -moz-transform: scale(0.1);
-	
+
 	//   -ms-transform: scale(0.1);
-	
+
 	//   transform: scale(0.1);
-	
+
 	//   top: 300px;
-	
+
 	//   opacity: 0;
-	
+
 	//   -webkit-transition: all 0.3s;
-	
+
 	//   -moz-transition: all 0.3s;
-	
+
 	//   transition: all 0.3s;
-	
+
 	// }
-	
+
 	// .modal.zoom.in .modal-dialog {
-	
+
 	//   -webkit-transform: scale(1);
-	
+
 	//   -moz-transform: scale(1);
-	
+
 	//   -ms-transform: scale(1);
-	
+
 	//   transform: scale(1);
-	
+
 	//   -webkit-transform: translate3d(0, -300px, 0);
-	
+
 	//   transform: translate3d(0, -300px, 0);
-	
+
 	//   opacity: 1;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <div role="dialog"
-	
+
 	//     v-bind:class="{
-	
+
 	//     'modal':true,
-	
+
 	//     'fade':effect === 'fade',
-	
+
 	//     'zoom':effect === 'zoom'
-	
+
 	//     }"
-	
+
 	//     >
-	
+
 	//     <div v-bind:class="{'modal-dialog':true,'modal-lg':large,'modal-sm':small}" role="document"
-	
+
 	//       v-bind:style="{width: optionalWidth}">
-	
+
 	//       <div class="modal-content">
-	
+
 	//         <slot name="modal-header">
-	
+
 	//           <div class="modal-header">
-	
+
 	//             <button type="button" class="close" @click="close"><span>&times;</span></button>
-	
-	//             <h4 class="modal-title" > 
-	
+
+	//             <h4 class="modal-title" >
+
 	//               <slot name="title">
-	
+
 	//                 {{title}}
-	
+
 	//               </slot>
-	
+
 	//             </h4>
-	
+
 	//           </div>
-	
+
 	//         </slot>
-	
+
 	//         <slot name="modal-body">
-	
+
 	//           <div class="modal-body"></div>
-	
+
 	//         </slot>
-	
+
 	//         <slot name="modal-footer">
-	
+
 	//           <div class="modal-footer">
-	
+
 	//             <button type="button" class="btn btn-default" @click="close">{{ cancelText }}</button>
-	
+
 	//             <button type="button" class="btn btn-primary" @click="callback">{{ okText }}</button>
-	
+
 	//           </div>
-	
+
 	//         </slot>
-	
+
 	//       </div>
-	
+
 	//     </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -12790,8 +12802,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2465bf54&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2465bf54&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5abcbddc&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5abcbddc&file=Popover.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Popover.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -12834,126 +12846,126 @@
 	  mixins: [_popoverMixins2.default]
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .scale-transition,
-	
+
 	// .fade-transition {
-	
+
 	//   display: block;
-	
+
 	// }
-	
+
 	// .scale-enter {
-	
+
 	//   animation:scale-in 0.15s ease-in;
-	
+
 	// }
-	
+
 	// .scale-leave {
-	
+
 	//   animation:scale-out 0.15s ease-out;
-	
+
 	// }
-	
+
 	// @keyframes scale-in {
-	
+
 	//   0% {
-	
+
 	//     transform: scale(0);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: scale(1);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// @keyframes scale-out {
-	
+
 	//   0% {
-	
+
 	//     transform: scale(1);
-	
+
 	//     opacity: 1;
-	
+
 	//   }
-	
+
 	//   100% {
-	
+
 	//     transform: scale(0);
-	
+
 	//     opacity: 0;
-	
+
 	//   }
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <span v-el:trigger>
-	
+
 	//     <slot>
-	
+
 	//     </slot>
-	
+
 	//   </span>
-	
+
 	//   <div class="popover"
-	
+
 	//     v-bind:class="{
-	
+
 	//     'top':placement === 'top',
-	
+
 	//     'left':placement === 'left',
-	
+
 	//     'right':placement === 'right',
-	
+
 	//     'bottom':placement === 'bottom'
-	
+
 	//     }"
-	
+
 	//     v-el:popover
-	
+
 	//     v-show="show"
-	
+
 	//     :transition="effect">
-	
+
 	//       <div class="arrow"></div>
-	
+
 	//       <h3 class="popover-title" v-show="title">
-	
+
 	//           <slot name="title">
-	
+
 	//             {{title}}
-	
+
 	//           </slot>
-	
+
 	//       </h3>
-	
+
 	//       <div class="popover-content">
-	
+
 	//         <slot name="content">
-	
+
 	//             {{{content}}}
-	
+
 	//         </slot>
-	
+
 	//       </div>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -13275,7 +13287,7 @@
 	
 	// <template>
 	
-	//   <div role="progressbar" 
+	//   <div role="progressbar"
 	
 	//     :class="['progress-bar',{
 	
@@ -13407,17 +13419,23 @@
 	
 	//       <radio :checked.sync="radioValue" value="one">One</radio>
 	
-	//       <radio :checked.sync="radioValue" value="two" type="primary">Two</radio>
+	//       <radio :checked.sync="radioValue" value="two" type="danger" disabled>Two (disabled)</radio>
 	
-	//       <radio :checked.sync="radioValue" value="three" type="danger">Three</radio>
+	//       <radio :checked.sync="radioValue" value="two" type="warning" readonly>Two (readonly)</radio>
+	
+	//       <radio :checked.sync="radioValue" value="two" type="success">Two</radio>
 	
 	//       <hr>
 	
 	//       <h4>Radio Button (Single buttons)</h4>
 	
-	//       <radio button :checked.sync="radioValue" value="four" type="warning">Four</radio>
+	//       <radio button :checked.sync="radioValue" value="three" type="primary">Three</radio>
 	
-	//       <radio button :checked.sync="radioValue" value="five" type="info">Five</radio>
+	//       <radio button :checked.sync="radioValue" value="four" type="info" disabled>Four (disabled)</radio>
+	
+	//       <radio button :checked.sync="radioValue" value="four" type="info" readonly>Four (readonly)</radio>
+	
+	//       <radio button :checked.sync="radioValue" value="four" type="info">Four</radio>
 	
 	//       <p><pre>Radio value: {{radioValue | json}}</pre></p>
 	
@@ -13429,11 +13447,9 @@
 	
 	//       <radio :checked.sync="radioValue" value="two" type="primary">Two</radio>
 	
-	//       <radio :checked.sync="radioValue" value="three" type="danger">Three</radio>
+	//       <radio button :checked.sync="radioValue" value="three" type="danger">Three</radio>
 	
-	//       <radio button :checked.sync="radioValue" value="four" type="warning">Four</radio>
-	
-	//       <radio button :checked.sync="radioValue" value="five" type="info">Five</radio>
+	//       <radio button :checked.sync="radioValue" value="four" type="info">Four</radio>
 	
 	//     </doc-code>
 	
@@ -13441,13 +13457,25 @@
 	
 	//       <div>
 	
-	//         <p>value</p>
+	//         <p>checked</p>
 	
-	//         <p><code>Array</code> or <code>String</code></p>
+	//         <p><code>Number</code> or <code>String</code></p>
 	
 	//         <p></p>
 	
-	//         <p>If defined, then the defined values will be checked otherwise the elements with a checked attribute will be checked.</p>
+	//         <p>Handle the selected value.</p>
+	
+	//       </div>
+	
+	//       <div>
+	
+	//         <p>value</p>
+	
+	//         <p><code>Number</code> or <code>String</code></p>
+	
+	//         <p></p>
+	
+	//         <p>Value to return if the radio item is selected.</p>
 	
 	//       </div>
 	
@@ -13481,11 +13509,13 @@
 	
 	//         <p>false</p>
 	
-	//         <p>Button style. If is in a button group (set as radio group), all radios will be buttons automaticaly.</p>
+	//         <p>Button style.</p>
 	
 	//       </div>
 	
 	//     </doc-options>
+	
+	//     <p>See <a href="#button-group">Button Group</a> for more options.</p>
 	
 	//   </doc-section>
 	
@@ -13511,7 +13541,7 @@
 /* 300 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"radio\" name=\"Radio\">\r\n    <div class=\"bs-example\">\r\n      <h4>Radio</h4>\r\n      <radio :checked.sync=\"radioValue\" value=\"one\">One</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"two\" type=\"primary\">Two</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"three\" type=\"danger\">Three</radio>\r\n      <hr>\r\n      <h4>Radio Button (Single buttons)</h4>\r\n      <radio button :checked.sync=\"radioValue\" value=\"four\" type=\"warning\">Four</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"five\" type=\"info\">Five</radio>\r\n      <p><pre>Radio value: {{radioValue | json}}</pre></p>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <radio :checked.sync=\"radioValue\" value=\"one\">One</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"two\" type=\"primary\">Two</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"three\" type=\"danger\">Three</radio>\r\n\r\n      <radio button :checked.sync=\"radioValue\" value=\"four\" type=\"warning\">Four</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"five\" type=\"info\">Five</radio>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>Array</code> or <code>String</code></p>\r\n        <p></p>\r\n        <p>If defined, then the defined values will be checked otherwise the elements with a checked attribute will be checked.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>button</p>\r\n        <p><code>Boolean</code></p>\r\n        <p>false</p>\r\n        <p>Button style. If is in a button group (set as radio group), all radios will be buttons automaticaly.</p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
+	module.exports = "<doc-section id=\"radio\" name=\"Radio\">\r\n    <div class=\"bs-example\">\r\n      <h4>Radio</h4>\r\n      <radio :checked.sync=\"radioValue\" value=\"one\">One</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"two\" type=\"danger\" disabled>Two (disabled)</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"two\" type=\"warning\" readonly>Two (readonly)</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"two\" type=\"success\">Two</radio>\r\n      <hr>\r\n      <h4>Radio Button (Single buttons)</h4>\r\n      <radio button :checked.sync=\"radioValue\" value=\"three\" type=\"primary\">Three</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"four\" type=\"info\" disabled>Four (disabled)</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"four\" type=\"info\" readonly>Four (readonly)</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"four\" type=\"info\">Four</radio>\r\n      <p><pre>Radio value: {{radioValue | json}}</pre></p>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <radio :checked.sync=\"radioValue\" value=\"one\">One</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"two\" type=\"primary\">Two</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"three\" type=\"danger\">Three</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"four\" type=\"info\">Four</radio>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>checked</p>\r\n        <p><code>Number</code> or <code>String</code></p>\r\n        <p></p>\r\n        <p>Handle the selected value.</p>\r\n      </div>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>Number</code> or <code>String</code></p>\r\n        <p></p>\r\n        <p>Value to return if the radio item is selected.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>button</p>\r\n        <p><code>Boolean</code></p>\r\n        <p>false</p>\r\n        <p>Button style.</p>\r\n      </div>\r\n    </doc-options>\r\n    <p>See <a href=\"#button-group\">Button Group</a> for more options.</p>\r\n  </doc-section>";
 
 /***/ },
 /* 301 */
@@ -13554,8 +13584,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-9e6117de&file=selectDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./selectDocs.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-9e6117de&file=selectDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./selectDocs.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0c80a8cf&file=selectDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./selectDocs.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0c80a8cf&file=selectDocs.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./selectDocs.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -13649,232 +13679,232 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .checkbox>label:not(:first-child) {
-	
+
 	//   margin-left: 15px;
-	
+
 	// }
-	
+
 	// </style>
 	// <template>
-	
+
 	//   <doc-section id="select" name="Select">
-	
+
 	//     <p>Based in a <a target="_blank" href="https://silviomoreto.github.io/bootstrap-select/">bootstrap-select</a> implementation.</p>
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <h4>Simple select</h4>
-	
+
 	//       <p><pre>Select data : {{show(single)}}</pre></p>
-	
+
 	//       <v-select :value.sync="single">
-	
+
 	//         <v-option value="apple">Apple</v-option>
-	
+
 	//         <v-option value="banana">Banana</v-option>
-	
+
 	//         <v-option value="cherry">Cherry</v-option>
-	
+
 	//         <v-option value="orange">Orange</v-option>
-	
+
 	//         <v-option value="grape">Grape</v-option>
-	
+
 	//       </v-select>
-	
+
 	//       <hr />
-	
+
 	//       <h4>Test options:</h4>
-	
+
 	//       <p><pre>Selected data : {{show(select.value)}}</pre></p>
-	
+
 	//       <form action="./#select" method="get">
-	
+
 	//         <v-select :options="select.options" :value.sync="select.value" :name="select.inputs?(select.multiple?'animals[]':'animal'):''"
-	
+
 	//           :multiple="select.multiple" :search="select.search" :justified="select.justified" :required="select.inputs&&select.required"
-	
+
 	//           :clear-button="select.clearButton" :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"
-	
+
 	//         ></v-select>
-	
+
 	//         <button v-if="select.inputs" type="submit" class="btn btn-default">Submit form</button>
-	
+
 	//       </form>
-	
+
 	//       <br/>
-	
+
 	//       <button-group type="primary" buttons="false">
-	
+
 	//         <p><checkbox :checked.sync="select.disabled">Disabled</checkbox></p>
-	
+
 	//         <p><checkbox :checked.sync="select.search">Search</checkbox></p>
-	
+
 	//         <p>
-	
+
 	//           <checkbox :checked.sync="select.multiple">Multiple</checkbox>
-	
+
 	//           <checkbox v-if="select.multiple" :checked.sync="select.limit">Limit (e.g. 3)</checkbox>
-	
+
 	//           <checkbox v-if="select.multiple" :checked.sync="select.closeOnSelect">Close on Select</checkbox>
-	
+
 	//         </p>
-	
+
 	//         <p><checkbox :checked.sync="select.justified">Justified</checkbox></p>
-	
+
 	//         <p><checkbox :checked.sync="select.clearButton">Clear Button</checkbox></p>
-	
+
 	//         <p>
-	
+
 	//           <checkbox :checked.sync="select.inputs">Form input</checkbox>
-	
+
 	//           <checkbox v-if="select.inputs" :checked.sync="select.required">Required (add empty value if noting selected)</checkbox>
-	
+
 	//         </p>
-	
+
 	//       </button-group>
-	
+
 	//     </div>
-	
+
 	//     <doc-code language="markup">
-	
+
 	//       <v-select>
-	
+
 	//         <v-option value="apple">Apple</v-option>
-	
+
 	//         <v-option value="banana">Banana</v-option>
-	
+
 	//         <v-option value="cherry">Cherry</v-option>
-	
+
 	//         <v-option value="orange">Orange</v-option>
-	
+
 	//         <v-option value="grape">Grape</v-option>
-	
+
 	//       </v-select>
-	
+
 	//       <form action="./#select" method="get">
-	
+
 	//         <v-select :value.sync="select.value" :options="select.options"
-	
+
 	//           multiple name="animals[]" limit="3"
-	
+
 	//           search justified required disabled
-	
+
 	//           clear-button close-on-select
-	
+
 	//         ></v-select>
-	
+
 	//         <button type="submit" class="btn btn-default">Submit form</button>
-	
+
 	//       </form>
-	
+
 	//     </doc-code>
-	
+
 	//     <doc-code language="javascript">
-	
+
 	//       options: [
-	
+
 	//         {value: 1, label: 'Cat'},
-	
+
 	//         {value: 2, label: 'Cow'},
-	
+
 	//         {value: 3, label: 'Dog'},
-	
+
 	//         {value: 4, label: 'Elephant'},
-	
+
 	//         {value: 5, label: 'Fish'},
-	
+
 	//         {value: 6, label: 'Lion'},
-	
+
 	//         {value: 7, label: 'Tiger'},
-	
+
 	//         {value: 8, label: 'Turtle'}
-	
+
 	//       ]
-	
+
 	//     </doc-code>
-	
+
 	//     <hr />
-	
+
 	//     <h4>Ajax data and parent dependency:</h4>
-	
+
 	//     <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>
-	
+
 	//     <v-select url="docs/data.json" :value.sync="ajax.value" clear-button v-ref:ajax></v-select>
-	
+
 	//     <v-select url="docs/data.json" multiple :parent="ajax.value"></v-select>
-	
+
 	//     <doc-code language="markup">
-	
+
 	//       <v-select url="docs/data.json" :value.sync="ajax.value" clear-button></v-select>
-	
+
 	//       <v-select url="docs/data.json" multiple :parent="ajax.value"></v-select>
-	
+
 	//     </doc-code>
-	
+
 	//     <p>Ajax response:</p>
-	
+
 	//     <doc-code language="markup"><span v-html="$refs.ajax.options|json"></span></doc-code>
-	
+
 	//     <doc-options name="Other">
-	
+
 	//       <div>
-	
+
 	//         <p>close-on-select</p>
-	
+
 	//         <p><code>Boolean</code></p>
-	
+
 	//         <p><code>false</code></p>
-	
+
 	//         <p></p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>lang</p>
-	
+
 	//         <p><code>String</code></p>
-	
+
 	//         <p>Browser language</p>
-	
+
 	//         <p><abbr title="ISO 639-1 code"><a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>placeholder</p>
-	
+
 	//         <p><code>String</code></p>
-	
+
 	//         <p>Nothing Selected</p>
-	
+
 	//         <p></p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>search-text</p>
-	
+
 	//         <p><code>String</code></p>
-	
+
 	//         <p></p>
-	
+
 	//         <p></p>
-	
+
 	//       </div>
-	
+
 	//     </doc-options>
-	
+
 	//   </doc-section>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -14540,10 +14570,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-09e2754e&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-c8373860&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-09e2754e&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-c8373860&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -14565,8 +14595,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-09e2754e&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-09e2754e&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c8373860&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c8373860&file=Tabset.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Tabset.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -14584,7 +14614,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".nav-tabs[_v-09e2754e] {\r\n  margin-bottom: 15px;\r\n}", ""]);
+	exports.push([module.id, ".nav-tabs[_v-c8373860] {\r\n  margin-bottom: 15px;\r\n}", ""]);
 	
 	// exports
 
@@ -14690,22 +14720,22 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .nav-tabs {
-	
+
 	//   margin-bottom: 15px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
 /* 320 */
 /***/ function(module, exports) {
 
-	module.exports = "<!-- Nav tabs -->\n  <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-09e2754e=\"\">\n    <template v-for=\"t in headers\" _v-09e2754e=\"\">\n      <li v-if=\"!t._tabgroup\" :class=\"{active:t.active, disabled:t.disabled}\" @click.prevent=\"select(t)\" _v-09e2754e=\"\">\n        <a href=\"#\" _v-09e2754e=\"\"><slot name=\"header\" _v-09e2754e=\"\">{{{t.header}}}</slot></a>\n      </li>\n      <dropdown v-else=\"\" :text=\"t.header\" :class=\"{active:t.active,disabled:t.disabled}\" :disabled=\"t.disabled\" _v-09e2754e=\"\">\n        <li v-for=\"tab in t.tabs\" :class=\"{disabled:tab.disabled}\" _v-09e2754e=\"\"><a href=\"#\" @click.prevent=\"select(tab)\" _v-09e2754e=\"\">{{tab.header}}</a></li>\n      </dropdown>\n    </template>\n  </ul>\n  <div class=\"tab-content\" v-el:tab-content=\"\" _v-09e2754e=\"\">\n    <slot _v-09e2754e=\"\"></slot>\n  </div>";
+	module.exports = "<!-- Nav tabs -->\n  <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-c8373860=\"\">\n    <template v-for=\"t in headers\" _v-c8373860=\"\">\n      <li v-if=\"!t._tabgroup\" :class=\"{active:t.active, disabled:t.disabled}\" @click.prevent=\"select(t)\" _v-c8373860=\"\">\n        <a href=\"#\" _v-c8373860=\"\"><slot name=\"header\" _v-c8373860=\"\">{{{t.header}}}</slot></a>\n      </li>\n      <dropdown v-else=\"\" :text=\"t.header\" :class=\"{active:t.active,disabled:t.disabled}\" :disabled=\"t.disabled\" _v-c8373860=\"\">\n        <li v-for=\"tab in t.tabs\" :class=\"{disabled:tab.disabled}\" _v-c8373860=\"\"><a href=\"#\" @click.prevent=\"select(tab)\" _v-c8373860=\"\">{{tab.header}}</a></li>\n      </dropdown>\n    </template>\n  </ul>\n  <div class=\"tab-content\" v-el:tab-content=\"\" _v-c8373860=\"\">\n    <slot _v-c8373860=\"\"></slot>\n  </div>";
 
 /***/ },
 /* 321 */
@@ -14723,10 +14753,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./TabGroup.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./TabGroup.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-55faf3cb&file=TabGroup.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./TabGroup.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./TabGroup.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-6f3b49cd&file=TabGroup.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./TabGroup.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./TabGroup.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-55faf3cb&file=TabGroup.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./TabGroup.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-6f3b49cd&file=TabGroup.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./TabGroup.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -14748,8 +14778,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-55faf3cb&file=TabGroup.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./TabGroup.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-55faf3cb&file=TabGroup.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./TabGroup.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6f3b49cd&file=TabGroup.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./TabGroup.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6f3b49cd&file=TabGroup.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./TabGroup.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -14767,7 +14797,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".nav-tabs[_v-55faf3cb] {\r\n  margin-bottom: 15px;\r\n}", ""]);
+	exports.push([module.id, ".nav-tabs[_v-6f3b49cd] {\r\n  margin-bottom: 15px;\r\n}", ""]);
 	
 	// exports
 
@@ -14846,22 +14876,22 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style scoped>
-	
+
 	// .nav-tabs {
-	
+
 	//   margin-bottom: 15px;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
 /* 325 */
 /***/ function(module, exports) {
 
-	module.exports = "<slot _v-55faf3cb=\"\"></slot>";
+	module.exports = "<slot _v-6f3b49cd=\"\"></slot>";
 
 /***/ },
 /* 326 */
@@ -14961,21 +14991,21 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <div role="tabpanel" class="tab-pane active" v-show="show"
-	
+
 	//     :class="{hide:!show}"
-	
+
 	//     :transition="transition"
-	
+
 	//   >
-	
+
 	//     <slot></slot>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -15286,285 +15316,285 @@
 	};
 	// </script>
 	// <template>
-	
+
 	//   <doc-section id="typeahead" name="Typeahead">
-	
+
 	//     <div class="bs-example">
-	
+
 	//       <h4>
-	
+
 	//         Static arrays
-	
+
 	//       </h4>
-	
+
 	//       <typeahead
-	
+
 	//         :data="USstate"
-	
+
 	//         placeholder="USA states"
-	
+
 	//       ></typeahead>
-	
+
 	//       <hr>
-	
+
 	//       <h4>
-	
+
 	//       Asynchronous results
-	
+
 	//       <tooltip trigger="click" content="The suggestions via a Google Map API, are you behind a FireWall?" placement="top">
-	
+
 	//         <small style="cursor:pointer">(not working?)</small>
-	
+
 	//       </tooltip>
-	
+
 	//       </h4>
-	
+
 	//       <typeahead
-	
+
 	//         placeholder="CCCAddress, async via maps.googleapis.com"
-	
+
 	//         key="results"
-	
+
 	//         async="https://maps.googleapis.com/maps/api/geocode/json?address="
-	
+
 	//         template-name="async"
-	
+
 	//         :template="asyncTemplate"
-	
+
 	//         :on-hit="googleCallback"
-	
+
 	//       ></typeahead>
-	
+
 	//       <hr>
-	
+
 	//       <h4>
-	
+
 	//       Custom templates for results
-	
+
 	//       </h4>
-	
+
 	//       <typeahead
-	
+
 	//         placeholder="Github users, async via api.github.com"
-	
+
 	//         key="items"
-	
+
 	//         async="https://api.github.com/search/users?q="
-	
+
 	//         template-name="github"
-	
+
 	//         :template="githubTemplate"
-	
+
 	//         :on-hit="githubCallback"
-	
+
 	//       ></typeahead>
-	
+
 	//     </div>
-	
+
 	//     <doc-code language="markup">
-	
+
 	//       <h4>Static arrays</h4>
-	
+
 	//       <typeahead
-	
+
 	//         :data="USstate"
-	
+
 	//         placeholder="USA states">
-	
+
 	//       </typeahead>
-	
+
 	//       <h4>Asynchronous results</h4>
-	
+
 	//         <typeahead
-	
+
 	//           placeholder="Address, async via maps.googleapis.com"
-	
+
 	//           key="results"
-	
+
 	//           src="https://maps.googleapis.com/maps/api/geocode/json?address="
-	
+
 	//           template-name="async"
-	
+
 	//           :template="asyncTemplate"
-	
+
 	//           :on-hit="googleCallback">
-	
+
 	//       </typeahead>
-	
+
 	//       <h4>Custom templates for results</h4>
-	
+
 	//         <typeahead
-	
+
 	//           placeholder="Github users, async via api.github.com"
-	
+
 	//           key="items"
-	
+
 	//           src="https://api.github.com/search/users?q="
-	
+
 	//           template-name="typeahead-github-template"
-	
+
 	//           :template="githubTemplate"
-	
+
 	//           :on-hit="githubCallback">
-	
+
 	//       </typeahead>
-	
+
 	//     </doc-code>
-	
+
 	//     <doc-code language="javascript">
-	
+
 	//       new Vue {
-	
+
 	//         components: {
-	
+
 	//           typeahead
-	
+
 	//         },
-	
+
 	//         data() {
-	
+
 	//           return {
-	
+
 	//             USstate: ['Alabama', 'Alaska', 'Arizona',...],
-	
+
 	//             asynchronous: '{{formatted_address}}',
-	
+
 	//             customTemplate: '<img width="18px" height="18px" v-attr="src:avatar_url"/>' +
-	
+
 	//             '<span>{{login}}</span>'
-	
+
 	//           }
-	
+
 	//         },
-	
+
 	//         methods: {
-	
+
 	//           googleCallback(items, targetVM) {
-	
+
 	//             const that = targetVM;
-	
+
 	//             that.reset()
-	
+
 	//             that.query = items.formatted_address
-	
+
 	//           },
-	
+
 	//           githubCallback(items) {
-	
+
 	//             window.open(items.html_url, '_blank')
-	
+
 	//           }
-	
+
 	//         }
-	
+
 	//       }
-	
+
 	//     </doc-code>
-	
+
 	//     <doc-options>
-	
+
 	//       <div>
-	
+
 	//         <p>data</p>
-	
+
 	//         <p><code>Array</code></p>
-	
+
 	//         <p></p>
-	
+
 	//         <p>The local data source for suggestions. Expected to be a primitive array.</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>async</p>
-	
+
 	//         <p><code>String</code></p>
-	
+
 	//         <p></p>
-	
+
 	//         <p>An HTTP URL for asynchronous suggestions. Expected to return a JSON object.</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>limit</p>
-	
+
 	//         <p><code>Number</code></p>
-	
+
 	//         <p><code>8</code></p>
-	
+
 	//         <p>The max number of suggestions to be displayed.</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>key</p>
-	
+
 	//         <p><code>String</code></p>
-	
+
 	//         <p><code>null</code></p>
-	
+
 	//         <p>The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>match-case</p>
-	
+
 	//         <p><code>Boolean</code></p>
-	
+
 	//         <p><code>false</code></p>
-	
+
 	//         <p>Case sensitive for suggestions.</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>match-start</p>
-	
+
 	//         <p><code>Boolean</code></p>
-	
+
 	//         <p><code>false</code></p>
-	
+
 	//         <p>Match only against start of suggestions. E.g. if true, "a" matches "ab" but not "ba".</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>on-hit</p>
-	
+
 	//         <p><code>Function</code></p>
-	
+
 	//         <p></p>
-	
+
 	//         <p>A callback function when you click or hit return on an item.</p>
-	
+
 	//       </div>
-	
+
 	//       <div>
-	
+
 	//         <p>template</p>
-	
+
 	//         <p><code>String</code></p>
-	
+
 	//         <p><code>&lt;span v-html=&quot;$value | highlight query&quot;&gt;&lt;/span&gt;</code></p>
-	
+
 	//         <p>Used to render suggestion.</p>
-	
+
 	//       </div>
-	
+
 	//     </doc-options>
-	
+
 	//   </div>
-	
+
 	// </template>
-	
+
 	// <script>
 
 /***/ },
@@ -15608,8 +15638,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5b5f5e94&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5b5f5e94&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3dca8a18&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3dca8a18&file=Typeahead.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typeahead.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -15835,15 +15865,15 @@
 	  }
 	};
 	// </script>
-	
+
 	// <style>
-	
+
 	// .dropdown-menu > li > a {
-	
+
 	//   cursor: pointer;
-	
+
 	// }
-	
+
 	// </style>
 
 /***/ },
