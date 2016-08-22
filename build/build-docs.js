@@ -2797,7 +2797,7 @@
 	    (0, _NodeList2.default)(this._slotContents.default.childNodes).each(function (el) {
 	      content += el.outerHTML || el.nodeValue;
 	    });
-	    if (this.language === 'markup') content = content.replace(/(\w+)=""/g, '$1');
+	    if (~['html', 'markup'].indexOf(this.language)) content = content.replace(/(\w+)=""/g, '$1');
 	    var matches = content.match(/(\n|\r)[ ]*\S/g);
 	    if (matches) {
 	      (function () {
@@ -2822,7 +2822,7 @@
 	
 	//     <pre v-if="language=='markup'"><code class="language-markup"><script v-el:container type="language-mark-up"></script></code></pre>
 	
-	//     <pre v-else><code v-el:container class="language-{{language}}"></code></pre>
+	//     <pre v-else><code class="language-{{language}}"><script v-el:container type="language-{{language}}"></script></code></pre>
 	
 	//   </template>
 	
@@ -2834,7 +2834,7 @@
 /* 130 */
 /***/ function(module, exports) {
 
-	module.exports = "<pre v-if=\"!language\" v-el:container></pre>\r\n  <template v-else>\r\n    <pre v-if=\"language=='markup'\"><code class=\"language-markup\"><script v-el:container type=\"language-mark-up\"></script></code></pre>\r\n    <pre v-else><code v-el:container class=\"language-{{language}}\"></code></pre>\r\n  </template>";
+	module.exports = "<pre v-if=\"!language\" v-el:container></pre>\r\n  <template v-else>\r\n    <pre v-if=\"language=='markup'\"><code class=\"language-markup\"><script v-el:container type=\"language-mark-up\"></script></code></pre>\r\n    <pre v-else><code class=\"language-{{language}}\"><script v-el:container type=\"language-{{language}}\"></script></code></pre>\r\n  </template>";
 
 /***/ },
 /* 131 */
@@ -15942,30 +15942,6 @@
 /* 345 */
 /***/ function(module, exports) {
 
-	"use strict";
-	
-	(function () {
-	
-		if (typeof self === 'undefined' || !self.Prism || !self.document) {
-			return;
-		}
-	
-		// The languages map is built automatically with gulp
-		var Languages = /*languages_placeholder[*/{ "css": "CSS", "clike": "C-like", "javascript": "JavaScript", "abap": "ABAP", "actionscript": "ActionScript", "apacheconf": "Apache Configuration", "apl": "APL", "applescript": "AppleScript", "aspnet": "ASP.NET (C#)", "autoit": "AutoIt", "autohotkey": "AutoHotkey", "basic": "BASIC", "csharp": "C#", "cpp": "C++", "coffeescript": "CoffeeScript", "css-extras": "CSS Extras", "fsharp": "F#", "glsl": "GLSL", "http": "HTTP", "inform7": "Inform 7", "latex": "LaTeX", "lolcode": "LOLCODE", "matlab": "MATLAB", "mel": "MEL", "nasm": "NASM", "nginx": "nginx", "nsis": "NSIS", "objectivec": "Objective-C", "ocaml": "OCaml", "php": "PHP", "php-extras": "PHP Extras", "powershell": "PowerShell", "jsx": "React JSX", "rest": "reST (reStructuredText)", "sas": "SAS", "sass": "Sass (Sass)", "scss": "Sass (Scss)", "sql": "SQL", "typescript": "TypeScript", "vhdl": "VHDL", "vim": "vim", "wiki": "Wiki markup", "yaml": "YAML" } /*]*/;
-		Prism.hooks.add('before-highlight', function (env) {
-			var pre = env.element.parentNode;
-			if (!pre || !/pre/i.test(pre.nodeName)) {
-				return;
-			}
-			var language = Languages[env.language] || env.language.substring(0, 1).toUpperCase() + env.language.substring(1);
-			pre.setAttribute('data-language', language);
-		});
-	})();
-
-/***/ },
-/* 346 */
-/***/ function(module, exports) {
-
 	/* WEBPACK VAR INJECTION */(function(global) {
 	/* **********************************************
 	     Begin prism-core.js
@@ -16749,6 +16725,30 @@
 	})();
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 346 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	(function () {
+	
+		if (typeof self === 'undefined' || !self.Prism || !self.document) {
+			return;
+		}
+	
+		// The languages map is built automatically with gulp
+		var Languages = /*languages_placeholder[*/{ "html": "HTML", "css": "CSS", "clike": "C-like", "javascript": "JavaScript", "abap": "ABAP", "actionscript": "ActionScript", "apacheconf": "Apache Configuration", "apl": "APL", "applescript": "AppleScript", "aspnet": "ASP.NET (C#)", "autoit": "AutoIt", "autohotkey": "AutoHotkey", "basic": "BASIC", "csharp": "C#", "cpp": "C++", "coffeescript": "CoffeeScript", "css-extras": "CSS Extras", "fsharp": "F#", "glsl": "GLSL", "http": "HTTP", "inform7": "Inform 7", "latex": "LaTeX", "lolcode": "LOLCODE", "matlab": "MATLAB", "mel": "MEL", "nasm": "NASM", "nginx": "nginx", "nsis": "NSIS", "objectivec": "Objective-C", "ocaml": "OCaml", "php": "PHP", "php-extras": "PHP Extras", "powershell": "PowerShell", "jsx": "React JSX", "rest": "reST (reStructuredText)", "sas": "SAS", "sass": "Sass (Sass)", "scss": "Sass (Scss)", "sql": "SQL", "typescript": "TypeScript", "vhdl": "VHDL", "vim": "vim", "wiki": "Wiki markup", "yaml": "YAML" } /*]*/;
+		Prism.hooks.add('before-highlight', function (env) {
+			var pre = env.element.parentNode;
+			if (!pre || !/pre/i.test(pre.nodeName)) {
+				return;
+			}
+			var language = Languages[env.language] || env.language.substring(0, 1).toUpperCase() + env.language.substring(1);
+			pre.setAttribute('data-language', language);
+		});
+	})();
 
 /***/ }
 /******/ ]);
