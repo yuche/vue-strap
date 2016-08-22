@@ -1,5 +1,5 @@
 <template>
-  <label class="btn"
+  <label @click.stop class="btn"
   v-bind:class="{
     'active':active,
     'btn-success':type == 'success',
