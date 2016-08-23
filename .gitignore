@@ -1,12 +1,6 @@
 .DS_Store
 node_modules
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 build/
->>>>>>> master
-=======
->>>>>>> master
 npm-debug.log
 static
 build

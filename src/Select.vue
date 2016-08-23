@@ -301,6 +301,11 @@ export default {
         this.checkValue()
       })
     }
+  },
+  events: {
+    clearSearch() {
+      this.searchValue=null;
+    }
   }
 }
 </script>
