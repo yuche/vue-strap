@@ -12,7 +12,7 @@
         <slot name="modal-header">
           <div class="modal-header">
             <button type="button" class="close" @click="close"><span>&times;</span></button>
-            <h4 class="modal-title" > 
+            <h4 class="modal-title" >
               <slot name="title">
                 {{title}}
               </slot>
@@ -53,7 +53,7 @@ export default {
       default: ''
     },
     show: {
-      require: true,
+      required: true,
       type: Boolean,
       coerce: coerceBoolean,
       twoWay: true

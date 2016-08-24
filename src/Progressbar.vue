@@ -1,5 +1,5 @@
 <template>
-  <div role="progressbar" 
+  <div role="progressbar"
     :class="['progress-bar',{
       'progress-bar-success':type == 'success',
       'progress-bar-warning':type == 'warning',
@@ -23,7 +23,7 @@ export default {
     now: {
       type: Number,
       coerce: coerceNumber,
-      require: true
+      required: true
     },
     label: {
       type: Boolean,
