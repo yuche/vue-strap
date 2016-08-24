@@ -1,17 +1,16 @@
 <template>
-<select v-model="value" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" @focus="focus()">
-  <option v-if="required" value=""></option>
-  <option v-for="option in options" :value="option.value||option" :selected="isSelected(option.value||option)">{{ option.label||option }}</option>
-</select>
-<div :class="{'btn-group btn-group-justified': justified, 'btn-select': !justified}" @click="unblur">
+<div v-el:select :class="{'btn-group btn-group-justified': justified, 'btn-select': !justified}">
   <slot name="before"></slot>
-  <div class="btn-group" :class="{open: show}">
-    <button v-el:btn type="button" class="form-control dropdown-toggle"
+  <div :class="{open:show,dropdown:!justified}">
+    <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
+      <option v-if="required" value=""></option>
+      <option v-for="option in options" :value="option.value||option" :selected="isSelected(option.value||option)">{{ option.label||option }}</option>
+    </select>
+    <button type="button" class="form-control dropdown-toggle"
       :disabled="disabled || !hasParent"
       :readonly="readonly"
-      @click="toggleDropdown()"
-      @blur="search ? null : blur()"
-      @keyup.esc="blur()"
+      @click="toggle()"
+      @keyup.esc="show = false"
     >
       <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>
       <span class="caret"></span>
@@ -19,14 +18,15 @@
     </button>
     <ul class="dropdown-menu">
       <template v-if="options.length">
-        <li v-if="search" class="bs-searchbox">
+        <li v-if="canSearch" class="bs-searchbox">
           <input type="text" placeholder="{{searchText||text.search}}" class="form-control" autocomplete="off"
             v-el:search
             v-model="searchValue"
-            @blur="blur()"
-            @keyup.esc="blur()"
+            @keyup.esc="show = false"
           />
+          <span v-show="searchValue" class="close" @click="clearSearch">&times;</span>
         </li>
+        <li v-if="required&&!clearButton"><a @mousedown.prevent="clear() && blur()">{{ placeholder || text.notSelected }}</a></li>
         <li v-for="option in options | filterBy searchValue" :id="option.value||option">
           <a @mousedown.prevent="select(option.value||option)">
             {{ option.label||option }}
@@ -48,6 +48,7 @@ import callAjax from './utils/callAjax.js'
 import coerceBoolean from './utils/coerceBoolean.js'
 import coerceNumber from './utils/coerceNumber.js'
 import translations from './translations.js'
+import $ from './utils/NodeList.js'
 
 var timeout = {}
 export default {
@@ -115,6 +116,11 @@ export default {
       coerce: coerceBoolean,
       default: null
     },
+    minSearch: {
+      type: Number,
+      coerce: coerceNumber,
+      default: 0
+    },
     search: { // Allow searching (only works when options are provided)
       type: Boolean,
       coerce: coerceBoolean,
@@ -127,26 +133,15 @@ export default {
     url: {
       type: String,
       default: null
-    },
-    label: {
-      type: String,
-      default: null
-    },
-    cache: { // save old data -- not working yet (experimental)
-      type: Array,
-      default: true
+    // },
+    // cache: { // save old data -- not working yet (experimental)
+    //   type: Array,
+    //   default: true
     }
-  },
-  ready () {
-    if (this.value === undefined || !this.parent) { this.value = null }
-    if (!this.multiple && this.value instanceof Array) {
-      this.value = this.value.shift()
-    }
-    this.checkValue()
-    if (this.url) this.update()
   },
   data () {
     return {
+      focus: null,
       loading: null,
       searchValue: null,
       show: false,
@@ -176,6 +171,9 @@ export default {
         }
       }
       return foundItems.join(', ')
+    },
+    canSearch () {
+      return !this.minSearch ? this.search : this.options.length >= this.minSearch
     },
     limitText () {
       return this.text.limit.replace('{{limit}}', this.limit)
@@ -215,14 +213,13 @@ export default {
           this.showNotify = false
         }, 1500)
       }
-      this.label = this.selectedItems
-      this.checkValue()
-    },
-    multiple () {
       this.checkValue()
     },
     show (val) {
-      if (val) this.focus()
+      if (this.focus) {
+        (this.$els.search || this.$els.sel).focus()
+        this.focus = false
+      }
     },
     url () {
       this.update()
@@ -237,16 +234,21 @@ export default {
           this.value.push(v)
         }
         if (this.closeOnSelect) {
-          this.toggleDropdown()
+          this.toggle()
         }
       } else {
         this.value = v
-        this.toggleDropdown()
+        this.toggle()
       }
     },
     clear () {
+      if (this.disabled || this.readonly) { return }
       this.value = this.value instanceof Array ? [] : null
-      this.toggleDropdown()
+      this.toggle()
+    },
+    clearSearch () {
+      this.searchValue = ''
+      this.$els.search.focus()
     },
     checkValue () {
       if (this.multiple && !(this.value instanceof Array)) {
@@ -263,28 +265,13 @@ export default {
     isSelected (v) {
       return this.values.indexOf(v) > -1
     },
-    toggleDropdown () {
+    toggle () {
+      this.focus = true
       this.show = !this.show
-      this.unblur()
     },
     blur () {
-      timeout.hide = setTimeout(() => {
-        timeout.hide = false
-        this.show = false
-      }, 100)
-    },
-    unblur () {
-      if (timeout.hide) {
-        clearTimeout(timeout.hide)
-        timeout.hide = false
-      }
-    },
-    focus () {
-      if (this.show) {
-        (this.$els.search || this.$els.btn).focus()
-      } else {
-        this.$els.btn.focus()
-      }
+      this.focus = true
+      this.show = false
     },
     update () {
       if (!this.url) return
@@ -301,34 +288,43 @@ export default {
         this.checkValue()
       })
     }
+  },
+  ready () {
+    if (this.value === undefined || !this.parent) { this.value = null }
+    if (!this.multiple && this.value instanceof Array) {
+      this.value = this.value.shift()
+    }
+    this.checkValue()
+    if (this.url) this.update()
+    $(this.$els.select).onBlur((e) => { this.show = false })
+  },
+  beforeDestroy () {
+    $(this.$els.select).offBlur()
   }
 }
 </script>
 
 <style scoped>
-.btn-select {
-  display: inline-block;
-}
-.btn-select>.btn-group>.dropdown-menu>li {
-  position:relative;
-}
-.btn-select>.btn-group>.dropdown-menu>li>a {
-  cursor:pointer;
-}
+.btn-select { display: inline-block; }
+.btn-select>.btn-group>.dropdown-menu>li { position:relative; }
+.btn-select>.btn-group>.dropdown-menu>li>a { cursor:pointer; }
 .bs-searchbox {
-  padding: 4px 8px;
-}
-.bs-searchbox input {
-  border-color: #66afe9 !important;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
-          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
-}
-button>.close {
-  margin-left: 5px;
-}
-.btn-group>.notify {
   position: relative;
+  margin: 4px 8px;
 }
+.bs-searchbox .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+button>.close { margin-left: 5px;}
+.btn-group>.notify { position: relative; }
 .btn-group .dropdown-menu .notify,
 .btn-group .notify > div {
   position: absolute;
@@ -349,9 +345,7 @@ button>.close {
   opacity: .9;
   bottom: 5px;
 }
-.btn-group.btn-group-justified .dropdown-menu {
-  width:100%;
-}
+.btn-group.btn-group-justified .dropdown-menu { width: 100%; }
 span.caret {
   float: right;
   margin-top: 9px;
@@ -366,5 +360,12 @@ span.caret {
   padding: 0;
   position: absolute;
   width: 1px;
+}
+.bs-searchbox input:focus,
+.secret:focus + button {
+  outline: 0;
+  border-color: #66afe9 !important;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
 }
 </style>
