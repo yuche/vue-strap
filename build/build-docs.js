@@ -2956,10 +2956,10 @@
 	if (!hotAPI.compatible) return
 	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Checkbox.vue"], function () {
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-fb39d5b4&file=Checkbox.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Checkbox.vue"], function () {
 	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Checkbox.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Checkbox.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-fb39d5b4&file=Checkbox.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Checkbox.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -2981,8 +2981,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fb39d5b4&file=Checkbox.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Checkbox.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fb39d5b4&file=Checkbox.vue!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Checkbox.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fb39d5b4&file=Checkbox.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Checkbox.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-fb39d5b4&file=Checkbox.vue&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Checkbox.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3000,7 +3000,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".checkbox { position: relative; }\r\n.checkbox > label > input {\r\n  position: absolute;\r\n  margin: 0;\r\n  padding: 0;\r\n  opacity: 0;\r\n  z-index: -1;\r\n  box-sizing: border-box;\r\n}\r\n.checkbox > label > .icon {\r\n  position: absolute;\r\n  top: .2rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  line-height:1rem;\r\n  text-align: center;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n  border-radius: .35rem;\r\n  background-color: #ddd;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\r\n}\r\n.checkbox > label > input:focus ~ .icon {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\n.checkbox.active > label > .icon {\r\n  background-size: 1rem 1rem;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);\r\n}\r\n.checkbox.active.default > label > .icon { background-color: #bbb; }\r\n.checkbox.active.primary > label > .icon { background-color: #337ab7; }\r\n.checkbox.active.success > label > .icon { background-color: #5cb85c; }\r\n.checkbox.active.info > label > .icon { background-color: #5bc0de; }\r\n.checkbox.active.warning > label > .icon { background-color: #f0ad4e; }\r\n.checkbox.active.danger > label > .icon { background-color: #d9534f; }\r\n\r\n.checkbox.disabled > label > .icon,\r\n.checkbox.readonly > label > .icon,\r\n.btn.readonly {\r\n  filter: alpha(opacity=65);\r\n  box-shadow: none;\r\n  opacity: .65;\r\n}\r\nlabel.btn > input[type=checkbox] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\r\n}", ""]);
+	exports.push([module.id, ".checkbox[_v-fb39d5b4] { position: relative; }\r\n.checkbox > label > input[_v-fb39d5b4] {\r\n  position: absolute;\r\n  margin: 0;\r\n  padding: 0;\r\n  opacity: 0;\r\n  z-index: -1;\r\n  box-sizing: border-box;\r\n}\r\n.checkbox > label > .icon[_v-fb39d5b4] {\r\n  position: absolute;\r\n  top: .2rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  line-height:1rem;\r\n  text-align: center;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n  border-radius: .35rem;\r\n  background-color: #ddd;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\r\n}\r\n.checkbox > label > input:focus ~ .icon[_v-fb39d5b4] {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\n.checkbox.active > label > .icon[_v-fb39d5b4] {\r\n  background-size: 1rem 1rem;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);\r\n}\r\n.checkbox.active.default > label > .icon[_v-fb39d5b4] { background-color: #bbb; }\r\n.checkbox.active.primary > label > .icon[_v-fb39d5b4] { background-color: #337ab7; }\r\n.checkbox.active.success > label > .icon[_v-fb39d5b4] { background-color: #5cb85c; }\r\n.checkbox.active.info > label > .icon[_v-fb39d5b4] { background-color: #5bc0de; }\r\n.checkbox.active.warning > label > .icon[_v-fb39d5b4] { background-color: #f0ad4e; }\r\n.checkbox.active.danger > label > .icon[_v-fb39d5b4] { background-color: #d9534f; }\r\n\r\n.checkbox.disabled > label > .icon[_v-fb39d5b4],\r\n.checkbox.readonly > label > .icon[_v-fb39d5b4],\r\n.btn.readonly[_v-fb39d5b4] {\r\n  filter: alpha(opacity=65);\r\n  box-shadow: none;\r\n  opacity: .65;\r\n}\r\nlabel.btn > input[type=checkbox][_v-fb39d5b4] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\r\n}", ""]);
 	
 	// exports
 
@@ -3405,7 +3405,7 @@
 	          if (this.group && typeof this.value !== 'boolean') {
 	            var parent = this.$parent;
 	            var index = parent.value.indexOf(this.value);
-	            index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1);
+	            parent.value[~index ? '$remove' : 'push'](this.value);
 	          }
 	        }
 	      }
@@ -3415,7 +3415,7 @@
 	};
 	// </script>
 
-	// <style scope>
+	// <style scoped>
 
 	// .checkbox { position: relative; }
 
@@ -3594,7 +3594,7 @@
 /* 141 */
 /***/ function(module, exports) {
 
-	module.exports = "<label v-if=\"buttonStyle\" :class=\"['btn btn-'+typeColor,{active:checked,disabled:disabled,readonly:readonly}]\" @click=\"toggle\">\r\n    <input type=\"checkbox\" autocomplete=\"off\"\r\n      v-el:input\r\n      v-show=\"!readonly\"\r\n      :checked=\"active\"\r\n      :value=\"value\"\r\n      :name=\"name\"\r\n      :readonly=\"readonly\"\r\n      :disabled=\"disabled\"\r\n    />\r\n    <slot></slot>\r\n  </label>\r\n  <div v-else :class=\"['checkbox',typeColor,{active:checked,disabled:disabled,readonly:readonly}]\" @click=\"toggle\">\r\n    <label>\r\n      <input type=\"checkbox\" autocomplete=\"off\"\r\n        v-el:input\r\n        :checked=\"active\"\r\n        :value=\"value\"\r\n        :name=\"name\"\r\n        :readonly=\"readonly\"\r\n        :disabled=\"disabled\"\r\n      />\r\n      <span class=\"icon\"></span>\r\n      <slot></slot>\r\n    </label>\r\n  </div>";
+	module.exports = "<label v-if=\"buttonStyle\" :class=\"['btn btn-'+typeColor,{active:checked,disabled:disabled,readonly:readonly}]\" @click=\"toggle\" _v-fb39d5b4=\"\">\n    <input type=\"checkbox\" autocomplete=\"off\" v-el:input=\"\" v-show=\"!readonly\" :checked=\"active\" :value=\"value\" :name=\"name\" :readonly=\"readonly\" :disabled=\"disabled\" _v-fb39d5b4=\"\">\n    <slot _v-fb39d5b4=\"\"></slot>\n  </label>\n  <div v-else=\"\" :class=\"['checkbox',typeColor,{active:checked,disabled:disabled,readonly:readonly}]\" @click=\"toggle\" _v-fb39d5b4=\"\">\n    <label _v-fb39d5b4=\"\">\n      <input type=\"checkbox\" autocomplete=\"off\" v-el:input=\"\" :checked=\"active\" :value=\"value\" :name=\"name\" :readonly=\"readonly\" :disabled=\"disabled\" _v-fb39d5b4=\"\">\n      <span class=\"icon\" _v-fb39d5b4=\"\"></span>\n      <slot _v-fb39d5b4=\"\"></slot>\n    </label>\n  </div>";
 
 /***/ },
 /* 142 */
@@ -3855,7 +3855,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".btn-select[_v-1f77809f] {\r\n  display: inline-block;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li[_v-1f77809f] {\r\n  position:relative;\r\n}\r\n.btn-select>.btn-group>.dropdown-menu>li>a[_v-1f77809f] {\r\n  cursor:pointer;\r\n}\r\n.bs-searchbox[_v-1f77809f] {\r\n  padding: 4px 8px;\r\n}\r\n.bs-searchbox input[_v-1f77809f] {\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;\r\n}\r\nbutton>.close[_v-1f77809f] {\r\n  margin-left: 5px;\r\n}\r\n.btn-group>.notify[_v-1f77809f] {\r\n  position: relative;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f],\r\n.btn-group .notify > div[_v-1f77809f] {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.btn-group .notify > div[_v-1f77809f] {\r\n  top: 5px;\r\n  z-index: 1;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f] {\r\n  opacity: .9;\r\n  bottom: 5px;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-1f77809f] {\r\n  width:100%;\r\n}\r\nspan.caret[_v-1f77809f] {\r\n  float: right;\r\n  margin-top: 9px;\r\n  margin-left: 5px;\r\n}\r\n.secret[_v-1f77809f] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}", ""]);
+	exports.push([module.id, ".btn-select[_v-1f77809f] { display: inline-block; }\r\n.btn-select>.btn-group>.dropdown-menu>li[_v-1f77809f] { position:relative; }\r\n.btn-select>.btn-group>.dropdown-menu>li>a[_v-1f77809f] { cursor:pointer; }\r\n.bs-searchbox[_v-1f77809f] {\r\n  position: relative;\r\n  margin: 4px 8px;\r\n}\r\n.bs-searchbox .close[_v-1f77809f] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\nbutton>.close[_v-1f77809f] { margin-left: 5px;}\r\n.btn-group>.notify[_v-1f77809f] { position: relative; }\r\n.btn-group .dropdown-menu .notify[_v-1f77809f],\r\n.btn-group .notify > div[_v-1f77809f] {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.btn-group .notify > div[_v-1f77809f] {\r\n  top: 5px;\r\n  z-index: 1;\r\n}\r\n.btn-group .dropdown-menu .notify[_v-1f77809f] {\r\n  opacity: .9;\r\n  bottom: 5px;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-1f77809f] { width: 100%; }\r\nspan.caret[_v-1f77809f] {\r\n  float: right;\r\n  margin-top: 9px;\r\n  margin-left: 5px;\r\n}\r\n.secret[_v-1f77809f] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}\r\n.bs-searchbox input[_v-1f77809f]:focus,\r\n.secret:focus + button[_v-1f77809f] {\r\n  outline: 0;\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}", ""]);
 	
 	// exports
 
@@ -3894,35 +3894,37 @@
 	
 	var _translations2 = _interopRequireDefault(_translations);
 	
+	var _NodeList = __webpack_require__(52);
+	
+	var _NodeList2 = _interopRequireDefault(_NodeList);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// <template>
+	var timeout = {}; // <template>
 	
-	// <select v-model="value" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" @focus="focus()">
-	
-	//   <option v-if="required" value=""></option>
-	
-	//   <option v-for="option in options" :value="option.value||option" :selected="isSelected(option.value||option)">{{ option.label||option }}</option>
-	
-	// </select>
-	
-	// <div :class="{'btn-group btn-group-justified': justified, 'btn-select': !justified}" @click="unblur">
+	// <div v-el:select :class="{'btn-group btn-group-justified': justified, 'btn-select': !justified}">
 	
 	//   <slot name="before"></slot>
 	
-	//   <div class="btn-group" :class="{open: show}">
+	//   <div :class="{open:show,dropdown:!justified}">
 	
-	//     <button v-el:btn type="button" class="form-control dropdown-toggle"
+	//     <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
+	
+	//       <option v-if="required" value=""></option>
+	
+	//       <option v-for="option in options" :value="option.value||option" :selected="isSelected(option.value||option)">{{ option.label||option }}</option>
+	
+	//     </select>
+	
+	//     <button type="button" class="form-control dropdown-toggle"
 	
 	//       :disabled="disabled || !hasParent"
 	
 	//       :readonly="readonly"
 	
-	//       @click="toggleDropdown()"
+	//       @click="toggle()"
 	
-	//       @blur="search ? null : blur()"
-	
-	//       @keyup.esc="blur()"
+	//       @keyup.esc="show = false"
 	
 	//     >
 	
@@ -3938,7 +3940,7 @@
 	
 	//       <template v-if="options.length">
 	
-	//         <li v-if="search" class="bs-searchbox">
+	//         <li v-if="canSearch" class="bs-searchbox">
 	
 	//           <input type="text" placeholder="{{searchText||text.search}}" class="form-control" autocomplete="off"
 	
@@ -3946,13 +3948,15 @@
 	
 	//             v-model="searchValue"
 	
-	//             @blur="blur()"
-	
-	//             @keyup.esc="blur()"
+	//             @keyup.esc="show = false"
 	
 	//           />
 	
+	//           <span v-show="searchValue" class="close" @click="clearSearch">&times;</span>
+	
 	//         </li>
+	
+	//         <li v-if="required&&!clearButton"><a @mousedown.prevent="clear() && blur()">{{ placeholder || text.notSelected }}</a></li>
 	
 	//         <li v-for="option in options | filterBy searchValue" :id="option.value||option">
 	
@@ -3986,8 +3990,6 @@
 	
 	// <script>
 	
-	
-	var timeout = {};
 	exports.default = {
 	  props: {
 	    value: {
@@ -4055,6 +4057,11 @@
 	      coerce: _coerceBoolean2.default,
 	      default: null
 	    },
+	    minSearch: {
+	      type: Number,
+	      coerce: _coerceNumber2.default,
+	      default: 0
+	    },
 	    search: { // Allow searching (only works when options are provided)
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
@@ -4067,28 +4074,15 @@
 	    url: {
 	      type: String,
 	      default: null
-	    },
-	    label: {
-	      type: String,
-	      default: null
-	    },
-	    cache: { // save old data -- not working yet (experimental)
-	      type: Array,
-	      default: true
+	      // },
+	      // cache: { // save old data -- not working yet (experimental)
+	      //   type: Array,
+	      //   default: true
 	    }
-	  },
-	  ready: function ready() {
-	    if (this.value === undefined || !this.parent) {
-	      this.value = null;
-	    }
-	    if (!this.multiple && this.value instanceof Array) {
-	      this.value = this.value.shift();
-	    }
-	    this.checkValue();
-	    if (this.url) this.update();
 	  },
 	  data: function data() {
 	    return {
+	      focus: null,
 	      loading: null,
 	      searchValue: null,
 	      show: false,
@@ -4141,6 +4135,9 @@
 	      }
 	      return foundItems.join(', ');
 	    },
+	    canSearch: function canSearch() {
+	      return !this.minSearch ? this.search : this.options.length >= this.minSearch;
+	    },
 	    limitText: function limitText() {
 	      return this.text.limit.replace('{{limit}}', this.limit);
 	    },
@@ -4181,14 +4178,13 @@
 	          _this.showNotify = false;
 	        }, 1500);
 	      }
-	      this.label = this.selectedItems;
-	      this.checkValue();
-	    },
-	    multiple: function multiple() {
 	      this.checkValue();
 	    },
 	    show: function show(val) {
-	      if (val) this.focus();
+	      if (this.focus) {
+	        (this.$els.search || this.$els.sel).focus();
+	        this.focus = false;
+	      }
 	    },
 	    url: function url() {
 	      this.update();
@@ -4203,16 +4199,23 @@
 	          this.value.push(v);
 	        }
 	        if (this.closeOnSelect) {
-	          this.toggleDropdown();
+	          this.toggle();
 	        }
 	      } else {
 	        this.value = v;
-	        this.toggleDropdown();
+	        this.toggle();
 	      }
 	    },
 	    clear: function clear() {
+	      if (this.disabled || this.readonly) {
+	        return;
+	      }
 	      this.value = this.value instanceof Array ? [] : null;
-	      this.toggleDropdown();
+	      this.toggle();
+	    },
+	    clearSearch: function clearSearch() {
+	      this.searchValue = '';
+	      this.$els.search.focus();
 	    },
 	    checkValue: function checkValue() {
 	      if (this.multiple && !(this.value instanceof Array)) {
@@ -4231,33 +4234,16 @@
 	    isSelected: function isSelected(v) {
 	      return this.values.indexOf(v) > -1;
 	    },
-	    toggleDropdown: function toggleDropdown() {
+	    toggle: function toggle() {
+	      this.focus = true;
 	      this.show = !this.show;
-	      this.unblur();
 	    },
 	    blur: function blur() {
-	      var _this2 = this;
-	
-	      timeout.hide = setTimeout(function () {
-	        timeout.hide = false;
-	        _this2.show = false;
-	      }, 100);
-	    },
-	    unblur: function unblur() {
-	      if (timeout.hide) {
-	        clearTimeout(timeout.hide);
-	        timeout.hide = false;
-	      }
-	    },
-	    focus: function focus() {
-	      if (this.show) {
-	        (this.$els.search || this.$els.btn).focus();
-	      } else {
-	        this.$els.btn.focus();
-	      }
+	      this.focus = true;
+	      this.show = false;
 	    },
 	    update: function update() {
-	      var _this3 = this;
+	      var _this2 = this;
 	
 	      if (!this.url) return;
 	      this.loading = true;
@@ -4288,66 +4274,78 @@
 	          }
 	        }
 	
-	        _this3.options = options;
+	        _this2.options = options;
 	        if (!options.length) {
-	          _this3.value = _this3.value instanceof Array ? [] : null;
+	          _this2.value = _this2.value instanceof Array ? [] : null;
 	        }
 	      }).always(function () {
-	        _this3.loading = false;
-	        _this3.checkValue();
+	        _this2.loading = false;
+	        _this2.checkValue();
 	      });
 	    }
+	  },
+	  ready: function ready() {
+	    var _this3 = this;
+	
+	    if (this.value === undefined || !this.parent) {
+	      this.value = null;
+	    }
+	    if (!this.multiple && this.value instanceof Array) {
+	      this.value = this.value.shift();
+	    }
+	    this.checkValue();
+	    if (this.url) this.update();
+	    (0, _NodeList2.default)(this.$els.select).onBlur(function (e) {
+	      _this3.show = false;
+	    });
+	  },
+	  beforeDestroy: function beforeDestroy() {
+	    (0, _NodeList2.default)(this.$els.select).offBlur();
 	  }
 	};
 	// </script>
 
 	// <style scoped>
 
-	// .btn-select {
+	// .btn-select { display: inline-block; }
 
-	//   display: inline-block;
+	// .btn-select>.btn-group>.dropdown-menu>li { position:relative; }
 
-	// }
-
-	// .btn-select>.btn-group>.dropdown-menu>li {
-
-	//   position:relative;
-
-	// }
-
-	// .btn-select>.btn-group>.dropdown-menu>li>a {
-
-	//   cursor:pointer;
-
-	// }
+	// .btn-select>.btn-group>.dropdown-menu>li>a { cursor:pointer; }
 
 	// .bs-searchbox {
 
-	//   padding: 4px 8px;
-
-	// }
-
-	// .bs-searchbox input {
-
-	//   border-color: #66afe9 !important;
-
-	//   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
-
-	//           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
-
-	// }
-
-	// button>.close {
-
-	//   margin-left: 5px;
-
-	// }
-
-	// .btn-group>.notify {
-
 	//   position: relative;
 
+	//   margin: 4px 8px;
+
 	// }
+
+	// .bs-searchbox .close {
+
+	//   position: absolute;
+
+	//   top: 0;
+
+	//   right: 0;
+
+	//   z-index: 2;
+
+	//   display: block;
+
+	//   width: 34px;
+
+	//   height: 34px;
+
+	//   line-height: 34px;
+
+	//   text-align: center;
+
+	// }
+
+	// button>.close { margin-left: 5px;}
+
+	// .btn-group>.notify { position: relative; }
 
 	// .btn-group .dropdown-menu .notify,
 
@@ -4389,11 +4387,7 @@
 
 	// }
 
-	// .btn-group.btn-group-justified .dropdown-menu {
-
-	//   width:100%;
-
-	// }
+	// .btn-group.btn-group-justified .dropdown-menu { width: 100%; }
 
 	// span.caret {
 
@@ -4422,6 +4416,20 @@
 	//   position: absolute;
 
 	//   width: 1px;
+
+	// }
+
+	// .bs-searchbox input:focus,
+
+	// .secret:focus + button {
+
+	//   outline: 0;
+
+	//   border-color: #66afe9 !important;
+
+	//   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+
+	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
 
 	// }
 
@@ -5104,7 +5112,7 @@
 /* 169 */
 /***/ function(module, exports) {
 
-	module.exports = "<select v-model=\"value\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" @focus=\"focus()\" _v-1f77809f=\"\">\n  <option v-if=\"required\" value=\"\" _v-1f77809f=\"\"></option>\n  <option v-for=\"option in options\" :value=\"option.value||option\" :selected=\"isSelected(option.value||option)\" _v-1f77809f=\"\">{{ option.label||option }}</option>\n</select>\n<div :class=\"{'btn-group btn-group-justified': justified, 'btn-select': !justified}\" @click=\"unblur\" _v-1f77809f=\"\">\n  <slot name=\"before\" _v-1f77809f=\"\"></slot>\n  <div class=\"btn-group\" :class=\"{open: show}\" _v-1f77809f=\"\">\n    <button v-el:btn=\"\" type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggleDropdown()\" @blur=\"search ? null : blur()\" @keyup.esc=\"blur()\" _v-1f77809f=\"\">\n      <span class=\"btn-content\" _v-1f77809f=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"search\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @blur=\"blur()\" @keyup.esc=\"blur()\" _v-1f77809f=\"\">\n        </li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value||option\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value||option)\" _v-1f77809f=\"\">\n            {{ option.label||option }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value||option)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n  <slot name=\"after\" _v-1f77809f=\"\"></slot>\n</div>";
+	module.exports = "<div v-el:select=\"\" :class=\"{'btn-group btn-group-justified': justified, 'btn-select': !justified}\" _v-1f77809f=\"\">\n  <slot name=\"before\" _v-1f77809f=\"\"></slot>\n  <div :class=\"{open:show,dropdown:!justified}\" _v-1f77809f=\"\">\n    <select v-el:sel=\"\" v-model=\"value\" v-show=\"show\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" :disabled=\"disabled\" _v-1f77809f=\"\">\n      <option v-if=\"required\" value=\"\" _v-1f77809f=\"\"></option>\n      <option v-for=\"option in options\" :value=\"option.value||option\" :selected=\"isSelected(option.value||option)\" _v-1f77809f=\"\">{{ option.label||option }}</option>\n    </select>\n    <button type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggle()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-content\" _v-1f77809f=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"canSearch\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n          <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\" _v-1f77809f=\"\">×</span>\n        </li>\n        <li v-if=\"required&amp;&amp;!clearButton\" _v-1f77809f=\"\"><a @mousedown.prevent=\"clear() &amp;&amp; blur()\" _v-1f77809f=\"\">{{ placeholder || text.notSelected }}</a></li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value||option\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value||option)\" _v-1f77809f=\"\">\n            {{ option.label||option }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value||option)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n  <slot name=\"after\" _v-1f77809f=\"\"></slot>\n</div>";
 
 /***/ },
 /* 170 */
@@ -6821,7 +6829,7 @@
 	    show: {
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
-	      require: true,
+	      required: true,
 	      twoWay: true
 	    },
 	    placement: {
@@ -9667,7 +9675,7 @@
 /* 244 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -9711,7 +9719,7 @@
 	      var parent = this.$parent;
 	      if (parent.multiple) {
 	        var index = parent.value.indexOf(this.value);
-	        index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1);
+	        parent.value[~index ? '$remove' : 'push'](this.value);
 	      } else {
 	        parent.value = [this.value];
 	        parent.show = false;
@@ -12259,7 +12267,7 @@
 	      default: ''
 	    },
 	    show: {
-	      require: true,
+	      required: true,
 	      type: Boolean,
 	      coerce: _coerceBoolean2.default,
 	      twoWay: true
@@ -13322,7 +13330,7 @@
 	    now: {
 	      type: Number,
 	      coerce: _coerceNumber2.default,
-	      require: true
+	      required: true
 	    },
 	    label: {
 	      type: Boolean,
@@ -13664,7 +13672,7 @@
 	      select: {
 	        options: [{ value: 1, label: 'Cat' }, { value: 2, label: 'Cow' }, { value: 3, label: 'Dog' }, { value: 4, label: 'Elephant' }, { value: 5, label: 'Fish' }, { value: 6, label: 'Lion' }, { value: 7, label: 'Tiger' }, { value: 8, label: 'Turtle' }],
 	        justified: true,
-	        multiple: true
+	        search: true
 	      },
 	      ajax: {
 	        value: null
@@ -13698,9 +13706,9 @@
 
 	//     <div class="bs-example">
 
-	//       <h4>Simple select</h4>
+	//       <h4>Select with options:</h4>
 
-	//       <p><pre>Select data : {{show(single)}}</pre></p>
+	//       <p><pre>Selected data : {{show(single)}}</pre></p>
 
 	//       <v-select :value.sync="single">
 
@@ -13716,55 +13724,87 @@
 
 	//       </v-select>
 
-	//       <hr />
+	//       <hr/>
 
 	//       <h4>Test options:</h4>
 
-	//       <p><pre>Selected data : {{show(select.value)}}</pre></p>
+	//       <div class="row">
 
-	//       <form action="./#select" method="get">
+	//         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
-	//         <v-select :options="select.options" :value.sync="select.value" :name="select.inputs?(select.multiple?'animals[]':'animal'):''"
+	//           <p><pre>Normal select data: {{show(select.normal)}}</pre></p>
 
-	//           :multiple="select.multiple" :search="select.search" :justified="select.justified" :required="select.inputs&&select.required"
+	//           <form action="./#select" method="get">
 
-	//           :clear-button="select.clearButton" :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"
+	//             <v-select :options="select.options" :value.sync="select.normal" name="animal'" :search="select.search" :justified="select.justified"
 
-	//         ></v-select>
+	//               :required="select.required" :clear-button="select.clearButton" :disabled="select.disabled"
 
-	//         <button v-if="select.inputs" type="submit" class="btn btn-default">Submit form</button>
+	//             ></v-select>
 
-	//       </form>
+	//             <button type="submit" class="btn btn-default">Submit</button>
+
+	//           </form>
+
+	//         </div>
+
+	//         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+	//           <p><pre>Multiple select data : {{show(select.multiple)}}</pre></p>
+
+	//           <form action="./#select" method="get">
+
+	//             <v-select :options="select.options" :value.sync="select.multiple" name="animals[]" :search="select.search" :justified="select.justified"
+
+	//               multiple :required="select.required" :clear-button="select.clearButton"
+
+	//               :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"
+
+	//             ></v-select>
+
+	//             <button type="submit" class="btn btn-default">Submit</button>
+
+	//           </form>
+
+	//         </div>
+
+	//       </div>
 
 	//       <br/>
 
 	//       <button-group type="primary" buttons="false">
 
-	//         <p><checkbox :checked.sync="select.disabled">Disabled</checkbox></p>
+	//         <div class="row">
 
-	//         <p><checkbox :checked.sync="select.search">Search</checkbox></p>
+	//           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
-	//         <p>
+	//             <p><checkbox :checked.sync="select.disabled">Disabled</checkbox></p>
 
-	//           <checkbox :checked.sync="select.multiple">Multiple</checkbox>
+	//             <p><checkbox :checked.sync="select.search">Search</checkbox></p>
 
-	//           <checkbox v-if="select.multiple" :checked.sync="select.limit">Limit (e.g. 3)</checkbox>
+	//             <p><checkbox :checked.sync="select.justified">Justified</checkbox></p>
 
-	//           <checkbox v-if="select.multiple" :checked.sync="select.closeOnSelect">Close on Select</checkbox>
+	//             <p><checkbox :checked.sync="select.clearButton">Clear Button</checkbox></p>
 
-	//         </p>
+	//           </div>
 
-	//         <p><checkbox :checked.sync="select.justified">Justified</checkbox></p>
+	//           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
-	//         <p><checkbox :checked.sync="select.clearButton">Clear Button</checkbox></p>
+	//             <p><checkbox :checked.sync="select.required">Required (empty value if noting selected)</checkbox></p>
 
-	//         <p>
+	//             <p>
 
-	//           <checkbox :checked.sync="select.inputs">Form input</checkbox>
+	//               Multiple:
 
-	//           <checkbox v-if="select.inputs" :checked.sync="select.required">Required (add empty value if noting selected)</checkbox>
+	//               <checkbox v-if="select.multiple" :checked.sync="select.limit">Limit (e.g. 3)</checkbox>
 
-	//         </p>
+	//               <checkbox v-if="select.multiple" :checked.sync="select.closeOnSelect">Close on Select</checkbox>
+
+	//             </p>
+
+	//           </div>
+
+	//         </div>
 
 	//       </button-group>
 
@@ -13854,13 +13894,13 @@
 
 	//       <div>
 
-	//         <p>close-on-select</p>
+	//         <p>min-search</p>
 
-	//         <p><code>Boolean</code></p>
+	//         <p><code>Number</code></p>
 
-	//         <p><code>false</code></p>
+	//         <p><code>0</code></p>
 
-	//         <p></p>
+	//         <p>If defined, the searchbox is disabled if are less than the minimum value you set.</p>
 
 	//       </div>
 
@@ -13912,7 +13952,7 @@
 /* 305 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"select\" name=\"Select\">\r\n    <p>Based in a <a target=\"_blank\" href=\"https://silviomoreto.github.io/bootstrap-select/\">bootstrap-select</a> implementation.</p>\r\n    <div class=\"bs-example\">\r\n      <h4>Simple select</h4>\r\n      <p><pre>Select data : {{show(single)}}</pre></p>\r\n      <v-select :value.sync=\"single\">\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n\r\n      <hr />\r\n      <h4>Test options:</h4>\r\n      <p><pre>Selected data : {{show(select.value)}}</pre></p>\r\n      <form action=\"./#select\" method=\"get\">\r\n        <v-select :options=\"select.options\" :value.sync=\"select.value\" :name=\"select.inputs?(select.multiple?'animals[]':'animal'):''\"\r\n          :multiple=\"select.multiple\" :search=\"select.search\" :justified=\"select.justified\" :required=\"select.inputs&&select.required\"\r\n          :clear-button=\"select.clearButton\" :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"\r\n        ></v-select>\r\n        <button v-if=\"select.inputs\" type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n      </form>\r\n      <br/>\r\n      <button-group type=\"primary\" buttons=\"false\">\r\n        <p><checkbox :checked.sync=\"select.disabled\">Disabled</checkbox></p>\r\n        <p><checkbox :checked.sync=\"select.search\">Search</checkbox></p>\r\n        <p>\r\n          <checkbox :checked.sync=\"select.multiple\">Multiple</checkbox>\r\n          <checkbox v-if=\"select.multiple\" :checked.sync=\"select.limit\">Limit (e.g. 3)</checkbox>\r\n          <checkbox v-if=\"select.multiple\" :checked.sync=\"select.closeOnSelect\">Close on Select</checkbox>\r\n        </p>\r\n        <p><checkbox :checked.sync=\"select.justified\">Justified</checkbox></p>\r\n        <p><checkbox :checked.sync=\"select.clearButton\">Clear Button</checkbox></p>\r\n        <p>\r\n          <checkbox :checked.sync=\"select.inputs\">Form input</checkbox>\r\n          <checkbox v-if=\"select.inputs\" :checked.sync=\"select.required\">Required (add empty value if noting selected)</checkbox>\r\n        </p>\r\n      </button-group>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <v-select>\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n      <form action=\"./#select\" method=\"get\">\r\n        <v-select :value.sync=\"select.value\" :options=\"select.options\"\r\n          multiple name=\"animals[]\" limit=\"3\"\r\n          search justified required disabled\r\n          clear-button close-on-select\r\n        ></v-select>\r\n        <button type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n      </form>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      options: [\r\n        {value: 1, label: 'Cat'},\r\n        {value: 2, label: 'Cow'},\r\n        {value: 3, label: 'Dog'},\r\n        {value: 4, label: 'Elephant'},\r\n        {value: 5, label: 'Fish'},\r\n        {value: 6, label: 'Lion'},\r\n        {value: 7, label: 'Tiger'},\r\n        {value: 8, label: 'Turtle'}\r\n      ]\r\n    </doc-code>\r\n\r\n    <hr />\r\n    <h4>Ajax data and parent dependency:</h4>\r\n    <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>\r\n    <v-select url=\"docs/data.json\" :value.sync=\"ajax.value\" clear-button v-ref:ajax></v-select>\r\n    <v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\"></v-select>\r\n    <doc-code language=\"markup\">\r\n      <v-select url=\"docs/data.json\" :value.sync=\"ajax.value\" clear-button></v-select>\r\n      <v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\"></v-select>\r\n    </doc-code>\r\n    <p>Ajax response:</p>\r\n    <doc-code language=\"markup\"><span v-html=\"$refs.ajax.options|json\"></span></doc-code>\r\n\r\n    <doc-options name=\"Other\">\r\n      <div>\r\n        <p>close-on-select</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>lang</p>\r\n        <p><code>String</code></p>\r\n        <p>Browser language</p>\r\n        <p><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p>Nothing Selected</p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>search-text</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
+	module.exports = "<doc-section id=\"select\" name=\"Select\">\r\n    <p>Based in a <a target=\"_blank\" href=\"https://silviomoreto.github.io/bootstrap-select/\">bootstrap-select</a> implementation.</p>\r\n    <div class=\"bs-example\">\r\n      <h4>Select with options:</h4>\r\n      <p><pre>Selected data : {{show(single)}}</pre></p>\r\n      <v-select :value.sync=\"single\">\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n      <hr/>\r\n      <h4>Test options:</h4>\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n          <p><pre>Normal select data: {{show(select.normal)}}</pre></p>\r\n          <form action=\"./#select\" method=\"get\">\r\n            <v-select :options=\"select.options\" :value.sync=\"select.normal\" name=\"animal'\" :search=\"select.search\" :justified=\"select.justified\"\r\n              :required=\"select.required\" :clear-button=\"select.clearButton\" :disabled=\"select.disabled\"\r\n            ></v-select>\r\n            <button type=\"submit\" class=\"btn btn-default\">Submit</button>\r\n          </form>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n          <p><pre>Multiple select data : {{show(select.multiple)}}</pre></p>\r\n          <form action=\"./#select\" method=\"get\">\r\n            <v-select :options=\"select.options\" :value.sync=\"select.multiple\" name=\"animals[]\" :search=\"select.search\" :justified=\"select.justified\"\r\n              multiple :required=\"select.required\" :clear-button=\"select.clearButton\"\r\n              :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"\r\n            ></v-select>\r\n            <button type=\"submit\" class=\"btn btn-default\">Submit</button>\r\n          </form>\r\n        </div>\r\n      </div>\r\n      <br/>\r\n      <button-group type=\"primary\" buttons=\"false\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n            <p><checkbox :checked.sync=\"select.disabled\">Disabled</checkbox></p>\r\n            <p><checkbox :checked.sync=\"select.search\">Search</checkbox></p>\r\n            <p><checkbox :checked.sync=\"select.justified\">Justified</checkbox></p>\r\n            <p><checkbox :checked.sync=\"select.clearButton\">Clear Button</checkbox></p>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n            <p><checkbox :checked.sync=\"select.required\">Required (empty value if noting selected)</checkbox></p>\r\n            <p>\r\n              Multiple:\r\n              <checkbox v-if=\"select.multiple\" :checked.sync=\"select.limit\">Limit (e.g. 3)</checkbox>\r\n              <checkbox v-if=\"select.multiple\" :checked.sync=\"select.closeOnSelect\">Close on Select</checkbox>\r\n            </p>\r\n          </div>\r\n        </div>\r\n      </button-group>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <v-select>\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n      <form action=\"./#select\" method=\"get\">\r\n        <v-select :value.sync=\"select.value\" :options=\"select.options\"\r\n          multiple name=\"animals[]\" limit=\"3\"\r\n          search justified required disabled\r\n          clear-button close-on-select\r\n        ></v-select>\r\n        <button type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n      </form>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      options: [\r\n        {value: 1, label: 'Cat'},\r\n        {value: 2, label: 'Cow'},\r\n        {value: 3, label: 'Dog'},\r\n        {value: 4, label: 'Elephant'},\r\n        {value: 5, label: 'Fish'},\r\n        {value: 6, label: 'Lion'},\r\n        {value: 7, label: 'Tiger'},\r\n        {value: 8, label: 'Turtle'}\r\n      ]\r\n    </doc-code>\r\n\r\n    <hr />\r\n    <h4>Ajax data and parent dependency:</h4>\r\n    <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>\r\n    <v-select url=\"docs/data.json\" :value.sync=\"ajax.value\" clear-button v-ref:ajax></v-select>\r\n    <v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\"></v-select>\r\n    <doc-code language=\"markup\">\r\n      <v-select url=\"docs/data.json\" :value.sync=\"ajax.value\" clear-button></v-select>\r\n      <v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\"></v-select>\r\n    </doc-code>\r\n    <p>Ajax response:</p>\r\n    <doc-code language=\"markup\"><span v-html=\"$refs.ajax.options|json\"></span></doc-code>\r\n\r\n    <doc-options name=\"Other\">\r\n      <div>\r\n        <p>min-search</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p>If defined, the searchbox is disabled if are less than the minimum value you set.</p>\r\n      </div>\r\n      <div>\r\n        <p>lang</p>\r\n        <p><code>String</code></p>\r\n        <p>Browser language</p>\r\n        <p><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p>Nothing Selected</p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>search-text</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
 
 /***/ },
 /* 306 */
@@ -14987,7 +15027,7 @@
 	    if (this._tabset.active === this.index) {
 	      this._tabset.active = 0;
 	    }
-	    this._tabset.tabs.splice(this.index, 1);
+	    this._tabset.tabs.$remove(this);
 	  }
 	};
 	// </script>
