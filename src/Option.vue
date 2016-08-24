@@ -29,7 +29,7 @@ export default {
       const parent = this.$parent
       if (parent.multiple) {
         const index = parent.value.indexOf(this.value)
-        index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1)
+        parent.value[~index ? '$remove' : 'push'](this.value)
       } else {
         parent.value = [this.value]
         parent.show = false

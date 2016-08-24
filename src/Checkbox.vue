@@ -105,7 +105,7 @@ export default {
           if (this.group && typeof this.value !== 'boolean') {
             const parent = this.$parent
             const index = parent.value.indexOf(this.value)
-            index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1)
+            parent.value[~index ? '$remove' : 'push'](this.value)
           }
         }
       }
@@ -115,7 +115,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style scoped>
 .checkbox { position: relative; }
 .checkbox > label > input {
   position: absolute;
