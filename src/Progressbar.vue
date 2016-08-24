@@ -23,7 +23,7 @@ export default {
     now: {
       type: Number,
       coerce: coerceNumber,
-      require: true
+      required: true
     },
     label: {
       type: Boolean,
