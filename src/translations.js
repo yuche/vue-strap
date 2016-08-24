@@ -2,19 +2,23 @@
 let text = {
   daysOfWeek: {
     en: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-    es: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+    es: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+    'pt-BR': ['Do', 'Se', 'Te', 'Qa', 'Qi', 'Sx', 'Sa'],    
   },
   limit: {
     en: 'Limit reached ({{limit}} items max).',
-    es: 'Limite alcanzado (máximo {{limit}} items).'
+    es: 'Limite alcanzado (máximo {{limit}} items).',
+    'pt-BR': 'Limite atingido (máximo {{limit}} items).'
   },
   loading: {
     en: 'Loading...',
-    es: 'Cargando...'
+    es: 'Cargando...',
+    'pt-BR': 'Cargando...'
   },
   minLength: {
     en: 'Min. Length',
-    es: 'Tamaño Mínimo'
+    es: 'Tamaño Mínimo',
+    'pt-BR': 'Tamanho Mínimo'
   },
   months: {
     en: [
@@ -28,19 +32,28 @@ let text = {
       'Abril', 'Mayo', 'Junio',
       'Julio', 'Agosto', 'Septiembre',
       'Octubre', 'Noviembre', 'Diciembre'
+    ],
+    'pt-BR': [
+      'Janeiro', 'Fevereiro', 'Março',
+      'Abril', 'Maio', 'Junho',
+      'Julho', 'Agosto', 'Setembro',
+      'Outubro', 'Novembro', 'Dezembro'
     ]
   },
   notSelected: {
     en: 'Nothing Selected',
-    es: 'Nada seleccionado'
+    es: 'Nada seleccionado',
+    'pt-BR': 'Nada selecionado'
   },
   required: {
     en: 'Required',
-    es: 'Requerido'
+    es: 'Requerido',
+    'pt-BR': 'Requerido'
   },
   search: {
     en: 'Search',
-    es: 'Buscar'
+    es: 'Buscar',
+    'pt-BR': 'Buscar'
   }
 }
 export default (lang = 'en') => {
