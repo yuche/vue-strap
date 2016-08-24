@@ -2,19 +2,23 @@
 let text = {
   daysOfWeek: {
     en: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-    es: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+    es: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+    fr: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa']
   },
   limit: {
     en: 'Limit reached ({{limit}} items max).',
-    es: 'Limite alcanzado (máximo {{limit}} items).'
+    es: 'Limite alcanzado (máximo {{limit}} items).',
+    fr: 'Limite atteinte ({{limit}} éléments maximum)'
   },
   loading: {
     en: 'Loading...',
-    es: 'Cargando...'
+    es: 'Cargando...',
+    fr: 'Chargement...'
   },
   minLength: {
     en: 'Min. Length',
-    es: 'Tamaño Mínimo'
+    es: 'Tamaño Mínimo',
+    fr: 'Taille Minimum'
   },
   months: {
     en: [
@@ -28,19 +32,28 @@ let text = {
       'Abril', 'Mayo', 'Junio',
       'Julio', 'Agosto', 'Septiembre',
       'Octubre', 'Noviembre', 'Diciembre'
+    ],
+    fr: [
+        'Janvier', 'Février', 'Mars',
+      'Avril', 'Mai', 'Juin',
+      'Juillet', 'Août', 'Septembre',
+      'Octobre', 'Novembre', 'Décembre'
     ]
   },
   notSelected: {
     en: 'Nothing Selected',
-    es: 'Nada seleccionado'
+    es: 'Nada seleccionado',
+    fr: 'Rien sélectionné'
   },
   required: {
     en: 'Required',
-    es: 'Requerido'
+    es: 'Requerido',
+    fr: 'Requis'
   },
   search: {
     en: 'Search',
-    es: 'Buscar'
+    es: 'Buscar',
+    fr: 'Rechercher'
   }
 }
 export default (lang = 'en') => {
