@@ -36,7 +36,7 @@ export default {
     show: {
       type: Boolean,
       coerce: coerceBoolean,
-      require: true,
+      required: true,
       twoWay: true
     },
     placement: {

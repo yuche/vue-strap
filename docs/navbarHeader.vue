@@ -4,12 +4,6 @@
     <dropdown text="Component List" type="primary">
       <li v-for="s in sections"><a :href="'#'+s.id" v-text="s.name"></a></li>
     </dropdown>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">menu</a>
-      <ul class="dropdown-menu">
-        <li><a href="#">opcion</a></li>
-      </ul>
-    </li>
     <li>
       <a href="https://github.com/yuche/vue-strap" target="_blank">
         Fork this project on Github

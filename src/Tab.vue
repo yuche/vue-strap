@@ -61,7 +61,7 @@ export default {
   },
   beforeDestroy () {
     if (this._tabset.active === this.index) { this._tabset.active = 0 }
-    this._tabset.tabs.splice(this.index, 1)
+    this._tabset.tabs.$remove(this)
   }
 }
 </script>

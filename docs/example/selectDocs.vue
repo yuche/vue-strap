@@ -2,8 +2,8 @@
   <doc-section id="select" name="Select">
     <p>Based in a <a target="_blank" href="https://silviomoreto.github.io/bootstrap-select/">bootstrap-select</a> implementation.</p>
     <div class="bs-example">
-      <h4>Simple select</h4>
-      <p><pre>Select data : {{show(single)}}</pre></p>
+      <h4>Select with options:</h4>
+      <p><pre>Selected data : {{show(single)}}</pre></p>
       <v-select :value.sync="single">
         <v-option value="apple">Apple</v-option>
         <v-option value="banana">Banana</v-option>
@@ -11,32 +11,47 @@
         <v-option value="orange">Orange</v-option>
         <v-option value="grape">Grape</v-option>
       </v-select>
-
-      <hr />
+      <hr/>
       <h4>Test options:</h4>
-      <p><pre>Selected data : {{show(select.value)}}</pre></p>
-      <form action="./#select" method="get">
-        <v-select :options="select.options" :value.sync="select.value" :name="select.inputs?(select.multiple?'animals[]':'animal'):''"
-          :multiple="select.multiple" :search="select.search" :justified="select.justified" :required="select.inputs&&select.required"
-          :clear-button="select.clearButton" :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"
-        ></v-select>
-        <button v-if="select.inputs" type="submit" class="btn btn-default">Submit form</button>
-      </form>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <p><pre>Normal select data: {{show(select.normal)}}</pre></p>
+          <form action="./#select" method="get">
+            <v-select :options="select.options" :value.sync="select.normal" name="animal'" :search="select.search" :justified="select.justified"
+              :required="select.required" :clear-button="select.clearButton" :disabled="select.disabled"
+            ></v-select>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <p><pre>Multiple select data : {{show(select.multiple)}}</pre></p>
+          <form action="./#select" method="get">
+            <v-select :options="select.options" :value.sync="select.multiple" name="animals[]" :search="select.search" :justified="select.justified"
+              multiple :required="select.required" :clear-button="select.clearButton"
+              :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"
+            ></v-select>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+      </div>
       <br/>
       <button-group type="primary" buttons="false">
-        <p><checkbox :checked.sync="select.disabled">Disabled</checkbox></p>
-        <p><checkbox :checked.sync="select.search">Search</checkbox></p>
-        <p>
-          <checkbox :checked.sync="select.multiple">Multiple</checkbox>
-          <checkbox v-if="select.multiple" :checked.sync="select.limit">Limit (e.g. 3)</checkbox>
-          <checkbox v-if="select.multiple" :checked.sync="select.closeOnSelect">Close on Select</checkbox>
-        </p>
-        <p><checkbox :checked.sync="select.justified">Justified</checkbox></p>
-        <p><checkbox :checked.sync="select.clearButton">Clear Button</checkbox></p>
-        <p>
-          <checkbox :checked.sync="select.inputs">Form input</checkbox>
-          <checkbox v-if="select.inputs" :checked.sync="select.required">Required (add empty value if noting selected)</checkbox>
-        </p>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <p><checkbox :checked.sync="select.disabled">Disabled</checkbox></p>
+            <p><checkbox :checked.sync="select.search">Search</checkbox></p>
+            <p><checkbox :checked.sync="select.justified">Justified</checkbox></p>
+            <p><checkbox :checked.sync="select.clearButton">Clear Button</checkbox></p>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <p><checkbox :checked.sync="select.required">Required (empty value if noting selected)</checkbox></p>
+            <p>
+              Multiple:
+              <checkbox v-if="select.multiple" :checked.sync="select.limit">Limit (e.g. 3)</checkbox>
+              <checkbox v-if="select.multiple" :checked.sync="select.closeOnSelect">Close on Select</checkbox>
+            </p>
+          </div>
+        </div>
       </button-group>
     </div>
     <doc-code language="markup">
@@ -83,10 +98,10 @@
 
     <doc-options name="Other">
       <div>
-        <p>close-on-select</p>
-        <p><code>Boolean</code></p>
-        <p><code>false</code></p>
-        <p></p>
+        <p>min-search</p>
+        <p><code>Number</code></p>
+        <p><code>0</code></p>
+        <p>If defined, the searchbox is disabled if are less than the minimum value you set.</p>
       </div>
       <div>
         <p>lang</p>
@@ -143,7 +158,7 @@ export default {
           {value: 8, label: 'Turtle'}
         ],
         justified: true,
-        multiple: true
+        search: true
       },
       ajax: {
         value:null

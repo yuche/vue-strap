@@ -53,7 +53,7 @@ export default {
       default: ''
     },
     show: {
-      require: true,
+      required: true,
       type: Boolean,
       coerce: coerceBoolean,
       twoWay: true
