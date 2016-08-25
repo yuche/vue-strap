@@ -1,20 +1,22 @@
 <template>
   <h2 v-if="options.length">{{name}} Options</h2>
-  <table v-if="options.length" class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="option in options">
-        <td v-for="el in option" v-html="el" v-if="$index<4"></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table v-if="options.length" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="option in options">
+          <td v-for="el in option" v-html="el" v-if="$index<4"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>

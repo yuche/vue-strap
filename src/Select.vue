@@ -4,7 +4,7 @@
   <div :class="{open:show,dropdown:!justified}">
     <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
       <option v-if="required" value=""></option>
-      <option v-for="option in options" :value="option.value||option" :selected="isSelected(option.value||option)">{{ option.label||option }}</option>
+      <option v-for="option in options" :value="option.value||option">{{ option.label||option }}</option>
     </select>
     <button type="button" class="form-control dropdown-toggle"
       :disabled="disabled || !hasParent"
@@ -141,7 +141,6 @@ export default {
   },
   data () {
     return {
-      focus: null,
       loading: null,
       searchValue: null,
       show: false,
@@ -173,7 +172,7 @@ export default {
       return foundItems.join(', ')
     },
     canSearch () {
-      return !this.minSearch ? this.search : this.options.length >= this.minSearch
+      return this.minSearch ? this.options.length >= this.minSearch : this.search
     },
     limitText () {
       return this.text.limit.replace('{{limit}}', this.limit)
@@ -216,9 +215,9 @@ export default {
       this.checkValue()
     },
     show (val) {
-      if (this.focus) {
-        (this.$els.search || this.$els.sel).focus()
-        this.focus = false
+      if (val) {
+        this.$els.sel.focus()
+        this.$els.search && this.$els.search.focus()
       }
     },
     url () {
@@ -266,11 +265,9 @@ export default {
       return this.values.indexOf(v) > -1
     },
     toggle () {
-      this.focus = true
       this.show = !this.show
     },
     blur () {
-      this.focus = true
       this.show = false
     },
     update () {
@@ -289,13 +286,15 @@ export default {
       })
     }
   },
-  ready () {
+  created () {
     if (this.value === undefined || !this.parent) { this.value = null }
     if (!this.multiple && this.value instanceof Array) {
       this.value = this.value.shift()
     }
     this.checkValue()
     if (this.url) this.update()
+  },
+  ready () {
     $(this.$els.select).onBlur((e) => { this.show = false })
   },
   beforeDestroy () {
