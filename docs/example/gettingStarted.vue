@@ -74,6 +74,25 @@
         })
       </script>
     </doc-code>
+    <h2>Mobile detection (optional):</h2>
+    <p>If you need to enable/disable options if is a mobile device you can add:</p>
+    <doc-code language="markup">
+      <script src="path/to/isMobileBrowser.js"></script>
+    </doc-code>
+    <p>Then in javascript you can check it just doing:</p>
+    <doc-code language="javascript">
+      if (navigator.isMobile) {
+        //do something if is mobile
+      }
+      if ('isMobile' in navigator) {
+        //do things only if the plugin was loaded
+
+        if (!navigator.isMobile) {
+          //do something if is not a mobile
+        }
+      }
+    </doc-code>
+    <p>Based on <a href="http://detectmobilebrowsers.com/">Detect Mobile Browsers</a>.</p>
   </div>
 </template>
 <script>

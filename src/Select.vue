@@ -172,7 +172,7 @@ export default {
       return foundItems.join(', ')
     },
     canSearch () {
-      return !this.minSearch ? this.search : this.options.length >= this.minSearch
+      return this.minSearch ? this.options.length >= this.minSearch : this.search
     },
     limitText () {
       return this.text.limit.replace('{{limit}}', this.limit)

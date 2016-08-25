@@ -303,6 +303,7 @@ class NodeList {
         }
       }
       document.addEventListener('click', blurEvent, false)
+      document.addEventListener('touchstart', blurEvent, false)
     }
     return this
   }
