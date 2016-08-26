@@ -43,8 +43,28 @@ export default {
   ready () {
     if (!this.$els.popover) return console.error('Couldn\'t find popover v-el in your component that uses popoverMixin.')
     const triger = this.$els.trigger.children[0]
-    let events = this.trigger === 'hover' ? ['mouseleave', 'mouseenter'] : this.trigger === 'focus' ? ['blur', 'focus'] : ['click']
-    $(triger).on(events, () => this.toggle(events[1]))
+    if (this.trigger) {
+      switch (this.trigger) {
+        case 'none':
+          break
+        case 'hover':
+          $(triger).on(['mouseleave', 'mouseenter'], () => this.toggle())
+          break
+        case 'focus':
+          $(triger).on(['blur', 'focus'], () => this.toggle())
+          break
+        case 'contextmenu':
+          $(triger).on(['contextmenu'], (event) => {
+            event.preventDefault()
+            this.toggle()
+          })
+          break
+        case 'click':
+        default:
+          $(triger).on(['click'], () => this.toggle())
+          break
+      }
+    }
 
     const popover = this.$els.popover
     switch (this.placement) {
