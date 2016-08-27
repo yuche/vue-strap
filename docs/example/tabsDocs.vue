@@ -57,9 +57,9 @@
     </doc-code>
     <doc-code language="javascript">
       components: {
-        tabs: VueStrap.Tabset,
-        tabGroup: VueStrap.TabGroup,
-        tab: VueStrap.Tab
+        tabs: VueStrap.tabset,
+        tabGroup: VueStrap.tabGroup,
+        tab: VueStrap.tab
       }
     </doc-code>
     <doc-options name="Tabset (container)">
