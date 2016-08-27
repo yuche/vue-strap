@@ -1,47 +1,51 @@
 <template>
   <doc-section id="input" name="Input">
     <div class="bs-example text-left">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <bs-input
-            :disabled="check.disabled"
-            :error="check.error && 'Insert user name'"
-            help="Only allows lowercase letters and numbers."
-            :icon="check.icon"
-            :label="check.label && 'User Name'"
-            :mask="check.mask?mask:null"
-            :minlength="check.minlength?5:0"
-            pattern="^[a-z][a-z0-9]+$"
-            :placeholder="check.placeholder && 'Username can\'t start with a number.'"
-            :readonly="check.readonly"
-            :required="check.required"
-            :clear-button="check.clearButton"
-            :value.sync="input"
-          ></bs-input>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <bs-input required label="Match value" type="password" :match="input" :icon="check.icon" help="Match the User Name"></bs-input>
-        </div>
-      </div>
-      <div class="row">
-        <button-group type="primary" buttons="false">
+      <form action="." method="get" accept-charset="utf-8">
+        <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <p><checkbox :checked.sync="check.label">Label</checkbox></p>
-            <p><checkbox :checked.sync="check.placeholder">placeholder</checkbox></p>
-            <p><checkbox :checked.sync="check.disabled">disabled</checkbox></p>
-            <p><checkbox :checked.sync="check.error">error</checkbox></p>
-            <p><checkbox :checked.sync="check.icon">icon</checkbox></p>
+            <bs-input name="username"
+              :disabled="check.disabled"
+              :error="check.error && 'Insert user name'"
+              help="Only allows lowercase letters and numbers."
+              :enter-submit="check.enterSubmit"
+              :icon="check.icon"
+              :label="check.label && 'User Name'"
+              :mask="check.mask?mask:null"
+              :minlength="check.minlength?5:0"
+              pattern="^[a-z][a-z0-9]+$"
+              :placeholder="check.placeholder && 'Username can\'t start with a number.'"
+              :readonly="check.readonly"
+              :required="check.required"
+              :clear-button="check.clearButton"
+              :value.sync="input"
+            ></bs-input>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <p><checkbox :checked.sync="check.mask">mask</checkbox></p>
-            <p><checkbox :checked.sync="check.minlength">minlength=5</checkbox></p>
-            <p><checkbox :checked.sync="check.readonly">readonly</checkbox></p>
-            <p><checkbox :checked.sync="check.required">required</checkbox></p>
-            <p><checkbox :checked.sync="check.clearButton">clear button</checkbox></p>
+            <bs-input name="match" required label="Match value" type="password" :match="input" :icon="check.icon" :enter-submit="check.enterSubmit" help="Match the User Name"></bs-input>
           </div>
-        </button-group>
-      </div>
-      <bs-input label="Textarea" type="textarea" :icon="check.icon" no-validate></bs-input>
+        </div>
+        <div class="row">
+          <button-group type="primary" buttons="false">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <p><checkbox :checked.sync="check.label">Label</checkbox></p>
+              <p><checkbox :checked.sync="check.placeholder">placeholder</checkbox></p>
+              <p><checkbox :checked.sync="check.disabled">disabled</checkbox></p>
+              <p><checkbox :checked.sync="check.error">error</checkbox></p>
+              <p><checkbox :checked.sync="check.icon">icon</checkbox></p>
+              <p><checkbox :checked.sync="check.enterSubmit">enterSubmit</checkbox></p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <p><checkbox :checked.sync="check.mask">mask</checkbox></p>
+              <p><checkbox :checked.sync="check.minlength">minlength=5</checkbox></p>
+              <p><checkbox :checked.sync="check.readonly">readonly</checkbox></p>
+              <p><checkbox :checked.sync="check.required">required</checkbox></p>
+              <p><checkbox :checked.sync="check.clearButton">clear button</checkbox></p>
+            </div>
+          </button-group>
+        </div>
+        <bs-input name="textarea" label="Textarea" type="textarea" :icon="check.icon" :enter-submit="check.enterSubmit" no-validate></bs-input>
+      </form>
     </div>
     <doc-code language="markup">
       <bs-input :value.sync="input"
@@ -84,12 +88,12 @@
         <p><code>false</code></p>
         <p></p>
       </div>
-      <!-- <div>
+      <div>
         <p>enterSubmit</p>
         <p><code>Boolean</code></p>
         <p><code>false</code></p>
-        <p>Error message.</p>
-      </div> -->
+        <p>Submit when you press <code>Enter</code>. Not supported on type <code>textarea</code>.</p>
+      </div>
       <div>
         <p>error</p>
         <p><code>String</code></p>
@@ -157,6 +161,12 @@
         <p>Disable validations (don't affect masking).</p>
       </div>
       <div>
+        <p>onfocus</p>
+        <p><code>Function</code></p>
+        <p><code>null</code></p>
+        <p>A callable function that trigger when focus the input.</p>
+      </div>
+      <div>
         <p>pattern</p>
         <p><code>String</code> or <code>Function</code></p>
         <p><code>null</code></p>
@@ -177,7 +187,7 @@
       <div>
         <p>type</p>
         <p><code>String</code></p>
-        <p><code>'text'</code></p>
+        <p><code>text</code></p>
         <p></p>
       </div>
       <div>
@@ -218,6 +228,9 @@ export default {
     }
   },
   methods: {
+    focus () {
+      alert('focus')
+    },
     mask (value) {
       return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\W/g,'')
     }
