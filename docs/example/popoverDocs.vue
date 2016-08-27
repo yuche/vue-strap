@@ -1,55 +1,37 @@
 <template>
   <doc-section id="popover" name="Popover">
     <div class="bs-example">
-      <popover effect="fade" content="Lorem ipsum dolor sit amet" placement="top">
-        <button class="btn btn-default ">Popover on top</button>
-      </popover>
-      <popover effect="fade" content="Lorem ipsum dolor sit amet" placement="left">
-        <button class="btn btn-default ">Popover on left</button>
-      </popover>
-      <popover effect="fade" content="Lorem ipsum dolor sit amet" placement="right">
-        <button class="btn btn-default ">Popover on right</button>
-      </popover>
-      <popover effect="fade" placement="bottom" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-        <button class="btn btn-default ">Popover on bottom</button>
+      <popover v-for="place in placements" effect="fade" :content="text" :placement="place">
+        <button class="btn btn-default">Popover on {{place}}</button>
       </popover>
       <hr>
       <h4>Title</h4>
-      <popover effect="fade" header title="Title" content="Lorem ipsum dolor sit amet" placement="top">
-        <button class="btn btn-default ">Popover on top</button>
-      </popover>
-      <popover effect="fade" header title="Title" content="Lorem ipsum dolor sit amet" placement="left">
-        <button class="btn btn-default ">Popover on left</button>
-      </popover>
-      <popover effect="fade" header title="Title" content="Lorem ipsum dolor sit amet" placement="right">
-        <button class="btn btn-default ">Popover on right</button>
-      </popover>
-      <popover effect="fade" placement="bottom" header title="Title" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-        <button class="btn btn-default ">Popover on bottom</button>
+      <popover v-for="place in placements" effect="fade" header title="Title" :content="text" :placement="place">
+        <button class="btn btn-default">Popover on {{place}}</button>
       </popover>
       <hr>
-      <h4>Triger</h4>
+      <h4>Trigger</h4>
       <p>
-        <popover effect="scale" title="Title" content="Lorem ipsum dolor sit amet" placement="top" trigger="hover">
-          <button class="btn btn-default ">Mouseenter</button>
+        <popover effect="scale" title="Title" :content="content" placement="top" trigger="hover">
+          <button class="btn btn-default">Mouseenter</button>
+        </popover>
+        <popover effect="scale" title="Title" :content="text" placement="top" trigger="contextmenu">
+          <button class="btn btn-default">Contextmenu (right click)</button>
         </popover>
       </p>
-      <popover effect="scale" title="Title" content="Lorem ipsum dolor sit amet" placement="bottom" trigger="focus">
+      <popover effect="scale" title="Title" :content="text" placement="bottom" trigger="focus">
         <input type="text" class="form-control" placeholder="Focus">
       </popover>
     </div>
     <doc-code language="markup">
-      <popover effect="fade" placement="bottom" title="Title"
-        content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
+      <popover effect="fade" placement="bottom" title="Title" content="content">
         <button class="btn btn-default">Popover on bottom</button>
       </popover>
     </doc-code>
     <doc-options>
       <div>
         <p>trigger</p>
-        <p><code>String</code>, one of <code>click</code>
-        <code>focus</code>
-        <code>hover</code></p>
+        <p><code>String</code>, one of <code>click</code> <code>focus</code> <code>hover</code> <code>contextmenu</code></p>
         <p><code>click</code></p>
         <p>How the popover is triggered.</p>
       </div>
@@ -105,8 +87,9 @@ export default {
   },
   data () {
     return {
-      title: 'Title',
-      text: 'Lorem ipsum dolor sit amet'
+      placements: ['top', 'left', 'right', 'bottom'],
+      text: 'Lorem ipsum dolor sit amet',
+      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod'
     }
   }
 }
