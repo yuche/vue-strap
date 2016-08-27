@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true}">
+  <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true,validate:!noValidate}">
     <label v-if="label" class="control-label">{{label}}</label>
     <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
       :cols="cols"
@@ -22,6 +22,7 @@
           :disabled="disabled"
           :maxlength="maxlength"
           :placeholder="placeholder"
+          @keyup.enter="enterSubmit&&submit()"
         />
         <slot name="after"></slot>
       </div>
@@ -33,11 +34,10 @@
         :disabled="disabled"
         :maxlength="maxlength"
         :placeholder="placeholder"
+        @keyup.enter="enterSubmit&&submit()"
       />
     </template>
-    <button v-if="clearButton && value" type="button" class="close" @click="value = ''">
-      <span>&times;</span>
-    </button>
+    <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
     <div v-if="showHelp" class="help-block">{{help}}</div>
     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
@@ -122,6 +122,7 @@ export default {
       coerce: coerceBoolean,
       default: false
     },
+    onfocus: null,
     pattern: null,
     placeholder: {
       type: String,
@@ -213,6 +214,16 @@ export default {
         }, coerceNumber(this.validationDelay, 250))
       }
     },
+    submit () {
+      if (this.$els.input.form) {
+        const invalids = $('.form-group.validate:not(.has-success)',this.$els.input.form)
+        if (invalids.length) {
+          invalids.find('input,textarea,select')[0].focus()
+        } else {
+          this.$els.input.form.submit()
+        }
+      }
+    },
     validate () {
       let value = (this.value || '').trim()
       if (!value) { return !this.required }
@@ -231,6 +242,8 @@ export default {
   ready () {
     $(this.$els.input).on('change keypress keydown keyup', () => this.eval()).on('blur', () => {
       if (!this.noValidate) { this.valid = this.validate() }
+    }).on('focus', (e) => {
+      if (this.onfocus instanceof Function) this.onfocus.call(this, e)
     })
   },
   beforeDestroy () {
@@ -243,10 +256,10 @@ export default {
 .form-group {
   position: relative;
 }
-label~button.close {
+label~.close {
     top: 25px;
 }
-button.close {
+.close {
   position: absolute;
   top: 0;
   right: 0;
