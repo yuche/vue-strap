@@ -28,15 +28,28 @@
         <button class="btn btn-default ">Popover on bottom</button>
       </popover>
       <hr>
-      <h4>Triger</h4>
+      <h4>Trigger</h4>
       <p>
         <popover effect="scale" title="Title" content="Lorem ipsum dolor sit amet" placement="top" trigger="hover">
           <button class="btn btn-default ">Mouseenter</button>
         </popover>
       </p>
+      <p>
       <popover effect="scale" title="Title" content="Lorem ipsum dolor sit amet" placement="bottom" trigger="focus">
         <input type="text" class="form-control" placeholder="Focus">
       </popover>
+      </p>
+      <p>
+      <popover effect="scale" title="Title" content="Lorem ipsum dolor sit amet" placement="bottom" trigger="contextmenu">
+        <input type="text" class="form-control" placeholder="ContextMenu (right-click)">
+      </popover>
+      </p>
+      <p>
+        <popover effect="scale" title="Title" content="Lorem ipsum dolor sit amet" placement="top" trigger="none" v-ref:notrigger>
+          <input type="text" class="form-control" placeholder="Triggered by an external event (in this case, the button)">
+        </popover>
+        <button class="btn btn-default" v-on:click="doPopoverToggle">Trigger the popover</button>
+      </p>
     </div>
     <doc-code language="markup">
       <popover effect="fade" placement="bottom" title="Title"
@@ -49,7 +62,9 @@
         <p>trigger</p>
         <p><code>String</code>, one of <code>click</code>
         <code>focus</code>
-        <code>hover</code></p>
+        <code>hover</code>
+        <code>contextmenu</code>
+        <code>none</code></p>
         <p><code>click</code></p>
         <p>How the popover is triggered.</p>
       </div>
@@ -107,6 +122,11 @@ export default {
     return {
       title: 'Title',
       text: 'Lorem ipsum dolor sit amet'
+    }
+  },
+  methods: {
+    doPopoverToggle: function (event) {
+      this.$refs.notrigger.toggle()
     }
   }
 }
