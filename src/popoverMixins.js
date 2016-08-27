@@ -73,6 +73,10 @@ export default {
     this.show = !this.show
   },
   beforeDestroy () {
-    $(triger).off()
+    const triger = this.$els.trigger.children[0]
+
+    if(triger) {
+      $(triger).off()
+    }
   }
 }
