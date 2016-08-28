@@ -13,7 +13,7 @@ export default {
       type: String,
       default: null
     },
-    oneAtATime: {
+    oneAtAtime: {
       type: Boolean,
       coerce: coerceBoolean,
       default: false
@@ -26,7 +26,7 @@ export default {
   },
   created () {
     this.$on('isOpenEvent', (child) => {
-      if (this.oneAtATime) {
+      if (this.oneAtAtime) {
         this.$children.forEach((item) => {
           if (child !== item) {
             item.isOpen = false
