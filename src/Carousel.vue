@@ -47,7 +47,8 @@ import $ from './utils/NodeList.js'
       return {
         indicator: [],
         index: 0,
-        isAnimating: false
+        isAnimating: false,
+        intervalID: null
       }
     },
     computed: {
@@ -90,12 +91,16 @@ import $ from './utils/NodeList.js'
     },
     ready () {
       if (this.interval > 0) {
-        let intervalID = null
         const intervalManager = () => {
-          intervalID = setInterval(this.next, this.interval)
+          this.$set('intervalID', setInterval(this.next, this.interval))
         }
-        $(this.$el).on('mouseenter', () => clearInterval(intervalID)).on('mouseleave', () => intervalManager())
+        $(this.$el).on('mouseenter', () => clearInterval(this.intervalID)).on('mouseleave', () => intervalManager())
         intervalManager()
+      }
+    },
+    beforeDestroy() {
+      if(this.intervalID) {
+        clearInterval(this.intervalID)
       }
     }
   }
