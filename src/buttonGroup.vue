@@ -20,6 +20,16 @@ export default {
       default: 'default'
     }
   },
+  watch: {
+    value: {
+      deep: true,
+      handler (val) {
+        this.$children.forEach((el) => {
+          if (el.group && el.eval) el.eval()
+        })
+      }
+    }
+  },
   created () {
     this._btnGroup = true
   }
