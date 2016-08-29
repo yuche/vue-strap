@@ -7,50 +7,50 @@
           <span class="caret"></span>
         </button>
         <ul slot="dropdown-menu" class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
+          <li><a href="#dropdown">Action</a></li>
+          <li><a href="#dropdown">Another action</a></li>
+          <li><a href="#dropdown">Something else here</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="#">Separated link</a></li>
+          <li><a href="#dropdown">Separated link</a></li>
         </ul>
       </dropdown>
       <dropdown text="Action" type="primary">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
+        <li><a href="#dropdown">Action</a></li>
+        <li><a href="#dropdown">Another action</a></li>
+        <li><a href="#dropdown">Something else here</a></li>
         <li role="separator" class="divider"></li>
-        <li><a href="#">Separated link</a></li>
+        <li><a href="#dropdown">Separated link</a></li>
       </dropdown>
       <dropdown>
         <button slot="button" type="button" class="btn btn-success dropdown-toggle">
           Action <span class="caret"></span>
         </button>
         <ul slot="dropdown-menu" class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
+          <li><a href="#dropdown">Action</a></li>
+          <li><a href="#dropdown">Another action</a></li>
+          <li><a href="#dropdown">Something else here</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="#">Separated link</a></li>
+          <li><a href="#dropdown">Separated link</a></li>
         </ul>
       </dropdown>
       <dropdown text="Disabled" type="warning" disabled>
-        <li><a href="#">Action</a></li>
+        <li><a href="#dropdown">Action</a></li>
       </dropdown>
       <div class="btn-group btn-group-justified" role="group">
-        <a href="#" class="btn btn-default" role="button">Left</a>
+        <a href="#dropdown" class="btn btn-default" role="button">Left</a>
         <dropdown>
-          <a slot="button" href="#" class="btn btn-default">
+          <a slot="button" href="#dropdown" class="btn btn-default">
             Dropdown <span class="caret"></span>
           </a>
           <ul slot="dropdown-menu" class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="#dropdown">Action</a></li>
+            <li><a href="#dropdown">Another action</a></li>
+            <li><a href="#dropdown">Something else here</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="#dropdown">Separated link</a></li>
           </ul>
         </dropdown>
-        <a href="#" class="btn btn-default" role="button">Right</a>
+        <a href="#dropdown" class="btn btn-default" role="button">Right</a>
       </div>
     </div>
     <doc-code language="markup">
@@ -61,24 +61,24 @@
           <span class="caret"></span>
         </button>
         <ul slot="dropdown-menu" class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
+          <li><a href="#dropdown">Action</a></li>
+          <li><a href="#dropdown">Another action</a></li>
+          <li><a href="#dropdown">Something else here</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="#">Separated link</a></li>
+          <li><a href="#dropdown">Separated link</a></li>
         </ul>
       </dropdown>
 
       Component style:
       <dropdown text="Action" type="primary">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
+        <li><a href="#dropdown">Action</a></li>
+        <li><a href="#dropdown">Another action</a></li>
+        <li><a href="#dropdown">Something else here</a></li>
         <li role="separator" class="divider"></li>
-        <li><a href="#">Separated link</a></li>
+        <li><a href="#dropdown">Separated link</a></li>
       </dropdown>
       <dropdown text="Disabled" type="warning" disabled>
-        <li><a href="#">Action</a></li>
+        <li><a href="#dropdown">Action</a></li>
       </dropdown>
     </doc-code>
     <doc-options>
