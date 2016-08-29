@@ -3649,6 +3649,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      default: 'default'
 	    }
 	  },
+	  watch: {
+	    value: {
+	      deep: true,
+	      handler: function handler(val) {
+	        this.$children.forEach(function (el) {
+	          if (el.group && el.eval) el.eval();
+	        });
+	      }
+	    }
+	  },
 	  created: function created() {
 	    this._btnGroup = true;
 	  }
@@ -4025,7 +4035,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  computed: {
 	    active: function active() {
-	      return this.group ? ~this.$parent.value.indexOf(this.value) : this.checked === this.value;
+	      return typeof this.value !== 'boolean' && this.group ? ~this.$parent.value.indexOf(this.value) : this.checked === this.value;
 	    },
 	    buttonStyle: function buttonStyle() {
 	      return this.button || this.group && this.$parent.buttons;
@@ -4037,16 +4047,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return this.type || this.$parent && this.$parent.type || 'default';
 	    }
 	  },
+	  watch: {
+	    checked: function checked(val) {
+	      if (typeof this.value !== 'boolean' && this.group) {
+	        if (this.checked && !~this.$parent.value.indexOf(this.value)) this.$parent.value.push(this.value);
+	        if (!this.checked && ~this.$parent.value.indexOf(this.value)) this.$parent.value.$remove(this.value);
+	      }
+	    }
+	  },
 	  created: function created() {
+	    if (typeof this.value === 'boolean') {
+	      return;
+	    }
 	    var parent = this.$parent;
-	    if (!parent) return;
-	    if (parent._btnGroup && !parent._radioGroup) {
+	    if (parent && parent._btnGroup && !parent._radioGroup) {
 	      parent._checkboxGroup = true;
+	      if (!(parent.value instanceof Array)) {
+	        parent.value = [];
+	      }
 	    }
 	  },
 	  ready: function ready() {
-	    if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') return;
-	    if (!(this.$parent.value instanceof Array)) this.$parent.value = [];
+	    if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') {
+	      return;
+	    }
 	    if (this.$parent.value.length) {
 	      this.checked = ~this.$parent.value.indexOf(this.value);
 	    } else if (this.checked) {
@@ -4055,6 +4079,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	
 	  methods: {
+	    eval: function _eval() {
+	      if (typeof this.value !== 'boolean' && this.group) {
+	        this.checked = ~this.$parent.value.indexOf(this.value);
+	      }
+	    },
 	    focus: function focus() {
 	      this.$els.input.focus();
 	    },

@@ -4594,7 +4594,7 @@
 	  },
 	  computed: {
 	    active: function active() {
-	      return this.group ? ~this.$parent.value.indexOf(this.value) : this.checked === this.value;
+	      return typeof this.value !== 'boolean' && this.group ? ~this.$parent.value.indexOf(this.value) : this.checked === this.value;
 	    },
 	    buttonStyle: function buttonStyle() {
 	      return this.button || this.group && this.$parent.buttons;
@@ -4606,16 +4606,30 @@
 	      return this.type || this.$parent && this.$parent.type || 'default';
 	    }
 	  },
+	  watch: {
+	    checked: function checked(val) {
+	      if (typeof this.value !== 'boolean' && this.group) {
+	        if (this.checked && !~this.$parent.value.indexOf(this.value)) this.$parent.value.push(this.value);
+	        if (!this.checked && ~this.$parent.value.indexOf(this.value)) this.$parent.value.$remove(this.value);
+	      }
+	    }
+	  },
 	  created: function created() {
+	    if (typeof this.value === 'boolean') {
+	      return;
+	    }
 	    var parent = this.$parent;
-	    if (!parent) return;
-	    if (parent._btnGroup && !parent._radioGroup) {
+	    if (parent && parent._btnGroup && !parent._radioGroup) {
 	      parent._checkboxGroup = true;
+	      if (!(parent.value instanceof Array)) {
+	        parent.value = [];
+	      }
 	    }
 	  },
 	  ready: function ready() {
-	    if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') return;
-	    if (!(this.$parent.value instanceof Array)) this.$parent.value = [];
+	    if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') {
+	      return;
+	    }
 	    if (this.$parent.value.length) {
 	      this.checked = ~this.$parent.value.indexOf(this.value);
 	    } else if (this.checked) {
@@ -4624,6 +4638,11 @@
 	  },
 	
 	  methods: {
+	    eval: function _eval() {
+	      if (typeof this.value !== 'boolean' && this.group) {
+	        this.checked = ~this.$parent.value.indexOf(this.value);
+	      }
+	    },
 	    focus: function focus() {
 	      this.$els.input.focus();
 	    },
@@ -8467,6 +8486,16 @@
 	      default: 'default'
 	    }
 	  },
+	  watch: {
+	    value: {
+	      deep: true,
+	      handler: function handler(val) {
+	        this.$children.forEach(function (el) {
+	          if (el.group && el.eval) el.eval();
+	        });
+	      }
+	    }
+	  },
 	  created: function created() {
 	    this._btnGroup = true;
 	  }
@@ -10768,15 +10797,15 @@
 	
 	//         <ul slot="dropdown-menu" class="dropdown-menu">
 	
-	//           <li><a href="#">Action</a></li>
+	//           <li><a href="#dropdown">Action</a></li>
 	
-	//           <li><a href="#">Another action</a></li>
+	//           <li><a href="#dropdown">Another action</a></li>
 	
-	//           <li><a href="#">Something else here</a></li>
+	//           <li><a href="#dropdown">Something else here</a></li>
 	
 	//           <li role="separator" class="divider"></li>
 	
-	//           <li><a href="#">Separated link</a></li>
+	//           <li><a href="#dropdown">Separated link</a></li>
 	
 	//         </ul>
 	
@@ -10784,15 +10813,15 @@
 	
 	//       <dropdown text="Action" type="primary">
 	
-	//         <li><a href="#">Action</a></li>
+	//         <li><a href="#dropdown">Action</a></li>
 	
-	//         <li><a href="#">Another action</a></li>
+	//         <li><a href="#dropdown">Another action</a></li>
 	
-	//         <li><a href="#">Something else here</a></li>
+	//         <li><a href="#dropdown">Something else here</a></li>
 	
 	//         <li role="separator" class="divider"></li>
 	
-	//         <li><a href="#">Separated link</a></li>
+	//         <li><a href="#dropdown">Separated link</a></li>
 	
 	//       </dropdown>
 	
@@ -10806,15 +10835,15 @@
 	
 	//         <ul slot="dropdown-menu" class="dropdown-menu">
 	
-	//           <li><a href="#">Action</a></li>
+	//           <li><a href="#dropdown">Action</a></li>
 	
-	//           <li><a href="#">Another action</a></li>
+	//           <li><a href="#dropdown">Another action</a></li>
 	
-	//           <li><a href="#">Something else here</a></li>
+	//           <li><a href="#dropdown">Something else here</a></li>
 	
 	//           <li role="separator" class="divider"></li>
 	
-	//           <li><a href="#">Separated link</a></li>
+	//           <li><a href="#dropdown">Separated link</a></li>
 	
 	//         </ul>
 	
@@ -10822,17 +10851,17 @@
 	
 	//       <dropdown text="Disabled" type="warning" disabled>
 	
-	//         <li><a href="#">Action</a></li>
+	//         <li><a href="#dropdown">Action</a></li>
 	
 	//       </dropdown>
 	
 	//       <div class="btn-group btn-group-justified" role="group">
 	
-	//         <a href="#" class="btn btn-default" role="button">Left</a>
+	//         <a href="#dropdown" class="btn btn-default" role="button">Left</a>
 	
 	//         <dropdown>
 	
-	//           <a slot="button" href="#" class="btn btn-default">
+	//           <a slot="button" href="#dropdown" class="btn btn-default">
 	
 	//             Dropdown <span class="caret"></span>
 	
@@ -10840,21 +10869,21 @@
 	
 	//           <ul slot="dropdown-menu" class="dropdown-menu">
 	
-	//             <li><a href="#">Action</a></li>
+	//             <li><a href="#dropdown">Action</a></li>
 	
-	//             <li><a href="#">Another action</a></li>
+	//             <li><a href="#dropdown">Another action</a></li>
 	
-	//             <li><a href="#">Something else here</a></li>
+	//             <li><a href="#dropdown">Something else here</a></li>
 	
 	//             <li role="separator" class="divider"></li>
 	
-	//             <li><a href="#">Separated link</a></li>
+	//             <li><a href="#dropdown">Separated link</a></li>
 	
 	//           </ul>
 	
 	//         </dropdown>
 	
-	//         <a href="#" class="btn btn-default" role="button">Right</a>
+	//         <a href="#dropdown" class="btn btn-default" role="button">Right</a>
 	
 	//       </div>
 	
@@ -10876,15 +10905,15 @@
 	
 	//         <ul slot="dropdown-menu" class="dropdown-menu">
 	
-	//           <li><a href="#">Action</a></li>
+	//           <li><a href="#dropdown">Action</a></li>
 	
-	//           <li><a href="#">Another action</a></li>
+	//           <li><a href="#dropdown">Another action</a></li>
 	
-	//           <li><a href="#">Something else here</a></li>
+	//           <li><a href="#dropdown">Something else here</a></li>
 	
 	//           <li role="separator" class="divider"></li>
 	
-	//           <li><a href="#">Separated link</a></li>
+	//           <li><a href="#dropdown">Separated link</a></li>
 	
 	//         </ul>
 	
@@ -10895,21 +10924,21 @@
 	
 	//       <dropdown text="Action" type="primary">
 	
-	//         <li><a href="#">Action</a></li>
+	//         <li><a href="#dropdown">Action</a></li>
 	
-	//         <li><a href="#">Another action</a></li>
+	//         <li><a href="#dropdown">Another action</a></li>
 	
-	//         <li><a href="#">Something else here</a></li>
+	//         <li><a href="#dropdown">Something else here</a></li>
 	
 	//         <li role="separator" class="divider"></li>
 	
-	//         <li><a href="#">Separated link</a></li>
+	//         <li><a href="#dropdown">Separated link</a></li>
 	
 	//       </dropdown>
 	
 	//       <dropdown text="Disabled" type="warning" disabled>
 	
-	//         <li><a href="#">Action</a></li>
+	//         <li><a href="#dropdown">Action</a></li>
 	
 	//       </dropdown>
 	
@@ -11013,7 +11042,7 @@
 /* 266 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"dropdown\" name=\"Dropdown\">\r\n    <div class=\"bs-example\">\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-default dropdown-toggle\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#\">Action</a></li>\r\n          <li><a href=\"#\">Another action</a></li>\r\n          <li><a href=\"#\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#\">Action</a></li>\r\n        <li><a href=\"#\">Another action</a></li>\r\n        <li><a href=\"#\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-success dropdown-toggle\">\r\n          Action <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#\">Action</a></li>\r\n          <li><a href=\"#\">Another action</a></li>\r\n          <li><a href=\"#\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Disabled\" type=\"warning\" disabled>\r\n        <li><a href=\"#\">Action</a></li>\r\n      </dropdown>\r\n      <div class=\"btn-group btn-group-justified\" role=\"group\">\r\n        <a href=\"#\" class=\"btn btn-default\" role=\"button\">Left</a>\r\n        <dropdown>\r\n          <a slot=\"button\" href=\"#\" class=\"btn btn-default\">\r\n            Dropdown <span class=\"caret\"></span>\r\n          </a>\r\n          <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n            <li><a href=\"#\">Action</a></li>\r\n            <li><a href=\"#\">Another action</a></li>\r\n            <li><a href=\"#\">Something else here</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Separated link</a></li>\r\n          </ul>\r\n        </dropdown>\r\n        <a href=\"#\" class=\"btn btn-default\" role=\"button\">Right</a>\r\n      </div>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      Boostrap style:\r\n      <dropdown>\r\n        <button type=\"button\" class=\"btn btn-default\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#\">Action</a></li>\r\n          <li><a href=\"#\">Another action</a></li>\r\n          <li><a href=\"#\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n\r\n      Component style:\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#\">Action</a></li>\r\n        <li><a href=\"#\">Another action</a></li>\r\n        <li><a href=\"#\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown text=\"Disabled\" type=\"warning\" disabled>\r\n        <li><a href=\"#\">Action</a></li>\r\n      </dropdown>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>show</p>\r\n        <p><code>Boolean</code></p>\r\n        <p></p>\r\n        <p>Whether show the component.</p>\r\n      </div>\r\n      <div>\r\n        <p>class</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>classes to change the style.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>text</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Dropdown button text.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n    <h2>Usage</h2>\r\n    <p>Just like the examples. Can use it as the <a target=\"_blank\" href=\"http://getbootstrap.com/javascript/#dropdowns\">original Bootstrap way</a>.</p>\r\n  </doc-section>";
+	module.exports = "<doc-section id=\"dropdown\" name=\"Dropdown\">\r\n    <div class=\"bs-example\">\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-default dropdown-toggle\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n        <li><a href=\"#dropdown\">Another action</a></li>\r\n        <li><a href=\"#dropdown\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#dropdown\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-success dropdown-toggle\">\r\n          Action <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Disabled\" type=\"warning\" disabled>\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n      </dropdown>\r\n      <div class=\"btn-group btn-group-justified\" role=\"group\">\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Left</a>\r\n        <dropdown>\r\n          <a slot=\"button\" href=\"#dropdown\" class=\"btn btn-default\">\r\n            Dropdown <span class=\"caret\"></span>\r\n          </a>\r\n          <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n            <li><a href=\"#dropdown\">Action</a></li>\r\n            <li><a href=\"#dropdown\">Another action</a></li>\r\n            <li><a href=\"#dropdown\">Something else here</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#dropdown\">Separated link</a></li>\r\n          </ul>\r\n        </dropdown>\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Right</a>\r\n      </div>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      Boostrap style:\r\n      <dropdown>\r\n        <button type=\"button\" class=\"btn btn-default\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n\r\n      Component style:\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n        <li><a href=\"#dropdown\">Another action</a></li>\r\n        <li><a href=\"#dropdown\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#dropdown\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown text=\"Disabled\" type=\"warning\" disabled>\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n      </dropdown>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>show</p>\r\n        <p><code>Boolean</code></p>\r\n        <p></p>\r\n        <p>Whether show the component.</p>\r\n      </div>\r\n      <div>\r\n        <p>class</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>classes to change the style.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>text</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Dropdown button text.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n    <h2>Usage</h2>\r\n    <p>Just like the examples. Can use it as the <a target=\"_blank\" href=\"http://getbootstrap.com/javascript/#dropdowns\">original Bootstrap way</a>.</p>\r\n  </doc-section>";
 
 /***/ },
 /* 267 */
