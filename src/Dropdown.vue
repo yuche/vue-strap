@@ -1,5 +1,5 @@
 <template>
-  <li v-if="$parent._navbar||$parent.menu||$parent._tabset" v-el:dropdown class="dropdown {{disabled&&'disabled'}}" :class="classes">
+  <li v-if="$parent._navbar||$parent.menu||$parent._tabset" v-el:dropdown class="dropdown" :class="classes">
       <a v-if="text" class="dropdown-toggle" role="button" :class="{disabled: disabled}" @keyup.esc="show = false">
         {{ text }}
         <span class="caret"></span>
@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     classes () {
-      return [{open: this.show}, this.class]
+      return [{open: this.show, disabled: this.disabled}, this.class]
     },
     menu () {
       return !this.$parent || this.$parent.navbar
