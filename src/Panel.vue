@@ -1,14 +1,15 @@
 <template>
   <div class="panel {{panelType}}">
     <div class="panel-heading">
-      <h4 class="panel-title">
+      <h4 v-if="header" class="panel-title">
         <a class="accordion-toggle"
           @click="toggle()">
-          <slot name="header"> 
-            {{ header }}
-          </slot>
+           {{ header }}
         </a>
       </h4>
+     <div v-else @click="toggle()" class="panel-title">
+       <slot name="header"></slot>
+     </div>
     </div>
     <div class="panel-collapse"
       v-el:panel
