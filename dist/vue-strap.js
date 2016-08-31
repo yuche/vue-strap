@@ -5522,8 +5522,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  props: {
 	    value: {
 	      twoWay: true,
-	      type: String,
-	      default: ''
+	      default: null
 	    },
 	    match: {
 	      type: String,
