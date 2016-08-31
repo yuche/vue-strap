@@ -47,6 +47,7 @@
 <script>
 import coerceBoolean from './utils/coerceBoolean.js'
 import coerceNumber from './utils/coerceNumber.js'
+import coerceString from './utils/coerceString.js'
 import translations from './translations.js'
 import $ from './utils/NodeList.js'
 
@@ -55,6 +56,7 @@ export default {
     value: {
       twoWay: true,
       type: String,
+      coerce: coerceString,
       default: ''
     },
     match: {
