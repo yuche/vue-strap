@@ -54,8 +54,7 @@ export default {
   props: {
     value: {
       twoWay: true,
-      type: String,
-      default: ''
+      default: null
     },
     match: {
       type: String,
