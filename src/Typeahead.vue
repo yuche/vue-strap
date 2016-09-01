@@ -5,7 +5,7 @@
     <input type="text" class="form-control"
       :placeholder="placeholder"
       autocomplete="off"
-      v-model="query"
+      v-model="value"
       @input="update"
       @keydown.up="up"
       @keydown.down="down"
@@ -36,6 +36,11 @@ export default {
     default: '<span v-html="item | highlight query"></span>'
   },
   props: {
+    value: {
+      twoWay : true,
+      type: String,
+      default: ''
+    },
     data: {
       type: Array
     },
@@ -71,7 +76,7 @@ export default {
       type: Function,
       default (items) {
         this.reset()
-        this.query = items
+        this.value = items
       }
     },
     placeholder: {
@@ -80,7 +85,6 @@ export default {
   },
   data () {
     return {
-      query: '',
       showDropdown: false,
       noResults: true,
       current: 0,
@@ -92,7 +96,7 @@ export default {
       if (this.data) {
         return this.data.filter(value => {
           value = this.matchCase ? value : value.toLowerCase()
-          var query = this.matchCase ? this.query : this.query.toLowerCase()
+          var query = this.matchCase ? this.value : this.value.toLowerCase()
           return this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1
         }).slice(0, this.limit)
       }
@@ -106,7 +110,7 @@ export default {
   },
   methods: {
     update () {
-      if (!this.query) {
+      if (!this.value) {
         this.reset()
         return false
       }
@@ -115,7 +119,7 @@ export default {
         this.showDropdown = this.items.length > 0
       }
       if (this.async) {
-        callAjax(this.async + this.query, (data) => {
+        callAjax(this.async + this.value, (data) => {
           this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
           this.showDropdown = this.items.length > 0
         })
@@ -123,7 +127,7 @@ export default {
     },
     reset () {
       this.items = []
-      this.query = ''
+      this.value = ''
       this.loading = false
       this.showDropdown = false
     },
