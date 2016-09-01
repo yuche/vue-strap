@@ -9563,7 +9563,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//       autocomplete="off"
 	
-	//       v-model="query"
+	//       v-model="value"
 	
 	//       @input="update"
 	
@@ -9608,6 +9608,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    default: '<span v-html="item | highlight query"></span>'
 	  },
 	  props: {
+	    value: {
+	      twoWay: true,
+	      type: String,
+	      default: ''
+	    },
 	    data: {
 	      type: Array
 	    },
@@ -9643,7 +9648,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      type: Function,
 	      default: function _default(items) {
 	        this.reset();
-	        this.query = items;
+	        this.value = items;
 	      }
 	    },
 	    placeholder: {
@@ -9652,7 +9657,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  data: function data() {
 	    return {
-	      query: '',
 	      showDropdown: false,
 	      noResults: true,
 	      current: 0,
@@ -9667,7 +9671,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (this.data) {
 	        return this.data.filter(function (value) {
 	          value = _this.matchCase ? value : value.toLowerCase();
-	          var query = _this.matchCase ? _this.query : _this.query.toLowerCase();
+	          var query = _this.matchCase ? _this.value : _this.value.toLowerCase();
 	          return _this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1;
 	        }).slice(0, this.limit);
 	      }
@@ -9684,7 +9688,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    update: function update() {
 	      var _this2 = this;
 	
-	      if (!this.query) {
+	      if (!this.value) {
 	        this.reset();
 	        return false;
 	      }
@@ -9693,7 +9697,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.showDropdown = this.items.length > 0;
 	      }
 	      if (this.async) {
-	        (0, _utils.callAjax)(this.async + this.query, function (data) {
+	        (0, _utils.callAjax)(this.async + this.value, function (data) {
 	          _this2.items = (_this2.key ? data[_this2.key] : data).slice(0, _this2.limit);
 	          _this2.showDropdown = _this2.items.length > 0;
 	        });
@@ -9701,7 +9705,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    reset: function reset() {
 	      this.items = [];
-	      this.query = '';
+	      this.value = '';
 	      this.loading = false;
 	      this.showDropdown = false;
 	    },
@@ -9745,7 +9749,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 228 */
 /***/ function(module, exports) {
 
-	module.exports = "<div style=\"position: relative\"\r\n    v-bind:class=\"{'open':showDropdown}\"\r\n  >\r\n    <input type=\"text\" class=\"form-control\"\r\n      :placeholder=\"placeholder\"\r\n      autocomplete=\"off\"\r\n      v-model=\"query\"\r\n      @input=\"update\"\r\n      @keydown.up=\"up\"\r\n      @keydown.down=\"down\"\r\n      @keydown.enter= \"hit\"\r\n      @keydown.esc=\"reset\"\r\n      @blur=\"showDropdown = false\"\r\n    />\r\n    <ul class=\"dropdown-menu\" v-el:dropdown>\r\n      <li v-for=\"item in items\" v-bind:class=\"{'active': isActive($index)}\">\r\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive($index)\">\r\n          <partial :name=\"templateName\"></partial>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>";
+	module.exports = "<div style=\"position: relative\"\r\n    v-bind:class=\"{'open':showDropdown}\"\r\n  >\r\n    <input type=\"text\" class=\"form-control\"\r\n      :placeholder=\"placeholder\"\r\n      autocomplete=\"off\"\r\n      v-model=\"value\"\r\n      @input=\"update\"\r\n      @keydown.up=\"up\"\r\n      @keydown.down=\"down\"\r\n      @keydown.enter= \"hit\"\r\n      @keydown.esc=\"reset\"\r\n      @blur=\"showDropdown = false\"\r\n    />\r\n    <ul class=\"dropdown-menu\" v-el:dropdown>\r\n      <li v-for=\"item in items\" v-bind:class=\"{'active': isActive($index)}\">\r\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive($index)\">\r\n          <partial :name=\"templateName\"></partial>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>";
 
 /***/ }
 /******/ ])
