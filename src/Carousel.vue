@@ -21,25 +21,24 @@
 </template>
 
 <script>
-import coerceBoolean from './utils/coerceBoolean.js'
-import coerceNumber from './utils/coerceNumber.js'
+import {coerce} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
   export default {
     props: {
       indicators: {
         type: Boolean,
-        coerce: coerceBoolean,
+        coerce: coerce.boolean,
         default: true
       },
       controls: {
         type: Boolean,
-        coerce: coerceBoolean,
+        coerce: coerce.boolean,
         default: true
       },
       interval: {
         type: Number,
-        coerce: coerceNumber,
+        coerce: coerce.number,
         default: 5000
       }
     },
@@ -48,7 +47,6 @@ import $ from './utils/NodeList.js'
         indicator: [],
         index: 0,
         isAnimating: false,
-        intervalID: null
       }
     },
     computed: {
@@ -92,7 +90,7 @@ import $ from './utils/NodeList.js'
     ready () {
       if (this.interval > 0) {
         const intervalManager = () => {
-          this.$set('intervalID', setInterval(this.next, this.interval))
+          this.intervalID = setInterval(this.next, this.interval)
         }
         $(this.$el).on('mouseenter', () => clearInterval(this.intervalID)).on('mouseleave', () => intervalManager())
         intervalManager()

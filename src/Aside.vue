@@ -26,16 +26,14 @@
 </template>
 
 <script>
-import getScrollBarWidth from './utils/getScrollBarWidth.js'
-import coerceBoolean from './utils/coerceBoolean.js'
-import coerceNumber from './utils/coerceNumber.js'
+import {coerce, getScrollBarWidth} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
 export default {
   props: {
     show: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       required: true,
       twoWay: true
     },
@@ -48,7 +46,7 @@ export default {
     },
     width: {
       type: Number,
-      coerce: coerceNumber,
+      coerce: coerce.number,
       default: 320
     }
   },

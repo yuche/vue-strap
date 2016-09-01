@@ -34,8 +34,7 @@
 </template>
 
 <script>
-import getScrollBarWidth from './utils/getScrollBarWidth.js'
-import coerceBoolean from './utils/coerceBoolean.js'
+import {coerce, getScrollBarWidth} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
 export default {
@@ -55,7 +54,7 @@ export default {
     show: {
       required: true,
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       twoWay: true
     },
     width: {
@@ -71,17 +70,17 @@ export default {
     },
     backdrop: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: true
     },
     large: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     small: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     }
   },
