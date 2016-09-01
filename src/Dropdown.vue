@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import coerceBoolean from './utils/coerceBoolean.js'
+import {coerce} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
 export default {
@@ -31,13 +31,13 @@ export default {
     show: {
       twoWay: true,
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     'class': null,
     disabled: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     text: {

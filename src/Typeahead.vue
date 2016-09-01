@@ -24,8 +24,7 @@
 </template>
 
 <script>
-import callAjax from './utils/callAjax.js'
-import coerceBoolean from './utils/coerceBoolean.js'
+import {callAjax, coerce} from './utils/utils.js'
 
 let Vue = window.Vue
 
@@ -60,12 +59,12 @@ export default {
     },
     matchCase: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     matchStart: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     onHit: {

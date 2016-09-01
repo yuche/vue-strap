@@ -7,14 +7,14 @@
 </template>
 
 <script>
-import coerceNumber from './utils/coerceNumber.js'
+import {coerce} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
 export default {
   props: {
     offset: {
       type: Number,
-      coerce: coerceNumber,
+      coerce: coerce.number,
       default: 0
     }
   },

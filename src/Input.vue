@@ -45,8 +45,7 @@
 </template>
 
 <script>
-import coerceBoolean from './utils/coerceBoolean.js'
-import coerceNumber from './utils/coerceNumber.js'
+import {coerce} from './utils/utils.js'
 import translations from './translations.js'
 import $ from './utils/NodeList.js'
 
@@ -62,17 +61,17 @@ export default {
     },
     clearButton: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     disabled: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     enterSubmit: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     error: {
@@ -85,12 +84,12 @@ export default {
     },
     hideHelp: { // hide when have error
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: true
     },
     icon: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     label: {
@@ -104,12 +103,12 @@ export default {
     mask: null,
     maxlength: {
       type: Number,
-      coerce: coerceNumber,
+      coerce: coerce.number,
       default: null
     },
     minlength: {
       type: Number,
-      coerce: coerceNumber,
+      coerce: coerce.number,
       default: 0
     },
     name: {
@@ -118,7 +117,7 @@ export default {
     },
     noValidate: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     onfocus: null,
@@ -129,17 +128,17 @@ export default {
     },
     readonly: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     required: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     rows: {
       type: Number,
-      coerce: coerceNumber,
+      coerce: coerce.number,
       default: 3
     },
     type: {
@@ -148,7 +147,7 @@ export default {
     },
     validationDelay: {
       type: Number,
-      coerce: coerceNumber,
+      coerce: coerce.number,
       default: 250
     }
   },
@@ -210,7 +209,7 @@ export default {
         this.timeout = setTimeout(() => {
           this.valid = this.validate()
           this.timeout = null
-        }, coerceNumber(this.validationDelay, 250))
+        }, coerce.number(this.validationDelay, 250))
       }
     },
     submit () {

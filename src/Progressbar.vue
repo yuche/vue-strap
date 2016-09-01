@@ -15,19 +15,18 @@
 </template>
 
 <script>
-import coerceBoolean from './utils/coerceBoolean.js'
-import coerceNumber from './utils/coerceNumber.js'
+import {coerce} from './utils/utils.js'
 
 export default {
   props: {
     now: {
       type: Number,
-      coerce: coerceNumber,
+      coerce: coerce.number,
       required: true
     },
     label: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     type: {
@@ -35,12 +34,12 @@ export default {
     },
     striped: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     animated: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     }
   }
