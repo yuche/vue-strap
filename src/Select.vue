@@ -44,9 +44,7 @@
 </template>
 
 <script>
-import callAjax from './utils/callAjax.js'
-import coerceBoolean from './utils/coerceBoolean.js'
-import coerceNumber from './utils/coerceNumber.js'
+import {callAjax, coerce} from './utils/utils.js'
 import translations from './translations.js'
 import $ from './utils/NodeList.js'
 
@@ -63,27 +61,27 @@ export default {
     },
     multiple: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     clearButton: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     closeOnSelect: { // only works when multiple
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     disabled: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     justified: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     lang: {
@@ -92,7 +90,7 @@ export default {
     },
     limit: {
       type: Number,
-      coerce: coerceNumber,
+      coerce: coerce.number,
       default: 1024
     },
     name: {
@@ -108,22 +106,22 @@ export default {
     },
     readonly: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: null
     },
     required: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: null
     },
     minSearch: {
       type: Number,
-      coerce: coerceNumber,
+      coerce: coerce.number,
       default: 0
     },
     search: { // Allow searching (only works when options are provided)
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     searchText: {

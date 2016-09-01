@@ -21,25 +21,24 @@
 </template>
 
 <script>
-import coerceBoolean from './utils/coerceBoolean.js'
-import coerceNumber from './utils/coerceNumber.js'
+import {coerce} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
   export default {
     props: {
       indicators: {
         type: Boolean,
-        coerce: coerceBoolean,
+        coerce: coerce.boolean,
         default: true
       },
       controls: {
         type: Boolean,
-        coerce: coerceBoolean,
+        coerce: coerce.boolean,
         default: true
       },
       interval: {
         type: Number,
-        coerce: coerceNumber,
+        coerce: coerce.number,
         default: 5000
       }
     },

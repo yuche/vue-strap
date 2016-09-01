@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import coerceNumber from './utils/coerceNumber.js'
+import {coerce} from './utils/utils.js'
 import dropdown from './Dropdown.vue'
 
 export default {
@@ -34,7 +34,7 @@ export default {
     },
     active: {
       type: Number,
-      coerce: coerceNumber,
+      coerce: coerce.number,
       default: 0
     }
   },

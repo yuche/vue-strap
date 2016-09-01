@@ -1,4 +1,4 @@
-import coerceBoolean from './utils/coerceBoolean.js'
+import {coerce} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
 export default {
@@ -18,7 +18,7 @@ export default {
     },
     header: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: true
     },
     placement: {

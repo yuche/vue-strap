@@ -80,7 +80,7 @@
           googleCallback(items, targetVM) {
             const that = targetVM;
             that.reset()
-            that.query = items.formatted_address
+            that.value = items.formatted_address
           },
           githubCallback(items) {
             window.open(items.html_url, '_blank')
@@ -89,6 +89,12 @@
       }
     </doc-code>
     <doc-options>
+      <div>
+        <p>value</p>
+        <p><code>String</code></p>
+        <p><code>''</code></p>
+        <p></p>
+      </div>
       <div>
         <p>data</p>
         <p><code>Array</code></p>
@@ -167,7 +173,7 @@ export default {
   methods: {
     googleCallback (items, targetVM) {
       targetVM.reset()
-      targetVM.query = items.formatted_address
+      targetVM.value = items.formatted_address
     },
     githubCallback (items) {
       window.open(items.html_url, '_blank')

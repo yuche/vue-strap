@@ -10,7 +10,7 @@
 <script>
 // import styling
 import './spinner.scss'
-import coerceBoolean from './utils/coerceBoolean.js'
+import {coerce} from './utils/utils.js'
 
 const MIN_WAIT = 500 // in ms
 
@@ -26,7 +26,7 @@ export default {
     },
     fixed: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     }
   },
