@@ -252,7 +252,7 @@ export default {
       } else {
         date = new Date(str)
       }
-      return isNaN(date.getFullYear()) ? null : date
+      return isNaN(date.getFullYear()) ? new Date(null) : date
     },
     getDayCount (year, month) {
       const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
