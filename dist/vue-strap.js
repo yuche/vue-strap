@@ -6694,21 +6694,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//   <div class="panel {{panelType}}">
 	
-	//     <div class="panel-heading">
+	//     <div class="panel-heading accordion-toggle" @click.prevent="toggle()">
 	
 	//       <h4 class="panel-title">
 	
-	//         <a class="accordion-toggle"
+	//         <slot name="header"> 
 	
-	//           @click="toggle()">
+	//           {{ header }}
 	
-	//           <slot name="header"> 
-	
-	//             {{ header }}
-	
-	//           </slot>
-	
-	//         </a>
+	//         </slot>
 	
 	//       </h4>
 	
@@ -6743,7 +6737,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 163 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel {{panelType}}\">\r\n    <div class=\"panel-heading\">\r\n      <h4 class=\"panel-title\">\r\n        <a class=\"accordion-toggle\"\r\n          @click=\"toggle()\">\r\n          <slot name=\"header\"> \r\n            {{ header }}\r\n          </slot>\r\n        </a>\r\n      </h4>\r\n    </div>\r\n    <div class=\"panel-collapse\"\r\n      v-el:panel\r\n      v-show=\"isOpen\"\r\n      transition=\"collapse\"\r\n    >\r\n      <div class=\"panel-body\">\r\n        <slot></slot>\r\n      </div>\r\n    </div>\r\n  </div>";
+	module.exports = "<div class=\"panel {{panelType}}\">\r\n    <div class=\"panel-heading accordion-toggle\" @click.prevent=\"toggle()\">\r\n      <h4 class=\"panel-title\">\r\n        <slot name=\"header\"> \r\n          {{ header }}\r\n        </slot>\r\n      </h4>\r\n    </div>\r\n    <div class=\"panel-collapse\"\r\n      v-el:panel\r\n      v-show=\"isOpen\"\r\n      transition=\"collapse\"\r\n    >\r\n      <div class=\"panel-body\">\r\n        <slot></slot>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
 /* 164 */
