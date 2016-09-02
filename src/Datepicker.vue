@@ -1,6 +1,6 @@
 <template>
   <div class="datepicker">
-    <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text"
+    <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text" :placeholder="placeholder"
         :style="{width:width}"
         @click="inputClick"
         v-model="value"/>
@@ -96,6 +96,9 @@ export default {
     lang: {
       type: String,
       default: navigator.language
+    },
+    placeholder: {
+      type: String
     }
   },
   ready () {
@@ -252,7 +255,7 @@ export default {
       } else {
         date = new Date(str)
       }
-      return isNaN(date.getFullYear()) ? null : date
+      return isNaN(date.getFullYear()) ? new Date(null) : date
     },
     getDayCount (year, month) {
       const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
