@@ -35,8 +35,9 @@ export default {
     }
   },
   methods: {
-    toggle (val) {
-      this.show = val instanceof Boolean ? val : !this.show
+    toggle (e) {
+      this.show = !this.show
+      if (e && this.trigger === 'contextmenu') e.preventDefault()
     }
   },
   ready () {
@@ -69,9 +70,9 @@ export default {
     this.show = !this.show
 
     let events = this.trigger === 'contextmenu' ? 'contextmenu'
-      : this.trigger === 'hover' ? ['mouseleave','mouseenter']
-      : this.trigger === 'focus' ? ['blur', 'focus'] : ['click']
-    $(trigger).on(events, () => this.toggle())
+      : this.trigger === 'hover' ? 'mouseleave mouseenter'
+      : this.trigger === 'focus' ? 'blur focus' : 'click'
+    $(trigger).on(events, this.toggle)
   },
   beforeDestroy () {
     $(this.$els.trigger.children[0]).off()
