@@ -137,6 +137,7 @@ export default {
       this.displayDayView = this.displayMonthView = this.displayYearView = false
     },
     inputClick () {
+      this.currDate = this.parse(this.value) || this.parse(new Date())
       if (this.displayMonthView || this.displayYearView) {
         this.displayDayView = false
       } else {
