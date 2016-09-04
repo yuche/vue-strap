@@ -1,13 +1,10 @@
 <template>
   <div class="panel {{panelType}}">
-    <div class="panel-heading">
+    <div class="panel-heading accordion-toggle" @click.prevent="toggle()">
       <h4 class="panel-title">
-        <a class="accordion-toggle"
-          @click="toggle()">
-          <slot name="header"> 
-            {{ header }}
-          </slot>
-        </a>
+        <slot name="header"> 
+          {{ header }}
+        </slot>
       </h4>
     </div>
     <div class="panel-collapse"

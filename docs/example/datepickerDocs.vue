@@ -4,7 +4,7 @@
       <p>
         <pre>Selected date is: {{new Date($refs.dp.parse()).toString()}}</pre>
       </p>
-      <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled" :format="format.toString()" :clear-button="clear"></datepicker>
+      <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled" :format="format.toString()" :clear-button="clear" :placeholder="placeholder" width="370px"></datepicker>
       <h4>Disabled days of week</h4>
 
       <v-select multiple :value.sync="disabled" :options="[0,1,2,3,4,5,6]"></v-select>
@@ -14,13 +14,17 @@
 
       <h4>Reset button</h4>
       <checkbox :checked.sync="clear" type="primary">toggle clear button</checkbox>
+
+      <h4>Placeholder</h4>
+      <input :value="placeholder" type="text" style="width: 370px"></input>
     </div>
     <doc-code language="markup">
       <datepicker
         :value.sync="value"
         :disabled-days-of-Week="disabled"
         :format="format"
-        :clear-button="clear">
+        :clear-button="clear"
+        :placeholder="placeholder">
       </datepicker>
     </doc-code>
     <doc-options>
@@ -55,6 +59,12 @@
         <p>false</p>
         <p>If <strong>true</strong> shows an &times; shaped button to clear the selected date.
           Usefull in forms where date entry is optional.</p>
+      </div>
+      <div>
+        <p>placeholder</p>
+        <p><code>String</code></p>
+        <p></p>
+        <p>Placeholder to put on the input field when no date (null or empty) is set</p>
       </div>
     </doc-options>
   </div>
@@ -96,7 +106,8 @@ export default {
         {value: 'MM-dd-yyyy', label: 'MM-dd-yyyy'}
       ],
       format: ['yyyy-MM-dd'],
-      clear: true
+      clear: true,
+      placeholder: 'placeholder is displayed when value is null or empty'
     }
   },
   watch: {
