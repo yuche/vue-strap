@@ -6985,13 +6985,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	
 	  methods: {
-	    toggle: function toggle(val) {
-	      this.show = val instanceof Boolean ? val : !this.show;
+	    toggle: function toggle(e) {
+	      this.show = !this.show;
+	      if (e && this.trigger === 'contextmenu') e.preventDefault();
 	    }
 	  },
 	  ready: function ready() {
-	    var _this = this;
-	
 	    var popover = this.$els.popover;
 	    if (!popover) return console.error('Could not find popover v-el in your component that uses popoverMixin.');
 	    var trigger = this.$els.trigger.children[0];
@@ -7020,10 +7019,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    popover.style.display = 'none';
 	    this.show = !this.show;
 	
-	    var events = this.trigger === 'contextmenu' ? 'contextmenu' : this.trigger === 'hover' ? ['mouseleave', 'mouseenter'] : this.trigger === 'focus' ? ['blur', 'focus'] : ['click'];
-	    (0, _NodeList2.default)(trigger).on(events, function () {
-	      return _this.toggle();
-	    });
+	    var events = this.trigger === 'contextmenu' ? 'contextmenu' : this.trigger === 'hover' ? 'mouseleave mouseenter' : this.trigger === 'focus' ? 'blur focus' : 'click';
+	    (0, _NodeList2.default)(trigger).on(events, this.toggle);
 	  },
 	  beforeDestroy: function beforeDestroy() {
 	    (0, _NodeList2.default)(this.$els.trigger.children[0]).off();

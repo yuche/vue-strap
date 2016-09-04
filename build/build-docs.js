@@ -5134,21 +5134,15 @@
 	
 	//   <div class="panel {{panelType}}">
 	
-	//     <div class="panel-heading">
+	//     <div class="panel-heading accordion-toggle" @click.prevent="toggle()">
 	
 	//       <h4 class="panel-title">
 	
-	//         <a class="accordion-toggle"
+	//         <slot name="header"> 
 	
-	//           @click="toggle()">
+	//           {{ header }}
 	
-	//           <slot name="header"> 
-	
-	//             {{ header }}
-	
-	//           </slot>
-	
-	//         </a>
+	//         </slot>
 	
 	//       </h4>
 	
@@ -5183,7 +5177,7 @@
 /* 169 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel {{panelType}}\">\r\n    <div class=\"panel-heading\">\r\n      <h4 class=\"panel-title\">\r\n        <a class=\"accordion-toggle\"\r\n          @click=\"toggle()\">\r\n          <slot name=\"header\"> \r\n            {{ header }}\r\n          </slot>\r\n        </a>\r\n      </h4>\r\n    </div>\r\n    <div class=\"panel-collapse\"\r\n      v-el:panel\r\n      v-show=\"isOpen\"\r\n      transition=\"collapse\"\r\n    >\r\n      <div class=\"panel-body\">\r\n        <slot></slot>\r\n      </div>\r\n    </div>\r\n  </div>";
+	module.exports = "<div class=\"panel {{panelType}}\">\r\n    <div class=\"panel-heading accordion-toggle\" @click.prevent=\"toggle()\">\r\n      <h4 class=\"panel-title\">\r\n        <slot name=\"header\"> \r\n          {{ header }}\r\n        </slot>\r\n      </h4>\r\n    </div>\r\n    <div class=\"panel-collapse\"\r\n      v-el:panel\r\n      v-show=\"isOpen\"\r\n      transition=\"collapse\"\r\n    >\r\n      <div class=\"panel-body\">\r\n        <slot></slot>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
 /* 170 */
@@ -6778,13 +6772,12 @@
 	  },
 	
 	  methods: {
-	    toggle: function toggle(val) {
-	      this.show = val instanceof Boolean ? val : !this.show;
+	    toggle: function toggle(e) {
+	      this.show = !this.show;
+	      if (e && this.trigger === 'contextmenu') e.preventDefault();
 	    }
 	  },
 	  ready: function ready() {
-	    var _this = this;
-	
 	    var popover = this.$els.popover;
 	    if (!popover) return console.error('Could not find popover v-el in your component that uses popoverMixin.');
 	    var trigger = this.$els.trigger.children[0];
@@ -6813,10 +6806,8 @@
 	    popover.style.display = 'none';
 	    this.show = !this.show;
 	
-	    var events = this.trigger === 'contextmenu' ? 'contextmenu' : this.trigger === 'hover' ? ['mouseleave', 'mouseenter'] : this.trigger === 'focus' ? ['blur', 'focus'] : ['click'];
-	    (0, _NodeList2.default)(trigger).on(events, function () {
-	      return _this.toggle();
-	    });
+	    var events = this.trigger === 'contextmenu' ? 'contextmenu' : this.trigger === 'hover' ? 'mouseleave mouseenter' : this.trigger === 'focus' ? 'blur focus' : 'click';
+	    (0, _NodeList2.default)(trigger).on(events, this.toggle);
 	  },
 	  beforeDestroy: function beforeDestroy() {
 	    (0, _NodeList2.default)(this.$els.trigger.children[0]).off();
