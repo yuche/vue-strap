@@ -35,9 +35,9 @@
         </li>
       </template>
       <slot v-else></slot>
-      <div v-if="showNotify && !closeOnSelect" class="notify" transition="fadein">{{limitText}}</div>
+      <div v-if="showNotify && !closeOnSelect" class="notify in" transition="fadein">{{limitText}}</div>
     </ul>
-    <div v-if="showNotify && closeOnSelect" class="notify" transition="fadein"><div>{{limitText}}</div></div>
+    <div v-if="showNotify && closeOnSelect" class="notify out" transition="fadein"><div>{{limitText}}</div></div>
   </div>
   <slot name="after"></slot>
 </div>
@@ -321,9 +321,9 @@ export default {
   text-align: center;
 }
 button>.close { margin-left: 5px;}
-.btn-group>.notify { position: relative; }
-.btn-group .dropdown-menu .notify,
-.btn-group .notify > div {
+.notify.out { position: relative; }
+.notify.in,
+.notify>div {
   position: absolute;
   width: 96%;
   margin: 0 2%;
@@ -334,11 +334,11 @@ button>.close { margin-left: 5px;}
   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
   pointer-events: none;
 }
-.btn-group .notify > div {
+.notify>div {
   top: 5px;
   z-index: 1;
 }
-.btn-group .dropdown-menu .notify {
+.notify.in {
   opacity: .9;
   bottom: 5px;
 }

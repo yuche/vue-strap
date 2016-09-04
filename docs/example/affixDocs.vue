@@ -3,14 +3,14 @@
     <div class="bs-example">
       <h3>
         The sub-navigation on the RIGHT is a live demo of the affix.
-        <spam class="visible-xs-block visible-sm-block">(Is hidden in small screens)</spam>
+        <spam class="visible-xs-block visible-sm-block">(The live demo is hidden in small screens)</spam>
         <tooltip trigger="hover" effect="fadein" content="I'm a direction, not jerking off!" placement="left">
           <span class="glyphicon glyphicon-hand-right pull-right animated shake hidden-xs hidden-sm"></span>
         </tooltip>
       </h3>
     </div>
     <doc-code language="markup">
-      <affix offset="0">
+      <affix offset="50">
         <ul>
           <li>...</li>
           <li>...</li>
