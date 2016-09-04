@@ -9173,17 +9173,21 @@
 	
 	    if (this.interval > 0) {
 	      (function () {
-	        var intervalID = null;
 	        var intervalManager = function intervalManager() {
-	          intervalID = setInterval(_this2.next, _this2.interval);
+	          _this2.intervalID = setInterval(_this2.next, _this2.interval);
 	        };
 	        (0, _NodeList2.default)(_this2.$el).on('mouseenter', function () {
-	          return clearInterval(intervalID);
+	          return clearInterval(_this2.intervalID);
 	        }).on('mouseleave', function () {
 	          return intervalManager();
 	        });
 	        intervalManager();
 	      })();
+	    }
+	  },
+	  beforeDestroy: function beforeDestroy() {
+	    if (this.intervalID) {
+	      clearInterval(this.intervalID);
 	    }
 	  }
 	};
@@ -9595,7 +9599,8 @@
 	      value: '2015-06-10',
 	      formats: [{ value: 'dd/MM/yyyy', label: 'dd/MM/yyyy' }, { value: 'dd-MM-yyyy', label: 'dd-MM-yyyy' }, { value: 'yyyy,MM,dd', label: 'yyyy,MM,dd' }, { value: 'yyyy-MM-dd', label: 'yyyy-MM-dd' }, { value: 'yyyy.MM.dd', label: 'yyyy.MM.dd' }, { value: 'MMM/dd/yyyy', label: 'MMM/dd/yyyy' }, { value: 'MMMM/dd/yyyy', label: 'MMMM/dd/yyyy' }, { value: 'MM/dd/yyyy', label: 'MM/dd/yyyy' }, { value: 'MM-dd-yyyy', label: 'MM-dd-yyyy' }],
 	      format: ['yyyy-MM-dd'],
-	      clear: true
+	      clear: true,
+	      placeholder: 'placeholder is displayed when value is null or empty'
 	    };
 	  },
 	
@@ -9621,7 +9626,7 @@
 	
 	//       </p>
 	
-	//       <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled" :format="format.toString()" :clear-button="clear"></datepicker>
+	//       <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled" :format="format.toString()" :clear-button="clear" :placeholder="placeholder" width="370px"></datepicker>
 	
 	//       <h4>Disabled days of week</h4>
 	
@@ -9638,6 +9643,11 @@
 	
 	//       <checkbox :checked.sync="clear" type="primary">toggle clear button</checkbox>
 	
+	
+	//       <h4>Placeholder</h4>
+	
+	//       <input :value="placeholder" type="text" style="width: 370px"></input>
+	
 	//     </div>
 	
 	//     <doc-code language="markup">
@@ -9650,7 +9660,9 @@
 	
 	//         :format="format"
 	
-	//         :clear-button="clear">
+	//         :clear-button="clear"
+	
+	//         :placeholder="placeholder">
 	
 	//       </datepicker>
 	
@@ -9719,6 +9731,18 @@
 	//         <p>If <strong>true</strong> shows an &times; shaped button to clear the selected date.
 	
 	//           Usefull in forms where date entry is optional.</p>
+	
+	//       </div>
+	
+	//       <div>
+	
+	//         <p>placeholder</p>
+	
+	//         <p><code>String</code></p>
+	
+	//         <p></p>
+	
+	//         <p>Placeholder to put on the input field when no date (null or empty) is set</p>
 	
 	//       </div>
 	
@@ -9822,7 +9846,7 @@
 	
 	//   <div class="datepicker">
 	
-	//     <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text"
+	//     <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text" :placeholder="placeholder"
 	
 	//         :style="{width:width}"
 	
@@ -9980,6 +10004,9 @@
 	    lang: {
 	      type: String,
 	      default: navigator.language
+	    },
+	    placeholder: {
+	      type: String
 	    }
 	  },
 	  ready: function ready() {
@@ -10135,7 +10162,7 @@
 	      } else {
 	        date = new Date(str);
 	      }
-	      return isNaN(date.getFullYear()) ? null : date;
+	      return isNaN(date.getFullYear()) ? new Date(null) : date;
 	    },
 	    getDayCount: function getDayCount(year, month) {
 	      var dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -10478,7 +10505,7 @@
 /* 254 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"datepicker\">\r\n    <input class=\"form-control datepicker-input\" :class=\"{'with-reset-button': clearButton}\" type=\"text\"\r\n        :style=\"{width:width}\"\r\n        @click=\"inputClick\"\r\n        v-model=\"value\"/>\r\n    <button v-if=\"clearButton && value\" type=\"button\" class=\"close\" @click=\"value = ''\">\r\n      <span>&times;</span>\r\n    </button>\r\n    <div class=\"datepicker-popup\" v-show=\"displayDayView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"datepicker-preBtn glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" @click=\"preNextMonthClick(0)\"></span>\r\n            <span class=\"datepicker-nextBtn glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" @click=\"preNextMonthClick(1)\"></span>\r\n            <p @click=\"switchMonthView\">{{stringifyDayHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-weekRange\">\r\n            <span v-for=\"w in text.daysOfWeek\">{{w}}</span>\r\n          </div>\r\n          <div class=\"datepicker-dateRange\">\r\n            <span v-for=\"d in dateRange\" :class=\"d.sclass\" @click=\"daySelect(d.date,this)\">{{d.text}}</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayMonthView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"datepicker-preBtn glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" @click=\"preNextYearClick(0)\"></span>\r\n            <span class=\"datepicker-nextBtn glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" @click=\"preNextYearClick(1)\"></span>\r\n            <p @click=\"switchDecadeView\">{{stringifyYearHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange\">\r\n            <template v-for=\"m in text.months\">\r\n              <span   :class=\"{'datepicker-dateRange-item-active':\r\n                  (this.text.months[this.parse(this.value).getMonth()]  === m) &&\r\n                  this.currDate.getFullYear() === this.parse(this.value).getFullYear()}\"\r\n                  @click=\"monthSelect($index)\"\r\n                >{{m.substr(0,3)}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayYearView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"datepicker-preBtn glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" @click=\"preNextDecadeClick(0)\"></span>\r\n            <span class=\"datepicker-nextBtn glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" @click=\"preNextDecadeClick(1)\"></span>\r\n            <p>{{stringifyDecadeHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange decadeRange\">\r\n            <template v-for=\"decade in decadeRange\">\r\n              <span :class=\"{'datepicker-dateRange-item-active':\r\n                  this.parse(this.value).getFullYear() === decade.text}\"\r\n                  @click.stop=\"yearSelect(decade.text)\"\r\n                >{{decade.text}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>";
+	module.exports = "<div class=\"datepicker\">\r\n    <input class=\"form-control datepicker-input\" :class=\"{'with-reset-button': clearButton}\" type=\"text\" :placeholder=\"placeholder\"\r\n        :style=\"{width:width}\"\r\n        @click=\"inputClick\"\r\n        v-model=\"value\"/>\r\n    <button v-if=\"clearButton && value\" type=\"button\" class=\"close\" @click=\"value = ''\">\r\n      <span>&times;</span>\r\n    </button>\r\n    <div class=\"datepicker-popup\" v-show=\"displayDayView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"datepicker-preBtn glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" @click=\"preNextMonthClick(0)\"></span>\r\n            <span class=\"datepicker-nextBtn glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" @click=\"preNextMonthClick(1)\"></span>\r\n            <p @click=\"switchMonthView\">{{stringifyDayHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-weekRange\">\r\n            <span v-for=\"w in text.daysOfWeek\">{{w}}</span>\r\n          </div>\r\n          <div class=\"datepicker-dateRange\">\r\n            <span v-for=\"d in dateRange\" :class=\"d.sclass\" @click=\"daySelect(d.date,this)\">{{d.text}}</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayMonthView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"datepicker-preBtn glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" @click=\"preNextYearClick(0)\"></span>\r\n            <span class=\"datepicker-nextBtn glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" @click=\"preNextYearClick(1)\"></span>\r\n            <p @click=\"switchDecadeView\">{{stringifyYearHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange\">\r\n            <template v-for=\"m in text.months\">\r\n              <span   :class=\"{'datepicker-dateRange-item-active':\r\n                  (this.text.months[this.parse(this.value).getMonth()]  === m) &&\r\n                  this.currDate.getFullYear() === this.parse(this.value).getFullYear()}\"\r\n                  @click=\"monthSelect($index)\"\r\n                >{{m.substr(0,3)}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayYearView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"datepicker-preBtn glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" @click=\"preNextDecadeClick(0)\"></span>\r\n            <span class=\"datepicker-nextBtn glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" @click=\"preNextDecadeClick(1)\"></span>\r\n            <p>{{stringifyDecadeHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange decadeRange\">\r\n            <template v-for=\"decade in decadeRange\">\r\n              <span :class=\"{'datepicker-dateRange-item-active':\r\n                  this.parse(this.value).getFullYear() === decade.text}\"\r\n                  @click.stop=\"yearSelect(decade.text)\"\r\n                >{{decade.text}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
 /* 255 */
@@ -10631,7 +10658,7 @@
 /* 260 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"datepicker\" name=\"Datepicker\">\r\n    <div class=\"bs-example\">\r\n      <p>\r\n        <pre>Selected date is: {{new Date($refs.dp.parse()).toString()}}</pre>\r\n      </p>\r\n      <datepicker v-ref:dp :value.sync=\"value\" :disabled-days-of-Week=\"disabled\" :format=\"format.toString()\" :clear-button=\"clear\"></datepicker>\r\n      <h4>Disabled days of week</h4>\r\n\r\n      <v-select multiple :value.sync=\"disabled\" :options=\"[0,1,2,3,4,5,6]\"></v-select>\r\n\r\n      <h4>Format</h4>\r\n      <v-select :value.sync=\"format\" :options=\"formats\"></v-select>\r\n\r\n      <h4>Reset button</h4>\r\n      <checkbox :checked.sync=\"clear\" type=\"primary\">toggle clear button</checkbox>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <datepicker\r\n        :value.sync=\"value\"\r\n        :disabled-days-of-Week=\"disabled\"\r\n        :format=\"format\"\r\n        :clear-button=\"clear\">\r\n      </datepicker>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Value of the input DOM</p>\r\n      </div>\r\n      <div>\r\n        <p>width</p>\r\n        <p><code>String</code></p>\r\n        <p>200px</p>\r\n        <p>Width of the input DOM</p>\r\n      </div>\r\n      <div>\r\n        <p>format</p>\r\n        <p><code>String</code></p>\r\n        <p><code>MMMM/dd/yyyy</code></p>\r\n        <p>The date format, combination of d, dd, M, MM, MMM, MMMM, yyyy.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled-days-of-week</p>\r\n        <p><code>Array</code></p>\r\n        <p></p>\r\n        <p>Days of the week that should be disabled. Values are 0 (Sunday) to 6 (Saturday).\r\n           Multiple values should be comma-separated.</p>\r\n      </div>\r\n      <div>\r\n        <p>clear-button</p>\r\n        <p><code>Boolean</code></p>\r\n        <p>false</p>\r\n        <p>If <strong>true</strong> shows an &times; shaped button to clear the selected date.\r\n          Usefull in forms where date entry is optional.</p>\r\n      </div>\r\n    </doc-options>\r\n  </div>\r\n  <div></div>\r\n</template>";
+	module.exports = "<doc-section id=\"datepicker\" name=\"Datepicker\">\r\n    <div class=\"bs-example\">\r\n      <p>\r\n        <pre>Selected date is: {{new Date($refs.dp.parse()).toString()}}</pre>\r\n      </p>\r\n      <datepicker v-ref:dp :value.sync=\"value\" :disabled-days-of-Week=\"disabled\" :format=\"format.toString()\" :clear-button=\"clear\" :placeholder=\"placeholder\" width=\"370px\"></datepicker>\r\n      <h4>Disabled days of week</h4>\r\n\r\n      <v-select multiple :value.sync=\"disabled\" :options=\"[0,1,2,3,4,5,6]\"></v-select>\r\n\r\n      <h4>Format</h4>\r\n      <v-select :value.sync=\"format\" :options=\"formats\"></v-select>\r\n\r\n      <h4>Reset button</h4>\r\n      <checkbox :checked.sync=\"clear\" type=\"primary\">toggle clear button</checkbox>\r\n\r\n      <h4>Placeholder</h4>\r\n      <input :value=\"placeholder\" type=\"text\" style=\"width: 370px\"></input>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <datepicker\r\n        :value.sync=\"value\"\r\n        :disabled-days-of-Week=\"disabled\"\r\n        :format=\"format\"\r\n        :clear-button=\"clear\"\r\n        :placeholder=\"placeholder\">\r\n      </datepicker>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Value of the input DOM</p>\r\n      </div>\r\n      <div>\r\n        <p>width</p>\r\n        <p><code>String</code></p>\r\n        <p>200px</p>\r\n        <p>Width of the input DOM</p>\r\n      </div>\r\n      <div>\r\n        <p>format</p>\r\n        <p><code>String</code></p>\r\n        <p><code>MMMM/dd/yyyy</code></p>\r\n        <p>The date format, combination of d, dd, M, MM, MMM, MMMM, yyyy.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled-days-of-week</p>\r\n        <p><code>Array</code></p>\r\n        <p></p>\r\n        <p>Days of the week that should be disabled. Values are 0 (Sunday) to 6 (Saturday).\r\n           Multiple values should be comma-separated.</p>\r\n      </div>\r\n      <div>\r\n        <p>clear-button</p>\r\n        <p><code>Boolean</code></p>\r\n        <p>false</p>\r\n        <p>If <strong>true</strong> shows an &times; shaped button to clear the selected date.\r\n          Usefull in forms where date entry is optional.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Placeholder to put on the input field when no date (null or empty) is set</p>\r\n      </div>\r\n    </doc-options>\r\n  </div>\r\n  <div></div>\r\n</template>";
 
 /***/ },
 /* 261 */
