@@ -19,12 +19,8 @@ export default {
       default: false
     }
   },
-  computed: {
-    isAccordion () {
-      return true
-    }
-  },
   created () {
+    this._isAccordion = true
     this.$on('isOpenEvent', (child) => {
       if (this.oneAtAtime) {
         this.$children.forEach((item) => {
