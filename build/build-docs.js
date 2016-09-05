@@ -56,10 +56,10 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(342);
-	__webpack_require__(344);
+	__webpack_require__(341);
+	__webpack_require__(343);
+	__webpack_require__(345);
 	__webpack_require__(346);
-	__webpack_require__(347);
 	
 	Vue.config.debug = true;
 	
@@ -2187,7 +2187,7 @@
 	module.exports = __webpack_require__(122)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(341)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(340)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -2230,79 +2230,79 @@
 	
 	var _accordionDocs2 = _interopRequireDefault(_accordionDocs);
 	
-	var _affixDocs = __webpack_require__(192);
+	var _affixDocs = __webpack_require__(191);
 	
 	var _affixDocs2 = _interopRequireDefault(_affixDocs);
 	
-	var _alertDocs = __webpack_require__(203);
+	var _alertDocs = __webpack_require__(202);
 	
 	var _alertDocs2 = _interopRequireDefault(_alertDocs);
 	
-	var _asideDocs = __webpack_require__(213);
+	var _asideDocs = __webpack_require__(212);
 	
 	var _asideDocs2 = _interopRequireDefault(_asideDocs);
 	
-	var _buttonGroupDocs = __webpack_require__(221);
+	var _buttonGroupDocs = __webpack_require__(220);
 	
 	var _buttonGroupDocs2 = _interopRequireDefault(_buttonGroupDocs);
 	
-	var _carouselDocs = __webpack_require__(232);
+	var _carouselDocs = __webpack_require__(231);
 	
 	var _carouselDocs2 = _interopRequireDefault(_carouselDocs);
 	
-	var _checkboxDocs = __webpack_require__(243);
+	var _checkboxDocs = __webpack_require__(242);
 	
 	var _checkboxDocs2 = _interopRequireDefault(_checkboxDocs);
 	
-	var _container = __webpack_require__(246);
+	var _container = __webpack_require__(245);
 	
 	var _container2 = _interopRequireDefault(_container);
 	
-	var _datepickerDocs = __webpack_require__(248);
+	var _datepickerDocs = __webpack_require__(247);
 	
 	var _datepickerDocs2 = _interopRequireDefault(_datepickerDocs);
 	
-	var _dropdownDocs = __webpack_require__(261);
+	var _dropdownDocs = __webpack_require__(260);
 	
 	var _dropdownDocs2 = _interopRequireDefault(_dropdownDocs);
 	
-	var _inputDocs = __webpack_require__(264);
+	var _inputDocs = __webpack_require__(263);
 	
 	var _inputDocs2 = _interopRequireDefault(_inputDocs);
 	
-	var _modalDocs = __webpack_require__(272);
+	var _modalDocs = __webpack_require__(271);
 	
 	var _modalDocs2 = _interopRequireDefault(_modalDocs);
 	
-	var _popoverDocs = __webpack_require__(284);
+	var _popoverDocs = __webpack_require__(283);
 	
 	var _popoverDocs2 = _interopRequireDefault(_popoverDocs);
 	
-	var _progressbarDocs = __webpack_require__(292);
+	var _progressbarDocs = __webpack_require__(291);
 	
 	var _progressbarDocs2 = _interopRequireDefault(_progressbarDocs);
 	
-	var _radioDocs = __webpack_require__(298);
+	var _radioDocs = __webpack_require__(297);
 	
 	var _radioDocs2 = _interopRequireDefault(_radioDocs);
 	
-	var _selectDocs = __webpack_require__(301);
+	var _selectDocs = __webpack_require__(300);
 	
 	var _selectDocs2 = _interopRequireDefault(_selectDocs);
 	
-	var _spinnerDocs = __webpack_require__(306);
+	var _spinnerDocs = __webpack_require__(305);
 	
 	var _spinnerDocs2 = _interopRequireDefault(_spinnerDocs);
 	
-	var _tabsDocs = __webpack_require__(314);
+	var _tabsDocs = __webpack_require__(313);
 	
 	var _tabsDocs2 = _interopRequireDefault(_tabsDocs);
 	
-	var _tooltipDocs = __webpack_require__(330);
+	var _tooltipDocs = __webpack_require__(329);
 	
 	var _tooltipDocs2 = _interopRequireDefault(_tooltipDocs);
 	
-	var _typeaheadDocs = __webpack_require__(333);
+	var _typeaheadDocs = __webpack_require__(332);
 	
 	var _typeaheadDocs2 = _interopRequireDefault(_typeaheadDocs);
 	
@@ -2727,6 +2727,7 @@
 	
 	exports.callAjax = callAjax;
 	exports.getScrollBarWidth = getScrollBarWidth;
+	exports.translations = translations;
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -2906,6 +2907,22 @@
 	  document.body.removeChild(outer);
 	
 	  return w1 - w2;
+	}
+	
+	// return all the translations or the default language (english)
+	function translations(lang) {
+	  lang = lang || 'en';
+	  var text = {
+	    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+	    limit: 'Limit reached ({{limit}} items max).',
+	    loading: 'Loading...',
+	    minLength: 'Min. Length',
+	    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+	    notSelected: 'Nothing Selected',
+	    required: 'Required',
+	    search: 'Search'
+	  };
+	  return window.VueStrapLang ? window.VueStrapLang(lang) : text;
 	}
 
 /***/ },
@@ -4108,7 +4125,7 @@
 	module.exports = __webpack_require__(150)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(191)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(190)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -5207,7 +5224,7 @@
 	module.exports = __webpack_require__(173)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(190)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(189)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -5284,17 +5301,13 @@
 	
 	var _utils = __webpack_require__(127);
 	
-	var _translations = __webpack_require__(189);
-	
-	var _translations2 = _interopRequireDefault(_translations);
-	
 	var _NodeList = __webpack_require__(53);
 	
 	var _NodeList2 = _interopRequireDefault(_NodeList);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var timeout = {}; // <template>
+	// <template>
 	
 	// <div v-el:select :class="{'btn-group btn-group-justified': justified, 'btn-select': !justified}">
 	
@@ -5384,6 +5397,7 @@
 	
 	
 	// <script>
+	var timeout = {};
 	exports.default = {
 	  props: {
 	    value: {
@@ -5538,7 +5552,7 @@
 	      return this.values.length === 0 || !this.hasParent ? this.placeholder || this.text.notSelected : null;
 	    },
 	    text: function text() {
-	      return (0, _translations2.default)(this.lang);
+	      return (0, _utils.translations)(this.lang);
 	    },
 	    hasParent: function hasParent() {
 	      return this.parent instanceof Array ? this.parent.length : this.parent;
@@ -6283,50 +6297,23 @@
 /* 189 */
 /***/ function(module, exports) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	// return all the translations
-	var text = {
-	  daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-	  limit: 'Limit reached ({{limit}} items max).',
-	  loading: 'Loading...',
-	  minLength: 'Min. Length',
-	  months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-	  notSelected: 'Nothing Selected',
-	  required: 'Required',
-	  search: 'Search'
-	};
-	
-	exports.default = function () {
-	  var lang = arguments.length <= 0 || arguments[0] === undefined ? 'en' : arguments[0];
-	
-	  return window.VueStrapLang ? window.VueStrapLang(lang) : text;
-	};
+	module.exports = "<div v-el:select=\"\" :class=\"{'btn-group btn-group-justified': justified, 'btn-select': !justified}\" _v-1f77809f=\"\">\n  <slot name=\"before\" _v-1f77809f=\"\"></slot>\n  <div :class=\"{open:show,dropdown:!justified}\" _v-1f77809f=\"\">\n    <select v-el:sel=\"\" v-model=\"value\" v-show=\"show\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" :disabled=\"disabled\" _v-1f77809f=\"\">\n      <option v-if=\"required\" value=\"\" _v-1f77809f=\"\"></option>\n      <option v-for=\"option in options\" :value=\"option.value||option\" _v-1f77809f=\"\">{{ option.label||option }}</option>\n    </select>\n    <button type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggle()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-content\" _v-1f77809f=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"canSearch\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n          <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\" _v-1f77809f=\"\">×</span>\n        </li>\n        <li v-if=\"required&amp;&amp;!clearButton\" _v-1f77809f=\"\"><a @mousedown.prevent=\"clear() &amp;&amp; blur()\" _v-1f77809f=\"\">{{ placeholder || text.notSelected }}</a></li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value||option\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value||option)\" _v-1f77809f=\"\">\n            {{ option.label||option }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value||option)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify in\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify out\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n  <slot name=\"after\" _v-1f77809f=\"\"></slot>\n</div>";
 
 /***/ },
 /* 190 */
 /***/ function(module, exports) {
 
-	module.exports = "<div v-el:select=\"\" :class=\"{'btn-group btn-group-justified': justified, 'btn-select': !justified}\" _v-1f77809f=\"\">\n  <slot name=\"before\" _v-1f77809f=\"\"></slot>\n  <div :class=\"{open:show,dropdown:!justified}\" _v-1f77809f=\"\">\n    <select v-el:sel=\"\" v-model=\"value\" v-show=\"show\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" :disabled=\"disabled\" _v-1f77809f=\"\">\n      <option v-if=\"required\" value=\"\" _v-1f77809f=\"\"></option>\n      <option v-for=\"option in options\" :value=\"option.value||option\" _v-1f77809f=\"\">{{ option.label||option }}</option>\n    </select>\n    <button type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggle()\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n      <span class=\"btn-content\" _v-1f77809f=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-1f77809f=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-1f77809f=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-1f77809f=\"\">\n      <template v-if=\"options.length\" _v-1f77809f=\"\">\n        <li v-if=\"canSearch\" class=\"bs-searchbox\" _v-1f77809f=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @keyup.esc=\"show = false\" _v-1f77809f=\"\">\n          <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\" _v-1f77809f=\"\">×</span>\n        </li>\n        <li v-if=\"required&amp;&amp;!clearButton\" _v-1f77809f=\"\"><a @mousedown.prevent=\"clear() &amp;&amp; blur()\" _v-1f77809f=\"\">{{ placeholder || text.notSelected }}</a></li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value||option\" _v-1f77809f=\"\">\n          <a @mousedown.prevent=\"select(option.value||option)\" _v-1f77809f=\"\">\n            {{ option.label||option }}\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value||option)\" _v-1f77809f=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot v-else=\"\" _v-1f77809f=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify in\" transition=\"fadein\" _v-1f77809f=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify out\" transition=\"fadein\" _v-1f77809f=\"\"><div _v-1f77809f=\"\">{{limitText}}</div></div>\n  </div>\n  <slot name=\"after\" _v-1f77809f=\"\"></slot>\n</div>";
-
-/***/ },
-/* 191 */
-/***/ function(module, exports) {
-
 	module.exports = "<doc-section id=\"accordion\" name=\"Accordion\">\r\n    <div class=\"bs-example\">\r\n      <checkbox :checked.sync=\"checked\" type=\"primary\">Open only one at a time.</checkbox>\r\n      <p><v-select :options=\"types\" clear-button :value.sync=\"selected\" placeholder=\"Global type\"></v-select></p>\r\n      <p><v-select :options=\"types\" clear-button :value.sync=\"first\" placeholder=\"First element type\"></v-select></p>\r\n      <accordion :one-at-atime=\"checked\" :type=\"selected\">\r\n        <panel is-open :type=\"first=='panel'?null:first\">\r\n          <strong slot=\"header\"><u>Panel #1</u></strong>\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </panel>\r\n        <panel header=\"Panel #2\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </panel>\r\n        <panel header=\"Panel #3\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </panel>\r\n        <panel header=\"Panel #4\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </panel>\r\n      </accordion>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <accordion :one-at-atime=\"checked\" type=\"info\">\r\n        <panel is-open type=\"primary\">\r\n          <strong slot=\"header\"><u>Panel #1</u></strong>\r\n          ...\r\n        </panel>\r\n        <panel header=\"Panel #2\">\r\n          ...\r\n        </panel>\r\n        <panel header=\"Panel #3\">\r\n          ...\r\n        </panel>\r\n        <panel header=\"Panel #4\">\r\n          ...\r\n        </panel>\r\n      </accordion>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Define the type of color for the tabs (global).</p>\r\n      </div>\r\n      <div>\r\n        <p>one-at-time</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Control whether expanding an item will cause the other items to close.</p>\r\n      </div>\r\n    </doc-options>\r\n    <doc-options name=\"Panel\">\r\n      <div>\r\n        <p>header</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>The clickable text on the group's header. You need one to be able to click on the header for toggling.</p>\r\n      </div>\r\n      <div>\r\n        <p>is-open</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Whether accordion group is open or closed.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Define the type of color for the tab (single).</p>\r\n      </div>\r\n    </doc-options>\r\n    <p>If you want to personalice your header with some html you can use the slot instead of header attribute (panel&nbsp;#1 in the example).</p>\r\n  </doc-section>";
 
 /***/ },
-/* 192 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(193)
-	module.exports = __webpack_require__(195)
+	__webpack_require__(192)
+	module.exports = __webpack_require__(194)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(202)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(201)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -6344,13 +6331,13 @@
 	}
 
 /***/ },
-/* 193 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(194);
+	var content = __webpack_require__(193);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -6370,7 +6357,7 @@
 	}
 
 /***/ },
-/* 194 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -6384,7 +6371,7 @@
 
 
 /***/ },
-/* 195 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6405,7 +6392,7 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _Tooltip = __webpack_require__(196);
+	var _Tooltip = __webpack_require__(195);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
@@ -6523,14 +6510,14 @@
 	// </style>
 
 /***/ },
-/* 196 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(197)
-	module.exports = __webpack_require__(199)
+	__webpack_require__(196)
+	module.exports = __webpack_require__(198)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(201)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(200)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -6548,13 +6535,13 @@
 	}
 
 /***/ },
-/* 197 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(198);
+	var content = __webpack_require__(197);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -6574,7 +6561,7 @@
 	}
 
 /***/ },
-/* 198 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -6588,7 +6575,7 @@
 
 
 /***/ },
-/* 199 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6597,7 +6584,7 @@
 	  value: true
 	});
 	
-	var _popoverMixins = __webpack_require__(200);
+	var _popoverMixins = __webpack_require__(199);
 	
 	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
 	
@@ -6704,7 +6691,7 @@
 	// <script>
 
 /***/ },
-/* 200 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6799,26 +6786,26 @@
 	};
 
 /***/ },
-/* 201 */
+/* 200 */
 /***/ function(module, exports) {
 
 	module.exports = "<span v-el:trigger>\r\n    <slot></slot>\r\n  </span>\r\n  <div v-el:popover v-show=\"show\" role=\"tooltip\"\r\n    :class=\"['tooltip',placement]\"\r\n    :transition=\"effect\"\r\n  >\r\n    <div class=\"tooltip-arrow\"></div>\r\n    <div class=\"tooltip-inner\">\r\n      <slot name=\"content\">{{{content}}}</slot>\r\n   </div>\r\n  </div>";
 
 /***/ },
-/* 202 */
+/* 201 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"affix\" name=\"Affix\">\r\n    <div class=\"bs-example\">\r\n      <h3>\r\n        The sub-navigation on the RIGHT is a live demo of the affix.\r\n        <spam class=\"visible-xs-block visible-sm-block\">(The live demo is hidden in small screens)</spam>\r\n        <tooltip trigger=\"hover\" effect=\"fadein\" content=\"I'm a direction, not jerking off!\" placement=\"left\">\r\n          <span class=\"glyphicon glyphicon-hand-right pull-right animated shake hidden-xs hidden-sm\"></span>\r\n        </tooltip>\r\n      </h3>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <affix offset=\"50\">\r\n        <ul>\r\n          <li>...</li>\r\n          <li>...</li>\r\n          <li>...</li>\r\n        </ul>\r\n        <a href=\"#\">...</a>\r\n      </affix>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>offset</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p>Pixels to offset from top of screen when calculating position of scroll.</p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
 
 /***/ },
-/* 203 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(204)
-	module.exports = __webpack_require__(206)
+	__webpack_require__(203)
+	module.exports = __webpack_require__(205)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(212)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(211)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -6836,13 +6823,13 @@
 	}
 
 /***/ },
-/* 204 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(205);
+	var content = __webpack_require__(204);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -6862,7 +6849,7 @@
 	}
 
 /***/ },
-/* 205 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -6876,7 +6863,7 @@
 
 
 /***/ },
-/* 206 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6897,7 +6884,7 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _Alert = __webpack_require__(207);
+	var _Alert = __webpack_require__(206);
 	
 	var _Alert2 = _interopRequireDefault(_Alert);
 	
@@ -7136,14 +7123,14 @@
 	// </style>
 
 /***/ },
-/* 207 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(208)
-	module.exports = __webpack_require__(210)
+	__webpack_require__(207)
+	module.exports = __webpack_require__(209)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(211)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(210)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -7161,13 +7148,13 @@
 	}
 
 /***/ },
-/* 208 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(209);
+	var content = __webpack_require__(208);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -7187,7 +7174,7 @@
 	}
 
 /***/ },
-/* 209 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -7201,7 +7188,7 @@
 
 
 /***/ },
-/* 210 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7351,25 +7338,25 @@
 	// <script>
 
 /***/ },
-/* 211 */
+/* 210 */
 /***/ function(module, exports) {
 
 	module.exports = "<div\r\n    v-show=\"show\"\r\n    v-bind:class=\"{\r\n      'alert':\t\ttrue,\r\n      'alert-success':(type == 'success'),\r\n      'alert-warning':(type == 'warning'),\r\n      'alert-info':\t(type == 'info'),\r\n      'alert-danger':\t(type == 'danger'),\r\n      'top': \t\t\t(placement === 'top'),\r\n      'top-right': \t(placement === 'top-right')\r\n    }\"\r\n    transition=\"fade\"\r\n    v-bind:style=\"{width:width}\"\r\n    role=\"alert\">\r\n    <button v-show=\"dismissable\" type=\"button\" class=\"close\"\r\n      @click=\"show = false\">\r\n      <span>&times;</span>\r\n    </button>\r\n    <slot></slot>\r\n  </div>";
 
 /***/ },
-/* 212 */
+/* 211 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"alert\" name=\"Alert\">\r\n    <div class=\"bs-example\" >\r\n      <button class=\"btn btn-danger btn-lg\"\r\n        @click=\"showTop = !showTop\">\r\n        Click to toggle alert on top\r\n      </button>\r\n      <button class=\"btn btn-success btn-lg\"\r\n        @click=\"showRight = !showRight\">\r\n        Click to toggle alert on right\r\n      </button>\r\n      <hr>\r\n      <alert type=\"success\">\r\n        <strong>Well Done!</strong>\r\n        You successfully read this important alert message.\r\n      </alert>\r\n      <alert type=\"info\">\r\n        <strong>Heads up!</strong> This alert needs your attention, but it's not super important.\r\n      </alert>\r\n      <alert type=\"danger\" dismissable>\r\n        <strong>Oh snap!</strong> Change a few things up and try submitting again.\r\n      </alert>\r\n      <alert type=\"warning\" dismissable>\r\n        <strong>Warning!</strong> Better check yourself, you're not looking too good.\r\n      </alert>\r\n      <alert :show.sync=\"showRight\" placement=\"top-right\" duration=\"3000\"\r\n        type=\"success\" width=\"400px\" dismissable\r\n      >\r\n        <span class=\"icon-ok-circled alert-icon-float-left\"></span>\r\n        <strong>Well Done!</strong>\r\n        <p>You successfully read this important alert message.</p>\r\n      </alert>\r\n      <alert :show.sync=\"showTop\" placement=\"top\" duration=\"3000\"\r\n        type=\"danger\" width=\"400px\" dismissable\r\n      >\r\n        <span class=\"icon-info-circled alert-icon-float-left\"></span>\r\n        <strong>Heads up!</strong>\r\n        <p>This alert needs your attention.</p>\r\n      </alert>\r\n    </div>\r\n\r\n    <doc-code language=\"markup\">\r\n      <alert type=\"success/info/danger/warning\">\r\n        ...\r\n      </alert>\r\n\r\n      <alert :show.sync=\"showRight\" placement=\"top-right\" duration=\"3000\" type=\"success\" width=\"400px\" dismissable>\r\n        <span class=\"icon-ok-circled alert-icon-float-left\"></span>\r\n        <strong>Well Done!</strong>\r\n        <p>You successfully read this important alert message.</p>\r\n      </alert>\r\n\r\n      <alert :show.sync=\"showTop\" placement=\"top\" duration=\"3000\" type=\"danger\" width=\"400px\" dismissable>\r\n        <span class=\"icon-info-circled alert-icon-float-left\"></span>\r\n        <strong>Heads up!</strong>\r\n        <p>This alert needs your attention.</p>\r\n      </alert>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>show</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Whether show the component</p>\r\n      </div>\r\n      <div>\r\n        <p>dismissable</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Whether show close button</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of\r\n        <code>success</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>danger</code></p>\r\n        <p><code>success</code></p>\r\n        <p>Components styles</p>\r\n      </div>\r\n      <div>\r\n        <p>duration</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p>Auto close duration. Set <code>0</code> or a negative number will NOT be auto-close.</p>\r\n      </div>\r\n      <div>\r\n        <p>width</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>placement</p>\r\n        <p><code>String</code>. one of <code>top</code>, <code>top-right</code></p>\r\n        <p></p>\r\n        <p>how to position the component.</p>\r\n      </div>\r\n    </doc-options>\r\n  </div>\r\n</template>";
 
 /***/ },
-/* 213 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(214)
+	module.exports = __webpack_require__(213)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(220)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(219)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -7387,7 +7374,7 @@
 	}
 
 /***/ },
-/* 214 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7408,7 +7395,7 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _Aside = __webpack_require__(215);
+	var _Aside = __webpack_require__(214);
 	
 	var _Aside2 = _interopRequireDefault(_Aside);
 	
@@ -7582,14 +7569,14 @@
 	// </script>
 
 /***/ },
-/* 215 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(216)
-	module.exports = __webpack_require__(218)
+	__webpack_require__(215)
+	module.exports = __webpack_require__(217)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(219)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(218)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -7607,13 +7594,13 @@
 	}
 
 /***/ },
-/* 216 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(217);
+	var content = __webpack_require__(216);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -7633,7 +7620,7 @@
 	}
 
 /***/ },
-/* 217 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -7647,7 +7634,7 @@
 
 
 /***/ },
-/* 218 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8065,25 +8052,25 @@
 	// </style>
 
 /***/ },
-/* 219 */
+/* 218 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"aside\"\r\n    v-bind:style=\"{width:width + 'px'}\"\r\n    v-bind:class=\"{\r\n    left:placement === 'left',\r\n    right:placement === 'right'\r\n    }\"\r\n    v-show=\"show\"\r\n    :transition=\"(this.placement === 'left') ? 'slideleft' : 'slideright'\">\r\n    <div class=\"aside-dialog\">\r\n      <div class=\"aside-content\">\r\n        <div class=\"aside-header\">\r\n          <button type=\"button\" class=\"close\" @click='close'><span>&times;</span></button>\r\n          <h4 class=\"aside-title\">\r\n          <slot name=\"header\">\r\n            {{ header }}\r\n          </slot>\r\n          </h4>\r\n        </div>\r\n        <div class=\"aside-body\">\r\n          <slot></slot>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 220 */
+/* 219 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"aside\" name=\"Aside\">\r\n    <div class=\"bs-example\">\r\n      <button class=\"btn btn-danger btn-lg\" @click=\"showLeft = true\">Show Aside on left</button>\r\n      <button class=\"btn btn-success btn-lg\" @click=\"showRight = true\">Show Aside on right</button>\r\n\r\n      <sidebar :show.sync=\"showLeft\" placement=\"left\" header=\"Title\" :width=\"350\">\r\n        <h4>Text in aside</h4>\r\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n        tempor incididunt ut labore et dolore magna aliqua.</p>\r\n        <p> Ut enim ad minim veniam,\r\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n        consequat.</p>\r\n        <doc-code language=\"javascript\">\r\n          if (talk === cheap){\r\n            code.style.display = 'block'\r\n          }\r\n        </doc-code>\r\n        <div class=\"aside-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" @click=\"showLeft=false\">Close</button>\r\n        </div>\r\n      </sidebar>\r\n      <sidebar :show.sync=\"showRight\" placement=\"right\" header=\"Title\" :width=\"350\">\r\n        <h4>Text in aside</h4>\r\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n        tempor incididunt ut labore et dolore magna aliqua.</p>\r\n        <p> Ut enim ad minim veniam,\r\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n        consequat.</p>\r\n        <doc-code language=\"javascript\">\r\n          if (talk === cheap){\r\n            code.style.display = 'block'\r\n          }\r\n        </doc-code>\r\n        <div class=\"aside-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" @click=\"showRight=false\">Close</button>\r\n        </div>\r\n      </sidebar>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <aside :show.sync=\"showRight\" placement=\"right\" header=\"Title\" width=\"350\">\r\n        ...\r\n      </aside>\r\n      <aside :show.sync=\"showLeft\" placement=\"left\" header=\"Title\" width=\"350\">\r\n        ...\r\n      </aside>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>show</p>\r\n        <p><code>Boolean</code></p>\r\n        <p></p>\r\n        <p>Whether show the component.</p>\r\n      </div>\r\n      <div>\r\n        <p>placement</p>\r\n        <p><code>String</code>, one of <code>left</code>, <code>right</code></p>\r\n        <p><code>right</code></p>\r\n        <p>how to position the component.</p>\r\n      </div>\r\n      <div>\r\n        <p>header</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Header text of the aside component.</p>\r\n      </div>\r\n      <div>\r\n        <p>width</p>\r\n        <p><code>Number</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
 
 /***/ },
-/* 221 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(222)
+	module.exports = __webpack_require__(221)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(231)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(230)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -8101,7 +8088,7 @@
 	}
 
 /***/ },
-/* 222 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8122,7 +8109,7 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _buttonGroup = __webpack_require__(223);
+	var _buttonGroup = __webpack_require__(222);
 	
 	var _buttonGroup2 = _interopRequireDefault(_buttonGroup);
 	
@@ -8130,7 +8117,7 @@
 	
 	var _Checkbox2 = _interopRequireDefault(_Checkbox);
 	
-	var _Radio = __webpack_require__(226);
+	var _Radio = __webpack_require__(225);
 	
 	var _Radio2 = _interopRequireDefault(_Radio);
 	
@@ -8338,13 +8325,13 @@
 	// </script>
 
 /***/ },
-/* 223 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(224)
+	module.exports = __webpack_require__(223)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(225)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(224)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -8362,7 +8349,7 @@
 	}
 
 /***/ },
-/* 224 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8415,20 +8402,20 @@
 	// <script>
 
 /***/ },
-/* 225 */
+/* 224 */
 /***/ function(module, exports) {
 
 	module.exports = "<div :class=\"{'btn-group':buttons}\" :data-toggle=\"buttons&&'buttons'\">\r\n    <slot></slot>\r\n  </div>";
 
 /***/ },
-/* 226 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(227)
-	module.exports = __webpack_require__(229)
+	__webpack_require__(226)
+	module.exports = __webpack_require__(228)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(230)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(229)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -8446,13 +8433,13 @@
 	}
 
 /***/ },
-/* 227 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(228);
+	var content = __webpack_require__(227);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -8472,7 +8459,7 @@
 	}
 
 /***/ },
-/* 228 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -8486,7 +8473,7 @@
 
 
 /***/ },
-/* 229 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8745,25 +8732,25 @@
 	// <script>
 
 /***/ },
-/* 230 */
+/* 229 */
 /***/ function(module, exports) {
 
 	module.exports = "<label v-if=\"buttonStyle\" :class=\"['btn btn-'+typeColor,{active:active,disabled:disabled,readonly:readonly}]\" @click.prevent=\"toggle\">\r\n    <input type=\"radio\" autocomplete=\"off\"\r\n      v-el:input\r\n      v-show=\"!readonly\"\r\n      :checked=\"active\"\r\n      :value=\"value\"\r\n      :name=\"name\"\r\n      :readonly=\"readonly\"\r\n      :disabled=\"disabled\"\r\n    />\r\n    <slot></slot>\r\n  </label>\r\n  <div v-else :class=\"['radio',typeColor,{active:active,disabled:disabled,readonly:readonly}]\" @click.prevent=\"toggle\">\r\n    <label class=\"open\">\r\n      <input type=\"radio\" autocomplete=\"off\"\r\n        v-el:input\r\n        :checked=\"active\"\r\n        :value=\"value\"\r\n        :name=\"name\"\r\n        :readonly=\"readonly\"\r\n        :disabled=\"disabled\"\r\n      />\r\n      <span class=\"icon dropdown-toggle\" :class=\"[active?'btn-'+typeColor:'',{bg:typeColor==='default'}]\"></span>\r\n      <span v-if=\"active&&typeColor==='default'\" class=\"icon\"></span>\r\n      <slot></slot>\r\n    </label>\r\n  </div>";
 
 /***/ },
-/* 231 */
+/* 230 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"button-group\" name=\"Button Group\">\r\n    <div class=\"bs-example\">\r\n      <h4>Checkbox</h4>\r\n      <button-group :value.sync=\"checkboxValue\">\r\n        <checkbox value=\"left\">Left</checkbox>\r\n        <checkbox value=\"middle\">Middle</checkbox>\r\n        <checkbox value=\"right\">Right</checkbox>\r\n      </button-group>\r\n      <p>\r\n        <pre>Checkbox value: {{checkboxValue | json}}</pre>\r\n      </p>\r\n      <hr>\r\n      <h4>Radio</h4>\r\n      <p>\r\n        <button-group :value.sync=\"radioValue\" type=\"primary\">\r\n          <radio value=\"left\">Left</radio>\r\n          <radio value=\"middle\">Middle</radio>\r\n          <radio value=\"right\">Right</radio>\r\n        </button-group>\r\n      </p>\r\n      <p>\r\n        <button-group :value.sync=\"radioValue\" type=\"success\">\r\n          <radio value=\"left\">Left</radio>\r\n          <radio value=\"middle\">Middle</radio>\r\n          <radio value=\"right\">Right</radio>\r\n        </button-group>\r\n      </p>\r\n      <p>\r\n        <label>Not buttons:</label>\r\n        <button-group :value.sync=\"radioValue\" type=\"info\" buttons=\"false\">\r\n          <radio value=\"left\">Left</radio>\r\n          <radio value=\"middle\">Middle</radio>\r\n          <radio value=\"right\">Right</radio>\r\n        </button-group>\r\n      </p>\r\n      <p>\r\n        <pre>Radio value: {{radioValue}}</pre>\r\n      </p>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <button-group :value.sync=\"checkboxValue\">\r\n        <checkbox value=\"left\">Left</checkbox>\r\n        <checkbox value=\"middle\">Middle</checkbox>\r\n        <checkbox value=\"right\">Right</checkbox>\r\n      </button-group>\r\n\r\n      <button-group :value.sync=\"radioValue\" type=\"primary\">\r\n        <radio value=\"left\">Left</radio>\r\n        <radio value=\"middle\">Middle</radio>\r\n        <radio value=\"right\">Right</radio>\r\n      </button-group>\r\n\r\n      Not Buttons:\r\n      <button-group :value.sync=\"radioValue\" type=\"info\" buttons=\"false\">\r\n        <radio value=\"left\">Left</radio>\r\n        <radio value=\"middle\">Middle</radio>\r\n        <radio value=\"right\">Right</radio>\r\n      </button-group>\r\n    </doc-code>\r\n\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>Array</code> or <code>String</code></p>\r\n        <p></p>\r\n        <p>If defined, then the defined values will be checked otherwise the elements with a checked attribute\r\n        will be checked.</p>\r\n      </div>\r\n      <div>\r\n        <p>buttons</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>\r\n          <p>Can enable/disable button style.</p>\r\n          <p>Group normal checks if you want to set the same type color for all.</p>\r\n        </p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
 
 /***/ },
-/* 232 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(233)
+	module.exports = __webpack_require__(232)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(242)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(241)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -8781,7 +8768,7 @@
 	}
 
 /***/ },
-/* 233 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8802,11 +8789,11 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _Carousel = __webpack_require__(234);
+	var _Carousel = __webpack_require__(233);
 	
 	var _Carousel2 = _interopRequireDefault(_Carousel);
 	
-	var _Slider = __webpack_require__(239);
+	var _Slider = __webpack_require__(238);
 	
 	var _Slider2 = _interopRequireDefault(_Slider);
 	
@@ -8960,14 +8947,14 @@
 	// <script>
 
 /***/ },
-/* 234 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(235)
-	module.exports = __webpack_require__(237)
+	__webpack_require__(234)
+	module.exports = __webpack_require__(236)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(238)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(237)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -8985,13 +8972,13 @@
 	}
 
 /***/ },
-/* 235 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(236);
+	var content = __webpack_require__(235);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -9011,7 +8998,7 @@
 	}
 
 /***/ },
-/* 236 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -9025,7 +9012,7 @@
 
 
 /***/ },
-/* 237 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9199,19 +9186,19 @@
 	// </style>
 
 /***/ },
-/* 238 */
+/* 237 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"carousel slide\" data-ride=\"carousel\" _v-4b6e4443=\"\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\" v-show=\"indicators\" _v-4b6e4443=\"\">\n    <li v-for=\"i in indicator\" @click=\"indicatorClick($index)\" v-bind:class=\"{active:$index === index}\" _v-4b6e4443=\"\"><span _v-4b6e4443=\"\"></span></li>\n  </ol>\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\" _v-4b6e4443=\"\">\n    <slot _v-4b6e4443=\"\"></slot>\n  </div>\n  <!-- Controls -->\n  <div v-show=\"controls\" class=\"carousel-controls hidden-xs\" _v-4b6e4443=\"\">\n    <a class=\"left carousel-control\" role=\"button\" @click=\"prev\" _v-4b6e4443=\"\">\n      <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" _v-4b6e4443=\"\"></span>\n    </a>\n    <a class=\"right carousel-control\" role=\"button\" @click=\"next\" _v-4b6e4443=\"\">\n      <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" _v-4b6e4443=\"\"></span>\n    </a>\n  </div>\n</div>";
 
 /***/ },
-/* 239 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(240)
+	module.exports = __webpack_require__(239)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(241)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(240)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -9229,7 +9216,7 @@
 	}
 
 /***/ },
-/* 240 */
+/* 239 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -9279,25 +9266,25 @@
 	// </script>
 
 /***/ },
-/* 241 */
+/* 240 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"item\">\r\n    <slot></slot>\r\n  </div>";
 
 /***/ },
-/* 242 */
+/* 241 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"carousel\" name=\"Carousel\">\r\n    <div class=\"bs-example\">\r\n      <carousel>\r\n        <slider>\r\n          <img src=\"https://placehold.it/1200x500?text=one\">\r\n          <div class=\"carousel-caption\">\r\n           <h3>Slide #1</h3>\r\n           <p>sunt in culpa qui officia deserunt mollit a.</p>\r\n         </div>\r\n        </slider>\r\n        <slider>\r\n          <img src=\"https://placehold.it/1200x500?text=two\">\r\n          <div class=\"carousel-caption\">\r\n           <h3>Slide #2</h3>\r\n           <p>sunt in culpa qui officia deserunt mollit a.</p>\r\n         </div>\r\n        </slider>\r\n        <slider>\r\n          <img src=\"https://placehold.it/1200x500?text=three\">\r\n          <div class=\"carousel-caption\">\r\n           <h3>Slide #3</h3>\r\n           <p>sunt in culpa qui officia deserunt mollit a.</p>\r\n         </div>\r\n        </slider>\r\n      </carousel>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <carousel>\r\n        <slider>\r\n          <img src=\"https://placehold.it/1200x400?text=one\">\r\n          <div class=\"carousel-caption\">\r\n            ...\r\n          </div>\r\n        </slider>\r\n        <slider>\r\n          <img src=\"https://placehold.it/1200x400?text=two\">\r\n        </slider>\r\n        <slider>\r\n          <img src=\"https://placehold.it/1200x400?text=three\">\r\n        </slider>\r\n      </carousel>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>indicators</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Whether to show the indicators.</p>\r\n      </div>\r\n      <div>\r\n        <p>controls</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Whether to show the direction controls.</p>\r\n      </div>\r\n      <div>\r\n        <p>interval</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>5000</code></p>\r\n        <p>The amount of time to delay between automatically cycling an item. If set to 0 or a negative number,\r\n          carousel will not automatically cycle.\r\n        </p>\r\n      </div>\r\n    </doc-options>\r\n  </div>\r\n</template>";
 
 /***/ },
-/* 243 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(244)
+	module.exports = __webpack_require__(243)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(245)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(244)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -9315,7 +9302,7 @@
 	}
 
 /***/ },
-/* 244 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9481,16 +9468,16 @@
 	// </script>
 
 /***/ },
-/* 245 */
+/* 244 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"checkbox\" name=\"Checkbox\">\r\n    <div class=\"bs-example\">\r\n      <h4>Checkbox</h4>\r\n      <checkbox :checked.sync=\"checkboxValue.one\" value=\"one\">One</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.two\" value=\"two\" type=\"danger\" disabled>Two (disabled)</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.two\" value=\"two\" type=\"warning\" readonly>Two (readonly)</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.two\" value=\"two\" type=\"success\">Two</checkbox>\r\n      <hr>\r\n      <h4>Checkbox Button (Single button)</h4>\r\n      <checkbox button :checked.sync=\"checkboxValue.three\" value=\"three\" type=\"primary\">Three</checkbox>\r\n      <checkbox button :checked.sync=\"checkboxValue.four\" value=\"four\" type=\"info\" disabled>Four (disabled)</checkbox>\r\n      <checkbox button :checked.sync=\"checkboxValue.four\" value=\"four\" type=\"info\" readonly>Four (readonly)</checkbox>\r\n      <checkbox button :checked.sync=\"checkboxValue.four\" value=\"four\" type=\"info\">Four</checkbox>\r\n      <p>\r\n        <pre>Checkbox values: {{checkboxValue | json}}</pre>\r\n      </p>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <checkbox :checked.sync=\"checkboxValue.one\" value=\"one\">One</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.two\" value=\"two\" type=\"primary\">Two</checkbox>\r\n      <checkbox :checked.sync=\"checkboxValue.three\" value=\"three\" type=\"info\">Three</checkbox>\r\n      <checkbox button :checked.sync=\"checkboxValue.four\" value=\"four\" type=\"danger\">Four</checkbox>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>checked</p>\r\n        <p><code>Number</code> or <code>String</code></p>\r\n        <p></p>\r\n        <p>Handle the selected value.</p>\r\n      </div>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>Number</code> or <code>String</code></p>\r\n        <p></p>\r\n        <p>Value to return if the checkbox item is selected.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>button</p>\r\n        <p><code>Boolean</code></p>\r\n        <p>false</p>\r\n        <p>Button style.</p>\r\n      </div>\r\n    </doc-options>\r\n    <p>See <a href=\"#button-group\">Button Group</a> for more options.</p>\r\n  </doc-section>";
 
 /***/ },
-/* 246 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(247)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(246)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -9508,19 +9495,19 @@
 	}
 
 /***/ },
-/* 247 */
+/* 246 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"container bs-docs-container\">\r\n    <div class=\"row\">\r\n        <slot></slot>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 248 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(249)
+	module.exports = __webpack_require__(248)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(260)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(259)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -9538,7 +9525,7 @@
 	}
 
 /***/ },
-/* 249 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9563,7 +9550,7 @@
 	
 	var _Checkbox2 = _interopRequireDefault(_Checkbox);
 	
-	var _Datepicker = __webpack_require__(250);
+	var _Datepicker = __webpack_require__(249);
 	
 	var _Datepicker2 = _interopRequireDefault(_Datepicker);
 	
@@ -9571,7 +9558,7 @@
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
-	var _Option = __webpack_require__(255);
+	var _Option = __webpack_require__(254);
 	
 	var _Option2 = _interopRequireDefault(_Option);
 	
@@ -9752,14 +9739,14 @@
 	// <script>
 
 /***/ },
-/* 250 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(251)
-	module.exports = __webpack_require__(253)
+	__webpack_require__(250)
+	module.exports = __webpack_require__(252)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(254)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(253)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -9777,13 +9764,13 @@
 	}
 
 /***/ },
-/* 251 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(252);
+	var content = __webpack_require__(251);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -9803,7 +9790,7 @@
 	}
 
 /***/ },
-/* 252 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -9817,7 +9804,7 @@
 
 
 /***/ },
-/* 253 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9826,9 +9813,7 @@
 	  value: true
 	});
 	
-	var _translations = __webpack_require__(189);
-	
-	var _translations2 = _interopRequireDefault(_translations);
+	var _utils = __webpack_require__(127);
 	
 	var _NodeList = __webpack_require__(53);
 	
@@ -9910,9 +9895,9 @@
 	
 	//               <span   :class="{'datepicker-dateRange-item-active':
 	
-	//                   (this.text.months[this.parse(this.value).getMonth()]  === m) &&
+	//                   (text.months[parse(value).getMonth()]  === m) &&
 	
-	//                   this.currDate.getFullYear() === this.parse(this.value).getFullYear()}"
+	//                   currDate.getFullYear() === parse(value).getFullYear()}"
 	
 	//                   @click="monthSelect($index)"
 	
@@ -9950,7 +9935,7 @@
 	
 	//               <span :class="{'datepicker-dateRange-item-active':
 	
-	//                   this.parse(this.value).getFullYear() === decade.text}"
+	//                   parse(this.value).getFullYear() === decade.text}"
 	
 	//                   @click.stop="yearSelect(decade.text)"
 	
@@ -10034,7 +10019,7 @@
 	  },
 	  computed: {
 	    text: function text() {
-	      return (0, _translations2.default)(this.lang);
+	      return (0, _utils.translations)(this.lang);
 	    }
 	  },
 	  methods: {
@@ -10497,20 +10482,20 @@
 	// </style>
 
 /***/ },
-/* 254 */
+/* 253 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"datepicker\">\r\n    <input class=\"form-control datepicker-input\" :class=\"{'with-reset-button': clearButton}\" type=\"text\" :placeholder=\"placeholder\"\r\n        :style=\"{width:width}\"\r\n        @click=\"inputClick\"\r\n        v-model=\"value\"/>\r\n    <button v-if=\"clearButton && value\" type=\"button\" class=\"close\" @click=\"value = ''\">\r\n      <span>&times;</span>\r\n    </button>\r\n    <div class=\"datepicker-popup\" v-show=\"displayDayView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"datepicker-preBtn glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" @click=\"preNextMonthClick(0)\"></span>\r\n            <span class=\"datepicker-nextBtn glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" @click=\"preNextMonthClick(1)\"></span>\r\n            <p @click=\"switchMonthView\">{{stringifyDayHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-weekRange\">\r\n            <span v-for=\"w in text.daysOfWeek\">{{w}}</span>\r\n          </div>\r\n          <div class=\"datepicker-dateRange\">\r\n            <span v-for=\"d in dateRange\" :class=\"d.sclass\" @click=\"daySelect(d.date,this)\">{{d.text}}</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayMonthView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"datepicker-preBtn glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" @click=\"preNextYearClick(0)\"></span>\r\n            <span class=\"datepicker-nextBtn glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" @click=\"preNextYearClick(1)\"></span>\r\n            <p @click=\"switchDecadeView\">{{stringifyYearHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange\">\r\n            <template v-for=\"m in text.months\">\r\n              <span   :class=\"{'datepicker-dateRange-item-active':\r\n                  (this.text.months[this.parse(this.value).getMonth()]  === m) &&\r\n                  this.currDate.getFullYear() === this.parse(this.value).getFullYear()}\"\r\n                  @click=\"monthSelect($index)\"\r\n                >{{m.substr(0,3)}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayYearView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"datepicker-preBtn glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" @click=\"preNextDecadeClick(0)\"></span>\r\n            <span class=\"datepicker-nextBtn glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" @click=\"preNextDecadeClick(1)\"></span>\r\n            <p>{{stringifyDecadeHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange decadeRange\">\r\n            <template v-for=\"decade in decadeRange\">\r\n              <span :class=\"{'datepicker-dateRange-item-active':\r\n                  this.parse(this.value).getFullYear() === decade.text}\"\r\n                  @click.stop=\"yearSelect(decade.text)\"\r\n                >{{decade.text}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>";
+	module.exports = "<div class=\"datepicker\">\r\n    <input class=\"form-control datepicker-input\" :class=\"{'with-reset-button': clearButton}\" type=\"text\" :placeholder=\"placeholder\"\r\n        :style=\"{width:width}\"\r\n        @click=\"inputClick\"\r\n        v-model=\"value\"/>\r\n    <button v-if=\"clearButton && value\" type=\"button\" class=\"close\" @click=\"value = ''\">\r\n      <span>&times;</span>\r\n    </button>\r\n    <div class=\"datepicker-popup\" v-show=\"displayDayView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"datepicker-preBtn glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" @click=\"preNextMonthClick(0)\"></span>\r\n            <span class=\"datepicker-nextBtn glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" @click=\"preNextMonthClick(1)\"></span>\r\n            <p @click=\"switchMonthView\">{{stringifyDayHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-weekRange\">\r\n            <span v-for=\"w in text.daysOfWeek\">{{w}}</span>\r\n          </div>\r\n          <div class=\"datepicker-dateRange\">\r\n            <span v-for=\"d in dateRange\" :class=\"d.sclass\" @click=\"daySelect(d.date,this)\">{{d.text}}</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayMonthView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"datepicker-preBtn glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" @click=\"preNextYearClick(0)\"></span>\r\n            <span class=\"datepicker-nextBtn glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" @click=\"preNextYearClick(1)\"></span>\r\n            <p @click=\"switchDecadeView\">{{stringifyYearHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange\">\r\n            <template v-for=\"m in text.months\">\r\n              <span   :class=\"{'datepicker-dateRange-item-active':\r\n                  (text.months[parse(value).getMonth()]  === m) &&\r\n                  currDate.getFullYear() === parse(value).getFullYear()}\"\r\n                  @click=\"monthSelect($index)\"\r\n                >{{m.substr(0,3)}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayYearView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span class=\"datepicker-preBtn glyphicon glyphicon-chevron-left\" aria-hidden=\"true\" @click=\"preNextDecadeClick(0)\"></span>\r\n            <span class=\"datepicker-nextBtn glyphicon glyphicon-chevron-right\" aria-hidden=\"true\" @click=\"preNextDecadeClick(1)\"></span>\r\n            <p>{{stringifyDecadeHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange decadeRange\">\r\n            <template v-for=\"decade in decadeRange\">\r\n              <span :class=\"{'datepicker-dateRange-item-active':\r\n                  parse(this.value).getFullYear() === decade.text}\"\r\n                  @click.stop=\"yearSelect(decade.text)\"\r\n                >{{decade.text}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 255 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(256)
-	module.exports = __webpack_require__(258)
+	__webpack_require__(255)
+	module.exports = __webpack_require__(257)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(259)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(258)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -10528,13 +10513,13 @@
 	}
 
 /***/ },
-/* 256 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(257);
+	var content = __webpack_require__(256);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -10554,7 +10539,7 @@
 	}
 
 /***/ },
-/* 257 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -10568,7 +10553,7 @@
 
 
 /***/ },
-/* 258 */
+/* 257 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -10644,25 +10629,25 @@
 	// </style>
 
 /***/ },
-/* 259 */
+/* 258 */
 /***/ function(module, exports) {
 
 	module.exports = "<li style=\"position:relative\" _v-57eb20d0=\"\">\n    <a @mousedown.prevent=\"handleClick\" style=\"cursor:pointer\" _v-57eb20d0=\"\">\n      <span v-el:v=\"\" _v-57eb20d0=\"\"><slot _v-57eb20d0=\"\"></slot></span>\n      <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"chosen\" _v-57eb20d0=\"\"></span>\n    </a>\n  </li>";
 
 /***/ },
-/* 260 */
+/* 259 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"datepicker\" name=\"Datepicker\">\r\n    <div class=\"bs-example\">\r\n      <p>\r\n        <pre>Selected date is: {{new Date($refs.dp.parse()).toString()}}</pre>\r\n      </p>\r\n      <datepicker v-ref:dp :value.sync=\"value\" :disabled-days-of-Week=\"disabled\" :format=\"format.toString()\" :clear-button=\"clear\" :placeholder=\"placeholder\" width=\"370px\"></datepicker>\r\n      <h4>Disabled days of week</h4>\r\n\r\n      <v-select multiple :value.sync=\"disabled\" :options=\"[0,1,2,3,4,5,6]\"></v-select>\r\n\r\n      <h4>Format</h4>\r\n      <v-select :value.sync=\"format\" :options=\"formats\"></v-select>\r\n\r\n      <h4>Reset button</h4>\r\n      <checkbox :checked.sync=\"clear\" type=\"primary\">toggle clear button</checkbox>\r\n\r\n      <h4>Placeholder</h4>\r\n      <input :value=\"placeholder\" type=\"text\" style=\"width: 370px\"></input>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <datepicker\r\n        :value.sync=\"value\"\r\n        :disabled-days-of-Week=\"disabled\"\r\n        :format=\"format\"\r\n        :clear-button=\"clear\"\r\n        :placeholder=\"placeholder\">\r\n      </datepicker>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Value of the input DOM</p>\r\n      </div>\r\n      <div>\r\n        <p>width</p>\r\n        <p><code>String</code></p>\r\n        <p>200px</p>\r\n        <p>Width of the input DOM</p>\r\n      </div>\r\n      <div>\r\n        <p>format</p>\r\n        <p><code>String</code></p>\r\n        <p><code>MMMM/dd/yyyy</code></p>\r\n        <p>The date format, combination of d, dd, M, MM, MMM, MMMM, yyyy.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled-days-of-week</p>\r\n        <p><code>Array</code></p>\r\n        <p></p>\r\n        <p>Days of the week that should be disabled. Values are 0 (Sunday) to 6 (Saturday).\r\n           Multiple values should be comma-separated.</p>\r\n      </div>\r\n      <div>\r\n        <p>clear-button</p>\r\n        <p><code>Boolean</code></p>\r\n        <p>false</p>\r\n        <p>If <strong>true</strong> shows an &times; shaped button to clear the selected date.\r\n          Usefull in forms where date entry is optional.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Placeholder to put on the input field when no date (null or empty) is set</p>\r\n      </div>\r\n    </doc-options>\r\n  </div>\r\n  <div></div>\r\n</template>";
 
 /***/ },
-/* 261 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(262)
+	module.exports = __webpack_require__(261)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(263)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(262)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -10680,7 +10665,7 @@
 	}
 
 /***/ },
-/* 262 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10967,19 +10952,19 @@
 	// </script>
 
 /***/ },
-/* 263 */
+/* 262 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"dropdown\" name=\"Dropdown\">\r\n    <div class=\"bs-example\">\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-default dropdown-toggle\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n        <li><a href=\"#dropdown\">Another action</a></li>\r\n        <li><a href=\"#dropdown\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#dropdown\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-success dropdown-toggle\">\r\n          Action <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Disabled\" type=\"warning\" disabled>\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n      </dropdown>\r\n      <div class=\"btn-group btn-group-justified\" role=\"group\">\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Left</a>\r\n        <dropdown>\r\n          <a slot=\"button\" href=\"#dropdown\" class=\"btn btn-default\">\r\n            Dropdown <span class=\"caret\"></span>\r\n          </a>\r\n          <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n            <li><a href=\"#dropdown\">Action</a></li>\r\n            <li><a href=\"#dropdown\">Another action</a></li>\r\n            <li><a href=\"#dropdown\">Something else here</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#dropdown\">Separated link</a></li>\r\n          </ul>\r\n        </dropdown>\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Right</a>\r\n      </div>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      Boostrap style:\r\n      <dropdown>\r\n        <button type=\"button\" class=\"btn btn-default\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n\r\n      Component style:\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n        <li><a href=\"#dropdown\">Another action</a></li>\r\n        <li><a href=\"#dropdown\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#dropdown\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown text=\"Disabled\" type=\"warning\" disabled>\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n      </dropdown>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>show</p>\r\n        <p><code>Boolean</code></p>\r\n        <p></p>\r\n        <p>Whether show the component.</p>\r\n      </div>\r\n      <div>\r\n        <p>class</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>classes to change the style.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>text</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Dropdown button text.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n    <h2>Usage</h2>\r\n    <p>Just like the examples. Can use it as the <a target=\"_blank\" href=\"http://getbootstrap.com/javascript/#dropdowns\">original Bootstrap way</a>.</p>\r\n  </doc-section>";
 
 /***/ },
-/* 264 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(265)
+	module.exports = __webpack_require__(264)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(271)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(270)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -10997,7 +10982,7 @@
 	}
 
 /***/ },
-/* 265 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11018,11 +11003,11 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _Input = __webpack_require__(266);
+	var _Input = __webpack_require__(265);
 	
 	var _Input2 = _interopRequireDefault(_Input);
 	
-	var _buttonGroup = __webpack_require__(223);
+	var _buttonGroup = __webpack_require__(222);
 	
 	var _buttonGroup2 = _interopRequireDefault(_buttonGroup);
 	
@@ -11468,14 +11453,14 @@
 	// </script>
 
 /***/ },
-/* 266 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(267)
-	module.exports = __webpack_require__(269)
+	__webpack_require__(266)
+	module.exports = __webpack_require__(268)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(270)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(269)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -11493,13 +11478,13 @@
 	}
 
 /***/ },
-/* 267 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(268);
+	var content = __webpack_require__(267);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -11519,7 +11504,7 @@
 	}
 
 /***/ },
-/* 268 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -11533,7 +11518,7 @@
 
 
 /***/ },
-/* 269 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11544,16 +11529,112 @@
 	
 	var _utils = __webpack_require__(127);
 	
-	var _translations = __webpack_require__(189);
-	
-	var _translations2 = _interopRequireDefault(_translations);
-	
 	var _NodeList = __webpack_require__(53);
 	
 	var _NodeList2 = _interopRequireDefault(_NodeList);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	// <template>
+	
+	//   <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true,validate:!noValidate}">
+	
+	//     <label v-if="label" class="control-label">{{label}}</label>
+	
+	//     <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
+	
+	//       :cols="cols"
+	
+	//       :rows="rows"
+	
+	//       :name="name"
+	
+	//       :readonly="readonly"
+	
+	//       :required="required"
+	
+	//       :disabled="disabled"
+	
+	//       :maxlength="maxlength"
+	
+	//       :placeholder="placeholder"
+	
+	//     ></textarea>
+	
+	//     <template v-else>
+	
+	//       <div v-if="slots.before||slots.after" class="input-group">
+	
+	//         <slot name="before"></slot>
+	
+	//         <input class="form-control" v-el:input v-model="value"
+	
+	//           :name="name"
+	
+	//           :type="type"
+	
+	//           :pattern="textPattern"
+	
+	//           :title="title"
+	
+	//           :readonly="readonly"
+	
+	//           :required="required"
+	
+	//           :disabled="disabled"
+	
+	//           :maxlength="maxlength"
+	
+	//           :placeholder="placeholder"
+	
+	//           @keyup.enter="enterSubmit&&submit()"
+	
+	//         />
+	
+	//         <slot name="after"></slot>
+	
+	//       </div>
+	
+	//       <input v-else class="form-control" v-el:input v-model="value"
+	
+	//         :name="name"
+	
+	//         :type="type"
+	
+	//         :pattern="textPattern"
+	
+	//         :title="title"
+	
+	//         :readonly="readonly"
+	
+	//         :required="required"
+	
+	//         :disabled="disabled"
+	
+	//         :maxlength="maxlength"
+	
+	//         :placeholder="placeholder"
+	
+	//         @keyup.enter="enterSubmit&&submit()"
+	
+	//       />
+	
+	//     </template>
+	
+	//     <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
+	
+	//     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
+	
+	//     <div v-if="showHelp" class="help-block">{{help}}</div>
+	
+	//     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
+	
+	//   </div>
+	
+	// </template>
+	
+	
+	// <script>
 	exports.default = {
 	  props: {
 	    value: {
@@ -11674,7 +11755,7 @@
 	      return true;
 	    },
 	    text: function text() {
-	      return (0, _translations2.default)(this.lang);
+	      return (0, _utils.translations)(this.lang);
 	    },
 	    showHelp: function showHelp() {
 	      return this.help && (!this.showError || !this.hideHelp);
@@ -11826,127 +11907,27 @@
 	// }
 	
 	// </style>
-	// <template>
-	
-	//   <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true,validate:!noValidate}">
-	
-	//     <label v-if="label" class="control-label">{{label}}</label>
-	
-	//     <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
-	
-	//       :cols="cols"
-	
-	//       :rows="rows"
-	
-	//       :name="name"
-	
-	//       :readonly="readonly"
-	
-	//       :required="required"
-	
-	//       :disabled="disabled"
-	
-	//       :maxlength="maxlength"
-	
-	//       :placeholder="placeholder"
-	
-	//     ></textarea>
-	
-	//     <template v-else>
-	
-	//       <div v-if="slots.before||slots.after" class="input-group">
-	
-	//         <slot name="before"></slot>
-	
-	//         <input class="form-control" v-el:input v-model="value"
-	
-	//           :name="name"
-	
-	//           :type="type"
-	
-	//           :pattern="textPattern"
-	
-	//           :title="title"
-	
-	//           :readonly="readonly"
-	
-	//           :required="required"
-	
-	//           :disabled="disabled"
-	
-	//           :maxlength="maxlength"
-	
-	//           :placeholder="placeholder"
-	
-	//           @keyup.enter="enterSubmit&&submit()"
-	
-	//         />
-	
-	//         <slot name="after"></slot>
-	
-	//       </div>
-	
-	//       <input v-else class="form-control" v-el:input v-model="value"
-	
-	//         :name="name"
-	
-	//         :type="type"
-	
-	//         :pattern="textPattern"
-	
-	//         :title="title"
-	
-	//         :readonly="readonly"
-	
-	//         :required="required"
-	
-	//         :disabled="disabled"
-	
-	//         :maxlength="maxlength"
-	
-	//         :placeholder="placeholder"
-	
-	//         @keyup.enter="enterSubmit&&submit()"
-	
-	//       />
-	
-	//     </template>
-	
-	//     <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
-	
-	//     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
-	
-	//     <div v-if="showHelp" class="help-block">{{help}}</div>
-	
-	//     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
-	
-	//   </div>
-	
-	// </template>
-	
-	
-	// <script>
 
 /***/ },
-/* 270 */
+/* 269 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true,validate:!noValidate}\" _v-27d010f7=\"\">\n    <label v-if=\"label\" class=\"control-label\" _v-27d010f7=\"\">{{label}}</label>\n    <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-27d010f7=\"\"></textarea>\n    <template v-else=\"\" _v-27d010f7=\"\">\n      <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-27d010f7=\"\">\n        <slot name=\"before\" _v-27d010f7=\"\"></slot>\n        <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :pattern=\"textPattern\" :title=\"title\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-27d010f7=\"\">\n        <slot name=\"after\" _v-27d010f7=\"\"></slot>\n      </div>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :pattern=\"textPattern\" :title=\"title\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-27d010f7=\"\">\n    </template>\n    <span v-if=\"clearButton &amp;&amp; value\" class=\"close\" @click=\"value = ''\" _v-27d010f7=\"\">×</span>\n    <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-27d010f7=\"\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\" _v-27d010f7=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" _v-27d010f7=\"\">{{errorText}}</div>\n  </div>";
 
 /***/ },
-/* 271 */
+/* 270 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"input\" name=\"Input\">\r\n    <div class=\"bs-example text-left\">\r\n      <form action=\".\" method=\"get\" accept-charset=\"utf-8\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <bs-input name=\"username\"\r\n              :disabled=\"check.disabled\"\r\n              :error=\"check.error && 'Insert user name'\"\r\n              help=\"Only allows lowercase letters and numbers.\"\r\n              :enter-submit=\"check.enterSubmit\"\r\n              :icon=\"check.icon\"\r\n              :label=\"check.label && 'User Name'\"\r\n              :mask=\"check.mask?mask:null\"\r\n              :minlength=\"check.minlength?5:0\"\r\n              pattern=\"^[a-z][a-z0-9]+$\"\r\n              :placeholder=\"check.placeholder && 'Username can\\'t start with a number.'\"\r\n              :readonly=\"check.readonly\"\r\n              :required=\"check.required\"\r\n              :clear-button=\"check.clearButton\"\r\n              :value.sync=\"input\"\r\n            ></bs-input>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <bs-input name=\"match\" required label=\"Match value\" type=\"password\" :match=\"input\" :icon=\"check.icon\" :enter-submit=\"check.enterSubmit\" help=\"Match the User Name\"></bs-input>\r\n          </div>\r\n        </div>\r\n        <div class=\"row\">\r\n          <button-group type=\"primary\" buttons=\"false\">\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n              <p><checkbox :checked.sync=\"check.label\">Label</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.placeholder\">placeholder</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.disabled\">disabled</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.error\">error</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.icon\">icon</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.enterSubmit\">enterSubmit</checkbox></p>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n              <p><checkbox :checked.sync=\"check.mask\">mask</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.minlength\">minlength=5</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.readonly\">readonly</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.required\">required</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.clearButton\">clear button</checkbox></p>\r\n            </div>\r\n          </button-group>\r\n        </div>\r\n        <bs-input name=\"textarea\" label=\"Textarea\" type=\"textarea\" :icon=\"check.icon\" :enter-submit=\"check.enterSubmit\" no-validate></bs-input>\r\n      </form>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <bs-input :value.sync=\"input\"\r\n        label=\"Username\"\r\n        help=\"Only allows lowercase letters and numbers.\"\r\n        error=\"Insert username\"\r\n        placeholder=\"Username can't start with a number.\"\r\n        pattern=\"^[a-z][a-z0-9]+$\"\r\n        :mask=\"mask\"\r\n        minlength=\"5\"\r\n        readonly\r\n        required\r\n        icon\r\n      ></bs-input>\r\n      <bs-input required label=\"Match value\" type=\"password\" :match=\"input\"></bs-input>\r\n      <bs-input label=\"Textarea\" type=\"textarea\" no-validate></bs-input>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      mask: function (value) {\r\n        // change to lowercase, remove first non-letter and all other unsupported characters\r\n        return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\\W/g,'');\r\n      }\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Input value. Use <code>:value.sync=\"value\"</code></p>\r\n      </div>\r\n      <div>\r\n        <p>match</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Matching value. Both have to be the same value.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>enterSubmit</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Submit when you press <code>Enter</code>. Not supported on type <code>textarea</code>.</p>\r\n      </div>\r\n      <div>\r\n        <p>error</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>help</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Help text behind the input</p>\r\n      </div>\r\n      <div>\r\n        <p>hide-help</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Only work with help and error.<br/>Hide the help if have to show any error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>icon</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>label</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Enable input label (name).</p>\r\n      </div>\r\n      <div>\r\n        <p>lang</p>\r\n        <p><code>String</code></p>\r\n        <p>Browser language</p>\r\n        <p><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>\r\n      </div>\r\n      <div>\r\n        <p>mask</p>\r\n        <p><code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Mask function that receive and edit the value.</p>\r\n      </div>\r\n      <div>\r\n        <p>maxlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>minlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>name</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>no-validate</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Disable validations (don't affect masking).</p>\r\n      </div>\r\n      <div>\r\n        <p>onfocus</p>\r\n        <p><code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>A callable function that trigger when focus the input.</p>\r\n      </div>\r\n      <div>\r\n        <p>pattern</p>\r\n        <p><code>String</code> or <code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Validation pattern.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>required</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code></p>\r\n        <p><code>text</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>validation-delay</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>250</code></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n\r\n  </doc-section>";
 
 /***/ },
-/* 272 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(273)
+	module.exports = __webpack_require__(272)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(283)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(282)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -11964,7 +11945,7 @@
 	}
 
 /***/ },
-/* 273 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11985,7 +11966,7 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _Modal = __webpack_require__(274);
+	var _Modal = __webpack_require__(273);
 	
 	var _Modal2 = _interopRequireDefault(_Modal);
 	
@@ -12379,14 +12360,14 @@
 	// </script>
 
 /***/ },
-/* 274 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(275)
-	module.exports = __webpack_require__(277)
+	__webpack_require__(274)
+	module.exports = __webpack_require__(276)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(282)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(281)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -12404,13 +12385,13 @@
 	}
 
 /***/ },
-/* 275 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(276);
+	var content = __webpack_require__(275);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -12430,7 +12411,7 @@
 	}
 
 /***/ },
-/* 276 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -12444,7 +12425,7 @@
 
 
 /***/ },
-/* 277 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12453,7 +12434,7 @@
 	  value: true
 	});
 	
-	var _isInteger = __webpack_require__(278);
+	var _isInteger = __webpack_require__(277);
 	
 	var _isInteger2 = _interopRequireDefault(_isInteger);
 	
@@ -12689,29 +12670,29 @@
 	// </style>
 
 /***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(278), __esModule: true };
+
+/***/ },
 /* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(279), __esModule: true };
+	__webpack_require__(279);
+	module.exports = __webpack_require__(59).Number.isInteger;
 
 /***/ },
 /* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(280);
-	module.exports = __webpack_require__(59).Number.isInteger;
-
-/***/ },
-/* 280 */
-/***/ function(module, exports, __webpack_require__) {
-
 	// 20.1.2.3 Number.isInteger(number)
 	var $export = __webpack_require__(57);
 	
-	$export($export.S, 'Number', {isInteger: __webpack_require__(281)});
+	$export($export.S, 'Number', {isInteger: __webpack_require__(280)});
 
 /***/ },
-/* 281 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 20.1.2.3 Number.isInteger(number)
@@ -12722,25 +12703,25 @@
 	};
 
 /***/ },
-/* 282 */
+/* 281 */
 /***/ function(module, exports) {
 
 	module.exports = "<div role=\"dialog\"\r\n    v-bind:class=\"{\r\n    'modal':true,\r\n    'fade':effect === 'fade',\r\n    'zoom':effect === 'zoom'\r\n    }\"\r\n    >\r\n    <div v-bind:class=\"{'modal-dialog':true,'modal-lg':large,'modal-sm':small}\" role=\"document\"\r\n      v-bind:style=\"{width: optionalWidth}\">\r\n      <div class=\"modal-content\">\r\n        <slot name=\"modal-header\">\r\n          <div class=\"modal-header\">\r\n            <button type=\"button\" class=\"close\" @click=\"close\"><span>&times;</span></button>\r\n            <h4 class=\"modal-title\" > \r\n              <slot name=\"title\">\r\n                {{title}}\r\n              </slot>\r\n            </h4>\r\n          </div>\r\n        </slot>\r\n        <slot name=\"modal-body\">\r\n          <div class=\"modal-body\"></div>\r\n        </slot>\r\n        <slot name=\"modal-footer\">\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" @click=\"close\">{{ cancelText }}</button>\r\n            <button type=\"button\" class=\"btn btn-primary\" @click=\"callback\">{{ okText }}</button>\r\n          </div>\r\n        </slot>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 283 */
+/* 282 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"modal\" name=\"Modal\">\r\n    <div class=\"bs-example\">\r\n      <button class=\"btn btn-default\" @click=\"showModal = true\">Show modal</button>\r\n      <modal title=\"Modal title\" :show.sync=\"showModal\">\r\n        <div slot=\"modal-header\" class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Modal <b>Title</b></h4>\r\n        </div>\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-success\" @click=\"fadeModal = true\">Fade modal</button>\r\n      <modal title=\"Fade Modal\" :show.sync=\"fadeModal\" effect=\"fade\" width=\"800\">\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-primary\" @click=\"zoomModal = true\">Zoom modal</button>\r\n      <modal title=\"Zoom Modal\" :show.sync=\"zoomModal\" effect=\"zoom\" width=\"400\">\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-default\" @click=\"showCustomModal = true\">Show custom modal</button>\r\n      <modal :show.sync=\"showCustomModal\" effect=\"fade\" width=\"50%\">\r\n        <div slot=\"modal-header\" class=\"modal-header\">\r\n          <h4 class=\"modal-title\"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>\r\n        </div>\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n        </div>\r\n        <div slot=\"modal-footer\" class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" @click='showCustomModal = false'>Exit</button>\r\n          <button type=\"button\" class=\"btn btn-success\" @click='showCustomModal = false'>Custom Save</button>\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-warning\" @click=\"largeModal = true\">Large modal</button>\r\n      <modal title=\"Large Modal\" :show.sync=\"largeModal\" large>\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n        </div>\r\n      </modal>\r\n      <button class=\"btn btn-danger\" @click=\"smallModal = true\">Small modal</button>\r\n      <modal title=\"Small Modal\" :show.sync=\"smallModal\" small>\r\n        <div slot=\"modal-body\" class=\"modal-body\">\r\n          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n          consequat.\r\n        </div>\r\n      </modal>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <modal :show.sync=\"...\">\r\n        <div slot=\"modal-header\" class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Modal title</h4>\r\n        </div>\r\n        <div slot=\"modal-body\" class=\"modal-body\">...</div>\r\n      </modal>\r\n\r\n      <modal title=\"Fade Modal\" :show.sync=\"...\" effect=\"fade\" width=\"800\">\r\n        <div slot=\"modal-body\" class=\"modal-body\">...</div>\r\n      </modal>\r\n\r\n      <modal title=\"Zoom Modal\" :show.sync=\"...\" effect=\"zoom\" width=\"400\">\r\n        <div slot=\"modal-body\" class=\"modal-body\">...</div>\r\n      </modal>\r\n\r\n      <modal :show.sync=\"showCustomModal\" effect=\"fade\" width=\"400\">\r\n        <div slot=\"modal-header\" class=\"modal-header\">\r\n          <h4 class=\"modal-title\">\r\n            <i>Custom</i> <code>Modal</code> <b>Title</b>\r\n          </h4>\r\n        </div>\r\n        <div slot=\"modal-body\" class=\"modal-body\">...</div>\r\n        <div slot=\"modal-footer\" class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" @click='showCustomModal = false'>Exit</button>\r\n          <button type=\"button\" class=\"btn btn-success\" @click='showCustomModal = false'>Custom Save</button>\r\n        </div>\r\n      </modal>\r\n      <modal title=\"Large Modal\" large :show.sync=\"...\">\r\n        <div slot=\"modal-body\" class=\"modal-body\">...</div>\r\n      </modal>\r\n      <modal title=\"Small Modal\" small :show.sync=\"...\">\r\n        <div slot=\"modal-body\" class=\"modal-body\">...</div>\r\n      </modal>\r\n  </doc-code>\r\n  <doc-options>\r\n    <div>\r\n      <p>title</p>\r\n      <p><code>String</code></p>\r\n      <p></p>\r\n      <p>Title of the modal component.</p>\r\n    </div>\r\n    <div>\r\n      <p>ok-text</p>\r\n      <p><code>String</code></p>\r\n      <p>Save changes</p>\r\n      <p>Text for OK button</p>\r\n    </div>\r\n    <div>\r\n      <p>cancel-text</p>\r\n      <p><code>String</code></p>\r\n      <p>Close</p>\r\n      <p>Text for cancel button</p>\r\n    </div>\r\n    <div>\r\n      <p>width</p>\r\n      <p><code>Number, String or null</code></p>\r\n      <p><code>null</code></p>\r\n      <p>Pass a Number in pixels or a String with relational sizes ( e.g. '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.</p>\r\n    </div>\r\n    <div>\r\n      <p>callback</p>\r\n      <p><code>Function</code></p>\r\n      <p></p>\r\n      <p>A callback Function when you click the modal primary button.</p>\r\n    </div>\r\n    <div>\r\n      <p>large</p>\r\n      <p><code>Boolean</code></p>\r\n      <p><code>false</code></p>\r\n      <p>Creates a large modal ( see boostrap's documentation for .modal-lg )</p>\r\n    </div>\r\n    <div>\r\n      <p>small</p>\r\n      <p><code>Boolean</code></p>\r\n      <p><code>false</code></p>\r\n      <p>Creates a small modal ( see boostrap's documentation for .modal-sm )</p>\r\n    </div>\r\n    <div>\r\n      <p>backdrop</p>\r\n      <p><code>Boolean</code></p>\r\n      <p><code>true</code></p>\r\n      <p>Enables/disables closing the modal by clicking on the backdrop.</p>\r\n    </div>\r\n  </doc-options>\r\n  <h2>Usage</h2>\r\n  <p>\r\n    If you just need a simple modal, you can use the <code>title</code> prop and the default footer. However, if you\r\n    need to put custom HTML or a custom footer, you can override the header or footer block by using\r\n    <code>&lt;div slot=\"modal-title\" class=\"modal-title\"&gt;...&lt;/div&gt;</code> and\r\n    <code>&lt;div slot=\"modal-footer\" class=\"modal-footer\"&gt;...&lt;/div&gt;</code>.\r\n  </p>\r\n  </div>\r\n</template>";
 
 /***/ },
-/* 284 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(285)
+	module.exports = __webpack_require__(284)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(291)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(290)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -12758,7 +12739,7 @@
 	}
 
 /***/ },
-/* 285 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12779,7 +12760,7 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _Popover = __webpack_require__(286);
+	var _Popover = __webpack_require__(285);
 	
 	var _Popover2 = _interopRequireDefault(_Popover);
 	
@@ -12951,14 +12932,14 @@
 	// </script>
 
 /***/ },
-/* 286 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(287)
-	module.exports = __webpack_require__(289)
+	__webpack_require__(286)
+	module.exports = __webpack_require__(288)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(290)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(289)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -12976,13 +12957,13 @@
 	}
 
 /***/ },
-/* 287 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(288);
+	var content = __webpack_require__(287);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -13002,7 +12983,7 @@
 	}
 
 /***/ },
-/* 288 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -13016,7 +12997,7 @@
 
 
 /***/ },
-/* 289 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13025,7 +13006,7 @@
 	  value: true
 	});
 	
-	var _popoverMixins = __webpack_require__(200);
+	var _popoverMixins = __webpack_require__(199);
 	
 	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
 	
@@ -13144,25 +13125,25 @@
 	// <script>
 
 /***/ },
-/* 290 */
+/* 289 */
 /***/ function(module, exports) {
 
 	module.exports = "<span v-el:trigger>\r\n    <slot></slot>\r\n  </span>\r\n  <div v-el:popover v-show=\"show\"\r\n    :class=\"['popover',placement]\"\r\n    :transition=\"effect\"\r\n  >\r\n    <div class=\"arrow\"></div>\r\n    <h3 class=\"popover-title\" v-if=\"title\">\r\n      <slot name=\"title\">{{title}}</slot>\r\n    </h3>\r\n    <div class=\"popover-content\">\r\n      <slot name=\"content\">{{{content}}}</slot>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 291 */
+/* 290 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"popover\" name=\"Popover\">\r\n    <div class=\"bs-example\">\r\n      <popover v-for=\"place in placements\" effect=\"fade\" :content=\"text\" :placement=\"place\">\r\n        <button class=\"btn btn-default\">Popover on {{place}}</button>\r\n      </popover>\r\n      <hr>\r\n      <h4>Title</h4>\r\n      <popover v-for=\"place in placements\" effect=\"fade\" header title=\"Title\" :content=\"text\" :placement=\"place\">\r\n        <button class=\"btn btn-default\">Popover on {{place}}</button>\r\n      </popover>\r\n      <hr>\r\n      <h4>Trigger</h4>\r\n      <p>\r\n        <popover effect=\"scale\" title=\"Title\" :content=\"content\" placement=\"top\" trigger=\"hover\">\r\n          <button class=\"btn btn-default\">Mouseenter</button>\r\n        </popover>\r\n        <popover effect=\"scale\" title=\"Title\" :content=\"text\" placement=\"top\" trigger=\"contextmenu\">\r\n          <button class=\"btn btn-default\">Contextmenu (right click)</button>\r\n        </popover>\r\n      </p>\r\n      <popover effect=\"scale\" title=\"Title\" :content=\"text\" placement=\"bottom\" trigger=\"focus\">\r\n        <input type=\"text\" class=\"form-control\" placeholder=\"Focus\">\r\n      </popover>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <popover effect=\"fade\" placement=\"bottom\" title=\"Title\" content=\"content\">\r\n        <button class=\"btn btn-default\">Popover on bottom</button>\r\n      </popover>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>trigger</p>\r\n        <p><code>String</code>, one of <code>click</code> <code>focus</code> <code>hover</code> <code>contextmenu</code></p>\r\n        <p><code>click</code></p>\r\n        <p>How the popover is triggered.</p>\r\n      </div>\r\n      <div>\r\n        <p>effect</p>\r\n        <p><code>String</code>, one of <code>scale</code> <code>fade</code></p>\r\n        <p><code>fade</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>title</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>content</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>header</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Whether to show the header.</p>\r\n      </div>\r\n      <div>\r\n        <p>placement</p>\r\n        <p><code>String</code>, one of <code>top</code>\r\n        <code>left</code>\r\n        <code>right</code>\r\n        <code>bottom</code></p>\r\n        <p></p>\r\n        <p>How to position the popover.</p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
 
 /***/ },
-/* 292 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(293)
+	module.exports = __webpack_require__(292)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(297)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(296)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -13180,7 +13161,7 @@
 	}
 
 /***/ },
-/* 293 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13201,7 +13182,7 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _Progressbar = __webpack_require__(294);
+	var _Progressbar = __webpack_require__(293);
 	
 	var _Progressbar2 = _interopRequireDefault(_Progressbar);
 	
@@ -13419,13 +13400,13 @@
 	// </script>
 
 /***/ },
-/* 294 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(295)
+	module.exports = __webpack_require__(294)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(296)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(295)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -13443,7 +13424,7 @@
 	}
 
 /***/ },
-/* 295 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13516,25 +13497,25 @@
 	// <script>
 
 /***/ },
-/* 296 */
+/* 295 */
 /***/ function(module, exports) {
 
 	module.exports = "<div role=\"progressbar\" \r\n    :class=\"['progress-bar',{\r\n      'progress-bar-success':type == 'success',\r\n      'progress-bar-warning':type == 'warning',\r\n      'progress-bar-info':type == 'info',\r\n      'progress-bar-danger':type == 'danger',\r\n      'progress-bar-striped':striped,\r\n      'active':animated\r\n    }]\"\r\n    :style=\"{width: now + '%'}\"\r\n  >\r\n    {{label ? now + '%' : ''}}\r\n  </div>";
 
 /***/ },
-/* 297 */
+/* 296 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"progressbar\" name=\"Progressbar\">\r\n    <div class=\"bs-example\">\r\n      <h4>Static</h4>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-4\">\r\n          <div class=\"progress\">\r\n            <progressbar now=\"20\" type=\"success\"></progressbar>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-md-4\">\r\n          <div class=\"progress\">\r\n            <progressbar now=\"40\" type=\"info\"></progressbar>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-md-4\">\r\n          <div class=\"progress\">\r\n            <progressbar now=\"60\" type=\"primary\"></progressbar>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <hr/>\r\n      <h4>Dynamic <button type=\"button\" class=\"btn btn-default\" @click=\"dynamicClick\">Randomize</button></h4>\r\n      <div class=\"progress\">\r\n        <progressbar :now=\"dynamicData[0]\" type=\"info\"></progressbar>\r\n      </div>\r\n      <div class=\"progress\">\r\n        <progressbar :now=\"dynamicData[1]\" type=\"warning\"></progressbar>\r\n      </div>\r\n      <div class=\"progress\">\r\n        <progressbar :now=\"dynamicData[2]\" type=\"danger\"></progressbar>\r\n      </div>\r\n      <div class=\"progress\">\r\n        <progressbar :now=\"dynamicData[3]\" type=\"success\" striped></progressbar>\r\n      </div>\r\n      <div class=\"progress\">\r\n        <progressbar :now=\"dynamicData[4]\" type=\"success\" striped animated></progressbar>\r\n      </div>\r\n      <hr/>\r\n      <h4>Stacked <button type=\"button\" class=\"btn btn-default\" @click=\"stackedClick\">Randomize</button></h4>\r\n      <div class=\"progress\">\r\n        <progressbar :now=\"stackedData[0]\" label type=\"warning\" striped></progressbar>\r\n        <progressbar :now=\"stackedData[1]\" label type=\"success\" ></progressbar>\r\n        <progressbar :now=\"stackedData[2]\" label type=\"danger\"></progressbar>\r\n        <progressbar :now=\"stackedData[3]\" label type=\"primary\" striped animated></progressbar>\r\n      </div>\r\n\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      Stacked:\r\n      <div class=\"progress\">\r\n        <progressbar now=\"\" label type=\"warning\" striped></progressbar>\r\n        <progressbar now=\"\" label type=\"success\" ></progressbar>\r\n        <progressbar now=\"\" label type=\"danger\"></progressbar>\r\n        <progressbar now=\"\" label type=\"primary\" striped animated></progressbar>\r\n      </div>\r\n      Single:\r\n      <div class=\"progress\">\r\n        <progressbar now=\"\" label type=\"warning\" striped></progressbar>\r\n      </div>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>now</p>\r\n        <p><code>Number</code></p>\r\n        <p></p>\r\n        <p>The current value of progress completed. Required.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Style type. Possible values are 'success', 'warning' etc.</p>\r\n      </div>\r\n      <div>\r\n        <p>label</p>\r\n        <p><code>Boolean</code></p>\r\n        <p>false</p>\r\n        <p>Whether to show the label.</p>\r\n      </div>\r\n      <div>\r\n        <p>striped</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Whether the progressbar has striped effect or not.</p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
 
 /***/ },
-/* 298 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(299)
+	module.exports = __webpack_require__(298)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(300)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(299)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -13552,7 +13533,7 @@
 	}
 
 /***/ },
-/* 299 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13573,7 +13554,7 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _Radio = __webpack_require__(226);
+	var _Radio = __webpack_require__(225);
 	
 	var _Radio2 = _interopRequireDefault(_Radio);
 	
@@ -13709,20 +13690,20 @@
 	// </script>
 
 /***/ },
-/* 300 */
+/* 299 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"radio\" name=\"Radio\">\r\n    <div class=\"bs-example\">\r\n      <h4>Radio</h4>\r\n      <radio :checked.sync=\"radioValue\" value=\"one\">One</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"two\" type=\"danger\" disabled>Two (disabled)</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"two\" type=\"warning\" readonly>Two (readonly)</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"two\" type=\"success\">Two</radio>\r\n      <hr>\r\n      <h4>Radio Button (Single buttons)</h4>\r\n      <radio button :checked.sync=\"radioValue\" value=\"three\" type=\"primary\">Three</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"four\" type=\"info\" disabled>Four (disabled)</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"four\" type=\"info\" readonly>Four (readonly)</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"four\" type=\"info\">Four</radio>\r\n      <p><pre>Radio value: {{radioValue | json}}</pre></p>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <radio :checked.sync=\"radioValue\" value=\"one\">One</radio>\r\n      <radio :checked.sync=\"radioValue\" value=\"two\" type=\"primary\">Two</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"three\" type=\"danger\">Three</radio>\r\n      <radio button :checked.sync=\"radioValue\" value=\"four\" type=\"info\">Four</radio>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>checked</p>\r\n        <p><code>Number</code> or <code>String</code></p>\r\n        <p></p>\r\n        <p>Handle the selected value.</p>\r\n      </div>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>Number</code> or <code>String</code></p>\r\n        <p></p>\r\n        <p>Value to return if the radio item is selected.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>button</p>\r\n        <p><code>Boolean</code></p>\r\n        <p>false</p>\r\n        <p>Button style.</p>\r\n      </div>\r\n    </doc-options>\r\n    <p>See <a href=\"#button-group\">Button Group</a> for more options.</p>\r\n  </doc-section>";
 
 /***/ },
-/* 301 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(302)
-	module.exports = __webpack_require__(304)
+	__webpack_require__(301)
+	module.exports = __webpack_require__(303)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(305)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(304)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -13740,13 +13721,13 @@
 	}
 
 /***/ },
-/* 302 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(303);
+	var content = __webpack_require__(302);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -13766,7 +13747,7 @@
 	}
 
 /***/ },
-/* 303 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -13780,7 +13761,7 @@
 
 
 /***/ },
-/* 304 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13801,7 +13782,7 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _buttonGroup = __webpack_require__(223);
+	var _buttonGroup = __webpack_require__(222);
 	
 	var _buttonGroup2 = _interopRequireDefault(_buttonGroup);
 	
@@ -13813,7 +13794,7 @@
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
-	var _Option = __webpack_require__(255);
+	var _Option = __webpack_require__(254);
 	
 	var _Option2 = _interopRequireDefault(_Option);
 	
@@ -14115,19 +14096,19 @@
 	// <script>
 
 /***/ },
-/* 305 */
+/* 304 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"select\" name=\"Select\">\r\n    <p>Based in a <a target=\"_blank\" href=\"https://silviomoreto.github.io/bootstrap-select/\">bootstrap-select</a> implementation.</p>\r\n    <div class=\"bs-example\">\r\n      <h4>Select with options:</h4>\r\n      <p><pre>Selected data : {{show(single)}}</pre></p>\r\n      <v-select :value.sync=\"single\">\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n      <hr/>\r\n      <h4>Test options:</h4>\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n          <p><pre>Normal select data: {{show(select.normal)}}</pre></p>\r\n          <form action=\"./#select\" method=\"get\">\r\n            <v-select :options=\"select.options\" :value.sync=\"select.normal\" name=\"animal'\" :search=\"select.search\" :justified=\"select.justified\"\r\n              :required=\"select.required\" :clear-button=\"select.clearButton\" :disabled=\"select.disabled\"\r\n            ></v-select>\r\n            <button type=\"submit\" class=\"btn btn-default\">Submit</button>\r\n          </form>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n          <p><pre>Multiple select data : {{show(select.multiple)}}</pre></p>\r\n          <form action=\"./#select\" method=\"get\">\r\n            <v-select :options=\"select.options\" :value.sync=\"select.multiple\" name=\"animals[]\" :search=\"select.search\" :justified=\"select.justified\"\r\n              multiple :required=\"select.required\" :clear-button=\"select.clearButton\"\r\n              :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"\r\n            ></v-select>\r\n            <button type=\"submit\" class=\"btn btn-default\">Submit</button>\r\n          </form>\r\n        </div>\r\n      </div>\r\n      <br/>\r\n      <button-group type=\"primary\" buttons=\"false\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n            <p><checkbox :checked.sync=\"select.disabled\">Disabled</checkbox></p>\r\n            <p><checkbox :checked.sync=\"select.search\">Search</checkbox></p>\r\n            <p><checkbox :checked.sync=\"select.justified\">Justified</checkbox></p>\r\n            <p><checkbox :checked.sync=\"select.clearButton\">Clear Button</checkbox></p>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n            <p><checkbox :checked.sync=\"select.required\">Required (empty value if noting selected)</checkbox></p>\r\n            <p>\r\n              Multiple:\r\n              <checkbox v-if=\"select.multiple\" :checked.sync=\"select.limit\">Limit (e.g. 3)</checkbox>\r\n              <checkbox v-if=\"select.multiple\" :checked.sync=\"select.closeOnSelect\">Close on Select</checkbox>\r\n            </p>\r\n          </div>\r\n        </div>\r\n      </button-group>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <v-select>\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n      <form action=\"./#select\" method=\"get\">\r\n        <v-select :value.sync=\"select.value\" :options=\"select.options\"\r\n          multiple name=\"animals[]\" limit=\"3\"\r\n          search justified required disabled\r\n          clear-button close-on-select\r\n        ></v-select>\r\n        <button type=\"submit\" class=\"btn btn-default\">Submit form</button>\r\n      </form>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      options: [\r\n        {value: 1, label: 'Cat'},\r\n        {value: 2, label: 'Cow'},\r\n        {value: 3, label: 'Dog'},\r\n        {value: 4, label: 'Elephant'},\r\n        {value: 5, label: 'Fish'},\r\n        {value: 6, label: 'Lion'},\r\n        {value: 7, label: 'Tiger'},\r\n        {value: 8, label: 'Turtle'}\r\n      ]\r\n    </doc-code>\r\n\r\n    <hr />\r\n    <h4>Ajax data and parent dependency:</h4>\r\n    <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>\r\n    <v-select url=\"docs/data.json\" :value.sync=\"ajax.value\" clear-button v-ref:ajax></v-select>\r\n    <v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\"></v-select>\r\n    <doc-code language=\"markup\">\r\n      <v-select url=\"docs/data.json\" :value.sync=\"ajax.value\" clear-button></v-select>\r\n      <v-select url=\"docs/data.json\" multiple :parent=\"ajax.value\"></v-select>\r\n    </doc-code>\r\n    <p>Ajax response:</p>\r\n    <doc-code language=\"markup\"><span v-html=\"$refs.ajax.options|json\"></span></doc-code>\r\n\r\n    <doc-options name=\"Other\">\r\n      <div>\r\n        <p>min-search</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p>If defined, the searchbox is disabled if are less than the minimum value you set.</p>\r\n      </div>\r\n      <div>\r\n        <p>lang</p>\r\n        <p><code>String</code></p>\r\n        <p>Browser language</p>\r\n        <p><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p>Nothing Selected</p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>search-text</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
 
 /***/ },
-/* 306 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(307)
+	module.exports = __webpack_require__(306)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(313)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(312)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -14145,7 +14126,7 @@
 	}
 
 /***/ },
-/* 307 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14174,7 +14155,7 @@
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
-	var _Spinner = __webpack_require__(308);
+	var _Spinner = __webpack_require__(307);
 	
 	var _Spinner2 = _interopRequireDefault(_Spinner);
 	
@@ -14282,13 +14263,13 @@
 	// </script>
 
 /***/ },
-/* 308 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(309)
+	module.exports = __webpack_require__(308)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(312)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(311)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -14306,7 +14287,7 @@
 	}
 
 /***/ },
-/* 309 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14315,7 +14296,7 @@
 	  value: true
 	});
 	
-	__webpack_require__(310);
+	__webpack_require__(309);
 	
 	var _utils = __webpack_require__(127);
 	
@@ -14429,13 +14410,13 @@
 	// </script>
 
 /***/ },
-/* 310 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(311);
+	var content = __webpack_require__(310);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -14455,7 +14436,7 @@
 	}
 
 /***/ },
-/* 311 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -14469,25 +14450,25 @@
 
 
 /***/ },
-/* 312 */
+/* 311 */
 /***/ function(module, exports) {
 
 	module.exports = "<div :class=\"['spinner spinner-gritcode',spinnerSize,{'spinner-fixed':fixed}]\" v-show=\"active\">\r\n    <div class=\"spinner-wrapper\">\r\n      <div class=\"spinner-circle\"></div>\r\n      <div class=\"spinner-text\">{{text}}</div>\r\n    </div>\r\n  </div>";
 
 /***/ },
-/* 313 */
+/* 312 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"spinner\" name=\"Spinner\">\r\n    <div class=\"bs-example\">\r\n      <p><checkbox :checked.sync=\"fixed\" type=\"info\">fixed</checkbox></p>\r\n      <p><v-select :options=\"sizes\" :value.sync=\"size\">size</v-select></p>\r\n      <p><button class=\"btn btn-info\" @click=\"$broadcast('show::spinner')\">show spinner</button></p>\r\n      <div><spinner id=\"spinner-box\" :size=\"size\" :fixed=\"fixed\" text=\"I will close in 2 secs\"></spinner></div>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      &lt;spinner v-ref:spinner :size=\"(sm,md,lg...)\" :fixed=\"(true,false)\" text=\"I will close in 2 secs\">&lt;/spinner>\r\n    </doc-code>\r\n    <doc-code language=\"markup\">\r\n      // using ref\r\n      this.$refs.spinner.show()\r\n      this.$refs.spinner.hide()\r\n      // using broadcast\r\n      this.$broadcast('show::spinner')\r\n      this.$broadcast('hide::spinner')\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>size</p>\r\n        <p><code>Text</code></p>\r\n        <p>md</p>\r\n        <p>The size of the spinner (either [sm, md, lg]).</p>\r\n      </div>\r\n      <div>\r\n        <p>fixed</p>\r\n        <p><code>Boolean</code></p>\r\n        <p>false</p>\r\n        <p>Set to true if you want the spinner to occupy the entire window space.</p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
 
 /***/ },
-/* 314 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(315)
+	module.exports = __webpack_require__(314)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(329)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(328)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -14505,7 +14486,7 @@
 	}
 
 /***/ },
-/* 315 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14526,15 +14507,15 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _Tabset = __webpack_require__(316);
+	var _Tabset = __webpack_require__(315);
 	
 	var _Tabset2 = _interopRequireDefault(_Tabset);
 	
-	var _TabGroup = __webpack_require__(321);
+	var _TabGroup = __webpack_require__(320);
 	
 	var _TabGroup2 = _interopRequireDefault(_TabGroup);
 	
-	var _Tab = __webpack_require__(326);
+	var _Tab = __webpack_require__(325);
 	
 	var _Tab2 = _interopRequireDefault(_Tab);
 	
@@ -14759,14 +14740,14 @@
 	// </script>
 
 /***/ },
-/* 316 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(317)
-	module.exports = __webpack_require__(319)
+	__webpack_require__(316)
+	module.exports = __webpack_require__(318)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(320)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(319)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -14784,13 +14765,13 @@
 	}
 
 /***/ },
-/* 317 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(318);
+	var content = __webpack_require__(317);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -14810,7 +14791,7 @@
 	}
 
 /***/ },
-/* 318 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -14824,7 +14805,7 @@
 
 
 /***/ },
-/* 319 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14936,20 +14917,20 @@
 	// </style>
 
 /***/ },
-/* 320 */
+/* 319 */
 /***/ function(module, exports) {
 
 	module.exports = "<!-- Nav tabs -->\n  <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-c8373860=\"\">\n    <template v-for=\"t in headers\" _v-c8373860=\"\">\n      <li v-if=\"!t._tabgroup\" :class=\"{active:t.active, disabled:t.disabled}\" @click.prevent=\"select(t)\" _v-c8373860=\"\">\n        <a href=\"#\" _v-c8373860=\"\"><slot name=\"header\" _v-c8373860=\"\">{{{t.header}}}</slot></a>\n      </li>\n      <dropdown v-else=\"\" :text=\"t.header\" :class=\"{active:t.active}\" :disabled=\"t.disabled\" _v-c8373860=\"\">\n        <li v-for=\"tab in t.tabs\" :class=\"{disabled:tab.disabled}\" _v-c8373860=\"\"><a href=\"#\" @click.prevent=\"select(tab)\" _v-c8373860=\"\">{{tab.header}}</a></li>\n      </dropdown>\n    </template>\n  </ul>\n  <div class=\"tab-content\" v-el:tab-content=\"\" _v-c8373860=\"\">\n    <slot _v-c8373860=\"\"></slot>\n  </div>";
 
 /***/ },
-/* 321 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(322)
-	module.exports = __webpack_require__(324)
+	__webpack_require__(321)
+	module.exports = __webpack_require__(323)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(325)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(324)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -14967,13 +14948,13 @@
 	}
 
 /***/ },
-/* 322 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(323);
+	var content = __webpack_require__(322);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -14993,7 +14974,7 @@
 	}
 
 /***/ },
-/* 323 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -15007,7 +14988,7 @@
 
 
 /***/ },
-/* 324 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15086,19 +15067,19 @@
 	// <script>
 
 /***/ },
-/* 325 */
+/* 324 */
 /***/ function(module, exports) {
 
 	module.exports = "<slot _v-6f3b49cd=\"\"></slot>";
 
 /***/ },
-/* 326 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(327)
+	module.exports = __webpack_require__(326)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(328)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(327)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -15116,7 +15097,7 @@
 	}
 
 /***/ },
-/* 327 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15204,25 +15185,25 @@
 	// <script>
 
 /***/ },
-/* 328 */
+/* 327 */
 /***/ function(module, exports) {
 
 	module.exports = "<div role=\"tabpanel\" class=\"tab-pane active\" v-show=\"show\"\r\n    :class=\"{hide:!show}\"\r\n    :transition=\"transition\"\r\n  >\r\n    <slot></slot>\r\n  </div>";
 
 /***/ },
-/* 329 */
+/* 328 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"tabs\" name=\"Tabs\">\r\n    <div class=\"bs-example\">\r\n      <tabs>\r\n        <tab header=\"one\">\r\n          <p>\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n            consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat\r\n            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n          </p>\r\n        </tab>\r\n        <tab header=\"two\" disabled>\r\n          ...\r\n        </tab>\r\n        <tab-group header=\"group1\">\r\n          <tab header=\"three\">\r\n           <p>\r\n              Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.\r\n           </p>\r\n          </tab>\r\n          <tab header=\"four\" disabled>\r\n            ...\r\n          </tab>\r\n        </tab-group>\r\n        <tab-group header=\"group2\" disabled>\r\n          <tab header=\"five\">\r\n            ...\r\n          </tab>\r\n        </tab-group>\r\n      </tabs>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <tabs>\r\n        <tab header=\"one\">\r\n          ...\r\n        </tab>\r\n        <tab header=\"two\" disabled>\r\n          ...\r\n        </tab>\r\n        <tab-group header=\"group1\">\r\n          <tab header=\"three\">\r\n            ...\r\n          </tab>\r\n          <tab header=\"four\" disabled>\r\n            ...\r\n          </tab>\r\n        </tab-group>\r\n        <tab-group header=\"group2\">\r\n          <tab header=\"five\">\r\n            ...\r\n          </tab>\r\n        </tab-group>\r\n      </tabs>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      components: {\r\n        tabs: VueStrap.tabset,\r\n        tabGroup: VueStrap.tabGroup,\r\n        tab: VueStrap.tab\r\n      }\r\n    </doc-code>\r\n    <doc-options name=\"Tabset (container)\">\r\n      <div>\r\n        <p>active</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p>Active tab index (0 based)</p>\r\n      </div>\r\n    </doc-options>\r\n    <doc-options name=\"TabGroup (dropdown)\">\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Whether tabgroup is clickable.</p>\r\n      </div>\r\n      <div>\r\n        <p>header</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Group Title</p>\r\n      </div>\r\n    </doc-options>\r\n    <doc-options name=\"Tab (element)\">\r\n      <div>\r\n        <p>header</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Tab Title</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p>false</p>\r\n        <p>Whether tab is clickable and can be activated.</p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
 
 /***/ },
-/* 330 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(331)
+	module.exports = __webpack_require__(330)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(332)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(331)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -15240,7 +15221,7 @@
 	}
 
 /***/ },
-/* 331 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15261,7 +15242,7 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _Tooltip = __webpack_require__(196);
+	var _Tooltip = __webpack_require__(195);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
@@ -15396,19 +15377,19 @@
 	// </script>
 
 /***/ },
-/* 332 */
+/* 331 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"tooltip\" name=\"Tooltip\">\r\n    <div class=\"bs-example\">\r\n      <tooltip v-for=\"place in ['top','left','right','bottom']\" header content=\"Lorem ipsum dolor sit amet\" :placement=\"place\">\r\n        <button class=\"btn btn-default\">Popover on {{place}}</button>\r\n      </tooltip>\r\n      <hr>\r\n      <h4>Trigger</h4>\r\n      <p>\r\n        <tooltip effect=\"scale\" content=\"Lorem ipsum dolor sit amet\" placement=\"top\" trigger=\"click\">\r\n          <button class=\"btn btn-default\">Click</button>\r\n        </tooltip>\r\n        <tooltip effect=\"scale\" content=\"Lorem ipsum dolor sit amet\" placement=\"top\" trigger=\"contextmenu\">\r\n          <button class=\"btn btn-default\">Contextmenu (right click)</button>\r\n        </tooltip>\r\n      </p>\r\n      <tooltip effect=\"scale\" content=\"Lorem ipsum dolor sit amet\" placement=\"bottom\" trigger=\"focus\">\r\n        <input type=\"text\" class=\"form-control\" placeholder=\"Focus\">\r\n      </tooltip>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <tooltip effect=\"scale\" placement=\"bottom\" content=\"Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod\">\r\n        <button class=\"btn btn-default\">tooltip on bottom</button>\r\n      </tooltip>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>trigger</p>\r\n        <p><code>String</code>, one of <code>click</code> <code>focus</code> <code>hover</code> <code>contextmenu</code></p>\r\n        <p><code>click</code></p>\r\n        <p>How the tooltip is triggered.</p>\r\n      </div>\r\n      <div>\r\n        <p>effect</p>\r\n        <p><code>String</code>, one of <code>scale</code> <code>fadein</code></p>\r\n        <p><code>scale</code></p>\r\n        <p></p>\r\n      <div>\r\n        <p>content</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>placement</p>\r\n        <p><code>String</code>, one of <code>top</code>\r\n        <code>left</code>\r\n        <code>right</code>\r\n        <code>bottom</code></p>\r\n        <p></p>\r\n        <p>How to position the tooltip.</p>\r\n      </div>\r\n    </doc-options>\r\n  </div>\r\n</template>";
 
 /***/ },
-/* 333 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(334)
+	module.exports = __webpack_require__(333)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(340)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(339)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -15426,7 +15407,7 @@
 	}
 
 /***/ },
-/* 334 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15447,11 +15428,11 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _Typeahead = __webpack_require__(335);
+	var _Typeahead = __webpack_require__(334);
 	
 	var _Typeahead2 = _interopRequireDefault(_Typeahead);
 	
-	var _Tooltip = __webpack_require__(196);
+	var _Tooltip = __webpack_require__(195);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
@@ -15783,14 +15764,14 @@
 	// <script>
 
 /***/ },
-/* 335 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(336)
-	module.exports = __webpack_require__(338)
+	__webpack_require__(335)
+	module.exports = __webpack_require__(337)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(339)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(338)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -15808,13 +15789,13 @@
 	}
 
 /***/ },
-/* 336 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(337);
+	var content = __webpack_require__(336);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -15834,7 +15815,7 @@
 	}
 
 /***/ },
-/* 337 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -15848,7 +15829,7 @@
 
 
 /***/ },
-/* 338 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16056,31 +16037,31 @@
 	// </style>
 
 /***/ },
-/* 339 */
+/* 338 */
 /***/ function(module, exports) {
 
 	module.exports = "<div style=\"position: relative\"\r\n    v-bind:class=\"{'open':showDropdown}\"\r\n  >\r\n    <input type=\"text\" class=\"form-control\"\r\n      :placeholder=\"placeholder\"\r\n      autocomplete=\"off\"\r\n      v-model=\"value\"\r\n      @input=\"update\"\r\n      @keydown.up=\"up\"\r\n      @keydown.down=\"down\"\r\n      @keydown.enter= \"hit\"\r\n      @keydown.esc=\"reset\"\r\n      @blur=\"showDropdown = false\"\r\n    />\r\n    <ul class=\"dropdown-menu\" v-el:dropdown>\r\n      <li v-for=\"item in items\" v-bind:class=\"{'active': isActive($index)}\">\r\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive($index)\">\r\n          <partial :name=\"templateName\"></partial>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>";
 
 /***/ },
-/* 340 */
+/* 339 */
 /***/ function(module, exports) {
 
 	module.exports = "<doc-section id=\"typeahead\" name=\"Typeahead\">\r\n    <div class=\"bs-example\">\r\n      <h4>\r\n        Static arrays\r\n      </h4>\r\n      <typeahead\r\n        :data=\"USstate\"\r\n        placeholder=\"USA states\"\r\n      ></typeahead>\r\n      <hr>\r\n      <h4>\r\n      Asynchronous results\r\n      <tooltip trigger=\"click\" content=\"The suggestions via a Google Map API, are you behind a FireWall?\" placement=\"top\">\r\n        <small style=\"cursor:pointer\">(not working?)</small>\r\n      </tooltip>\r\n      </h4>\r\n      <typeahead\r\n        placeholder=\"CCCAddress, async via maps.googleapis.com\"\r\n        key=\"results\"\r\n        async=\"https://maps.googleapis.com/maps/api/geocode/json?address=\"\r\n        template-name=\"async\"\r\n        :template=\"asyncTemplate\"\r\n        :on-hit=\"googleCallback\"\r\n      ></typeahead>\r\n      <hr>\r\n      <h4>\r\n      Custom templates for results\r\n      </h4>\r\n      <typeahead\r\n        placeholder=\"Github users, async via api.github.com\"\r\n        key=\"items\"\r\n        async=\"https://api.github.com/search/users?q=\"\r\n        template-name=\"github\"\r\n        :template=\"githubTemplate\"\r\n        :on-hit=\"githubCallback\"\r\n      ></typeahead>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <h4>Static arrays</h4>\r\n      <typeahead\r\n        :data=\"USstate\"\r\n        placeholder=\"USA states\">\r\n      </typeahead>\r\n\r\n      <h4>Asynchronous results</h4>\r\n        <typeahead\r\n          placeholder=\"Address, async via maps.googleapis.com\"\r\n          key=\"results\"\r\n          src=\"https://maps.googleapis.com/maps/api/geocode/json?address=\"\r\n          template-name=\"async\"\r\n          :template=\"asyncTemplate\"\r\n          :on-hit=\"googleCallback\">\r\n      </typeahead>\r\n\r\n      <h4>Custom templates for results</h4>\r\n        <typeahead\r\n          placeholder=\"Github users, async via api.github.com\"\r\n          key=\"items\"\r\n          src=\"https://api.github.com/search/users?q=\"\r\n          template-name=\"typeahead-github-template\"\r\n          :template=\"githubTemplate\"\r\n          :on-hit=\"githubCallback\">\r\n      </typeahead>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      new Vue {\r\n        components: {\r\n          typeahead\r\n        },\r\n        data() {\r\n          return {\r\n            USstate: ['Alabama', 'Alaska', 'Arizona',...],\r\n            asynchronous: '{{formatted_address}}',\r\n            customTemplate: '<img width=\"18px\" height=\"18px\" v-attr=\"src:avatar_url\"/>' +\r\n            '<span>{{login}}</span>'\r\n          }\r\n        },\r\n        methods: {\r\n          googleCallback(items, targetVM) {\r\n            const that = targetVM;\r\n            that.reset()\r\n            that.value = items.formatted_address\r\n          },\r\n          githubCallback(items) {\r\n            window.open(items.html_url, '_blank')\r\n          }\r\n        }\r\n      }\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>data</p>\r\n        <p><code>Array</code></p>\r\n        <p></p>\r\n        <p>The local data source for suggestions. Expected to be a primitive array.</p>\r\n      </div>\r\n      <div>\r\n        <p>async</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>An HTTP URL for asynchronous suggestions. Expected to return a JSON object.</p>\r\n      </div>\r\n      <div>\r\n        <p>limit</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>8</code></p>\r\n        <p>The max number of suggestions to be displayed.</p>\r\n      </div>\r\n      <div>\r\n        <p>key</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).</p>\r\n      </div>\r\n      <div>\r\n        <p>match-case</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Case sensitive for suggestions.</p>\r\n      </div>\r\n      <div>\r\n        <p>match-start</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Match only against start of suggestions. E.g. if true, \"a\" matches \"ab\" but not \"ba\".</p>\r\n      </div>\r\n      <div>\r\n        <p>on-hit</p>\r\n        <p><code>Function</code></p>\r\n        <p></p>\r\n        <p>A callback function when you click or hit return on an item.</p>\r\n      </div>\r\n      <div>\r\n        <p>template</p>\r\n        <p><code>String</code></p>\r\n        <p><code>&lt;span v-html=&quot;$value | highlight query&quot;&gt;&lt;/span&gt;</code></p>\r\n        <p>Used to render suggestion.</p>\r\n      </div>\r\n    </doc-options>\r\n  </div>\r\n</template>";
 
 /***/ },
-/* 341 */
+/* 340 */
 /***/ function(module, exports) {
 
 	module.exports = "<div id=\"wrapper\">\r\n    <navbar-header></navbar-header>\r\n    <div class=\"bs-docs-header\">\r\n      <div class=\"container\">\r\n        <h1>VueStrap</h1>\r\n        <p>Bootstrap components built with <a target=\"_blank\" href=\"http://vuejs.org/\">Vue.js</a>.</p>\r\n        <p>No jQuery, bootstrap.js, or any 3rd party plugins required.</p>\r\n        <br>\r\n        <p><a class=\"btn btn-outline-inverse btn-lg\" href=\"https://github.com/yuche/vue-strap\">Code on GitHub</a></p>\r\n      </div>\r\n    </div>\r\n    <container>\r\n      <div v-el:sections class=\"col-md-9\">\r\n        <getting-started></getting-started>\r\n        <accordion-docs></accordion-docs>\r\n        <affix-docs></affix-docs>\r\n        <alert-docs></alert-docs>\r\n        <aside-docs></aside-docs>\r\n        <button-group-docs></button-group-docs>\r\n        <checkbox-docs></checkbox-docs>\r\n        <carousel-docs></carousel-docs>\r\n        <datepicker-docs></datepicker-docs>\r\n        <dropdown-docs></dropdown-docs>\r\n        <input-docs></input-docs>\r\n        <modal-docs></modal-docs>\r\n        <popover-docs></popover-docs>\r\n        <progressbar-docs></progressbar-docs>\r\n        <radio-docs></radio-docs>\r\n        <select-docs></select-docs>\r\n        <tabs-docs></tabs-docs>\r\n        <tooltip-docs></tooltip-docs>\r\n        <typeahead-docs></typeahead-docs>\r\n        <spinner-docs></spinner-docs>\r\n      </div>\r\n      <div class=\"col-md-3\">\r\n        <affix-sidebar></affix-sidebar>\r\n      </div>\r\n    </container>\r\n  </div>\r\n  <footer class=\"bs-docs-footer\">\r\n    <div class=\"container\">\r\n      <p>Designed and built by <a href=\"https://github.com/yuche/\">yuche</a>.</p>\r\n      <p>\r\n        Using <a href=\"http://twitter.github.com/bootstrap\" target=\"_blank\">Twitter Bootstrap</a>\r\n        and the <a href=\"css/docs.css\" target=\"_blank\">Bootstrap's docs styles</a> designed and built by <a href=\"http://twitter.com/mdo\" target=\"_blank\">@mdo</a>\r\n        and <a href=\"http://twitter.com/fat\" target=\"_blank\">@fat</a>.\r\n      </p>\r\n      <p>\r\n        Code licensed under <a href=\"//github.com/mgcrea/angular-strap/blob/master/LICENSE.md\" target=\"_blank\">The MIT License</a>,\r\n        documentation under <a href=\"http://creativecommons.org/licenses/by/3.0/\">CC BY 3.0</a>.\r\n      </p>\r\n    </div>\r\n  </footer>";
 
 /***/ },
-/* 342 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(343);
+	var content = __webpack_require__(342);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -16100,7 +16081,7 @@
 	}
 
 /***/ },
-/* 343 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -16114,13 +16095,13 @@
 
 
 /***/ },
-/* 344 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(345);
+	var content = __webpack_require__(344);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(139)(content, {});
@@ -16140,7 +16121,7 @@
 	}
 
 /***/ },
-/* 345 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(138)();
@@ -16154,7 +16135,7 @@
 
 
 /***/ },
-/* 346 */
+/* 345 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
@@ -16942,7 +16923,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 347 */
+/* 346 */
 /***/ function(module, exports) {
 
 	"use strict";
