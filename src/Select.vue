@@ -44,8 +44,7 @@
 </template>
 
 <script>
-import {callAjax, coerce} from './utils/utils.js'
-import translations from './translations.js'
+import {callAjax, coerce, translations} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
 var timeout = {}

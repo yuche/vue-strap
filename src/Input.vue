@@ -49,8 +49,7 @@
 </template>
 
 <script>
-import {coerce} from './utils/utils.js'
-import translations from './translations.js'
+import {coerce, translations} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
 export default {
