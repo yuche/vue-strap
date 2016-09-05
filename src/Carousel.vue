@@ -46,12 +46,7 @@ import $ from './utils/NodeList.js'
       return {
         indicator: [],
         index: 0,
-        isAnimating: false,
-      }
-    },
-    computed: {
-      slider () {
-        return this.$el.querySelectorAll('.item')
+        isAnimating: false
       }
     },
     watch: {
@@ -66,40 +61,47 @@ import $ from './utils/NodeList.js'
         this.index = index
       },
       slide (direction, next, prev) {
-        const selected = this.slider[next]
+        if (!this.$el) { return }
+        const $slider = $('.item', this.$el)
+        if (!$slider.length) { return }
+        const selected = $slider[next] || $slider[0]
         $(selected).addClass(direction === 'left' ? 'next' : 'prev')
         // request property that requires layout to force a layout
         var x = selected.clientHeight
-        $([this.slider[prev], selected]).addClass(direction).on('transitionend', () => {
-          $(this.slider).off('transitionend').className = 'item'
+        $([$slider[prev], selected]).addClass(direction).on('transitionend', () => {
+          $slider.off('transitionend').className = 'item'
           $(selected).addClass('active')
           this.isAnimating = false
         })
       },
       next() {
-        if (this.isAnimating) return false
+        if (!this.$el || this.isAnimating) { return false }
         this.isAnimating = true
-        this.index + 1 < this.slider.length ? this.index += 1 : this.index = 0
+        this.index + 1 < $('.item', this.$el).length ? this.index += 1 : this.index = 0
       },
       prev() {
-        if (this.isAnimating) return false
+        if (!this.$el || this.isAnimating) { return false }
         this.isAnimating = true
-        this.index === 0 ? this.index = this.slider.length - 1 : this.index -= 1
+        this.index === 0 ? this.index = $('.item', this.$el).length - 1 : this.index -= 1
+      },
+      toggleInterval (val) {
+        if (val === undefined) { val = this._intervalID }
+        if(this._intervalID) {
+          clearInterval(val)
+          delete this._intervalID
+        }
+        if(val && this.interval > 0) {
+          this._intervalID = setInterval(this.next, this.interval)
+        }
       }
     },
     ready () {
-      if (this.interval > 0) {
-        const intervalManager = () => {
-          this.intervalID = setInterval(this.next, this.interval)
-        }
-        $(this.$el).on('mouseenter', () => clearInterval(this.intervalID)).on('mouseleave', () => intervalManager())
-        intervalManager()
-      }
+      this.toggleInterval(true)
+      $(this.$el).on('mouseenter', () => this.toggleInterval(false)).on('mouseleave', () => this.toggleInterval(true))
     },
-    beforeDestroy() {
-      if(this.intervalID) {
-        clearInterval(this.intervalID)
-      }
+    beforeDestroy () {
+      this.toggleInterval(false)
+      $(this.$el).off('mouseenter mouseleave')
     }
   }
 </script>
