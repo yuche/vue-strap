@@ -5457,7 +5457,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".form-group[_v-27d010f7] {\r\n  position: relative;\r\n}\r\nlabel~.close[_v-27d010f7] {\r\n    top: 25px;\r\n}\r\n.close[_v-27d010f7] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.has-feedback.has-success button.close[_v-27d010f7],\r\n.has-feedback.has-error button.close[_v-27d010f7] {\r\n  right:20px;\r\n}", ""]);
+	exports.push([module.id, ".form-group[_v-27d010f7] {\r\n  position: relative;\r\n}\r\nlabel~.close[_v-27d010f7] {\r\n  top: 25px;\r\n}\r\n.close[_v-27d010f7] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.has-feedback.has-success button.close[_v-27d010f7],\r\n.has-feedback.has-error button.close[_v-27d010f7] {\r\n  right:20px;\r\n}", ""]);
 	
 	// exports
 
@@ -5618,6 +5618,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')');
 	      if (value && value.length < this.minlength) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')');
 	      return error.join(' ');
+	    },
+	    textPattern: function textPattern() {
+	      return typeof this.pattern === 'string' ? this.pattern : null;
+	    },
+	    title: function title() {
+	      return this.errorText || this.help || '';
 	    }
 	  },
 	  watch: {
@@ -5642,12 +5648,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (this.value !== value) this.value = value;
 	      if (this.timeout) clearTimeout(this.timeout);
 	      if (this.noValidate) {
-	        if (this.valid !== null) this.valid = null;
+	        if (this.valid !== null) {
+	          this.valid = null;
+	        }
 	      } else {
 	        this.timeout = setTimeout(function () {
 	          _this.valid = _this.validate();
 	          _this.timeout = null;
-	        }, _utils.coerce.number(this.validationDelay, 250));
+	        }, this.validationDelay);
 	      }
 	    },
 	    submit: function submit() {
@@ -5713,7 +5721,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// label~.close {
 	
-	//     top: 25px;
+	//   top: 25px;
 	
 	// }
 	
@@ -5786,6 +5794,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//           :type="type"
 	
+	//           :pattern="textPattern"
+	
+	//           :title="title"
+	
 	//           :readonly="readonly"
 	
 	//           :required="required"
@@ -5809,6 +5821,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	//         :name="name"
 	
 	//         :type="type"
+	
+	//         :pattern="textPattern"
+	
+	//         :title="title"
 	
 	//         :readonly="readonly"
 	
@@ -5845,7 +5861,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 141 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true,validate:!noValidate}\" _v-27d010f7=\"\">\n    <label v-if=\"label\" class=\"control-label\" _v-27d010f7=\"\">{{label}}</label>\n    <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-27d010f7=\"\"></textarea>\n    <template v-else=\"\" _v-27d010f7=\"\">\n      <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-27d010f7=\"\">\n        <slot name=\"before\" _v-27d010f7=\"\"></slot>\n        <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-27d010f7=\"\">\n        <slot name=\"after\" _v-27d010f7=\"\"></slot>\n      </div>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-27d010f7=\"\">\n    </template>\n    <span v-if=\"clearButton &amp;&amp; value\" class=\"close\" @click=\"value = ''\" _v-27d010f7=\"\">×</span>\n    <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-27d010f7=\"\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\" _v-27d010f7=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" _v-27d010f7=\"\">{{errorText}}</div>\n  </div>";
+	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true,validate:!noValidate}\" _v-27d010f7=\"\">\n    <label v-if=\"label\" class=\"control-label\" _v-27d010f7=\"\">{{label}}</label>\n    <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-27d010f7=\"\"></textarea>\n    <template v-else=\"\" _v-27d010f7=\"\">\n      <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-27d010f7=\"\">\n        <slot name=\"before\" _v-27d010f7=\"\"></slot>\n        <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :pattern=\"textPattern\" :title=\"title\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-27d010f7=\"\">\n        <slot name=\"after\" _v-27d010f7=\"\"></slot>\n      </div>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :pattern=\"textPattern\" :title=\"title\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-27d010f7=\"\">\n    </template>\n    <span v-if=\"clearButton &amp;&amp; value\" class=\"close\" @click=\"value = ''\" _v-27d010f7=\"\">×</span>\n    <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-27d010f7=\"\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\" _v-27d010f7=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" _v-27d010f7=\"\">{{errorText}}</div>\n  </div>";
 
 /***/ },
 /* 142 */
