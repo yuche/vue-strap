@@ -17,6 +17,8 @@
         <input class="form-control" v-el:input v-model="value"
           :name="name"
           :type="type"
+          :pattern="textPattern"
+          :title="title"
           :readonly="readonly"
           :required="required"
           :disabled="disabled"
@@ -29,6 +31,8 @@
       <input v-else class="form-control" v-el:input v-model="value"
         :name="name"
         :type="type"
+        :pattern="textPattern"
+        :title="title"
         :readonly="readonly"
         :required="required"
         :disabled="disabled"
@@ -182,6 +186,12 @@ export default {
       if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')')
       if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')
       return error.join(' ')
+    },
+    textPattern () {
+      return typeof this.pattern === 'string' ? this.pattern : null
+    },
+    title () {
+      return this.errorText || this.help || ''
     }
   },
   watch: {
@@ -204,12 +214,12 @@ export default {
       if (this.value !== value) this.value = value
       if (this.timeout) clearTimeout(this.timeout)
       if (this.noValidate) {
-        if (this.valid !== null) this.valid = null
+        if (this.valid !== null) { this.valid = null }
       } else {
         this.timeout = setTimeout(() => {
           this.valid = this.validate()
           this.timeout = null
-        }, coerce.number(this.validationDelay, 250))
+        }, this.validationDelay)
       }
     },
     submit () {
@@ -255,7 +265,7 @@ export default {
   position: relative;
 }
 label~.close {
-    top: 25px;
+  top: 25px;
 }
 .close {
   position: absolute;
