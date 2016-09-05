@@ -1,7 +1,5 @@
-(function(){
-  window.VueStrapLang = function(lang){
-    lang = lang || 'en';
-    var l = {
+(function(){ window.VueStrapLang = function(lang){ lang = lang || 'en';
+var l = { //languages
 
 en: {
   daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
@@ -59,11 +57,25 @@ fr: {
   search: 'Recherche'
 }
 
-    };
-    var tr = {};
-    for (var i in l['en']) {
-      tr[i] = l[lang][i] || l['en'][i];
-    }
-    return tr;
-  }
-})();
+};
+
+/**
+ * Some browsers handle short language code (eg. 'en'), others handle 5 chars (eg. 'en-US').
+ * With aliases you can handle a group of similar languages, using a regular expresion.
+ * If the language is not found, the default language is english.
+ */
+var aliases = {
+  es: /^es-[A-Z]{2}$/i,
+  en: /^en-[A-Z]{2}$/i
+};
+
+var i, tr = {};
+for (i in aliases) {
+  if (aliases[i].test(lang)) lang = i;
+}
+for (i in l.en) {
+  tr[i] = (l[lang] && l[lang][i]) || l.en[i];
+}
+
+return tr;
+}})();
