@@ -8832,7 +8832,7 @@
 	
 	//         <slider>
 	
-	//           <img src="http://placehold.it/1200x500?text=one">
+	//           <img src="https://placehold.it/1200x500?text=one">
 	
 	//           <div class="carousel-caption">
 	
@@ -8846,7 +8846,7 @@
 	
 	//         <slider>
 	
-	//           <img src="http://placehold.it/1200x500?text=two">
+	//           <img src="https://placehold.it/1200x500?text=two">
 	
 	//           <div class="carousel-caption">
 	
@@ -8860,7 +8860,7 @@
 	
 	//         <slider>
 	
-	//           <img src="http://placehold.it/1200x500?text=three">
+	//           <img src="https://placehold.it/1200x500?text=three">
 	
 	//           <div class="carousel-caption">
 	
@@ -8882,7 +8882,7 @@
 	
 	//         <slider>
 	
-	//           <img src="http://placehold.it/1200x400?text=one">
+	//           <img src="https://placehold.it/1200x400?text=one">
 	
 	//           <div class="carousel-caption">
 	
@@ -8894,13 +8894,13 @@
 	
 	//         <slider>
 	
-	//           <img src="http://placehold.it/1200x400?text=two">
+	//           <img src="https://placehold.it/1200x400?text=two">
 	
 	//         </slider>
 	
 	//         <slider>
 	
-	//           <img src="http://placehold.it/1200x400?text=three">
+	//           <img src="https://placehold.it/1200x400?text=three">
 	
 	//         </slider>
 	
@@ -9288,7 +9288,7 @@
 /* 242 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"carousel\" name=\"Carousel\">\r\n    <div class=\"bs-example\">\r\n      <carousel>\r\n        <slider>\r\n          <img src=\"http://placehold.it/1200x500?text=one\">\r\n          <div class=\"carousel-caption\">\r\n           <h3>Slide #1</h3>\r\n           <p>sunt in culpa qui officia deserunt mollit a.</p>\r\n         </div>\r\n        </slider>\r\n        <slider>\r\n          <img src=\"http://placehold.it/1200x500?text=two\">\r\n          <div class=\"carousel-caption\">\r\n           <h3>Slide #2</h3>\r\n           <p>sunt in culpa qui officia deserunt mollit a.</p>\r\n         </div>\r\n        </slider>\r\n        <slider>\r\n          <img src=\"http://placehold.it/1200x500?text=three\">\r\n          <div class=\"carousel-caption\">\r\n           <h3>Slide #3</h3>\r\n           <p>sunt in culpa qui officia deserunt mollit a.</p>\r\n         </div>\r\n        </slider>\r\n      </carousel>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <carousel>\r\n        <slider>\r\n          <img src=\"http://placehold.it/1200x400?text=one\">\r\n          <div class=\"carousel-caption\">\r\n            ...\r\n          </div>\r\n        </slider>\r\n        <slider>\r\n          <img src=\"http://placehold.it/1200x400?text=two\">\r\n        </slider>\r\n        <slider>\r\n          <img src=\"http://placehold.it/1200x400?text=three\">\r\n        </slider>\r\n      </carousel>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>indicators</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Whether to show the indicators.</p>\r\n      </div>\r\n      <div>\r\n        <p>controls</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Whether to show the direction controls.</p>\r\n      </div>\r\n      <div>\r\n        <p>interval</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>5000</code></p>\r\n        <p>The amount of time to delay between automatically cycling an item. If set to 0 or a negative number,\r\n          carousel will not automatically cycle.\r\n        </p>\r\n      </div>\r\n    </doc-options>\r\n  </div>\r\n</template>";
+	module.exports = "<doc-section id=\"carousel\" name=\"Carousel\">\r\n    <div class=\"bs-example\">\r\n      <carousel>\r\n        <slider>\r\n          <img src=\"https://placehold.it/1200x500?text=one\">\r\n          <div class=\"carousel-caption\">\r\n           <h3>Slide #1</h3>\r\n           <p>sunt in culpa qui officia deserunt mollit a.</p>\r\n         </div>\r\n        </slider>\r\n        <slider>\r\n          <img src=\"https://placehold.it/1200x500?text=two\">\r\n          <div class=\"carousel-caption\">\r\n           <h3>Slide #2</h3>\r\n           <p>sunt in culpa qui officia deserunt mollit a.</p>\r\n         </div>\r\n        </slider>\r\n        <slider>\r\n          <img src=\"https://placehold.it/1200x500?text=three\">\r\n          <div class=\"carousel-caption\">\r\n           <h3>Slide #3</h3>\r\n           <p>sunt in culpa qui officia deserunt mollit a.</p>\r\n         </div>\r\n        </slider>\r\n      </carousel>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <carousel>\r\n        <slider>\r\n          <img src=\"https://placehold.it/1200x400?text=one\">\r\n          <div class=\"carousel-caption\">\r\n            ...\r\n          </div>\r\n        </slider>\r\n        <slider>\r\n          <img src=\"https://placehold.it/1200x400?text=two\">\r\n        </slider>\r\n        <slider>\r\n          <img src=\"https://placehold.it/1200x400?text=three\">\r\n        </slider>\r\n      </carousel>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>indicators</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Whether to show the indicators.</p>\r\n      </div>\r\n      <div>\r\n        <p>controls</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Whether to show the direction controls.</p>\r\n      </div>\r\n      <div>\r\n        <p>interval</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>5000</code></p>\r\n        <p>The amount of time to delay between automatically cycling an item. If set to 0 or a negative number,\r\n          carousel will not automatically cycle.\r\n        </p>\r\n      </div>\r\n    </doc-options>\r\n  </div>\r\n</template>";
 
 /***/ },
 /* 243 */
