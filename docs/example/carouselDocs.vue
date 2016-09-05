@@ -3,21 +3,21 @@
     <div class="bs-example">
       <carousel>
         <slider>
-          <img src="http://placehold.it/1200x500?text=one">
+          <img src="https://placehold.it/1200x500?text=one">
           <div class="carousel-caption">
            <h3>Slide #1</h3>
            <p>sunt in culpa qui officia deserunt mollit a.</p>
          </div>
         </slider>
         <slider>
-          <img src="http://placehold.it/1200x500?text=two">
+          <img src="https://placehold.it/1200x500?text=two">
           <div class="carousel-caption">
            <h3>Slide #2</h3>
            <p>sunt in culpa qui officia deserunt mollit a.</p>
          </div>
         </slider>
         <slider>
-          <img src="http://placehold.it/1200x500?text=three">
+          <img src="https://placehold.it/1200x500?text=three">
           <div class="carousel-caption">
            <h3>Slide #3</h3>
            <p>sunt in culpa qui officia deserunt mollit a.</p>
@@ -28,16 +28,16 @@
     <doc-code language="markup">
       <carousel>
         <slider>
-          <img src="http://placehold.it/1200x400?text=one">
+          <img src="https://placehold.it/1200x400?text=one">
           <div class="carousel-caption">
             ...
           </div>
         </slider>
         <slider>
-          <img src="http://placehold.it/1200x400?text=two">
+          <img src="https://placehold.it/1200x400?text=two">
         </slider>
         <slider>
-          <img src="http://placehold.it/1200x400?text=three">
+          <img src="https://placehold.it/1200x400?text=three">
         </slider>
       </carousel>
     </doc-code>
