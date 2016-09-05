@@ -87,7 +87,7 @@ import $ from './utils/NodeList.js'
       toggleInterval (val) {
         if (val === undefined) { val = this._intervalID }
         if(this._intervalID) {
-          clearInterval(val)
+          clearInterval(this._intervalID)
           delete this._intervalID
         }
         if(val && this.interval > 0) {
