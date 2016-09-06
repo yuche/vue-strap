@@ -1,4 +1,4 @@
-(function(){ window.VueStrapLang = function(lang){ lang = lang || 'en';
+window.VueStrapLang = (function(){
 var l = { //languages
 
 en: {
@@ -69,13 +69,16 @@ var aliases = {
   en: /^en-[A-Z]{2}$/i
 };
 
-var i, tr = {};
-for (i in aliases) {
-  if (aliases[i].test(lang)) lang = i;
-}
-for (i in l.en) {
-  tr[i] = (l[lang] && l[lang][i]) || l.en[i];
-}
+return function (lang) {
+  lang = lang || 'en';
+  var i, tr = {};
+  for (i in aliases) {
+    if (aliases[i].test(lang)) lang = i;
+  }
+  for (i in l.en) {
+    tr[i] = (l[lang] && l[lang][i]) || l.en[i];
+  }
 
-return tr;
-}})();
+  return tr;
+};
+})();
