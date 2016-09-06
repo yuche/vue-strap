@@ -146,24 +146,17 @@ export default {
   },
   computed: {
     selectedItems () {
+      if (this.options.length === 0) { return '' }
       let foundItems = []
-      let value = this.values
-      if (value.length) {
-        for (var item of value) {
-          if (this.options.length === 0) {
-            foundItems = value
-          } else {
-            if (~['number', 'string'].indexOf(typeof item)) {
-              let option
-              this.options.some(o => {
-                if ((o instanceof Object && o.value === item) || o === item ) {
-                  option = o
-                  return true
-                }
-              })
-              if (option) foundItems.push(option.label || option)
+      for (var item of this.values) {
+        if (~['number', 'string'].indexOf(typeof item)) {
+          let option = null
+          if (this.options.some(o => {
+            if (o instanceof Object ? o.value === item : o === item ) {
+              option = o
+              return true
             }
-          }
+          })) { foundItems.push(option.label || option) }
         }
       }
       return foundItems.join(', ')
