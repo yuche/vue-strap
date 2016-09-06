@@ -94,10 +94,12 @@ export default {
       document.body.style.paddingBottom = height + 'px'
     }
     if (this.slots.collapse) $('[data-toggle="collapse"]',this.$el).on('click', (e) => this.toggleCollapse(e))
+    $('li>[data-toggle="collapse"]',this.$el).on('click', (e) => this.toggleCollapse(e))
   },
   beforeDestroy () {
     $('.dropdown',this.$el).off('click').offBlur()
     if (this.slots.collapse) $('[data-toggle="collapse"]',this.$el).off('click')
+    $('li>[data-toggle="collapse"]', this.$el).off('click')
   }
 }
 </script>
