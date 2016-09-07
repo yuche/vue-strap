@@ -6273,25 +6273,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var _this = this;
 	
 	    var $dropdown = (0, _NodeList2.default)('.dropdown>[data-toggle="dropdown"]', this.$el).parent();
+	    console.log('navbar blur', $dropdown.length);
 	    $dropdown.on('click', '.dropdown-toggle', function (e) {
 	      e.preventDefault();
 	      $dropdown.each(function (content) {
-	        if (content.contains(e.target)) {
-	          content.classList.toggle('open');
-	        }
+	        if (content.contains(e.target)) content.classList.toggle('open');
 	      });
 	    }).on('click', '.dropdown-menu>li>a', function (e) {
 	      $dropdown.each(function (content) {
-	        if (content.contains(e.target)) {
-	          content.classList.remove('open');
-	        }
+	        if (content.contains(e.target)) content.classList.remove('open');
 	      });
 	    }).onBlur(function (e) {
 	      $dropdown.each(function (content) {
-	        if (!content.contains(e.target)) {
-	          content.classList.remove('open');
-	        }
+	        if (!content.contains(e.target)) content.classList.remove('open');
 	      });
+	    });
+	    (0, _NodeList2.default)(this.$el).on('click touchstart', 'li:not(.dropdown)>a', function (e) {
+	      _this.collapsed = true;
+	    }).onBlur(function (e) {
+	      if (!_this.$el.contains(e.target)) {
+	        _this.collapsed = true;
+	      }
 	    });
 	    var height = this.$el.offsetHeight;
 	    if (this.placement === 'top') {
@@ -7636,7 +7638,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      twoWay: true
 	    },
 	    options: {
-	      twoWay: true,
 	      type: Array,
 	      default: function _default() {
 	        return [];

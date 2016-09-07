@@ -66,25 +66,23 @@ export default {
   },
   ready () {
     let $dropdown = $('.dropdown>[data-toggle="dropdown"]',this.$el).parent()
+    console.log('navbar blur',$dropdown.length)
     $dropdown.on('click', '.dropdown-toggle', (e) => {
       e.preventDefault()
       $dropdown.each((content) => {
-        if (content.contains(e.target)) {
-          content.classList.toggle('open')
-        }
+        if (content.contains(e.target)) content.classList.toggle('open')
       })
     }).on('click', '.dropdown-menu>li>a', (e) => {
       $dropdown.each((content) => {
-        if (content.contains(e.target)) {
-          content.classList.remove('open')
-        }
+        if (content.contains(e.target)) content.classList.remove('open')
       })
     }).onBlur((e) => {
       $dropdown.each((content) => {
-        if (!content.contains(e.target)) {
-          content.classList.remove('open')
-        }
+        if (!content.contains(e.target)) content.classList.remove('open')
       })
+    })
+    $(this.$el).on('click touchstart','li:not(.dropdown)>a', e => { this.collapsed = true }).onBlur(e => {
+      if (!this.$el.contains(e.target)) { this.collapsed = true }
     })
     let height = this.$el.offsetHeight
     if (this.placement === 'top') {
