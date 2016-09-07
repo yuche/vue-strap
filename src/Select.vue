@@ -54,7 +54,6 @@ export default {
       twoWay: true
     },
     options: {
-      twoWay: true,
       type: Array,
       default () { return [] }
     },

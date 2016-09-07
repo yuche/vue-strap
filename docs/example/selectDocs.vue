@@ -94,7 +94,7 @@
       <v-select url="docs/data.json" multiple :parent="ajax.value"></v-select>
     </doc-code>
     <p>Ajax response:</p>
-    <doc-code language="markup"><span v-html="$refs.ajax.options|json"></span></doc-code>
+    <pre v-html="$refs.ajax.options|json"></pre>
 
     <doc-options name="Other">
       <div>
