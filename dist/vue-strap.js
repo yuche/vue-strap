@@ -6273,7 +6273,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var _this = this;
 	
 	    var $dropdown = (0, _NodeList2.default)('.dropdown>[data-toggle="dropdown"]', this.$el).parent();
-	    console.log('navbar blur', $dropdown.length);
 	    $dropdown.on('click', '.dropdown-toggle', function (e) {
 	      e.preventDefault();
 	      $dropdown.each(function (content) {
