@@ -66,7 +66,6 @@ export default {
   },
   ready () {
     let $dropdown = $('.dropdown>[data-toggle="dropdown"]',this.$el).parent()
-    console.log('navbar blur',$dropdown.length)
     $dropdown.on('click', '.dropdown-toggle', (e) => {
       e.preventDefault()
       $dropdown.each((content) => {
