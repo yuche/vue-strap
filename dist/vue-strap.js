@@ -6288,7 +6288,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 	    });
 	    (0, _NodeList2.default)(this.$el).on('click touchstart', 'li:not(.dropdown)>a', function (e) {
-	      _this.collapsed = true;
+	      setTimeout(function () {
+	        _this.collapsed = true;
+	      }, 200);
 	    }).onBlur(function (e) {
 	      if (!_this.$el.contains(e.target)) {
 	        _this.collapsed = true;
