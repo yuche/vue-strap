@@ -1,5 +1,6 @@
 <template>
   <div class="datepicker">
+    <label v-if="label" class="control-label">{{label}}</label>>
     <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text" :placeholder="placeholder"
         :style="{width:width}"
         @click="inputClick"
@@ -72,6 +73,10 @@ import $ from './utils/NodeList.js'
 
 export default {
   props: {
+    label: {
+      type: String,
+      twoWay: true
+    },
     value: {
       type: String,
       twoWay: true
