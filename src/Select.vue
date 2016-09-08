@@ -276,6 +276,7 @@ export default {
     }
   },
   created () {
+    if (this.$parent._formGroup) this.$parent.children.push(this)
     if (this.value === undefined || !this.parent) { this.value = null }
     if (!this.multiple && this.value instanceof Array) {
       this.value = this.value.shift()

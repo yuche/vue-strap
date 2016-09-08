@@ -222,6 +222,9 @@ export default {
       }
     },
     submit () {
+      if (this.$parent._formGroup) {
+        return this.$parent.validate()
+      }
       if (this.$els.input.form) {
         const invalids = $('.form-group.validate:not(.has-success)',this.$els.input.form)
         if (invalids.length) {
@@ -246,10 +249,13 @@ export default {
       return valid
     }
   },
+  created () {
+    if (this.$parent._formGroup) this.$parent.children.push(this)
+  },
   ready () {
     $(this.$els.input).on('change keypress keydown keyup', () => this.eval()).on('blur', () => {
       if (!this.noValidate) { this.valid = this.validate() }
-    }).on('focus', (e) => {
+    }).on('focus', e => {
       if (this.onfocus instanceof Function) this.onfocus.call(this, e)
     })
   },
