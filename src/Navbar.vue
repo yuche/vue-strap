@@ -80,7 +80,9 @@ export default {
         if (!content.contains(e.target)) content.classList.remove('open')
       })
     })
-    $(this.$el).on('click touchstart','li:not(.dropdown)>a', e => { this.collapsed = true }).onBlur(e => {
+    $(this.$el).on('click touchstart','li:not(.dropdown)>a', e => {
+      setTimeout(() => { this.collapsed = true }, 200)
+    }).onBlur(e => {
       if (!this.$el.contains(e.target)) { this.collapsed = true }
     })
     let height = this.$el.offsetHeight
