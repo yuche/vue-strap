@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true,validate:!noValidate}">
+  <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true,validate:!noValidate,'focused':isFocused===true}">
     <label v-if="label" class="control-label">{{label}}</label>
     <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
       :cols="cols"
@@ -124,6 +124,12 @@ export default {
       default: false
     },
     onfocus: null,
+    onblur: null,
+    focused: {
+      type: Boolean,
+      coerce: coerceBoolean,
+      default: false
+    },
     pattern: null,
     placeholder: {
       type: String,
@@ -156,6 +162,7 @@ export default {
   },
   data () {
     return {
+      isFocused: false,
       valid: null,
       timeout: null
     }
@@ -251,6 +258,12 @@ export default {
       if (!this.noValidate) { this.valid = this.validate() }
     }).on('focus', (e) => {
       if (this.onfocus instanceof Function) this.onfocus.call(this, e)
+    }).on('blur', (e) => {
+      if (this.onblur instanceof Function) this.onblur.call(this, e)
+    }).on('focus', (e) => {
+      if (this.focused === true ) this.isFocused = true
+    }).on('blur', (e) => {
+      if (this.focused === true ) this.isFocused = false
     })
   },
   beforeDestroy () {
