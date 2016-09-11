@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'btn-group':buttons}" :data-toggle="buttons&&'buttons'">
+  <div :class="{'btn-group':buttons}">
     <slot></slot>
   </div>
 </template>
