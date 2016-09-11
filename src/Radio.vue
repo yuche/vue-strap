@@ -1,5 +1,5 @@
 <template>
-  <label v-if="buttonStyle" :class="['btn btn-'+typeColor,{active:active,disabled:disabled,readonly:readonly}]" @click.prevent="toggle">
+  <label v-if="buttonStyle" :class="['btn btn-'+typeColor,{[activeClass]:active,disabled:disabled,readonly:readonly}]" @click.prevent="toggle">
     <input type="radio" autocomplete="off"
       v-el:input
       v-show="!readonly"
@@ -61,6 +61,10 @@ export default {
     type: {
       type: String,
       default: null
+    },
+    activeClass: {
+      type: String,
+      default: 'btn-info active'
     }
   },
   computed: {
