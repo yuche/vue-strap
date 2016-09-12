@@ -1,6 +1,6 @@
 <template>
   <div class="datepicker">
-    <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text" :placeholder="placeholder"
+    <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text" name="{{ name }}" :placeholder="placeholder"
         :style="{width:width}"
         @click="inputClick"
         v-model="value"/>
@@ -99,6 +99,10 @@ export default {
     },
     placeholder: {
       type: String
+    },
+    name: {
+      type: String,
+      default: 'datepicker'
     }
   },
   ready () {
