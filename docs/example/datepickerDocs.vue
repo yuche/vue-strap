@@ -4,7 +4,7 @@
       <p>
         <pre>Selected date is: {{new Date($refs.dp.parse()).toString()}}</pre>
       </p>
-      <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled" :format="format.toString()" :clear-button="clear" :placeholder="placeholder" width="370px"></datepicker>
+      <datepicker v-ref:dp :value.sync="value" :disabled-days-of-Week="disabled" :format="format.toString()" :clear-button="clear" :placeholder="placeholder" width="370px" name="datepicker-example"></datepicker>
       <h4>Disabled days of week</h4>
 
       <v-select multiple :value.sync="disabled" :options="[0,1,2,3,4,5,6]"></v-select>
@@ -24,7 +24,8 @@
         :disabled-days-of-Week="disabled"
         :format="format"
         :clear-button="clear"
-        :placeholder="placeholder">
+        :placeholder="placeholder"
+        name="datepicker-example">
       </datepicker>
     </doc-code>
     <doc-options>
@@ -65,6 +66,12 @@
         <p><code>String</code></p>
         <p></p>
         <p>Placeholder to put on the input field when no date (null or empty) is set</p>
+      </div>
+      <div>
+        <p>name</p>
+        <p><code>String</code></p>
+        <p>datepicker</p>
+        <p>Set the name of the input field</p>
       </div>
     </doc-options>
   </div>
