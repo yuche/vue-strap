@@ -1,5 +1,5 @@
 <template>
-  <label v-if="buttonStyle" :class="['btn btn-'+typeColor,{active:checked,disabled:disabled,readonly:readonly}]" @click.prevent="toggle">
+  <label v-if="buttonStyle" :class="getActiveClass" @click.prevent="toggle">
     <input type="checkbox" autocomplete="off"
       v-el:input
       v-show="!readonly"
@@ -61,6 +61,10 @@ export default {
     type: {
       type: String,
       default: null
+    },
+    activeClass: {
+      type: String,
+      default: 'btn-info active'
     }
   },
   computed: {
@@ -75,6 +79,9 @@ export default {
     },
     typeColor () {
       return (this.type || (this.$parent && this.$parent.type)) || 'default'
+    },
+    getActiveClass(){
+      return ['btn btn-'+this.typeColor,{[this.activeClass]:this.checked,disabled:this.disabled,readonly:this.readonly}];
     }
   },
   watch: {
