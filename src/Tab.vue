@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     active () {
-      return this._tabset.show == this
+      return this._tabset.show === this
     },
     index () {
       return this._tabset.tabs.indexOf(this)
