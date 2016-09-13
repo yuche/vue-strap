@@ -140,7 +140,8 @@ export default {
       loading: null,
       searchValue: null,
       show: false,
-      showNotify: false
+      showNotify: false,
+      valid: null
     }
   },
   computed: {
@@ -192,6 +193,15 @@ export default {
       }
       if (changed) this.options = options
     },
+    show (val) {
+      if (val) {
+        this.$els.sel.focus()
+        this.$els.search && this.$els.search.focus()
+      }
+    },
+    url () {
+      this.update()
+    },
     value (val) {
       if (this.value instanceof Array && val.length > this.limit) {
         this.showNotify = true
@@ -202,32 +212,16 @@ export default {
         }, 1500)
       }
       this.checkValue()
+      this.valid = this.validate()
     },
-    show (val) {
-      if (val) {
-        this.$els.sel.focus()
-        this.$els.search && this.$els.search.focus()
-      }
-    },
-    url () {
-      this.update()
+    valid (val, old) {
+      if (val === old) { return }
+      this._parent && this._parent.validate()
     }
   },
   methods: {
-    select (v) {
-      if (this.value instanceof Array) {
-        if (~this.value.indexOf(v)) {
-          this.value.$remove(v)
-        } else {
-          this.value.push(v)
-        }
-        if (this.closeOnSelect) {
-          this.toggle()
-        }
-      } else {
-        this.value = v
-        this.toggle()
-      }
+    blur () {
+      this.show = false
     },
     clear () {
       if (this.disabled || this.readonly) { return }
@@ -253,19 +247,31 @@ export default {
     isSelected (v) {
       return this.values.indexOf(v) > -1
     },
+    select (v) {
+      if (this.value instanceof Array) {
+        if (~this.value.indexOf(v)) {
+          this.value.$remove(v)
+        } else {
+          this.value.push(v)
+        }
+        if (this.closeOnSelect) {
+          this.toggle()
+        }
+      } else {
+        this.value = v
+        this.toggle()
+      }
+    },
     toggle () {
       this.show = !this.show
-    },
-    blur () {
-      this.show = false
     },
     update () {
       if (!this.url) return
       this.loading = true
-      callAjax(this.url, (data) => {
+      callAjax(this.url).then(data => {
         let options = []
         for (let opc of data) {
-          if (opc.value !== undefined && opc.label !== undefined) options.push({value: opc.value, label: opc.label})
+          if (opc.value !== undefined && opc.label !== undefined) options.push(opc)
         }
         this.options = options
         if (!options.length) { this.value = this.value instanceof Array ? [] : null }
@@ -273,21 +279,30 @@ export default {
         this.loading = false
         this.checkValue()
       })
+    },
+    validate () {
+      return !this.required ? true : this.value instanceof Array ? this.value.length > 0 : this.value !== null
     }
   },
   created () {
-    if (this.$parent._formGroup) this.$parent.children.push(this)
     if (this.value === undefined || !this.parent) { this.value = null }
     if (!this.multiple && this.value instanceof Array) {
       this.value = this.value.shift()
     }
     this.checkValue()
     if (this.url) this.update()
+    let parent = this.$parent
+    while (parent && !parent._formGroup) { parent = parent.$parent }
+    if (parent && parent._formGroup) {
+      parent.children.push(this)
+      this._parent = parent
+    }
   },
   ready () {
-    $(this.$els.select).onBlur((e) => { this.show = false })
+    $(this.$els.select).onBlur(e => { this.show = false })
   },
   beforeDestroy () {
+    if (this._parent) this._parent.children.$remove(this)
     $(this.$els.select).offBlur()
   }
 }

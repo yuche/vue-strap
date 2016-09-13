@@ -49,38 +49,40 @@ export default {
     }
   },
   watch: {
-    validate (val) {
-      this.eval()
+    valid (val, old) {
+      if (val === old) { return }
+      this._parent && this._parent.validate()
     }
   },
   methods: {
     focus () {
       this.$els.input.focus()
     },
-    submit () {
-    },
     validate () {
       let valid = true
       this.children.some(el => {
-        let v = (el.validate && el.validate()) || (el.required && !~['', null, undefined].indexOf(el.value))
+        let v = el.validate ? el.validate() : el.valid !== undefined ? el.valid : el.required && !~['', null, undefined].indexOf(el.value)
         if (!v) valid = false
         return !valid
       })
       this.valid = valid
+      return valid === true
     }
   },
   created () {
     this._formGroup = true
+    let parent = this.$parent
+    while (parent && !parent._formGroup) { parent = parent.$parent }
+    if (parent && parent._formGroup) {
+      parent.children.push(this)
+      this._parent = parent
+    }
   },
   ready () {
-    $(this.$els.input).on('change keypress keydown keyup', () => this.eval()).on('blur', () => {
-      if (!this.noValidate) { this.valid = this.validate() }
-    }).on('focus', (e) => {
-      if (this.onfocus instanceof Function) this.onfocus.call(this, e)
-    })
+    this.validate()
   },
   beforeDestroy () {
-    $(this.$els.input).off()
+    if (this._parent) this._parent.children.$remove(this)
   }
 }
 </script>

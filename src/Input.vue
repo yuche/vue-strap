@@ -197,10 +197,22 @@ export default {
     match (val) {
       this.eval()
     },
-    valid (val) {
-      if (this.$parent.eval) {
-        this.$parent.eval()
+    noValidate: {
+      immediate: true,
+      handler (val) {
+        if (this.$parent._formGroup) {
+          if (val && !~this.$parent.children.indexOf(this)) {
+            this.$parent.children.push(this)
+          }
+          if (!val && ~this.$parent.children.indexOf(this)) {
+            this.$parent.children.$remove(this)
+          }
+        }
       }
+    },
+    valid (val, old) {
+      if (val === old) { return }
+      this._parent && this._parent.validate()
     }
   },
   methods: {
@@ -250,7 +262,12 @@ export default {
     }
   },
   created () {
-    if (this.$parent._formGroup) this.$parent.children.push(this)
+    let parent = this.$parent
+    while (parent && !parent._formGroup) { parent = parent.$parent }
+    if (parent && parent._formGroup) {
+      parent.children.push(this)
+      this._parent = parent
+    }
   },
   ready () {
     $(this.$els.input).on('change keypress keydown keyup', () => this.eval()).on('blur', () => {
@@ -260,6 +277,7 @@ export default {
     })
   },
   beforeDestroy () {
+    if (this._parent) this._parent.children.$remove(this)
     $(this.$els.input).off()
   }
 }
