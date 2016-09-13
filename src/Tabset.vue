@@ -33,6 +33,7 @@ export default {
       default: 'fadein'
     },
     active: {
+      twoWay: true,
       type: Number,
       coerce: coerce.number,
       default: 0

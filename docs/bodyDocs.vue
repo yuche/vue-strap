@@ -32,6 +32,7 @@
         <tooltip-docs></tooltip-docs>
         <typeahead-docs></typeahead-docs>
         <spinner-docs></spinner-docs>
+        <form-group-docs></form-group-docs>
       </div>
       <div class="col-md-3">
         <affix-sidebar></affix-sidebar>
@@ -68,6 +69,7 @@ import checkboxDocs from './example/checkboxDocs.vue'
 import container from './example/container.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
 import dropdownDocs from './example/dropdownDocs.vue'
+import formGroupDocs from './example/formGroupDocs.vue'
 import inputDocs from './example/inputDocs.vue'
 import modalDocs from './example/modalDocs.vue'
 import popoverDocs from './example/popoverDocs.vue'
@@ -94,6 +96,7 @@ export default {
     container,
     datepickerDocs,
     dropdownDocs,
+    formGroupDocs,
     inputDocs,
     modalDocs,
     popoverDocs,

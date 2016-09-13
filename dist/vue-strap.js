@@ -5714,10 +5714,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	    match: function match(val) {
 	      this.eval();
 	    },
-	    valid: function valid(val) {
-	      if (this.$parent.eval) {
-	        this.$parent.eval();
+	
+	    noValidate: {
+	      immediate: true,
+	      handler: function handler(val) {
+	        if (this.$parent._formGroup) {
+	          if (val && !~this.$parent.children.indexOf(this)) {
+	            this.$parent.children.push(this);
+	          }
+	          if (!val && ~this.$parent.children.indexOf(this)) {
+	            this.$parent.children.$remove(this);
+	          }
+	        }
 	      }
+	    },
+	    valid: function valid(val, old) {
+	      if (val === old) {
+	        return;
+	      }
+	      this._parent && this._parent.validate();
 	    }
 	  },
 	  methods: {
@@ -5743,6 +5758,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    },
 	    submit: function submit() {
+	      if (this.$parent._formGroup) {
+	        return this.$parent.validate();
+	      }
 	      if (this.$els.input.form) {
 	        var invalids = (0, _NodeList2.default)('.form-group.validate:not(.has-success)', this.$els.input.form);
 	        if (invalids.length) {
@@ -5775,6 +5793,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return valid;
 	    }
 	  },
+	  created: function created() {
+	    var parent = this.$parent;
+	    while (parent && !parent._formGroup) {
+	      parent = parent.$parent;
+	    }
+	    if (parent && parent._formGroup) {
+	      parent.children.push(this);
+	      this._parent = parent;
+	    }
+	  },
 	  ready: function ready() {
 	    var _this2 = this;
 	
@@ -5789,6 +5817,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	  },
 	  beforeDestroy: function beforeDestroy() {
+	    if (this._parent) this._parent.children.$remove(this);
 	    (0, _NodeList2.default)(this.$els.input).off();
 	  }
 	};
@@ -7727,7 +7756,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      loading: null,
 	      searchValue: null,
 	      show: false,
-	      showNotify: false
+	      showNotify: false,
+	      valid: null
 	    };
 	  },
 	
@@ -7806,6 +7836,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	      if (changed) this.options = _options;
 	    },
+	    show: function show(val) {
+	      if (val) {
+	        this.$els.sel.focus();
+	        this.$els.search && this.$els.search.focus();
+	      }
+	    },
+	    url: function url() {
+	      this.update();
+	    },
 	    value: function value(val) {
 	      var _this = this;
 	
@@ -7818,32 +7857,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, 1500);
 	      }
 	      this.checkValue();
+	      this.valid = this.validate();
 	    },
-	    show: function show(val) {
-	      if (val) {
-	        this.$els.sel.focus();
-	        this.$els.search && this.$els.search.focus();
+	    valid: function valid(val, old) {
+	      if (val === old) {
+	        return;
 	      }
-	    },
-	    url: function url() {
-	      this.update();
+	      this._parent && this._parent.validate();
 	    }
 	  },
 	  methods: {
-	    select: function select(v) {
-	      if (this.value instanceof Array) {
-	        if (~this.value.indexOf(v)) {
-	          this.value.$remove(v);
-	        } else {
-	          this.value.push(v);
-	        }
-	        if (this.closeOnSelect) {
-	          this.toggle();
-	        }
-	      } else {
-	        this.value = v;
-	        this.toggle();
-	      }
+	    blur: function blur() {
+	      this.show = false;
 	    },
 	    clear: function clear() {
 	      if (this.disabled || this.readonly) {
@@ -7873,18 +7898,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	    isSelected: function isSelected(v) {
 	      return this.values.indexOf(v) > -1;
 	    },
+	    select: function select(v) {
+	      if (this.value instanceof Array) {
+	        if (~this.value.indexOf(v)) {
+	          this.value.$remove(v);
+	        } else {
+	          this.value.push(v);
+	        }
+	        if (this.closeOnSelect) {
+	          this.toggle();
+	        }
+	      } else {
+	        this.value = v;
+	        this.toggle();
+	      }
+	    },
 	    toggle: function toggle() {
 	      this.show = !this.show;
-	    },
-	    blur: function blur() {
-	      this.show = false;
 	    },
 	    update: function update() {
 	      var _this2 = this;
 	
 	      if (!this.url) return;
 	      this.loading = true;
-	      (0, _utils.callAjax)(this.url, function (data) {
+	      (0, _utils.callAjax)(this.url).then(function (data) {
 	        var options = [];
 	        var _iteratorNormalCompletion2 = true;
 	        var _didIteratorError2 = false;
@@ -7894,7 +7931,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          for (var _iterator2 = (0, _getIterator3.default)(data), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	            var opc = _step2.value;
 	
-	            if (opc.value !== undefined && opc.label !== undefined) options.push({ value: opc.value, label: opc.label });
+	            if (opc.value !== undefined && opc.label !== undefined) options.push(opc);
 	          }
 	        } catch (err) {
 	          _didIteratorError2 = true;
@@ -7919,6 +7956,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _this2.loading = false;
 	        _this2.checkValue();
 	      });
+	    },
+	    validate: function validate() {
+	      return !this.required ? true : this.value instanceof Array ? this.value.length > 0 : this.value !== null;
 	    }
 	  },
 	  created: function created() {
@@ -7930,6 +7970,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	    this.checkValue();
 	    if (this.url) this.update();
+	    var parent = this.$parent;
+	    while (parent && !parent._formGroup) {
+	      parent = parent.$parent;
+	    }
+	    if (parent && parent._formGroup) {
+	      parent.children.push(this);
+	      this._parent = parent;
+	    }
 	  },
 	  ready: function ready() {
 	    var _this3 = this;
@@ -7939,6 +7987,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	  },
 	  beforeDestroy: function beforeDestroy() {
+	    if (this._parent) this._parent.children.$remove(this);
 	    (0, _NodeList2.default)(this.$els.select).offBlur();
 	  }
 	};
@@ -8853,7 +8902,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  computed: {
 	    active: function active() {
-	      return this._tabset.show == this;
+	      return this._tabset.show === this;
 	    },
 	    index: function index() {
 	      return this._tabset.tabs.indexOf(this);
@@ -9203,6 +9252,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      default: 'fadein'
 	    },
 	    active: {
+	      twoWay: true,
 	      type: Number,
 	      coerce: _utils.coerce.number,
 	      default: 0
