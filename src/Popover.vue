@@ -25,6 +25,10 @@ export default {
     trigger: {
       type: String,
       default: 'click'
+    },
+    effect: {
+      type: String,
+      default: 'fade'
     }
   }
 }
