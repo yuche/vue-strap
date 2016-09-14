@@ -2734,7 +2734,7 @@
 	
 	var _getIterator3 = _interopRequireDefault(_getIterator2);
 	
-	exports.callAjax = callAjax;
+	exports.getJSON = getJSON;
 	exports.getScrollBarWidth = getScrollBarWidth;
 	exports.translations = translations;
 	
@@ -2753,17 +2753,22 @@
 	  }
 	};
 	
-	// callAjax (only get)
-	function callAjax(url, callback) {
+	function getJSON(url) {
 	  var request = new window.XMLHttpRequest();
 	  var data = {};
 	  // p (-simulated- promise)
 	  var p = {
-	    then: function then(fn1, fn2, fn3) {
-	      return p.done(fn1).fail(fn2).always(fn3);
+	    then: function then(fn1, fn2) {
+	      return p.done(fn1).fail(fn2);
+	    },
+	    catch: function _catch(fn) {
+	      return p.fail(fn);
+	    },
+	    always: function always(fn) {
+	      return p.done(fn).fail(fn);
 	    }
 	  };
-	  var _arr = ['done', 'fail', 'always'];
+	  var _arr = ['done', 'fail'];
 	
 	  var _loop = function _loop() {
 	    var name = _arr[_i];
@@ -2777,12 +2782,14 @@
 	  for (var _i = 0; _i < _arr.length; _i++) {
 	    _loop();
 	  }
-	  p.done(callback);
+	  p.done(JSON.parse);
 	  request.onreadystatechange = function () {
 	    if (request.readyState === 4) {
+	      var e = { status: request.status };
 	      if (request.status === 200) {
 	        try {
-	          var response = JSON.parse(request.responseText);
+	          var value = void 0,
+	              response = request.responseText;
 	          var _iteratorNormalCompletion = true;
 	          var _didIteratorError = false;
 	          var _iteratorError = undefined;
@@ -2790,7 +2797,10 @@
 	          try {
 	            for (var _iterator = (0, _getIterator3.default)(data.done), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	              var done = _step.value;
-	              done(response);
+	
+	              if ((value = done(response)) !== undefined) {
+	                response = value;
+	              }
 	            }
 	          } catch (err) {
 	            _didIteratorError = true;
@@ -2839,8 +2849,7 @@
 	        try {
 	          for (var _iterator3 = (0, _getIterator3.default)(data.fail), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
 	            var _fail = _step3.value;
-	
-	            _fail({ status: request.status });
+	            _fail(e);
 	          }
 	        } catch (err) {
 	          _didIteratorError3 = true;
@@ -2854,30 +2863,6 @@
 	            if (_didIteratorError3) {
 	              throw _iteratorError3;
 	            }
-	          }
-	        }
-	      }
-	      var _iteratorNormalCompletion4 = true;
-	      var _didIteratorError4 = false;
-	      var _iteratorError4 = undefined;
-	
-	      try {
-	        for (var _iterator4 = (0, _getIterator3.default)(data.always), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-	          var always = _step4.value;
-	
-	          always({ status: request.status });
-	        }
-	      } catch (err) {
-	        _didIteratorError4 = true;
-	        _iteratorError4 = err;
-	      } finally {
-	        try {
-	          if (!_iteratorNormalCompletion4 && _iterator4.return) {
-	            _iterator4.return();
-	          }
-	        } finally {
-	          if (_didIteratorError4) {
-	            throw _iteratorError4;
 	          }
 	        }
 	      }
@@ -5669,7 +5654,7 @@
 	
 	      if (!this.url) return;
 	      this.loading = true;
-	      (0, _utils.callAjax)(this.url).then(function (data) {
+	      (0, _utils.getJSON)(this.url).then(function (data) {
 	        var options = [];
 	        var _iteratorNormalCompletion2 = true;
 	        var _didIteratorError2 = false;
@@ -16484,7 +16469,7 @@
 	        this.showDropdown = this.items.length > 0;
 	      }
 	      if (this.async) {
-	        (0, _utils.callAjax)(this.async + this.value, function (data) {
+	        (0, _utils.getJSON)(this.async + this.value).then(function (data) {
 	          _this2.items = (_this2.key ? data[_this2.key] : data).slice(0, _this2.limit);
 	          _this2.showDropdown = _this2.items.length > 0;
 	        });
