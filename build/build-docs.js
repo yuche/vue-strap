@@ -2734,7 +2734,7 @@
 	
 	var _getIterator3 = _interopRequireDefault(_getIterator2);
 	
-	exports.callAjax = callAjax;
+	exports.getJSON = getJSON;
 	exports.getScrollBarWidth = getScrollBarWidth;
 	exports.translations = translations;
 	
@@ -2753,17 +2753,22 @@
 	  }
 	};
 	
-	// callAjax (only get)
-	function callAjax(url, callback) {
+	function getJSON(url) {
 	  var request = new window.XMLHttpRequest();
 	  var data = {};
 	  // p (-simulated- promise)
 	  var p = {
-	    then: function then(fn1, fn2, fn3) {
-	      return p.done(fn1).fail(fn2).always(fn3);
+	    then: function then(fn1, fn2) {
+	      return p.done(fn1).fail(fn2);
+	    },
+	    catch: function _catch(fn) {
+	      return p.fail(fn);
+	    },
+	    always: function always(fn) {
+	      return p.done(fn).fail(fn);
 	    }
 	  };
-	  var _arr = ['done', 'fail', 'always'];
+	  var _arr = ['done', 'fail'];
 	
 	  var _loop = function _loop() {
 	    var name = _arr[_i];
@@ -2777,12 +2782,14 @@
 	  for (var _i = 0; _i < _arr.length; _i++) {
 	    _loop();
 	  }
-	  p.done(callback);
+	  p.done(JSON.parse);
 	  request.onreadystatechange = function () {
 	    if (request.readyState === 4) {
+	      var e = { status: request.status };
 	      if (request.status === 200) {
 	        try {
-	          var response = JSON.parse(request.responseText);
+	          var value = void 0,
+	              response = request.responseText;
 	          var _iteratorNormalCompletion = true;
 	          var _didIteratorError = false;
 	          var _iteratorError = undefined;
@@ -2790,7 +2797,10 @@
 	          try {
 	            for (var _iterator = (0, _getIterator3.default)(data.done), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	              var done = _step.value;
-	              done(response);
+	
+	              if ((value = done(response)) !== undefined) {
+	                response = value;
+	              }
 	            }
 	          } catch (err) {
 	            _didIteratorError = true;
@@ -2839,8 +2849,7 @@
 	        try {
 	          for (var _iterator3 = (0, _getIterator3.default)(data.fail), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
 	            var _fail = _step3.value;
-	
-	            _fail({ status: request.status });
+	            _fail(e);
 	          }
 	        } catch (err) {
 	          _didIteratorError3 = true;
@@ -2854,30 +2863,6 @@
 	            if (_didIteratorError3) {
 	              throw _iteratorError3;
 	            }
-	          }
-	        }
-	      }
-	      var _iteratorNormalCompletion4 = true;
-	      var _didIteratorError4 = false;
-	      var _iteratorError4 = undefined;
-	
-	      try {
-	        for (var _iterator4 = (0, _getIterator3.default)(data.always), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-	          var always = _step4.value;
-	
-	          always({ status: request.status });
-	        }
-	      } catch (err) {
-	        _didIteratorError4 = true;
-	        _iteratorError4 = err;
-	      } finally {
-	        try {
-	          if (!_iteratorNormalCompletion4 && _iterator4.return) {
-	            _iterator4.return();
-	          }
-	        } finally {
-	          if (_didIteratorError4) {
-	            throw _iteratorError4;
 	          }
 	        }
 	      }
@@ -5669,7 +5654,7 @@
 	
 	      if (!this.url) return;
 	      this.loading = true;
-	      (0, _utils.callAjax)(this.url).then(function (data) {
+	      (0, _utils.getJSON)(this.url).then(function (data) {
 	        var options = [];
 	        var _iteratorNormalCompletion2 = true;
 	        var _didIteratorError2 = false;
@@ -11504,7 +11489,7 @@
 	
 	//   <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true,validate:!noValidate}">
 	
-	//     <label v-if="label" class="control-label">{{label}}</label>
+	//     <slot name="label"><label v-if="label" class="control-label">{{label}}</label></slot>
 	
 	//     <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
 	
@@ -11906,7 +11891,7 @@
 /* 276 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true,validate:!noValidate}\" _v-652ad7b9=\"\">\n    <label v-if=\"label\" class=\"control-label\" _v-652ad7b9=\"\">{{label}}</label>\n    <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-652ad7b9=\"\"></textarea>\n    <template v-else=\"\" _v-652ad7b9=\"\">\n      <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-652ad7b9=\"\">\n        <slot name=\"before\" _v-652ad7b9=\"\"></slot>\n        <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :pattern=\"textPattern\" :title=\"title\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-652ad7b9=\"\">\n        <slot name=\"after\" _v-652ad7b9=\"\"></slot>\n      </div>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :pattern=\"textPattern\" :title=\"title\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-652ad7b9=\"\">\n    </template>\n    <span v-if=\"clearButton &amp;&amp; value\" class=\"close\" @click=\"value = ''\" _v-652ad7b9=\"\">×</span>\n    <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-652ad7b9=\"\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\" _v-652ad7b9=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" _v-652ad7b9=\"\">{{errorText}}</div>\n  </div>";
+	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true,validate:!noValidate}\" _v-652ad7b9=\"\">\n    <slot name=\"label\" _v-652ad7b9=\"\"><label v-if=\"label\" class=\"control-label\" _v-652ad7b9=\"\">{{label}}</label></slot>\n    <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-652ad7b9=\"\"></textarea>\n    <template v-else=\"\" _v-652ad7b9=\"\">\n      <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-652ad7b9=\"\">\n        <slot name=\"before\" _v-652ad7b9=\"\"></slot>\n        <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :pattern=\"textPattern\" :title=\"title\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-652ad7b9=\"\">\n        <slot name=\"after\" _v-652ad7b9=\"\"></slot>\n      </div>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :type=\"type\" :pattern=\"textPattern\" :title=\"title\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-652ad7b9=\"\">\n    </template>\n    <span v-if=\"clearButton &amp;&amp; value\" class=\"close\" @click=\"value = ''\" _v-652ad7b9=\"\">×</span>\n    <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-652ad7b9=\"\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\" _v-652ad7b9=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" _v-652ad7b9=\"\">{{errorText}}</div>\n  </div>";
 
 /***/ },
 /* 277 */
@@ -16484,7 +16469,7 @@
 	        this.showDropdown = this.items.length > 0;
 	      }
 	      if (this.async) {
-	        (0, _utils.callAjax)(this.async + this.value, function (data) {
+	        (0, _utils.getJSON)(this.async + this.value).then(function (data) {
 	          _this2.items = (_this2.key ? data[_this2.key] : data).slice(0, _this2.limit);
 	          _this2.showDropdown = _this2.items.length > 0;
 	        });
