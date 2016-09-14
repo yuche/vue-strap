@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import {callAjax, coerce} from './utils/utils.js'
+import {getJSON, coerce} from './utils/utils.js'
 
 let Vue = window.Vue
 
@@ -119,7 +119,7 @@ export default {
         this.showDropdown = this.items.length > 0
       }
       if (this.async) {
-        callAjax(this.async + this.value, (data) => {
+        getJSON(this.async + this.value).then(data => {
           this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
           this.showDropdown = this.items.length > 0
         })

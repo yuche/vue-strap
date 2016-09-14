@@ -6,40 +6,37 @@ export const coerce = {
 	number: (val, alt = null) => (typeof val === 'number' ? val : val === undefined || val === null || isNaN(Number(val)) ? alt : Number(val))
 }
 
-// callAjax (only get)
-export function callAjax (url, callback) {
+export function getJSON (url) {
   let request = new window.XMLHttpRequest()
   let data = {}
   // p (-simulated- promise)
   let p = {
-    then (fn1, fn2, fn3) {
-      return p.done(fn1).fail(fn2).always(fn3)
-    }
+    then (fn1, fn2) { return p.done(fn1).fail(fn2) },
+    catch (fn) { return p.fail(fn) },
+    always (fn) { return p.done(fn).fail(fn) }
   }
-  for (let name of ['done', 'fail', 'always']) {
+  for (let name of ['done', 'fail']) {
     data[name] = []
     p[name] = (fn) => {
       if (fn instanceof Function) data[name].push(fn)
       return p
     }
   }
-  p.done(callback)
+  p.done(JSON.parse)
   request.onreadystatechange = () => {
     if (request.readyState === 4) {
+      let e = {status: request.status}
       if (request.status === 200) {
         try {
-          let response = JSON.parse(request.responseText)
-          for (let done of data.done) done(response)
+          let value, response = request.responseText
+          for (let done of data.done) {
+            if ((value = done(response)) !== undefined) { response = value }
+          }
         } catch (e) {
-          for (let fail of data.fail) { fail(e) }
+          for (let fail of data.fail) fail(e)
         }
       } else {
-        for (let fail of data.fail) {
-          fail({status: request.status})
-        }
-      }
-      for (let always of data.always) {
-        always({status: request.status})
+        for (let fail of data.fail) fail(e)
       }
     }
   }

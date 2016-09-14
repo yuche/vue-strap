@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import {callAjax, coerce, translations} from './utils/utils.js'
+import {getJSON, coerce, translations} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
 var timeout = {}
@@ -268,7 +268,7 @@ export default {
     update () {
       if (!this.url) return
       this.loading = true
-      callAjax(this.url).then(data => {
+      getJSON(this.url).then(data => {
         let options = []
         for (let opc of data) {
           if (opc.value !== undefined && opc.label !== undefined) options.push(opc)
