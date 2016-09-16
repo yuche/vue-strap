@@ -20,7 +20,7 @@
         </popover>
       </p>
       <popover effect="scale" title="Title" :content="text" placement="bottom" trigger="focus">
-        <input type="text" class="form-control" placeholder="Focus">
+        <bs-input type="text" placeholder="Focus"></bs-input>
       </popover>
     </div>
     <doc-code language="markup">
@@ -77,12 +77,14 @@ import docSection from './docSection.vue'
 import docOptions from './docOptions.vue'
 import docCode from './docCode.vue'
 import popover from 'src/Popover.vue'
+import bsInput from 'src/Input.vue'
 
 export default {
   components: {
     docSection,
     docOptions,
     docCode,
+    bsInput,
     popover
   },
   data () {
