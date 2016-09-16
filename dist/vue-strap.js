@@ -7152,10 +7152,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.show = !this.show;
 	
 	    var events = this.trigger === 'contextmenu' ? 'contextmenu' : this.trigger === 'hover' ? 'mouseleave mouseenter' : this.trigger === 'focus' ? 'blur focus' : 'click';
-	    (0, _NodeList2.default)(trigger).on(events, this.toggle);
+	
+	    if (this.trigger === 'focus' && !~trigger.tabIndex) {
+	      trigger = (0, _NodeList2.default)('a,input,select,textarea,button', trigger);
+	      if (!trigger.length) {
+	        trigger = null;
+	      }
+	    }
+	    if (trigger) {
+	      (0, _NodeList2.default)(trigger).on(events, this.toggle);
+	      this._trigger = trigger;
+	    }
 	  },
 	  beforeDestroy: function beforeDestroy() {
-	    (0, _NodeList2.default)(this.$els.trigger.children[0]).off();
+	    if (this._trigger) (0, _NodeList2.default)(this._trigger).off();
 	  }
 	};
 

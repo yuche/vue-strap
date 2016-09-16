@@ -6729,7 +6729,7 @@
 	    },
 	    effect: {
 	      type: String,
-	      default: 'fadein'
+	      default: 'fade'
 	    },
 	    title: {
 	      type: String
@@ -6792,10 +6792,20 @@
 	    this.show = !this.show;
 	
 	    var events = this.trigger === 'contextmenu' ? 'contextmenu' : this.trigger === 'hover' ? 'mouseleave mouseenter' : this.trigger === 'focus' ? 'blur focus' : 'click';
-	    (0, _NodeList2.default)(trigger).on(events, this.toggle);
+	
+	    if (this.trigger === 'focus' && !~trigger.tabIndex) {
+	      trigger = (0, _NodeList2.default)('a,input,select,textarea,button', trigger);
+	      if (!trigger.length) {
+	        trigger = null;
+	      }
+	    }
+	    if (trigger) {
+	      (0, _NodeList2.default)(trigger).on(events, this.toggle);
+	      this._trigger = trigger;
+	    }
 	  },
 	  beforeDestroy: function beforeDestroy() {
-	    (0, _NodeList2.default)(this.$els.trigger.children[0]).off();
+	    if (this._trigger) (0, _NodeList2.default)(this._trigger).off();
 	  }
 	};
 
@@ -13546,8 +13556,29 @@
 	
 	var _Popover2 = _interopRequireDefault(_Popover);
 	
+	var _Input = __webpack_require__(272);
+	
+	var _Input2 = _interopRequireDefault(_Input);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	exports.default = {
+	  components: {
+	    docSection: _docSection2.default,
+	    docOptions: _docOptions2.default,
+	    docCode: _docCode2.default,
+	    bsInput: _Input2.default,
+	    popover: _Popover2.default
+	  },
+	  data: function data() {
+	    return {
+	      placements: ['top', 'left', 'right', 'bottom'],
+	      text: 'Lorem ipsum dolor sit amet',
+	      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod'
+	    };
+	  }
+	};
+	// </script>
 	// <template>
 	
 	//   <doc-section id="popover" name="Popover">
@@ -13592,7 +13623,7 @@
 	
 	//       <popover effect="scale" title="Title" :content="text" placement="bottom" trigger="focus">
 	
-	//         <input type="text" class="form-control" placeholder="Focus">
+	//         <bs-input type="text" placeholder="Focus"></bs-input>
 	
 	//       </popover>
 	
@@ -13696,22 +13727,6 @@
 	
 	
 	// <script>
-	exports.default = {
-	  components: {
-	    docSection: _docSection2.default,
-	    docOptions: _docOptions2.default,
-	    docCode: _docCode2.default,
-	    popover: _Popover2.default
-	  },
-	  data: function data() {
-	    return {
-	      placements: ['top', 'left', 'right', 'bottom'],
-	      text: 'Lorem ipsum dolor sit amet',
-	      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod'
-	    };
-	  }
-	};
-	// </script>
 
 /***/ },
 /* 303 */
@@ -13916,7 +13931,7 @@
 /* 308 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"popover\" name=\"Popover\">\r\n    <div class=\"bs-example\">\r\n      <popover v-for=\"place in placements\" effect=\"fade\" :content=\"text\" :placement=\"place\">\r\n        <button class=\"btn btn-default\">Popover on {{place}}</button>\r\n      </popover>\r\n      <hr>\r\n      <h4>Title</h4>\r\n      <popover v-for=\"place in placements\" effect=\"fade\" header title=\"Title\" :content=\"text\" :placement=\"place\">\r\n        <button class=\"btn btn-default\">Popover on {{place}}</button>\r\n      </popover>\r\n      <hr>\r\n      <h4>Trigger</h4>\r\n      <p>\r\n        <popover effect=\"scale\" title=\"Title\" :content=\"content\" placement=\"top\" trigger=\"hover\">\r\n          <button class=\"btn btn-default\">Mouseenter</button>\r\n        </popover>\r\n        <popover effect=\"scale\" title=\"Title\" :content=\"text\" placement=\"top\" trigger=\"contextmenu\">\r\n          <button class=\"btn btn-default\">Contextmenu (right click)</button>\r\n        </popover>\r\n      </p>\r\n      <popover effect=\"scale\" title=\"Title\" :content=\"text\" placement=\"bottom\" trigger=\"focus\">\r\n        <input type=\"text\" class=\"form-control\" placeholder=\"Focus\">\r\n      </popover>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <popover effect=\"fade\" placement=\"bottom\" title=\"Title\" content=\"content\">\r\n        <button class=\"btn btn-default\">Popover on bottom</button>\r\n      </popover>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>trigger</p>\r\n        <p><code>String</code>, one of <code>click</code> <code>focus</code> <code>hover</code> <code>contextmenu</code></p>\r\n        <p><code>click</code></p>\r\n        <p>How the popover is triggered.</p>\r\n      </div>\r\n      <div>\r\n        <p>effect</p>\r\n        <p><code>String</code>, one of <code>scale</code> <code>fade</code></p>\r\n        <p><code>fade</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>title</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>content</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>header</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Whether to show the header.</p>\r\n      </div>\r\n      <div>\r\n        <p>placement</p>\r\n        <p><code>String</code>, one of <code>top</code>\r\n        <code>left</code>\r\n        <code>right</code>\r\n        <code>bottom</code></p>\r\n        <p></p>\r\n        <p>How to position the popover.</p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
+	module.exports = "<doc-section id=\"popover\" name=\"Popover\">\r\n    <div class=\"bs-example\">\r\n      <popover v-for=\"place in placements\" effect=\"fade\" :content=\"text\" :placement=\"place\">\r\n        <button class=\"btn btn-default\">Popover on {{place}}</button>\r\n      </popover>\r\n      <hr>\r\n      <h4>Title</h4>\r\n      <popover v-for=\"place in placements\" effect=\"fade\" header title=\"Title\" :content=\"text\" :placement=\"place\">\r\n        <button class=\"btn btn-default\">Popover on {{place}}</button>\r\n      </popover>\r\n      <hr>\r\n      <h4>Trigger</h4>\r\n      <p>\r\n        <popover effect=\"scale\" title=\"Title\" :content=\"content\" placement=\"top\" trigger=\"hover\">\r\n          <button class=\"btn btn-default\">Mouseenter</button>\r\n        </popover>\r\n        <popover effect=\"scale\" title=\"Title\" :content=\"text\" placement=\"top\" trigger=\"contextmenu\">\r\n          <button class=\"btn btn-default\">Contextmenu (right click)</button>\r\n        </popover>\r\n      </p>\r\n      <popover effect=\"scale\" title=\"Title\" :content=\"text\" placement=\"bottom\" trigger=\"focus\">\r\n        <bs-input type=\"text\" placeholder=\"Focus\"></bs-input>\r\n      </popover>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <popover effect=\"fade\" placement=\"bottom\" title=\"Title\" content=\"content\">\r\n        <button class=\"btn btn-default\">Popover on bottom</button>\r\n      </popover>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>trigger</p>\r\n        <p><code>String</code>, one of <code>click</code> <code>focus</code> <code>hover</code> <code>contextmenu</code></p>\r\n        <p><code>click</code></p>\r\n        <p>How the popover is triggered.</p>\r\n      </div>\r\n      <div>\r\n        <p>effect</p>\r\n        <p><code>String</code>, one of <code>scale</code> <code>fade</code></p>\r\n        <p><code>fade</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>title</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>content</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>header</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Whether to show the header.</p>\r\n      </div>\r\n      <div>\r\n        <p>placement</p>\r\n        <p><code>String</code>, one of <code>top</code>\r\n        <code>left</code>\r\n        <code>right</code>\r\n        <code>bottom</code></p>\r\n        <p></p>\r\n        <p>How to position the popover.</p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
 
 /***/ },
 /* 309 */
@@ -15722,12 +15737,32 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
+	var _Input = __webpack_require__(272);
+	
+	var _Input2 = _interopRequireDefault(_Input);
+	
 	var _Tooltip = __webpack_require__(197);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	exports.default = {
+	  components: {
+	    docSection: _docSection2.default,
+	    docOptions: _docOptions2.default,
+	    docCode: _docCode2.default,
+	    bsInput: _Input2.default,
+	    tooltip: _Tooltip2.default
+	  },
+	  data: function data() {
+	    return {
+	      text: 'Lorem ipsum dolor sit amet',
+	      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod'
+	    };
+	  }
+	};
+	// </script>
 	// <template>
 	
 	//   <doc-section id="tooltip" name="Tooltip">
@@ -15762,7 +15797,7 @@
 	
 	//       <tooltip effect="scale" content="Lorem ipsum dolor sit amet" placement="bottom" trigger="focus">
 	
-	//         <input type="text" class="form-control" placeholder="Focus">
+	//         <bs-input type="text" placeholder="Focus"></bs-input>
 	
 	//       </tooltip>
 	
@@ -15840,27 +15875,12 @@
 	
 	
 	// <script>
-	exports.default = {
-	  components: {
-	    docSection: _docSection2.default,
-	    docOptions: _docOptions2.default,
-	    docCode: _docCode2.default,
-	    tooltip: _Tooltip2.default
-	  },
-	  data: function data() {
-	    return {
-	      text: 'Lorem ipsum dolor sit amet',
-	      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod'
-	    };
-	  }
-	};
-	// </script>
 
 /***/ },
 /* 341 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"tooltip\" name=\"Tooltip\">\r\n    <div class=\"bs-example\">\r\n      <tooltip v-for=\"place in ['top','left','right','bottom']\" header content=\"Lorem ipsum dolor sit amet\" :placement=\"place\">\r\n        <button class=\"btn btn-default\">Popover on {{place}}</button>\r\n      </tooltip>\r\n      <hr>\r\n      <h4>Trigger</h4>\r\n      <p>\r\n        <tooltip effect=\"scale\" content=\"Lorem ipsum dolor sit amet\" placement=\"top\" trigger=\"click\">\r\n          <button class=\"btn btn-default\">Click</button>\r\n        </tooltip>\r\n        <tooltip effect=\"scale\" content=\"Lorem ipsum dolor sit amet\" placement=\"top\" trigger=\"contextmenu\">\r\n          <button class=\"btn btn-default\">Contextmenu (right click)</button>\r\n        </tooltip>\r\n      </p>\r\n      <tooltip effect=\"scale\" content=\"Lorem ipsum dolor sit amet\" placement=\"bottom\" trigger=\"focus\">\r\n        <input type=\"text\" class=\"form-control\" placeholder=\"Focus\">\r\n      </tooltip>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <tooltip effect=\"scale\" placement=\"bottom\" content=\"Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod\">\r\n        <button class=\"btn btn-default\">tooltip on bottom</button>\r\n      </tooltip>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>trigger</p>\r\n        <p><code>String</code>, one of <code>click</code> <code>focus</code> <code>hover</code> <code>contextmenu</code></p>\r\n        <p><code>click</code></p>\r\n        <p>How the tooltip is triggered.</p>\r\n      </div>\r\n      <div>\r\n        <p>effect</p>\r\n        <p><code>String</code>, one of <code>scale</code> <code>fadein</code></p>\r\n        <p><code>scale</code></p>\r\n        <p></p>\r\n      <div>\r\n        <p>content</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>placement</p>\r\n        <p><code>String</code>, one of <code>top</code>\r\n        <code>left</code>\r\n        <code>right</code>\r\n        <code>bottom</code></p>\r\n        <p></p>\r\n        <p>How to position the tooltip.</p>\r\n      </div>\r\n    </doc-options>\r\n  </div>\r\n</template>";
+	module.exports = "<doc-section id=\"tooltip\" name=\"Tooltip\">\r\n    <div class=\"bs-example\">\r\n      <tooltip v-for=\"place in ['top','left','right','bottom']\" header content=\"Lorem ipsum dolor sit amet\" :placement=\"place\">\r\n        <button class=\"btn btn-default\">Popover on {{place}}</button>\r\n      </tooltip>\r\n      <hr>\r\n      <h4>Trigger</h4>\r\n      <p>\r\n        <tooltip effect=\"scale\" content=\"Lorem ipsum dolor sit amet\" placement=\"top\" trigger=\"click\">\r\n          <button class=\"btn btn-default\">Click</button>\r\n        </tooltip>\r\n        <tooltip effect=\"scale\" content=\"Lorem ipsum dolor sit amet\" placement=\"top\" trigger=\"contextmenu\">\r\n          <button class=\"btn btn-default\">Contextmenu (right click)</button>\r\n        </tooltip>\r\n      </p>\r\n      <tooltip effect=\"scale\" content=\"Lorem ipsum dolor sit amet\" placement=\"bottom\" trigger=\"focus\">\r\n        <bs-input type=\"text\" placeholder=\"Focus\"></bs-input>\r\n      </tooltip>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <tooltip effect=\"scale\" placement=\"bottom\" content=\"Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod\">\r\n        <button class=\"btn btn-default\">tooltip on bottom</button>\r\n      </tooltip>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>trigger</p>\r\n        <p><code>String</code>, one of <code>click</code> <code>focus</code> <code>hover</code> <code>contextmenu</code></p>\r\n        <p><code>click</code></p>\r\n        <p>How the tooltip is triggered.</p>\r\n      </div>\r\n      <div>\r\n        <p>effect</p>\r\n        <p><code>String</code>, one of <code>scale</code> <code>fadein</code></p>\r\n        <p><code>scale</code></p>\r\n        <p></p>\r\n      <div>\r\n        <p>content</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>placement</p>\r\n        <p><code>String</code>, one of <code>top</code>\r\n        <code>left</code>\r\n        <code>right</code>\r\n        <code>bottom</code></p>\r\n        <p></p>\r\n        <p>How to position the tooltip.</p>\r\n      </div>\r\n    </doc-options>\r\n  </div>\r\n</template>";
 
 /***/ },
 /* 342 */
