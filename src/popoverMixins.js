@@ -8,7 +8,7 @@ export default {
     },
     effect: {
       type: String,
-      default: 'fadein'
+      default: 'fade'
     },
     title: {
       type: String
