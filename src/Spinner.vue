@@ -91,7 +91,7 @@ export default {
       this.hide()
     }
   },
-  destroyed () {
+  beforeDestroy () {
     clearTimeout(this._spinnerAnimation)
     this._body.style.overflowY = this._bodyOverflow
   }
