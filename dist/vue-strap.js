@@ -7089,7 +7089,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    effect: {
 	      type: String,
-	      default: 'fadein'
+	      default: 'fade'
 	    },
 	    title: {
 	      type: String
@@ -8918,7 +8918,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.hide();
 	    }
 	  },
-	  destroyed: function destroyed() {
+	  beforeDestroy: function beforeDestroy() {
 	    clearTimeout(this._spinnerAnimation);
 	    this._body.style.overflowY = this._bodyOverflow;
 	  }
