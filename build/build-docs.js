@@ -14951,7 +14951,7 @@
 	
 	//       <p><checkbox :checked.sync="fixed" type="info">fixed</checkbox></p>
 	
-	//       <p><v-select :options="sizes" :value.sync="size">size</v-select></p>
+	//       <p><v-select :options="['sm','md','lg','xl']" :value.sync="size">size</v-select></p>
 	
 	//       <p><button class="btn btn-info" @click="$broadcast('show::spinner')">show spinner</button></p>
 	
@@ -14961,11 +14961,11 @@
 	
 	//     <doc-code language="markup">
 	
-	//       &lt;spinner v-ref:spinner :size="(sm,md,lg...)" :fixed="(true,false)" text="I will close in 2 secs">&lt;/spinner>
+	//       <spinner v-ref:spinner size="md" fixed text="I will close in 2 secs"></spinner>
 	
 	//     </doc-code>
 	
-	//     <doc-code language="markup">
+	//     <doc-code language="javascript">
 	
 	//       // using ref
 	
@@ -14987,11 +14987,11 @@
 	
 	//         <p>size</p>
 	
-	//         <p><code>Text</code></p>
+	//         <p><code>String</code>, one of <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code></p>
 	
-	//         <p>md</p>
+	//         <p><code>md</code></p>
 	
-	//         <p>The size of the spinner (either [sm, md, lg]).</p>
+	//         <p>The size of the spinner.</p>
 	
 	//       </div>
 	
@@ -15001,7 +15001,7 @@
 	
 	//         <p><code>Boolean</code></p>
 	
-	//         <p>false</p>
+	//         <p><code>false</code></p>
 	
 	//         <p>Set to true if you want the spinner to occupy the entire window space.</p>
 	
@@ -15027,8 +15027,7 @@
 	  data: function data() {
 	    return {
 	      fixed: false,
-	      size: 'lg',
-	      sizes: ['sm', 'md', 'lg', 'xl']
+	      size: 'lg'
 	    };
 	  },
 	
@@ -15184,7 +15183,7 @@
 	      this.hide();
 	    }
 	  },
-	  destroyed: function destroyed() {
+	  beforeDestroy: function beforeDestroy() {
 	    clearTimeout(this._spinnerAnimation);
 	    this._body.style.overflowY = this._bodyOverflow;
 	  }
@@ -15241,7 +15240,7 @@
 /* 330 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"spinner\" name=\"Spinner\">\r\n    <div class=\"bs-example\">\r\n      <p><checkbox :checked.sync=\"fixed\" type=\"info\">fixed</checkbox></p>\r\n      <p><v-select :options=\"sizes\" :value.sync=\"size\">size</v-select></p>\r\n      <p><button class=\"btn btn-info\" @click=\"$broadcast('show::spinner')\">show spinner</button></p>\r\n      <div><spinner id=\"spinner-box\" :size=\"size\" :fixed=\"fixed\" text=\"I will close in 2 secs\"></spinner></div>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      &lt;spinner v-ref:spinner :size=\"(sm,md,lg...)\" :fixed=\"(true,false)\" text=\"I will close in 2 secs\">&lt;/spinner>\r\n    </doc-code>\r\n    <doc-code language=\"markup\">\r\n      // using ref\r\n      this.$refs.spinner.show()\r\n      this.$refs.spinner.hide()\r\n      // using broadcast\r\n      this.$broadcast('show::spinner')\r\n      this.$broadcast('hide::spinner')\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>size</p>\r\n        <p><code>Text</code></p>\r\n        <p>md</p>\r\n        <p>The size of the spinner (either [sm, md, lg]).</p>\r\n      </div>\r\n      <div>\r\n        <p>fixed</p>\r\n        <p><code>Boolean</code></p>\r\n        <p>false</p>\r\n        <p>Set to true if you want the spinner to occupy the entire window space.</p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
+	module.exports = "<doc-section id=\"spinner\" name=\"Spinner\">\r\n    <div class=\"bs-example\">\r\n      <p><checkbox :checked.sync=\"fixed\" type=\"info\">fixed</checkbox></p>\r\n      <p><v-select :options=\"['sm','md','lg','xl']\" :value.sync=\"size\">size</v-select></p>\r\n      <p><button class=\"btn btn-info\" @click=\"$broadcast('show::spinner')\">show spinner</button></p>\r\n      <div><spinner id=\"spinner-box\" :size=\"size\" :fixed=\"fixed\" text=\"I will close in 2 secs\"></spinner></div>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <spinner v-ref:spinner size=\"md\" fixed text=\"I will close in 2 secs\"></spinner>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      // using ref\r\n      this.$refs.spinner.show()\r\n      this.$refs.spinner.hide()\r\n      // using broadcast\r\n      this.$broadcast('show::spinner')\r\n      this.$broadcast('hide::spinner')\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>size</p>\r\n        <p><code>String</code>, one of <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code></p>\r\n        <p><code>md</code></p>\r\n        <p>The size of the spinner.</p>\r\n      </div>\r\n      <div>\r\n        <p>fixed</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Set to true if you want the spinner to occupy the entire window space.</p>\r\n      </div>\r\n    </doc-options>\r\n  </doc-section>";
 
 /***/ },
 /* 331 */
