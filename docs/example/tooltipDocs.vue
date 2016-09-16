@@ -15,7 +15,7 @@
         </tooltip>
       </p>
       <tooltip effect="scale" content="Lorem ipsum dolor sit amet" placement="bottom" trigger="focus">
-        <input type="text" class="form-control" placeholder="Focus">
+        <bs-input type="text" placeholder="Focus"></bs-input>
       </tooltip>
     </div>
     <doc-code language="markup">
@@ -58,6 +58,7 @@
 import docSection from './docSection.vue'
 import docOptions from './docOptions.vue'
 import docCode from './docCode.vue'
+import bsInput from 'src/Input.vue'
 import tooltip from 'src/Tooltip.vue'
 
 export default {
@@ -65,6 +66,7 @@ export default {
     docSection,
     docOptions,
     docCode,
+    bsInput,
     tooltip
   },
   data () {
