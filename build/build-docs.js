@@ -11300,7 +11300,6 @@
 	      coerce: _utils.coerce.boolean,
 	      default: false
 	    },
-	    onfocus: null,
 	    pattern: null,
 	    placeholder: {
 	      type: String,
@@ -11469,12 +11468,13 @@
 	
 	    (0, _NodeList2.default)(this.$els.input).on('change keypress keydown keyup', function () {
 	      return _this2.eval();
-	    }).on('blur', function () {
+	    }).on('focus', function (e) {
+	      return _this2.$emit('focus', e);
+	    }).on('blur', function (e) {
 	      if (!_this2.noValidate) {
 	        _this2.valid = _this2.validate();
 	      }
-	    }).on('focus', function (e) {
-	      if (_this2.onfocus instanceof Function) _this2.onfocus.call(_this2, e);
+	      _this2.$emit('blur', e);
 	    });
 	  },
 	  beforeDestroy: function beforeDestroy() {
@@ -11997,7 +11997,15 @@
 	
 	//         </div>
 	
-	//         <bs-input name="textarea" label="Textarea" type="textarea" :icon="check.icon" :enter-submit="check.enterSubmit" no-validate></bs-input>
+	//         <bs-input name="textarea" label="Textarea" type="textarea" :icon="check.icon" :enter-submit="check.enterSubmit" no-validate
+	
+	//           @focus="event = 'focused'"
+	
+	//           @blur="event = 'blured'"
+	
+	//         ></bs-input>
+	
+	//         <pre> Test event on textarea: {{event}}</pre>
 	
 	//       </form>
 	
@@ -12031,7 +12039,7 @@
 	
 	//       <bs-input required label="Match value" type="password" :match="input"></bs-input>
 	
-	//       <bs-input label="Textarea" type="textarea" no-validate></bs-input>
+	//       <bs-input label="Textarea" type="textarea" no-validate @focus="event = 'focused'" @blur="event = 'blured'"></bs-input>
 	
 	//     </doc-code>
 	
@@ -12231,18 +12239,6 @@
 	
 	//       <div>
 	
-	//         <p>onfocus</p>
-	
-	//         <p><code>Function</code></p>
-	
-	//         <p><code>null</code></p>
-	
-	//         <p>A callable function that trigger when focus the input.</p>
-	
-	//       </div>
-	
-	//       <div>
-	
 	//         <p>pattern</p>
 	
 	//         <p><code>String</code> or <code>Function</code></p>
@@ -12324,15 +12320,13 @@
 	      check: {
 	        label: true
 	      },
+	      event: null,
 	      input: null,
 	      match: null
 	    };
 	  },
 	
 	  methods: {
-	    focus: function focus() {
-	      alert('focus');
-	    },
 	    mask: function mask(value) {
 	      return value.toLowerCase().replace(/^[^a-z]+/, '').replace(/\W/g, '');
 	    }
@@ -12344,7 +12338,7 @@
 /* 280 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"input\" name=\"Input\">\r\n    <div class=\"bs-example text-left\">\r\n      <form action=\".\" method=\"get\" accept-charset=\"utf-8\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <bs-input name=\"username\"\r\n              :disabled=\"check.disabled\"\r\n              :error=\"check.error && 'Insert user name'\"\r\n              help=\"Only allows lowercase letters and numbers.\"\r\n              :enter-submit=\"check.enterSubmit\"\r\n              :icon=\"check.icon\"\r\n              :label=\"check.label && 'User Name'\"\r\n              :mask=\"check.mask?mask:null\"\r\n              :minlength=\"check.minlength?5:0\"\r\n              pattern=\"^[a-z][a-z0-9]+$\"\r\n              :placeholder=\"check.placeholder && 'Username can\\'t start with a number.'\"\r\n              :readonly=\"check.readonly\"\r\n              :required=\"check.required\"\r\n              :clear-button=\"check.clearButton\"\r\n              :value.sync=\"input\"\r\n            ></bs-input>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <bs-input name=\"match\" required label=\"Match value\" type=\"password\" :match=\"input\" :icon=\"check.icon\" :enter-submit=\"check.enterSubmit\" help=\"Match the User Name\"></bs-input>\r\n          </div>\r\n        </div>\r\n        <div class=\"row\">\r\n          <button-group type=\"primary\" buttons=\"false\">\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n              <p><checkbox :checked.sync=\"check.label\">Label</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.placeholder\">placeholder</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.disabled\">disabled</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.error\">error</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.icon\">icon</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.enterSubmit\">enterSubmit</checkbox></p>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n              <p><checkbox :checked.sync=\"check.mask\">mask</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.minlength\">minlength=5</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.readonly\">readonly</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.required\">required</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.clearButton\">clear button</checkbox></p>\r\n            </div>\r\n          </button-group>\r\n        </div>\r\n        <bs-input name=\"textarea\" label=\"Textarea\" type=\"textarea\" :icon=\"check.icon\" :enter-submit=\"check.enterSubmit\" no-validate></bs-input>\r\n      </form>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <bs-input :value.sync=\"input\"\r\n        label=\"Username\"\r\n        help=\"Only allows lowercase letters and numbers.\"\r\n        error=\"Insert username\"\r\n        placeholder=\"Username can't start with a number.\"\r\n        pattern=\"^[a-z][a-z0-9]+$\"\r\n        :mask=\"mask\"\r\n        minlength=\"5\"\r\n        readonly\r\n        required\r\n        icon\r\n      ></bs-input>\r\n      <bs-input required label=\"Match value\" type=\"password\" :match=\"input\"></bs-input>\r\n      <bs-input label=\"Textarea\" type=\"textarea\" no-validate></bs-input>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      mask: function (value) {\r\n        // change to lowercase, remove first non-letter and all other unsupported characters\r\n        return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\\W/g,'');\r\n      }\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Input value. Use <code>:value.sync=\"value\"</code></p>\r\n      </div>\r\n      <div>\r\n        <p>match</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Matching value. Both have to be the same value.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>enterSubmit</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Submit when you press <code>Enter</code>. Not supported on type <code>textarea</code>.</p>\r\n      </div>\r\n      <div>\r\n        <p>error</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>help</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Help text behind the input</p>\r\n      </div>\r\n      <div>\r\n        <p>hide-help</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Only work with help and error.<br/>Hide the help if have to show any error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>icon</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>label</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Enable input label (name).</p>\r\n      </div>\r\n      <div>\r\n        <p>lang</p>\r\n        <p><code>String</code></p>\r\n        <p>Browser language</p>\r\n        <p><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>\r\n      </div>\r\n      <div>\r\n        <p>mask</p>\r\n        <p><code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Mask function that receive and edit the value.</p>\r\n      </div>\r\n      <div>\r\n        <p>maxlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>minlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>name</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>no-validate</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Disable validations (don't affect masking).</p>\r\n      </div>\r\n      <div>\r\n        <p>onfocus</p>\r\n        <p><code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>A callable function that trigger when focus the input.</p>\r\n      </div>\r\n      <div>\r\n        <p>pattern</p>\r\n        <p><code>String</code> or <code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Validation pattern.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>required</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code></p>\r\n        <p><code>text</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>validation-delay</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>250</code></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n\r\n  </doc-section>";
+	module.exports = "<doc-section id=\"input\" name=\"Input\">\r\n    <div class=\"bs-example text-left\">\r\n      <form action=\".\" method=\"get\" accept-charset=\"utf-8\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <bs-input name=\"username\"\r\n              :disabled=\"check.disabled\"\r\n              :error=\"check.error && 'Insert user name'\"\r\n              help=\"Only allows lowercase letters and numbers.\"\r\n              :enter-submit=\"check.enterSubmit\"\r\n              :icon=\"check.icon\"\r\n              :label=\"check.label && 'User Name'\"\r\n              :mask=\"check.mask?mask:null\"\r\n              :minlength=\"check.minlength?5:0\"\r\n              pattern=\"^[a-z][a-z0-9]+$\"\r\n              :placeholder=\"check.placeholder && 'Username can\\'t start with a number.'\"\r\n              :readonly=\"check.readonly\"\r\n              :required=\"check.required\"\r\n              :clear-button=\"check.clearButton\"\r\n              :value.sync=\"input\"\r\n            ></bs-input>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <bs-input name=\"match\" required label=\"Match value\" type=\"password\" :match=\"input\" :icon=\"check.icon\" :enter-submit=\"check.enterSubmit\" help=\"Match the User Name\"></bs-input>\r\n          </div>\r\n        </div>\r\n        <div class=\"row\">\r\n          <button-group type=\"primary\" buttons=\"false\">\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n              <p><checkbox :checked.sync=\"check.label\">Label</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.placeholder\">placeholder</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.disabled\">disabled</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.error\">error</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.icon\">icon</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.enterSubmit\">enterSubmit</checkbox></p>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n              <p><checkbox :checked.sync=\"check.mask\">mask</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.minlength\">minlength=5</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.readonly\">readonly</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.required\">required</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.clearButton\">clear button</checkbox></p>\r\n            </div>\r\n          </button-group>\r\n        </div>\r\n        <bs-input name=\"textarea\" label=\"Textarea\" type=\"textarea\" :icon=\"check.icon\" :enter-submit=\"check.enterSubmit\" no-validate\r\n          @focus=\"event = 'focused'\"\r\n          @blur=\"event = 'blured'\"\r\n        ></bs-input>\r\n        <pre> Test event on textarea: {{event}}</pre>\r\n      </form>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <bs-input :value.sync=\"input\"\r\n        label=\"Username\"\r\n        help=\"Only allows lowercase letters and numbers.\"\r\n        error=\"Insert username\"\r\n        placeholder=\"Username can't start with a number.\"\r\n        pattern=\"^[a-z][a-z0-9]+$\"\r\n        :mask=\"mask\"\r\n        minlength=\"5\"\r\n        readonly\r\n        required\r\n        icon\r\n      ></bs-input>\r\n      <bs-input required label=\"Match value\" type=\"password\" :match=\"input\"></bs-input>\r\n      <bs-input label=\"Textarea\" type=\"textarea\" no-validate @focus=\"event = 'focused'\" @blur=\"event = 'blured'\"></bs-input>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      mask: function (value) {\r\n        // change to lowercase, remove first non-letter and all other unsupported characters\r\n        return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\\W/g,'');\r\n      }\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Input value. Use <code>:value.sync=\"value\"</code></p>\r\n      </div>\r\n      <div>\r\n        <p>match</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Matching value. Both have to be the same value.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>enterSubmit</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Submit when you press <code>Enter</code>. Not supported on type <code>textarea</code>.</p>\r\n      </div>\r\n      <div>\r\n        <p>error</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>help</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Help text behind the input</p>\r\n      </div>\r\n      <div>\r\n        <p>hide-help</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Only work with help and error.<br/>Hide the help if have to show any error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>icon</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>label</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Enable input label (name).</p>\r\n      </div>\r\n      <div>\r\n        <p>lang</p>\r\n        <p><code>String</code></p>\r\n        <p>Browser language</p>\r\n        <p><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>\r\n      </div>\r\n      <div>\r\n        <p>mask</p>\r\n        <p><code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Mask function that receive and edit the value.</p>\r\n      </div>\r\n      <div>\r\n        <p>maxlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>minlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>name</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>no-validate</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Disable validations (don't affect masking).</p>\r\n      </div>\r\n      <div>\r\n        <p>pattern</p>\r\n        <p><code>String</code> or <code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Validation pattern.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>required</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code></p>\r\n        <p><code>text</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>validation-delay</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>250</code></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n\r\n  </doc-section>";
 
 /***/ },
 /* 281 */
