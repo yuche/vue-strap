@@ -123,7 +123,6 @@ export default {
       coerce: coerce.boolean,
       default: false
     },
-    onfocus: null,
     pattern: null,
     placeholder: {
       type: String,
@@ -270,10 +269,9 @@ export default {
     }
   },
   ready () {
-    $(this.$els.input).on('change keypress keydown keyup', () => this.eval()).on('blur', () => {
+    $(this.$els.input).on('change keypress keydown keyup', () => this.eval()).on('focus', e => this.$emit('focus', e)).on('blur', e => {
       if (!this.noValidate) { this.valid = this.validate() }
-    }).on('focus', e => {
-      if (this.onfocus instanceof Function) this.onfocus.call(this, e)
+      this.$emit('blur', e)
     })
   },
   beforeDestroy () {
