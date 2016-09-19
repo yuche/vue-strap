@@ -1,6 +1,5 @@
 <template>
   <div id="wrapper">
-    <navbar-header></navbar-header>
     <div class="bs-docs-header">
       <div class="container">
         <h1>VueStrap</h1>
@@ -24,6 +23,7 @@
         <dropdown-docs></dropdown-docs>
         <input-docs></input-docs>
         <modal-docs></modal-docs>
+        <navbar-docs></navbar-docs>
         <popover-docs></popover-docs>
         <progressbar-docs></progressbar-docs>
         <radio-docs></radio-docs>
@@ -57,7 +57,6 @@
 
 <script>
 import affixSidebar from './affixSidebar.vue'
-import navbarHeader from './navbarHeader.vue'
 import gettingStarted from './example/gettingStarted.vue'
 import accordionDocs from './example/accordionDocs.vue'
 import affixDocs from './example/affixDocs.vue'
@@ -72,6 +71,7 @@ import dropdownDocs from './example/dropdownDocs.vue'
 import formGroupDocs from './example/formGroupDocs.vue'
 import inputDocs from './example/inputDocs.vue'
 import modalDocs from './example/modalDocs.vue'
+import navbarDocs from './example/navbarDocs.vue'
 import popoverDocs from './example/popoverDocs.vue'
 import progressbarDocs from './example/progressbar-docs.vue'
 import radioDocs from './example/radioDocs.vue'
@@ -84,7 +84,6 @@ import typeaheadDocs from './example/typeaheadDocs.vue'
 export default {
   components: {
     affixSidebar,
-    navbarHeader,
     gettingStarted,
     accordionDocs,
     affixDocs,
@@ -99,6 +98,7 @@ export default {
     formGroupDocs,
     inputDocs,
     modalDocs,
+    navbarDocs,
     popoverDocs,
     progressbarDocs,
     radioDocs,
