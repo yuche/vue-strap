@@ -29,12 +29,12 @@
         <li v-if="required&&!clearButton"><a @mousedown.prevent="clear() && blur()">{{ placeholder || text.notSelected }}</a></li>
         <li v-for="option in options | filterBy searchValue" :id="option.value||option">
           <a @mousedown.prevent="select(option.value||option)">
-            {{ option.label||option }}
+            <span v-html="option.label||option"></span>
             <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option.value||option)"></span>
           </a>
         </li>
       </template>
-      <slot v-else></slot>
+      <slot></slot>
       <div v-if="showNotify && !closeOnSelect" class="notify in" transition="fadein">{{limitText}}</div>
     </ul>
     <div v-if="showNotify && closeOnSelect" class="notify out" transition="fadein"><div>{{limitText}}</div></div>
@@ -285,6 +285,7 @@ export default {
     }
   },
   created () {
+    this._select = true
     if (this.value === undefined || !this.parent) { this.value = null }
     if (!this.multiple && this.value instanceof Array) {
       this.value = this.value.shift()
