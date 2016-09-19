@@ -44,7 +44,11 @@
             </div>
           </button-group>
         </div>
-        <bs-input name="textarea" label="Textarea" type="textarea" :icon="check.icon" :enter-submit="check.enterSubmit" no-validate></bs-input>
+        <bs-input name="textarea" label="Textarea" type="textarea" :icon="check.icon" :enter-submit="check.enterSubmit" no-validate
+          @focus="event = 'focused'"
+          @blur="event = 'blured'"
+        ></bs-input>
+        <pre> Test event on textarea: {{event}}</pre>
       </form>
     </div>
     <doc-code language="markup">
@@ -61,7 +65,7 @@
         icon
       ></bs-input>
       <bs-input required label="Match value" type="password" :match="input"></bs-input>
-      <bs-input label="Textarea" type="textarea" no-validate></bs-input>
+      <bs-input label="Textarea" type="textarea" no-validate @focus="event = 'focused'" @blur="event = 'blured'"></bs-input>
     </doc-code>
     <doc-code language="javascript">
       mask: function (value) {
@@ -161,12 +165,6 @@
         <p>Disable validations (don't affect masking).</p>
       </div>
       <div>
-        <p>onfocus</p>
-        <p><code>Function</code></p>
-        <p><code>null</code></p>
-        <p>A callable function that trigger when focus the input.</p>
-      </div>
-      <div>
         <p>pattern</p>
         <p><code>String</code> or <code>Function</code></p>
         <p><code>null</code></p>
@@ -223,14 +221,12 @@ export default {
       check: {
         label:true
       },
+      event: null,
       input: null,
       match: null
     }
   },
   methods: {
-    focus () {
-      alert('focus')
-    },
     mask (value) {
       return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\W/g,'')
     }

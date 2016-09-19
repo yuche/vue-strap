@@ -5757,7 +5757,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      coerce: _utils.coerce.boolean,
 	      default: false
 	    },
-	    onfocus: null,
 	    pattern: null,
 	    placeholder: {
 	      type: String,
@@ -5926,12 +5925,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    (0, _NodeList2.default)(this.$els.input).on('change keypress keydown keyup', function () {
 	      return _this2.eval();
-	    }).on('blur', function () {
+	    }).on('focus', function (e) {
+	      return _this2.$emit('focus', e);
+	    }).on('blur', function (e) {
 	      if (!_this2.noValidate) {
 	        _this2.valid = _this2.validate();
 	      }
-	    }).on('focus', function (e) {
-	      if (_this2.onfocus instanceof Function) _this2.onfocus.call(_this2, e);
+	      _this2.$emit('blur', e);
 	    });
 	  },
 	  beforeDestroy: function beforeDestroy() {
