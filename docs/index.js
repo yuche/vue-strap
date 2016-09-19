@@ -6,6 +6,7 @@ require('./js/showLanguage')
 import $ from 'src/utils/NodeList.js'
 import bodyDocs from './bodyDocs.vue'
 
+Vue.config.devtools = true
 Vue.config.debug = true
 
 new Vue({
