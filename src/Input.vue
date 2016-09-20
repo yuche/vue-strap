@@ -232,7 +232,9 @@ export default {
       return ~['', null, undefined].indexOf(value) || value instanceof Function ? undefined : value
     },
     focus () {
-      this.$els.input.focus()
+      if (this.editable) {
+        this.$els.input.focus()
+      }
     },
     eval () {
       let value = (this.value || '').trim()

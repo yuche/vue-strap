@@ -5866,7 +5866,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return ~['', null, undefined].indexOf(value) || value instanceof Function ? undefined : value;
 	    },
 	    focus: function focus() {
-	      this.$els.input.focus();
+	      if (this.editable) {
+	        this.$els.input.focus();
+	      }
 	    },
 	    eval: function _eval() {
 	      var _this = this;
