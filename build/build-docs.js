@@ -11480,20 +11480,24 @@
 	  ready: function ready() {
 	    var _this2 = this;
 	
-	    (0, _NodeList2.default)(this.$els.input).on('change keypress keydown keyup', function () {
-	      return _this2.eval();
-	    }).on('focus', function (e) {
-	      return _this2.$emit('focus', e);
-	    }).on('blur', function (e) {
-	      if (_this2.canValidate) {
-	        _this2.valid = _this2.validate();
-	      }
-	      _this2.$emit('blur', e);
-	    });
+	    if (this.editable) {
+	      (0, _NodeList2.default)(this.$els.input).on('change keypress keydown keyup', function () {
+	        return _this2.eval();
+	      }).on('focus', function (e) {
+	        return _this2.$emit('focus', e);
+	      }).on('blur', function (e) {
+	        if (_this2.canValidate) {
+	          _this2.valid = _this2.validate();
+	        }
+	        _this2.$emit('blur', e);
+	      });
+	    }
 	  },
 	  beforeDestroy: function beforeDestroy() {
 	    if (this._parent) this._parent.children.$remove(this);
-	    (0, _NodeList2.default)(this.$els.input).off();
+	    if (this.editable) {
+	      (0, _NodeList2.default)(this.$els.input).off();
+	    }
 	  }
 	};
 	// </script>
