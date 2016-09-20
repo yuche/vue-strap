@@ -19,6 +19,7 @@
               :required="check.required"
               :clear-button="check.clearButton"
               :value.sync="input"
+              :editable="check.editable"
             ></bs-input>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -34,6 +35,7 @@
               <p><checkbox :checked.sync="check.error">error</checkbox></p>
               <p><checkbox :checked.sync="check.icon">icon</checkbox></p>
               <p><checkbox :checked.sync="check.enterSubmit">enterSubmit</checkbox></p>
+              <p><checkbox :checked.sync="check.editable">editable</checkbox></p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
               <p><checkbox :checked.sync="check.mask">mask</checkbox></p>
@@ -213,7 +215,8 @@ export default {
   data () {
     return {
       check: {
-        label:true
+        label:true,
+        editable:true
       },
       event: null,
       input: null,

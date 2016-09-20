@@ -1,25 +1,41 @@
 <template>
   <div class="form-group" @click="focus()" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
     <slot name="label"><label v-if="label" class="control-label">{{label}}</label></slot>
-    <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
-      :cols="cols"
-      :rows="rows"
-      :name="name"
-      :title="attr(title)"
-      :readonly="readonly"
-      :required="required"
-      :disabled="disabled"
-      :maxlength="maxlength"
-      :placeholder="placeholder"
-    ></textarea>
-    <template v-else>
-      <div v-if="slots.before||slots.after" class="input-group">
-        <slot name="before"></slot>
-        <input class="form-control" v-el:input v-model="value"
+    <div class="input" v-if="editable">
+      <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
+        :cols="cols"
+        :rows="rows"
+        :name="name"
+        :title="attr(title)"
+        :readonly="readonly"
+        :required="required"
+        :disabled="disabled"
+        :maxlength="maxlength"
+        :placeholder="placeholder"
+      ></textarea>
+      <template v-else>
+        <div v-if="slots.before||slots.after" class="input-group">
+          <slot name="before"></slot>
+          <input class="form-control" v-el:input v-model="value"
+            :name="name"
+            :max="attr(max)"
+            :min="attr(min)"
+            :step="step"
+            :type="type"
+            :title="attr(title)"
+            :readonly="readonly"
+            :required="required"
+            :disabled="disabled"
+            :maxlength="maxlength"
+            :placeholder="placeholder"
+            @keyup.enter="enterSubmit&&submit()"
+          />
+          <slot name="after"></slot>
+        </div>
+        <input v-else class="form-control" v-el:input v-model="value"
           :name="name"
           :max="attr(max)"
           :min="attr(min)"
-          :step="step"
           :type="type"
           :title="attr(title)"
           :readonly="readonly"
@@ -29,26 +45,17 @@
           :placeholder="placeholder"
           @keyup.enter="enterSubmit&&submit()"
         />
-        <slot name="after"></slot>
-      </div>
-      <input v-else class="form-control" v-el:input v-model="value"
-        :name="name"
-        :max="attr(max)"
-        :min="attr(min)"
-        :type="type"
-        :title="attr(title)"
-        :readonly="readonly"
-        :required="required"
-        :disabled="disabled"
-        :maxlength="maxlength"
-        :placeholder="placeholder"
-        @keyup.enter="enterSubmit&&submit()"
-      />
-    </template>
-    <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
-    <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
-    <div v-if="showHelp" class="help-block">{{help}}</div>
-    <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
+      </template>
+      <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
+      <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
+      <div v-if="showHelp" class="help-block">{{help}}</div>
+      <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
+    </div>
+    <div v-if="!editable">
+      <slot name="wrapNoEditable">
+        {{ value }}
+      </slot>
+    </div>
   </div>
 </template>
 
@@ -75,6 +82,11 @@ export default {
       type: Boolean,
       coerce: coerce.boolean,
       default: false
+    },
+    editable: {
+      type: Boolean,
+      coerce: coerce.boolean,
+      default: true
     },
     enterSubmit: {
       type: Boolean,
