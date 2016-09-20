@@ -44,7 +44,7 @@
             </div>
           </button-group>
         </div>
-        <bs-input name="textarea" label="Textarea" type="textarea" :icon="check.icon" :enter-submit="check.enterSubmit" no-validate
+        <bs-input name="textarea" label="Textarea" type="textarea" :icon="check.icon" :enter-submit="check.enterSubmit"
           @focus="event = 'focused'"
           @blur="event = 'blured'"
         ></bs-input>
@@ -65,7 +65,7 @@
         icon
       ></bs-input>
       <bs-input required label="Match value" type="password" :match="input"></bs-input>
-      <bs-input label="Textarea" type="textarea" no-validate @focus="event = 'focused'" @blur="event = 'blured'"></bs-input>
+      <bs-input label="Textarea" type="textarea" @focus="event = 'focused'" @blur="event = 'blured'"></bs-input>
     </doc-code>
     <doc-code language="javascript">
       mask: function (value) {
@@ -157,12 +157,6 @@
         <p><code>String</code></p>
         <p><code>null</code></p>
         <p></p>
-      </div>
-      <div>
-        <p>no-validate</p>
-        <p><code>Boolean</code></p>
-        <p><code>false</code></p>
-        <p>Disable validations (don't affect masking).</p>
       </div>
       <div>
         <p>pattern</p>
