@@ -5578,43 +5578,75 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//     <slot name="label"><label v-if="label" class="control-label">{{label}}</label></slot>
 	
-	//     <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
+	//     <div class="input" v-if="editable">
 	
-	//       :cols="cols"
+	//       <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
 	
-	//       :rows="rows"
+	//         :cols="cols"
 	
-	//       :name="name"
+	//         :rows="rows"
 	
-	//       :title="attr(title)"
+	//         :name="name"
 	
-	//       :readonly="readonly"
+	//         :title="attr(title)"
 	
-	//       :required="required"
+	//         :readonly="readonly"
 	
-	//       :disabled="disabled"
+	//         :required="required"
 	
-	//       :maxlength="maxlength"
+	//         :disabled="disabled"
 	
-	//       :placeholder="placeholder"
+	//         :maxlength="maxlength"
 	
-	//     ></textarea>
+	//         :placeholder="placeholder"
 	
-	//     <template v-else>
+	//       ></textarea>
 	
-	//       <div v-if="slots.before||slots.after" class="input-group">
+	//       <template v-else>
 	
-	//         <slot name="before"></slot>
+	//         <div v-if="slots.before||slots.after" class="input-group">
 	
-	//         <input class="form-control" v-el:input v-model="value"
+	//           <slot name="before"></slot>
+	
+	//           <input class="form-control" v-el:input v-model="value"
+	
+	//             :name="name"
+	
+	//             :max="attr(max)"
+	
+	//             :min="attr(min)"
+	
+	//             :step="step"
+	
+	//             :type="type"
+	
+	//             :title="attr(title)"
+	
+	//             :readonly="readonly"
+	
+	//             :required="required"
+	
+	//             :disabled="disabled"
+	
+	//             :maxlength="maxlength"
+	
+	//             :placeholder="placeholder"
+	
+	//             @keyup.enter="enterSubmit&&submit()"
+	
+	//           />
+	
+	//           <slot name="after"></slot>
+	
+	//         </div>
+	
+	//         <input v-else class="form-control" v-el:input v-model="value"
 	
 	//           :name="name"
 	
 	//           :max="attr(max)"
 	
 	//           :min="attr(min)"
-	
-	//           :step="step"
 	
 	//           :type="type"
 	
@@ -5634,45 +5666,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//         />
 	
-	//         <slot name="after"></slot>
+	//       </template>
 	
-	//       </div>
+	//       <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
 	
-	//       <input v-else class="form-control" v-el:input v-model="value"
+	//       <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
 	
-	//         :name="name"
+	//       <div v-if="showHelp" class="help-block">{{help}}</div>
 	
-	//         :max="attr(max)"
+	//       <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
 	
-	//         :min="attr(min)"
+	//     </div>
 	
-	//         :type="type"
+	//     <div v-if="!editable">
 	
-	//         :title="attr(title)"
+	//       <slot name="wrapNoEditable">
 	
-	//         :readonly="readonly"
+	//         {{ value }}
 	
-	//         :required="required"
+	//       </slot>
 	
-	//         :disabled="disabled"
-	
-	//         :maxlength="maxlength"
-	
-	//         :placeholder="placeholder"
-	
-	//         @keyup.enter="enterSubmit&&submit()"
-	
-	//       />
-	
-	//     </template>
-	
-	//     <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
-	
-	//     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
-	
-	//     <div v-if="showHelp" class="help-block">{{help}}</div>
-	
-	//     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
+	//     </div>
 	
 	//   </div>
 	
@@ -5699,6 +5713,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      type: Boolean,
 	      coerce: _utils.coerce.boolean,
 	      default: false
+	    },
+	    editable: {
+	      type: Boolean,
+	      coerce: _utils.coerce.boolean,
+	      default: true
 	    },
 	    enterSubmit: {
 	      type: Boolean,
@@ -5985,7 +6004,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 144 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{validate:canValidate,'has-feedback':icon,'has-error':canValidate&amp;&amp;valid===false,'has-success':canValidate&amp;&amp;valid}\" _v-652ad7b9=\"\">\n    <slot name=\"label\" _v-652ad7b9=\"\"><label v-if=\"label\" class=\"control-label\" _v-652ad7b9=\"\">{{label}}</label></slot>\n    <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-652ad7b9=\"\"></textarea>\n    <template v-else=\"\" _v-652ad7b9=\"\">\n      <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-652ad7b9=\"\">\n        <slot name=\"before\" _v-652ad7b9=\"\"></slot>\n        <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :step=\"step\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-652ad7b9=\"\">\n        <slot name=\"after\" _v-652ad7b9=\"\"></slot>\n      </div>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-652ad7b9=\"\">\n    </template>\n    <span v-if=\"clearButton &amp;&amp; value\" class=\"close\" @click=\"value = ''\" _v-652ad7b9=\"\">×</span>\n    <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-652ad7b9=\"\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\" _v-652ad7b9=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" _v-652ad7b9=\"\">{{errorText}}</div>\n  </div>";
+	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{validate:canValidate,'has-feedback':icon,'has-error':canValidate&amp;&amp;valid===false,'has-success':canValidate&amp;&amp;valid}\" _v-652ad7b9=\"\">\n    <slot name=\"label\" _v-652ad7b9=\"\"><label v-if=\"label\" class=\"control-label\" _v-652ad7b9=\"\">{{label}}</label></slot>\n    <div class=\"input\" v-if=\"editable\" _v-652ad7b9=\"\">\n      <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-652ad7b9=\"\"></textarea>\n      <template v-else=\"\" _v-652ad7b9=\"\">\n        <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-652ad7b9=\"\">\n          <slot name=\"before\" _v-652ad7b9=\"\"></slot>\n          <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :step=\"step\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-652ad7b9=\"\">\n          <slot name=\"after\" _v-652ad7b9=\"\"></slot>\n        </div>\n        <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-652ad7b9=\"\">\n      </template>\n      <span v-if=\"clearButton &amp;&amp; value\" class=\"close\" @click=\"value = ''\" _v-652ad7b9=\"\">×</span>\n      <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-652ad7b9=\"\"></span>\n      <div v-if=\"showHelp\" class=\"help-block\" _v-652ad7b9=\"\">{{help}}</div>\n      <div v-if=\"showError\" class=\"help-block with-errors\" _v-652ad7b9=\"\">{{errorText}}</div>\n    </div>\n    <div v-if=\"!editable\" _v-652ad7b9=\"\">\n      <slot name=\"wrapNoEditable\" _v-652ad7b9=\"\">\n        {{ value }}\n      </slot>\n    </div>\n  </div>";
 
 /***/ },
 /* 145 */
