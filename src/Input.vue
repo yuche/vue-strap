@@ -1,6 +1,6 @@
 <template>
   <div class="form-group" @click="focus()" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
-    <slot name="label"><label v-if="label" class="control-label">{{label}}</label></slot>
+    <slot name="label"><label v-if="label" class="control-label"><span v-if="required" class="label-required text-danger">*</span>{{label}}</label></slot>
     <div class="input" v-if="editable">
       <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
         :cols="cols"
