@@ -1,10 +1,11 @@
 <template>
-  <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true,validate:!noValidate}">
+  <div class="form-group" @click="focus()" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
     <slot name="label"><label v-if="label" class="control-label">{{label}}</label></slot>
     <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
       :cols="cols"
       :rows="rows"
       :name="name"
+      :title="attr(title)"
       :readonly="readonly"
       :required="required"
       :disabled="disabled"
@@ -16,9 +17,11 @@
         <slot name="before"></slot>
         <input class="form-control" v-el:input v-model="value"
           :name="name"
+          :max="attr(max)"
+          :min="attr(min)"
+          :step="step"
           :type="type"
-          :pattern="textPattern"
-          :title="title"
+          :title="attr(title)"
           :readonly="readonly"
           :required="required"
           :disabled="disabled"
@@ -30,9 +33,10 @@
       </div>
       <input v-else class="form-control" v-el:input v-model="value"
         :name="name"
+        :max="attr(max)"
+        :min="attr(min)"
         :type="type"
-        :pattern="textPattern"
-        :title="title"
+        :title="attr(title)"
         :readonly="readonly"
         :required="required"
         :disabled="disabled"
@@ -104,9 +108,19 @@ export default {
       default: navigator.language
     },
     mask: null,
+    max: {
+      type: String,
+      coerce: coerce.string,
+      default: null
+    },
     maxlength: {
       type: Number,
       coerce: coerce.number,
+      default: null
+    },
+    min: {
+      type: String,
+      coerce: coerce.string,
       default: null
     },
     minlength: {
@@ -118,12 +132,10 @@ export default {
       type: String,
       default: null
     },
-    noValidate: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
+    pattern: {
+      coerce: coerce.pattern,
+      default: null
     },
-    pattern: null,
     placeholder: {
       type: String,
       default: null
@@ -142,6 +154,11 @@ export default {
       type: Number,
       coerce: coerce.number,
       default: 3
+    },
+    step: {
+      type: Number,
+      coerce: coerce.number,
+      default: null
     },
     type: {
       type: String,
@@ -163,12 +180,6 @@ export default {
     slots () {
       return this._slotContents || {}
     },
-    bsForm () {
-      return true
-    },
-    input () {
-      return true
-    },
     text () {
       return translations(this.lang)
     },
@@ -185,8 +196,11 @@ export default {
       if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')
       return error.join(' ')
     },
-    textPattern () {
-      return typeof this.pattern === 'string' ? this.pattern : null
+    nativeValidate () {
+      return this.$els.input.checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max)
+    },
+    canValidate () {
+      return !this.disabled && !this.readonly && (this.required || this.pattern || this.nativeValidate || this.match !== null)
     },
     title () {
       return this.errorText || this.help || ''
@@ -196,35 +210,25 @@ export default {
     match (val) {
       this.eval()
     },
-    noValidate: {
-      immediate: true,
-      handler (val) {
-        if (this.$parent._formGroup) {
-          if (val && !~this.$parent.children.indexOf(this)) {
-            this.$parent.children.push(this)
-          }
-          if (!val && ~this.$parent.children.indexOf(this)) {
-            this.$parent.children.$remove(this)
-          }
-        }
-      }
-    },
     valid (val, old) {
       if (val === old) { return }
       this._parent && this._parent.validate()
     }
   },
   methods: {
+    attr (value) {
+      return ~['', null, undefined].indexOf(value) || value instanceof Function ? undefined : value
+    },
     focus () {
       this.$els.input.focus()
     },
     eval () {
-      let value = this.value || ''
+      let value = (this.value || '').trim()
       if (this.mask instanceof Function) value = this.mask(value)
-      if (this.value !== value) this.value = value
+      if (this.value !== value) { this.value = value }
       if (this.timeout) clearTimeout(this.timeout)
-      if (this.noValidate) {
-        if (this.valid !== null) { this.valid = null }
+      if (!this.canValidate) {
+        this.valid = true
       } else {
         this.timeout = setTimeout(() => {
           this.valid = this.validate()
@@ -246,18 +250,16 @@ export default {
       }
     },
     validate () {
+      if (!this.canValidate) { return true }
       let value = (this.value || '').trim()
       if (!value) { return !this.required }
-      if (this.match!==null && this.match !== value) { return false }
+      if (this.match!==null) { return this.match === value }
       if (value.length < this.minlength) { return false }
-      let valid = true
-      if (this.$els.input.checkValidity && !this.$els.input.checkValidity()){ return false }
-      if (this.pattern instanceof Function) valid = this.pattern(this.value)
-      if (typeof this.pattern === 'string') {
-        let regex = new RegExp(this.pattern)
-        valid = regex.test(this.value)
+      if (this.nativeValidate && !this.$els.input.checkValidity()){ return false }
+      if (this.pattern) {
+        return this.pattern instanceof Function ? this.pattern(this.value) : this.pattern.test(this.value)
       }
-      return valid
+      return true
     }
   },
   created () {
@@ -270,7 +272,7 @@ export default {
   },
   ready () {
     $(this.$els.input).on('change keypress keydown keyup', () => this.eval()).on('focus', e => this.$emit('focus', e)).on('blur', e => {
-      if (!this.noValidate) { this.valid = this.validate() }
+      if (this.canValidate) { this.valid = this.validate() }
       this.$emit('blur', e)
     })
   },
