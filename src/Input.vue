@@ -1,7 +1,28 @@
 <template>
   <div class="form-group" @click="focus()" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
-    <slot name="label"><label v-if="label" class="control-label"><span v-if="required" class="label-required text-danger">*</span>{{label}}</label></slot>
-    <div class="input" v-show="editable">
+    <slot name="label"><label v-if="label" class="control-label">{{label}}</label></slot>
+    <div v-if="type!='textarea'&&(slots.before||slots.after)" class="input-group">
+      <slot name="before"></slot>
+      <input class="form-control" v-el:input v-model="value"
+        :name="name"
+        :max="attr(max)"
+        :min="attr(min)"
+        :step="step"
+        :type="type"
+        :title="attr(title)"
+        :readonly="readonly"
+        :required="required"
+        :disabled="disabled"
+        :maxlength="maxlength"
+        :placeholder="placeholder"
+        @keyup.enter="enterSubmit&&submit()"
+      />
+      <div v-if="clearButton && value" class="closebutton">
+        <span class="close" @click="value = ''">&times;</span>
+      </div>
+      <slot name="after"></slot>
+    </div>
+    <template v-else>
       <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
         :cols="cols"
         :rows="rows"
@@ -13,49 +34,24 @@
         :maxlength="maxlength"
         :placeholder="placeholder"
       ></textarea>
-      <template v-else>
-        <div v-if="slots.before||slots.after" class="input-group">
-          <slot name="before"></slot>
-          <input class="form-control" v-el:input v-model="value"
-            :name="name"
-            :max="attr(max)"
-            :min="attr(min)"
-            :step="step"
-            :type="type"
-            :title="attr(title)"
-            :readonly="readonly"
-            :required="required"
-            :disabled="disabled"
-            :maxlength="maxlength"
-            :placeholder="placeholder"
-            @keyup.enter="enterSubmit&&submit()"
-          />
-          <slot name="after"></slot>
-        </div>
-        <input v-else class="form-control" v-el:input v-model="value"
-          :name="name"
-          :max="attr(max)"
-          :min="attr(min)"
-          :type="type"
-          :title="attr(title)"
-          :readonly="readonly"
-          :required="required"
-          :disabled="disabled"
-          :maxlength="maxlength"
-          :placeholder="placeholder"
-          @keyup.enter="enterSubmit&&submit()"
-        />
-      </template>
+      <input v-else class="form-control" v-el:input v-model="value"
+        :name="name"
+        :max="attr(max)"
+        :min="attr(min)"
+        :type="type"
+        :title="attr(title)"
+        :readonly="readonly"
+        :required="required"
+        :disabled="disabled"
+        :maxlength="maxlength"
+        :placeholder="placeholder"
+        @keyup.enter="enterSubmit&&submit()"
+      />
       <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
-      <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
-      <div v-if="showHelp" class="help-block">{{help}}</div>
-      <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
-    </div>
-    <div v-if="!editable">
-      <slot name="wrapNoEditable">
-        {{ value }}
-      </slot>
-    </div>
+    </template>
+    <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
+    <div v-if="showHelp" class="help-block">{{help}}</div>
+    <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
   </div>
 </template>
 
@@ -82,11 +78,6 @@ export default {
       type: Boolean,
       coerce: coerce.boolean,
       default: false
-    },
-    editable: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: true
     },
     enterSubmit: {
       type: Boolean,
@@ -219,6 +210,17 @@ export default {
     }
   },
   watch: {
+    disabled (val) {
+      if (val) { this._cache = this.value }
+    },
+    readonly (val) {
+      if (val) { this._cache = this.value }
+    },
+    value () {
+      if ((this.disabled || this.readonly) && this.value !== this._cache) {
+        this.value = this._cache
+      }
+    },
     match (val) {
       this.eval()
     },
@@ -232,9 +234,7 @@ export default {
       return ~['', null, undefined].indexOf(value) || value instanceof Function ? undefined : value
     },
     focus () {
-      if (this.editable) {
-        this.$els.input.focus()
-      }
+      this.$els.input.focus()
     },
     eval () {
       let value = (this.value || '').trim()
@@ -292,9 +292,7 @@ export default {
   },
   beforeDestroy () {
     if (this._parent) this._parent.children.$remove(this)
-    if (this.editable) {
-      $(this.$els.input).off()
-    }
+    $(this.$els.input).off()
   }
 }
 </script>
@@ -306,6 +304,12 @@ export default {
 label~.close {
   top: 25px;
 }
+.closebutton {
+  position: relative;
+  display: table-cell;
+  width:0;
+  z-index: 3;
+}
 .close {
   position: absolute;
   top: 0;
@@ -316,6 +320,8 @@ label~.close {
   height: 34px;
   line-height: 34px;
   text-align: center;
+}
+.closebutton>.close{
 }
 .has-feedback.has-success button.close,
 .has-feedback.has-error button.close {

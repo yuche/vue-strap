@@ -19,7 +19,6 @@
               :required="check.required"
               :clear-button="check.clearButton"
               :value.sync="input"
-              :editable="check.editable"
             ></bs-input>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -35,7 +34,6 @@
               <p><checkbox :checked.sync="check.error">error</checkbox></p>
               <p><checkbox :checked.sync="check.icon">icon</checkbox></p>
               <p><checkbox :checked.sync="check.enterSubmit">enterSubmit</checkbox></p>
-              <p><checkbox :checked.sync="check.editable">editable</checkbox></p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
               <p><checkbox :checked.sync="check.mask">mask</checkbox></p>
@@ -46,6 +44,12 @@
             </div>
           </button-group>
         </div>
+        <bs-input label="Advanced" type="text" clear-button>
+          <span slot="before" class="input-group-addon">before</span>
+          <span slot="before" class="input-group-addon">before2</span>
+          <span slot="after" class="input-group-addon">after</span>
+          <span slot="after" class="input-group-addon">after2</span>
+        </bs-input>
         <bs-input name="textarea" label="Textarea" type="textarea" :icon="check.icon" :enter-submit="check.enterSubmit"
           @focus="event = 'focused'"
           @blur="event = 'blured'"
@@ -202,7 +206,6 @@ import docCode from './docCode.vue'
 import bsInput from 'src/Input.vue'
 import buttonGroup from 'src/buttonGroup.vue'
 import checkbox from 'src/Checkbox.vue'
-
 export default {
   components: {
     docSection,
@@ -215,8 +218,7 @@ export default {
   data () {
     return {
       check: {
-        label:true,
-        editable:true
+        label:true
       },
       event: null,
       input: null,
