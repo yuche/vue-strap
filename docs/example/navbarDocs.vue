@@ -94,22 +94,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.animated {
-    -webkit-animation-duration: 3s;
-    animation-duration: 3s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    animation-iteration-count: infinite
-}
-@keyframes shake {
-    0%, 100% {transform: translateX(0);}
-    10%, 30%, 50%, 70%, 90% {transform: translateY(-5px);}
-    20%, 40%, 60%, 80% {transform: translateY(5px);}
-}
-.shake {
-    -webkit-animation-name: shake;
-    animation-name: shake;
-}
-</style>
