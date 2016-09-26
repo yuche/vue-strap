@@ -205,7 +205,7 @@ export default {
       return error.join(' ')
     },
     nativeValidate () {
-      return this.$els.input.checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max)
+      return this.$els && this.$els.input && this.$els.input.checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max)
     },
     canValidate () {
       return !this.disabled && !this.readonly && (this.required || this.pattern || this.nativeValidate || this.match !== null)
