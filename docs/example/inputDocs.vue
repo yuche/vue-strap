@@ -69,8 +69,8 @@
     </doc-code>
     <doc-code language="javascript">
       mask: function (value) {
-        // change to lowercase, remove first non-letter and all other unsupported characters
-        return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\W/g,'');
+        // change to lowercase, remove up to the first letter, and then remove all other unsuported characters
+        return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/[^a-z0-9]/g,'');
       }
     </doc-code>
     <doc-options>
@@ -141,6 +141,12 @@
         <p>Mask function that receive and edit the value.</p>
       </div>
       <div>
+        <p>mask-delay</p>
+        <p><code>Number</code></p>
+        <p><code>100</code></p>
+        <p>Delay time before apply the mask.</p>
+      </div>
+      <div>
         <p>maxlength</p>
         <p><code>Number</code></p>
         <p><code>null</code></p>
@@ -186,7 +192,7 @@
         <p>validation-delay</p>
         <p><code>Number</code></p>
         <p><code>250</code></p>
-        <p></p>
+        <p>Delay time before apply the validation.</p>
       </div>
     </doc-options>
 
@@ -213,7 +219,14 @@ export default {
   data () {
     return {
       check: {
-        label:true
+        clearButton:true,
+        error:true,
+        icon:true,
+        label:true,
+        mask:true,
+        minlength:true,
+        placeholder:true,
+        required:true
       },
       event: null,
       input: null,
@@ -222,7 +235,7 @@ export default {
   },
   methods: {
     mask (value) {
-      return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/\W/g,'')
+      return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/[^a-z0-9]/g,'')
     }
   }
 }

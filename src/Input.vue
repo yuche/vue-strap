@@ -11,6 +11,7 @@
       :disabled="disabled"
       :maxlength="maxlength"
       :placeholder="placeholder"
+      @blur="onblur" @focus="onfocus"
     ></textarea>
     <template v-else>
       <div v-if="slots.before||slots.after" class="input-group">
@@ -28,6 +29,7 @@
           :maxlength="maxlength"
           :placeholder="placeholder"
           @keyup.enter="enterSubmit&&submit()"
+          @blur="onblur" @focus="onfocus"
         />
         <slot name="after"></slot>
       </div>
@@ -43,6 +45,7 @@
         :maxlength="maxlength"
         :placeholder="placeholder"
         @keyup.enter="enterSubmit&&submit()"
+        @blur="onblur" @focus="onfocus"
       />
     </template>
     <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
@@ -108,6 +111,11 @@ export default {
       default: navigator.language
     },
     mask: null,
+    maskDelay: {
+      type: Number,
+      coerce: coerce.number,
+      default: 100
+    },
     max: {
       type: String,
       coerce: coerce.string,
@@ -213,6 +221,21 @@ export default {
     valid (val, old) {
       if (val === old) { return }
       this._parent && this._parent.validate()
+    },
+    value (val, old) {
+      if (val !== old) {
+        if (this.mask instanceof Function) {
+          val = this.mask(val || '')
+          if (this.value !== val) {
+            if (this._timeout.mask) clearTimeout(this._timeout.mask)
+            this._timeout.mask = setTimeout(() => {
+              this.value = val
+              this.$els.input.value = val
+            }, this.maskDelay)
+          }
+        }
+        this.eval()
+      }
     }
   },
   methods: {
@@ -223,18 +246,22 @@ export default {
       this.$els.input.focus()
     },
     eval () {
-      let value = (this.value || '').trim()
-      if (this.mask instanceof Function) value = this.mask(value)
-      if (this.value !== value) { this.value = value }
-      if (this.timeout) clearTimeout(this.timeout)
+      if (this._timeout.eval) clearTimeout(this._timeout.eval)
       if (!this.canValidate) {
         this.valid = true
       } else {
-        this.timeout = setTimeout(() => {
+        this._timeout.eval = setTimeout(() => {
           this.valid = this.validate()
-          this.timeout = null
+          this._timeout.eval = null
         }, this.validationDelay)
       }
+    },
+    onblur (e) {
+      if (this.canValidate) { this.valid = this.validate() }
+      this.$emit('blur', e)
+    },
+    onfocus (e) {
+      this.$emit('focus', e)
     },
     submit () {
       if (this.$parent._formGroup) {
@@ -263,6 +290,7 @@ export default {
     }
   },
   created () {
+    this._timeout = {}
     let parent = this.$parent
     while (parent && !parent._formGroup) { parent = parent.$parent }
     if (parent && parent._formGroup) {
@@ -270,15 +298,8 @@ export default {
       this._parent = parent
     }
   },
-  ready () {
-    $(this.$els.input).on('change keypress keydown keyup', () => this.eval()).on('focus', e => this.$emit('focus', e)).on('blur', e => {
-      if (this.canValidate) { this.valid = this.validate() }
-      this.$emit('blur', e)
-    })
-  },
   beforeDestroy () {
     if (this._parent) this._parent.children.$remove(this)
-    $(this.$els.input).off()
   }
 }
 </script>
@@ -301,8 +322,7 @@ label~.close {
   line-height: 34px;
   text-align: center;
 }
-.has-feedback.has-success button.close,
-.has-feedback.has-error button.close {
-  right:20px;
+.has-feedback .close {
+  right:18px;
 }
 </style>
