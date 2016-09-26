@@ -87,11 +87,11 @@
     <hr />
     <h4>Ajax data and parent dependency:</h4>
     <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>
-    <v-select url="docs/data.json" :value.sync="ajax.value" clear-button v-ref:ajax></v-select>
-    <v-select url="docs/data.json" multiple :parent="ajax.value"></v-select>
+    <v-select url="docs/data.json" options-label="text" :value.sync="ajax.value" clear-button v-ref:ajax></v-select>
+    <v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value"></v-select>
     <doc-code language="markup">
-      <v-select url="docs/data.json" :value.sync="ajax.value" clear-button></v-select>
-      <v-select url="docs/data.json" multiple :parent="ajax.value"></v-select>
+      <v-select url="docs/data.json" options-label="text" :value.sync="ajax.value" clear-button></v-select>
+      <v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value"></v-select>
     </doc-code>
     <p>Ajax response:</p>
     <pre v-html="$refs.ajax.options|json"></pre>
@@ -108,6 +108,18 @@
         <p><code>String</code></p>
         <p>Browser language</p>
         <p><abbr title="ISO 639-1 code"><a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>
+      </div>
+      <div>
+        <p>options-label</p>
+        <p><code>String</code></p>
+        <p><code>label</code></p>
+        <p>Define the value in the data used as label.</p>
+      </div>
+      <div>
+        <p>options-value</p>
+        <p><code>String</code></p>
+        <p><code>value</code></p>
+        <p>Define the value in the data used as value.</p>
       </div>
       <div>
         <p>placeholder</p>
