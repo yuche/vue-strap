@@ -6584,10 +6584,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (!this.$parent.options) {
 	        this.$parent.options = [];
 	      }
-	      this.$parent.options.push({
-	        value: this.value,
-	        label: this.$els.v.innerHTML
-	      });
+	      var el = {};
+	      el[this.$parent.optionsLabel] = this.$els.v.innerHTML;
+	      el[this.$parent.optionsValue] = this.value;
+	      this.$parent.options.push(el);
 	      this.loading = false;
 	    } else {
 	      console.warn('options only work inside a select component');
@@ -7637,7 +7637,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//       <option v-if="required" value=""></option>
 	
-	//       <option v-for="option in options" :value="option.value||option">{{ option.label||option }}</option>
+	//       <option v-for="option in options" :value="option[optionsValue]||option">{{ option[optionsLabel]||option }}</option>
 	
 	//     </select>
 	
@@ -7683,13 +7683,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//         <li v-if="required&&!clearButton"><a @mousedown.prevent="clear() && blur()">{{ placeholder || text.notSelected }}</a></li>
 	
-	//         <li v-for="option in options | filterBy searchValue" :id="option.value||option">
+	//         <li v-for="option in options | filterBy searchValue" :id="option[optionsValue]||option">
 	
-	//           <a @mousedown.prevent="select(option.value||option)">
+	//           <a @mousedown.prevent="select(option[optionsValue]||option)">
 	
-	//             <span v-html="option.label||option"></span>
+	//             <span v-html="option[optionsLabel]||option"></span>
 	
-	//             <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option.value||option)"></span>
+	//             <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option[optionsValue]||option)"></span>
 	
 	//           </a>
 	
@@ -7765,6 +7765,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      type: String,
 	      default: null
 	    },
+	    optionsLabel: {
+	      type: String,
+	      default: 'label'
+	    },
+	    optionsValue: {
+	      type: String,
+	      default: 'value'
+	    },
 	    parent: {
 	      default: true
 	    },
@@ -7799,10 +7807,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    url: {
 	      type: String,
 	      default: null
-	      // },
-	      // cache: { // save old data -- not working yet (experimental)
-	      //   type: Array,
-	      //   default: true
 	    }
 	  },
 	  data: function data() {
@@ -7837,7 +7841,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                return true;
 	              }
 	            })) {
-	              foundItems.push(option.label || option);
+	              foundItems.push(option[this.optionsLabel] || option);
 	            }
 	          }
 	        }
@@ -7879,16 +7883,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  watch: {
 	    options: function options(_options) {
+	      var _this = this;
+	
 	      var changed = false;
 	      if (_options instanceof Array && _options.length) {
-	        for (var i in _options) {
-	          if (!(_options[i] instanceof Object)) {
-	            _options[i] = { label: _options[i], value: _options[i] };
+	        _options.map(function (el) {
+	          if (!(el instanceof Object)) {
+	            var obj = {};
+	            obj[_this.optionsLabel] = el;
+	            obj[_this.optionsValue] = el;
 	            changed = true;
+	            return obj;
 	          }
-	        }
+	          return el;
+	        });
 	      }
-	      if (changed) this.options = _options;
+	      if (changed) {
+	        this.options = _options;
+	      }
 	    },
 	    show: function show(val) {
 	      if (val) {
@@ -7900,14 +7912,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.update();
 	    },
 	    value: function value(val) {
-	      var _this = this;
+	      var _this2 = this;
 	
 	      if (this.value instanceof Array && val.length > this.limit) {
 	        this.showNotify = true;
 	        if (timeout.limit) clearTimeout(timeout.limit);
 	        timeout.limit = setTimeout(function () {
 	          timeout.limit = false;
-	          _this.showNotify = false;
+	          _this2.showNotify = false;
 	        }, 1500);
 	      }
 	      this.checkValue();
@@ -7971,7 +7983,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.show = !this.show;
 	    },
 	    update: function update() {
-	      var _this2 = this;
+	      var _this3 = this;
 	
 	      if (!this.url) return;
 	      this.loading = true;
@@ -7985,7 +7997,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          for (var _iterator2 = (0, _getIterator3.default)(data), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	            var opc = _step2.value;
 	
-	            if (opc.value !== undefined && opc.label !== undefined) options.push(opc);
+	            if (opc[_this3.optionsValue] !== undefined && opc[_this3.optionsLabel] !== undefined) options.push(opc);
 	          }
 	        } catch (err) {
 	          _didIteratorError2 = true;
@@ -8002,13 +8014,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	          }
 	        }
 	
-	        _this2.options = options;
+	        _this3.options = options;
 	        if (!options.length) {
-	          _this2.value = _this2.value instanceof Array ? [] : null;
+	          _this3.value = _this3.value instanceof Array ? [] : null;
 	        }
 	      }).always(function () {
-	        _this2.loading = false;
-	        _this2.checkValue();
+	        _this3.loading = false;
+	        _this3.checkValue();
 	      });
 	    },
 	    validate: function validate() {
@@ -8035,10 +8047,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  ready: function ready() {
-	    var _this3 = this;
+	    var _this4 = this;
 	
 	    (0, _NodeList2.default)(this.$els.select).onBlur(function (e) {
-	      _this3.show = false;
+	      _this4.show = false;
 	    });
 	  },
 	  beforeDestroy: function beforeDestroy() {
@@ -8633,7 +8645,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 198 */
 /***/ function(module, exports) {
 
-	module.exports = "<div v-el:select=\"\" :class=\"{'btn-group btn-group-justified': justified, 'btn-select': !justified}\" _v-0f3bb707=\"\">\n  <slot name=\"before\" _v-0f3bb707=\"\"></slot>\n  <div :class=\"{open:show,dropdown:!justified}\" _v-0f3bb707=\"\">\n    <select v-el:sel=\"\" v-model=\"value\" v-show=\"show\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" :disabled=\"disabled\" _v-0f3bb707=\"\">\n      <option v-if=\"required\" value=\"\" _v-0f3bb707=\"\"></option>\n      <option v-for=\"option in options\" :value=\"option.value||option\" _v-0f3bb707=\"\">{{ option.label||option }}</option>\n    </select>\n    <button type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggle()\" @keyup.esc=\"show = false\" _v-0f3bb707=\"\">\n      <span class=\"btn-content\" _v-0f3bb707=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-0f3bb707=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-0f3bb707=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-0f3bb707=\"\">\n      <template v-if=\"options.length\" _v-0f3bb707=\"\">\n        <li v-if=\"canSearch\" class=\"bs-searchbox\" _v-0f3bb707=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @keyup.esc=\"show = false\" _v-0f3bb707=\"\">\n          <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\" _v-0f3bb707=\"\">×</span>\n        </li>\n        <li v-if=\"required&amp;&amp;!clearButton\" _v-0f3bb707=\"\"><a @mousedown.prevent=\"clear() &amp;&amp; blur()\" _v-0f3bb707=\"\">{{ placeholder || text.notSelected }}</a></li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value||option\" _v-0f3bb707=\"\">\n          <a @mousedown.prevent=\"select(option.value||option)\" _v-0f3bb707=\"\">\n            <span v-html=\"option.label||option\" _v-0f3bb707=\"\"></span>\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value||option)\" _v-0f3bb707=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot _v-0f3bb707=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify in\" transition=\"fadein\" _v-0f3bb707=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify out\" transition=\"fadein\" _v-0f3bb707=\"\"><div _v-0f3bb707=\"\">{{limitText}}</div></div>\n  </div>\n  <slot name=\"after\" _v-0f3bb707=\"\"></slot>\n</div>";
+	module.exports = "<div v-el:select=\"\" :class=\"{'btn-group btn-group-justified': justified, 'btn-select': !justified}\" _v-0f3bb707=\"\">\n  <slot name=\"before\" _v-0f3bb707=\"\"></slot>\n  <div :class=\"{open:show,dropdown:!justified}\" _v-0f3bb707=\"\">\n    <select v-el:sel=\"\" v-model=\"value\" v-show=\"show\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" :disabled=\"disabled\" _v-0f3bb707=\"\">\n      <option v-if=\"required\" value=\"\" _v-0f3bb707=\"\"></option>\n      <option v-for=\"option in options\" :value=\"option[optionsValue]||option\" _v-0f3bb707=\"\">{{ option[optionsLabel]||option }}</option>\n    </select>\n    <button type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggle()\" @keyup.esc=\"show = false\" _v-0f3bb707=\"\">\n      <span class=\"btn-content\" _v-0f3bb707=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-0f3bb707=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-0f3bb707=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-0f3bb707=\"\">\n      <template v-if=\"options.length\" _v-0f3bb707=\"\">\n        <li v-if=\"canSearch\" class=\"bs-searchbox\" _v-0f3bb707=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @keyup.esc=\"show = false\" _v-0f3bb707=\"\">\n          <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\" _v-0f3bb707=\"\">×</span>\n        </li>\n        <li v-if=\"required&amp;&amp;!clearButton\" _v-0f3bb707=\"\"><a @mousedown.prevent=\"clear() &amp;&amp; blur()\" _v-0f3bb707=\"\">{{ placeholder || text.notSelected }}</a></li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option[optionsValue]||option\" _v-0f3bb707=\"\">\n          <a @mousedown.prevent=\"select(option[optionsValue]||option)\" _v-0f3bb707=\"\">\n            <span v-html=\"option[optionsLabel]||option\" _v-0f3bb707=\"\"></span>\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option[optionsValue]||option)\" _v-0f3bb707=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot _v-0f3bb707=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify in\" transition=\"fadein\" _v-0f3bb707=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify out\" transition=\"fadein\" _v-0f3bb707=\"\"><div _v-0f3bb707=\"\">{{limitText}}</div></div>\n  </div>\n  <slot name=\"after\" _v-0f3bb707=\"\"></slot>\n</div>";
 
 /***/ },
 /* 199 */
