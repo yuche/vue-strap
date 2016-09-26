@@ -6,10 +6,10 @@ export default {
   ready () {
     if (this.$parent._select) {
       if (!this.$parent.options) { this.$parent.options = [] }
-      this.$parent.options.push({
-        value: this.value,
-        label: this.$els.v.innerHTML
-      })
+      let el = {}
+      el[this.$parent.optionsLabel] = this.$els.v.innerHTML
+      el[this.$parent.optionsValue] = this.value
+      this.$parent.options.push(el)
       this.loading = false
     } else {
       console.warn('options only work inside a select component')

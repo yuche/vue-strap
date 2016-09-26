@@ -4,7 +4,7 @@
   <div :class="{open:show,dropdown:!justified}">
     <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
       <option v-if="required" value=""></option>
-      <option v-for="option in options" :value="option.value||option">{{ option.label||option }}</option>
+      <option v-for="option in options" :value="option[optionsValue]||option">{{ option[optionsLabel]||option }}</option>
     </select>
     <button type="button" class="form-control dropdown-toggle"
       :disabled="disabled || !hasParent"
@@ -27,10 +27,10 @@
           <span v-show="searchValue" class="close" @click="clearSearch">&times;</span>
         </li>
         <li v-if="required&&!clearButton"><a @mousedown.prevent="clear() && blur()">{{ placeholder || text.notSelected }}</a></li>
-        <li v-for="option in options | filterBy searchValue" :id="option.value||option">
-          <a @mousedown.prevent="select(option.value||option)">
-            <span v-html="option.label||option"></span>
-            <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option.value||option)"></span>
+        <li v-for="option in options | filterBy searchValue" :id="option[optionsValue]||option">
+          <a @mousedown.prevent="select(option[optionsValue]||option)">
+            <span v-html="option[optionsLabel]||option"></span>
+            <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option[optionsValue]||option)"></span>
           </a>
         </li>
       </template>
@@ -95,6 +95,14 @@ export default {
       type: String,
       default: null
     },
+    optionsLabel: {
+      type: String,
+      default: 'label'
+    },
+    optionsValue: {
+      type: String,
+      default: 'value'
+    },
     parent: {
       default: true
     },
@@ -129,10 +137,6 @@ export default {
     url: {
       type: String,
       default: null
-    // },
-    // cache: { // save old data -- not working yet (experimental)
-    //   type: Array,
-    //   default: true
     }
   },
   data () {
@@ -156,7 +160,7 @@ export default {
               option = o
               return true
             }
-          })) { foundItems.push(option.label || option) }
+          })) { foundItems.push(option[this.optionsLabel] || option) }
         }
       }
       return foundItems.join(', ')
@@ -184,14 +188,18 @@ export default {
     options (options) {
       let changed = false
       if (options instanceof Array && options.length) {
-        for (let i in options) {
-          if (!(options[i] instanceof Object)) {
-            options[i] = {label: options[i], value: options[i]}
+        options.map(el => {
+          if (!(el instanceof Object)) {
+            let obj = {}
+            obj[this.optionsLabel] = el
+            obj[this.optionsValue] = el
             changed = true
+            return obj
           }
-        }
+          return el
+        })
       }
-      if (changed) this.options = options
+      if (changed) { this.options = options }
     },
     show (val) {
       if (val) {
@@ -271,7 +279,7 @@ export default {
       getJSON(this.url).then(data => {
         let options = []
         for (let opc of data) {
-          if (opc.value !== undefined && opc.label !== undefined) options.push(opc)
+          if (opc[this.optionsValue] !== undefined && opc[this.optionsLabel] !== undefined) options.push(opc)
         }
         this.options = options
         if (!options.length) { this.value = this.value instanceof Array ? [] : null }
