@@ -28,7 +28,7 @@
         </li>
         <li v-if="required&&!clearButton"><a @mousedown.prevent="clear() && blur()">{{ placeholder || text.notSelected }}</a></li>
         <li v-for="option in options | filterBy searchValue" :id="option[optionsValue]||option">
-          <a @mousedown.prevent="select(option[optionsValue]||option)">
+          <a @mousedown.prevent="select(option[optionsValue],option)">
             <span v-html="option[optionsLabel]||option"></span>
             <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option[optionsValue]||option)"></span>
           </a>
@@ -255,7 +255,7 @@ export default {
     isSelected (v) {
       return this.values.indexOf(v) > -1
     },
-    select (v) {
+    select (v, alt) {
       if (this.value instanceof Array) {
         if (~this.value.indexOf(v)) {
           this.value.$remove(v)
@@ -266,7 +266,7 @@ export default {
           this.toggle()
         }
       } else {
-        this.value = v
+        this.value = !~['', null, undefined].indexOf(v) ? v : alt
         this.toggle()
       }
     },
