@@ -11,7 +11,7 @@
     </ul>
   </li>
   <div v-else v-el:dropdown class="btn-group" :class="classes">
-      <button v-if="text" type="button" class="btn btn-{{type||'default'}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
+      <button v-if="text" type="button" class="btn btn-{{type}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
         {{ text }}
         <span class="caret"></span>
       </button>
@@ -46,7 +46,7 @@ export default {
     },
     type: {
       type: String,
-      default: null
+      default: 'default'
     }
   },
   computed: {

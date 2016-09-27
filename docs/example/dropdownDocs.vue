@@ -54,9 +54,9 @@
       </div>
     </div>
     <doc-code language="markup">
-      Boostrap style:
+      <!-- You can use slots to handle some elements as native bootstrap -->
       <dropdown>
-        <button type="button" class="btn btn-default">
+        <button slot="button" type="button" class="btn btn-default">
           Action
           <span class="caret"></span>
         </button>
@@ -68,8 +68,6 @@
           <li><a href="#dropdown">Separated link</a></li>
         </ul>
       </dropdown>
-
-      Component style:
       <dropdown text="Action" type="primary">
         <li><a href="#dropdown">Action</a></li>
         <li><a href="#dropdown">Another action</a></li>
