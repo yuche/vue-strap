@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/build/";
+/******/ 	__webpack_require__.p = "build/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -2317,6 +2317,10 @@
 	
 	// <template>
 	
+	//   <link v-if="local" rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+	
+	//   <link v-else href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+	
 	//   <div id="wrapper">
 	
 	//     <div class="bs-docs-header">
@@ -2455,6 +2459,11 @@
 	    tabsDocs: _tabsDocs2.default,
 	    tooltipDocs: _tooltipDocs2.default,
 	    typeaheadDocs: _typeaheadDocs2.default
+	  },
+	  computed: {
+	    local: function local() {
+	      return location.hostname === 'localhost';
+	    }
 	  }
 	};
 	// </script>
@@ -4821,7 +4830,7 @@
 	
 	//         <li v-for="option in options | filterBy searchValue" :id="option[optionsValue]||option">
 	
-	//           <a @mousedown.prevent="select(option[optionsValue]||option)">
+	//           <a @mousedown.prevent="select(option[optionsValue],option)">
 	
 	//             <span v-html="option[optionsLabel]||option"></span>
 	
@@ -5100,7 +5109,7 @@
 	    isSelected: function isSelected(v) {
 	      return this.values.indexOf(v) > -1;
 	    },
-	    select: function select(v) {
+	    select: function select(v, alt) {
 	      if (this.value instanceof Array) {
 	        if (~this.value.indexOf(v)) {
 	          this.value.$remove(v);
@@ -5111,7 +5120,7 @@
 	          this.toggle();
 	        }
 	      } else {
-	        this.value = v;
+	        this.value = !~['', null, undefined].indexOf(v) ? v : alt;
 	        this.toggle();
 	      }
 	    },
@@ -5781,7 +5790,7 @@
 /* 180 */
 /***/ function(module, exports) {
 
-	module.exports = "<div v-el:select=\"\" :class=\"{'btn-group btn-group-justified': justified, 'btn-select': !justified}\" _v-0f3bb707=\"\">\n  <slot name=\"before\" _v-0f3bb707=\"\"></slot>\n  <div :class=\"{open:show,dropdown:!justified}\" _v-0f3bb707=\"\">\n    <select v-el:sel=\"\" v-model=\"value\" v-show=\"show\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" :disabled=\"disabled\" _v-0f3bb707=\"\">\n      <option v-if=\"required\" value=\"\" _v-0f3bb707=\"\"></option>\n      <option v-for=\"option in options\" :value=\"option[optionsValue]||option\" _v-0f3bb707=\"\">{{ option[optionsLabel]||option }}</option>\n    </select>\n    <button type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggle()\" @keyup.esc=\"show = false\" _v-0f3bb707=\"\">\n      <span class=\"btn-content\" _v-0f3bb707=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-0f3bb707=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-0f3bb707=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-0f3bb707=\"\">\n      <template v-if=\"options.length\" _v-0f3bb707=\"\">\n        <li v-if=\"canSearch\" class=\"bs-searchbox\" _v-0f3bb707=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @keyup.esc=\"show = false\" _v-0f3bb707=\"\">\n          <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\" _v-0f3bb707=\"\">×</span>\n        </li>\n        <li v-if=\"required&amp;&amp;!clearButton\" _v-0f3bb707=\"\"><a @mousedown.prevent=\"clear() &amp;&amp; blur()\" _v-0f3bb707=\"\">{{ placeholder || text.notSelected }}</a></li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option[optionsValue]||option\" _v-0f3bb707=\"\">\n          <a @mousedown.prevent=\"select(option[optionsValue]||option)\" _v-0f3bb707=\"\">\n            <span v-html=\"option[optionsLabel]||option\" _v-0f3bb707=\"\"></span>\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option[optionsValue]||option)\" _v-0f3bb707=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot _v-0f3bb707=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify in\" transition=\"fadein\" _v-0f3bb707=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify out\" transition=\"fadein\" _v-0f3bb707=\"\"><div _v-0f3bb707=\"\">{{limitText}}</div></div>\n  </div>\n  <slot name=\"after\" _v-0f3bb707=\"\"></slot>\n</div>";
+	module.exports = "<div v-el:select=\"\" :class=\"{'btn-group btn-group-justified': justified, 'btn-select': !justified}\" _v-0f3bb707=\"\">\n  <slot name=\"before\" _v-0f3bb707=\"\"></slot>\n  <div :class=\"{open:show,dropdown:!justified}\" _v-0f3bb707=\"\">\n    <select v-el:sel=\"\" v-model=\"value\" v-show=\"show\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" :disabled=\"disabled\" _v-0f3bb707=\"\">\n      <option v-if=\"required\" value=\"\" _v-0f3bb707=\"\"></option>\n      <option v-for=\"option in options\" :value=\"option[optionsValue]||option\" _v-0f3bb707=\"\">{{ option[optionsLabel]||option }}</option>\n    </select>\n    <button type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggle()\" @keyup.esc=\"show = false\" _v-0f3bb707=\"\">\n      <span class=\"btn-content\" _v-0f3bb707=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-0f3bb707=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-0f3bb707=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-0f3bb707=\"\">\n      <template v-if=\"options.length\" _v-0f3bb707=\"\">\n        <li v-if=\"canSearch\" class=\"bs-searchbox\" _v-0f3bb707=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @keyup.esc=\"show = false\" _v-0f3bb707=\"\">\n          <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\" _v-0f3bb707=\"\">×</span>\n        </li>\n        <li v-if=\"required&amp;&amp;!clearButton\" _v-0f3bb707=\"\"><a @mousedown.prevent=\"clear() &amp;&amp; blur()\" _v-0f3bb707=\"\">{{ placeholder || text.notSelected }}</a></li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option[optionsValue]||option\" _v-0f3bb707=\"\">\n          <a @mousedown.prevent=\"select(option[optionsValue],option)\" _v-0f3bb707=\"\">\n            <span v-html=\"option[optionsLabel]||option\" _v-0f3bb707=\"\"></span>\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option[optionsValue]||option)\" _v-0f3bb707=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot _v-0f3bb707=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify in\" transition=\"fadein\" _v-0f3bb707=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify out\" transition=\"fadein\" _v-0f3bb707=\"\"><div _v-0f3bb707=\"\">{{limitText}}</div></div>\n  </div>\n  <slot name=\"after\" _v-0f3bb707=\"\"></slot>\n</div>";
 
 /***/ },
 /* 181 */
@@ -9636,7 +9645,7 @@
 	      } else {
 	        date = new Date(str);
 	      }
-	      return isNaN(date.getFullYear()) ? new Date(null) : date;
+	      return isNaN(date.getFullYear()) ? new Date() : date;
 	    },
 	    getDayCount: function getDayCount(year, month) {
 	      var dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -10215,11 +10224,11 @@
 	
 	//     <doc-code language="markup">
 	
-	//       Boostrap style:
+	//       <!-- You can use slots to handle some elements as native bootstrap -->
 	
 	//       <dropdown>
 	
-	//         <button type="button" class="btn btn-default">
+	//         <button slot="button" type="button" class="btn btn-default">
 	
 	//           Action
 	
@@ -10242,9 +10251,6 @@
 	//         </ul>
 	
 	//       </dropdown>
-	
-	
-	//       Component style:
 	
 	//       <dropdown text="Action" type="primary">
 	
@@ -10471,7 +10477,7 @@
 	
 	//   <div v-else v-el:dropdown class="btn-group" :class="classes">
 	
-	//       <button v-if="text" type="button" class="btn btn-{{type||'default'}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
+	//       <button v-if="text" type="button" class="btn btn-{{type}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
 	
 	//         {{ text }}
 	
@@ -10514,7 +10520,7 @@
 	    },
 	    type: {
 	      type: String,
-	      default: null
+	      default: 'default'
 	    }
 	  },
 	  computed: {
@@ -10605,13 +10611,13 @@
 /* 255 */
 /***/ function(module, exports) {
 
-	module.exports = "<li v-if=\"$parent._navbar||$parent.menu||$parent._tabset\" v-el:dropdown=\"\" class=\"dropdown\" :class=\"classes\" _v-628ea2dc=\"\">\n      <a v-if=\"text\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" @keyup.esc=\"show = false\" _v-628ea2dc=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-628ea2dc=\"\"></span>\n      </a>\n      <slot v-else=\"\" name=\"button\" _v-628ea2dc=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-628ea2dc=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-628ea2dc=\"\">\n      <slot _v-628ea2dc=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"classes\" _v-628ea2dc=\"\">\n      <button v-if=\"text\" type=\"button\" class=\"btn btn-{{type||'default'}} dropdown-toggle\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-628ea2dc=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-628ea2dc=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-628ea2dc=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-628ea2dc=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-628ea2dc=\"\">\n      <slot _v-628ea2dc=\"\"></slot>\n    </ul>\n  </div>";
+	module.exports = "<li v-if=\"$parent._navbar||$parent.menu||$parent._tabset\" v-el:dropdown=\"\" class=\"dropdown\" :class=\"classes\" _v-628ea2dc=\"\">\n      <a v-if=\"text\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" @keyup.esc=\"show = false\" _v-628ea2dc=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-628ea2dc=\"\"></span>\n      </a>\n      <slot v-else=\"\" name=\"button\" _v-628ea2dc=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-628ea2dc=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-628ea2dc=\"\">\n      <slot _v-628ea2dc=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"classes\" _v-628ea2dc=\"\">\n      <button v-if=\"text\" type=\"button\" class=\"btn btn-{{type}} dropdown-toggle\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-628ea2dc=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-628ea2dc=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-628ea2dc=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-628ea2dc=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-628ea2dc=\"\">\n      <slot _v-628ea2dc=\"\"></slot>\n    </ul>\n  </div>";
 
 /***/ },
 /* 256 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"dropdown\" name=\"Dropdown\">\r\n    <div class=\"bs-example\">\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-default dropdown-toggle\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n        <li><a href=\"#dropdown\">Another action</a></li>\r\n        <li><a href=\"#dropdown\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#dropdown\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-success dropdown-toggle\">\r\n          Action <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Disabled\" type=\"warning\" disabled>\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n      </dropdown>\r\n      <div class=\"btn-group btn-group-justified\" role=\"group\">\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Left</a>\r\n        <dropdown>\r\n          <a slot=\"button\" href=\"#dropdown\" class=\"btn btn-default\">\r\n            Dropdown <span class=\"caret\"></span>\r\n          </a>\r\n          <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n            <li><a href=\"#dropdown\">Action</a></li>\r\n            <li><a href=\"#dropdown\">Another action</a></li>\r\n            <li><a href=\"#dropdown\">Something else here</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#dropdown\">Separated link</a></li>\r\n          </ul>\r\n        </dropdown>\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Right</a>\r\n      </div>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      Boostrap style:\r\n      <dropdown>\r\n        <button type=\"button\" class=\"btn btn-default\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n\r\n      Component style:\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n        <li><a href=\"#dropdown\">Another action</a></li>\r\n        <li><a href=\"#dropdown\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#dropdown\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown text=\"Disabled\" type=\"warning\" disabled>\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n      </dropdown>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>show</p>\r\n        <p><code>Boolean</code></p>\r\n        <p></p>\r\n        <p>Whether show the component.</p>\r\n      </div>\r\n      <div>\r\n        <p>class</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>classes to change the style.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>text</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Dropdown button text.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n    <h2>Usage</h2>\r\n    <p>Just like the examples. Can use it as the <a target=\"_blank\" href=\"http://getbootstrap.com/javascript/#dropdowns\">original Bootstrap way</a>.</p>\r\n  </doc-section>";
+	module.exports = "<doc-section id=\"dropdown\" name=\"Dropdown\">\r\n    <div class=\"bs-example\">\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-default dropdown-toggle\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n        <li><a href=\"#dropdown\">Another action</a></li>\r\n        <li><a href=\"#dropdown\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#dropdown\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-success dropdown-toggle\">\r\n          Action <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Disabled\" type=\"warning\" disabled>\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n      </dropdown>\r\n      <div class=\"btn-group btn-group-justified\" role=\"group\">\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Left</a>\r\n        <dropdown>\r\n          <a slot=\"button\" href=\"#dropdown\" class=\"btn btn-default\">\r\n            Dropdown <span class=\"caret\"></span>\r\n          </a>\r\n          <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n            <li><a href=\"#dropdown\">Action</a></li>\r\n            <li><a href=\"#dropdown\">Another action</a></li>\r\n            <li><a href=\"#dropdown\">Something else here</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#dropdown\">Separated link</a></li>\r\n          </ul>\r\n        </dropdown>\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Right</a>\r\n      </div>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <!-- You can use slots to handle some elements as native bootstrap -->\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-default\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n        <li><a href=\"#dropdown\">Another action</a></li>\r\n        <li><a href=\"#dropdown\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#dropdown\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown text=\"Disabled\" type=\"warning\" disabled>\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n      </dropdown>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>show</p>\r\n        <p><code>Boolean</code></p>\r\n        <p></p>\r\n        <p>Whether show the component.</p>\r\n      </div>\r\n      <div>\r\n        <p>class</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>classes to change the style.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>text</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Dropdown button text.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n    <h2>Usage</h2>\r\n    <p>Just like the examples. Can use it as the <a target=\"_blank\" href=\"http://getbootstrap.com/javascript/#dropdowns\">original Bootstrap way</a>.</p>\r\n  </doc-section>";
 
 /***/ },
 /* 257 */
@@ -11646,6 +11652,9 @@
 	  beforeDestroy: function beforeDestroy() {
 	    if (this._tabset.active === this.index) {
 	      this._tabset.active = 0;
+	    }
+	    if (this._ingroup) {
+	      this.$parent.tabs.$remove(this);
 	    }
 	    this._tabset.tabs.$remove(this);
 	  }
@@ -16716,7 +16725,7 @@
 /* 350 */
 /***/ function(module, exports) {
 
-	module.exports = "<div id=\"wrapper\">\r\n    <div class=\"bs-docs-header\">\r\n      <div class=\"container\">\r\n        <h1>VueStrap</h1>\r\n        <p>Bootstrap components built with <a target=\"_blank\" href=\"http://vuejs.org/\">Vue.js</a>.</p>\r\n        <p>No jQuery, bootstrap.js, or any 3rd party plugins required.</p>\r\n        <br>\r\n        <p><a class=\"btn btn-outline-inverse btn-lg\" href=\"https://github.com/yuche/vue-strap\">Code on GitHub</a></p>\r\n      </div>\r\n    </div>\r\n    <container>\r\n      <div v-el:sections class=\"col-md-9\">\r\n        <getting-started></getting-started>\r\n        <accordion-docs></accordion-docs>\r\n        <affix-docs></affix-docs>\r\n        <alert-docs></alert-docs>\r\n        <aside-docs></aside-docs>\r\n        <button-group-docs></button-group-docs>\r\n        <checkbox-docs></checkbox-docs>\r\n        <carousel-docs></carousel-docs>\r\n        <datepicker-docs></datepicker-docs>\r\n        <dropdown-docs></dropdown-docs>\r\n        <input-docs></input-docs>\r\n        <modal-docs></modal-docs>\r\n        <navbar-docs></navbar-docs>\r\n        <popover-docs></popover-docs>\r\n        <progressbar-docs></progressbar-docs>\r\n        <radio-docs></radio-docs>\r\n        <select-docs></select-docs>\r\n        <tabs-docs></tabs-docs>\r\n        <tooltip-docs></tooltip-docs>\r\n        <typeahead-docs></typeahead-docs>\r\n        <spinner-docs></spinner-docs>\r\n        <form-group-docs></form-group-docs>\r\n      </div>\r\n      <div class=\"col-md-3\">\r\n        <affix-sidebar></affix-sidebar>\r\n      </div>\r\n    </container>\r\n  </div>\r\n  <footer class=\"bs-docs-footer\">\r\n    <div class=\"container\">\r\n      <p>Designed and built by <a href=\"https://github.com/yuche/\">yuche</a>.</p>\r\n      <p>\r\n        Using <a href=\"http://twitter.github.com/bootstrap\" target=\"_blank\">Twitter Bootstrap</a>\r\n        and the <a href=\"css/docs.css\" target=\"_blank\">Bootstrap's docs styles</a> designed and built by <a href=\"http://twitter.com/mdo\" target=\"_blank\">@mdo</a>\r\n        and <a href=\"http://twitter.com/fat\" target=\"_blank\">@fat</a>.\r\n      </p>\r\n      <p>\r\n        Code licensed under <a href=\"//github.com/mgcrea/angular-strap/blob/master/LICENSE.md\" target=\"_blank\">The MIT License</a>,\r\n        documentation under <a href=\"http://creativecommons.org/licenses/by/3.0/\">CC BY 3.0</a>.\r\n      </p>\r\n    </div>\r\n  </footer>";
+	module.exports = "<link v-if=\"local\" rel=\"stylesheet\" type=\"text/css\" href=\"node_modules/bootstrap/dist/css/bootstrap.css\">\r\n  <link v-else href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==\" crossorigin=\"anonymous\">\r\n  <div id=\"wrapper\">\r\n    <div class=\"bs-docs-header\">\r\n      <div class=\"container\">\r\n        <h1>VueStrap</h1>\r\n        <p>Bootstrap components built with <a target=\"_blank\" href=\"http://vuejs.org/\">Vue.js</a>.</p>\r\n        <p>No jQuery, bootstrap.js, or any 3rd party plugins required.</p>\r\n        <br>\r\n        <p><a class=\"btn btn-outline-inverse btn-lg\" href=\"https://github.com/yuche/vue-strap\">Code on GitHub</a></p>\r\n      </div>\r\n    </div>\r\n    <container>\r\n      <div v-el:sections class=\"col-md-9\">\r\n        <getting-started></getting-started>\r\n        <accordion-docs></accordion-docs>\r\n        <affix-docs></affix-docs>\r\n        <alert-docs></alert-docs>\r\n        <aside-docs></aside-docs>\r\n        <button-group-docs></button-group-docs>\r\n        <checkbox-docs></checkbox-docs>\r\n        <carousel-docs></carousel-docs>\r\n        <datepicker-docs></datepicker-docs>\r\n        <dropdown-docs></dropdown-docs>\r\n        <input-docs></input-docs>\r\n        <modal-docs></modal-docs>\r\n        <navbar-docs></navbar-docs>\r\n        <popover-docs></popover-docs>\r\n        <progressbar-docs></progressbar-docs>\r\n        <radio-docs></radio-docs>\r\n        <select-docs></select-docs>\r\n        <tabs-docs></tabs-docs>\r\n        <tooltip-docs></tooltip-docs>\r\n        <typeahead-docs></typeahead-docs>\r\n        <spinner-docs></spinner-docs>\r\n        <form-group-docs></form-group-docs>\r\n      </div>\r\n      <div class=\"col-md-3\">\r\n        <affix-sidebar></affix-sidebar>\r\n      </div>\r\n    </container>\r\n  </div>\r\n  <footer class=\"bs-docs-footer\">\r\n    <div class=\"container\">\r\n      <p>Designed and built by <a href=\"https://github.com/yuche/\">yuche</a>.</p>\r\n      <p>\r\n        Using <a href=\"http://twitter.github.com/bootstrap\" target=\"_blank\">Twitter Bootstrap</a>\r\n        and the <a href=\"css/docs.css\" target=\"_blank\">Bootstrap's docs styles</a> designed and built by <a href=\"http://twitter.com/mdo\" target=\"_blank\">@mdo</a>\r\n        and <a href=\"http://twitter.com/fat\" target=\"_blank\">@fat</a>.\r\n      </p>\r\n      <p>\r\n        Code licensed under <a href=\"//github.com/mgcrea/angular-strap/blob/master/LICENSE.md\" target=\"_blank\">The MIT License</a>,\r\n        documentation under <a href=\"http://creativecommons.org/licenses/by/3.0/\">CC BY 3.0</a>.\r\n      </p>\r\n    </div>\r\n  </footer>";
 
 /***/ },
 /* 351 */
