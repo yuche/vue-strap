@@ -12,7 +12,7 @@
       @click="toggle()"
       @keyup.esc="show = false"
     >
-      <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>
+      <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selectedItems"></span>
       <span class="caret"></span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
     </button>
