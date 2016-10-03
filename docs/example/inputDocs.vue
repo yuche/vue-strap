@@ -94,14 +94,16 @@
           </span>
         </bs-input>
       </doc-code>
-      <bs-input label="With text or icon" type="text">
-        <span slot="before" class="input-group-addon">
-          <li><a href="#">option</a></li>
-        </span>
-        <span slot="after" class="input-group-btn">
-          <button type="button" class="btn btn-primary">Go!</button>
-        </span>
+      <bs-input label="With text and icon" type="number" placeholder="Insert how much cost your house">
+        <span slot="before" class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+        <span slot="after" class="input-group-addon">$</span>
       </bs-input>
+      <doc-code>
+        <bs-input label="With text and icon" type="number" placeholder="Insert how much cost your house">
+          <span slot="before" class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+          <span slot="after" class="input-group-addon">$</span>
+        </bs-input>
+      </doc-code>
     </div>
     <doc-options>
       <div>
