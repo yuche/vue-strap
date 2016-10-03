@@ -22,8 +22,7 @@
 </template>
 
 <script>
-import coerceBoolean from './utils/coerceBoolean.js'
-import coerceNumber from './utils/coerceNumber.js'
+import {coerce} from './utils/utils.js'
 
 export default {
   props: {
@@ -32,18 +31,18 @@ export default {
     },
     dismissable: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     show: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: true,
       twoWay: true
     },
     duration: {
       type: Number,
-      coerce: coerceNumber,
+      coerce: coerce.number,
       default: 0
     },
     width: {

@@ -40,7 +40,7 @@ export default {
     },
     placement: {
       type: String,
-      default: 'top'
+      default: ''
     }
   },
   data () {
@@ -69,22 +69,21 @@ export default {
     $dropdown.on('click', '.dropdown-toggle', (e) => {
       e.preventDefault()
       $dropdown.each((content) => {
-        if (content.contains(e.target)) {
-          content.classList.toggle('open')
-        }
+        if (content.contains(e.target)) content.classList.toggle('open')
       })
     }).on('click', '.dropdown-menu>li>a', (e) => {
       $dropdown.each((content) => {
-        if (content.contains(e.target)) {
-          content.classList.remove('open')
-        }
+        if (content.contains(e.target)) content.classList.remove('open')
       })
     }).onBlur((e) => {
       $dropdown.each((content) => {
-        if (!content.contains(e.target)) {
-          content.classList.remove('open')
-        }
+        if (!content.contains(e.target)) content.classList.remove('open')
       })
+    })
+    $(this.$el).on('click touchstart','li:not(.dropdown)>a', e => {
+      setTimeout(() => { this.collapsed = true }, 200)
+    }).onBlur(e => {
+      if (!this.$el.contains(e.target)) { this.collapsed = true }
     })
     let height = this.$el.offsetHeight
     if (this.placement === 'top') {

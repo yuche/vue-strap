@@ -2,14 +2,14 @@
   <doc-section id="spinner" name="Spinner">
     <div class="bs-example">
       <p><checkbox :checked.sync="fixed" type="info">fixed</checkbox></p>
-      <p><v-select :options="sizes" :value.sync="size">size</v-select></p>
+      <p><v-select :options="['sm','md','lg','xl']" :value.sync="size">size</v-select></p>
       <p><button class="btn btn-info" @click="$broadcast('show::spinner')">show spinner</button></p>
       <div><spinner id="spinner-box" :size="size" :fixed="fixed" text="I will close in 2 secs"></spinner></div>
     </div>
     <doc-code language="markup">
-      &lt;spinner v-ref:spinner :size="(sm,md,lg...)" :fixed="(true,false)" text="I will close in 2 secs">&lt;/spinner>
+      <spinner v-ref:spinner size="md" fixed text="I will close in 2 secs"></spinner>
     </doc-code>
-    <doc-code language="markup">
+    <doc-code language="javascript">
       // using ref
       this.$refs.spinner.show()
       this.$refs.spinner.hide()
@@ -20,14 +20,14 @@
     <doc-options>
       <div>
         <p>size</p>
-        <p><code>Text</code></p>
-        <p>md</p>
-        <p>The size of the spinner (either [sm, md, lg]).</p>
+        <p><code>String</code>, one of <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code></p>
+        <p><code>md</code></p>
+        <p>The size of the spinner.</p>
       </div>
       <div>
         <p>fixed</p>
         <p><code>Boolean</code></p>
-        <p>false</p>
+        <p><code>false</code></p>
         <p>Set to true if you want the spinner to occupy the entire window space.</p>
       </div>
     </doc-options>
@@ -54,8 +54,7 @@ export default {
   data () {
     return {
       fixed: false,
-      size: 'lg',
-      sizes: ['sm','md','lg','xl']
+      size: 'lg'
     }
   },
   events: {

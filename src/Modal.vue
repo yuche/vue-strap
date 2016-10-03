@@ -12,7 +12,7 @@
         <slot name="modal-header">
           <div class="modal-header">
             <button type="button" class="close" @click="close"><span>&times;</span></button>
-            <h4 class="modal-title" > 
+            <h4 class="modal-title">
               <slot name="title">
                 {{title}}
               </slot>
@@ -34,8 +34,7 @@
 </template>
 
 <script>
-import getScrollBarWidth from './utils/getScrollBarWidth.js'
-import coerceBoolean from './utils/coerceBoolean.js'
+import {coerce, getScrollBarWidth} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
 export default {
@@ -55,7 +54,7 @@ export default {
     show: {
       required: true,
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       twoWay: true
     },
     width: {
@@ -71,17 +70,17 @@ export default {
     },
     backdrop: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: true
     },
     large: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     small: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     }
   },
@@ -109,17 +108,17 @@ export default {
           body.style.paddingRight = scrollBarWidth + 'px'
         }
         if (this.backdrop) {
-          $(el).on('click', (e) => {
+          $(el).on('click', e => {
             if (e.target === el) this.show = false
           })
         }
       } else {
-        $(el).on('transitionend', () => {
+        body.style.paddingRight = null
+        $(body).removeClass('modal-open')
+        $(el).removeClass('in').on('transitionend', () => {
           $(el).off('click transitionend')
           el.style.display = 'none'
-          body.style.paddingRight = '0'
-        }).removeClass('in')
-        $(body).removeClass('modal-open')
+        })
       }
     }
   },

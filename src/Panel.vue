@@ -1,14 +1,9 @@
 <template>
   <div class="panel {{panelType}}">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle"
-          @click="toggle()">
-          <slot name="header"> 
-            {{ header }}
-          </slot>
-        </a>
-      </h4>
+    <div :class="['panel-heading',{'accordion-toggle':inAccordion}]" @click.prevent="inAccordion&&toggle()">
+      <slot name="header">
+        <h4 class="panel-title">{{ header }}</h4>
+      </slot>
     </div>
     <div class="panel-collapse"
       v-el:panel
@@ -23,7 +18,7 @@
 </template>
 
 <script>
-import coerceBoolean from './utils/coerceBoolean.js'
+import {coerce} from './utils/utils.js'
 
 export default {
   props: {
@@ -32,8 +27,8 @@ export default {
     },
     isOpen: {
       type: Boolean,
-      coerce: coerceBoolean,
-      default: false
+      coerce: coerce.boolean,
+      default: null
     },
     type: {
       type: String,
@@ -41,6 +36,9 @@ export default {
     }
   },
   computed: {
+    inAccordion () {
+      return this.$parent && this.$parent._isAccordion
+    },
     panelType () {
       return 'panel-' + (this.type || (this.$parent && this.$parent.type) || 'default')
     }
@@ -63,6 +61,11 @@ export default {
         // Recalculate DOM before the class gets added.
         return el.offsetHeight
       }
+    }
+  },
+  created () {
+    if (this.isOpen === null) {
+      this.isOpen = !this.inAccordion
     }
   }
 }

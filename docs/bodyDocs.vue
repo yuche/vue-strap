@@ -1,6 +1,7 @@
 <template>
+  <link v-if="local" rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link v-else href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
   <div id="wrapper">
-    <navbar-header></navbar-header>
     <div class="bs-docs-header">
       <div class="container">
         <h1>VueStrap</h1>
@@ -24,6 +25,7 @@
         <dropdown-docs></dropdown-docs>
         <input-docs></input-docs>
         <modal-docs></modal-docs>
+        <navbar-docs></navbar-docs>
         <popover-docs></popover-docs>
         <progressbar-docs></progressbar-docs>
         <radio-docs></radio-docs>
@@ -32,6 +34,7 @@
         <tooltip-docs></tooltip-docs>
         <typeahead-docs></typeahead-docs>
         <spinner-docs></spinner-docs>
+        <form-group-docs></form-group-docs>
       </div>
       <div class="col-md-3">
         <affix-sidebar></affix-sidebar>
@@ -56,7 +59,6 @@
 
 <script>
 import affixSidebar from './affixSidebar.vue'
-import navbarHeader from './navbarHeader.vue'
 import gettingStarted from './example/gettingStarted.vue'
 import accordionDocs from './example/accordionDocs.vue'
 import affixDocs from './example/affixDocs.vue'
@@ -68,8 +70,10 @@ import checkboxDocs from './example/checkboxDocs.vue'
 import container from './example/container.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
 import dropdownDocs from './example/dropdownDocs.vue'
+import formGroupDocs from './example/formGroupDocs.vue'
 import inputDocs from './example/inputDocs.vue'
 import modalDocs from './example/modalDocs.vue'
+import navbarDocs from './example/navbarDocs.vue'
 import popoverDocs from './example/popoverDocs.vue'
 import progressbarDocs from './example/progressbar-docs.vue'
 import radioDocs from './example/radioDocs.vue'
@@ -82,7 +86,6 @@ import typeaheadDocs from './example/typeaheadDocs.vue'
 export default {
   components: {
     affixSidebar,
-    navbarHeader,
     gettingStarted,
     accordionDocs,
     affixDocs,
@@ -94,8 +97,10 @@ export default {
     container,
     datepickerDocs,
     dropdownDocs,
+    formGroupDocs,
     inputDocs,
     modalDocs,
+    navbarDocs,
     popoverDocs,
     progressbarDocs,
     radioDocs,
@@ -104,6 +109,9 @@ export default {
     tabsDocs,
     tooltipDocs,
     typeaheadDocs
+  },
+  computed: {
+    local () { return location.hostname === 'localhost' }
   }
 }
 </script>

@@ -5,7 +5,8 @@
       <p><v-select :options="types" clear-button :value.sync="selected" placeholder="Global type"></v-select></p>
       <p><v-select :options="types" clear-button :value.sync="first" placeholder="First element type"></v-select></p>
       <accordion :one-at-atime="checked" :type="selected">
-        <panel header="Panel #1" is-open :type="first=='panel'?null:first">
+        <panel is-open :type="first=='panel'?null:first">
+          <strong slot="header"><u>Panel #1</u></strong>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -41,7 +42,8 @@
     </div>
     <doc-code language="markup">
       <accordion :one-at-atime="checked" type="info">
-        <panel header="Panel #1" is-open type="primary">
+        <panel is-open type="primary">
+          <strong slot="header"><u>Panel #1</u></strong>
           ...
         </panel>
         <panel header="Panel #2">
@@ -89,6 +91,7 @@
         <p>Define the type of color for the tab (single).</p>
       </div>
     </doc-options>
+    <p>If you want to personalice your header with some html you can use the slot instead of header attribute (panel&nbsp;#1 in the example).</p>
   </doc-section>
 </template>
 

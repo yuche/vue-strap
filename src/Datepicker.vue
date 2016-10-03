@@ -1,6 +1,6 @@
 <template>
   <div class="datepicker">
-    <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text"
+    <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text" :placeholder="placeholder"
         :style="{width:width}"
         @click="inputClick"
         v-model="value"/>
@@ -35,8 +35,8 @@
           <div class="datepicker-monthRange">
             <template v-for="m in text.months">
               <span   :class="{'datepicker-dateRange-item-active':
-                  (this.text.months[this.parse(this.value).getMonth()]  === m) &&
-                  this.currDate.getFullYear() === this.parse(this.value).getFullYear()}"
+                  (text.months[parse(value).getMonth()]  === m) &&
+                  currDate.getFullYear() === parse(value).getFullYear()}"
                   @click="monthSelect($index)"
                 >{{m.substr(0,3)}}</span>
             </template>
@@ -55,7 +55,7 @@
           <div class="datepicker-monthRange decadeRange">
             <template v-for="decade in decadeRange">
               <span :class="{'datepicker-dateRange-item-active':
-                  this.parse(this.value).getFullYear() === decade.text}"
+                  parse(this.value).getFullYear() === decade.text}"
                   @click.stop="yearSelect(decade.text)"
                 >{{decade.text}}</span>
             </template>
@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import translations from './translations.js'
+import {translations} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
 export default {
@@ -96,6 +96,9 @@ export default {
     lang: {
       type: String,
       default: navigator.language
+    },
+    placeholder: {
+      type: String
     }
   },
   ready () {
@@ -134,6 +137,7 @@ export default {
       this.displayDayView = this.displayMonthView = this.displayYearView = false
     },
     inputClick () {
+      this.currDate = this.parse(this.value) || this.parse(new Date())
       if (this.displayMonthView || this.displayYearView) {
         this.displayDayView = false
       } else {
@@ -252,7 +256,7 @@ export default {
       } else {
         date = new Date(str)
       }
-      return isNaN(date.getFullYear()) ? null : date
+      return isNaN(date.getFullYear()) ? new Date() : date
     },
     getDayCount (year, month) {
       const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]

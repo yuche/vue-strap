@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import coerceBoolean from './utils/coerceBoolean.js'
+import {coerce} from './utils/utils.js'
 
 export default {
   props: {
@@ -13,20 +13,16 @@ export default {
       type: String,
       default: null
     },
-    oneAtATime: {
+    oneAtAtime: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     }
   },
-  computed: {
-    isAccordion () {
-      return true
-    }
-  },
   created () {
+    this._isAccordion = true
     this.$on('isOpenEvent', (child) => {
-      if (this.oneAtATime) {
+      if (this.oneAtAtime) {
         this.$children.forEach((item) => {
           if (child !== item) {
             item.isOpen = false

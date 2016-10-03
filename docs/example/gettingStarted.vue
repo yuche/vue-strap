@@ -74,6 +74,13 @@
         })
       </script>
     </doc-code>
+    <h2>Translations (optional):</h2>
+    <p>If you want to enable language support, you have to add:</p>
+    <doc-code language="markup">
+      <script src="path/to/vue-strap-lang.js"></script>
+    </doc-code>
+    <p>If not included what you need, you can add your own, without editing the source code of vue-strap.</p>
+    <hr/>
     <h2>Mobile detection (optional):</h2>
     <p>If you need to enable/disable options if is a mobile device you can add:</p>
     <doc-code language="markup">

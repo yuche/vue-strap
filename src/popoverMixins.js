@@ -1,15 +1,14 @@
-import coerceBoolean from './utils/coerceBoolean.js'
+import {coerce} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
 export default {
   props: {
     trigger: {
-      type: String,
-      default: 'click'
+      type: String
     },
     effect: {
       type: String,
-      default: 'fadein'
+      default: 'fade'
     },
     title: {
       type: String
@@ -19,7 +18,7 @@ export default {
     },
     header: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: true
     },
     placement: {
@@ -36,33 +35,31 @@ export default {
     }
   },
   methods: {
-    toggle (val) {
-      this.show = val instanceof Boolean ? val : !this.show
+    toggle (e) {
+      this.show = !this.show
+      if (e && this.trigger === 'contextmenu') e.preventDefault()
     }
   },
   ready () {
-    if (!this.$els.popover) return console.error('Couldn\'t find popover v-el in your component that uses popoverMixin.')
-    const triger = this.$els.trigger.children[0]
-    let events = this.trigger === 'hover' ? ['mouseleave', 'mouseenter'] : this.trigger === 'focus' ? ['blur', 'focus'] : ['click']
-    $(triger).on(events, () => this.toggle(events[1]))
-
     const popover = this.$els.popover
+    if (!popover) return console.error('Could not find popover v-el in your component that uses popoverMixin.')
+    let trigger = this.$els.trigger.children[0]
     switch (this.placement) {
       case 'top' :
-        this.position.left = triger.offsetLeft - popover.offsetWidth / 2 + triger.offsetWidth / 2
-        this.position.top = triger.offsetTop - popover.offsetHeight
+        this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2
+        this.position.top = trigger.offsetTop - popover.offsetHeight
         break
       case 'left':
-        this.position.left = triger.offsetLeft - popover.offsetWidth
-        this.position.top = triger.offsetTop + triger.offsetHeight / 2 - popover.offsetHeight / 2
+        this.position.left = trigger.offsetLeft - popover.offsetWidth
+        this.position.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2
         break
       case 'right':
-        this.position.left = triger.offsetLeft + triger.offsetWidth
-        this.position.top = triger.offsetTop + triger.offsetHeight / 2 - popover.offsetHeight / 2
+        this.position.left = trigger.offsetLeft + trigger.offsetWidth
+        this.position.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2
         break
       case 'bottom':
-        this.position.left = triger.offsetLeft - popover.offsetWidth / 2 + triger.offsetWidth / 2
-        this.position.top = triger.offsetTop + triger.offsetHeight
+        this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2
+        this.position.top = trigger.offsetTop + trigger.offsetHeight
         break
       default:
         console.warn('Wrong placement prop')
@@ -71,8 +68,21 @@ export default {
     popover.style.left = this.position.left + 'px'
     popover.style.display = 'none'
     this.show = !this.show
+
+    let events = this.trigger === 'contextmenu' ? 'contextmenu'
+      : this.trigger === 'hover' ? 'mouseleave mouseenter'
+      : this.trigger === 'focus' ? 'blur focus' : 'click'
+
+    if (this.trigger === 'focus' && !~trigger.tabIndex) {
+      trigger = $('a,input,select,textarea,button', trigger)
+      if (!trigger.length) { trigger = null }
+    }
+    if (trigger) {
+      $(trigger).on(events, this.toggle)
+      this._trigger = trigger
+    }
   },
   beforeDestroy () {
-    $(triger).off()
+    if (this._trigger) $(this._trigger).off()
   }
 }

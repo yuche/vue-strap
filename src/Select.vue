@@ -4,7 +4,7 @@
   <div :class="{open:show,dropdown:!justified}">
     <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
       <option v-if="required" value=""></option>
-      <option v-for="option in options" :value="option.value||option">{{ option.label||option }}</option>
+      <option v-for="option in options" :value="option[optionsValue]||option">{{ option[optionsLabel]||option }}</option>
     </select>
     <button type="button" class="form-control dropdown-toggle"
       :disabled="disabled || !hasParent"
@@ -27,27 +27,24 @@
           <span v-show="searchValue" class="close" @click="clearSearch">&times;</span>
         </li>
         <li v-if="required&&!clearButton"><a @mousedown.prevent="clear() && blur()">{{ placeholder || text.notSelected }}</a></li>
-        <li v-for="option in options | filterBy searchValue" :id="option.value||option">
-          <a @mousedown.prevent="select(option.value||option)">
-            {{ option.label||option }}
-            <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option.value||option)"></span>
+        <li v-for="option in options | filterBy searchValue" :id="option[optionsValue]||option">
+          <a @mousedown.prevent="select(option[optionsValue],option)">
+            <span v-html="option[optionsLabel]||option"></span>
+            <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option[optionsValue]||option)"></span>
           </a>
         </li>
       </template>
-      <slot v-else></slot>
-      <div v-if="showNotify && !closeOnSelect" class="notify" transition="fadein">{{limitText}}</div>
+      <slot></slot>
+      <div v-if="showNotify && !closeOnSelect" class="notify in" transition="fadein">{{limitText}}</div>
     </ul>
-    <div v-if="showNotify && closeOnSelect" class="notify" transition="fadein"><div>{{limitText}}</div></div>
+    <div v-if="showNotify && closeOnSelect" class="notify out" transition="fadein"><div>{{limitText}}</div></div>
   </div>
   <slot name="after"></slot>
 </div>
 </template>
 
 <script>
-import callAjax from './utils/callAjax.js'
-import coerceBoolean from './utils/coerceBoolean.js'
-import coerceNumber from './utils/coerceNumber.js'
-import translations from './translations.js'
+import {getJSON, coerce, translations} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
 var timeout = {}
@@ -57,33 +54,32 @@ export default {
       twoWay: true
     },
     options: {
-      twoWay: true,
       type: Array,
       default () { return [] }
     },
     multiple: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     clearButton: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     closeOnSelect: { // only works when multiple
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     disabled: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     justified: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     lang: {
@@ -92,12 +88,20 @@ export default {
     },
     limit: {
       type: Number,
-      coerce: coerceNumber,
+      coerce: coerce.number,
       default: 1024
     },
     name: {
       type: String,
       default: null
+    },
+    optionsLabel: {
+      type: String,
+      default: 'label'
+    },
+    optionsValue: {
+      type: String,
+      default: 'value'
     },
     parent: {
       default: true
@@ -108,22 +112,22 @@ export default {
     },
     readonly: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: null
     },
     required: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: null
     },
     minSearch: {
       type: Number,
-      coerce: coerceNumber,
+      coerce: coerce.number,
       default: 0
     },
     search: { // Allow searching (only works when options are provided)
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     searchText: {
@@ -133,10 +137,6 @@ export default {
     url: {
       type: String,
       default: null
-    // },
-    // cache: { // save old data -- not working yet (experimental)
-    //   type: Array,
-    //   default: true
     }
   },
   data () {
@@ -144,29 +144,23 @@ export default {
       loading: null,
       searchValue: null,
       show: false,
-      showNotify: false
+      showNotify: false,
+      valid: null
     }
   },
   computed: {
     selectedItems () {
+      if (this.options.length === 0) { return '' }
       let foundItems = []
-      let value = this.values
-      if (value.length) {
-        for (var item of value) {
-          if (this.options.length === 0) {
-            foundItems = value
-          } else {
-            if (~['number', 'string'].indexOf(typeof item)) {
-              let option
-              this.options.some(o => {
-                if ((o instanceof Object && o.value === item) || o === item ) {
-                  option = o
-                  return true
-                }
-              })
-              if (option) foundItems.push(option.label || option)
+      for (var item of this.values) {
+        if (~['number', 'string'].indexOf(typeof item)) {
+          let option = null
+          if (this.options.some(o => {
+            if (o instanceof Object ? o.value === item : o === item ) {
+              option = o
+              return true
             }
-          }
+          })) { foundItems.push(option[this.optionsLabel] || option) }
         }
       }
       return foundItems.join(', ')
@@ -194,14 +188,27 @@ export default {
     options (options) {
       let changed = false
       if (options instanceof Array && options.length) {
-        for (let i in options) {
-          if (!(options[i] instanceof Object)) {
-            options[i] = {label: options[i], value: options[i]}
+        options.map(el => {
+          if (!(el instanceof Object)) {
+            let obj = {}
+            obj[this.optionsLabel] = el
+            obj[this.optionsValue] = el
             changed = true
+            return obj
           }
-        }
+          return el
+        })
       }
-      if (changed) this.options = options
+      if (changed) { this.options = options }
+    },
+    show (val) {
+      if (val) {
+        this.$els.sel.focus()
+        this.$els.search && this.$els.search.focus()
+      }
+    },
+    url () {
+      this.update()
     },
     value (val) {
       if (this.value instanceof Array && val.length > this.limit) {
@@ -213,32 +220,16 @@ export default {
         }, 1500)
       }
       this.checkValue()
+      this.valid = this.validate()
     },
-    show (val) {
-      if (val) {
-        this.$els.sel.focus()
-        this.$els.search && this.$els.search.focus()
-      }
-    },
-    url () {
-      this.update()
+    valid (val, old) {
+      if (val === old) { return }
+      this._parent && this._parent.validate()
     }
   },
   methods: {
-    select (v) {
-      if (this.value instanceof Array) {
-        if (~this.value.indexOf(v)) {
-          this.value.$remove(v)
-        } else {
-          this.value.push(v)
-        }
-        if (this.closeOnSelect) {
-          this.toggle()
-        }
-      } else {
-        this.value = v
-        this.toggle()
-      }
+    blur () {
+      this.show = false
     },
     clear () {
       if (this.disabled || this.readonly) { return }
@@ -264,19 +255,31 @@ export default {
     isSelected (v) {
       return this.values.indexOf(v) > -1
     },
+    select (v, alt) {
+      if (this.value instanceof Array) {
+        if (~this.value.indexOf(v)) {
+          this.value.$remove(v)
+        } else {
+          this.value.push(v)
+        }
+        if (this.closeOnSelect) {
+          this.toggle()
+        }
+      } else {
+        this.value = !~['', null, undefined].indexOf(v) ? v : alt
+        this.toggle()
+      }
+    },
     toggle () {
       this.show = !this.show
-    },
-    blur () {
-      this.show = false
     },
     update () {
       if (!this.url) return
       this.loading = true
-      callAjax(this.url, (data) => {
+      getJSON(this.url).then(data => {
         let options = []
         for (let opc of data) {
-          if (opc.value !== undefined && opc.label !== undefined) options.push({value: opc.value, label: opc.label})
+          if (opc[this.optionsValue] !== undefined && opc[this.optionsLabel] !== undefined) options.push(opc)
         }
         this.options = options
         if (!options.length) { this.value = this.value instanceof Array ? [] : null }
@@ -284,20 +287,31 @@ export default {
         this.loading = false
         this.checkValue()
       })
+    },
+    validate () {
+      return !this.required ? true : this.value instanceof Array ? this.value.length > 0 : this.value !== null
     }
   },
   created () {
+    this._select = true
     if (this.value === undefined || !this.parent) { this.value = null }
     if (!this.multiple && this.value instanceof Array) {
       this.value = this.value.shift()
     }
     this.checkValue()
     if (this.url) this.update()
+    let parent = this.$parent
+    while (parent && !parent._formGroup) { parent = parent.$parent }
+    if (parent && parent._formGroup) {
+      parent.children.push(this)
+      this._parent = parent
+    }
   },
   ready () {
-    $(this.$els.select).onBlur((e) => { this.show = false })
+    $(this.$els.select).onBlur(e => { this.show = false })
   },
   beforeDestroy () {
+    if (this._parent) this._parent.children.$remove(this)
     $(this.$els.select).offBlur()
   }
 }
@@ -323,9 +337,9 @@ export default {
   text-align: center;
 }
 button>.close { margin-left: 5px;}
-.btn-group>.notify { position: relative; }
-.btn-group .dropdown-menu .notify,
-.btn-group .notify > div {
+.notify.out { position: relative; }
+.notify.in,
+.notify>div {
   position: absolute;
   width: 96%;
   margin: 0 2%;
@@ -336,11 +350,11 @@ button>.close { margin-left: 5px;}
   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
   pointer-events: none;
 }
-.btn-group .notify > div {
+.notify>div {
   top: 5px;
   z-index: 1;
 }
-.btn-group .dropdown-menu .notify {
+.notify.in {
   opacity: .9;
   bottom: 5px;
 }

@@ -1,24 +1,14 @@
 <template>
   <span v-el:trigger>
-    <slot>
-    </slot>
+    <slot></slot>
   </span>
-  <div class="tooltip"
-    v-bind:class="{
-    'top':    placement === 'top',
-    'left':   placement === 'left',
-    'right':  placement === 'right',
-    'bottom': placement === 'bottom'
-    }"
-    v-el:popover
-    v-show="show"
+  <div v-el:popover v-show="show" role="tooltip"
+    :class="['tooltip',placement]"
     :transition="effect"
-    role="tooltip">
+  >
     <div class="tooltip-arrow"></div>
     <div class="tooltip-inner">
-       <slot name="content">
-        {{{content}}}
-      </slot>
+      <slot name="content">{{{content}}}</slot>
    </div>
   </div>
 </template>
@@ -56,12 +46,12 @@ export default {
     opacity: 0;
   }
   100% {
-    opacity: 1;
+    opacity: .9;
   }
 }
 @keyframes fadein-out {
   0% {
-    opacity: 1;
+    opacity: .9;
   }
   100% {
     opacity: 0;

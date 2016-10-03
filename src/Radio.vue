@@ -1,5 +1,5 @@
 <template>
-  <label v-if="buttonStyle" :class="['btn btn-'+typeColor,{active:active,disabled:disabled,readonly:readonly}]" @click="toggle">
+  <label v-if="buttonStyle" :class="['btn btn-'+typeColor,{active:active,disabled:disabled,readonly:readonly}]" @click.prevent="toggle">
     <input type="radio" autocomplete="off"
       v-el:input
       v-show="!readonly"
@@ -11,8 +11,8 @@
     />
     <slot></slot>
   </label>
-  <div v-else :class="['radio',typeColor,{active:active,disabled:disabled,readonly:readonly}]" @click="toggle">
-    <label>
+  <div v-else :class="['radio',typeColor,{active:active,disabled:disabled,readonly:readonly}]" @click.prevent="toggle">
+    <label class="open">
       <input type="radio" autocomplete="off"
         v-el:input
         :checked="active"
@@ -21,14 +21,15 @@
         :readonly="readonly"
         :disabled="disabled"
       />
-      <span class="icon"></span>
+      <span class="icon dropdown-toggle" :class="[active?'btn-'+typeColor:'',{bg:typeColor==='default'}]"></span>
+      <span v-if="active&&typeColor==='default'" class="icon"></span>
       <slot></slot>
     </label>
   </div>
 </template>
 
 <script>
-import coerceBoolean from './utils/coerceBoolean.js'
+import {coerce} from './utils/utils.js'
 
 export default {
   props: {
@@ -40,12 +41,12 @@ export default {
     },
     button: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     disabled: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     name: {
@@ -54,7 +55,7 @@ export default {
     },
     readonly: {
       type: Boolean,
-      coerce: coerceBoolean,
+      coerce: coerce.boolean,
       default: false
     },
     type: {
@@ -126,39 +127,31 @@ export default {
   width: 1.4rem;
   height: 1.4rem;
   text-align: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   border-radius: .7rem;
-  border: 1px solid #aaa;
-  background-color: #ddd;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 50% 50%;
 }
+.radio:not(.active) > label > .icon {
+  background-color: #ddd;
+  border: 1px solid #bbb;
+}
 .radio > label > input:focus ~ .icon {
   outline: 0;
   border: 1px solid #66afe9;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
 }
 .radio.active > label > .icon {
   background-size: 1rem 1rem;
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgY3g9IjUiIGN5PSI1IiByPSI0IiBmaWxsPSIjZmZmIi8+PC9zdmc+);
 }
-.radio.active.default > label > .icon { background-color: #bbb; }
-.radio.active.primary > label > .icon { background-color: #337ab7; }
-.radio.active.success > label > .icon { background-color: #5cb85c; }
-.radio.active.info > label > .icon { background-color: #5bc0de; }
-.radio.active.warning > label > .icon { background-color: #f0ad4e; }
-.radio.active.danger > label > .icon { background-color: #d9534f; }
+.radio.active .btn-default { filter: brightness(75%); }
 
 .radio.disabled > label > .icon,
 .radio.readonly > label > .icon,
 .btn.readonly {
   filter: alpha(opacity=65);
-  -webkit-box-shadow: none;
   box-shadow: none;
   opacity: .65;
 }

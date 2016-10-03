@@ -1,45 +1,32 @@
 <template>
   <doc-section id="tooltip" name="Tooltip">
     <div class="bs-example">
-      <tooltip  header content="Lorem ipsum dolor sit amet" placement="top">
-        <button class="btn btn-default ">tooltip on top</button>
-      </tooltip>
-      <tooltip  header content="Lorem ipsum dolor sit amet" placement="left">
-        <button class="btn btn-default ">tooltip on left</button>
-      </tooltip>
-      <tooltip  header content="Lorem ipsum dolor sit amet" placement="right">
-        <button class="btn btn-default ">tooltip on right</button>
-      </tooltip>
-      <tooltip  placement="bottom" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-        <button class="btn btn-default ">tooltip on bottom</button>
+      <tooltip v-for="place in ['top','left','right','bottom']" header content="Lorem ipsum dolor sit amet" :placement="place">
+        <button class="btn btn-default">Popover on {{place}}</button>
       </tooltip>
       <hr>
-      <h4>Triger</h4>
+      <h4>Trigger</h4>
       <p>
-        <tooltip trigger="click"
-        effect="scale" content="Lorem ipsum dolor sit amet" placement="top" trigger="hover">
-            <button class="btn btn-default ">Click</button>
+        <tooltip effect="scale" content="Lorem ipsum dolor sit amet" placement="top" trigger="click">
+          <button class="btn btn-default">Click</button>
+        </tooltip>
+        <tooltip effect="scale" content="Lorem ipsum dolor sit amet" placement="top" trigger="contextmenu">
+          <button class="btn btn-default">Contextmenu (right click)</button>
         </tooltip>
       </p>
-      <tooltip effect="scale"
-    content="Lorem ipsum dolor sit amet" placement="bottom" trigger="focus">
-        <input type="text" class="form-control" placeholder="Focus">
+      <tooltip effect="scale" content="Lorem ipsum dolor sit amet" placement="bottom" trigger="focus">
+        <bs-input type="text" placeholder="Focus"></bs-input>
       </tooltip>
     </div>
     <doc-code language="markup">
-      <tooltip
-        effect="scale"
-        placement="bottom"
-        content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-        <button class="btn btn-default ">tooltip on bottom</button>
+      <tooltip effect="scale" placement="bottom" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
+        <button class="btn btn-default">tooltip on bottom</button>
       </tooltip>
     </doc-code>
     <doc-options>
       <div>
         <p>trigger</p>
-        <p><code>String</code>, one of <code>click</code>
-        <code>focus</code>
-        <code>hover</code></p>
+        <p><code>String</code>, one of <code>click</code> <code>focus</code> <code>hover</code> <code>contextmenu</code></p>
         <p><code>click</code></p>
         <p>How the tooltip is triggered.</p>
       </div>
@@ -71,6 +58,7 @@
 import docSection from './docSection.vue'
 import docOptions from './docOptions.vue'
 import docCode from './docCode.vue'
+import bsInput from 'src/Input.vue'
 import tooltip from 'src/Tooltip.vue'
 
 export default {
@@ -78,12 +66,13 @@ export default {
     docSection,
     docOptions,
     docCode,
+    bsInput,
     tooltip
   },
   data () {
     return {
-      title: 'Title',
-      text: 'Lorem ipsum dolor sit amet'
+      text: 'Lorem ipsum dolor sit amet',
+      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod'
     }
   }
 }
