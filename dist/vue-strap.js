@@ -5202,9 +5202,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <template>
 	
-	//   <li v-if="$parent._navbar||$parent.menu||$parent._tabset" v-el:dropdown class="dropdown" :class="classes">
+	//   <li v-if="isLi" v-el:dropdown :class="classes">
 	
-	//       <a v-if="text" class="dropdown-toggle" role="button" :class="{disabled: disabled}" @keyup.esc="show = false">
+	//     <slot name="button">
+	
+	//       <a class="dropdown-toggle" role="button" :class="{disabled: disabled}" @keyup.esc="show = false">
 	
 	//         {{ text }}
 	
@@ -5212,21 +5214,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//       </a>
 	
-	//       <slot v-else name="button"></slot>
+	//     </slot>
 	
-	//     <slot v-if="slots['dropdown-menu']" name="dropdown-menu"></slot>
+	//     <slot name="dropdown-menu">
 	
-	//     <ul v-else class="dropdown-menu">
+	//       <ul v-else class="dropdown-menu">
 	
-	//       <slot></slot>
+	//         <slot></slot>
 	
-	//     </ul>
+	//       </ul>
+	
+	//     </slot>
 	
 	//   </li>
 	
-	//   <div v-else v-el:dropdown class="btn-group" :class="classes">
+	//   <div v-else v-el:dropdown :class="classes">
 	
-	//       <button v-if="text" type="button" class="btn btn-{{type}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
+	//     <slot name="before"></slot>
+	
+	//     <slot name="button">
+	
+	//       <button type="button" class="btn btn-{{type}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
 	
 	//         {{ text }}
 	
@@ -5234,15 +5242,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//       </button>
 	
-	//       <slot v-else name="button"></slot>
+	//     </slot>
 	
-	//     <slot v-if="slots['dropdown-menu']" name="dropdown-menu"></slot>
+	//     <slot name="dropdown-menu">
 	
-	//     <ul v-else class="dropdown-menu">
+	//       <ul class="dropdown-menu">
 	
-	//       <slot></slot>
+	//         <slot></slot>
 	
-	//     </ul>
+	//       </ul>
+	
+	//     </slot>
 	
 	//   </div>
 	
@@ -5274,7 +5284,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  computed: {
 	    classes: function classes() {
-	      return [{ open: this.show, disabled: this.disabled }, this.class];
+	      return [{ open: this.show, disabled: this.disabled }, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'];
+	    },
+	    inInput: function inInput() {
+	      return this.$parent._input;
+	    },
+	    isLi: function isLi() {
+	      return this.$parent._navbar || this.$parent.menu || this.$parent._tabset;
 	    },
 	    menu: function menu() {
 	      return !this.$parent || this.$parent.navbar;
@@ -5310,7 +5326,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    $el.onBlur(function (e) {
 	      _this2.show = false;
 	    });
-	    $el.findChildren('a,button').on('click', function (e) {
+	    $el.findChildren('a,button.dropdown-toggle').on('click', function (e) {
 	      e.preventDefault();
 	      if (_this2.disabled) {
 	        return false;
@@ -5360,7 +5376,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 136 */
 /***/ function(module, exports) {
 
-	module.exports = "<li v-if=\"$parent._navbar||$parent.menu||$parent._tabset\" v-el:dropdown=\"\" class=\"dropdown\" :class=\"classes\" _v-628ea2dc=\"\">\n      <a v-if=\"text\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" @keyup.esc=\"show = false\" _v-628ea2dc=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-628ea2dc=\"\"></span>\n      </a>\n      <slot v-else=\"\" name=\"button\" _v-628ea2dc=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-628ea2dc=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-628ea2dc=\"\">\n      <slot _v-628ea2dc=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"classes\" _v-628ea2dc=\"\">\n      <button v-if=\"text\" type=\"button\" class=\"btn btn-{{type}} dropdown-toggle\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-628ea2dc=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-628ea2dc=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-628ea2dc=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-628ea2dc=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-628ea2dc=\"\">\n      <slot _v-628ea2dc=\"\"></slot>\n    </ul>\n  </div>";
+	module.exports = "<li v-if=\"isLi\" v-el:dropdown=\"\" :class=\"classes\" _v-628ea2dc=\"\">\n    <slot name=\"button\" _v-628ea2dc=\"\">\n      <a class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" @keyup.esc=\"show = false\" _v-628ea2dc=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-628ea2dc=\"\"></span>\n      </a>\n    </slot>\n    <slot name=\"dropdown-menu\" _v-628ea2dc=\"\">\n      <ul v-else=\"\" class=\"dropdown-menu\" _v-628ea2dc=\"\">\n        <slot _v-628ea2dc=\"\"></slot>\n      </ul>\n    </slot>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" :class=\"classes\" _v-628ea2dc=\"\">\n    <slot name=\"before\" _v-628ea2dc=\"\"></slot>\n    <slot name=\"button\" _v-628ea2dc=\"\">\n      <button type=\"button\" class=\"btn btn-{{type}} dropdown-toggle\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-628ea2dc=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-628ea2dc=\"\"></span>\n      </button>\n    </slot>\n    <slot name=\"dropdown-menu\" _v-628ea2dc=\"\">\n      <ul class=\"dropdown-menu\" _v-628ea2dc=\"\">\n        <slot _v-628ea2dc=\"\"></slot>\n      </ul>\n    </slot>\n  </div>";
 
 /***/ },
 /* 137 */
@@ -5574,9 +5590,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <template>
 	
-	//   <div class="form-group" @click="focus()" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
+	//   <div class="form-group" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
 	
-	//     <slot name="label"><label v-if="label" class="control-label">{{label}}</label></slot>
+	//     <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
 	
 	//     <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
 	
@@ -5676,9 +5692,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
 	
-	//     <div v-if="showHelp" class="help-block">{{help}}</div>
+	//     <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
 	
-	//     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
+	//     <div v-if="showError" class="help-block with-errors" @click="focus">{{errorText}}</div>
 	
 	//   </div>
 	
@@ -5936,6 +5952,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  created: function created() {
+	    this._input = true;
 	    this._timeout = {};
 	    var parent = this.$parent;
 	    while (parent && !parent._formGroup) {
@@ -6001,7 +6018,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 144 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{validate:canValidate,'has-feedback':icon,'has-error':canValidate&amp;&amp;valid===false,'has-success':canValidate&amp;&amp;valid}\" _v-461124e2=\"\">\n    <slot name=\"label\" _v-461124e2=\"\"><label v-if=\"label\" class=\"control-label\" _v-461124e2=\"\">{{label}}</label></slot>\n    <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @blur=\"onblur\" @focus=\"onfocus\" _v-461124e2=\"\"></textarea>\n    <template v-else=\"\" _v-461124e2=\"\">\n      <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-461124e2=\"\">\n        <slot name=\"before\" _v-461124e2=\"\"></slot>\n        <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :step=\"step\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" @blur=\"onblur\" @focus=\"onfocus\" _v-461124e2=\"\">\n        <slot name=\"after\" _v-461124e2=\"\"></slot>\n      </div>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" @blur=\"onblur\" @focus=\"onfocus\" _v-461124e2=\"\">\n    </template>\n    <span v-if=\"clearButton &amp;&amp; value\" class=\"close\" @click=\"value = ''\" _v-461124e2=\"\">×</span>\n    <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-461124e2=\"\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\" _v-461124e2=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" _v-461124e2=\"\">{{errorText}}</div>\n  </div>";
+	module.exports = "<div class=\"form-group\" :class=\"{validate:canValidate,'has-feedback':icon,'has-error':canValidate&amp;&amp;valid===false,'has-success':canValidate&amp;&amp;valid}\" _v-461124e2=\"\">\n    <slot name=\"label\" _v-461124e2=\"\"><label v-if=\"label\" class=\"control-label\" @click=\"focus\" _v-461124e2=\"\">{{label}}</label></slot>\n    <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @blur=\"onblur\" @focus=\"onfocus\" _v-461124e2=\"\"></textarea>\n    <template v-else=\"\" _v-461124e2=\"\">\n      <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-461124e2=\"\">\n        <slot name=\"before\" _v-461124e2=\"\"></slot>\n        <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :step=\"step\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" @blur=\"onblur\" @focus=\"onfocus\" _v-461124e2=\"\">\n        <slot name=\"after\" _v-461124e2=\"\"></slot>\n      </div>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" @blur=\"onblur\" @focus=\"onfocus\" _v-461124e2=\"\">\n    </template>\n    <span v-if=\"clearButton &amp;&amp; value\" class=\"close\" @click=\"value = ''\" _v-461124e2=\"\">×</span>\n    <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-461124e2=\"\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\" @click=\"focus\" _v-461124e2=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" @click=\"focus\" _v-461124e2=\"\">{{errorText}}</div>\n  </div>";
 
 /***/ },
 /* 145 */

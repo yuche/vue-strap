@@ -1,6 +1,6 @@
 <template>
-  <div class="form-group" @click="focus()" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
-    <slot name="label"><label v-if="label" class="control-label">{{label}}</label></slot>
+  <div class="form-group" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
+    <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
     <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
       :cols="cols"
       :rows="rows"
@@ -50,8 +50,8 @@
     </template>
     <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
-    <div v-if="showHelp" class="help-block">{{help}}</div>
-    <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
+    <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
+    <div v-if="showError" class="help-block with-errors" @click="focus">{{errorText}}</div>
   </div>
 </template>
 
@@ -290,6 +290,7 @@ export default {
     }
   },
   created () {
+    this._input = true
     this._timeout = {}
     let parent = this.$parent
     while (parent && !parent._formGroup) { parent = parent.$parent }

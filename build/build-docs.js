@@ -3241,7 +3241,7 @@
 	  props: {
 	    language: {
 	      type: String,
-	      default: null
+	      default: 'html'
 	    }
 	  },
 	  compiled: function compiled() {
@@ -10188,7 +10188,15 @@
 	
 	//       </dropdown>
 	
-	//       <div class="btn-group btn-group-justified" role="group">
+	//       <dropdown type="info">
+	
+	//         <button slot="before" type="button" class="btn btn-info">Segmented</button>
+	
+	//         <li><a href="#dropdown">Action</a></li>
+	
+	//       </dropdown>
+	
+	//       <div class="btn-group btn-group-justified">
 	
 	//         <a href="#dropdown" class="btn btn-default" role="button">Left</a>
 	
@@ -10222,13 +10230,45 @@
 	
 	//     </div>
 	
-	//     <doc-code language="markup">
+	//     <doc-code>
 	
-	//       <!-- You can use slots to handle some elements as native bootstrap -->
+	//       <dropdown text="Action" type="primary">
+	
+	//         <li><a href="#dropdown">Action</a></li>
+	
+	//         <li role="separator" class="divider"></li>
+	
+	//         <li><a href="#dropdown">Separated link</a></li>
+	
+	//       </dropdown>
+	
+	//       // For segmented dropdown, ignore text and add a "before" slot
+	
+	//       <dropdown type="info">
+	
+	//         <button slot="before" type="button" class="btn btn-info">Segmented</button>
+	
+	//         <li><a href="#dropdown">...</a></li>
+	
+	//       </dropdown>
+	
+	//       // In a button group
+	
+	//       <div class="btn-group btn-group-justified">
+	
+	//         <a href="#dropdown" class="btn btn-default" role="button">Left</a>
+	
+	//         <dropdown>...</dropdown>
+	
+	//         <a href="#dropdown" class="btn btn-default" role="button">Right</a>
+	
+	//       </div>
+	
+	//       // With slots you can handle some elements as native bootstrap
 	
 	//       <dropdown>
 	
-	//         <button slot="button" type="button" class="btn btn-default">
+	//         <button slot="button" type="button" class="btn btn-default dropdown-toggle">
 	
 	//           Action
 	
@@ -10249,26 +10289,6 @@
 	//           <li><a href="#dropdown">Separated link</a></li>
 	
 	//         </ul>
-	
-	//       </dropdown>
-	
-	//       <dropdown text="Action" type="primary">
-	
-	//         <li><a href="#dropdown">Action</a></li>
-	
-	//         <li><a href="#dropdown">Another action</a></li>
-	
-	//         <li><a href="#dropdown">Something else here</a></li>
-	
-	//         <li role="separator" class="divider"></li>
-	
-	//         <li><a href="#dropdown">Separated link</a></li>
-	
-	//       </dropdown>
-	
-	//       <dropdown text="Disabled" type="warning" disabled>
-	
-	//         <li><a href="#dropdown">Action</a></li>
 	
 	//       </dropdown>
 	
@@ -10453,9 +10473,11 @@
 	
 	// <template>
 	
-	//   <li v-if="$parent._navbar||$parent.menu||$parent._tabset" v-el:dropdown class="dropdown" :class="classes">
+	//   <li v-if="isLi" v-el:dropdown :class="classes">
 	
-	//       <a v-if="text" class="dropdown-toggle" role="button" :class="{disabled: disabled}" @keyup.esc="show = false">
+	//     <slot name="button">
+	
+	//       <a class="dropdown-toggle" role="button" :class="{disabled: disabled}" @keyup.esc="show = false">
 	
 	//         {{ text }}
 	
@@ -10463,21 +10485,27 @@
 	
 	//       </a>
 	
-	//       <slot v-else name="button"></slot>
+	//     </slot>
 	
-	//     <slot v-if="slots['dropdown-menu']" name="dropdown-menu"></slot>
+	//     <slot name="dropdown-menu">
 	
-	//     <ul v-else class="dropdown-menu">
+	//       <ul v-else class="dropdown-menu">
 	
-	//       <slot></slot>
+	//         <slot></slot>
 	
-	//     </ul>
+	//       </ul>
+	
+	//     </slot>
 	
 	//   </li>
 	
-	//   <div v-else v-el:dropdown class="btn-group" :class="classes">
+	//   <div v-else v-el:dropdown :class="classes">
 	
-	//       <button v-if="text" type="button" class="btn btn-{{type}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
+	//     <slot name="before"></slot>
+	
+	//     <slot name="button">
+	
+	//       <button type="button" class="btn btn-{{type}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
 	
 	//         {{ text }}
 	
@@ -10485,15 +10513,17 @@
 	
 	//       </button>
 	
-	//       <slot v-else name="button"></slot>
+	//     </slot>
 	
-	//     <slot v-if="slots['dropdown-menu']" name="dropdown-menu"></slot>
+	//     <slot name="dropdown-menu">
 	
-	//     <ul v-else class="dropdown-menu">
+	//       <ul class="dropdown-menu">
 	
-	//       <slot></slot>
+	//         <slot></slot>
 	
-	//     </ul>
+	//       </ul>
+	
+	//     </slot>
 	
 	//   </div>
 	
@@ -10525,7 +10555,13 @@
 	  },
 	  computed: {
 	    classes: function classes() {
-	      return [{ open: this.show, disabled: this.disabled }, this.class];
+	      return [{ open: this.show, disabled: this.disabled }, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'];
+	    },
+	    inInput: function inInput() {
+	      return this.$parent._input;
+	    },
+	    isLi: function isLi() {
+	      return this.$parent._navbar || this.$parent.menu || this.$parent._tabset;
 	    },
 	    menu: function menu() {
 	      return !this.$parent || this.$parent.navbar;
@@ -10561,7 +10597,7 @@
 	    $el.onBlur(function (e) {
 	      _this2.show = false;
 	    });
-	    $el.findChildren('a,button').on('click', function (e) {
+	    $el.findChildren('a,button.dropdown-toggle').on('click', function (e) {
 	      e.preventDefault();
 	      if (_this2.disabled) {
 	        return false;
@@ -10611,13 +10647,13 @@
 /* 255 */
 /***/ function(module, exports) {
 
-	module.exports = "<li v-if=\"$parent._navbar||$parent.menu||$parent._tabset\" v-el:dropdown=\"\" class=\"dropdown\" :class=\"classes\" _v-628ea2dc=\"\">\n      <a v-if=\"text\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" @keyup.esc=\"show = false\" _v-628ea2dc=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-628ea2dc=\"\"></span>\n      </a>\n      <slot v-else=\"\" name=\"button\" _v-628ea2dc=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-628ea2dc=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-628ea2dc=\"\">\n      <slot _v-628ea2dc=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"classes\" _v-628ea2dc=\"\">\n      <button v-if=\"text\" type=\"button\" class=\"btn btn-{{type}} dropdown-toggle\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-628ea2dc=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-628ea2dc=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-628ea2dc=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-628ea2dc=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-628ea2dc=\"\">\n      <slot _v-628ea2dc=\"\"></slot>\n    </ul>\n  </div>";
+	module.exports = "<li v-if=\"isLi\" v-el:dropdown=\"\" :class=\"classes\" _v-628ea2dc=\"\">\n    <slot name=\"button\" _v-628ea2dc=\"\">\n      <a class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" @keyup.esc=\"show = false\" _v-628ea2dc=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-628ea2dc=\"\"></span>\n      </a>\n    </slot>\n    <slot name=\"dropdown-menu\" _v-628ea2dc=\"\">\n      <ul v-else=\"\" class=\"dropdown-menu\" _v-628ea2dc=\"\">\n        <slot _v-628ea2dc=\"\"></slot>\n      </ul>\n    </slot>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" :class=\"classes\" _v-628ea2dc=\"\">\n    <slot name=\"before\" _v-628ea2dc=\"\"></slot>\n    <slot name=\"button\" _v-628ea2dc=\"\">\n      <button type=\"button\" class=\"btn btn-{{type}} dropdown-toggle\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-628ea2dc=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-628ea2dc=\"\"></span>\n      </button>\n    </slot>\n    <slot name=\"dropdown-menu\" _v-628ea2dc=\"\">\n      <ul class=\"dropdown-menu\" _v-628ea2dc=\"\">\n        <slot _v-628ea2dc=\"\"></slot>\n      </ul>\n    </slot>\n  </div>";
 
 /***/ },
 /* 256 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"dropdown\" name=\"Dropdown\">\r\n    <div class=\"bs-example\">\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-default dropdown-toggle\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n        <li><a href=\"#dropdown\">Another action</a></li>\r\n        <li><a href=\"#dropdown\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#dropdown\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-success dropdown-toggle\">\r\n          Action <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Disabled\" type=\"warning\" disabled>\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n      </dropdown>\r\n      <div class=\"btn-group btn-group-justified\" role=\"group\">\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Left</a>\r\n        <dropdown>\r\n          <a slot=\"button\" href=\"#dropdown\" class=\"btn btn-default\">\r\n            Dropdown <span class=\"caret\"></span>\r\n          </a>\r\n          <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n            <li><a href=\"#dropdown\">Action</a></li>\r\n            <li><a href=\"#dropdown\">Another action</a></li>\r\n            <li><a href=\"#dropdown\">Something else here</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#dropdown\">Separated link</a></li>\r\n          </ul>\r\n        </dropdown>\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Right</a>\r\n      </div>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <!-- You can use slots to handle some elements as native bootstrap -->\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-default\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n        <li><a href=\"#dropdown\">Another action</a></li>\r\n        <li><a href=\"#dropdown\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#dropdown\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown text=\"Disabled\" type=\"warning\" disabled>\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n      </dropdown>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>show</p>\r\n        <p><code>Boolean</code></p>\r\n        <p></p>\r\n        <p>Whether show the component.</p>\r\n      </div>\r\n      <div>\r\n        <p>class</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>classes to change the style.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>text</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Dropdown button text.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n    <h2>Usage</h2>\r\n    <p>Just like the examples. Can use it as the <a target=\"_blank\" href=\"http://getbootstrap.com/javascript/#dropdowns\">original Bootstrap way</a>.</p>\r\n  </doc-section>";
+	module.exports = "<doc-section id=\"dropdown\" name=\"Dropdown\">\r\n    <div class=\"bs-example\">\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-default dropdown-toggle\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n        <li><a href=\"#dropdown\">Another action</a></li>\r\n        <li><a href=\"#dropdown\">Something else here</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#dropdown\">Separated link</a></li>\r\n      </dropdown>\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-success dropdown-toggle\">\r\n          Action <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n      <dropdown text=\"Disabled\" type=\"warning\" disabled>\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n      </dropdown>\r\n      <dropdown type=\"info\">\r\n        <button slot=\"before\" type=\"button\" class=\"btn btn-info\">Segmented</button>\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n      </dropdown>\r\n      <div class=\"btn-group btn-group-justified\">\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Left</a>\r\n        <dropdown>\r\n          <a slot=\"button\" href=\"#dropdown\" class=\"btn btn-default\">\r\n            Dropdown <span class=\"caret\"></span>\r\n          </a>\r\n          <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n            <li><a href=\"#dropdown\">Action</a></li>\r\n            <li><a href=\"#dropdown\">Another action</a></li>\r\n            <li><a href=\"#dropdown\">Something else here</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#dropdown\">Separated link</a></li>\r\n          </ul>\r\n        </dropdown>\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Right</a>\r\n      </div>\r\n    </div>\r\n    <doc-code>\r\n      <dropdown text=\"Action\" type=\"primary\">\r\n        <li><a href=\"#dropdown\">Action</a></li>\r\n        <li role=\"separator\" class=\"divider\"></li>\r\n        <li><a href=\"#dropdown\">Separated link</a></li>\r\n      </dropdown>\r\n      // For segmented dropdown, ignore text and add a \"before\" slot\r\n      <dropdown type=\"info\">\r\n        <button slot=\"before\" type=\"button\" class=\"btn btn-info\">Segmented</button>\r\n        <li><a href=\"#dropdown\">...</a></li>\r\n      </dropdown>\r\n      // In a button group\r\n      <div class=\"btn-group btn-group-justified\">\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Left</a>\r\n        <dropdown>...</dropdown>\r\n        <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Right</a>\r\n      </div>\r\n      // With slots you can handle some elements as native bootstrap\r\n      <dropdown>\r\n        <button slot=\"button\" type=\"button\" class=\"btn btn-default dropdown-toggle\">\r\n          Action\r\n          <span class=\"caret\"></span>\r\n        </button>\r\n        <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\r\n          <li><a href=\"#dropdown\">Action</a></li>\r\n          <li><a href=\"#dropdown\">Another action</a></li>\r\n          <li><a href=\"#dropdown\">Something else here</a></li>\r\n          <li role=\"separator\" class=\"divider\"></li>\r\n          <li><a href=\"#dropdown\">Separated link</a></li>\r\n        </ul>\r\n      </dropdown>\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>show</p>\r\n        <p><code>Boolean</code></p>\r\n        <p></p>\r\n        <p>Whether show the component.</p>\r\n      </div>\r\n      <div>\r\n        <p>class</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>classes to change the style.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>text</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>Dropdown button text.</p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code>, one of <code>default</code>\r\n        <code>primary</code>\r\n        <code>danger</code>\r\n        <code>info</code>\r\n        <code>warning</code>\r\n        <code>success</code></p>\r\n        <p><code>default</code></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-options>\r\n    <h2>Usage</h2>\r\n    <p>Just like the examples. Can use it as the <a target=\"_blank\" href=\"http://getbootstrap.com/javascript/#dropdowns\">original Bootstrap way</a>.</p>\r\n  </doc-section>";
 
 /***/ },
 /* 257 */
@@ -11135,9 +11171,9 @@
 	
 	// <template>
 	
-	//   <div class="form-group" @click="focus()" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
+	//   <div class="form-group" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
 	
-	//     <slot name="label"><label v-if="label" class="control-label">{{label}}</label></slot>
+	//     <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
 	
 	//     <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
 	
@@ -11237,9 +11273,9 @@
 	
 	//     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
 	
-	//     <div v-if="showHelp" class="help-block">{{help}}</div>
+	//     <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
 	
-	//     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
+	//     <div v-if="showError" class="help-block with-errors" @click="focus">{{errorText}}</div>
 	
 	//   </div>
 	
@@ -11497,6 +11533,7 @@
 	    }
 	  },
 	  created: function created() {
+	    this._input = true;
 	    this._timeout = {};
 	    var parent = this.$parent;
 	    while (parent && !parent._formGroup) {
@@ -11562,7 +11599,7 @@
 /* 268 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{validate:canValidate,'has-feedback':icon,'has-error':canValidate&amp;&amp;valid===false,'has-success':canValidate&amp;&amp;valid}\" _v-461124e2=\"\">\n    <slot name=\"label\" _v-461124e2=\"\"><label v-if=\"label\" class=\"control-label\" _v-461124e2=\"\">{{label}}</label></slot>\n    <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @blur=\"onblur\" @focus=\"onfocus\" _v-461124e2=\"\"></textarea>\n    <template v-else=\"\" _v-461124e2=\"\">\n      <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-461124e2=\"\">\n        <slot name=\"before\" _v-461124e2=\"\"></slot>\n        <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :step=\"step\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" @blur=\"onblur\" @focus=\"onfocus\" _v-461124e2=\"\">\n        <slot name=\"after\" _v-461124e2=\"\"></slot>\n      </div>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" @blur=\"onblur\" @focus=\"onfocus\" _v-461124e2=\"\">\n    </template>\n    <span v-if=\"clearButton &amp;&amp; value\" class=\"close\" @click=\"value = ''\" _v-461124e2=\"\">×</span>\n    <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-461124e2=\"\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\" _v-461124e2=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" _v-461124e2=\"\">{{errorText}}</div>\n  </div>";
+	module.exports = "<div class=\"form-group\" :class=\"{validate:canValidate,'has-feedback':icon,'has-error':canValidate&amp;&amp;valid===false,'has-success':canValidate&amp;&amp;valid}\" _v-461124e2=\"\">\n    <slot name=\"label\" _v-461124e2=\"\"><label v-if=\"label\" class=\"control-label\" @click=\"focus\" _v-461124e2=\"\">{{label}}</label></slot>\n    <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @blur=\"onblur\" @focus=\"onfocus\" _v-461124e2=\"\"></textarea>\n    <template v-else=\"\" _v-461124e2=\"\">\n      <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-461124e2=\"\">\n        <slot name=\"before\" _v-461124e2=\"\"></slot>\n        <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :step=\"step\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" @blur=\"onblur\" @focus=\"onfocus\" _v-461124e2=\"\">\n        <slot name=\"after\" _v-461124e2=\"\"></slot>\n      </div>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" @blur=\"onblur\" @focus=\"onfocus\" _v-461124e2=\"\">\n    </template>\n    <span v-if=\"clearButton &amp;&amp; value\" class=\"close\" @click=\"value = ''\" _v-461124e2=\"\">×</span>\n    <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-461124e2=\"\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\" @click=\"focus\" _v-461124e2=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" @click=\"focus\" _v-461124e2=\"\">{{errorText}}</div>\n  </div>";
 
 /***/ },
 /* 269 */
@@ -11933,8 +11970,47 @@
 	
 	var _Checkbox2 = _interopRequireDefault(_Checkbox);
 	
+	var _Dropdown = __webpack_require__(251);
+	
+	var _Dropdown2 = _interopRequireDefault(_Dropdown);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	exports.default = {
+	  components: {
+	    docSection: _docSection2.default,
+	    docOptions: _docOptions2.default,
+	    docCode: _docCode2.default,
+	    bsInput: _Input2.default,
+	    buttonGroup: _buttonGroup2.default,
+	    checkbox: _Checkbox2.default,
+	    dropdown: _Dropdown2.default
+	  },
+	  data: function data() {
+	    return {
+	      check: {
+	        clearButton: true,
+	        error: true,
+	        icon: true,
+	        label: true,
+	        mask: true,
+	        minlength: true,
+	        placeholder: true,
+	        required: true
+	      },
+	      event: null,
+	      input: null,
+	      match: null
+	    };
+	  },
+	
+	  methods: {
+	    mask: function mask(value) {
+	      return value.toLowerCase().replace(/^[^a-z]+/, '').replace(/[^a-z0-9]/g, '');
+	    }
+	  }
+	};
+	// </script>
 	// <template>
 	
 	//   <doc-section id="input" name="Input">
@@ -11983,7 +12059,11 @@
 	
 	//           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 	
-	//             <bs-input name="match" required label="Match value" type="password" :match="input" :icon="check.icon" :enter-submit="check.enterSubmit" help="Match the User Name"></bs-input>
+	//             <bs-input name="match" required type="password" :match="input" :icon="check.icon" :enter-submit="check.enterSubmit" help="Match the User Name">
+	
+	//               <label slot="label">Match value</label>
+	
+	//             </bs-input>
 	
 	//           </div>
 	
@@ -12039,51 +12119,107 @@
 	
 	//       </form>
 	
+	//       <doc-code>
+	
+	//         <bs-input :value.sync="input"
+	
+	//           label="Username"
+	
+	//           help="Only allows lowercase letters and numbers."
+	
+	//           error="Insert username"
+	
+	//           placeholder="Username can't start with a number."
+	
+	//           pattern="^[a-z][a-z0-9]+$"
+	
+	//           :mask="mask"
+	
+	//           minlength="5"
+	
+	//           readonly
+	
+	//           required
+	
+	//           icon
+	
+	//         ></bs-input>
+	
+	//         <bs-input required label="Match value" type="password" :match="input"></bs-input>
+	
+	//         <bs-input label="Textarea" type="textarea" @focus="event = 'focused'" @blur="event = 'blured'"></bs-input>
+	
+	//       </doc-code>
+	
+	//       <doc-code language="javascript">
+	
+	//         mask: function (value) {
+	
+	//           // change to lowercase, remove up to the first letter, and then remove all other unsuported characters
+	
+	//           return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/[^a-z0-9]/g,'');
+	
+	//         }
+	
+	//       </doc-code>
+	
+	//       <h2>Input groups:</h2>
+	
+	//       <p>More details in <a href="http://getbootstrap.com/components/#input-groups">bootstrap input groups</a>.</p>
+	
+	//       <bs-input label="With dropdown and button" type="text">
+	
+	//         <dropdown slot="before" text="dropdown">
+	
+	//           <li><a href="#">option</a></li>
+	
+	//         </dropdown>
+	
+	//         <span slot="after" class="input-group-btn">
+	
+	//           <button type="button" class="btn btn-primary">Go!</button>
+	
+	//         </span>
+	
+	//       </bs-input>
+	
+	//       <doc-code>
+	
+	//         <bs-input label="With dropdown and button" type="text">
+	
+	//           <dropdown slot="before" text="dropdown">
+	
+	//             <li><a href="#">option</a></li>
+	
+	//           </dropdown>
+	
+	//           <span slot="after" class="input-group-btn">
+	
+	//             <button type="button" class="btn btn-primary">Go!</button>
+	
+	//           </span>
+	
+	//         </bs-input>
+	
+	//       </doc-code>
+	
+	//       <bs-input label="With text or icon" type="text">
+	
+	//         <span slot="before" class="input-group-addon">
+	
+	//           <li><a href="#">option</a></li>
+	
+	//         </span>
+	
+	//         <span slot="after" class="input-group-btn">
+	
+	//           <button type="button" class="btn btn-primary">Go!</button>
+	
+	//         </span>
+	
+	//       </bs-input>
+	
 	//     </div>
-	
-	//     <doc-code language="markup">
-	
-	//       <bs-input :value.sync="input"
-	
-	//         label="Username"
-	
-	//         help="Only allows lowercase letters and numbers."
-	
-	//         error="Insert username"
-	
-	//         placeholder="Username can't start with a number."
-	
-	//         pattern="^[a-z][a-z0-9]+$"
-	
-	//         :mask="mask"
-	
-	//         minlength="5"
-	
-	//         readonly
-	
-	//         required
-	
-	//         icon
-	
-	//       ></bs-input>
-	
-	//       <bs-input required label="Match value" type="password" :match="input"></bs-input>
-	
-	//       <bs-input label="Textarea" type="textarea" @focus="event = 'focused'" @blur="event = 'blured'"></bs-input>
-	
-	//     </doc-code>
-	
-	//     <doc-code language="javascript">
-	
-	//       mask: function (value) {
-	
-	//         // change to lowercase, remove up to the first letter, and then remove all other unsuported characters
-	
-	//         return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/[^a-z0-9]/g,'');
-	
-	//       }
-	
-	//     </doc-code>
 	
 	//     <doc-options>
 	
@@ -12336,46 +12472,12 @@
 	
 	
 	// <script>
-	exports.default = {
-	  components: {
-	    docSection: _docSection2.default,
-	    docOptions: _docOptions2.default,
-	    docCode: _docCode2.default,
-	    bsInput: _Input2.default,
-	    buttonGroup: _buttonGroup2.default,
-	    checkbox: _Checkbox2.default
-	  },
-	  data: function data() {
-	    return {
-	      check: {
-	        clearButton: true,
-	        error: true,
-	        icon: true,
-	        label: true,
-	        mask: true,
-	        minlength: true,
-	        placeholder: true,
-	        required: true
-	      },
-	      event: null,
-	      input: null,
-	      match: null
-	    };
-	  },
-	
-	  methods: {
-	    mask: function mask(value) {
-	      return value.toLowerCase().replace(/^[^a-z]+/, '').replace(/[^a-z0-9]/g, '');
-	    }
-	  }
-	};
-	// </script>
 
 /***/ },
 /* 280 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"input\" name=\"Input\">\r\n    <div class=\"bs-example text-left\">\r\n      <form action=\".\" method=\"get\" accept-charset=\"utf-8\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <bs-input name=\"username\"\r\n              :disabled=\"check.disabled\"\r\n              :error=\"check.error && 'Insert user name'\"\r\n              help=\"Only allows lowercase letters and numbers.\"\r\n              :enter-submit=\"check.enterSubmit\"\r\n              :icon=\"check.icon\"\r\n              :label=\"check.label && 'User Name'\"\r\n              :mask=\"check.mask?mask:null\"\r\n              :minlength=\"check.minlength?5:0\"\r\n              pattern=\"^[a-z][a-z0-9]+$\"\r\n              :placeholder=\"check.placeholder && 'Username can\\'t start with a number.'\"\r\n              :readonly=\"check.readonly\"\r\n              :required=\"check.required\"\r\n              :clear-button=\"check.clearButton\"\r\n              :value.sync=\"input\"\r\n            ></bs-input>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <bs-input name=\"match\" required label=\"Match value\" type=\"password\" :match=\"input\" :icon=\"check.icon\" :enter-submit=\"check.enterSubmit\" help=\"Match the User Name\"></bs-input>\r\n          </div>\r\n        </div>\r\n        <div class=\"row\">\r\n          <button-group type=\"primary\" buttons=\"false\">\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n              <p><checkbox :checked.sync=\"check.label\">Label</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.placeholder\">placeholder</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.disabled\">disabled</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.error\">error</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.icon\">icon</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.enterSubmit\">enterSubmit</checkbox></p>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n              <p><checkbox :checked.sync=\"check.mask\">mask</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.minlength\">minlength=5</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.readonly\">readonly</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.required\">required</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.clearButton\">clear button</checkbox></p>\r\n            </div>\r\n          </button-group>\r\n        </div>\r\n        <bs-input name=\"textarea\" label=\"Textarea\" type=\"textarea\" :icon=\"check.icon\" :enter-submit=\"check.enterSubmit\"\r\n          @focus=\"event = 'focused'\"\r\n          @blur=\"event = 'blured'\"\r\n        ></bs-input>\r\n        <pre> Test event on textarea: {{event}}</pre>\r\n      </form>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <bs-input :value.sync=\"input\"\r\n        label=\"Username\"\r\n        help=\"Only allows lowercase letters and numbers.\"\r\n        error=\"Insert username\"\r\n        placeholder=\"Username can't start with a number.\"\r\n        pattern=\"^[a-z][a-z0-9]+$\"\r\n        :mask=\"mask\"\r\n        minlength=\"5\"\r\n        readonly\r\n        required\r\n        icon\r\n      ></bs-input>\r\n      <bs-input required label=\"Match value\" type=\"password\" :match=\"input\"></bs-input>\r\n      <bs-input label=\"Textarea\" type=\"textarea\" @focus=\"event = 'focused'\" @blur=\"event = 'blured'\"></bs-input>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      mask: function (value) {\r\n        // change to lowercase, remove up to the first letter, and then remove all other unsuported characters\r\n        return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/[^a-z0-9]/g,'');\r\n      }\r\n    </doc-code>\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Input value. Use <code>:value.sync=\"value\"</code></p>\r\n      </div>\r\n      <div>\r\n        <p>match</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Matching value. Both have to be the same value.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>enterSubmit</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Submit when you press <code>Enter</code>. Not supported on type <code>textarea</code>.</p>\r\n      </div>\r\n      <div>\r\n        <p>error</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>help</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Help text behind the input</p>\r\n      </div>\r\n      <div>\r\n        <p>hide-help</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Only work with help and error.<br/>Hide the help if have to show any error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>icon</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>label</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Enable input label (name).</p>\r\n      </div>\r\n      <div>\r\n        <p>lang</p>\r\n        <p><code>String</code></p>\r\n        <p>Browser language</p>\r\n        <p><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>\r\n      </div>\r\n      <div>\r\n        <p>mask</p>\r\n        <p><code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Mask function that receive and edit the value.</p>\r\n      </div>\r\n      <div>\r\n        <p>mask-delay</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>100</code></p>\r\n        <p>Delay time before apply the mask.</p>\r\n      </div>\r\n      <div>\r\n        <p>maxlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>minlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>name</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>pattern</p>\r\n        <p><code>String</code> or <code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Validation pattern.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>required</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code></p>\r\n        <p><code>text</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>validation-delay</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>250</code></p>\r\n        <p>Delay time before apply the validation.</p>\r\n      </div>\r\n    </doc-options>\r\n\r\n  </doc-section>";
+	module.exports = "<doc-section id=\"input\" name=\"Input\">\r\n    <div class=\"bs-example text-left\">\r\n      <form action=\".\" method=\"get\" accept-charset=\"utf-8\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <bs-input name=\"username\"\r\n              :disabled=\"check.disabled\"\r\n              :error=\"check.error && 'Insert user name'\"\r\n              help=\"Only allows lowercase letters and numbers.\"\r\n              :enter-submit=\"check.enterSubmit\"\r\n              :icon=\"check.icon\"\r\n              :label=\"check.label && 'User Name'\"\r\n              :mask=\"check.mask?mask:null\"\r\n              :minlength=\"check.minlength?5:0\"\r\n              pattern=\"^[a-z][a-z0-9]+$\"\r\n              :placeholder=\"check.placeholder && 'Username can\\'t start with a number.'\"\r\n              :readonly=\"check.readonly\"\r\n              :required=\"check.required\"\r\n              :clear-button=\"check.clearButton\"\r\n              :value.sync=\"input\"\r\n            ></bs-input>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n            <bs-input name=\"match\" required type=\"password\" :match=\"input\" :icon=\"check.icon\" :enter-submit=\"check.enterSubmit\" help=\"Match the User Name\">\r\n              <label slot=\"label\">Match value</label>\r\n            </bs-input>\r\n          </div>\r\n        </div>\r\n        <div class=\"row\">\r\n          <button-group type=\"primary\" buttons=\"false\">\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n              <p><checkbox :checked.sync=\"check.label\">Label</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.placeholder\">placeholder</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.disabled\">disabled</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.error\">error</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.icon\">icon</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.enterSubmit\">enterSubmit</checkbox></p>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">\r\n              <p><checkbox :checked.sync=\"check.mask\">mask</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.minlength\">minlength=5</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.readonly\">readonly</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.required\">required</checkbox></p>\r\n              <p><checkbox :checked.sync=\"check.clearButton\">clear button</checkbox></p>\r\n            </div>\r\n          </button-group>\r\n        </div>\r\n        <bs-input name=\"textarea\" label=\"Textarea\" type=\"textarea\" :icon=\"check.icon\" :enter-submit=\"check.enterSubmit\"\r\n          @focus=\"event = 'focused'\"\r\n          @blur=\"event = 'blured'\"\r\n        ></bs-input>\r\n        <pre> Test event on textarea: {{event}}</pre>\r\n      </form>\r\n      <doc-code>\r\n        <bs-input :value.sync=\"input\"\r\n          label=\"Username\"\r\n          help=\"Only allows lowercase letters and numbers.\"\r\n          error=\"Insert username\"\r\n          placeholder=\"Username can't start with a number.\"\r\n          pattern=\"^[a-z][a-z0-9]+$\"\r\n          :mask=\"mask\"\r\n          minlength=\"5\"\r\n          readonly\r\n          required\r\n          icon\r\n        ></bs-input>\r\n        <bs-input required label=\"Match value\" type=\"password\" :match=\"input\"></bs-input>\r\n        <bs-input label=\"Textarea\" type=\"textarea\" @focus=\"event = 'focused'\" @blur=\"event = 'blured'\"></bs-input>\r\n      </doc-code>\r\n      <doc-code language=\"javascript\">\r\n        mask: function (value) {\r\n          // change to lowercase, remove up to the first letter, and then remove all other unsuported characters\r\n          return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/[^a-z0-9]/g,'');\r\n        }\r\n      </doc-code>\r\n      <h2>Input groups:</h2>\r\n      <p>More details in <a href=\"http://getbootstrap.com/components/#input-groups\">bootstrap input groups</a>.</p>\r\n      <bs-input label=\"With dropdown and button\" type=\"text\">\r\n        <dropdown slot=\"before\" text=\"dropdown\">\r\n          <li><a href=\"#\">option</a></li>\r\n        </dropdown>\r\n        <span slot=\"after\" class=\"input-group-btn\">\r\n          <button type=\"button\" class=\"btn btn-primary\">Go!</button>\r\n        </span>\r\n      </bs-input>\r\n      <doc-code>\r\n        <bs-input label=\"With dropdown and button\" type=\"text\">\r\n          <dropdown slot=\"before\" text=\"dropdown\">\r\n            <li><a href=\"#\">option</a></li>\r\n          </dropdown>\r\n          <span slot=\"after\" class=\"input-group-btn\">\r\n            <button type=\"button\" class=\"btn btn-primary\">Go!</button>\r\n          </span>\r\n        </bs-input>\r\n      </doc-code>\r\n      <bs-input label=\"With text or icon\" type=\"text\">\r\n        <span slot=\"before\" class=\"input-group-addon\">\r\n          <li><a href=\"#\">option</a></li>\r\n        </span>\r\n        <span slot=\"after\" class=\"input-group-btn\">\r\n          <button type=\"button\" class=\"btn btn-primary\">Go!</button>\r\n        </span>\r\n      </bs-input>\r\n    </div>\r\n    <doc-options>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Input value. Use <code>:value.sync=\"value\"</code></p>\r\n      </div>\r\n      <div>\r\n        <p>match</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p>Matching value. Both have to be the same value.</p>\r\n      </div>\r\n      <div>\r\n        <p>disabled</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>enterSubmit</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Submit when you press <code>Enter</code>. Not supported on type <code>textarea</code>.</p>\r\n      </div>\r\n      <div>\r\n        <p>error</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>help</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Help text behind the input</p>\r\n      </div>\r\n      <div>\r\n        <p>hide-help</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>true</code></p>\r\n        <p>Only work with help and error.<br/>Hide the help if have to show any error message.</p>\r\n      </div>\r\n      <div>\r\n        <p>icon</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>label</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Enable input label (name).</p>\r\n      </div>\r\n      <div>\r\n        <p>lang</p>\r\n        <p><code>String</code></p>\r\n        <p>Browser language</p>\r\n        <p><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>\r\n      </div>\r\n      <div>\r\n        <p>mask</p>\r\n        <p><code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Mask function that receive and edit the value.</p>\r\n      </div>\r\n      <div>\r\n        <p>mask-delay</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>100</code></p>\r\n        <p>Delay time before apply the mask.</p>\r\n      </div>\r\n      <div>\r\n        <p>maxlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>minlength</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>name</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>pattern</p>\r\n        <p><code>String</code> or <code>Function</code></p>\r\n        <p><code>null</code></p>\r\n        <p>Validation pattern.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>required</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>type</p>\r\n        <p><code>String</code></p>\r\n        <p><code>text</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>validation-delay</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>250</code></p>\r\n        <p>Delay time before apply the validation.</p>\r\n      </div>\r\n    </doc-options>\r\n\r\n  </doc-section>";
 
 /***/ },
 /* 281 */

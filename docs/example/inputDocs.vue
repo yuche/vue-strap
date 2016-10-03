@@ -22,7 +22,9 @@
             ></bs-input>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <bs-input name="match" required label="Match value" type="password" :match="input" :icon="check.icon" :enter-submit="check.enterSubmit" help="Match the User Name"></bs-input>
+            <bs-input name="match" required type="password" :match="input" :icon="check.icon" :enter-submit="check.enterSubmit" help="Match the User Name">
+              <label slot="label">Match value</label>
+            </bs-input>
           </div>
         </div>
         <div class="row">
@@ -50,29 +52,57 @@
         ></bs-input>
         <pre> Test event on textarea: {{event}}</pre>
       </form>
+      <doc-code>
+        <bs-input :value.sync="input"
+          label="Username"
+          help="Only allows lowercase letters and numbers."
+          error="Insert username"
+          placeholder="Username can't start with a number."
+          pattern="^[a-z][a-z0-9]+$"
+          :mask="mask"
+          minlength="5"
+          readonly
+          required
+          icon
+        ></bs-input>
+        <bs-input required label="Match value" type="password" :match="input"></bs-input>
+        <bs-input label="Textarea" type="textarea" @focus="event = 'focused'" @blur="event = 'blured'"></bs-input>
+      </doc-code>
+      <doc-code language="javascript">
+        mask: function (value) {
+          // change to lowercase, remove up to the first letter, and then remove all other unsuported characters
+          return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/[^a-z0-9]/g,'');
+        }
+      </doc-code>
+      <h2>Input groups:</h2>
+      <p>More details in <a href="http://getbootstrap.com/components/#input-groups">bootstrap input groups</a>.</p>
+      <bs-input label="With dropdown and button" type="text">
+        <dropdown slot="before" text="dropdown">
+          <li><a href="#">option</a></li>
+        </dropdown>
+        <span slot="after" class="input-group-btn">
+          <button type="button" class="btn btn-primary">Go!</button>
+        </span>
+      </bs-input>
+      <doc-code>
+        <bs-input label="With dropdown and button" type="text">
+          <dropdown slot="before" text="dropdown">
+            <li><a href="#">option</a></li>
+          </dropdown>
+          <span slot="after" class="input-group-btn">
+            <button type="button" class="btn btn-primary">Go!</button>
+          </span>
+        </bs-input>
+      </doc-code>
+      <bs-input label="With text or icon" type="text">
+        <span slot="before" class="input-group-addon">
+          <li><a href="#">option</a></li>
+        </span>
+        <span slot="after" class="input-group-btn">
+          <button type="button" class="btn btn-primary">Go!</button>
+        </span>
+      </bs-input>
     </div>
-    <doc-code language="markup">
-      <bs-input :value.sync="input"
-        label="Username"
-        help="Only allows lowercase letters and numbers."
-        error="Insert username"
-        placeholder="Username can't start with a number."
-        pattern="^[a-z][a-z0-9]+$"
-        :mask="mask"
-        minlength="5"
-        readonly
-        required
-        icon
-      ></bs-input>
-      <bs-input required label="Match value" type="password" :match="input"></bs-input>
-      <bs-input label="Textarea" type="textarea" @focus="event = 'focused'" @blur="event = 'blured'"></bs-input>
-    </doc-code>
-    <doc-code language="javascript">
-      mask: function (value) {
-        // change to lowercase, remove up to the first letter, and then remove all other unsuported characters
-        return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/[^a-z0-9]/g,'');
-      }
-    </doc-code>
     <doc-options>
       <div>
         <p>value</p>
@@ -206,6 +236,7 @@ import docCode from './docCode.vue'
 import bsInput from 'src/Input.vue'
 import buttonGroup from 'src/buttonGroup.vue'
 import checkbox from 'src/Checkbox.vue'
+import dropdown from 'src/Dropdown.vue'
 
 export default {
   components: {
@@ -214,7 +245,8 @@ export default {
     docCode,
     bsInput,
     buttonGroup,
-    checkbox
+    checkbox,
+    dropdown
   },
   data () {
     return {
