@@ -36,7 +36,11 @@
       <dropdown text="Disabled" type="warning" disabled>
         <li><a href="#dropdown">Action</a></li>
       </dropdown>
-      <div class="btn-group btn-group-justified" role="group">
+      <dropdown type="info">
+        <button slot="before" type="button" class="btn btn-info">Segmented</button>
+        <li><a href="#dropdown">Action</a></li>
+      </dropdown>
+      <div class="btn-group btn-group-justified">
         <a href="#dropdown" class="btn btn-default" role="button">Left</a>
         <dropdown>
           <a slot="button" href="#dropdown" class="btn btn-default">
@@ -53,10 +57,26 @@
         <a href="#dropdown" class="btn btn-default" role="button">Right</a>
       </div>
     </div>
-    <doc-code language="markup">
-      <!-- You can use slots to handle some elements as native bootstrap -->
+    <doc-code>
+      <dropdown text="Action" type="primary">
+        <li><a href="#dropdown">Action</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#dropdown">Separated link</a></li>
+      </dropdown>
+      // For segmented dropdown, ignore text and add a "before" slot
+      <dropdown type="info">
+        <button slot="before" type="button" class="btn btn-info">Segmented</button>
+        <li><a href="#dropdown">...</a></li>
+      </dropdown>
+      // In a button group
+      <div class="btn-group btn-group-justified">
+        <a href="#dropdown" class="btn btn-default" role="button">Left</a>
+        <dropdown>...</dropdown>
+        <a href="#dropdown" class="btn btn-default" role="button">Right</a>
+      </div>
+      // With slots you can handle some elements as native bootstrap
       <dropdown>
-        <button slot="button" type="button" class="btn btn-default">
+        <button slot="button" type="button" class="btn btn-default dropdown-toggle">
           Action
           <span class="caret"></span>
         </button>
@@ -67,16 +87,6 @@
           <li role="separator" class="divider"></li>
           <li><a href="#dropdown">Separated link</a></li>
         </ul>
-      </dropdown>
-      <dropdown text="Action" type="primary">
-        <li><a href="#dropdown">Action</a></li>
-        <li><a href="#dropdown">Another action</a></li>
-        <li><a href="#dropdown">Something else here</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="#dropdown">Separated link</a></li>
-      </dropdown>
-      <dropdown text="Disabled" type="warning" disabled>
-        <li><a href="#dropdown">Action</a></li>
       </dropdown>
     </doc-code>
     <doc-options>
