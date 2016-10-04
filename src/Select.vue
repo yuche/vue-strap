@@ -1,11 +1,5 @@
 <template>
-<div v-el:select :class="{'btn-group btn-group-justified': justified, 'btn-select': !justified}">
-  <slot name="before"></slot>
-  <div :class="{open:show,dropdown:!justified}">
-    <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
-      <option v-if="required" value=""></option>
-      <option v-for="option in options" :value="option[optionsValue]||option">{{ option[optionsLabel]||option }}</option>
-    </select>
+  <div v-el:select :class="classes">
     <button type="button" class="form-control dropdown-toggle"
       :disabled="disabled || !hasParent"
       :readonly="readonly"
@@ -16,6 +10,10 @@
       <span class="caret"></span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
     </button>
+    <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
+      <option v-if="required" value=""></option>
+      <option v-for="option in options" :value="option[optionsValue]||option">{{ option[optionsLabel]||option }}</option>
+    </select>
     <ul class="dropdown-menu">
       <template v-if="options.length">
         <li v-if="canSearch" class="bs-searchbox">
@@ -39,8 +37,6 @@
     </ul>
     <div v-if="showNotify && closeOnSelect" class="notify out" transition="fadein"><div>{{limitText}}</div></div>
   </div>
-  <slot name="after"></slot>
-</div>
 </template>
 
 <script>
@@ -73,11 +69,6 @@ export default {
       default: false
     },
     disabled: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    justified: {
       type: Boolean,
       coerce: coerce.boolean,
       default: false
@@ -156,7 +147,7 @@ export default {
         if (~['number', 'string'].indexOf(typeof item)) {
           let option = null
           if (this.options.some(o => {
-            if (o instanceof Object ? o.value === item : o === item ) {
+            if (o instanceof Object ? o[this.optionsValue] === item : o === item ) {
               option = o
               return true
             }
@@ -165,6 +156,11 @@ export default {
       }
       return foundItems.join(', ')
     },
+    classes () {
+      return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn': 'btn-group']
+    },
+    inInput () { return this.$parent._input },
+    isLi () { return this.$parent._navbar || this.$parent.menu || this.$parent._tabset },
     canSearch () {
       return this.minSearch ? this.options.length >= this.minSearch : this.search
     },
