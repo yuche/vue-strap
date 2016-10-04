@@ -2,31 +2,20 @@
   <doc-section id="select" name="Select">
     <p>Based in a <a target="_blank" href="https://silviomoreto.github.io/bootstrap-select/">bootstrap-select</a> implementation.</p>
     <div class="bs-example">
-      <h4>Select with options:</h4>
-      <p><pre>Selected data : {{show(single)}}</pre></p>
-      <v-select :value.sync="single">
-        <v-option value="apple">Apple</v-option>
-        <v-option value="banana">Banana</v-option>
-        <v-option value="cherry">Cherry</v-option>
-        <v-option value="orange">Orange</v-option>
-        <v-option value="grape">Grape</v-option>
-      </v-select>
-      <hr/>
-      <h4>Test options:</h4>
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <p><pre>Normal select data: {{show(select.normal)}}</pre></p>
+          <p><pre>Normal select data: {{select.normal}}</pre></p>
           <form action="./#select" method="get">
-            <v-select :options="select.options" :value.sync="select.normal" name="animal'" :search="select.search" :justified="select.justified"
+            <v-select :options="select.options" options-value="val" :value.sync="select.normal" name="animal" :search="select.search"
               :required="select.required" :clear-button="select.clearButton" :disabled="select.disabled"
             ></v-select>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <p><pre>Multiple select data : {{show(select.multiple)}}</pre></p>
+          <p><pre>Multiple select data : {{select.multiple.join(',')}}</pre></p>
           <form action="./#select" method="get">
-            <v-select :options="select.options" :value.sync="select.multiple" name="animals[]" :search="select.search" :justified="select.justified"
+            <v-select :options="select.options" options-value="val" :value.sync="select.multiple" name="animals[]" :search="select.search"
               multiple :required="select.required" :clear-button="select.clearButton"
               :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"
             ></v-select>
@@ -40,7 +29,6 @@
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <p><checkbox :checked.sync="select.disabled">Disabled</checkbox></p>
             <p><checkbox :checked.sync="select.search">Search</checkbox></p>
-            <p><checkbox :checked.sync="select.justified">Justified</checkbox></p>
             <p><checkbox :checked.sync="select.clearButton">Clear Button</checkbox></p>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -53,49 +41,71 @@
           </div>
         </div>
       </button-group>
-    </div>
-    <doc-code language="markup">
-      <v-select>
+      <doc-code>
+        <form action="./#select" method="get">
+          <v-select :value.sync="select.value" :options="select.options" options-value="val"
+            multiple name="animals[]" limit="3"
+            search justified required disabled
+            clear-button close-on-select
+          ></v-select>
+          <button type="submit" class="btn btn-default">Submit form</button>
+        </form>
+      </doc-code>
+      <doc-code language="javascript">
+        options: [
+          {val: 1, label: 'Cat'},
+          {val: 2, label: 'Cow'},
+          {val: 3, label: 'Dog'},
+          {val: 4, label: 'Elephant'},
+          {val: 5, label: 'Fish'},
+          {val: 6, label: 'Lion'},
+          {val: 7, label: 'Tiger'},
+          {val: 8, label: 'Turtle'}
+        ]
+      </doc-code>
+      <h4>Select with option component:</h4>
+      <p><pre>Selected data : {{single}}</pre></p>
+      <v-select :value.sync="single">
         <v-option value="apple">Apple</v-option>
         <v-option value="banana">Banana</v-option>
         <v-option value="cherry">Cherry</v-option>
         <v-option value="orange">Orange</v-option>
         <v-option value="grape">Grape</v-option>
       </v-select>
-      <form action="./#select" method="get">
-        <v-select :value.sync="select.value" :options="select.options"
-          multiple name="animals[]" limit="3"
-          search justified required disabled
-          clear-button close-on-select
-        ></v-select>
-        <button type="submit" class="btn btn-default">Submit form</button>
-      </form>
-    </doc-code>
-    <doc-code language="javascript">
-      options: [
-        {value: 1, label: 'Cat'},
-        {value: 2, label: 'Cow'},
-        {value: 3, label: 'Dog'},
-        {value: 4, label: 'Elephant'},
-        {value: 5, label: 'Fish'},
-        {value: 6, label: 'Lion'},
-        {value: 7, label: 'Tiger'},
-        {value: 8, label: 'Turtle'}
-      ]
-    </doc-code>
-
-    <hr />
-    <h4>Ajax data and parent dependency:</h4>
-    <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>
-    <v-select url="docs/data.json" options-label="text" :value.sync="ajax.value" clear-button v-ref:ajax></v-select>
-    <v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value"></v-select>
-    <doc-code language="markup">
-      <v-select url="docs/data.json" options-label="text" :value.sync="ajax.value" clear-button></v-select>
+      <doc-code>
+        <v-select>
+          <v-option value="apple">Apple</v-option>
+          <v-option value="banana">Banana</v-option>
+          <v-option value="cherry">Cherry</v-option>
+          <v-option value="orange">Orange</v-option>
+          <v-option value="grape">Grape</v-option>
+        </v-select>
+      </doc-code>
+      <hr/>
+      <h4>Use button-group (component or <a href="http://getbootstrap.com/components/#btn-groups-justified">bootstrap element</a>) if you want to justify:</h4>
+      <button-group justified>
+        <v-select :value.sync="single">
+          <v-option value="apple">Apple</v-option>
+          <v-option value="banana">Banana</v-option>
+        </v-select>
+      </button-group>
+      <doc-code>
+        <button-group justified><select>...</select></button-group>
+        // or
+        <div class="btn-group btn-group-justified"><select>...</select></div>
+      </doc-code>
+      <hr/>
+      <h4>Ajax data and parent dependency:</h4>
+      <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>
+      <v-select url="docs/data.json" options-label="text" :value.sync="ajax.value" clear-button v-ref:ajax></v-select>
       <v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value"></v-select>
-    </doc-code>
-    <p>Ajax response:</p>
-    <pre v-html="$refs.ajax.options|json"></pre>
-
+      <doc-code>
+        <v-select url="docs/data.json" options-label="text" :value.sync="ajax.value" clear-button></v-select>
+        <v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value"></v-select>
+      </doc-code>
+      <p>Ajax response:</p>
+      <pre v-html="$refs.ajax.options|json"></pre>
+    </div>
     <doc-options name="Other">
       <div>
         <p>min-search</p>
@@ -160,14 +170,14 @@ export default {
     return {
       select: {
         options: [
-          {value: 1, label: 'Cat'},
-          {value: 2, label: 'Cow'},
-          {value: 3, label: 'Dog'},
-          {value: 4, label: 'Elephant'},
-          {value: 5, label: 'Fish'},
-          {value: 6, label: 'Lion'},
-          {value: 7, label: 'Tiger'},
-          {value: 8, label: 'Turtle'}
+          {val: 1, label: 'Cat'},
+          {val: 2, label: 'Cow'},
+          {val: 3, label: 'Dog'},
+          {val: 4, label: 'Elephant'},
+          {val: 5, label: 'Fish'},
+          {val: 6, label: 'Lion'},
+          {val: 7, label: 'Tiger'},
+          {val: 8, label: 'Turtle'}
         ],
         justified: true,
         search: true
@@ -176,11 +186,6 @@ export default {
         value:null
       },
       single: []
-    }
-  },
-  methods: {
-    show (value) {
-      return value instanceof Array ? value.join(', ') : value
     }
   }
 }
