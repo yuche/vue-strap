@@ -7,8 +7,8 @@
       @keyup.esc="show = false"
     >
       <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>
-      <span class="caret"></span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
+      <span class="caret"></span>
     </button>
     <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
       <option v-if="required" value=""></option>
@@ -314,9 +314,6 @@ export default {
 </script>
 
 <style scoped>
-.btn-select { display: inline-block; }
-.btn-select>.btn-group>.dropdown-menu>li { position:relative; }
-.btn-select>.btn-group>.dropdown-menu>li>a { cursor:pointer; }
 .bs-searchbox {
   position: relative;
   margin: 4px 8px;
@@ -354,12 +351,7 @@ button>.close { margin-left: 5px;}
   opacity: .9;
   bottom: 5px;
 }
-.btn-group.btn-group-justified .dropdown-menu { width: 100%; }
-span.caret {
-  float: right;
-  margin-top: 9px;
-  margin-left: 5px;
-}
+.btn-group-justified .dropdown-menu { width: 100%; }
 .secret {
   border: 0;
   clip: rect(0 0 0 0);
@@ -374,7 +366,6 @@ span.caret {
 .secret:focus + button {
   outline: 0;
   border-color: #66afe9 !important;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
 }
 </style>
