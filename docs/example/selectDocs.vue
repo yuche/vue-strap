@@ -53,14 +53,14 @@
       </doc-code>
       <doc-code language="javascript">
         options: [
-          {val: 1, label: 'Cat'},
-          {val: 2, label: 'Cow'},
-          {val: 3, label: 'Dog'},
-          {val: 4, label: 'Elephant'},
-          {val: 5, label: 'Fish'},
-          {val: 6, label: 'Lion'},
-          {val: 7, label: 'Tiger'},
-          {val: 8, label: 'Turtle'}
+          {val: 0, label: 'Cat'},
+          {val: 1, label: 'Cow'},
+          {val: 2, label: 'Dog'},
+          {val: 3, label: 'Elephant'},
+          {val: 4, label: 'Fish'},
+          {val: 5, label: 'Lion'},
+          {val: 6, label: 'Tiger'},
+          {val: 7, label: 'Turtle'}
         ]
       </doc-code>
       <h4>Select with option component:</h4>
@@ -82,11 +82,14 @@
         </v-select>
       </doc-code>
       <hr/>
-      <h4>Use button-group (component or <a href="http://getbootstrap.com/components/#btn-groups-justified">bootstrap element</a>) if you want to justify:</h4>
+      <h4>Use button-group (component or <a href="http://getbootstrap.com/components/#btn-groups-justified">bootstrap element</a>) if you want to justify.</h4>
       <button-group justified>
-        <v-select :value.sync="single">
+        <v-select multiple clear-button>
           <v-option value="apple">Apple</v-option>
           <v-option value="banana">Banana</v-option>
+          <v-option value="cherry">Cherry</v-option>
+          <v-option value="orange">Orange</v-option>
+          <v-option value="grape">Grape</v-option>
         </v-select>
       </button-group>
       <doc-code>
@@ -170,14 +173,14 @@ export default {
     return {
       select: {
         options: [
-          {val: 1, label: 'Cat'},
-          {val: 2, label: 'Cow'},
-          {val: 3, label: 'Dog'},
-          {val: 4, label: 'Elephant'},
-          {val: 5, label: 'Fish'},
-          {val: 6, label: 'Lion'},
-          {val: 7, label: 'Tiger'},
-          {val: 8, label: 'Turtle'}
+          {val: 0, label: 'Cat'},
+          {val: 1, label: 'Cow'},
+          {val: 2, label: 'Dog'},
+          {val: 3, label: 'Elephant'},
+          {val: 4, label: 'Fish'},
+          {val: 5, label: 'Lion'},
+          {val: 6, label: 'Tiger'},
+          {val: 7, label: 'Turtle'}
         ],
         justified: true,
         search: true
