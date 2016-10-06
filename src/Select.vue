@@ -6,9 +6,8 @@
       @click="toggle()"
       @keyup.esc="show = false"
     >
-      <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>
+      <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selected }}</span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
-      <span class="caret"></span>
     </button>
     <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
       <option v-if="required" value=""></option>
@@ -140,7 +139,7 @@ export default {
     }
   },
   computed: {
-    selectedItems () {
+    selected () {
       if (this.options.length === 0) { return '' }
       let foundItems = []
       for (var item of this.values) {
@@ -207,6 +206,8 @@ export default {
       this.update()
     },
     value (val) {
+      this.$emit('change', val)
+      this.$emit('selected', this.selected)
       if (this.value instanceof Array && val.length > this.limit) {
         this.showNotify = true
         if (timeout.limit) clearTimeout(timeout.limit)
@@ -314,6 +315,21 @@ export default {
 </script>
 
 <style scoped>
+button.form-control.dropdown-toggle{
+  height: auto;
+  padding-right: 24px;
+}
+button.form-control.dropdown-toggle:after{
+  content: ' ';
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  margin: -1px 0 0;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
 .bs-searchbox {
   position: relative;
   margin: 4px 8px;
@@ -328,6 +344,22 @@ export default {
   height: 34px;
   line-height: 34px;
   text-align: center;
+}
+.bs-searchbox input:focus,
+.secret:focus + button {
+  outline: 0;
+  border-color: #66afe9 !important;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+.secret {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 button>.close { margin-left: 5px;}
 .notify.out { position: relative; }
@@ -351,21 +383,13 @@ button>.close { margin-left: 5px;}
   opacity: .9;
   bottom: 5px;
 }
-.btn-group-justified .dropdown-menu { width: 100%; }
-.secret {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
+.btn-group-justified .dropdown-toggle>span:not(.close) {
+  width: calc(100% - 18px);
+  display: inline-block;
   overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: -4px;
 }
-.bs-searchbox input:focus,
-.secret:focus + button {
-  outline: 0;
-  border-color: #66afe9 !important;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-}
+.btn-group-justified .dropdown-menu { width: 100%; }
 </style>
