@@ -19,27 +19,27 @@
         <a href="#">...</a>
       </affix>
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>offset</p>
         <p><code>Number</code></p>
         <p><code>0</code></p>
         <p>Pixels to offset from top of screen when calculating position of scroll.</p>
       </div>
-    </doc-options>
+    </doc-table>
   </doc-section>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import tooltip from 'src/Tooltip.vue'
 
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     tooltip
   }

@@ -89,7 +89,7 @@
         </ul>
       </dropdown>
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>show</p>
         <p><code>Boolean</code></p>
@@ -125,7 +125,7 @@
         <p><code>default</code></p>
         <p></p>
       </div>
-    </doc-options>
+    </doc-table>
     <h2>Usage</h2>
     <p>Just like the examples. Can use it as the <a target="_blank" href="http://getbootstrap.com/javascript/#dropdowns">original Bootstrap way</a>.</p>
   </doc-section>
@@ -133,14 +133,14 @@
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import dropdown from 'src/Dropdown.vue'
 
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     dropdown
   }

@@ -7,7 +7,7 @@
           <p><pre>Normal select data: {{select.normal}}</pre></p>
           <form action="./#select" method="get">
             <v-select :options="select.options" options-value="val" :value.sync="select.normal" name="animal" :search="select.search"
-              :required="select.required" :clear-button="select.clearButton" :disabled="select.disabled"
+              :required="select.required" :clear-button="select.clearButton" :disabled="select.disabled" @change="change"
             ></v-select>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
@@ -88,8 +88,21 @@
           <v-option value="apple">Apple</v-option>
           <v-option value="banana">Banana</v-option>
           <v-option value="cherry">Cherry</v-option>
-          <v-option value="orange">Orange</v-option>
+          <v-option value="cranberry">Cranberry</v-option>
           <v-option value="grape">Grape</v-option>
+          <v-option value="orange">Orange</v-option>
+          <v-option value="passionfruit">Passionfruit</v-option>
+          <v-option value="pineapple">Pineapple</v-option>
+          <v-option value="strawberry">Strawberry</v-option>
+          <v-option value="a">Apple</v-option>
+          <v-option value="b">Banana</v-option>
+          <v-option value="c">Cherry</v-option>
+          <v-option value="c">Cranberry</v-option>
+          <v-option value="g">Grape</v-option>
+          <v-option value="o">Orange</v-option>
+          <v-option value="p">Passionfruit</v-option>
+          <v-option value="p">Pineapple</v-option>
+          <v-option value="s">Strawberry</v-option>
         </v-select>
       </button-group>
       <doc-code>
@@ -109,7 +122,7 @@
       <p>Ajax response:</p>
       <pre v-html="$refs.ajax.options|json"></pre>
     </div>
-    <doc-options name="Other">
+    <doc-table name="Other">
       <div>
         <p>min-search</p>
         <p><code>Number</code></p>
@@ -138,21 +151,30 @@
         <p>placeholder</p>
         <p><code>String</code></p>
         <p>Nothing Selected</p>
-        <p></p>
       </div>
       <div>
         <p>search-text</p>
         <p><code>String</code></p>
-        <p></p>
-        <p></p>
       </div>
-    </doc-options>
+    </doc-table>
+    <doc-table type="Events">
+      <div>
+        <p>change</p>
+        <p>(<code>value</code>)</p>
+        <p>Return the selected value(s).</p>
+      </div>
+      <div>
+        <p>selected</p>
+        <p>(<code>labels:String</code>)</p>
+        <p>Return a string with the label(s) of the selected item(s).</p>
+      </div>
+    </doc-table>
   </doc-section>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import buttonGroup from 'src/buttonGroup.vue'
 import checkbox from 'src/Checkbox.vue'
@@ -162,7 +184,7 @@ import vOption from 'src/Option.vue'
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     buttonGroup,
     checkbox,
@@ -189,6 +211,11 @@ export default {
         value:null
       },
       single: []
+    }
+  },
+  methods: {
+    change (val) {
+      console.log('change to:', val)
     }
   }
 }

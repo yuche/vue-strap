@@ -22,7 +22,7 @@
       <checkbox :checked.sync="checkboxValue.three" value="three" type="info">Three</checkbox>
       <checkbox button :checked.sync="checkboxValue.four" value="four" type="danger">Four</checkbox>
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>checked</p>
         <p><code>Number</code> or <code>String</code></p>
@@ -52,21 +52,21 @@
         <p>false</p>
         <p>Button style.</p>
       </div>
-    </doc-options>
+    </doc-table>
     <p>See <a href="#button-group">Button Group</a> for more options.</p>
   </doc-section>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import checkbox from 'src/Checkbox.vue'
 
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     checkbox
   },
