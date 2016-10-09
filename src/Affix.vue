@@ -58,8 +58,8 @@ export default {
     }
   },
   ready () {
-    this.checkScroll()
     $(window).on('scroll resize', () => this.checkScroll())
+    setTimeout(() => this.checkScroll(), 0)
   },
   beforeDestroy () {
     $(window).off('scroll resize', () => this.checkScroll())
