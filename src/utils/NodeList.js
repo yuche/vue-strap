@@ -226,7 +226,7 @@ class NodeList {
       fn.apply(this, [e, this])
     }
     for (let event of events) {
-      for (let el of this) {
+      for (let el of this) if (el) {
         el.addEventListener(event, callback, false)
         Events.push({
           el: el,
