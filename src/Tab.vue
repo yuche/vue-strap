@@ -61,6 +61,9 @@ export default {
   },
   beforeDestroy () {
     if (this._tabset.active === this.index) { this._tabset.active = 0 }
+    if (this._ingroup) {
+      this.$parent.tabs.$remove(this)
+    }
     this._tabset.tabs.$remove(this)
   }
 }

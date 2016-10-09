@@ -5,7 +5,7 @@ module.exports = {
   entry: './docs/index.js',
   output: {
     path: './build',
-    publicPath: '/build/',
+    publicPath: 'build/',
     filename: 'build-docs.js'
   },
   resolve: {
@@ -25,9 +25,9 @@ module.exports = {
     ]
   },
   babel: {
-  presets: ['es2015'],
-  plugins: ['transform-runtime']
-},
+    presets: ['es2015'],
+    plugins: ['transform-runtime']
+  },
   devtool: 'source-map'
 };
 

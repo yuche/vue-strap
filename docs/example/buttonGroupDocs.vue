@@ -59,7 +59,7 @@
       </button-group>
     </doc-code>
 
-    <doc-options>
+    <doc-table>
       <div>
         <p>value</p>
         <p><code>Array</code> or <code>String</code></p>
@@ -87,13 +87,13 @@
         <p><code>default</code></p>
         <p></p>
       </div>
-    </doc-options>
+    </doc-table>
   </doc-section>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import buttonGroup from 'src/buttonGroup.vue'
 import checkbox from 'src/Checkbox.vue'
@@ -102,7 +102,7 @@ import radio from 'src/Radio.vue'
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     buttonGroup,
     checkbox,

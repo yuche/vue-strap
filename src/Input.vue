@@ -1,40 +1,25 @@
 <template>
-  <div class="form-group" @click="focus()" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
-    <slot name="label"><label v-if="label" class="control-label">{{label}}</label></slot>
-    <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
-      :cols="cols"
-      :rows="rows"
-      :name="name"
-      :title="attr(title)"
-      :readonly="readonly"
-      :required="required"
-      :disabled="disabled"
-      :maxlength="maxlength"
-      :placeholder="placeholder"
-    ></textarea>
-    <template v-else>
-      <div v-if="slots.before||slots.after" class="input-group">
-        <slot name="before"></slot>
-        <input class="form-control" v-el:input v-model="value"
-          :name="name"
-          :max="attr(max)"
-          :min="attr(min)"
-          :step="step"
-          :type="type"
-          :title="attr(title)"
-          :readonly="readonly"
-          :required="required"
-          :disabled="disabled"
-          :maxlength="maxlength"
-          :placeholder="placeholder"
-          @keyup.enter="enterSubmit&&submit()"
-        />
-        <slot name="after"></slot>
-      </div>
+  <div class="form-group" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
+    <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
+    <div v-if="slots.before||slots.after" class="input-group">
+      <slot name="before"></slot>
+      <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
+        :cols="cols"
+        :rows="rows"
+        :name="name"
+        :title="attr(title)"
+        :readonly="readonly"
+        :required="required"
+        :disabled="disabled"
+        :maxlength="maxlength"
+        :placeholder="placeholder"
+        @blur="onblur" @focus="onfocus"
+      ></textarea>
       <input v-else class="form-control" v-el:input v-model="value"
         :name="name"
         :max="attr(max)"
         :min="attr(min)"
+        :step="step"
         :type="type"
         :title="attr(title)"
         :readonly="readonly"
@@ -43,12 +28,49 @@
         :maxlength="maxlength"
         :placeholder="placeholder"
         @keyup.enter="enterSubmit&&submit()"
+        @blur="onblur" @focus="onfocus"
       />
+      <div v-if="clearButton && value" :class="{icon:icon}">
+        <span class="close" @click="value = ''">&times;</span>
+      </div>
+      <div v-if="icon" class="icon">
+        <span v-if="icon&&valid!==null" :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]" aria-hidden="true"></span>
+      </div>
+      <slot name="after"></slot>
+    </div>
+    <template v-else>
+      <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
+        :cols="cols"
+        :rows="rows"
+        :name="name"
+        :title="attr(title)"
+        :readonly="readonly"
+        :required="required"
+        :disabled="disabled"
+        :maxlength="maxlength"
+        :placeholder="placeholder"
+        @blur="onblur" @focus="onfocus"
+      ></textarea>
+      <input v-else class="form-control" v-el:input v-model="value"
+        :name="name"
+        :max="attr(max)"
+        :min="attr(min)"
+        :step="step"
+        :type="type"
+        :title="attr(title)"
+        :readonly="readonly"
+        :required="required"
+        :disabled="disabled"
+        :maxlength="maxlength"
+        :placeholder="placeholder"
+        @keyup.enter="enterSubmit&&submit()"
+        @blur="onblur" @focus="onfocus"
+      />
+      <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
+      <span v-if="icon&&valid!==null" :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]" aria-hidden="true"></span>
     </template>
-    <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
-    <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
-    <div v-if="showHelp" class="help-block">{{help}}</div>
-    <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
+    <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
+    <div v-if="showError" class="help-block with-errors" @click="focus">{{errorText}}</div>
   </div>
 </template>
 
@@ -108,6 +130,11 @@ export default {
       default: navigator.language
     },
     mask: null,
+    maskDelay: {
+      type: Number,
+      coerce: coerce.number,
+      default: 100
+    },
     max: {
       type: String,
       coerce: coerce.string,
@@ -177,18 +204,7 @@ export default {
     }
   },
   computed: {
-    slots () {
-      return this._slotContents || {}
-    },
-    text () {
-      return translations(this.lang)
-    },
-    showHelp () {
-      return this.help && (!this.showError || !this.hideHelp)
-    },
-    showError () {
-      return this.error && this.valid===false
-    },
+    canValidate () { return !this.disabled && !this.readonly && (this.required || this.pattern || this.nativeValidate || this.match !== null) },
     errorText () {
       let value = this.value
       let error = [this.error]
@@ -196,56 +212,72 @@ export default {
       if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')
       return error.join(' ')
     },
-    nativeValidate () {
-      return this.$els.input.checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max)
-    },
-    canValidate () {
-      return !this.disabled && !this.readonly && (this.required || this.pattern || this.nativeValidate || this.match !== null)
-    },
-    title () {
-      return this.errorText || this.help || ''
-    }
+    input () { return this.$els.input },
+    nativeValidate () { return (this.input||{}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max) },
+    showError () { return this.error && this.valid===false },
+    showHelp () { return this.help && (!this.showError || !this.hideHelp) },
+    slots () { return this._slotContents || {} },
+    text () { return translations(this.lang) },
+    title () { return this.errorText || this.help || '' }
   },
   watch: {
     match (val) {
       this.eval()
     },
     valid (val, old) {
-      if (val === old) { return }
-      this._parent && this._parent.validate()
+      if (val !== old) {
+        this._parent && this._parent.validate()
+      }
+    },
+    value (val, old) {
+      if (val !== old) {
+        if (this.mask instanceof Function) {
+          val = this.mask(val || '')
+          if (this.value !== val) {
+            if (this._timeout.mask) clearTimeout(this._timeout.mask)
+            this._timeout.mask = setTimeout(() => {
+              this.value = val
+              this.$els.input.value = val
+            }, this.maskDelay)
+          }
+        }
+        this.eval()
+      }
     }
   },
   methods: {
     attr (value) {
       return ~['', null, undefined].indexOf(value) || value instanceof Function ? undefined : value
     },
-    focus () {
-      this.$els.input.focus()
-    },
+    focus () { this.input.focus() },
     eval () {
-      let value = (this.value || '').trim()
-      if (this.mask instanceof Function) value = this.mask(value)
-      if (this.value !== value) { this.value = value }
-      if (this.timeout) clearTimeout(this.timeout)
+      if (this._timeout.eval) clearTimeout(this._timeout.eval)
       if (!this.canValidate) {
         this.valid = true
       } else {
-        this.timeout = setTimeout(() => {
+        this._timeout.eval = setTimeout(() => {
           this.valid = this.validate()
-          this.timeout = null
+          this._timeout.eval = null
         }, this.validationDelay)
       }
+    },
+    onblur (e) {
+      if (this.canValidate) { this.valid = this.validate() }
+      this.$emit('blur', e)
+    },
+    onfocus (e) {
+      this.$emit('focus', e)
     },
     submit () {
       if (this.$parent._formGroup) {
         return this.$parent.validate()
       }
-      if (this.$els.input.form) {
-        const invalids = $('.form-group.validate:not(.has-success)',this.$els.input.form)
+      if (this.input.form) {
+        const invalids = $('.form-group.validate:not(.has-success)',this.input.form)
         if (invalids.length) {
           invalids.find('input,textarea,select')[0].focus()
         } else {
-          this.$els.input.form.submit()
+          this.input.form.submit()
         }
       }
     },
@@ -255,7 +287,7 @@ export default {
       if (!value) { return !this.required }
       if (this.match!==null) { return this.match === value }
       if (value.length < this.minlength) { return false }
-      if (this.nativeValidate && !this.$els.input.checkValidity()){ return false }
+      if (this.nativeValidate && !this.input.checkValidity()){ return false }
       if (this.pattern) {
         return this.pattern instanceof Function ? this.pattern(this.value) : this.pattern.test(this.value)
       }
@@ -263,22 +295,22 @@ export default {
     }
   },
   created () {
+    this._input = true
+    this._timeout = {}
     let parent = this.$parent
     while (parent && !parent._formGroup) { parent = parent.$parent }
-    if (parent && parent._formGroup) {
-      parent.children.push(this)
-      this._parent = parent
-    }
+    if (parent && parent._formGroup) { this._parent = parent }
   },
   ready () {
-    $(this.$els.input).on('change keypress keydown keyup', () => this.eval()).on('focus', e => this.$emit('focus', e)).on('blur', e => {
+    this._parent && this._parent.children.push(this)
+    $(this.input).on('focus', e => this.$emit('focus', e)).on('blur', e => {
       if (this.canValidate) { this.valid = this.validate() }
       this.$emit('blur', e)
     })
   },
   beforeDestroy () {
-    if (this._parent) this._parent.children.$remove(this)
-    $(this.$els.input).off()
+    this._parent && this._parent.children.$remove(this)
+    $(this.input).off()
   }
 }
 </script>
@@ -289,6 +321,12 @@ export default {
 }
 label~.close {
   top: 25px;
+}
+.input-group>.icon {
+  position: relative;
+  display: table-cell;
+  width:0;
+  z-index: 3;
 }
 .close {
   position: absolute;
@@ -301,8 +339,7 @@ label~.close {
   line-height: 34px;
   text-align: center;
 }
-.has-feedback.has-success button.close,
-.has-feedback.has-error button.close {
-  right:20px;
+.has-feedback .close {
+  right: 20px;
 }
 </style>

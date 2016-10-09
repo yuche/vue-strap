@@ -1,25 +1,30 @@
 <template>
-  <li v-if="$parent._navbar||$parent.menu||$parent._tabset" v-el:dropdown class="dropdown" :class="classes">
-      <a v-if="text" class="dropdown-toggle" role="button" :class="{disabled: disabled}" @keyup.esc="show = false">
+  <li v-if="isLi" v-el:dropdown :class="classes">
+    <slot name="button">
+      <a class="dropdown-toggle" role="button" :class="{disabled: disabled}" @keyup.esc="show = false">
         {{ text }}
         <span class="caret"></span>
       </a>
-      <slot v-else name="button"></slot>
-    <slot v-if="slots['dropdown-menu']" name="dropdown-menu"></slot>
-    <ul v-else class="dropdown-menu">
-      <slot></slot>
-    </ul>
+    </slot>
+    <slot name="dropdown-menu">
+      <ul v-else class="dropdown-menu">
+        <slot></slot>
+      </ul>
+    </slot>
   </li>
-  <div v-else v-el:dropdown class="btn-group" :class="classes">
-      <button v-if="text" type="button" class="btn btn-{{type||'default'}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
+  <div v-else v-el:dropdown :class="classes">
+    <slot name="before"></slot>
+    <slot name="button">
+      <button type="button" class="btn btn-{{type}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
         {{ text }}
         <span class="caret"></span>
       </button>
-      <slot v-else name="button"></slot>
-    <slot v-if="slots['dropdown-menu']" name="dropdown-menu"></slot>
-    <ul v-else class="dropdown-menu">
-      <slot></slot>
-    </ul>
+    </slot>
+    <slot name="dropdown-menu">
+      <ul class="dropdown-menu">
+        <slot></slot>
+      </ul>
+    </slot>
   </div>
 </template>
 <script>
@@ -46,13 +51,15 @@ export default {
     },
     type: {
       type: String,
-      default: null
+      default: 'default'
     }
   },
   computed: {
     classes () {
-      return [{open: this.show, disabled: this.disabled}, this.class]
+      return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn': 'btn-group']
     },
+    inInput () { return this.$parent._input },
+    isLi () { return this.$parent._navbar || this.$parent.menu || this.$parent._tabset },
     menu () {
       return !this.$parent || this.$parent.navbar
     },
@@ -81,13 +88,13 @@ export default {
   ready () {
     const $el = $(this.$els.dropdown)
     $el.onBlur((e) => { this.show = false })
-    $el.findChildren('a,button').on('click', (e) => {
+    $el.findChildren('a,button.dropdown-toggle').on('click', e => {
       e.preventDefault()
       if (this.disabled) { return false }
       this.show = !this.show
       return false
     })
-    $el.findChildren('ul').on('click', 'li>a', (e) => { this.show = false })
+    $el.findChildren('ul').on('click', 'li>a', e => { this.show = false })
   },
   beforeDestroy () {
     const $el = $(this.$els.dropdown)

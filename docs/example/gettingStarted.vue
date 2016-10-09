@@ -79,6 +79,10 @@
     <doc-code language="markup">
       <script src="path/to/vue-strap-lang.js"></script>
     </doc-code>
+    <h2>CommonJS</h2>
+    <doc-code language="javascript">
+      require('vue-strap/dist/vue-strap-lang.js')
+    </doc-code>
     <p>If not included what you need, you can add your own, without editing the source code of vue-strap.</p>
     <hr/>
     <h2>Mobile detection (optional):</h2>

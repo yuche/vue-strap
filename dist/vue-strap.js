@@ -778,13 +778,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	          try {
 	            for (var _iterator11 = (0, _getIterator3.default)(this), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
 	              var el = _step11.value;
-	
-	              el.addEventListener(event, callback, false);
-	              Events.push({
-	                el: el,
-	                event: event,
-	                callback: callback
-	              });
+	              if (el) {
+	                el.addEventListener(event, callback, false);
+	                Events.push({
+	                  el: el,
+	                  event: event,
+	                  callback: callback
+	                });
+	              }
 	            }
 	          } catch (err) {
 	            _didIteratorError11 = true;
@@ -2371,7 +2372,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  // Attempt to convert a string value to a Number. Otherwise, return 0.
 	  number: function number(val) {
-	    var alt = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+	    var alt = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 	    return typeof val === 'number' ? val : val === undefined || val === null || isNaN(Number(val)) ? alt : Number(val);
 	  },
 	  // Attempt to convert to string any value, except for null or undefined.
@@ -2671,10 +2672,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  ready: function ready() {
 	    var _this = this;
 	
-	    this.checkScroll();
 	    (0, _NodeList2.default)(window).on('scroll resize', function () {
 	      return _this.checkScroll();
 	    });
+	    setTimeout(function () {
+	      return _this.checkScroll();
+	    }, 0);
 	  },
 	  beforeDestroy: function beforeDestroy() {
 	    var _this2 = this;
@@ -3754,9 +3757,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	      coerce: _utils.coerce.boolean,
 	      default: true
 	    },
+	    justified: {
+	      type: Boolean,
+	      coerce: _utils.coerce.boolean,
+	      default: false
+	    },
 	    type: {
 	      type: String,
 	      default: 'default'
+	    },
+	    vertical: {
+	      type: Boolean,
+	      coerce: _utils.coerce.boolean,
+	      default: false
 	    }
 	  },
 	  watch: {
@@ -3776,7 +3789,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </script>
 	// <template>
 	
-	//   <div :class="{'btn-group':buttons}" :data-toggle="buttons&&'buttons'">
+	//   <div :class="{'btn-group':buttons,'btn-group-justified':justified,'btn-group-vertical':vertical}" :data-toggle="buttons&&'buttons'">
 	
 	//     <slot></slot>
 	
@@ -3791,7 +3804,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 116 */
 /***/ function(module, exports) {
 
-	module.exports = "<div :class=\"{'btn-group':buttons}\" :data-toggle=\"buttons&&'buttons'\">\r\n    <slot></slot>\r\n  </div>";
+	module.exports = "<div :class=\"{'btn-group':buttons,'btn-group-justified':justified,'btn-group-vertical':vertical}\" :data-toggle=\"buttons&&'buttons'\">\r\n    <slot></slot>\r\n  </div>";
 
 /***/ },
 /* 117 */
@@ -4752,7 +4765,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return date.getFullYear();
 	    },
 	    stringify: function stringify(date) {
-	      var format = arguments.length <= 1 || arguments[1] === undefined ? this.format : arguments[1];
+	      var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.format;
 	
 	      if (!date) date = this.parse();
 	      if (!date) return '';
@@ -4764,7 +4777,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return format.replace(/yyyy/g, year).replace(/MMMM/g, monthName).replace(/MMM/g, monthName.substring(0, 3)).replace(/MM/g, ('0' + month).slice(-2)).replace(/dd/g, ('0' + day).slice(-2)).replace(/yy/g, year).replace(/M(?!a)/g, month).replace(/d/g, day);
 	    },
 	    parse: function parse() {
-	      var str = arguments.length <= 0 || arguments[0] === undefined ? this.value : arguments[0];
+	      var str = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.value;
 	
 	      var date = void 0;
 	      if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {
@@ -4772,7 +4785,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      } else {
 	        date = new Date(str);
 	      }
-	      return isNaN(date.getFullYear()) ? new Date(null) : date;
+	      return isNaN(date.getFullYear()) ? new Date() : date;
 	    },
 	    getDayCount: function getDayCount(year, month) {
 	      var dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -5202,9 +5215,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <template>
 	
-	//   <li v-if="$parent._navbar||$parent.menu||$parent._tabset" v-el:dropdown class="dropdown" :class="classes">
+	//   <li v-if="isLi" v-el:dropdown :class="classes">
 	
-	//       <a v-if="text" class="dropdown-toggle" role="button" :class="{disabled: disabled}" @keyup.esc="show = false">
+	//     <slot name="button">
+	
+	//       <a class="dropdown-toggle" role="button" :class="{disabled: disabled}" @keyup.esc="show = false">
 	
 	//         {{ text }}
 	
@@ -5212,21 +5227,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//       </a>
 	
-	//       <slot v-else name="button"></slot>
+	//     </slot>
 	
-	//     <slot v-if="slots['dropdown-menu']" name="dropdown-menu"></slot>
+	//     <slot name="dropdown-menu">
 	
-	//     <ul v-else class="dropdown-menu">
+	//       <ul v-else class="dropdown-menu">
 	
-	//       <slot></slot>
+	//         <slot></slot>
 	
-	//     </ul>
+	//       </ul>
+	
+	//     </slot>
 	
 	//   </li>
 	
-	//   <div v-else v-el:dropdown class="btn-group" :class="classes">
+	//   <div v-else v-el:dropdown :class="classes">
 	
-	//       <button v-if="text" type="button" class="btn btn-{{type||'default'}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
+	//     <slot name="before"></slot>
+	
+	//     <slot name="button">
+	
+	//       <button type="button" class="btn btn-{{type}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
 	
 	//         {{ text }}
 	
@@ -5234,15 +5255,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//       </button>
 	
-	//       <slot v-else name="button"></slot>
+	//     </slot>
 	
-	//     <slot v-if="slots['dropdown-menu']" name="dropdown-menu"></slot>
+	//     <slot name="dropdown-menu">
 	
-	//     <ul v-else class="dropdown-menu">
+	//       <ul class="dropdown-menu">
 	
-	//       <slot></slot>
+	//         <slot></slot>
 	
-	//     </ul>
+	//       </ul>
+	
+	//     </slot>
 	
 	//   </div>
 	
@@ -5269,12 +5292,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    type: {
 	      type: String,
-	      default: null
+	      default: 'default'
 	    }
 	  },
 	  computed: {
 	    classes: function classes() {
-	      return [{ open: this.show, disabled: this.disabled }, this.class];
+	      return [{ open: this.show, disabled: this.disabled }, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'];
+	    },
+	    inInput: function inInput() {
+	      return this.$parent._input;
+	    },
+	    isLi: function isLi() {
+	      return this.$parent._navbar || this.$parent.menu || this.$parent._tabset;
 	    },
 	    menu: function menu() {
 	      return !this.$parent || this.$parent.navbar;
@@ -5310,7 +5339,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    $el.onBlur(function (e) {
 	      _this2.show = false;
 	    });
-	    $el.findChildren('a,button').on('click', function (e) {
+	    $el.findChildren('a,button.dropdown-toggle').on('click', function (e) {
 	      e.preventDefault();
 	      if (_this2.disabled) {
 	        return false;
@@ -5360,7 +5389,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 136 */
 /***/ function(module, exports) {
 
-	module.exports = "<li v-if=\"$parent._navbar||$parent.menu||$parent._tabset\" v-el:dropdown=\"\" class=\"dropdown\" :class=\"classes\" _v-39be1072=\"\">\n      <a v-if=\"text\" class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" @keyup.esc=\"show = false\" _v-39be1072=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-39be1072=\"\"></span>\n      </a>\n      <slot v-else=\"\" name=\"button\" _v-39be1072=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-39be1072=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-39be1072=\"\">\n      <slot _v-39be1072=\"\"></slot>\n    </ul>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" class=\"btn-group\" :class=\"classes\" _v-39be1072=\"\">\n      <button v-if=\"text\" type=\"button\" class=\"btn btn-{{type||'default'}} dropdown-toggle\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-39be1072=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-39be1072=\"\"></span>\n      </button>\n      <slot v-else=\"\" name=\"button\" _v-39be1072=\"\"></slot>\n    <slot v-if=\"slots['dropdown-menu']\" name=\"dropdown-menu\" _v-39be1072=\"\"></slot>\n    <ul v-else=\"\" class=\"dropdown-menu\" _v-39be1072=\"\">\n      <slot _v-39be1072=\"\"></slot>\n    </ul>\n  </div>";
+	module.exports = "<li v-if=\"isLi\" v-el:dropdown=\"\" :class=\"classes\" _v-39be1072=\"\">\n    <slot name=\"button\" _v-39be1072=\"\">\n      <a class=\"dropdown-toggle\" role=\"button\" :class=\"{disabled: disabled}\" @keyup.esc=\"show = false\" _v-39be1072=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-39be1072=\"\"></span>\n      </a>\n    </slot>\n    <slot name=\"dropdown-menu\" _v-39be1072=\"\">\n      <ul v-else=\"\" class=\"dropdown-menu\" _v-39be1072=\"\">\n        <slot _v-39be1072=\"\"></slot>\n      </ul>\n    </slot>\n  </li>\n  <div v-else=\"\" v-el:dropdown=\"\" :class=\"classes\" _v-39be1072=\"\">\n    <slot name=\"before\" _v-39be1072=\"\"></slot>\n    <slot name=\"button\" _v-39be1072=\"\">\n      <button type=\"button\" class=\"btn btn-{{type}} dropdown-toggle\" @keyup.esc=\"show = false\" :disabled=\"disabled\" _v-39be1072=\"\">\n        {{ text }}\n        <span class=\"caret\" _v-39be1072=\"\"></span>\n      </button>\n    </slot>\n    <slot name=\"dropdown-menu\" _v-39be1072=\"\">\n      <ul class=\"dropdown-menu\" _v-39be1072=\"\">\n        <slot _v-39be1072=\"\"></slot>\n      </ul>\n    </slot>\n  </div>";
 
 /***/ },
 /* 137 */
@@ -5549,7 +5578,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".form-group[_v-652ad7b9] {\r\n  position: relative;\r\n}\r\nlabel~.close[_v-652ad7b9] {\r\n  top: 25px;\r\n}\r\n.close[_v-652ad7b9] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.has-feedback.has-success button.close[_v-652ad7b9],\r\n.has-feedback.has-error button.close[_v-652ad7b9] {\r\n  right:20px;\r\n}", ""]);
+	exports.push([module.id, ".form-group[_v-652ad7b9] {\r\n  position: relative;\r\n}\r\nlabel~.close[_v-652ad7b9] {\r\n  top: 25px;\r\n}\r\n.input-group>.icon[_v-652ad7b9] {\r\n  position: relative;\r\n  display: table-cell;\r\n  width:0;\r\n  z-index: 3;\r\n}\r\n.close[_v-652ad7b9] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.has-feedback .close[_v-652ad7b9] {\r\n  right: 20px;\r\n}", ""]);
 	
 	// exports
 
@@ -5574,69 +5603,37 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <template>
 	
-	//   <div class="form-group" @click="focus()" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
+	//   <div class="form-group" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
 	
-	//     <slot name="label"><label v-if="label" class="control-label">{{label}}</label></slot>
+	//     <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
 	
-	//     <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
+	//     <div v-if="slots.before||slots.after" class="input-group">
 	
-	//       :cols="cols"
+	//       <slot name="before"></slot>
 	
-	//       :rows="rows"
+	//       <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
 	
-	//       :name="name"
+	//         :cols="cols"
 	
-	//       :title="attr(title)"
+	//         :rows="rows"
 	
-	//       :readonly="readonly"
+	//         :name="name"
 	
-	//       :required="required"
+	//         :title="attr(title)"
 	
-	//       :disabled="disabled"
+	//         :readonly="readonly"
 	
-	//       :maxlength="maxlength"
+	//         :required="required"
 	
-	//       :placeholder="placeholder"
+	//         :disabled="disabled"
 	
-	//     ></textarea>
+	//         :maxlength="maxlength"
 	
-	//     <template v-else>
+	//         :placeholder="placeholder"
 	
-	//       <div v-if="slots.before||slots.after" class="input-group">
+	//         @blur="onblur" @focus="onfocus"
 	
-	//         <slot name="before"></slot>
-	
-	//         <input class="form-control" v-el:input v-model="value"
-	
-	//           :name="name"
-	
-	//           :max="attr(max)"
-	
-	//           :min="attr(min)"
-	
-	//           :step="step"
-	
-	//           :type="type"
-	
-	//           :title="attr(title)"
-	
-	//           :readonly="readonly"
-	
-	//           :required="required"
-	
-	//           :disabled="disabled"
-	
-	//           :maxlength="maxlength"
-	
-	//           :placeholder="placeholder"
-	
-	//           @keyup.enter="enterSubmit&&submit()"
-	
-	//         />
-	
-	//         <slot name="after"></slot>
-	
-	//       </div>
+	//       ></textarea>
 	
 	//       <input v-else class="form-control" v-el:input v-model="value"
 	
@@ -5645,6 +5642,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	//         :max="attr(max)"
 	
 	//         :min="attr(min)"
+	
+	//         :step="step"
 	
 	//         :type="type"
 	
@@ -5662,17 +5661,91 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//         @keyup.enter="enterSubmit&&submit()"
 	
+	//         @blur="onblur" @focus="onfocus"
+	
 	//       />
+	
+	//       <div v-if="clearButton && value" :class="{icon:icon}">
+	
+	//         <span class="close" @click="value = ''">&times;</span>
+	
+	//       </div>
+	
+	//       <div v-if="icon" class="icon">
+	
+	//         <span v-if="icon&&valid!==null" :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]" aria-hidden="true"></span>
+	
+	//       </div>
+	
+	//       <slot name="after"></slot>
+	
+	//     </div>
+	
+	//     <template v-else>
+	
+	//       <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
+	
+	//         :cols="cols"
+	
+	//         :rows="rows"
+	
+	//         :name="name"
+	
+	//         :title="attr(title)"
+	
+	//         :readonly="readonly"
+	
+	//         :required="required"
+	
+	//         :disabled="disabled"
+	
+	//         :maxlength="maxlength"
+	
+	//         :placeholder="placeholder"
+	
+	//         @blur="onblur" @focus="onfocus"
+	
+	//       ></textarea>
+	
+	//       <input v-else class="form-control" v-el:input v-model="value"
+	
+	//         :name="name"
+	
+	//         :max="attr(max)"
+	
+	//         :min="attr(min)"
+	
+	//         :step="step"
+	
+	//         :type="type"
+	
+	//         :title="attr(title)"
+	
+	//         :readonly="readonly"
+	
+	//         :required="required"
+	
+	//         :disabled="disabled"
+	
+	//         :maxlength="maxlength"
+	
+	//         :placeholder="placeholder"
+	
+	//         @keyup.enter="enterSubmit&&submit()"
+	
+	//         @blur="onblur" @focus="onfocus"
+	
+	//       />
+	
+	//       <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
+	
+	//       <span v-if="icon&&valid!==null" :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]" aria-hidden="true"></span>
 	
 	//     </template>
 	
-	//     <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
+	//     <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
 	
-	//     <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
-	
-	//     <div v-if="showHelp" class="help-block">{{help}}</div>
-	
-	//     <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
+	//     <div v-if="showError" class="help-block with-errors" @click="focus">{{errorText}}</div>
 	
 	//   </div>
 	
@@ -5732,6 +5805,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      default: navigator.language
 	    },
 	    mask: null,
+	    maskDelay: {
+	      type: Number,
+	      coerce: _utils.coerce.number,
+	      default: 100
+	    },
 	    max: {
 	      type: String,
 	      coerce: _utils.coerce.string,
@@ -5802,17 +5880,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	
 	  computed: {
-	    slots: function slots() {
-	      return this._slotContents || {};
-	    },
-	    text: function text() {
-	      return (0, _utils.translations)(this.lang);
-	    },
-	    showHelp: function showHelp() {
-	      return this.help && (!this.showError || !this.hideHelp);
-	    },
-	    showError: function showError() {
-	      return this.error && this.valid === false;
+	    canValidate: function canValidate() {
+	      return !this.disabled && !this.readonly && (this.required || this.pattern || this.nativeValidate || this.match !== null);
 	    },
 	    errorText: function errorText() {
 	      var value = this.value;
@@ -5821,11 +5890,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (value && value.length < this.minlength) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')');
 	      return error.join(' ');
 	    },
-	    nativeValidate: function nativeValidate() {
-	      return this.$els.input.checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max);
+	    input: function input() {
+	      return this.$els.input;
 	    },
-	    canValidate: function canValidate() {
-	      return !this.disabled && !this.readonly && (this.required || this.pattern || this.nativeValidate || this.match !== null);
+	    nativeValidate: function nativeValidate() {
+	      return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max);
+	    },
+	    showError: function showError() {
+	      return this.error && this.valid === false;
+	    },
+	    showHelp: function showHelp() {
+	      return this.help && (!this.showError || !this.hideHelp);
+	    },
+	    slots: function slots() {
+	      return this._slotContents || {};
+	    },
+	    text: function text() {
+	      return (0, _utils.translations)(this.lang);
 	    },
 	    title: function title() {
 	      return this.errorText || this.help || '';
@@ -5836,10 +5917,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.eval();
 	    },
 	    valid: function valid(val, old) {
-	      if (val === old) {
-	        return;
+	      if (val !== old) {
+	        this._parent && this._parent.validate();
 	      }
-	      this._parent && this._parent.validate();
+	    },
+	    value: function value(val, old) {
+	      var _this = this;
+	
+	      if (val !== old) {
+	        if (this.mask instanceof Function) {
+	          val = this.mask(val || '');
+	          if (this.value !== val) {
+	            if (this._timeout.mask) clearTimeout(this._timeout.mask);
+	            this._timeout.mask = setTimeout(function () {
+	              _this.value = val;
+	              _this.$els.input.value = val;
+	            }, this.maskDelay);
+	          }
+	        }
+	        this.eval();
+	      }
 	    }
 	  },
 	  methods: {
@@ -5847,36 +5944,40 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return ~['', null, undefined].indexOf(value) || value instanceof Function ? undefined : value;
 	    },
 	    focus: function focus() {
-	      this.$els.input.focus();
+	      this.input.focus();
 	    },
 	    eval: function _eval() {
-	      var _this = this;
+	      var _this2 = this;
 	
-	      var value = (this.value || '').trim();
-	      if (this.mask instanceof Function) value = this.mask(value);
-	      if (this.value !== value) {
-	        this.value = value;
-	      }
-	      if (this.timeout) clearTimeout(this.timeout);
+	      if (this._timeout.eval) clearTimeout(this._timeout.eval);
 	      if (!this.canValidate) {
 	        this.valid = true;
 	      } else {
-	        this.timeout = setTimeout(function () {
-	          _this.valid = _this.validate();
-	          _this.timeout = null;
+	        this._timeout.eval = setTimeout(function () {
+	          _this2.valid = _this2.validate();
+	          _this2._timeout.eval = null;
 	        }, this.validationDelay);
 	      }
+	    },
+	    onblur: function onblur(e) {
+	      if (this.canValidate) {
+	        this.valid = this.validate();
+	      }
+	      this.$emit('blur', e);
+	    },
+	    onfocus: function onfocus(e) {
+	      this.$emit('focus', e);
 	    },
 	    submit: function submit() {
 	      if (this.$parent._formGroup) {
 	        return this.$parent.validate();
 	      }
-	      if (this.$els.input.form) {
-	        var invalids = (0, _NodeList2.default)('.form-group.validate:not(.has-success)', this.$els.input.form);
+	      if (this.input.form) {
+	        var invalids = (0, _NodeList2.default)('.form-group.validate:not(.has-success)', this.input.form);
 	        if (invalids.length) {
 	          invalids.find('input,textarea,select')[0].focus();
 	        } else {
-	          this.$els.input.form.submit();
+	          this.input.form.submit();
 	        }
 	      }
 	    },
@@ -5894,7 +5995,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (value.length < this.minlength) {
 	        return false;
 	      }
-	      if (this.nativeValidate && !this.$els.input.checkValidity()) {
+	      if (this.nativeValidate && !this.input.checkValidity()) {
 	        return false;
 	      }
 	      if (this.pattern) {
@@ -5904,32 +6005,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  created: function created() {
+	    this._input = true;
+	    this._timeout = {};
 	    var parent = this.$parent;
 	    while (parent && !parent._formGroup) {
 	      parent = parent.$parent;
 	    }
 	    if (parent && parent._formGroup) {
-	      parent.children.push(this);
 	      this._parent = parent;
 	    }
 	  },
 	  ready: function ready() {
-	    var _this2 = this;
+	    var _this3 = this;
 	
-	    (0, _NodeList2.default)(this.$els.input).on('change keypress keydown keyup', function () {
-	      return _this2.eval();
-	    }).on('focus', function (e) {
-	      return _this2.$emit('focus', e);
+	    this._parent && this._parent.children.push(this);
+	    (0, _NodeList2.default)(this.input).on('focus', function (e) {
+	      return _this3.$emit('focus', e);
 	    }).on('blur', function (e) {
-	      if (_this2.canValidate) {
-	        _this2.valid = _this2.validate();
+	      if (_this3.canValidate) {
+	        _this3.valid = _this3.validate();
 	      }
-	      _this2.$emit('blur', e);
+	      _this3.$emit('blur', e);
 	    });
 	  },
 	  beforeDestroy: function beforeDestroy() {
-	    if (this._parent) this._parent.children.$remove(this);
-	    (0, _NodeList2.default)(this.$els.input).off();
+	    this._parent && this._parent.children.$remove(this);
+	    (0, _NodeList2.default)(this.input).off();
 	  }
 	};
 	// </script>
@@ -5946,6 +6047,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	// label~.close {
 	
 	//   top: 25px;
+	
+	// }
+	
+	// .input-group>.icon {
+	
+	//   position: relative;
+	
+	//   display: table-cell;
+	
+	//   width:0;
+	
+	//   z-index: 3;
 	
 	// }
 	
@@ -5971,11 +6084,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// }
 	
-	// .has-feedback.has-success button.close,
+	// .has-feedback .close {
 	
-	// .has-feedback.has-error button.close {
-	
-	//   right:20px;
+	//   right: 20px;
 	
 	// }
 	
@@ -5985,7 +6096,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 144 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"form-group\" @click=\"focus()\" :class=\"{validate:canValidate,'has-feedback':icon,'has-error':canValidate&amp;&amp;valid===false,'has-success':canValidate&amp;&amp;valid}\" _v-652ad7b9=\"\">\n    <slot name=\"label\" _v-652ad7b9=\"\"><label v-if=\"label\" class=\"control-label\" _v-652ad7b9=\"\">{{label}}</label></slot>\n    <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" _v-652ad7b9=\"\"></textarea>\n    <template v-else=\"\" _v-652ad7b9=\"\">\n      <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-652ad7b9=\"\">\n        <slot name=\"before\" _v-652ad7b9=\"\"></slot>\n        <input class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :step=\"step\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-652ad7b9=\"\">\n        <slot name=\"after\" _v-652ad7b9=\"\"></slot>\n      </div>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" _v-652ad7b9=\"\">\n    </template>\n    <span v-if=\"clearButton &amp;&amp; value\" class=\"close\" @click=\"value = ''\" _v-652ad7b9=\"\">×</span>\n    <span v-if=\"icon&amp;&amp;valid!==null\" class=\"glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback\" aria-hidden=\"true\" _v-652ad7b9=\"\"></span>\n    <div v-if=\"showHelp\" class=\"help-block\" _v-652ad7b9=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" _v-652ad7b9=\"\">{{errorText}}</div>\n  </div>";
+	module.exports = "<div class=\"form-group\" :class=\"{validate:canValidate,'has-feedback':icon,'has-error':canValidate&amp;&amp;valid===false,'has-success':canValidate&amp;&amp;valid}\" _v-652ad7b9=\"\">\n    <slot name=\"label\" _v-652ad7b9=\"\"><label v-if=\"label\" class=\"control-label\" @click=\"focus\" _v-652ad7b9=\"\">{{label}}</label></slot>\n    <div v-if=\"slots.before||slots.after\" class=\"input-group\" _v-652ad7b9=\"\">\n      <slot name=\"before\" _v-652ad7b9=\"\"></slot>\n      <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @blur=\"onblur\" @focus=\"onfocus\" _v-652ad7b9=\"\"></textarea>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :step=\"step\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" @blur=\"onblur\" @focus=\"onfocus\" _v-652ad7b9=\"\">\n      <div v-if=\"clearButton &amp;&amp; value\" :class=\"{icon:icon}\" _v-652ad7b9=\"\">\n        <span class=\"close\" @click=\"value = ''\" _v-652ad7b9=\"\">×</span>\n      </div>\n      <div v-if=\"icon\" class=\"icon\" _v-652ad7b9=\"\">\n        <span v-if=\"icon&amp;&amp;valid!==null\" :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\" aria-hidden=\"true\" _v-652ad7b9=\"\"></span>\n      </div>\n      <slot name=\"after\" _v-652ad7b9=\"\"></slot>\n    </div>\n    <template v-else=\"\" _v-652ad7b9=\"\">\n      <textarea v-if=\"type=='textarea'\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :cols=\"cols\" :rows=\"rows\" :name=\"name\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @blur=\"onblur\" @focus=\"onfocus\" _v-652ad7b9=\"\"></textarea>\n      <input v-else=\"\" class=\"form-control\" v-el:input=\"\" v-model=\"value\" :name=\"name\" :max=\"attr(max)\" :min=\"attr(min)\" :step=\"step\" :type=\"type\" :title=\"attr(title)\" :readonly=\"readonly\" :required=\"required\" :disabled=\"disabled\" :maxlength=\"maxlength\" :placeholder=\"placeholder\" @keyup.enter=\"enterSubmit&amp;&amp;submit()\" @blur=\"onblur\" @focus=\"onfocus\" _v-652ad7b9=\"\">\n      <span v-if=\"clearButton &amp;&amp; value\" class=\"close\" @click=\"value = ''\" _v-652ad7b9=\"\">×</span>\n      <span v-if=\"icon&amp;&amp;valid!==null\" :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\" aria-hidden=\"true\" _v-652ad7b9=\"\"></span>\n    </template>\n    <div v-if=\"showHelp\" class=\"help-block\" @click=\"focus\" _v-652ad7b9=\"\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" @click=\"focus\" _v-652ad7b9=\"\">{{errorText}}</div>\n  </div>";
 
 /***/ },
 /* 145 */
@@ -6568,10 +6679,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (!this.$parent.options) {
 	        this.$parent.options = [];
 	      }
-	      this.$parent.options.push({
-	        value: this.value,
-	        label: this.$els.v.innerHTML
-	      });
+	      var el = {};
+	      el[this.$parent.optionsLabel] = this.$els.v.innerHTML;
+	      el[this.$parent.optionsValue] = this.value;
+	      this.$parent.options.push(el);
 	      this.loading = false;
 	    } else {
 	      console.warn('options only work inside a select component');
@@ -6841,7 +6952,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".scale-transition,\r\n.fade-transition {\r\n  display: block;\r\n}\r\n.scale-enter {\r\n  -webkit-animation:scale-in 0.15s ease-in;\r\n          animation:scale-in 0.15s ease-in;\r\n}\r\n.scale-leave {\r\n  -webkit-animation:scale-out 0.15s ease-out;\r\n          animation:scale-out 0.15s ease-out;\r\n}\r\n@-webkit-keyframes scale-in {\r\n  0% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes scale-in {\r\n  0% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\r\n    opacity: 1;\r\n  }\r\n}\r\n@-webkit-keyframes scale-out {\r\n  0% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\r\n    opacity: 0;\r\n  }\r\n}\r\n@keyframes scale-out {\r\n  0% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\r\n    opacity: 0;\r\n  }\r\n}", ""]);
+	exports.push([module.id, ".popover.top,\r\n.popover.left,\r\n.popover.right,\r\n.popover.bottom {\r\n  display: block;\r\n}\r\n.scale-enter {\r\n  -webkit-animation:scale-in 0.15s ease-in;\r\n          animation:scale-in 0.15s ease-in;\r\n}\r\n.scale-leave {\r\n  -webkit-animation:scale-out 0.15s ease-out;\r\n          animation:scale-out 0.15s ease-out;\r\n}\r\n@-webkit-keyframes scale-in {\r\n  0% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes scale-in {\r\n  0% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\r\n    opacity: 1;\r\n  }\r\n}\r\n@-webkit-keyframes scale-out {\r\n  0% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\r\n    opacity: 0;\r\n  }\r\n}\r\n@keyframes scale-out {\r\n  0% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\r\n    opacity: 0;\r\n  }\r\n}", ""]);
 	
 	// exports
 
@@ -6876,9 +6987,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <style>
 	
-	// .scale-transition,
+	// .popover.top,
 	
-	// .fade-transition {
+	// .popover.left,
+	
+	// .popover.right,
+	
+	// .popover.bottom {
 	
 	//   display: block;
 	
@@ -6945,7 +7060,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//   </span>
 	
-	//   <div v-el:popover v-show="show"
+	//   <div v-el:popover v-if="show"
 	
 	//     :class="['popover',placement]"
 	
@@ -7013,7 +7128,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      default: true
 	    },
 	    placement: {
-	      type: String
+	      type: String,
+	      default: 'top'
 	    }
 	  },
 	  data: function data() {
@@ -7022,46 +7138,49 @@ return /******/ (function(modules) { // webpackBootstrap
 	        top: 0,
 	        left: 0
 	      },
-	      show: true
+	      show: false
 	    };
 	  },
 	
 	  methods: {
 	    toggle: function toggle(e) {
-	      this.show = !this.show;
+	      var _this = this;
+	
 	      if (e && this.trigger === 'contextmenu') e.preventDefault();
+	      if (!(this.show = !this.show)) {
+	        return;
+	      }
+	      setTimeout(function () {
+	        var popover = _this.$els.popover;
+	        var trigger = _this.$els.trigger.children[0];
+	        switch (_this.placement) {
+	          case 'top':
+	            _this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
+	            _this.position.top = trigger.offsetTop - popover.offsetHeight;
+	            break;
+	          case 'left':
+	            _this.position.left = trigger.offsetLeft - popover.offsetWidth;
+	            _this.position.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
+	            break;
+	          case 'right':
+	            _this.position.left = trigger.offsetLeft + trigger.offsetWidth;
+	            _this.position.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
+	            break;
+	          case 'bottom':
+	            _this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
+	            _this.position.top = trigger.offsetTop + trigger.offsetHeight;
+	            break;
+	          default:
+	            console.warn('Wrong placement prop');
+	        }
+	        popover.style.top = _this.position.top + 'px';
+	        popover.style.left = _this.position.left + 'px';
+	      }, 0);
 	    }
 	  },
 	  ready: function ready() {
-	    var popover = this.$els.popover;
-	    if (!popover) return console.error('Could not find popover v-el in your component that uses popoverMixin.');
-	    var trigger = this.$els.trigger.children[0];
-	    switch (this.placement) {
-	      case 'top':
-	        this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
-	        this.position.top = trigger.offsetTop - popover.offsetHeight;
-	        break;
-	      case 'left':
-	        this.position.left = trigger.offsetLeft - popover.offsetWidth;
-	        this.position.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
-	        break;
-	      case 'right':
-	        this.position.left = trigger.offsetLeft + trigger.offsetWidth;
-	        this.position.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
-	        break;
-	      case 'bottom':
-	        this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
-	        this.position.top = trigger.offsetTop + trigger.offsetHeight;
-	        break;
-	      default:
-	        console.warn('Wrong placement prop');
-	    }
-	    popover.style.top = this.position.top + 'px';
-	    popover.style.left = this.position.left + 'px';
-	    popover.style.display = 'none';
-	    this.show = !this.show;
-	
-	    var events = this.trigger === 'contextmenu' ? 'contextmenu' : this.trigger === 'hover' ? 'mouseleave mouseenter' : this.trigger === 'focus' ? 'blur focus' : 'click';
+	    var trigger = this.$els.trigger;
+	    if (!trigger) return console.error('Could not find trigger v-el in your component that uses popoverMixin.');
 	
 	    if (this.trigger === 'focus' && !~trigger.tabIndex) {
 	      trigger = (0, _NodeList2.default)('a,input,select,textarea,button', trigger);
@@ -7070,7 +7189,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	    if (trigger) {
-	      (0, _NodeList2.default)(trigger).on(events, this.toggle);
+	      var events = { contextmenu: 'contextmenu', hover: 'mouseleave mouseenter', focus: 'blur focus' };
+	      (0, _NodeList2.default)(trigger).on(events[this.trigger] || 'click', this.toggle);
 	      this._trigger = trigger;
 	    }
 	  },
@@ -7083,7 +7203,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 170 */
 /***/ function(module, exports) {
 
-	module.exports = "<span v-el:trigger>\r\n    <slot></slot>\r\n  </span>\r\n  <div v-el:popover v-show=\"show\"\r\n    :class=\"['popover',placement]\"\r\n    :transition=\"effect\"\r\n  >\r\n    <div class=\"arrow\"></div>\r\n    <h3 class=\"popover-title\" v-if=\"title\">\r\n      <slot name=\"title\">{{title}}</slot>\r\n    </h3>\r\n    <div class=\"popover-content\">\r\n      <slot name=\"content\">{{{content}}}</slot>\r\n    </div>\r\n  </div>";
+	module.exports = "<span v-el:trigger>\r\n    <slot></slot>\r\n  </span>\r\n  <div v-el:popover v-if=\"show\"\r\n    :class=\"['popover',placement]\"\r\n    :transition=\"effect\"\r\n  >\r\n    <div class=\"arrow\"></div>\r\n    <h3 class=\"popover-title\" v-if=\"title\">\r\n      <slot name=\"title\">{{title}}</slot>\r\n    </h3>\r\n    <div class=\"popover-content\">\r\n      <slot name=\"content\">{{{content}}}</slot>\r\n    </div>\r\n  </div>";
 
 /***/ },
 /* 171 */
@@ -7578,7 +7698,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".btn-select[_v-e514dbc6] { display: inline-block; }\r\n.btn-select>.btn-group>.dropdown-menu>li[_v-e514dbc6] { position:relative; }\r\n.btn-select>.btn-group>.dropdown-menu>li>a[_v-e514dbc6] { cursor:pointer; }\r\n.bs-searchbox[_v-e514dbc6] {\r\n  position: relative;\r\n  margin: 4px 8px;\r\n}\r\n.bs-searchbox .close[_v-e514dbc6] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\nbutton>.close[_v-e514dbc6] { margin-left: 5px;}\r\n.notify.out[_v-e514dbc6] { position: relative; }\r\n.notify.in[_v-e514dbc6],\r\n.notify>div[_v-e514dbc6] {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.notify>div[_v-e514dbc6] {\r\n  top: 5px;\r\n  z-index: 1;\r\n}\r\n.notify.in[_v-e514dbc6] {\r\n  opacity: .9;\r\n  bottom: 5px;\r\n}\r\n.btn-group.btn-group-justified .dropdown-menu[_v-e514dbc6] { width: 100%; }\r\nspan.caret[_v-e514dbc6] {\r\n  float: right;\r\n  margin-top: 9px;\r\n  margin-left: 5px;\r\n}\r\n.secret[_v-e514dbc6] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}\r\n.bs-searchbox input[_v-e514dbc6]:focus,\r\n.secret:focus + button[_v-e514dbc6] {\r\n  outline: 0;\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}", ""]);
+	exports.push([module.id, "button.form-control.dropdown-toggle[_v-e514dbc6]{\r\n  height: auto;\r\n  padding-right: 24px;\r\n}\r\nbutton.form-control.dropdown-toggle[_v-e514dbc6]:after{\r\n  content: ' ';\r\n  position: absolute;\r\n  right: 13px;\r\n  top: 50%;\r\n  margin: -1px 0 0;\r\n  border-top: 4px dashed;\r\n  border-top: 4px solid \\9;\r\n  border-right: 4px solid transparent;\r\n  border-left: 4px solid transparent;\r\n}\r\n.bs-searchbox[_v-e514dbc6] {\r\n  position: relative;\r\n  margin: 4px 8px;\r\n}\r\n.bs-searchbox .close[_v-e514dbc6] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.bs-searchbox input[_v-e514dbc6]:focus,\r\n.secret:focus + button[_v-e514dbc6] {\r\n  outline: 0;\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\n.secret[_v-e514dbc6] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}\r\nbutton>.close[_v-e514dbc6] { margin-left: 5px;}\r\n.notify.out[_v-e514dbc6] { position: relative; }\r\n.notify.in[_v-e514dbc6],\r\n.notify>div[_v-e514dbc6] {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.notify>div[_v-e514dbc6] {\r\n  top: 5px;\r\n  z-index: 1;\r\n}\r\n.notify.in[_v-e514dbc6] {\r\n  opacity: .9;\r\n  bottom: 5px;\r\n}\r\n.btn-group-justified .dropdown-toggle>span[_v-e514dbc6]:not(.close) {\r\n  width: calc(100% - 18px);\r\n  display: inline-block;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  text-overflow: ellipsis;\r\n  margin-bottom: -4px;\r\n}\r\n.btn-group-justified .dropdown-menu[_v-e514dbc6] { width: 100%; }", ""]);
 	
 	// exports
 
@@ -7611,19 +7731,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <template>
 	
-	// <div v-el:select :class="{'btn-group btn-group-justified': justified, 'btn-select': !justified}">
-	
-	//   <slot name="before"></slot>
-	
-	//   <div :class="{open:show,dropdown:!justified}">
-	
-	//     <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
-	
-	//       <option v-if="required" value=""></option>
-	
-	//       <option v-for="option in options" :value="option.value||option">{{ option.label||option }}</option>
-	
-	//     </select>
+	//   <div v-el:select :class="classes">
 	
 	//     <button type="button" class="form-control dropdown-toggle"
 	
@@ -7637,13 +7745,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//     >
 	
-	//       <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>
-	
-	//       <span class="caret"></span>
+	//       <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selected }}</span>
 	
 	//       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
 	
 	//     </button>
+	
+	//     <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
+	
+	//       <option v-if="required" value=""></option>
+	
+	//       <option v-for="option in options" :value="option[optionsValue]||option">{{ option[optionsLabel]||option }}</option>
+	
+	//     </select>
 	
 	//     <ul class="dropdown-menu">
 	
@@ -7667,13 +7781,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//         <li v-if="required&&!clearButton"><a @mousedown.prevent="clear() && blur()">{{ placeholder || text.notSelected }}</a></li>
 	
-	//         <li v-for="option in options | filterBy searchValue" :id="option.value||option">
+	//         <li v-for="option in options | filterBy searchValue" :id="option[optionsValue]||option">
 	
-	//           <a @mousedown.prevent="select(option.value||option)">
+	//           <a @mousedown.prevent="select(option[optionsValue],option)">
 	
-	//             <span v-html="option.label||option"></span>
+	//             <span v-html="option[optionsLabel]||option"></span>
 	
-	//             <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option.value||option)"></span>
+	//             <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option[optionsValue]||option)"></span>
 	
 	//           </a>
 	
@@ -7690,10 +7804,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	//     <div v-if="showNotify && closeOnSelect" class="notify out" transition="fadein"><div>{{limitText}}</div></div>
 	
 	//   </div>
-	
-	//   <slot name="after"></slot>
-	
-	// </div>
 	
 	// </template>
 	
@@ -7731,11 +7841,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      coerce: _utils.coerce.boolean,
 	      default: false
 	    },
-	    justified: {
-	      type: Boolean,
-	      coerce: _utils.coerce.boolean,
-	      default: false
-	    },
 	    lang: {
 	      type: String,
 	      default: navigator.language
@@ -7748,6 +7853,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    name: {
 	      type: String,
 	      default: null
+	    },
+	    optionsLabel: {
+	      type: String,
+	      default: 'label'
+	    },
+	    optionsValue: {
+	      type: String,
+	      default: 'value'
 	    },
 	    parent: {
 	      default: true
@@ -7783,10 +7896,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    url: {
 	      type: String,
 	      default: null
-	      // },
-	      // cache: { // save old data -- not working yet (experimental)
-	      //   type: Array,
-	      //   default: true
 	    }
 	  },
 	  data: function data() {
@@ -7800,7 +7909,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	
 	  computed: {
-	    selectedItems: function selectedItems() {
+	    selected: function selected() {
+	      var _this = this;
+	
 	      if (this.options.length === 0) {
 	        return '';
 	      }
@@ -7816,12 +7927,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	          if (~['number', 'string'].indexOf(typeof item === 'undefined' ? 'undefined' : (0, _typeof3.default)(item))) {
 	            var option = null;
 	            if (this.options.some(function (o) {
-	              if (o instanceof Object ? o.value === item : o === item) {
+	              if (o instanceof Object ? o[_this.optionsValue] === item : o === item) {
 	                option = o;
 	                return true;
 	              }
 	            })) {
-	              foundItems.push(option.label || option);
+	              foundItems.push(option[this.optionsLabel] || option);
 	            }
 	          }
 	        }
@@ -7841,6 +7952,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	
 	      return foundItems.join(', ');
+	    },
+	    classes: function classes() {
+	      return [{ open: this.show, disabled: this.disabled }, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'];
+	    },
+	    inInput: function inInput() {
+	      return this.$parent._input;
+	    },
+	    isLi: function isLi() {
+	      return this.$parent._navbar || this.$parent.menu || this.$parent._tabset;
 	    },
 	    canSearch: function canSearch() {
 	      return this.minSearch ? this.options.length >= this.minSearch : this.search;
@@ -7863,16 +7983,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  watch: {
 	    options: function options(_options) {
+	      var _this2 = this;
+	
 	      var changed = false;
 	      if (_options instanceof Array && _options.length) {
-	        for (var i in _options) {
-	          if (!(_options[i] instanceof Object)) {
-	            _options[i] = { label: _options[i], value: _options[i] };
+	        _options.map(function (el) {
+	          if (!(el instanceof Object)) {
+	            var obj = {};
+	            obj[_this2.optionsLabel] = el;
+	            obj[_this2.optionsValue] = el;
 	            changed = true;
+	            return obj;
 	          }
-	        }
+	          return el;
+	        });
 	      }
-	      if (changed) this.options = _options;
+	      if (changed) {
+	        this.options = _options;
+	      }
 	    },
 	    show: function show(val) {
 	      if (val) {
@@ -7884,14 +8012,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.update();
 	    },
 	    value: function value(val) {
-	      var _this = this;
+	      var _this3 = this;
 	
+	      this.$emit('change', val);
+	      this.$emit('selected', this.selected);
 	      if (this.value instanceof Array && val.length > this.limit) {
 	        this.showNotify = true;
 	        if (timeout.limit) clearTimeout(timeout.limit);
 	        timeout.limit = setTimeout(function () {
 	          timeout.limit = false;
-	          _this.showNotify = false;
+	          _this3.showNotify = false;
 	        }, 1500);
 	      }
 	      this.checkValue();
@@ -7936,7 +8066,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    isSelected: function isSelected(v) {
 	      return this.values.indexOf(v) > -1;
 	    },
-	    select: function select(v) {
+	    select: function select(v, alt) {
 	      if (this.value instanceof Array) {
 	        if (~this.value.indexOf(v)) {
 	          this.value.$remove(v);
@@ -7947,7 +8077,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          this.toggle();
 	        }
 	      } else {
-	        this.value = v;
+	        this.value = !~['', null, undefined].indexOf(v) ? v : alt;
 	        this.toggle();
 	      }
 	    },
@@ -7955,7 +8085,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.show = !this.show;
 	    },
 	    update: function update() {
-	      var _this2 = this;
+	      var _this4 = this;
 	
 	      if (!this.url) return;
 	      this.loading = true;
@@ -7969,7 +8099,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          for (var _iterator2 = (0, _getIterator3.default)(data), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	            var opc = _step2.value;
 	
-	            if (opc.value !== undefined && opc.label !== undefined) options.push(opc);
+	            if (opc[_this4.optionsValue] !== undefined && opc[_this4.optionsLabel] !== undefined) options.push(opc);
 	          }
 	        } catch (err) {
 	          _didIteratorError2 = true;
@@ -7986,13 +8116,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	          }
 	        }
 	
-	        _this2.options = options;
+	        _this4.options = options;
 	        if (!options.length) {
-	          _this2.value = _this2.value instanceof Array ? [] : null;
+	          _this4.value = _this4.value instanceof Array ? [] : null;
 	        }
 	      }).always(function () {
-	        _this2.loading = false;
-	        _this2.checkValue();
+	        _this4.loading = false;
+	        _this4.checkValue();
 	      });
 	    },
 	    validate: function validate() {
@@ -8019,10 +8149,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  ready: function ready() {
-	    var _this3 = this;
+	    var _this5 = this;
 	
 	    (0, _NodeList2.default)(this.$els.select).onBlur(function (e) {
-	      _this3.show = false;
+	      _this5.show = false;
 	    });
 	  },
 	  beforeDestroy: function beforeDestroy() {
@@ -8035,11 +8165,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <style scoped>
 	
-	// .btn-select { display: inline-block; }
+	// button.form-control.dropdown-toggle{
 	
-	// .btn-select>.btn-group>.dropdown-menu>li { position:relative; }
+	//   height: auto;
 	
-	// .btn-select>.btn-group>.dropdown-menu>li>a { cursor:pointer; }
+	//   padding-right: 24px;
+	
+	// }
+	
+	// button.form-control.dropdown-toggle:after{
+	
+	//   content: ' ';
+	
+	//   position: absolute;
+	
+	//   right: 13px;
+	
+	//   top: 50%;
+	
+	//   margin: -1px 0 0;
+	
+	//   border-top: 4px dashed;
+	
+	//   border-top: 4px solid \9;
+	
+	//   border-right: 4px solid transparent;
+	
+	//   border-left: 4px solid transparent;
+	
+	// }
 	
 	// .bs-searchbox {
 	
@@ -8068,6 +8222,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	//   line-height: 34px;
 	
 	//   text-align: center;
+	
+	// }
+	
+	// .bs-searchbox input:focus,
+	
+	// .secret:focus + button {
+	
+	//   outline: 0;
+	
+	//   border-color: #66afe9 !important;
+	
+	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+	
+	// }
+	
+	// .secret {
+	
+	//   border: 0;
+	
+	//   clip: rect(0 0 0 0);
+	
+	//   height: 1px;
+	
+	//   margin: -1px;
+	
+	//   overflow: hidden;
+	
+	//   padding: 0;
+	
+	//   position: absolute;
+	
+	//   width: 1px;
 	
 	// }
 	
@@ -8115,51 +8301,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// }
 	
-	// .btn-group.btn-group-justified .dropdown-menu { width: 100%; }
+	// .btn-group-justified .dropdown-toggle>span:not(.close) {
 	
-	// span.caret {
+	//   width: calc(100% - 18px);
 	
-	//   float: right;
-	
-	//   margin-top: 9px;
-	
-	//   margin-left: 5px;
-	
-	// }
-	
-	// .secret {
-	
-	//   border: 0;
-	
-	//   clip: rect(0 0 0 0);
-	
-	//   height: 1px;
-	
-	//   margin: -1px;
+	//   display: inline-block;
 	
 	//   overflow: hidden;
 	
-	//   padding: 0;
+	//   white-space: nowrap;
 	
-	//   position: absolute;
+	//   text-overflow: ellipsis;
 	
-	//   width: 1px;
-	
-	// }
-	
-	// .bs-searchbox input:focus,
-	
-	// .secret:focus + button {
-	
-	//   outline: 0;
-	
-	//   border-color: #66afe9 !important;
-	
-	//   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-	
-	//   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+	//   margin-bottom: -4px;
 	
 	// }
+	
+	// .btn-group-justified .dropdown-menu { width: 100%; }
 	
 	// </style>
 
@@ -8617,7 +8775,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 198 */
 /***/ function(module, exports) {
 
-	module.exports = "<div v-el:select=\"\" :class=\"{'btn-group btn-group-justified': justified, 'btn-select': !justified}\" _v-e514dbc6=\"\">\n  <slot name=\"before\" _v-e514dbc6=\"\"></slot>\n  <div :class=\"{open:show,dropdown:!justified}\" _v-e514dbc6=\"\">\n    <select v-el:sel=\"\" v-model=\"value\" v-show=\"show\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" :disabled=\"disabled\" _v-e514dbc6=\"\">\n      <option v-if=\"required\" value=\"\" _v-e514dbc6=\"\"></option>\n      <option v-for=\"option in options\" :value=\"option.value||option\" _v-e514dbc6=\"\">{{ option.label||option }}</option>\n    </select>\n    <button type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggle()\" @keyup.esc=\"show = false\" _v-e514dbc6=\"\">\n      <span class=\"btn-content\" _v-e514dbc6=\"\">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>\n      <span class=\"caret\" _v-e514dbc6=\"\"></span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-e514dbc6=\"\">×</span>\n    </button>\n    <ul class=\"dropdown-menu\" _v-e514dbc6=\"\">\n      <template v-if=\"options.length\" _v-e514dbc6=\"\">\n        <li v-if=\"canSearch\" class=\"bs-searchbox\" _v-e514dbc6=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @keyup.esc=\"show = false\" _v-e514dbc6=\"\">\n          <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\" _v-e514dbc6=\"\">×</span>\n        </li>\n        <li v-if=\"required&amp;&amp;!clearButton\" _v-e514dbc6=\"\"><a @mousedown.prevent=\"clear() &amp;&amp; blur()\" _v-e514dbc6=\"\">{{ placeholder || text.notSelected }}</a></li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option.value||option\" _v-e514dbc6=\"\">\n          <a @mousedown.prevent=\"select(option.value||option)\" _v-e514dbc6=\"\">\n            <span v-html=\"option.label||option\" _v-e514dbc6=\"\"></span>\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option.value||option)\" _v-e514dbc6=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot _v-e514dbc6=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify in\" transition=\"fadein\" _v-e514dbc6=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify out\" transition=\"fadein\" _v-e514dbc6=\"\"><div _v-e514dbc6=\"\">{{limitText}}</div></div>\n  </div>\n  <slot name=\"after\" _v-e514dbc6=\"\"></slot>\n</div>";
+	module.exports = "<div v-el:select=\"\" :class=\"classes\" _v-e514dbc6=\"\">\n    <button type=\"button\" class=\"form-control dropdown-toggle\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\" @click=\"toggle()\" @keyup.esc=\"show = false\" _v-e514dbc6=\"\">\n      <span class=\"btn-content\" _v-e514dbc6=\"\">{{ loading ? text.loading : showPlaceholder || selected }}</span>\n      <span v-if=\"clearButton&amp;&amp;values.length\" class=\"close\" @click=\"clear()\" _v-e514dbc6=\"\">×</span>\n    </button>\n    <select v-el:sel=\"\" v-model=\"value\" v-show=\"show\" name=\"{{name}}\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" :disabled=\"disabled\" _v-e514dbc6=\"\">\n      <option v-if=\"required\" value=\"\" _v-e514dbc6=\"\"></option>\n      <option v-for=\"option in options\" :value=\"option[optionsValue]||option\" _v-e514dbc6=\"\">{{ option[optionsLabel]||option }}</option>\n    </select>\n    <ul class=\"dropdown-menu\" _v-e514dbc6=\"\">\n      <template v-if=\"options.length\" _v-e514dbc6=\"\">\n        <li v-if=\"canSearch\" class=\"bs-searchbox\" _v-e514dbc6=\"\">\n          <input type=\"text\" placeholder=\"{{searchText||text.search}}\" class=\"form-control\" autocomplete=\"off\" v-el:search=\"\" v-model=\"searchValue\" @keyup.esc=\"show = false\" _v-e514dbc6=\"\">\n          <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\" _v-e514dbc6=\"\">×</span>\n        </li>\n        <li v-if=\"required&amp;&amp;!clearButton\" _v-e514dbc6=\"\"><a @mousedown.prevent=\"clear() &amp;&amp; blur()\" _v-e514dbc6=\"\">{{ placeholder || text.notSelected }}</a></li>\n        <li v-for=\"option in options | filterBy searchValue\" :id=\"option[optionsValue]||option\" _v-e514dbc6=\"\">\n          <a @mousedown.prevent=\"select(option[optionsValue],option)\" _v-e514dbc6=\"\">\n            <span v-html=\"option[optionsLabel]||option\" _v-e514dbc6=\"\"></span>\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option[optionsValue]||option)\" _v-e514dbc6=\"\"></span>\n          </a>\n        </li>\n      </template>\n      <slot _v-e514dbc6=\"\"></slot>\n      <div v-if=\"showNotify &amp;&amp; !closeOnSelect\" class=\"notify in\" transition=\"fadein\" _v-e514dbc6=\"\">{{limitText}}</div>\n    </ul>\n    <div v-if=\"showNotify &amp;&amp; closeOnSelect\" class=\"notify out\" transition=\"fadein\" _v-e514dbc6=\"\"><div _v-e514dbc6=\"\">{{limitText}}</div></div>\n  </div>";
 
 /***/ },
 /* 199 */
@@ -8980,6 +9138,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  beforeDestroy: function beforeDestroy() {
 	    if (this._tabset.active === this.index) {
 	      this._tabset.active = 0;
+	    }
+	    if (this._ingroup) {
+	      this.$parent.tabs.$remove(this);
 	    }
 	    this._tabset.tabs.$remove(this);
 	  }
@@ -9404,7 +9565,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".tooltip {\r\n  opacity: .9\r\n}\r\n.fadein-enter {\r\n  -webkit-animation:fadein-in 0.3s ease-in;\r\n          animation:fadein-in 0.3s ease-in;\r\n}\r\n.fadein-leave {\r\n  -webkit-animation:fadein-out 0.3s ease-out;\r\n          animation:fadein-out 0.3s ease-out;\r\n}\r\n@-webkit-keyframes fadein-in {\r\n  0% {\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    opacity: .9;\r\n  }\r\n}\r\n@keyframes fadein-in {\r\n  0% {\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    opacity: .9;\r\n  }\r\n}\r\n@-webkit-keyframes fadein-out {\r\n  0% {\r\n    opacity: .9;\r\n  }\r\n  100% {\r\n    opacity: 0;\r\n  }\r\n}\r\n@keyframes fadein-out {\r\n  0% {\r\n    opacity: .9;\r\n  }\r\n  100% {\r\n    opacity: 0;\r\n  }\r\n}", ""]);
+	exports.push([module.id, ".tooltip.top,\r\n.tooltip.left,\r\n.tooltip.right,\r\n.tooltip.bottom {\r\n  opacity: .9\r\n}\r\n.fadein-enter {\r\n  -webkit-animation:fadein-in 0.3s ease-in;\r\n          animation:fadein-in 0.3s ease-in;\r\n}\r\n.fadein-leave {\r\n  -webkit-animation:fadein-out 0.3s ease-out;\r\n          animation:fadein-out 0.3s ease-out;\r\n}\r\n@-webkit-keyframes fadein-in {\r\n  0% {\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    opacity: .9;\r\n  }\r\n}\r\n@keyframes fadein-in {\r\n  0% {\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    opacity: .9;\r\n  }\r\n}\r\n@-webkit-keyframes fadein-out {\r\n  0% {\r\n    opacity: .9;\r\n  }\r\n  100% {\r\n    opacity: 0;\r\n  }\r\n}\r\n@keyframes fadein-out {\r\n  0% {\r\n    opacity: .9;\r\n  }\r\n  100% {\r\n    opacity: 0;\r\n  }\r\n}", ""]);
 	
 	// exports
 
@@ -9443,7 +9604,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <style>
 	
-	// .tooltip {
+	// .tooltip.top,
+	
+	// .tooltip.left,
+	
+	// .tooltip.right,
+	
+	// .tooltip.bottom {
 	
 	//   opacity: .9
 	
@@ -9502,7 +9669,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//   </span>
 	
-	//   <div v-el:popover v-show="show" role="tooltip"
+	//   <div v-el:popover v-if="show" style="display:block;"
 	
 	//     :class="['tooltip',placement]"
 	
@@ -9529,7 +9696,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 224 */
 /***/ function(module, exports) {
 
-	module.exports = "<span v-el:trigger>\r\n    <slot></slot>\r\n  </span>\r\n  <div v-el:popover v-show=\"show\" role=\"tooltip\"\r\n    :class=\"['tooltip',placement]\"\r\n    :transition=\"effect\"\r\n  >\r\n    <div class=\"tooltip-arrow\"></div>\r\n    <div class=\"tooltip-inner\">\r\n      <slot name=\"content\">{{{content}}}</slot>\r\n   </div>\r\n  </div>";
+	module.exports = "<span v-el:trigger>\r\n    <slot></slot>\r\n  </span>\r\n  <div v-el:popover v-if=\"show\" style=\"display:block;\"\r\n    :class=\"['tooltip',placement]\"\r\n    :transition=\"effect\"\r\n  >\r\n    <div class=\"tooltip-arrow\"></div>\r\n    <div class=\"tooltip-inner\">\r\n      <slot name=\"content\">{{{content}}}</slot>\r\n   </div>\r\n  </div>";
 
 /***/ },
 /* 225 */

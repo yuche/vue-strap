@@ -23,7 +23,7 @@
         <button class="btn btn-default">tooltip on bottom</button>
       </tooltip>
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>trigger</p>
         <p><code>String</code>, one of <code>click</code> <code>focus</code> <code>hover</code> <code>contextmenu</code></p>
@@ -50,13 +50,13 @@
         <p></p>
         <p>How to position the tooltip.</p>
       </div>
-    </doc-options>
+    </doc-table>
   </div>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import bsInput from 'src/Input.vue'
 import tooltip from 'src/Tooltip.vue'
@@ -64,7 +64,7 @@ import tooltip from 'src/Tooltip.vue'
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     bsInput,
     tooltip
