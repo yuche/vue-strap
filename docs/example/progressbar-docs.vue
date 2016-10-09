@@ -59,7 +59,7 @@
         <progressbar now="" label type="warning" striped></progressbar>
       </div>
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>now</p>
         <p><code>Number</code></p>
@@ -84,20 +84,20 @@
         <p><code>false</code></p>
         <p>Whether the progressbar has striped effect or not.</p>
       </div>
-    </doc-options>
+    </doc-table>
   </doc-section>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import progressbar from 'src/Progressbar.vue'
 
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     progressbar
   },

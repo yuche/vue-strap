@@ -1,4 +1,6 @@
 <template>
+  <link v-if="local" rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link v-else href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
   <div id="wrapper">
     <div class="bs-docs-header">
       <div class="container">
@@ -107,6 +109,9 @@ export default {
     tabsDocs,
     tooltipDocs,
     typeaheadDocs
+  },
+  computed: {
+    local () { return location.hostname === 'localhost' }
   }
 }
 </script>

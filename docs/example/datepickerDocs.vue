@@ -27,7 +27,7 @@
         :placeholder="placeholder">
       </datepicker>
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>value</p>
         <p><code>String</code></p>
@@ -66,14 +66,14 @@
         <p></p>
         <p>Placeholder to put on the input field when no date (null or empty) is set</p>
       </div>
-    </doc-options>
+    </doc-table>
   </div>
   <div></div>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import checkbox from 'src/Checkbox.vue'
 import datepicker from 'src/Datepicker.vue'
@@ -83,7 +83,7 @@ import vOption from 'src/Option.vue'
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     checkbox,
     datepicker,

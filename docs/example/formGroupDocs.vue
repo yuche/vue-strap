@@ -66,20 +66,20 @@
           </div>
         </form-group>
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>valid</p>
         <p><code>Boolean</code></p>
         <p></p>
         <p>Return if all the internal form elements (<code>select</code>, <code>input</code>) are valids.</p>
       </div>
-    </doc-options>
+    </doc-table>
   </doc-section>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import formGroup from 'src/formGroup.vue'
 import bsInput from 'src/Input.vue'
@@ -90,7 +90,7 @@ import vSelect from 'src/Select.vue'
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     formGroup,
     bsInput,
