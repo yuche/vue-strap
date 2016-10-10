@@ -3,23 +3,23 @@ require('./assets/style.css')
 require('prismjs')
 require('./js/showLanguage')
 
-import $ from 'src/utils/NodeList.js'
+// import $ from 'src/utils/NodeList.js'
 import bodyDocs from './bodyDocs.vue'
 
 Vue.config.devtools = true
 Vue.config.debug = true
 
 new Vue({
-  el: 'body',
+  el: '#app',
   components: {
-    bodyDocs,
+    bodyDocs
   },
   created () {
     if (!this.$root.sections) {
       this.$root.sections = []
     }
   },
-  ready () {
+  mounted () {
     var list = this.$root.sections
     while(list.length) list.pop()
     $('.bs-docs-section', this.$refs.sections).each((el) => {

@@ -59,11 +59,11 @@
       Bower and NPM packages.
     </p>
     <doc-code language="markup">
-      <v-select :options="options"></v-select>
+      &lt;v-select :options="options">&lt;/v-select>
 
-      <script src="path/to/vue.js"></script>
-      <script src="path/to/vue-strap.js"></script>
-      <script>
+      &lt;script src="path/to/vue.js">&lt;/script>
+      &lt;script src="path/to/vue-strap.js">&lt;/script>
+      &lt;script>
         new Vue({
           components: {
             vSelect: VueStrap.select
@@ -72,12 +72,12 @@
             options: []
           }
         })
-      </script>
+      &lt;/script>
     </doc-code>
     <h2>Translations (optional):</h2>
     <p>If you want to enable language support, you have to add:</p>
     <doc-code language="markup">
-      <script src="path/to/vue-strap-lang.js"></script>
+      &lt;script src="path/to/vue-strap-lang.js">&lt;/script>
     </doc-code>
     <h2>CommonJS</h2>
     <doc-code language="javascript">
@@ -88,7 +88,7 @@
     <h2>Mobile detection (optional):</h2>
     <p>If you need to enable/disable options if is a mobile device you can add:</p>
     <doc-code language="markup">
-      <script src="path/to/isMobileBrowser.js"></script>
+      &lt;script src="path/to/isMobileBrowser.js">&lt;/script>
     </doc-code>
     <p>Then in javascript you can check it just doing:</p>
     <doc-code language="javascript">

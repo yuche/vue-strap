@@ -1,11 +1,9 @@
 import $ from './utils/NodeList.js'
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-  header: 'boolean'
-}
+// let coerce = {
+//   header: 'boolean'
+// }
 
 export default {
-  mixins: [coerceMixin],
   props: {
     content: {type: String},
     effect: {type: String, default: 'fade'},

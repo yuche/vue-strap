@@ -1,12 +1,12 @@
 <template>
-  <label :class="[isButton?'btn btn-'+typeColor:'open checkbox '+typeColor,{active:checked,disabled:coerced.disabled,readonly:coerced.readonly}]" @click.prevent="toggle">
+  <label :class="[isButton?'btn btn-'+typeColor:'open checkbox '+typeColor,{active:checked,disabled:disabled,readonly:readonly}]" @click.prevent="toggle">
     <input type="checkbox" autocomplete="off"
       ref="input"
       :checked="active"
       :value="value"
       :name="name"
-      :readonly="coerced.readonly"
-      :disabled="coerced.disabled"
+      :readonly="readonly"
+      :disabled="disabled"
     />
     <span v-if="!isButton" class="icon dropdown-toggle" :class="[active?'btn-'+typeColor:'',{bg:typeColor==='default'}]"></span>
     <span v-if="!isButton&active&&typeColor==='default'" class="icon"></span>
@@ -15,14 +15,12 @@
 </template>
 
 <script>
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-  disabled: 'boolean',
-  readonly: 'boolean'
-}
+// let coerce = {
+//   disabled: 'boolean',
+//   readonly: 'boolean'
+// }
 
 export default {
-  mixins: [coerceMixin],
   props: {
     button: {type: Boolean, default: false},
     checked: {type: Boolean, default: false},
@@ -76,9 +74,9 @@ export default {
       this.$refs.input.focus()
     },
     toggle () {
-      if (!this.coerced.disabled) {
+      if (!this.disabled) {
         this.focus()
-        if (!this.coerced.readonly) {
+        if (!this.readonly) {
           this.checked = this.checked ? null : this.value
           if (this._inGroup && typeof this.value !== 'boolean') {
             const index = this.$parent.value.indexOf(this.value)

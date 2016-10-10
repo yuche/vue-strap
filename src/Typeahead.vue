@@ -22,16 +22,14 @@
 
 <script>
 import {getJSON} from './utils/utils.js'
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-    matchCase: 'boolean',
-    matchStart: 'boolean'
-}
+// let coerce = {
+//     matchCase: 'boolean',
+//     matchStart: 'boolean'
+// }
 
 let Vue = window.Vue
 
 export default {
-  mixins: [coerceMixin],
   partials: {
     default: '<span v-html="highlight(item,query)"></span>'
   },
@@ -66,9 +64,9 @@ export default {
     primitiveData () {
       if (this.data) {
         return this.data.filter(value => {
-          value = this.coerced.matchCase ? value : value.toLowerCase()
-          var query = this.coerced.matchCase ? this.value : this.value.toLowerCase()
-          return this.coerced.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1
+          value = this.matchCase ? value : value.toLowerCase()
+          var query = this.matchCase ? this.value : this.value.toLowerCase()
+          return this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1
         }).slice(0, this.limit)
       }
     }

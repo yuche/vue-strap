@@ -8,13 +8,9 @@
 
 <script>
 import $ from './utils/NodeList.js'
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-  offset: 'number'
-}
+// let coerce = {offset: 'number'}
 
 export default {
-  mixins: [coerceMixin],
   props: {
     offset: {
       type: Number,
@@ -28,7 +24,7 @@ export default {
   },
   computed: {
     top () {
-      return this.coerced.offset > 0 ? this.coerced.offset + 'px' : null
+      return this.offset > 0 ? this.offset + 'px' : null
     }
   },
   methods: {
@@ -56,7 +52,7 @@ export default {
         scroll[t] = ret
         element[t] = scroll[t] + rect[t] - (this.$el['client'+type] || body['client'+type] || 0)
       }
-      let fix = scroll.top > element.top - this.coerced.offset
+      let fix = scroll.top > element.top - this.offset
       if (this.affixed !== fix) { this.affixed = fix }
     }
   },

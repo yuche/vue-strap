@@ -1,13 +1,11 @@
-<template><slot></slot></template>
+<template><span><slot></slot></span></template>
 
 <script>
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-  disabled: 'boolean'
-}
+// let coerce = {
+//   disabled: 'boolean'
+// }
 
 export default {
-  mixins: [coerceMixin],
   props: {
     disabled: {type: Boolean, default: false},
     header: {type: String}

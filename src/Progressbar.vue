@@ -11,16 +11,14 @@
 </template>
 
 <script>
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-  animated: 'boolean',
-  label: 'boolean',
-  now: 'number',
-  striped: 'boolean'
-}
+// let coerce = {
+//   animated: 'boolean',
+//   label: 'boolean',
+//   now: 'number',
+//   striped: 'boolean'
+// }
 
 export default {
-  mixins: [coerceMixin],
   props: {
     animated: {type: Boolean, default: false},
     label: {type: Boolean, default: false},

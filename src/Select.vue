@@ -41,22 +41,20 @@
 <script>
 import {getJSON, translations} from './utils/utils.js'
 import $ from './utils/NodeList.js'
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-  clearButton: 'boolean',
-  closeOnSelect: 'boolean',
-  disabled: 'boolean',
-  limit: 'number',
-  minSearch: 'number',
-  multiple: 'boolean',
-  readonly: 'boolean',
-  required: 'boolean',
-  search: 'boolean'
-}
+// let coerce = {
+//   clearButton: 'boolean',
+//   closeOnSelect: 'boolean',
+//   disabled: 'boolean',
+//   limit: 'number',
+//   minSearch: 'number',
+//   multiple: 'boolean',
+//   readonly: 'boolean',
+//   required: 'boolean',
+//   search: 'boolean'
+// }
 
 var timeout = {}
 export default {
-  mixins: [coerceMixin],
   props: {
     clearButton: {type: Boolean, default: false},
     closeOnSelect: {type: Boolean, default: false},
@@ -147,11 +145,13 @@ export default {
       this.update()
     },
     valid (val, old) {
-      if (val === old) { return }
-      this._parent && this._parent.validate()
+      this.$emit('isvalid', val)
+      this.$emit(!val ? 'invalid' : 'valid')
+      if (val !== old && this._parent) this._parent.validate()
     },
     value (val) {
       this.$emit('change', val)
+      this.$emit('input', val)
       this.$emit('selected', this.selected)
       if (this.value instanceof Array && val.length > this.limit) {
         this.showNotify = true

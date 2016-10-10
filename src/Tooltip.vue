@@ -1,13 +1,13 @@
 <template>
   <span ref="trigger">
     <slot></slot>
+    <transition :name="effect">
+      <div ref="popover" v-if="show" style="display:block;" :class="['tooltip',placement]">
+        <div class="tooltip-arrow"></div>
+        <div class="tooltip-inner"><slot name="content" v-html="content"></slot></div>
+      </div>
+    </transition>
   </span>
-  <transition :name="effect">
-    <div ref="popover" v-if="show" style="display:block;" :class="['tooltip',placement]">
-      <div class="tooltip-arrow"></div>
-      <div class="tooltip-inner"><slot name="content" v-html="content"></slot></div>
-    </div>
-  </transition>
 </template>
 
 <script>

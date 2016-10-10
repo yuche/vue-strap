@@ -2,7 +2,7 @@
   <doc-section id="modal" name="Modal">
     <div class="bs-example">
       <button class="btn btn-default" @click="showModal = true">Show modal</button>
-      <modal title="Modal title" :show.sync="showModal">
+      <modal title="Modal title" v-model="showModal">
         <div slot="modal-header" class="modal-header">
           <h4 class="modal-title">Modal <b>Title</b></h4>
         </div>
@@ -16,7 +16,7 @@
         </div>
       </modal>
       <button class="btn btn-success" @click="fadeModal = true">Fade modal</button>
-      <modal title="Fade Modal" :show.sync="fadeModal" effect="fade" width="800">
+      <modal title="Fade Modal" v-model="fadeModal" effect="fade" width="800">
         <div slot="modal-body" class="modal-body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -27,7 +27,7 @@
         </div>
       </modal>
       <button class="btn btn-primary" @click="zoomModal = true">Zoom modal</button>
-      <modal title="Zoom Modal" :show.sync="zoomModal" effect="zoom" width="400">
+      <modal title="Zoom Modal" v-model="zoomModal" effect="zoom" width="400">
         <div slot="modal-body" class="modal-body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -38,7 +38,7 @@
         </div>
       </modal>
       <button class="btn btn-default" @click="showCustomModal = true">Show custom modal</button>
-      <modal :show.sync="showCustomModal" effect="fade" width="50%">
+      <modal v-model="showCustomModal" effect="fade" width="50%">
         <div slot="modal-header" class="modal-header">
           <h4 class="modal-title"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>
         </div>
@@ -51,12 +51,12 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
         <div slot="modal-footer" class="modal-footer">
-          <button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit</button>
-          <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
+          <button type="button" class="btn btn-default" @click="showCustomModal = false">Exit</button>
+          <button type="button" class="btn btn-success" @click="showCustomModal = false">Custom Save</button>
         </div>
       </modal>
       <button class="btn btn-warning" @click="largeModal = true">Large modal</button>
-      <modal title="Large Modal" :show.sync="largeModal" large>
+      <modal title="Large Modal" v-model="largeModal" large>
         <div slot="modal-body" class="modal-body">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -79,7 +79,7 @@
         </div>
       </modal>
       <button class="btn btn-danger" @click="smallModal = true">Small modal</button>
-      <modal title="Small Modal" :show.sync="smallModal" small>
+      <modal title="Small Modal" v-model="smallModal" small>
         <div slot="modal-body" class="modal-body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -89,22 +89,21 @@
       </modal>
     </div>
     <doc-code language="markup">
-      <modal :show.sync="...">
+      <modal v-model="show">
         <div slot="modal-header" class="modal-header">
           <h4 class="modal-title">Modal title</h4>
         </div>
         <div slot="modal-body" class="modal-body">...</div>
       </modal>
 
-      <modal title="Fade Modal" :show.sync="..." effect="fade" width="800">
+      <modal title="Fade Modal" v-model="show" effect="fade" width="800">
         <div slot="modal-body" class="modal-body">...</div>
       </modal>
 
-      <modal title="Zoom Modal" :show.sync="..." effect="zoom" width="400">
+      <modal title="Zoom Modal" v-model="show" effect="zoom" width="400">
         <div slot="modal-body" class="modal-body">...</div>
       </modal>
-
-      <modal :show.sync="showCustomModal" effect="fade" width="400">
+      <modal v-model="show" effect="fade" width="400">
         <div slot="modal-header" class="modal-header">
           <h4 class="modal-title">
             <i>Custom</i> <code>Modal</code> <b>Title</b>
@@ -112,14 +111,14 @@
         </div>
         <div slot="modal-body" class="modal-body">...</div>
         <div slot="modal-footer" class="modal-footer">
-          <button type="button" class="btn btn-default" @click='showCustomModal = false'>Exit</button>
-          <button type="button" class="btn btn-success" @click='showCustomModal = false'>Custom Save</button>
+          <button type="button" class="btn btn-default" @click="showCustomModal = false">Exit</button>
+          <button type="button" class="btn btn-success" @click="showCustomModal = false">Custom Save</button>
         </div>
       </modal>
-      <modal title="Large Modal" large :show.sync="...">
+      <modal title="Large Modal" large v-model="show">
         <div slot="modal-body" class="modal-body">...</div>
       </modal>
-      <modal title="Small Modal" small :show.sync="...">
+      <modal title="Small Modal" small v-model="show">
         <div slot="modal-body" class="modal-body">...</div>
       </modal>
   </doc-code>

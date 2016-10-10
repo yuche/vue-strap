@@ -1,19 +1,17 @@
 <template>
-  <div :class="{'btn-group':coerced.buttons,'btn-group-justified':coerced.justified,'btn-group-vertical':coerced.vertical}" :data-toggle="buttons&&'buttons'">
+  <div :class="{'btn-group':buttons,'btn-group-justified':justified,'btn-group-vertical':vertical}" :data-toggle="buttons&&'buttons'">
     <slot></slot>
   </div>
 </template>
 
 <script>
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-  buttons: 'boolean',
-  justified: 'boolean',
-  vertical: 'boolean'
-}
+// let coerce = {
+//   buttons: 'boolean',
+//   justified: 'boolean',
+//   vertical: 'boolean'
+// }
 
 export default {
-  mixins: [coerceMixin],
   props: {
     buttons: {
       type: Boolean,
@@ -37,8 +35,9 @@ export default {
     value: {
       deep: true,
       handler (val) {
-        this.$children.forEach((el) => {
-          if (el.group && el.eval) el.eval()
+        this.$emit('input', val)
+        this.$children.forEach(el => {
+          if (el._inGroup && el.eval) el.eval()
         })
       }
     }

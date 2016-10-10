@@ -1,15 +1,13 @@
-<template><slot></slot></template>
+<template><span><slot></slot></span></template>
 
 <script>
 import $ from './utils/NodeList.js'
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-    enterSubmit: 'boolean',
-    icon: 'boolean'
-}
+// let coerce = {
+//     enterSubmit: 'boolean',
+//     icon: 'boolean'
+// }
 
 export default {
-  mixins: [coerceMixin],
   props: {
     enterSubmit: {
       type: Boolean,
@@ -33,8 +31,9 @@ export default {
   },
   watch: {
     valid (val, old) {
-      if (val === old) { return }
-      this._parent && this._parent.validate()
+      this.$emit('isvalid', val)
+      this.$emit(!val ? 'invalid' : 'valid')
+      if (val !== old && this._parent) this._parent.validate()
     }
   },
   methods: {
@@ -46,7 +45,6 @@ export default {
         return !valid
       })
       this.valid = valid
-      this.$emit('valid', valid)
       return valid === true
     }
   },

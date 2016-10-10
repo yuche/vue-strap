@@ -77,28 +77,26 @@
 <script>
 import {translations} from './utils/utils.js'
 import $ from './utils/NodeList.js'
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-    clearButton: 'boolean',
-    disabled: 'boolean',
-    enterSubmit: 'boolean',
-    hideHelp: 'boolean',
-    icon:'boolean',
-    maskDelay: 'number',
-    max: 'string',
-    maxlength: 'number',
-    min: 'string',
-    minlength: 'number',
-    pattern: 'pattern',
-    readonly: 'boolean',
-    required: 'boolean',
-    rows: 'number',
-    step: 'number',
-    validationDelay: 'number'
-}
+// let coerce = {
+//     clearButton: 'boolean',
+//     disabled: 'boolean',
+//     enterSubmit: 'boolean',
+//     hideHelp: 'boolean',
+//     icon:'boolean',
+//     maskDelay: 'number',
+//     max: 'string',
+//     maxlength: 'number',
+//     min: 'string',
+//     minlength: 'number',
+//     pattern: 'pattern',
+//     readonly: 'boolean',
+//     required: 'boolean',
+//     rows: 'number',
+//     step: 'number',
+//     validationDelay: 'number'
+// }
 
 export default {
-  mixins: [coerceMixin],
   props: {
     clearButton: {type: Boolean, default: false},
     disabled: {type: Boolean, default: false},
@@ -155,10 +153,9 @@ export default {
       this.eval()
     },
     valid (val, old) {
-      if (val !== old) {
-        this.$emit('valid', val)
-        this._parent && this._parent.validate()
-      }
+      this.$emit('isvalid', val)
+      this.$emit(!val ? 'invalid' : 'valid')
+      if (val !== old && this._parent) this._parent.validate()
     },
     value (val, old) {
       if (val !== old) {
@@ -172,9 +169,9 @@ export default {
             }, this.maskDelay)
           }
         }
-        this.$emit('input', val)
         this.eval()
       }
+      this.$emit('input', val)
     }
   },
   methods: {

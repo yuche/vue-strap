@@ -1,40 +1,42 @@
 <template>
-  <label v-if="buttonStyle" :class="['btn btn-'+typeColor,{active:active,disabled:coerced.disabled,readonly:coerced.readonly}]" @click.prevent="toggle">
-    <input type="radio" autocomplete="off" ref="input"
-      v-show="!coerced.readonly"
-      :checked="active"
-      :value="value"
-      :name="name"
-      :readonly="coerced.readonly"
-      :disabled="coerced.disabled"
-    />
-    <slot></slot>
-  </label>
-  <div v-else :class="['radio',typeColor,{active:active,disabled:coerced.disabled,readonly:coerced.readonly}]" @click.prevent="toggle">
-    <label class="open">
+  <mutator :as="buttonStyle?'label':'div'" @click.prevent="toggle"
+    :class="[(buttonStyle?'btn btn-'+typeColor:'radio '+typeColor),{active:active,disabled:disabled,readonly:readonly}]"
+  >
+    <template v-if="buttonStyle">
+      <input type="radio" autocomplete="off" ref="input"
+        v-show="!readonly"
+        :checked="active"
+        :value="value"
+        :name="name"
+        :readonly="readonly"
+        :disabled="disabled"
+      />
+      <slot></slot>
+    </template>
+    <label v-else class="open">
       <input type="radio" autocomplete="off" ref="input"
         :checked="active"
         :value="value"
         :name="name"
-        :readonly="coerced.readonly"
-        :disabled="coerced.disabled"
+        :readonly="readonly"
+        :disabled="disabled"
       />
       <span class="icon dropdown-toggle" :class="[active?'btn-'+typeColor:'',{bg:typeColor==='default'}]"></span>
       <span v-if="active&&typeColor==='default'" class="icon"></span>
       <slot></slot>
     </label>
-  </div>
+  </mutator>
 </template>
 
 <script>
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-  disabled: 'boolean',
-  readonly: 'boolean'
-}
+import {mutator} from './utils/mutator.js'
+// let coerce = {
+//   disabled: 'boolean',
+//   readonly: 'boolean'
+// }
 
 export default {
-  mixins: [coerceMixin],
+  components:{ mutator },
   props: {
     button: {type: Boolean, default: false},
     checked: {type: Boolean, default: false},
@@ -81,9 +83,9 @@ export default {
       this.$refs.input.focus()
     },
     toggle () {
-      if (this.coerced.disabled) { return }
+      if (this.disabled) { return }
       this.focus()
-      if (this.coerced.readonly) { return }
+      if (this.readonly) { return }
       this.checked = this.value
       if (this._inGroup) {
         this.$parent.value = this.value

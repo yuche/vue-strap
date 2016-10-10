@@ -1,9 +1,11 @@
 <template>
-  <pre v-if="!language" v-el:container></pre>
-  <template v-else>
-    <pre v-if="language=='markup'"><code class="language-markup"><script v-el:container type="language-mark-up"></script></code></pre>
-    <pre v-else><code class="language-{{language}}"><script v-el:container type="language-{{language}}"></script></code></pre>
-  </template>
+  <div>
+    <pre v-if="!language" ref="container"></pre>
+    <template v-else>
+      <pre v-if="language=='markup'"><code ref="container" class="language-markup"><slot></slot><!-- <script type="language-mark-up"></script> --></code></pre>
+      <pre v-else><code ref="container" :class="'language-' + language"><slot></slot><!-- <script :type="'language-' + language"></script> --></code></pre>
+    </template>
+  </div>
 </template>
 
 <script>
@@ -16,21 +18,21 @@ export default {
       default: 'html'
     }
   },
-  compiled () {
-    let content = ''
-    $(this._slotContents.default.childNodes).each((el) => {
-      content += el.outerHTML || el.nodeValue
-    })
-    if (~['html','markup'].indexOf(this.language)) content = content.replace(/(\w+)=""/g, '$1')
-    let matches = content.match(/(\n|\r)[ ]*\S/g)
-    if (matches) {
-      let values = matches.map((el) => { return el.length - 2 })
-      let min = Math.min.apply(Math, values)
-      content = content.replace(/(\n|\r)([^\n\S]*)/g, (str, nr, s) => {
-        return nr + s.substr(min)
-      })
-    }
-    this.$els.container.innerHTML = content.replace(/^\s+|\s+$/g,'')
+  mounted () {
+    // let content = ''
+    // $(this._slotContents.default.childNodes).each((el) => {
+    //   content += el.outerHTML || el.nodeValue
+    // })
+    // if (~['html','markup'].indexOf(this.language)) content = content.replace(/(\w+)=""/g, '$1')
+    // let matches = content.match(/(\n|\r)[ ]*\S/g)
+    // if (matches) {
+    //   let values = matches.map((el) => { return el.length - 2 })
+    //   let min = Math.min.apply(Math, values)
+    //   content = content.replace(/(\n|\r)([^\n\S]*)/g, (str, nr, s) => {
+    //     return nr + s.substr(min)
+    //   })
+    // }
+    // this.$refs.container.innerHTML = content.replace(/^\s+|\s+$/g,'')
   }
 }
 </script>

@@ -5,7 +5,7 @@
       :style="{width:width}"
       role="alert"
     >
-      <button v-show="coerced.dismissable" type="button" class="close"
+      <button v-show="dismissable" type="button" class="close"
         @click="value = false">
         <span>&times;</span>
       </button>
@@ -15,15 +15,13 @@
 </template>
 
 <script>
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-  dismissable: 'boolean',
-  duration: 'number',
-  value: 'boolean'
-}
+// let coerce = {
+//   dismissable: 'boolean',
+//   duration: 'number',
+//   value: 'boolean'
+// }
 
 export default {
-  mixins: [coerceMixin],
   props: {
     dismissable: {
       type: Boolean,
@@ -50,8 +48,8 @@ export default {
   watch: {
     value (val, old) {
       if (this._timeout) clearTimeout(this._timeout)
-      if (val && this.coerced.duration) {
-        this._timeout = setTimeout(() => { this.value = false }, this.coerced.duration)
+      if (val && this.duration) {
+        this._timeout = setTimeout(() => { this.value = false }, this.duration)
       }
       this.$emit('input', val)
     }

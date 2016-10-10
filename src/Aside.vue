@@ -1,16 +1,10 @@
 <template>
-  <transition :name="this.placement === 'left' ? 'slideleft' : 'slideright'">
-    <div class="aside" v-show="value"
-      :style="{width:coerced.width+'px'}"
-      :class="{
-        left:placement === 'left',
-        right:placement === 'right'
-      }"
-    >
+  <transition :name="'side' + this.placement">
+    <div class="aside" v-show="value" :style="{width:width+'px'}" :class="placement">
       <div class="aside-dialog">
         <div class="aside-content">
           <div class="aside-header">
-            <button type="button" class="close" @click='close'><span>&times;</span></button>
+            <button type="button" class="close" @click='trigger.close'><span>&times;</span></button>
             <h4 class="aside-title"><slot name="header">{{ header }}</slot></h4>
           </div>
           <div class="aside-body"><slot></slot></div>
@@ -23,32 +17,22 @@
 <script>
 import {getScrollBarWidth} from './utils/utils.js'
 import $ from './utils/NodeList.js'
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-  width: 'number'
-}
+// let coerce = {
+//   value: 'boolean',
+//   width: 'number'
+// }
 
 export default {
-  mixins: [coerceMixin],
   props: {
-    header: {
-      type: String
-    },
-    placement: {
-      type: String,
-      default: 'right'
-    },
-    value: {
-      type: Boolean,
-      required: true,
-    },
-    width: {
-      type: Number,
-      default: 320
-    }
+    header: {type: String},
+    placement: {type: String, default: 'right'},
+    value: {type: Boolean, required: true},
+    width: {type: Number, default: 320}
   },
   watch: {
     value (val, old) {
+      this.$emit('input', val)
+      this.$emit(this.value ? 'open' : 'close')
       const body = document.body
       const scrollBarWidth = getScrollBarWidth()
       if (val) {
@@ -64,7 +48,7 @@ export default {
         // request property that requires layout to force a layout
         var x = this._backdrop.clientHeight
         this._backdrop.classList.add('in')
-        $(this._backdrop).on('click', () => this.close())
+        $(this._backdrop).on('click', () => this.trigger.close())
       } else {
         $(this._backdrop).on('transitionend', () => {
           $(this._backdrop).off()
@@ -77,13 +61,18 @@ export default {
         })
         this._backdrop.className = 'aside-backdrop'
       }
-      if (val !== old) this.$emit('input', val)
     }
   },
   methods: {
-    close () {
-      this.value = false
+    trigger () {
+      return {
+        close: () => { this.value = false },
+        open: () => { this.value = true }
+      }
     }
+  },
+  mounted () {
+    this.$emit('trigger', () => this.trigger)
   }
 }
 </script>

@@ -41,21 +41,21 @@
       </accordion>
     </div>
     <doc-code language="markup">
-      <accordion :one-at-atime="checked" type="info">
-        <panel is-open type="primary">
-          <strong slot="header"><u>Panel #1</u></strong>
+      &lt;accordion :one-at-atime="checked" type="info">
+        &lt;panel is-open type="primary">
+          &lt;strong slot="header">&lt;u>Panel #1&lt;/u>&lt;/strong>
           ...
-        </panel>
-        <panel header="Panel #2">
+        &lt;/panel>
+        &lt;panel header="Panel #2">
           ...
-        </panel>
-        <panel header="Panel #3">
+        &lt;/panel>
+        &lt;panel header="Panel #3">
           ...
-        </panel>
-        <panel header="Panel #4">
+        &lt;/panel>
+        &lt;panel header="Panel #4">
           ...
-        </panel>
-      </accordion>
+        &lt;/panel>
+      &lt;/accordion>
     </doc-code>
     <doc-table>
       <div>

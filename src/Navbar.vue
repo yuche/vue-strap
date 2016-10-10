@@ -1,9 +1,5 @@
 <template>
-  <nav :class="['navbar','navbar-'+type,{
-    'navbar-fixed-top':(placement === 'top'),
-    'navbar-fixed-bottom':(placement === 'bottom'),
-    'navbar-static-top':(placement === 'static')
-  }]">
+  <nav :class="['navbar', 'navbar-'+type, placement === 'static'?'navbar-static-top':'navbar-fixed-'+placement]">
     <div class="container-fluid">
       <div class="navbar-header">
         <button v-if="!slots.collapse" type="button" class="navbar-toggle collapsed"  aria-expanded="false" @click="toggleCollapse">

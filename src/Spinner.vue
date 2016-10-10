@@ -1,5 +1,5 @@
 <template>
-  <div :class="['spinner spinner-gritcode',spinnerSize,{'spinner-fixed':!!fixed}]" v-show="active">
+  <div :class="['spinner spinner-gritcode',spinnerSize,{'spinner-fixed':fixed}]" v-show="active">
     <div class="spinner-wrapper">
       <div class="spinner-circle"></div>
       <div class="spinner-text">{{text}}</div>
@@ -10,12 +10,17 @@
 <script>
 // import styling
 import './spinner.scss'
+// let coerce = {
+//     fixed: 'boolean',
+//     global: 'boolean'
+// }
 
 const MIN_WAIT = 500 // in ms
 
 export default {
   props: {
     fixed: {type: Boolean, default: false},
+    global: {type: Boolean, default: false},
     size: {type: String, default: 'md'},
     text: {type: String, default: ''}
   },
@@ -26,10 +31,6 @@ export default {
   },
   computed: {
     spinnerSize () { return this.size ? 'spinner-' + this.size : 'spinner-sm' }
-  },
-  mounted () {
-    this._body = document.querySelector('body')
-    this._bodyOverflow = this._body.style.overflowY || ''
   },
   methods: {
     getMinWait (delay) {
@@ -70,7 +71,18 @@ export default {
     'start::ajax' (options) { this.show(options) },
     'end::ajax' () { this.hide() }
   },
+  mounted () {
+    if (this.global) {
+      this._global = this.global
+      this.$root.$on('spinner::show', () => this.show)
+      this.$root.$on('spinner::hide', () => this.hide)
+    }
+  },
   beforeDestroy () {
+    if (this._global) {
+      this.$root.$off('spinner::show', () => this.show)
+      this.$root.$off('spinner::hide', () => this.hide)
+    }
     clearTimeout(this._spinnerAnimation)
     this._body.style.overflowY = this._bodyOverflow
   }

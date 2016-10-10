@@ -15,11 +15,11 @@
       </navbar>
       <div class="form-group">
         <label>Placement</label>
-        <v-select :value.sync="placement" clear-button :options="['top','bottom','static']"></v-select>
+        <v-select v-model="placement" clear-button :options="['top','bottom','static']"></v-select>
       </div>
       <div class="form-group">
         <label>Type</label>
-        <v-select :value.sync="type" :options="['default','inverse']"></v-select>
+        <v-select v-model="type" :options="['default','inverse']"></v-select>
       </div>
     </div>
     <doc-code language="markup">

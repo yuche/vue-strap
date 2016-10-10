@@ -1,42 +1,29 @@
 <template>
-  <li v-if="isLi" ref="dropdown" :class="classes">
+  <mutator :as="isLi?'li':'div'" ref="dropdown" :class="classes">
+    <slot name="before"></slot>
     <slot name="button">
-      <a class="dropdown-toggle" role="button" :class="{disabled: coerced.disabled}" @keyup.esc="value = false">
+      <a v-if="isLi" class="dropdown-toggle" role="button" :class="{disabled: disabled}" @keyup.esc="value = false">
         {{ text }}
         <span class="caret"></span>
       </a>
-    </slot>
-    <slot name="dropdown-menu">
-      <ul v-else class="dropdown-menu">
-        <slot></slot>
-      </ul>
-    </slot>
-  </li>
-  <div v-else ref="dropdown" :class="classes">
-    <slot name="before"></slot>
-    <slot name="button">
-      <button type="button" :class="'btn btn-' + type + ' dropdown-toggle'" @keyup.esc="value = false" :disabled="coerced.disabled">
+      <button v-else type="button" :class="'btn btn-' + type + ' dropdown-toggle'" @keyup.esc="value = false" :disabled="disabled">
         {{ text }}
         <span class="caret"></span>
       </button>
     </slot>
     <slot name="dropdown-menu">
-      <ul class="dropdown-menu">
-        <slot></slot>
-      </ul>
+      <ul class="dropdown-menu"><slot></slot></ul>
     </slot>
-  </div>
+  </mutator>
 </template>
 <script>
 import $ from './utils/NodeList.js'
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-    disabled: 'boolean',
-    value: 'boolean'
-}
+// let coerce = {
+//     disabled: 'boolean',
+//     value: 'boolean'
+// }
 
 export default {
-  mixins: [coerceMixin],
   props: {
     'class': null,
     disabled: {
@@ -61,7 +48,7 @@ export default {
   },
   computed: {
     classes () {
-      return [{open: this.value, disabled: this.coerced.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn': 'btn-group']
+      return [{open: this.value, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn': 'btn-group']
     },
     inInput () { return this.$parent._input },
     isLi () { return this.$parent._navbar || this.$parent.menu || this.$parent._tabset },
@@ -95,7 +82,7 @@ export default {
     $el.onBlur((e) => { this.value = false })
     $el.findChildren('a,button.dropdown-toggle').on('click', e => {
       e.preventDefault()
-      if (this.coerced.disabled) { return false }
+      if (this.disabled) { return false }
       this.value = !this.value
       return false
     })

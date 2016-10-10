@@ -23,16 +23,14 @@
 <script>
 import {getScrollBarWidth} from './utils/utils.js'
 import $ from './utils/NodeList.js'
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-  backdrop: 'boolean',
-  large: 'boolean',
-  small: 'boolean',
-  value: 'boolean'
-}
+// let coerce = {
+//   backdrop: 'boolean',
+//   large: 'boolean',
+//   small: 'boolean',
+//   value: 'boolean'
+// }
 
 export default {
-  mixins: [coerceMixin],
   props: {
     backdrop: {type: Boolean, default: true},
     callback: {type: Function, default: null},
@@ -40,10 +38,10 @@ export default {
     effect: {type: String, default: null},
     large: {type: Boolean, default: false},
     okText: {type: String, default: 'Save changes'},
-    small: {type: Boolean, default: false}
+    small: {type: Boolean, default: false},
     title: {type: String, default: ''},
     value: {type: Boolean, required: true},
-    width: {default: null},
+    width: {default: null}
   },
   computed: {
     optionalWidth () {

@@ -19,16 +19,16 @@ function setProp(getter,setter) {
   }
 }
 
-export default {
-  computed: {
-    coerced () {
-      let coerced = {}
-      Object.keys(coerce||{}).forEach(prop => {
-        let p = coerce && coerce[prop]
-        let fn = p instanceof Function ? p : p instanceof String ? coercion[p] : null
-        if (fn) Object.defineProperty(coerced, el, setProp(() => fn(this[prop]), value => { this[prop] = fn(value) }))
-      })
-      return coerced
-    }
-  }
+function ist(coerce) {
+  let = {}
+  Object.keys(coerce||{}).forEach(prop => {
+    let p = coerce && coerce[prop]
+    let fn = p instanceof Function ? p : typeof p === 'string' ? coercion[p] : null
+    console.log([p,typeof p,coercion[p],fn])
+    if (fn) Object.defineProperty( el, setProp(() => fn(this[prop]), value => { this[prop] = fn(value) }))
+  })
+  console.log(
+  return coerced
 }
+
+export default ist

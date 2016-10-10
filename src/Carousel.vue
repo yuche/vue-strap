@@ -22,13 +22,11 @@
 
 <script>
 import $ from './utils/NodeList.js'
-import {coerceMixin} from './utils/coerceMixin.js'
-let coerce = {
-  interval: 'number'
-}
+// let coerce = {
+//   interval: 'number'
+// }
 
 export default {
-  mixins: [coerceMixin],
   props: {
     indicators: {
       type: Boolean,
@@ -91,8 +89,8 @@ export default {
         clearInterval(this._intervalID)
         delete this._intervalID
       }
-      if(val && this.coerced.interval > 0) {
-        this._intervalID = setInterval(this.next, this.coerced.interval)
+      if(val && this.interval > 0) {
+        this._intervalID = setInterval(this.next, this.interval)
       }
     }
   },

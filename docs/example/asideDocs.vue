@@ -4,7 +4,7 @@
       <button class="btn btn-danger btn-lg" @click="showLeft = true">Show Aside on left</button>
       <button class="btn btn-success btn-lg" @click="showRight = true">Show Aside on right</button>
 
-      <sidebar :show.sync="showLeft" placement="left" header="Title" :width="350">
+      <sidebar v-model="showLeft" placement="left" header="Title" :width="350">
         <h4>Text in aside</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -20,7 +20,7 @@
           <button type="button" class="btn btn-default" @click="showLeft=false">Close</button>
         </div>
       </sidebar>
-      <sidebar :show.sync="showRight" placement="right" header="Title" :width="350">
+      <sidebar v-model="showRight" placement="right" header="Title" :width="350">
         <h4>Text in aside</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -38,16 +38,16 @@
       </sidebar>
     </div>
     <doc-code language="markup">
-      <aside :show.sync="showRight" placement="right" header="Title" width="350">
+      <sidebar v-model="showRight" placement="right" header="Title" width="350">
         ...
-      </aside>
-      <aside :show.sync="showLeft" placement="left" header="Title" width="350">
+      </sidebar>
+      <sidebar v-model="showLeft" placement="left" header="Title" width="350">
         ...
-      </aside>
+      </sidebar>
     </doc-code>
     <doc-table>
       <div>
-        <p>show</p>
+        <p>value</p>
         <p><code>Boolean</code></p>
         <p></p>
         <p>Whether show the component.</p>

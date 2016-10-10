@@ -72,7 +72,7 @@
           return {
             USstate: ['Alabama', 'Alaska', 'Arizona',...],
             asynchronous: '{{formatted_address}}',
-            customTemplate: '<img width="18px" height="18px" v-attr="src:avatar_url"/>' +
+            customTemplate: '<img width="18px" height="18px" :src="avatar_url"/>' +
             '<span>{{login}}</span>'
           }
         },

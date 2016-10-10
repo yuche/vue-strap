@@ -16,18 +16,18 @@
         </div>
       </div>
       <div class="row">
-        <form-group :valid.sync="valid.all">
+        <form-group @valid="valid.all = true" @invalid="valid.all = false">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <tabs :active.sync="active">
+            <tabs :active="active">
               <tab header="User">
-                <form-group :valid.sync="valid.user">
+                <form-group @valid="valid.user = true" @invalid="valid.user = false">
                   <bs-input label="User Name" required></bs-input>
                   <bs-input label="Email" type="email" required></bs-input>
                 </form-group>
                 <button type="button" class="btn btn-primary" :disabled="!valid.user" @click="active = 1">Continue</button>
               </tab>
               <tab header="Direction" :disabled="!valid.user">
-                <form-group :valid.sync="valid.direction">
+                <form-group @valid="valid.direction = true" @invalid="valid.direction = false">
                   <div class="form-group">
                     <label class="control-label">Continent</label>
                     <v-select required justified :options="['America','Europe']" clear-button></v-select>
@@ -42,18 +42,18 @@
       </div>
     </div>
     <doc-code language="markup">
-        <form-group :valid.sync="valid.all">
+        <form-group @valid="valid.all = true" @invalid="valid.all = false">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <tabs :active.sync="active">
+            <tabs :active="active">
               <tab header="User">
-                <form-group :valid.sync="valid.user">
+                <form-group @valid="valid.user = true" @invalid="valid.user = false">
                   <bs-input label="User Name" required></bs-input>
                   <bs-input label="Email" type="email" required></bs-input>
                 </form-group>
                 <button type="button" class="btn btn-primary" :disabled="!valid.user" @click="active = 1">Continue</button>
               </tab>
               <tab header="Direction" :disabled="!valid.user">
-                <form-group :valid.sync="valid.direction">
+                <form-group @valid="valid.direction = true" @invalid="valid.direction = false">
                   <div class="form-group">
                     <label class="control-label">Continent</label>
                     <v-select required justified :options="['America','Europe']" clear-button></v-select>
