@@ -1,8 +1,4 @@
-<template>
-  <div class="panel-group">
-    <slot></slot>
-  </div>
-</template>
+<template><div class="panel-group"><slot></slot></div></template>
 
 <script>
 // let coerce = {
@@ -22,9 +18,9 @@ export default {
   },
   created () {
     this._isAccordion = true
-    this.$on('isOpenEvent', (child) => {
+    this.$on('isOpenEvent', child => {
       if (this.oneAtAtime) {
-        this.$children.forEach((item) => {
+        this.$children.forEach(item => {
           if (child !== item) {
             item.isOpen = false
           }
