@@ -8,32 +8,22 @@
 </template>
 
 <script>
-import {coerce} from './utils/utils.js'
+import {coerceMixin} from './utils/coerceMixin.js'
+let coerce = {
+  disabled: 'boolean'
+}
 
 export default {
+  mixins: [coerceMixin],
   props: {
-    header: {
-      type: String
-    },
-    disabled: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    }
+    disabled: {type: Boolean, default: false},
+    header: {type: String}
   },
   computed: {
-    active () {
-      return this._tabset.show === this
-    },
-    index () {
-      return this._tabset.tabs.indexOf(this)
-    },
-    show () {
-      return this._tabset && this._tabset.show === this
-    },
-    transition () {
-      return this._tabset ? this._tabset.effect : null
-    }
+    active () { return this._tabset.show === this },
+    index () { return this._tabset.tabs.indexOf(this) },
+    show () { return this._tabset && this._tabset.show === this },
+    transition () { return this._tabset ? this._tabset.effect : null }
   },
   created () {
     this._ingroup = this.$parent && this.$parent._tabgroup
@@ -62,9 +52,9 @@ export default {
   beforeDestroy () {
     if (this._tabset.active === this.index) { this._tabset.active = 0 }
     if (this._ingroup) {
-      this.$parent.tabs.$remove(this)
+      parent.tabs.splice(parent.tabs.indexOf(this), 1)
     }
-    this._tabset.tabs.$remove(this)
+    this._tabset.tabs.splice(this._tabset.tabs.indexOf(this), 1)
   }
 }
 </script>

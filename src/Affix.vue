@@ -7,25 +7,28 @@
 </template>
 
 <script>
-import {coerce} from './utils/utils.js'
 import $ from './utils/NodeList.js'
+import {coerceMixin} from './utils/coerceMixin.js'
+let coerce = {
+  offset: 'number'
+}
 
 export default {
+  mixins: [coerceMixin],
   props: {
     offset: {
       type: Number,
-      coerce: coerce.number,
       default: 0
     }
   },
   data () {
     return {
-      affixed:false
+      affixed: false
     }
   },
   computed: {
     top () {
-      return this.offset > 0 ? this.offset + 'px' : null
+      return this.coerced.offset > 0 ? this.coerced.offset + 'px' : null
     }
   },
   methods: {
@@ -53,11 +56,11 @@ export default {
         scroll[t] = ret
         element[t] = scroll[t] + rect[t] - (this.$el['client'+type] || body['client'+type] || 0)
       }
-      let fix = scroll.top > element.top - this.offset
+      let fix = scroll.top > element.top - this.coerced.offset
       if (this.affixed !== fix) { this.affixed = fix }
     }
   },
-  ready () {
+  mounted () {
     $(window).on('scroll resize', () => this.checkScroll())
     setTimeout(() => this.checkScroll(), 0)
   },

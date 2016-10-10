@@ -22,7 +22,7 @@ new Vue({
   ready () {
     var list = this.$root.sections
     while(list.length) list.pop()
-    $('.bs-docs-section', this.$els.sections).each((el) => {
+    $('.bs-docs-section', this.$refs.sections).each((el) => {
       list.push({
         id: el.id,
         name: $('.anchor', el).textContent,

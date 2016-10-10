@@ -1,5 +1,5 @@
 <template>
-  <div v-el:select :class="classes">
+  <div ref="select" :class="classes">
     <button type="button" class="form-control dropdown-toggle"
       :disabled="disabled || !hasParent"
       :readonly="readonly"
@@ -9,22 +9,22 @@
       <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selected }}</span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
     </button>
-    <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
+    <select ref="sel" v-model="value" v-show="show" :name="name" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
       <option v-if="required" value=""></option>
       <option v-for="option in options" :value="option[optionsValue]||option">{{ option[optionsLabel]||option }}</option>
     </select>
     <ul class="dropdown-menu">
       <template v-if="options.length">
         <li v-if="canSearch" class="bs-searchbox">
-          <input type="text" placeholder="{{searchText||text.search}}" class="form-control" autocomplete="off"
-            v-el:search
+          <input type="text" :placeholder="searchText||text.search" class="form-control" autocomplete="off"
+            ref="search"
             v-model="searchValue"
             @keyup.esc="show = false"
           />
           <span v-show="searchValue" class="close" @click="clearSearch">&times;</span>
         </li>
         <li v-if="required&&!clearButton"><a @mousedown.prevent="clear() && blur()">{{ placeholder || text.notSelected }}</a></li>
-        <li v-for="option in options | filterBy searchValue" :id="option[optionsValue]||option">
+        <li v-for="option in filteredOptions" :id="option[optionsValue]||option">
           <a @mousedown.prevent="select(option[optionsValue],option)">
             <span v-html="option[optionsLabel]||option"></span>
             <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option[optionsValue]||option)"></span>
@@ -32,102 +32,51 @@
         </li>
       </template>
       <slot></slot>
-      <div v-if="showNotify && !closeOnSelect" class="notify in" transition="fadein">{{limitText}}</div>
+      <transition v-if="showNotify && !closeOnSelect" name="fadein"><div class="notify in">{{limitText}}</div></transition>
     </ul>
-    <div v-if="showNotify && closeOnSelect" class="notify out" transition="fadein"><div>{{limitText}}</div></div>
+    <transition v-if="showNotify && closeOnSelect" name="fadein"><div class="notify out"><div>{{limitText}}</div></div></transition>
   </div>
 </template>
 
 <script>
-import {getJSON, coerce, translations} from './utils/utils.js'
+import {getJSON, translations} from './utils/utils.js'
 import $ from './utils/NodeList.js'
+import {coerceMixin} from './utils/coerceMixin.js'
+let coerce = {
+  clearButton: 'boolean',
+  closeOnSelect: 'boolean',
+  disabled: 'boolean',
+  limit: 'number',
+  minSearch: 'number',
+  multiple: 'boolean',
+  readonly: 'boolean',
+  required: 'boolean',
+  search: 'boolean'
+}
 
 var timeout = {}
 export default {
+  mixins: [coerceMixin],
   props: {
-    value: {
-      twoWay: true
-    },
-    options: {
-      type: Array,
-      default () { return [] }
-    },
-    multiple: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    clearButton: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    closeOnSelect: { // only works when multiple
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    lang: {
-      type: String,
-      default: navigator.language
-    },
-    limit: {
-      type: Number,
-      coerce: coerce.number,
-      default: 1024
-    },
-    name: {
-      type: String,
-      default: null
-    },
-    optionsLabel: {
-      type: String,
-      default: 'label'
-    },
-    optionsValue: {
-      type: String,
-      default: 'value'
-    },
-    parent: {
-      default: true
-    },
-    placeholder: {
-      type: String,
-      default: null
-    },
-    readonly: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: null
-    },
-    required: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: null
-    },
-    minSearch: {
-      type: Number,
-      coerce: coerce.number,
-      default: 0
-    },
-    search: { // Allow searching (only works when options are provided)
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    searchText: {
-      type: String,
-      default: null
-    },
-    url: {
-      type: String,
-      default: null
-    }
+    clearButton: {type: Boolean, default: false},
+    closeOnSelect: {type: Boolean, default: false},
+    disabled: {type: Boolean, default: false},
+    lang: {type: String, default: navigator.language},
+    limit: {type: Number, default: 1024},
+    minSearch: {type: Number, default: 0},
+    multiple: {type: Boolean, default: false},
+    name: {type: String, default: null},
+    options: {type: Array, default () { return [] }},
+    optionsLabel: {type: String, default: 'label'},
+    optionsValue: {type: String, default: 'value'},
+    parent: {default: true},
+    placeholder: {type: String, default: null},
+    readonly: {type: Boolean, default: null},
+    required: {type: Boolean, default: null},
+    search: {type: Boolean, default: false},
+    searchText: {type: String, default: null},
+    url: {type: String, default: null},
+    value: null
   },
   data () {
     return {
@@ -139,6 +88,18 @@ export default {
     }
   },
   computed: {
+    canSearch () { return this.minSearch ? this.options.length >= this.minSearch : this.search },
+    classes () { return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn': 'btn-group'] },
+    filteredOptions: function () {
+      var search = this.searchValue && this.searchValue.toLowerCase()
+      return !search ? this.options : this.options.filter(el => {
+        return !!~el[this.optionsValue].toLowerCase().search(search)
+      })
+    },
+    hasParent () { return this.parent instanceof Array ? this.parent.length : this.parent },
+    inInput () { return this.$parent._input },
+    isLi () { return this.$parent._navbar || this.$parent.menu || this.$parent._tabset },
+    limitText () { return this.text.limit.replace('{{limit}}', this.limit) },
     selected () {
       if (this.options.length === 0) { return '' }
       let foundItems = []
@@ -155,29 +116,9 @@ export default {
       }
       return foundItems.join(', ')
     },
-    classes () {
-      return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn': 'btn-group']
-    },
-    inInput () { return this.$parent._input },
-    isLi () { return this.$parent._navbar || this.$parent.menu || this.$parent._tabset },
-    canSearch () {
-      return this.minSearch ? this.options.length >= this.minSearch : this.search
-    },
-    limitText () {
-      return this.text.limit.replace('{{limit}}', this.limit)
-    },
-    showPlaceholder () {
-      return (this.values.length === 0 || !this.hasParent) ? (this.placeholder || this.text.notSelected) : null
-    },
-    text () {
-      return translations(this.lang)
-    },
-    hasParent () {
-      return this.parent instanceof Array ? this.parent.length : this.parent
-    },
-    values () {
-      return this.value instanceof Array ? this.value : this.value !== null && this.value !== undefined ? [this.value] : []
-    }
+    showPlaceholder () { return (this.values.length === 0 || !this.hasParent) ? (this.placeholder || this.text.notSelected) : null },
+    text () { return translations(this.lang) },
+    values () { return this.value instanceof Array ? this.value : this.value !== null && this.value !== undefined ? [this.value] : [] }
   },
   watch: {
     options (options) {
@@ -198,12 +139,16 @@ export default {
     },
     show (val) {
       if (val) {
-        this.$els.sel.focus()
-        this.$els.search && this.$els.search.focus()
+        this.$refs.sel.focus()
+        this.$refs.search && this.$refs.search.focus()
       }
     },
     url () {
       this.update()
+    },
+    valid (val, old) {
+      if (val === old) { return }
+      this._parent && this._parent.validate()
     },
     value (val) {
       this.$emit('change', val)
@@ -216,17 +161,24 @@ export default {
           this.showNotify = false
         }, 1500)
       }
-      this.checkValue()
+      this.checkMultiple()
       this.valid = this.validate()
-    },
-    valid (val, old) {
-      if (val === old) { return }
-      this._parent && this._parent.validate()
     }
   },
   methods: {
     blur () {
       this.show = false
+    },
+    checkMultiple () {
+      if (this.multiple) {
+        if (this.limit < 1) { this.limit = 1 }
+        if (!(this.value instanceof Array)) {
+          this.value = (this.value === null || this.value === undefined) ? [] : [this.value]
+        }
+        if (this.values.length > this.limit) {
+          this.value = this.value.slice(0, this.limit)
+        }
+      }
     },
     clear () {
       if (this.disabled || this.readonly) { return }
@@ -235,19 +187,7 @@ export default {
     },
     clearSearch () {
       this.searchValue = ''
-      this.$els.search.focus()
-    },
-    checkValue () {
-      if (this.multiple && !(this.value instanceof Array)) {
-        this.value = (this.value === null || this.value === undefined) ? [] : [this.value]
-      }
-      if (!this.multiple && this.value instanceof Array) {
-        this.value = this.value.length ? this.value.pop() : null
-      }
-      if (this.limit < 1) { this.limit = 1 }
-      if (this.values.length > this.limit) {
-        this.value = this.value.slice(0, this.limit)
-      }
+      this.$refs.search.focus()
     },
     isSelected (v) {
       return this.values.indexOf(v) > -1
@@ -255,7 +195,8 @@ export default {
     select (v, alt) {
       if (this.value instanceof Array) {
         if (~this.value.indexOf(v)) {
-          this.value.$remove(v)
+          var index = this.value.indexOf(v)
+          this.value.splice(index, 1)
         } else {
           this.value.push(v)
         }
@@ -282,7 +223,7 @@ export default {
         if (!options.length) { this.value = this.value instanceof Array ? [] : null }
       }).always(() => {
         this.loading = false
-        this.checkValue()
+        this.checkMultiple()
       })
     },
     validate () {
@@ -295,21 +236,24 @@ export default {
     if (!this.multiple && this.value instanceof Array) {
       this.value = this.value.shift()
     }
-    this.checkValue()
+    this.checkMultiple()
     if (this.url) this.update()
     let parent = this.$parent
     while (parent && !parent._formGroup) { parent = parent.$parent }
     if (parent && parent._formGroup) {
-      parent.children.push(this)
       this._parent = parent
     }
   },
-  ready () {
-    $(this.$els.select).onBlur(e => { this.show = false })
+  mounted () {
+    if (this._parent) this._parent.children.push(this)
+    $(this.$refs.select).onBlur(e => { this.show = false })
   },
   beforeDestroy () {
-    if (this._parent) this._parent.children.$remove(this)
-    $(this.$els.select).offBlur()
+    if (this._parent) {
+      var index = this._parent.children.indexOf(this)
+      this._parent.children.splice(index, 1)
+    }
+    $(this.$refs.select).offBlur()
   }
 }
 </script>

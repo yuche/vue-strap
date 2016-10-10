@@ -1,32 +1,35 @@
 <template>
-  <div :class="{'btn-group':buttons,'btn-group-justified':justified,'btn-group-vertical':vertical}" :data-toggle="buttons&&'buttons'">
+  <div :class="{'btn-group':coerced.buttons,'btn-group-justified':coerced.justified,'btn-group-vertical':coerced.vertical}" :data-toggle="buttons&&'buttons'">
     <slot></slot>
   </div>
 </template>
 
 <script>
-import {coerce} from './utils/utils.js'
+import {coerceMixin} from './utils/coerceMixin.js'
+let coerce = {
+  buttons: 'boolean',
+  justified: 'boolean',
+  vertical: 'boolean'
+}
 
 export default {
+  mixins: [coerceMixin],
   props: {
-    value: null,
     buttons: {
       type: Boolean,
-      coerce: coerce.boolean,
       default: true
     },
     justified: {
       type: Boolean,
-      coerce: coerce.boolean,
       default: false
     },
     type: {
       type: String,
       default: 'default'
     },
+    value: null,
     vertical: {
       type: Boolean,
-      coerce: coerce.boolean,
       default: false
     }
   },

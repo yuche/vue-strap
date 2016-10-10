@@ -1,7 +1,7 @@
 <template>
-  <li v-if="isLi" v-el:dropdown :class="classes">
+  <li v-if="isLi" ref="dropdown" :class="classes">
     <slot name="button">
-      <a class="dropdown-toggle" role="button" :class="{disabled: disabled}" @keyup.esc="show = false">
+      <a class="dropdown-toggle" role="button" :class="{disabled: coerced.disabled}" @keyup.esc="value = false">
         {{ text }}
         <span class="caret"></span>
       </a>
@@ -12,10 +12,10 @@
       </ul>
     </slot>
   </li>
-  <div v-else v-el:dropdown :class="classes">
+  <div v-else ref="dropdown" :class="classes">
     <slot name="before"></slot>
     <slot name="button">
-      <button type="button" class="btn btn-{{type}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
+      <button type="button" :class="'btn btn-' + type + ' dropdown-toggle'" @keyup.esc="value = false" :disabled="coerced.disabled">
         {{ text }}
         <span class="caret"></span>
       </button>
@@ -28,21 +28,23 @@
   </div>
 </template>
 <script>
-import {coerce} from './utils/utils.js'
 import $ from './utils/NodeList.js'
+import {coerceMixin} from './utils/coerceMixin.js'
+let coerce = {
+    disabled: 'boolean',
+    value: 'boolean'
+}
 
 export default {
+  mixins: [coerceMixin],
   props: {
-    show: {
-      twoWay: true,
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
     'class': null,
     disabled: {
       type: Boolean,
-      coerce: coerce.boolean,
+      default: false
+    },
+    value: {
+      type: Boolean,
       default: false
     },
     text: {
@@ -54,9 +56,12 @@ export default {
       default: 'default'
     }
   },
+  watch: {
+    value (val) { this.$emit('input', val) }
+  },
   computed: {
     classes () {
-      return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn': 'btn-group']
+      return [{open: this.value, disabled: this.coerced.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn': 'btn-group']
     },
     inInput () { return this.$parent._input },
     isLi () { return this.$parent._navbar || this.$parent.menu || this.$parent._tabset },
@@ -75,7 +80,7 @@ export default {
       this.unblur()
       this._hide = setTimeout(() => {
         this._hide = null
-        this.show = false
+        this.value = false
       }, 100)
     },
     unblur () {
@@ -85,19 +90,19 @@ export default {
       }
     }
   },
-  ready () {
-    const $el = $(this.$els.dropdown)
-    $el.onBlur((e) => { this.show = false })
+  mounted () {
+    const $el = $(this.$refs.dropdown)
+    $el.onBlur((e) => { this.value = false })
     $el.findChildren('a,button.dropdown-toggle').on('click', e => {
       e.preventDefault()
-      if (this.disabled) { return false }
-      this.show = !this.show
+      if (this.coerced.disabled) { return false }
+      this.value = !this.value
       return false
     })
-    $el.findChildren('ul').on('click', 'li>a', e => { this.show = false })
+    $el.findChildren('ul').on('click', 'li>a', e => { this.value = false })
   },
   beforeDestroy () {
-    const $el = $(this.$els.dropdown)
+    const $el = $(this.$refs.dropdown)
     $el.offBlur()
     $el.findChildren('a,button').off()
     $el.findChildren('ul').off()

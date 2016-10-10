@@ -1,12 +1,12 @@
 <template>
-  <label :class="[isButton?'btn btn-'+typeColor:'open checkbox '+typeColor,{active:checked,disabled:disabled,readonly:readonly}]" @click.prevent="toggle">
+  <label :class="[isButton?'btn btn-'+typeColor:'open checkbox '+typeColor,{active:checked,disabled:coerced.disabled,readonly:coerced.readonly}]" @click.prevent="toggle">
     <input type="checkbox" autocomplete="off"
-      v-el:input
+      ref="input"
       :checked="active"
       :value="value"
       :name="name"
-      :readonly="readonly"
-      :disabled="disabled"
+      :readonly="coerced.readonly"
+      :disabled="coerced.disabled"
     />
     <span v-if="!isButton" class="icon dropdown-toggle" :class="[active?'btn-'+typeColor:'',{bg:typeColor==='default'}]"></span>
     <span v-if="!isButton&active&&typeColor==='default'" class="icon"></span>
@@ -15,59 +15,37 @@
 </template>
 
 <script>
-import {coerce} from './utils/utils.js'
+import {coerceMixin} from './utils/coerceMixin.js'
+let coerce = {
+  disabled: 'boolean',
+  readonly: 'boolean'
+}
 
 export default {
+  mixins: [coerceMixin],
   props: {
-    value: {
-      default: true
-    },
-    checked: {
-      twoWay: true
-    },
-    button: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    name: {
-      type: String,
-      default: null
-    },
-    readonly: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    type: {
-      type: String,
-      default: null
-    }
+    button: {type: Boolean, default: false},
+    checked: {type: Boolean, default: false},
+    disabled: {type: Boolean, default: false},
+    name: {type: String, default: null},
+    readonly: {type: Boolean, default: false},
+    type: {type: String, default: null},
+    value: {default: true}
   },
   computed: {
-    active () {
-      return typeof this.value !== 'boolean' && this.group ? ~this.$parent.value.indexOf(this.value) : this.checked === this.value
-    },
-    isButton () {
-      return this.button || (this.group && this.$parent.buttons)
-    },
-    group () {
-      return this.$parent && this.$parent._checkboxGroup
-    },
-    typeColor () {
-      return (this.type || (this.$parent && this.$parent.type)) || 'default'
-    }
+    active () { return typeof this.value !== 'boolean' && this._inGroup ? ~this.$parent.value.indexOf(this.value) : this.checked === this.value },
+    isButton () { return this.button || (this._inGroup && this.$parent.buttons) },
+    typeColor () { return (this.type || (this.$parent && this.$parent.type)) || 'default' }
   },
   watch: {
-    checked (val) {
-      if (typeof this.value !== 'boolean' && this.group) {
-        if (this.checked && !~this.$parent.value.indexOf(this.value)) this.$parent.value.push(this.value)
-        if (!this.checked && ~this.$parent.value.indexOf(this.value)) this.$parent.value.$remove(this.value)
+    checked (val, old) {
+      this.$emit('checked', val)
+      if (typeof this.value !== 'boolean') {
+        this.$emit('input', this.checked ? this.value : null)
+        if (this._inGroup) {
+          if (this.checked && !~this.$parent.value.indexOf(this.value)) this.$parent.value.push(this.value)
+          if (!this.checked && ~this.$parent.value.indexOf(this.value)) parent.value.splice(parent.value.indexOf(this.value), 1)
+        }
       }
     }
   },
@@ -75,11 +53,12 @@ export default {
     if (typeof this.value === 'boolean') { return }
     const parent = this.$parent
     if (parent && parent._btnGroup && !parent._radioGroup) {
+      this._inGroup = true
       parent._checkboxGroup = true
       if (!(parent.value instanceof Array)) { parent.value = [] }
     }
   },
-  ready () {
+  mounted () {
     if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') { return }
     if (this.$parent.value.length) {
       this.checked = ~this.$parent.value.indexOf(this.value)
@@ -89,19 +68,19 @@ export default {
   },
   methods: {
     eval () {
-      if (typeof this.value !== 'boolean' && this.group) {
+      if (typeof this.value !== 'boolean' && this._inGroup) {
         this.checked = ~this.$parent.value.indexOf(this.value)
       }
     },
     focus () {
-      this.$els.input.focus()
+      this.$refs.input.focus()
     },
     toggle () {
-      if (!this.disabled) {
+      if (!this.coerced.disabled) {
         this.focus()
-        if (!this.readonly) {
+        if (!this.coerced.readonly) {
           this.checked = this.checked ? null : this.value
-          if (this.group && typeof this.value !== 'boolean') {
+          if (this._inGroup && typeof this.value !== 'boolean') {
             const index = this.$parent.value.indexOf(this.value)
             this.$parent.value[~index ? '$remove' : 'push'](this.value)
           }

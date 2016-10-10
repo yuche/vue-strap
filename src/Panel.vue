@@ -1,52 +1,33 @@
 <template>
-  <div class="panel {{panelType}}">
+  <div :class="['panel',panelType]">
     <div :class="['panel-heading',{'accordion-toggle':inAccordion}]" @click.prevent="inAccordion&&toggle()">
-      <slot name="header">
-        <h4 class="panel-title">{{ header }}</h4>
-      </slot>
+      <slot name="header"><h4 class="panel-title">{{ header }}</h4></slot>
     </div>
-    <div class="panel-collapse"
-      v-el:panel
-      v-show="isOpen"
-      transition="collapse"
-    >
-      <div class="panel-body">
-        <slot></slot>
+    <transition name="collapse">
+      <div class="panel-collapse" v-show="isOpen">
+        <div class="panel-body">
+          <slot></slot>
+        </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
 <script>
-import {coerce} from './utils/utils.js'
-
 export default {
   props: {
-    header: {
-      type: String
-    },
-    isOpen: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: null
-    },
-    type: {
-      type: String,
-      default : null
-    }
+    header: {type: String},
+    isOpen: {type: Boolean, default: null},
+    type: {type: String, default : null}
   },
   computed: {
-    inAccordion () {
-      return this.$parent && this.$parent._isAccordion
-    },
-    panelType () {
-      return 'panel-' + (this.type || (this.$parent && this.$parent.type) || 'default')
-    }
+    inAccordion () { return this.$parent && this.$parent._isAccordion },
+    panelType () { return 'panel-' + (this.type || (this.$parent && this.$parent.type) || 'default') }
   },
   methods: {
     toggle () {
       this.isOpen = !this.isOpen
-      this.$dispatch('isOpenEvent', this)
+      this.$emit('open', this)
     }
   },
   transitions: {
@@ -75,10 +56,12 @@ export default {
 .accordion-toggle {
   cursor: pointer;
 }
-.collapse-transition {
+.collapse-enter-active,
+.collapse-leave-active {
   transition: max-height .5s ease;
 }
-.collapse-enter, .collapse-leave {
-  max-height: 0!important;
+.collapse-enter,
+.collapse-leave-active {
+  max-height: 0 !important;
 }
 </style>

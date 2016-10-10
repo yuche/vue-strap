@@ -1,57 +1,54 @@
 <template>
-  <div class="aside"
-    v-bind:style="{width:width + 'px'}"
-    v-bind:class="{
-    left:placement === 'left',
-    right:placement === 'right'
-    }"
-    v-show="show"
-    :transition="(this.placement === 'left') ? 'slideleft' : 'slideright'">
-    <div class="aside-dialog">
-      <div class="aside-content">
-        <div class="aside-header">
-          <button type="button" class="close" @click='close'><span>&times;</span></button>
-          <h4 class="aside-title">
-          <slot name="header">
-            {{ header }}
-          </slot>
-          </h4>
-        </div>
-        <div class="aside-body">
-          <slot></slot>
+  <transition :name="this.placement === 'left' ? 'slideleft' : 'slideright'">
+    <div class="aside" v-show="value"
+      :style="{width:coerced.width+'px'}"
+      :class="{
+        left:placement === 'left',
+        right:placement === 'right'
+      }"
+    >
+      <div class="aside-dialog">
+        <div class="aside-content">
+          <div class="aside-header">
+            <button type="button" class="close" @click='close'><span>&times;</span></button>
+            <h4 class="aside-title"><slot name="header">{{ header }}</slot></h4>
+          </div>
+          <div class="aside-body"><slot></slot></div>
         </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
-import {coerce, getScrollBarWidth} from './utils/utils.js'
+import {getScrollBarWidth} from './utils/utils.js'
 import $ from './utils/NodeList.js'
+import {coerceMixin} from './utils/coerceMixin.js'
+let coerce = {
+  width: 'number'
+}
 
 export default {
+  mixins: [coerceMixin],
   props: {
-    show: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      required: true,
-      twoWay: true
+    header: {
+      type: String
     },
     placement: {
       type: String,
       default: 'right'
     },
-    header: {
-      type: String
+    value: {
+      type: Boolean,
+      required: true,
     },
     width: {
       type: Number,
-      coerce: coerce.number,
       default: 320
     }
   },
   watch: {
-    show (val) {
+    value (val, old) {
       const body = document.body
       const scrollBarWidth = getScrollBarWidth()
       if (val) {
@@ -80,11 +77,12 @@ export default {
         })
         this._backdrop.className = 'aside-backdrop'
       }
+      if (val !== old) this.$emit('input', val)
     }
   },
   methods: {
     close () {
-      this.show = false
+      this.value = false
     }
   }
 }
@@ -116,7 +114,7 @@ export default {
 .slideleft-enter {
   animation:slideleft-in .3s;
 }
-.slideleft-leave {
+.slideleft-leave-active {
   animation:slideleft-out .3s;
 }
 @keyframes slideleft-in {
@@ -142,7 +140,7 @@ export default {
 .slideright-enter {
   animation:slideright-in .3s;
 }
-.slideright-leave {
+.slideright-leave-active {
   animation:slideright-out .3s;
 }
 @keyframes slideright-in {

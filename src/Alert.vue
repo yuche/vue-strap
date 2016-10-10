@@ -1,74 +1,71 @@
 <template>
-  <div
-    v-show="show"
-    v-bind:class="{
-      'alert':		true,
-      'alert-success':(type == 'success'),
-      'alert-warning':(type == 'warning'),
-      'alert-info':	(type == 'info'),
-      'alert-danger':	(type == 'danger'),
-      'top': 			(placement === 'top'),
-      'top-right': 	(placement === 'top-right')
-    }"
-    transition="fade"
-    v-bind:style="{width:width}"
-    role="alert">
-    <button v-show="dismissable" type="button" class="close"
-      @click="show = false">
-      <span>&times;</span>
-    </button>
-    <slot></slot>
-  </div>
+  <transition name="fade">
+    <div v-show="value"
+      :class="['alert', 'alert-'+type, placement]"
+      :style="{width:width}"
+      role="alert"
+    >
+      <button v-show="coerced.dismissable" type="button" class="close"
+        @click="value = false">
+        <span>&times;</span>
+      </button>
+      <slot></slot>
+    </div>
+  </transition>
 </template>
 
 <script>
-import {coerce} from './utils/utils.js'
+import {coerceMixin} from './utils/coerceMixin.js'
+let coerce = {
+  dismissable: 'boolean',
+  duration: 'number',
+  value: 'boolean'
+}
 
 export default {
+  mixins: [coerceMixin],
   props: {
-    type: {
-      type: String
-    },
     dismissable: {
       type: Boolean,
-      coerce: coerce.boolean,
       default: false
-    },
-    show: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: true,
-      twoWay: true
     },
     duration: {
       type: Number,
-      coerce: coerce.number,
       default: 0
     },
-    width: {
+    placement: {
       type: String
     },
-    placement: {
+    value: {
+      type: Boolean,
+      default: true
+    },
+    type: {
+      type: String
+    },
+    width: {
       type: String
     }
   },
   watch: {
-    show (val) {
+    value (val, old) {
       if (this._timeout) clearTimeout(this._timeout)
-      if (val && Boolean(this.duration)) {
-        this._timeout = setTimeout(() => { this.show = false }, this.duration)
+      if (val && this.coerced.duration) {
+        this._timeout = setTimeout(() => { this.value = false }, this.coerced.duration)
       }
+      this.$emit('input', val)
     }
   }
 }
 </script>
 
 <style>
-.fade-transition {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity .3s ease;
 }
 .fade-enter,
-.fade-leave {
+.fade-leave-active {
   height: 0;
   opacity: 0;
 }

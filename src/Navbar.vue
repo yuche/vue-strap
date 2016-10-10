@@ -1,7 +1,5 @@
 <template>
-  <nav v-el:navbar :class="['navbar',{
-    'navbar-inverse':(type == 'inverse'),
-    'navbar-default':(type == 'default'),
+  <nav :class="['navbar','navbar-'+type,{
     'navbar-fixed-top':(placement === 'top'),
     'navbar-fixed-bottom':(placement === 'bottom'),
     'navbar-static-top':(placement === 'static')
@@ -34,14 +32,8 @@ import $ from './utils/NodeList.js'
 
 export default {
   props: {
-    type: {
-      type: String,
-      default: 'default'
-    },
-    placement: {
-      type: String,
-      default: ''
-    }
+    type: {type: String, default: 'default'},
+    placement: {type: String, default: ''}
   },
   data () {
     return {
@@ -64,19 +56,19 @@ export default {
   created () {
     this._navbar = true
   },
-  ready () {
+  mounted () {
     let $dropdown = $('.dropdown>[data-toggle="dropdown"]',this.$el).parent()
-    $dropdown.on('click', '.dropdown-toggle', (e) => {
+    $dropdown.on('click', '.dropdown-toggle', e => {
       e.preventDefault()
-      $dropdown.each((content) => {
+      $dropdown.each(content => {
         if (content.contains(e.target)) content.classList.toggle('open')
       })
-    }).on('click', '.dropdown-menu>li>a', (e) => {
-      $dropdown.each((content) => {
+    }).on('click', '.dropdown-menu>li>a', e => {
+      $dropdown.each(content => {
         if (content.contains(e.target)) content.classList.remove('open')
       })
     }).onBlur((e) => {
-      $dropdown.each((content) => {
+      $dropdown.each(content => {
         if (!content.contains(e.target)) content.classList.remove('open')
       })
     })
@@ -92,7 +84,7 @@ export default {
     if (this.placement === 'bottom') {
       document.body.style.paddingBottom = height + 'px'
     }
-    if (this.slots.collapse) $('[data-toggle="collapse"]',this.$el).on('click', (e) => this.toggleCollapse(e))
+    if (this.slots.collapse) $('[data-toggle="collapse"]',this.$el).on('click', e => this.toggleCollapse(e))
   },
   beforeDestroy () {
     $('.dropdown',this.$el).off('click').offBlur()

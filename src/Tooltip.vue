@@ -1,16 +1,13 @@
 <template>
-  <span v-el:trigger>
+  <span ref="trigger">
     <slot></slot>
   </span>
-  <div v-el:popover v-if="show" style="display:block;"
-    :class="['tooltip',placement]"
-    :transition="effect"
-  >
-    <div class="tooltip-arrow"></div>
-    <div class="tooltip-inner">
-      <slot name="content">{{{content}}}</slot>
-   </div>
-  </div>
+  <transition :name="effect">
+    <div ref="popover" v-if="show" style="display:block;" :class="['tooltip',placement]">
+      <div class="tooltip-arrow"></div>
+      <div class="tooltip-inner"><slot name="content" v-html="content"></slot></div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -19,14 +16,8 @@ import PopoverMixin from './popoverMixins.js'
 export default {
   mixins: [PopoverMixin],
   props: {
-    trigger: {
-      type: String,
-      default: 'hover'
-    },
-    effect: {
-      type: String,
-      default: 'scale'
-    }
+    effect: {type: String, default: 'scale'},
+    trigger: {type: String, default: 'hover'}
   }
 }
 </script>
@@ -41,7 +32,7 @@ export default {
 .fadein-enter {
   animation:fadein-in 0.3s ease-in;
 }
-.fadein-leave {
+.fadein-leave-active {
   animation:fadein-out 0.3s ease-out;
 }
 @keyframes fadein-in {

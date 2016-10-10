@@ -3,7 +3,7 @@
     <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
     <div v-if="slots.before||slots.after" class="input-group">
       <slot name="before"></slot>
-      <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
+      <textarea v-if="type=='textarea'" class="form-control" ref="input" v-model="value"
         :cols="cols"
         :rows="rows"
         :name="name"
@@ -15,7 +15,7 @@
         :placeholder="placeholder"
         @blur="onblur" @focus="onfocus"
       ></textarea>
-      <input v-else class="form-control" v-el:input v-model="value"
+      <input v-else class="form-control" ref="input" v-model="value"
         :name="name"
         :max="attr(max)"
         :min="attr(min)"
@@ -39,7 +39,7 @@
       <slot name="after"></slot>
     </div>
     <template v-else>
-      <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
+      <textarea v-if="type=='textarea'" class="form-control" ref="input" v-model="value"
         :cols="cols"
         :rows="rows"
         :name="name"
@@ -51,7 +51,7 @@
         :placeholder="placeholder"
         @blur="onblur" @focus="onfocus"
       ></textarea>
-      <input v-else class="form-control" v-el:input v-model="value"
+      <input v-else class="form-control" ref="input" v-model="value"
         :name="name"
         :max="attr(max)"
         :min="attr(min)"
@@ -75,127 +75,57 @@
 </template>
 
 <script>
-import {coerce, translations} from './utils/utils.js'
+import {translations} from './utils/utils.js'
 import $ from './utils/NodeList.js'
+import {coerceMixin} from './utils/coerceMixin.js'
+let coerce = {
+    clearButton: 'boolean',
+    disabled: 'boolean',
+    enterSubmit: 'boolean',
+    hideHelp: 'boolean',
+    icon:'boolean',
+    maskDelay: 'number',
+    max: 'string',
+    maxlength: 'number',
+    min: 'string',
+    minlength: 'number',
+    pattern: 'pattern',
+    readonly: 'boolean',
+    required: 'boolean',
+    rows: 'number',
+    step: 'number',
+    validationDelay: 'number'
+}
 
 export default {
+  mixins: [coerceMixin],
   props: {
-    value: {
-      twoWay: true,
-      default: null
-    },
-    match: {
-      type: String,
-      default: null
-    },
-    clearButton: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    enterSubmit: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    error: {
-      type: String,
-      default: null
-    },
-    help: {
-      type: String,
-      default: null
-    },
-    hideHelp: { // hide when have error
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: true
-    },
-    icon: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    label: {
-      type: String,
-      default: null
-    },
-    lang: {
-      type: String,
-      default: navigator.language
-    },
+    clearButton: {type: Boolean, default: false},
+    disabled: {type: Boolean, default: false},
+    enterSubmit: {type: Boolean, default: false},
+    error: {type: String, default: null},
+    help: {type: String, default: null},
+    hideHelp: {type: Boolean, default: true},
+    icon: {type: Boolean, default: false},
+    label: {type: String, default: null},
+    lang: {type: String, default: navigator.language},
     mask: null,
-    maskDelay: {
-      type: Number,
-      coerce: coerce.number,
-      default: 100
-    },
-    max: {
-      type: String,
-      coerce: coerce.string,
-      default: null
-    },
-    maxlength: {
-      type: Number,
-      coerce: coerce.number,
-      default: null
-    },
-    min: {
-      type: String,
-      coerce: coerce.string,
-      default: null
-    },
-    minlength: {
-      type: Number,
-      coerce: coerce.number,
-      default: 0
-    },
-    name: {
-      type: String,
-      default: null
-    },
-    pattern: {
-      coerce: coerce.pattern,
-      default: null
-    },
-    placeholder: {
-      type: String,
-      default: null
-    },
-    readonly: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    required: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    rows: {
-      type: Number,
-      coerce: coerce.number,
-      default: 3
-    },
-    step: {
-      type: Number,
-      coerce: coerce.number,
-      default: null
-    },
-    type: {
-      type: String,
-      default: 'text'
-    },
-    validationDelay: {
-      type: Number,
-      coerce: coerce.number,
-      default: 250
-    }
+    maskDelay: {type: Number, default: 100},
+    match: {type: String, default: null},
+    max: {type: String, default: null},
+    maxlength: {type: Number, default: null},
+    min: {type: String, default: null},
+    minlength: {type: Number, default: 0},
+    name: {type: String, default: null},
+    pattern: {default: null},
+    placeholder: {type: String, default: null},
+    readonly: {type: Boolean, default: false},
+    required: {type: Boolean, default: false},
+    rows: {type: Number, default: 3},
+    step: {type: Number, default: null},
+    type: {type: String, default: 'text'},
+    validationDelay: {type: Number, default: 250},
+    value: {default: null}
   },
   data () {
     return {
@@ -212,7 +142,7 @@ export default {
       if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')
       return error.join(' ')
     },
-    input () { return this.$els.input },
+    input () { return this.$refs.input },
     nativeValidate () { return (this.input||{}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max) },
     showError () { return this.error && this.valid===false },
     showHelp () { return this.help && (!this.showError || !this.hideHelp) },
@@ -226,6 +156,7 @@ export default {
     },
     valid (val, old) {
       if (val !== old) {
+        this.$emit('valid', val)
         this._parent && this._parent.validate()
       }
     },
@@ -237,10 +168,11 @@ export default {
             if (this._timeout.mask) clearTimeout(this._timeout.mask)
             this._timeout.mask = setTimeout(() => {
               this.value = val
-              this.$els.input.value = val
+              this.$refs.input.value = val
             }, this.maskDelay)
           }
         }
+        this.$emit('input', val)
         this.eval()
       }
     }
@@ -301,7 +233,7 @@ export default {
     while (parent && !parent._formGroup) { parent = parent.$parent }
     if (parent && parent._formGroup) { this._parent = parent }
   },
-  ready () {
+  mounted () {
     this._parent && this._parent.children.push(this)
     $(this.input).on('focus', e => this.$emit('focus', e)).on('blur', e => {
       if (this.canValidate) { this.valid = this.validate() }
@@ -309,7 +241,10 @@ export default {
     })
   },
   beforeDestroy () {
-    this._parent && this._parent.children.$remove(this)
+    if (this._parent) {
+      var index = this._parent.children.indexOf(this)
+      this._parent.children.splice(index, 1)
+    }
     $(this.input).off()
   }
 }

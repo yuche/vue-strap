@@ -5,9 +5,13 @@
 </template>
 
 <script>
-import {coerce} from './utils/utils.js'
+import {coerceMixin} from './utils/coerceMixin.js'
+let coerce = {
+  oneAtAtime: 'boolean'
+}
 
 export default {
+  mixins: [coerceMixin],
   props: {
     type: {
       type: String,
@@ -15,14 +19,13 @@ export default {
     },
     oneAtAtime: {
       type: Boolean,
-      coerce: coerce.boolean,
       default: false
     }
   },
   created () {
     this._isAccordion = true
     this.$on('isOpenEvent', (child) => {
-      if (this.oneAtAtime) {
+      if (this.coerced.oneAtAtime) {
         this.$children.forEach((item) => {
           if (child !== item) {
             item.isOpen = false

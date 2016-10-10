@@ -17,7 +17,7 @@ export default {
       return this.$parent.index === this.index
     }
   },
-  ready() {
+  mounted () {
     for (var c in this.$parent.$children) {
       if (this.$parent.$children[c] === this) {
           this.index = parseInt(c,10);

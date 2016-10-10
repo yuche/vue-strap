@@ -1,7 +1,7 @@
 <template>
   <affix offset="50">
     <ul class="nav bs-docs-sidenav" id="sidenav">
-      <li v-for="s in sections" :class="{active:active==s.id}"><a href="#{{ s.id }}">{{ s.name }}</a></li>
+      <li v-for="s in sections" :class="{active:active==s.id}"><a :href="'#' + s.id">{{ s.name }}</a></li>
     </ul>
     <a href="#" class="back-to-top">Back to top</a>
     <a href="https://github.com/yuche/vue-strap" class="back-to-top">GitHub</a>

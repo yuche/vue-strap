@@ -1,21 +1,18 @@
 <template>
-  <div style="position: relative"
-    v-bind:class="{'open':showDropdown}"
-  >
-    <input type="text" class="form-control"
+  <div style="position: relative" :class="{'open':showDropdown}">
+    <input type="text" class="form-control" autocomplete="off"
       :placeholder="placeholder"
-      autocomplete="off"
       v-model="value"
+      @blur="showDropdown = false"
       @input="update"
-      @keydown.up="up"
       @keydown.down="down"
       @keydown.enter= "hit"
       @keydown.esc="reset"
-      @blur="showDropdown = false"
+      @keydown.up="up"
     />
-    <ul class="dropdown-menu" v-el:dropdown>
-      <li v-for="item in items" v-bind:class="{'active': isActive($index)}">
-        <a @mousedown.prevent="hit" @mousemove="setActive($index)">
+    <ul class="dropdown-menu" ref="dropdown">
+      <li v-for="(item, i) in items" :class="{'active': isActive(i)}">
+        <a @mousedown.prevent="hit" @mousemove="setActive(i)">
           <partial :name="templateName"></partial>
         </a>
       </li>
@@ -24,54 +21,27 @@
 </template>
 
 <script>
-import {getJSON, coerce} from './utils/utils.js'
+import {getJSON} from './utils/utils.js'
+import {coerceMixin} from './utils/coerceMixin.js'
+let coerce = {
+    matchCase: 'boolean',
+    matchStart: 'boolean'
+}
 
 let Vue = window.Vue
 
 export default {
-  created () {
-    this.items = this.primitiveData
-  },
+  mixins: [coerceMixin],
   partials: {
-    default: '<span v-html="item | highlight query"></span>'
+    default: '<span v-html="highlight(item,query)"></span>'
   },
   props: {
-    value: {
-      twoWay : true,
-      type: String,
-      default: ''
-    },
-    data: {
-      type: Array
-    },
-    limit: {
-      type: Number,
-      default: 8
-    },
-    async: {
-      type: String
-    },
-    template: {
-      type: String
-    },
-    templateName: {
-      type: String,
-      default: 'default'
-    },
-    key: {
-      type: String,
-      default: null
-    },
-    matchCase: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    matchStart: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
+    async: {type: String},
+    data: {type: Array},
+    key: {type: String, default: null},
+    limit: {type: Number, default: 8},
+    matchCase: {type: Boolean, default: false},
+    matchStart: {type: Boolean, default: false},
     onHit: {
       type: Function,
       default (items) {
@@ -79,9 +49,10 @@ export default {
         this.value = items
       }
     },
-    placeholder: {
-      type: String
-    }
+    placeholder: {type: String},
+    template: {type: String},
+    templateName: {type: String, default: 'default'},
+    value: {type: String, default: ''}
   },
   data () {
     return {
@@ -95,20 +66,29 @@ export default {
     primitiveData () {
       if (this.data) {
         return this.data.filter(value => {
-          value = this.matchCase ? value : value.toLowerCase()
-          var query = this.matchCase ? this.value : this.value.toLowerCase()
-          return this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1
+          value = this.coerced.matchCase ? value : value.toLowerCase()
+          var query = this.coerced.matchCase ? this.value : this.value.toLowerCase()
+          return this.coerced.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1
         }).slice(0, this.limit)
       }
     }
   },
-  ready () {
+  watch: {
+    value (val) {
+      this.$emit('input', val)
+    }
+  },
+  created () {
+    this.items = this.primitiveData
+  },
+  mounted () {
     // register a partial:
     if (this.templateName && this.templateName !== 'default') {
       Vue.partial(this.templateName, this.template)
     }
   },
   methods: {
+    highlight (value, phrase) { return value.replace(new RegExp('(' + phrase + ')', 'gi'), '<strong>$1</strong>') },
     update () {
       if (!this.value) {
         this.reset()
@@ -146,11 +126,6 @@ export default {
     },
     down () {
       if (this.current < this.items.length - 1) this.current++
-    }
-  },
-  filters: {
-    highlight (value, phrase) {
-      return value.replace(new RegExp('(' + phrase + ')', 'gi'), '<strong>$1</strong>')
     }
   }
 }

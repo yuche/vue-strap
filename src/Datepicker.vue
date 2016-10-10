@@ -33,11 +33,11 @@
             <p @click="switchDecadeView">{{stringifyYearHeader(currDate)}}</p>
           </div>
           <div class="datepicker-monthRange">
-            <template v-for="m in text.months">
+            <template v-for="(m, index) in text.months">
               <span   :class="{'datepicker-dateRange-item-active':
                   (text.months[parse(value).getMonth()]  === m) &&
                   currDate.getFullYear() === parse(value).getFullYear()}"
-                  @click="monthSelect($index)"
+                  @click="monthSelect(index)"
                 >{{m.substr(0,3)}}</span>
             </template>
           </div>
@@ -54,10 +54,9 @@
           </div>
           <div class="datepicker-monthRange decadeRange">
             <template v-for="decade in decadeRange">
-              <span :class="{'datepicker-dateRange-item-active':
-                  parse(this.value).getFullYear() === decade.text}"
-                  @click.stop="yearSelect(decade.text)"
-                >{{decade.text}}</span>
+              <span :class="{'datepicker-dateRange-item-active':parse(this.value).getFullYear() === decade.text}"
+                @click.stop="yearSelect(decade.text)"
+              >{{decade.text}}</span>
             </template>
           </div>
         </div>
@@ -73,8 +72,7 @@ import $ from './utils/NodeList.js'
 export default {
   props: {
     value: {
-      type: String,
-      twoWay: true
+      type: String
     },
     format: {
       default: 'MM/dd/yyyy'
@@ -101,11 +99,11 @@ export default {
       type: String
     }
   },
-  ready () {
-    this._blur = (e) => {
+  mounted () {
+    this._blur = e => {
       if (!this.$el.contains(e.target)) this.close()
     }
-    this.$dispatch('child-created', this)
+    this.$emit('child-created', this)
     this.currDate = this.parse(this.value) || this.parse(new Date())
     $(window).on('click', this._blur)
   },
@@ -123,6 +121,9 @@ export default {
     }
   },
   watch: {
+    value (val) {
+      this.$emit('input', val)
+    },
     currDate () {
       this.getDateRange()
     }
