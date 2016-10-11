@@ -1,5 +1,5 @@
 <template>
-  <mutator :as="buttonStyle?'label':'div'" @click.prevent="toggle"
+  <div :as="buttonStyle?'label':'div'" @click.prevent="toggle"
     :class="[(buttonStyle?'btn btn-'+typeColor:'radio '+typeColor),{active:active,disabled:disabled,readonly:readonly}]"
   >
     <template v-if="buttonStyle">
@@ -25,11 +25,10 @@
       <span v-if="active&&typeColor==='default'" class="icon"></span>
       <slot></slot>
     </label>
-  </mutator>
+  </div>
 </template>
 
 <script>
-import {mutator} from './utils/mutator.js'
 // let coerce = {
 //   disabled: 'boolean',
 //   readonly: 'boolean'

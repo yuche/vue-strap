@@ -1,5 +1,5 @@
 <template>
-  <mutator :as="isLi?'li':'div'" ref="dropdown" :class="classes">
+  <div :is="isLi?'li':'div'" ref="dropdown" :class="classes">
     <slot name="before"></slot>
     <slot name="button">
       <a v-if="isLi" class="dropdown-toggle" role="button" :class="{disabled: disabled}" @keyup.esc="value = false">
@@ -14,7 +14,7 @@
     <slot name="dropdown-menu">
       <ul class="dropdown-menu"><slot></slot></ul>
     </slot>
-  </mutator>
+  </div>
 </template>
 <script>
 import $ from './utils/NodeList.js'

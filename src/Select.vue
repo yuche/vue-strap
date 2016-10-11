@@ -9,15 +9,14 @@
       <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selected }}</span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
     </button>
-    <select ref="sel" v-model="value" v-show="show" :name="name" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
+    <select ref="sel" :value="value" @input="this.$emit('input',$event.target.value)" v-show="show" :name="name" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
       <option v-if="required" value=""></option>
       <option v-for="option in options" :value="option[optionsValue]||option">{{ option[optionsLabel]||option }}</option>
     </select>
     <ul class="dropdown-menu">
       <template v-if="options.length">
         <li v-if="canSearch" class="bs-searchbox">
-          <input type="text" :placeholder="searchText||text.search" class="form-control" autocomplete="off"
-            ref="search"
+          <input type="text" :placeholder="searchText||text.search" class="form-control" autocomplete="off" ref="search"
             v-model="searchValue"
             @keyup.esc="show = false"
           />

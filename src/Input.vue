@@ -3,33 +3,24 @@
     <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
     <div v-if="slots.before||slots.after" class="input-group">
       <slot name="before"></slot>
-      <textarea v-if="type=='textarea'" class="form-control" ref="input" v-model="value"
+      <textarea :is="type=='textarea'?type:'input'" class="form-control" ref="input"
         :cols="cols"
-        :rows="rows"
-        :name="name"
-        :title="attr(title)"
-        :readonly="readonly"
-        :required="required"
         :disabled="disabled"
-        :maxlength="maxlength"
-        :placeholder="placeholder"
-        @blur="onblur" @focus="onfocus"
-      ></textarea>
-      <input v-else class="form-control" ref="input" v-model="value"
-        :name="name"
         :max="attr(max)"
+        :maxlength="maxlength"
         :min="attr(min)"
-        :step="step"
-        :type="type"
-        :title="attr(title)"
+        :name="name"
+        :placeholder="placeholder"
         :readonly="readonly"
         :required="required"
-        :disabled="disabled"
-        :maxlength="maxlength"
-        :placeholder="placeholder"
-        @keyup.enter="enterSubmit&&submit()"
-        @blur="onblur" @focus="onfocus"
-      />
+        :rows="rows"
+        :step="step"
+        :title="attr(title)"
+        :type="type=='textarea'?null:type"
+        :value="value"
+        @blur="emit" @focus="emit" @input="emit"
+        @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
+      ></textarea>
       <div v-if="clearButton && value" :class="{icon:icon}">
         <span class="close" @click="value = ''">&times;</span>
       </div>
@@ -39,33 +30,24 @@
       <slot name="after"></slot>
     </div>
     <template v-else>
-      <textarea v-if="type=='textarea'" class="form-control" ref="input" v-model="value"
+      <textarea :is="type=='textarea'?type:'input'" class="form-control" ref="input"
         :cols="cols"
-        :rows="rows"
-        :name="name"
-        :title="attr(title)"
-        :readonly="readonly"
-        :required="required"
         :disabled="disabled"
-        :maxlength="maxlength"
-        :placeholder="placeholder"
-        @blur="onblur" @focus="onfocus"
-      ></textarea>
-      <input v-else class="form-control" ref="input" v-model="value"
-        :name="name"
         :max="attr(max)"
+        :maxlength="maxlength"
         :min="attr(min)"
-        :step="step"
-        :type="type"
-        :title="attr(title)"
+        :name="name"
+        :placeholder="placeholder"
         :readonly="readonly"
         :required="required"
-        :disabled="disabled"
-        :maxlength="maxlength"
-        :placeholder="placeholder"
-        @keyup.enter="enterSubmit&&submit()"
-        @blur="onblur" @focus="onfocus"
-      />
+        :rows="rows"
+        :step="step"
+        :title="attr(title)"
+        :type="type=='textarea'?null:type"
+        :value="value"
+        @blur="emit" @focus="emit" @input="emit"
+        @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
+      ></textarea>
       <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
       <span v-if="icon&&valid!==null" :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]" aria-hidden="true"></span>
     </template>
@@ -171,14 +153,16 @@ export default {
         }
         this.eval()
       }
-      this.$emit('input', val)
     }
   },
   methods: {
     attr (value) {
       return ~['', null, undefined].indexOf(value) || value instanceof Function ? undefined : value
     },
-    focus () { this.input.focus() },
+    emit (e) {
+      this.$emit(e.type, e)
+      if (e.type==='blur' && this.canValidate) { this.valid = this.validate() }
+    },
     eval () {
       if (this._timeout.eval) clearTimeout(this._timeout.eval)
       if (!this.canValidate) {
@@ -190,13 +174,7 @@ export default {
         }, this.validationDelay)
       }
     },
-    onblur (e) {
-      if (this.canValidate) { this.valid = this.validate() }
-      this.$emit('blur', e)
-    },
-    onfocus (e) {
-      this.$emit('focus', e)
-    },
+    focus () { this.input.focus() },
     submit () {
       if (this.$parent._formGroup) {
         return this.$parent.validate()

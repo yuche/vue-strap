@@ -2,8 +2,9 @@
   <div class="datepicker">
     <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text" :placeholder="placeholder"
         :style="{width:width}"
+        :value="value"
         @click="inputClick"
-        v-model="value"/>
+        @input="this.$emit('input',$event.target.value)" />
     <button v-if="clearButton && value" type="button" class="close" @click="value = ''">
       <span>&times;</span>
     </button>

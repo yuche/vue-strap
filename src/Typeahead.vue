@@ -2,7 +2,7 @@
   <div style="position: relative" :class="{'open':showDropdown}">
     <input type="text" class="form-control" autocomplete="off"
       :placeholder="placeholder"
-      v-model="value"
+      :value="value"
       @blur="showDropdown = false"
       @input="update"
       @keydown.down="down"
@@ -87,7 +87,8 @@ export default {
   },
   methods: {
     highlight (value, phrase) { return value.replace(new RegExp('(' + phrase + ')', 'gi'), '<strong>$1</strong>') },
-    update () {
+    update (e) {
+      this.$emit('input', this.value, e)
       if (!this.value) {
         this.reset()
         return false
