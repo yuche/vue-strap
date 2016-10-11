@@ -35,7 +35,6 @@
 // }
 
 export default {
-  components:{ mutator },
   props: {
     button: {type: Boolean, default: false},
     checked: {type: Boolean, default: false},
