@@ -5,12 +5,12 @@
       <table v-if="options.length" class="table table-bordered">
         <thead>
             <tr>
-              <th v-for="name in headers" v-text="name"></th>
+              <th v-for="name in setHeaders" v-text="name"></th>
             </tr>
         </thead>
         <tbody>
           <tr v-for="option in options">
-            <td v-for="h in headers" v-html="option[$index]"></td>
+            <td v-for="h in setHeaders" v-html="option[$index]"></td>
           </tr>
         </tbody>
       </table>
@@ -38,28 +38,16 @@ export default {
   },
   data () {
     return {
+      defaultHeaders: {
+        events: ['Name', 'Arguments', 'Description'],
+        options: ['Name', 'Type', 'Default', 'Description']
+      },
       options: []
     }
   },
-  watch:{
-    type: {
-      immediate:true,
-      handler: function (val) {
-        switch (val) {
-          case 'Options':
-            this.headers = ['Name', 'Type', 'Default', 'Description']
-            break
-          case 'Events':
-            this.headers = ['Name', 'Arguments', 'Description']
-            break
-          default:
-            this.headers = []
-        }
-      }
-    }
-  },
   computed: {
-    permited () { return this.headers.length }
+    permited () { return this.setHeaders.length },
+    setHeaders () { return this.headers || this.defaultHeaders[this.type.toLowerCase()] || [] }
   },
   methods: {
     el (opc) {

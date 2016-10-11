@@ -7,7 +7,7 @@
           <p><pre>Normal select data: {{select.normal}}</pre></p>
           <form action="./#select" method="get">
             <v-select :options="select.options" options-value="val" :value.sync="select.normal" name="animal" :search="select.search"
-              :required="select.required" :clear-button="select.clearButton" :disabled="select.disabled" @change="change"
+              :required="select.required" :clear-button="select.clearButton" :disabled="select.disabled"
             ></v-select>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
@@ -211,11 +211,6 @@ export default {
         value:null
       },
       single: []
-    }
-  },
-  methods: {
-    change (val) {
-      console.log('change to:', val)
     }
   }
 }

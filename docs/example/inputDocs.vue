@@ -17,6 +17,7 @@
               :placeholder="check.placeholder && 'Username can\'t start with a number.'"
               :readonly="check.readonly"
               :required="check.required"
+              :hide-help="check.hideHelp"
               :clear-button="check.clearButton"
               :value.sync="input"
             ></bs-input>
@@ -32,10 +33,10 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
               <p><checkbox :checked.sync="check.label">Label</checkbox></p>
               <p><checkbox :checked.sync="check.placeholder">placeholder</checkbox></p>
+              <p><checkbox :checked.sync="check.hideHelp">hide help</checkbox></p>
               <p><checkbox :checked.sync="check.disabled">disabled</checkbox></p>
               <p><checkbox :checked.sync="check.error">error</checkbox></p>
               <p><checkbox :checked.sync="check.icon">icon</checkbox></p>
-              <p><checkbox :checked.sync="check.enterSubmit">enterSubmit</checkbox></p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
               <p><checkbox :checked.sync="check.mask">mask</checkbox></p>
@@ -43,9 +44,15 @@
               <p><checkbox :checked.sync="check.readonly">readonly</checkbox></p>
               <p><checkbox :checked.sync="check.required">required</checkbox></p>
               <p><checkbox :checked.sync="check.clearButton">clear button</checkbox></p>
+              <p><checkbox :checked.sync="check.enterSubmit">enter submit</checkbox></p>
             </div>
           </button-group>
         </div>
+        <hr/>
+        <bs-input label="Input with slots" type="text" required icon clear-button>
+          <span slot="before" class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+          <span slot="after" class="input-group-addon"><span class="glyphicon glyphicon-question-sign"></span></span>
+        </bs-input>
         <bs-input name="textarea" label="Textarea" type="textarea" :icon="check.icon" :enter-submit="check.enterSubmit"
           @focus="event = 'focused'"
           @blur="event = 'blured'"
@@ -198,9 +205,9 @@
       </div>
       <div>
         <p>pattern</p>
-        <p><code>String</code> or <code>Function</code></p>
+        <p><code>String</code>, <code>RegExp</code> or <code>Function</code></p>
         <p><code>null</code></p>
-        <p>Validation pattern.</p>
+        <p>Validation pattern. A full <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank">regular expression</a> or a function that evaluate the content and return <code>true</code> or <code>false</code>.</p>
       </div>
       <div>
         <p>placeholder</p>
@@ -227,7 +234,18 @@
         <p>Delay time before apply the validation.</p>
       </div>
     </doc-table>
-
+    <doc-table name="Supported Native Validator" :headers="['Name','Description']">
+      <div>
+        <p>type</p>
+        <p>Use native validation with <code>url</code> and <code>email</code>.</p>
+      </div>
+      <div>
+        <p>min&nbsp;/&nbsp;max&nbsp;/&nbsp;step</p>
+        <p>That attributes handle the values supported.
+          Work with the following input types: <code>number</code>, <code>range</code>, <code>date</code>, <code>datetime-local</code>, <code>month</code>, <code>time</code> and <code>week</code>.</p>
+      </div>
+    </doc-table>
+    That validations only work in browsers that support <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Data_form_validation" target="_blank">HTML5 form validations (all modern browsers support it).</a>
   </doc-section>
 </template>
 
@@ -255,6 +273,7 @@ export default {
       check: {
         clearButton:true,
         error:true,
+        hideHelp: true,
         icon:true,
         label:true,
         mask:true,

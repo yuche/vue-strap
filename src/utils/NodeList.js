@@ -53,7 +53,7 @@ class NodeList {
     return this
   }
   parent () {
-    return this.map((el) => { return el.parentNode })
+    return this.map(el => { return el.parentNode })
   }
   filter () {
     return new NodeList([ArrayProto.filter.apply(this, arguments), this])
@@ -67,7 +67,7 @@ class NodeList {
     return flatten(nodes, this.owner)
   }
   findChildren (element) {
-    return this.find(element).filter((el) => {
+    return this.find(element).filter(el => {
       return this.includes(el.parentElement)
     })
   }
@@ -97,7 +97,7 @@ class NodeList {
   }
   delete () {
     let list = new NodeList([[],this.owner])
-    let splice = (index) => ArrayProto.splice.apply()
+    let splice = index => ArrayProto.splice.apply()
     let i = this.length - 1
     for(let el = this[i]; el; el = this[--i]) {
       if (el.remove) {
@@ -146,7 +146,7 @@ class NodeList {
     if (typeof classes === 'string') {
       classes = classes.trim().replace(/\s+/,' ').split(' ')
     }
-    classes.forEach((c) => this.each((el) => el.classList[method](c)))
+    classes.forEach(c => this.each(el => el.classList[method](c)))
     return this
   }
 
@@ -217,7 +217,7 @@ class NodeList {
     callback = selector ? function (e) {
       let els = new NodeList([selector,this])
       if (!els.length) { return }
-      els.some((el) => {
+      els.some(el => {
         let target = el.contains(e.target)
         if (target) fn.call(el, e, el)
         return target;
@@ -226,7 +226,7 @@ class NodeList {
       fn.apply(this, [e, this])
     }
     for (let event of events) {
-      for (let el of this) {
+      for (let el of this) if (el) {
         el.addEventListener(event, callback, false)
         Events.push({
           el: el,
@@ -283,7 +283,7 @@ class NodeList {
         }
       }
     }
-    Events = Events.filter((el) => { return el !== undefined })
+    Events = Events.filter(el => { return el !== undefined })
     return this
   }
   onBlur (callback) {
@@ -296,7 +296,7 @@ class NodeList {
       })
     })
     if (!blurEvent) {
-      blurEvent = (e) => {
+      blurEvent = e => {
         for (let item of blurList) {
           let target = item.el.contains(e.target) || item.el === e.target
           if (!target) item.callback.call(item.el, e, item.el)
@@ -308,14 +308,14 @@ class NodeList {
     return this
   }
   offBlur (callback) {
-    this.each((el) => {
+    this.each(el => {
       for (let e in blurList) {
         if (blurList[e] && blurList[e].el === el && (!callback || blurList[e].callback === callback)) {
           delete blurList[e]
         }
       }
     })
-    blurList = blurList.filter((el) => { return el !== undefined })
+    blurList = blurList.filter(el => { return el !== undefined })
     return this
   }
 }
@@ -340,7 +340,7 @@ function flatten (arr, owner) {
   return new NodeList([list, owner])
 }
 
-Object.getOwnPropertyNames(ArrayProto).forEach((key) => {
+Object.getOwnPropertyNames(ArrayProto).forEach(key => {
   if (key !== 'join' && key !== 'copyWithin' && key !== 'fill' && NL[key] === undefined) {
     NL[key] = ArrayProto[key]
   }

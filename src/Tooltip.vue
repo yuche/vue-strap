@@ -2,7 +2,7 @@
   <span v-el:trigger>
     <slot></slot>
   </span>
-  <div v-el:popover v-show="show" role="tooltip"
+  <div v-el:popover v-if="show" style="display:block;"
     :class="['tooltip',placement]"
     :transition="effect"
   >
@@ -32,7 +32,10 @@ export default {
 </script>
 
 <style>
-.tooltip {
+.tooltip.top,
+.tooltip.left,
+.tooltip.right,
+.tooltip.bottom {
   opacity: .9
 }
 .fadein-enter {
