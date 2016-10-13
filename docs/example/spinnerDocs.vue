@@ -17,7 +17,7 @@
       this.$broadcast('show::spinner')
       this.$broadcast('hide::spinner')
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>size</p>
         <p><code>String</code>, one of <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code></p>
@@ -30,13 +30,13 @@
         <p><code>false</code></p>
         <p>Set to true if you want the spinner to occupy the entire window space.</p>
       </div>
-    </doc-options>
+    </doc-table>
   </doc-section>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import checkbox from 'src/Checkbox.vue'
 import vSelect from 'src/Select.vue'
@@ -45,7 +45,7 @@ import spinner from 'src/Spinner.vue'
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     checkbox,
     spinner,

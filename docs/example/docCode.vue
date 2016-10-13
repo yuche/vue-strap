@@ -13,7 +13,7 @@ export default {
   props: {
     language: {
       type: String,
-      default: null
+      default: 'html'
     }
   },
   compiled () {

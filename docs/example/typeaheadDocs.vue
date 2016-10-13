@@ -88,7 +88,7 @@
         }
       }
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>value</p>
         <p><code>String</code></p>
@@ -143,13 +143,13 @@
         <p><code>&lt;span v-html=&quot;$value | highlight query&quot;&gt;&lt;/span&gt;</code></p>
         <p>Used to render suggestion.</p>
       </div>
-    </doc-options>
+    </doc-table>
   </div>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import typeahead from 'src/Typeahead.vue'
 import tooltip from 'src/Tooltip.vue'
@@ -157,7 +157,7 @@ import tooltip from 'src/Tooltip.vue'
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     typeahead,
     tooltip
