@@ -19,28 +19,27 @@ export function getJSON (url) {
     catch (fn) { return p.fail(fn) },
     always (fn) { return p.done(fn).fail(fn) }
   }
-  for (let name of ['done', 'fail']) {
+  ['done', 'fail'].forEach(name => {
     data[name] = []
     p[name] = (fn) => {
       if (fn instanceof Function) data[name].push(fn)
       return p
     }
-  }
+  })
   p.done(JSON.parse)
   request.onreadystatechange = () => {
     if (request.readyState === 4) {
       let e = {status: request.status}
       if (request.status === 200) {
         try {
-          let value, response = request.responseText
-          for (let done of data.done) {
-            if ((value = done(response)) !== undefined) { response = value }
-          }
+          let value
+          let response = request.responseText
+          data.done.forEach(done => { if ((value = done(response)) !== undefined) { response = value } })
         } catch (e) {
-          for (let fail of data.fail) fail(e)
+          data.fail.forEach(fail => fail(e))
         }
       } else {
-        for (let fail of data.fail) fail(e)
+        data.fail.forEach(fail => fail(e))
       }
     }
   }
@@ -80,8 +79,7 @@ export function getScrollBarWidth () {
 }
 
 // return all the translations or the default language (english)
-export function translations (lang) {
-  lang = lang || 'en'
+export function translations (lang = 'en') {
   let text = {
     daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
     limit: 'Limit reached ({{limit}} items max).',
@@ -93,4 +91,85 @@ export function translations (lang) {
     search: 'Search'
   }
   return window.VueStrapLang ? window.VueStrapLang(lang) : text
+}
+
+var blurList = []
+export function oneBlur (node, callback) {
+  if (!callback) { return }
+  var blurEvent = e => {
+    if (!node.contains(e.target) && node !== e.target) {
+      callback.call(node, e, node)
+      offBlur(node, callback)
+    }
+  }
+  blurList.push({
+    node: node,
+    callback: callback,
+    blurEvent: blurEvent
+  })
+  document.addEventListener('click', blurEvent, false)
+  document.addEventListener('touchstart', blurEvent, false)
+}
+
+export function onBlur (node, callback) {
+  if (!callback) { return }
+  var blurEvent = e => {
+    if (!node.contains(e.target) && node !== e.target) callback.call(node, e, node)
+  }
+  blurList.push({
+    node: node,
+    callback: callback,
+    blurEvent: blurEvent
+  })
+  document.addEventListener('click', blurEvent, false)
+  document.addEventListener('touchstart', blurEvent, false)
+}
+
+export function offBlur (node, callback) {
+  blurList.filter(el => el.node === node && (callback ? el.callback === callback : true)).forEach(el => {
+    el.node.removeEventListener('click', el.callback)
+    el.node.removeEventListener('touchstart', el.callback)
+  })
+  blurList = blurList.filter(el => el.node !== node || (callback ? el.callback !== callback : false))
+}
+
+
+// Fix a vue instance Lifecycle to vue 1/2 (just the basic elements, is not a parser, so this work only if your code is compatible with both)
+export function VueFixer (vue) {
+  var vue2 = !window.Vue || !window.Vue.partial
+  var mixin = {
+    computed: {
+      vue2 () { return !this.$dispatch }
+    }
+  }
+  if (!vue2) {
+    if (vue.beforeCreate) {
+      mixin.create = vue.beforeCreate
+      delete vue.beforeCreate
+    }
+    if (vue.beforeMount) {
+      vue.beforeCompile = vue.beforeMount
+      delete vue.beforeMount
+    }
+    if (vue.mounted) {
+      vue.ready = vue.mounted
+      delete vue.mounted
+    }
+  } else {
+    if (vue.beforeCompile) {
+      vue.beforeMount = vue.beforeCompile
+      delete vue.beforeCompile
+    }
+    if (vue.compiled) {
+      mixin.compiled = vue.compiled
+      delete vue.compiled
+    }
+    if (vue.ready) {
+      vue.mounted = vue.ready
+      delete vue.ready
+    }
+  }
+  if (!vue.mixins) { vue.mixins = [] }
+  vue.mixins.unshift(mixin)
+  return vue
 }

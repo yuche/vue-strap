@@ -6,15 +6,15 @@
       @click="toggle()"
       @keyup.esc="show = false"
     >
-      <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selected }}</span>
+      <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selected"></span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
     </button>
-    <select ref="sel" :value="value" @input="this.$emit('input',$event.target.value)" v-show="show" :name="name" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
+    <select ref="sel" v-model="val" v-show="show" :name="name" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
       <option v-if="required" value=""></option>
-      <option v-for="option in options" :value="option[optionsValue]||option">{{ option[optionsLabel]||option }}</option>
+      <option v-for="option in list" :value="option[optionsValue]">{{ option[optionsLabel] }}</option>
     </select>
     <ul class="dropdown-menu">
-      <template v-if="options.length">
+      <template v-if="list.length">
         <li v-if="canSearch" class="bs-searchbox">
           <input type="text" :placeholder="searchText||text.search" class="form-control" autocomplete="off" ref="search"
             v-model="searchValue"
@@ -23,34 +23,25 @@
           <span v-show="searchValue" class="close" @click="clearSearch">&times;</span>
         </li>
         <li v-if="required&&!clearButton"><a @mousedown.prevent="clear() && blur()">{{ placeholder || text.notSelected }}</a></li>
-        <li v-for="option in filteredOptions" :id="option[optionsValue]||option">
-          <a @mousedown.prevent="select(option[optionsValue],option)">
-            <span v-html="option[optionsLabel]||option"></span>
-            <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option[optionsValue]||option)"></span>
+        <li v-for="option in filteredOptions" :id="option[optionsValue]">
+          <a @mousedown.prevent="select(option[optionsValue])">
+            <span v-html="option[optionsLabel]"></span>
+            <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option[optionsValue])"></span>
           </a>
         </li>
       </template>
       <slot></slot>
-      <transition v-if="showNotify && !closeOnSelect" name="fadein"><div class="notify in">{{limitText}}</div></transition>
+      <transition v-if="notify && !closeOnSelect" name="fadein"><div class="notify in">{{limitText}}</div></transition>
     </ul>
-    <transition v-if="showNotify && closeOnSelect" name="fadein"><div class="notify out"><div>{{limitText}}</div></div></transition>
+    <transition v-if="notify && closeOnSelect" name="fadein"><div class="notify out"><div>{{limitText}}</div></div></transition>
+    <!-- <pre>Options: {{list}}</pre> -->
   </div>
 </template>
 
 <script>
-import {getJSON, translations} from './utils/utils.js'
-import $ from './utils/NodeList.js'
-// let coerce = {
-//   clearButton: 'boolean',
-//   closeOnSelect: 'boolean',
-//   disabled: 'boolean',
-//   limit: 'number',
-//   minSearch: 'number',
-//   multiple: 'boolean',
-//   readonly: 'boolean',
-//   required: 'boolean',
-//   search: 'boolean'
-// }
+import {translations} from './utils/utils.js'
+// import {onBlur, offBlur} from './utils/utils.js'
+// import $ from './utils/NodeList.js'
 
 var timeout = {}
 export default {
@@ -77,19 +68,21 @@ export default {
   },
   data () {
     return {
+      list: [],
       loading: null,
       searchValue: null,
       show: false,
-      showNotify: false,
+      notify: false,
+      val: null,
       valid: null
     }
   },
   computed: {
-    canSearch () { return this.minSearch ? this.options.length >= this.minSearch : this.search },
-    classes () { return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn': 'btn-group'] },
+    canSearch () { return this.minSearch ? this.list.length >= this.minSearch : this.search },
+    classes () { return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'] },
     filteredOptions: function () {
-      var search = this.searchValue && this.searchValue.toLowerCase()
-      return !search ? this.options : this.options.filter(el => {
+      var search = (this.searchValue || '').toLowerCase()
+      return !search ? this.list : this.list.filter(el => {
         return !!~el[this.optionsValue].toLowerCase().search(search)
       })
     },
@@ -98,66 +91,50 @@ export default {
     isLi () { return this.$parent._navbar || this.$parent.menu || this.$parent._tabset },
     limitText () { return this.text.limit.replace('{{limit}}', this.limit) },
     selected () {
-      if (this.options.length === 0) { return '' }
-      let foundItems = []
-      for (var item of this.values) {
-        if (~['number', 'string'].indexOf(typeof item)) {
-          let option = null
-          if (this.options.some(o => {
-            if (o instanceof Object ? o[this.optionsValue] === item : o === item ) {
-              option = o
-              return true
-            }
-          })) { foundItems.push(option[this.optionsLabel] || option) }
-        }
-      }
-      return foundItems.join(', ')
+      if (this.list.length === 0) { return '' }
+      var sel = this.values.map(val => (this.list.find(o => o[this.optionsValue] === val) || {})[this.optionsLabel]).filter(val => val !== undefined)
+      this.$emit('selected', sel)
+      return sel.join(', ')
     },
     showPlaceholder () { return (this.values.length === 0 || !this.hasParent) ? (this.placeholder || this.text.notSelected) : null },
     text () { return translations(this.lang) },
-    values () { return this.value instanceof Array ? this.value : this.value !== null && this.value !== undefined ? [this.value] : [] }
+    values () { return this.val instanceof Array ? this.val : ~[null, undefined].indexOf(this.val) ? [] : [this.val] }
   },
   watch: {
     options (options) {
-      let changed = false
-      if (options instanceof Array && options.length) {
-        options.map(el => {
-          if (!(el instanceof Object)) {
-            let obj = {}
-            obj[this.optionsLabel] = el
-            obj[this.optionsValue] = el
-            changed = true
-            return obj
-          }
-          return el
-        })
-      }
-      if (changed) { this.options = options }
+      if (options instanceof Array) this.setOptions(options)
     },
     show (val) {
       if (val) {
         this.$refs.sel.focus()
         this.$refs.search && this.$refs.search.focus()
+        // onBlur(this.$refs.select, e => { this.show = false })
+      } else {
+        // offBlur(this.$refs.select)
       }
     },
     url () {
-      this.update()
+      this.urlChanged()
     },
     valid (val, old) {
       this.$emit('isvalid', val)
       this.$emit(!val ? 'invalid' : 'valid')
       if (val !== old && this._parent) this._parent.validate()
     },
-    value (val) {
-      this.$emit('change', val)
-      this.$emit('input', val)
-      this.$emit('selected', this.selected)
-      if (this.value instanceof Array && val.length > this.limit) {
-        this.showNotify = true
+    value (val, old) {
+      if (val !== old) { this.val = val }
+    },
+    val (val, old) {
+      if (val !== old) {
+        this.$emit('change', val)
+        this.$emit('input', val)
+      }
+      if (val instanceof Array && val.length > this.limit) {
+        this.notify = true
         if (timeout.limit) clearTimeout(timeout.limit)
         timeout.limit = setTimeout(() => {
           timeout.limit = false
-          this.showNotify = false
+          this.notify = false
         }, 1500)
       }
       this.checkMultiple()
@@ -171,17 +148,17 @@ export default {
     checkMultiple () {
       if (this.multiple) {
         if (this.limit < 1) { this.limit = 1 }
-        if (!(this.value instanceof Array)) {
-          this.value = (this.value === null || this.value === undefined) ? [] : [this.value]
+        if (!(this.val instanceof Array)) {
+          this.val = (this.val === null || this.val === undefined) ? [] : [this.val]
         }
         if (this.values.length > this.limit) {
-          this.value = this.value.slice(0, this.limit)
+          this.val = this.val.slice(0, this.limit)
         }
       }
     },
     clear () {
       if (this.disabled || this.readonly) { return }
-      this.value = this.value instanceof Array ? [] : null
+      this.val = this.val instanceof Array ? [] : null
       this.toggle()
     },
     clearSearch () {
@@ -191,52 +168,63 @@ export default {
     isSelected (v) {
       return this.values.indexOf(v) > -1
     },
-    select (v, alt) {
-      if (this.value instanceof Array) {
-        if (~this.value.indexOf(v)) {
-          var index = this.value.indexOf(v)
-          this.value.splice(index, 1)
+    select (v) {
+      if (this.val instanceof Array) {
+        if (~this.val.indexOf(v)) {
+          var index = this.val.indexOf(v)
+          this.val.splice(index, 1)
         } else {
-          this.value.push(v)
+          this.val.push(v)
         }
         if (this.closeOnSelect) {
           this.toggle()
         }
       } else {
-        this.value = !~['', null, undefined].indexOf(v) ? v : alt
+        this.val = v
         this.toggle()
       }
+    },
+    setOptions (options) {
+      this.list = options.map(el => {
+        if (el instanceof Object) { return el }
+        let obj = {}
+        obj[this.optionsLabel] = el
+        obj[this.optionsValue] = el
+        return obj
+      })
+      this.$emit('input-options', this.list)
     },
     toggle () {
       this.show = !this.show
     },
-    update () {
-      if (!this.url) return
+    urlChanged () {
+      if (!this.url || !this.$http) { return }
       this.loading = true
-      getJSON(this.url).then(data => {
-        let options = []
-        for (let opc of data) {
-          if (opc[this.optionsValue] !== undefined && opc[this.optionsLabel] !== undefined) options.push(opc)
-        }
-        this.options = options
-        if (!options.length) { this.value = this.value instanceof Array ? [] : null }
-      }).always(() => {
+      this.$http.get(this.url).then(response => {
+        var data = response.data instanceof Array ? response.data : []
+        try { data = JSON.parse(data) } catch (e) {}
+        this.setOptions(data)
+        this.loading = false
+        this.checkMultiple()
+      }, response => {
         this.loading = false
         this.checkMultiple()
       })
     },
     validate () {
-      return !this.required ? true : this.value instanceof Array ? this.value.length > 0 : this.value !== null
+      return !this.required ? true : this.val instanceof Array ? this.val.length > 0 : this.val !== null
     }
   },
   created () {
+    this.setOptions(this.options)
+    this.val = this.value
     this._select = true
-    if (this.value === undefined || !this.parent) { this.value = null }
-    if (!this.multiple && this.value instanceof Array) {
-      this.value = this.value.shift()
+    if (this.val === undefined || !this.parent) { this.val = null }
+    if (!this.multiple && this.val instanceof Array) {
+      this.val = this.val[0]
     }
     this.checkMultiple()
-    if (this.url) this.update()
+    if (this.url) this.urlChanged()
     let parent = this.$parent
     while (parent && !parent._formGroup) { parent = parent.$parent }
     if (parent && parent._formGroup) {
@@ -245,7 +233,6 @@ export default {
   },
   mounted () {
     if (this._parent) this._parent.children.push(this)
-    $(this.$refs.select).onBlur(e => { this.show = false })
   },
   beforeDestroy () {
     if (this._parent) {
