@@ -6,7 +6,7 @@
       @click="toggle()"
       @keyup.esc="show = false"
     >
-      <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selected }}</span>
+      <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selected"></span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
     </button>
     <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
