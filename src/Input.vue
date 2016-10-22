@@ -17,7 +17,7 @@
         :step="step"
         :title="attr(title)"
         :type="type=='textarea'?null:type"
-        :value="value"
+        v-model="val"
         @blur="emit" @focus="emit" @input="emit"
         @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
       ></textarea>
@@ -44,11 +44,11 @@
         :step="step"
         :title="attr(title)"
         :type="type=='textarea'?null:type"
-        :value="value"
+        v-model="val"
         @blur="emit" @focus="emit" @input="emit"
         @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
       ></textarea>
-      <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
+      <span v-if="clearButton && val" class="close" @click="val = ''">&times;</span>
       <span v-if="icon&&valid!==null" :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]" aria-hidden="true"></span>
     </template>
     <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
@@ -59,28 +59,11 @@
 <script>
 import {translations} from './utils/utils.js'
 import $ from './utils/NodeList.js'
-// let coerce = {
-//     clearButton: 'boolean',
-//     disabled: 'boolean',
-//     enterSubmit: 'boolean',
-//     hideHelp: 'boolean',
-//     icon:'boolean',
-//     maskDelay: 'number',
-//     max: 'string',
-//     maxlength: 'number',
-//     min: 'string',
-//     minlength: 'number',
-//     pattern: 'pattern',
-//     readonly: 'boolean',
-//     required: 'boolean',
-//     rows: 'number',
-//     step: 'number',
-//     validationDelay: 'number'
-// }
 
 export default {
   props: {
     clearButton: {type: Boolean, default: false},
+    cols: {type: Number, default: null},
     disabled: {type: Boolean, default: false},
     enterSubmit: {type: Boolean, default: false},
     error: {type: String, default: null},
@@ -108,7 +91,9 @@ export default {
     value: {default: null}
   },
   data () {
+    var val = this.value
     return {
+      val,
       valid: null,
       timeout: null
     }
@@ -123,45 +108,47 @@ export default {
       return error.join(' ')
     },
     input () { return this.$refs.input },
-    nativeValidate () { return (this.input||{}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max) },
-    showError () { return this.error && this.valid===false },
+    nativeValidate () { return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max) },
+    showError () { return this.error && this.valid === false },
     showHelp () { return this.help && (!this.showError || !this.hideHelp) },
     slots () { return this._slotContents || {} },
     text () { return translations(this.lang) },
     title () { return this.errorText || this.help || '' }
   },
   watch: {
-    match (val) {
-      this.eval()
+    match (val) { this.eval() },
+    val (val, old) {
+      this.$emit('input', val)
+      if (val !== old) {
+        if (this.mask instanceof Function) {
+          val = this.mask(val || '')
+          if (this.val !== val) {
+            if (this._timeout.mask) clearTimeout(this._timeout.mask)
+            this._timeout.mask = setTimeout(() => {
+              this.val = val
+              this.$refs.input.value = val
+            }, isNaN(this.maskDelay) ? 0 : this.maskDelay)
+          }
+        }
+        this.eval()
+      }
     },
     valid (val, old) {
       this.$emit('isvalid', val)
       this.$emit(!val ? 'invalid' : 'valid')
       if (val !== old && this._parent) this._parent.validate()
     },
-    value (val, old) {
-      if (val !== old) {
-        if (this.mask instanceof Function) {
-          val = this.mask(val || '')
-          if (this.value !== val) {
-            if (this._timeout.mask) clearTimeout(this._timeout.mask)
-            this._timeout.mask = setTimeout(() => {
-              this.value = val
-              this.$refs.input.value = val
-            }, this.maskDelay)
-          }
-        }
-        this.eval()
-      }
+    value (val) {
+      if (this.val !== val) { this.val = val }
     }
   },
   methods: {
     attr (value) {
-      return ~['', null, undefined].indexOf(value) || value instanceof Function ? undefined : value
+      return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value
     },
     emit (e) {
       this.$emit(e.type, e)
-      if (e.type==='blur' && this.canValidate) { this.valid = this.validate() }
+      if (e.type === 'blur' && this.canValidate) { this.valid = this.validate() }
     },
     eval () {
       if (this._timeout.eval) clearTimeout(this._timeout.eval)
@@ -180,7 +167,7 @@ export default {
         return this.$parent.validate()
       }
       if (this.input.form) {
-        const invalids = $('.form-group.validate:not(.has-success)',this.input.form)
+        const invalids = $('.form-group.validate:not(.has-success)', this.input.form)
         if (invalids.length) {
           invalids.find('input,textarea,select')[0].focus()
         } else {
@@ -192,9 +179,9 @@ export default {
       if (!this.canValidate) { return true }
       let value = (this.value || '').trim()
       if (!value) { return !this.required }
-      if (this.match!==null) { return this.match === value }
+      if (this.match !== null) { return this.match === value }
       if (value.length < this.minlength) { return false }
-      if (this.nativeValidate && !this.input.checkValidity()){ return false }
+      if (this.nativeValidate && !this.input.checkValidity()) { return false }
       if (this.pattern) {
         return this.pattern instanceof Function ? this.pattern(this.value) : this.pattern.test(this.value)
       }
