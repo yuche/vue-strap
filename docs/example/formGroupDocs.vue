@@ -78,14 +78,14 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.vue'
+import docCode from './utils/docCode.vue'
 import formGroup from 'src/FormGroup.vue'
-import bsInput from 'src/Input.vue'
+import bsInput from 'src/components/Input.vue'
 import tab from 'src/Tab.vue'
 import tabs from 'src/Tabset.vue'
-import vSelect from 'src/Select.vue'
+import vSelect from 'src/components/Select.vue'
 
 export default {
   components: {

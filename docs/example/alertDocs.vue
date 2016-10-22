@@ -101,9 +101,9 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.vue'
+import docCode from './utils/docCode.vue'
 import alert from 'src/Alert.vue'
 
 export default {

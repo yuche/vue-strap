@@ -107,7 +107,7 @@
   </div>
 </template>
 <script>
-import docCode from './docCode.vue'
+import docCode from './utils/docCode.vue'
 export default {
   components: {
     docCode
