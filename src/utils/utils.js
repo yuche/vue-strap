@@ -11,15 +11,16 @@ export const coerce = {
 }
 
 export function getJSON (url) {
-  let request = new window.XMLHttpRequest()
-  let data = {}
+  var request = new window.XMLHttpRequest()
+  var data = {}
   // p (-simulated- promise)
-  let p = {
+  var p = {
     then (fn1, fn2) { return p.done(fn1).fail(fn2) },
     catch (fn) { return p.fail(fn) },
     always (fn) { return p.done(fn).fail(fn) }
   }
-  ['done', 'fail'].forEach(name => {
+  var actions = ['done', 'fail']
+  actions.forEach(name => {
     data[name] = []
     p[name] = (fn) => {
       if (fn instanceof Function) data[name].push(fn)
@@ -35,8 +36,8 @@ export function getJSON (url) {
           let value
           let response = request.responseText
           data.done.forEach(done => { if ((value = done(response)) !== undefined) { response = value } })
-        } catch (e) {
-          data.fail.forEach(fail => fail(e))
+        } catch (err) {
+          data.fail.forEach(fail => fail(err))
         }
       } else {
         data.fail.forEach(fail => fail(e))
@@ -132,7 +133,6 @@ export function offBlur (node, callback) {
   })
   blurList = blurList.filter(el => el.node !== node || (callback ? el.callback !== callback : false))
 }
-
 
 // Fix a vue instance Lifecycle to vue 1/2 (just the basic elements, is not a parser, so this work only if your code is compatible with both)
 export function VueFixer (vue) {

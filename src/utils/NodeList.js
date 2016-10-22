@@ -227,7 +227,7 @@ class NodeList {
     }
     events.forEach(event => {
       for (let i in this) {
-        if (this[i]) {
+        if (this[i] === window || this[i] instanceof Node) {
           this[i].addEventListener(event, callback, false)
           Events.push({
             el: this[i],
@@ -248,7 +248,7 @@ class NodeList {
       for (let i in this) {
         Events.forEach(e => {
           events.events.split(' ').forEach(event => {
-            if(Events[e] && Events[e].el === el && Events[e].event === event && Events[e].callback === callback) {
+            if (Events[e] && Events[e].el === this[i] && Events[e].event === event && Events[e].callback === callback) {
               Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
               delete Events[e]
             }
