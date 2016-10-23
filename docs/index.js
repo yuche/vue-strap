@@ -3,7 +3,7 @@ require('./assets/style.css')
 require('prismjs')
 require('./js/showLanguage')
 
-// import $ from 'src/utils/NodeList.js'
+import $ from 'src/components/utils/NodeList.js'
 import bodyDocs from './bodyDocs.vue'
 
 Vue.config.devtools = true

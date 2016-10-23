@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import $ from 'src/utils/NodeList.js'
+import $ from 'src/components/utils/NodeList.js'
 
 export default {
   props: {

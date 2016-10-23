@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import $ from 'src/utils/NodeList.js'
+import $ from 'src/components/utils/NodeList.js'
 import affix from 'src/Affix.vue'
 
 export default {
