@@ -1,10 +1,11 @@
-const Node = window.Node
-const HTMLCollection = window.HTMLCollection
 const ArrayProto = Array.prototype
 const nodeError = new Error('Passed arguments must be of Node')
 let blurEvent
 let blurList = []
 let Events = []
+
+function isNode (val) { return val instanceof window.Node }
+function isNodeList (val) { return val instanceof window.NodeList || val instanceof NodeList || val instanceof window.HTMLCollection || val instanceof Array }
 
 class NodeList {
   constructor (args) {
@@ -14,7 +15,7 @@ class NodeList {
     } else if (typeof args[0] === 'string') {
       nodes = (args[1] || document).querySelectorAll(args[0])
       if (args[1]) { this.owner = args[1] }
-    } else if (0 in args && !(args[0] instanceof Node) && args[0] && 'length' in args[0]) {
+    } else if (0 in args && !isNode(args[0]) && args[0] && 'length' in args[0]) {
       nodes = args[0]
       if (args[1]) { this.owner = args[1] }
     }
@@ -32,7 +33,7 @@ class NodeList {
     let nodes = ArrayProto.slice.call(this)
     function flatten (arr) {
       for (let i in arr) {
-        if (arr[i] instanceof Node) {
+        if (isNode(arr[i])) {
           if (!~nodes.indexOf(arr[i])) nodes.push(arr[i])
         } else if (arr[i]) {
           flatten(arr[i])
@@ -41,9 +42,9 @@ class NodeList {
     }
     for (let i in arguments) {
       let arg = arguments[i]
-      if (arg instanceof Node) {
+      if (isNode(arg)) {
         if (!~nodes.indexOf(arg)) nodes.push(arg)
-      } else if (arg instanceof window.NodeList || arg instanceof NodeList || arg instanceof HTMLCollection || arg instanceof Array) {
+      } else if (isNodeList(arg)) {
         flatten(arg)
       } else {
         throw Error('Concat arguments must be of a Node, NodeList, HTMLCollection, or Array of (Node, NodeList, HTMLCollection, Array)')
@@ -51,29 +52,31 @@ class NodeList {
     }
     return new NodeList([nodes, this])
   }
+  delete () {
+    return flatten(this).filter(el => {
+      if (el.remove) {
+        el.remove()
+      } else if (el.parentNode) {
+        el.parentNode.removeChild(el)
+      }
+      return document.body.contains(el)
+    })
+  }
   each () {
     ArrayProto.forEach.apply(this, arguments)
     return this
-  }
-  parent () {
-    return this.map(el => { return el.parentNode })
   }
   filter () {
     return new NodeList([ArrayProto.filter.apply(this, arguments), this])
   }
   find (element) {
     let nodes = []
-    let flat = flatten(this)
-    for (let i in flat) {
-      let node = flat[i].querySelectorAll(element)
-      if (node && node.length) nodes.push(node)
-    }
-    return flatten(nodes, this.owner)
+    flatten(this).forEach(node => { nodes.push.apply(nodes, node.querySelectorAll(element)) })
+    return NodeListJS(nodes, this.owner)
   }
   findChildren (element) {
-    return this.find(element).filter(el => {
-      return this.includes(el.parentElement)
-    })
+    if (element) return this.find(element).filter(el => this.includes(el.parentElement))
+    return flatten(this.map(el => el.children))
   }
   forEach () {
     ArrayProto.forEach.apply(this, arguments)
@@ -85,6 +88,9 @@ class NodeList {
   map (...args) {
     return flatten(ArrayProto.map.apply(this, args), this)
   }
+  parent () {
+    return this.map(el => el.parentNode)
+  }
   pop (amount) {
     if (typeof amount !== 'number') { amount = 1 }
     let nodes = []
@@ -94,20 +100,10 @@ class NodeList {
   }
   push (...args) {
     for (let i in args) {
-      if (!(args[i] instanceof Node)) throw nodeError
+      if (!isNode(args[i])) throw nodeError
       if (!~this.indexOf(args[i])) ArrayProto.push.call(this, args[i])
     }
     return this
-  }
-  delete () {
-    return ArrayProto.filter.call(this, el => {
-      if (el.remove) {
-        el.remove()
-      } else if (el.parentNode) {
-        el.parentNode.removeChild(el)
-      }
-      return document.body.contains(el)
-    })
   }
   shift (amount) {
     if (typeof amount !== 'number') { amount = 1 }
@@ -121,19 +117,20 @@ class NodeList {
   }
   splice (...args) {
     for (let i = 2, l = args.length; i < l; i++) {
-      if (!(args[i] instanceof Node)) throw nodeError
+      if (!isNode(args[i])) throw nodeError
     }
     return new NodeList([ArrayProto.splice.apply(this, args), this])
   }
   unshift (...args) {
     let unshift = ArrayProto.unshift.bind(this)
     for (let i in args) {
-      if (!(args[i] instanceof Node)) throw nodeError
+      if (!isNode(args[i])) throw nodeError
       if (!~this.indexOf(args[i])) unshift(args[i])
     }
     return this
   }
 
+  // classes
   addClass (classes) {
     return this.toggleClass(classes, true)
   }
@@ -227,7 +224,7 @@ class NodeList {
     }
     events.forEach(event => {
       for (let i in this) {
-        if (this[i] === window || this[i] instanceof Node) {
+        if (this[i] === window || isNode(this[i])) {
           this[i].addEventListener(event, callback, false)
           Events.push({
             el: this[i],
@@ -328,11 +325,11 @@ function flatten (arr, owner) {
   let list = []
   for (let i in arr) {
     let el = arr[i]
-    if (el instanceof Node || el === null) {
+    if (isNode(el)) {
       if (!~list.indexOf(el)) list.push(el)
-    } else if (el instanceof window.NodeList || el instanceof NodeList || el instanceof HTMLCollection || el instanceof Array) {
+    } else if (isNodeList(el)) {
       for (let id in el) list.push(el[id])
-    } else {
+    } else if (el !== null) {
       arr.get = NL.get
       arr.set = NL.set
       arr.call = NL.call
