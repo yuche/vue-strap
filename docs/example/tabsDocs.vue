@@ -105,9 +105,9 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.vue'
 import docCode from './utils/docCode.vue'
-import tabs from 'src/Tabset.vue'
-import tabGroup from 'src/TabGroup.vue'
-import tab from 'src/Tab.vue'
+import tabs from 'src/components/Tabs.vue'
+import tabGroup from 'src/components/TabGroup.vue'
+import tab from 'src/components/Tab.vue'
 
 export default {
   components: {

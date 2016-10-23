@@ -256,7 +256,7 @@ import docCode from './utils/docCode.vue'
 import bsInput from 'src/components/Input.vue'
 import buttonGroup from 'src/buttonGroup.vue'
 import checkbox from 'src/Checkbox.vue'
-import dropdown from 'src/Dropdown.vue'
+import dropdown from 'src/components/Dropdown.vue'
 
 export default {
   components: {

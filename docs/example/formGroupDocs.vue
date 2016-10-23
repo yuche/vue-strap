@@ -83,8 +83,8 @@ import docTable from './utils/docTable.vue'
 import docCode from './utils/docCode.vue'
 import formGroup from 'src/FormGroup.vue'
 import bsInput from 'src/components/Input.vue'
-import tab from 'src/Tab.vue'
-import tabs from 'src/Tabset.vue'
+import tab from 'src/components/Tab.vue'
+import tabs from 'src/components/Tabs.vue'
 import vSelect from 'src/components/Select.vue'
 
 export default {
