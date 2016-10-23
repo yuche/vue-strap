@@ -61,6 +61,7 @@
 
 <script>
 import affixSidebar from './affixSidebar.vue'
+import container from './example/container.vue'
 import gettingStarted from './example/gettingStarted.vue'
 import accordionDocs from './example/accordionDocs.vue'
 import affixDocs from './example/affixDocs.vue'
@@ -69,7 +70,6 @@ import asideDocs from './example/asideDocs.vue'
 import buttonGroupDocs  from './example/buttonGroupDocs.vue'
 import carouselDocs from './example/carouselDocs.vue'
 import checkboxDocs from './example/checkboxDocs.vue'
-import container from './example/container.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
 import dropdownDocs from './example/dropdownDocs.vue'
 import formGroupDocs from './example/formGroupDocs.vue'
@@ -88,6 +88,7 @@ import typeaheadDocs from './example/typeaheadDocs.vue'
 export default {
   components: {
     affixSidebar,
+    container,
     gettingStarted,
     accordionDocs,
     affixDocs,
@@ -96,7 +97,6 @@ export default {
     buttonGroupDocs,
     carouselDocs,
     checkboxDocs,
-    container,
     datepickerDocs,
     dropdownDocs,
     formGroupDocs,
@@ -110,7 +110,7 @@ export default {
     spinnerDocs,
     tabsDocs,
     tooltipDocs,
-    typeaheadDocs
+    typeaheadDocs 
   },
   computed: {
     local () { return location.hostname === 'localhost' }

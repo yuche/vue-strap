@@ -65,8 +65,12 @@ class NodeList {
     let nodes = []
     let flat = flatten(this)
     for (let i in flat) {
-      let node = flat[i].querySelectorAll(element)
-      if (node && node.length) nodes.push(node)
+      let n = flat[i]
+      if( n && n.querySelectorAll ) {
+        let node = n.querySelectorAll(element)
+        if (node && node.length) 
+          nodes.push(node)
+      }
     }
     return flatten(nodes, this.owner)
   }

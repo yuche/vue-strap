@@ -1,3 +1,4 @@
+var Vue = require('vue')
 require('./assets/docs.css')
 require('./assets/style.css')
 require('prismjs')
@@ -21,13 +22,15 @@ new Vue({
   },
   mounted () {
     var list = this.$root.sections
-    while(list.length) list.pop()
-    $('.bs-docs-section', this.$refs.sections).each((el) => {
+    while(list.length) 
+      list.pop()
+
+    /*$('.bs-docs-section', this.$refs.sections).each((el) => {
       list.push({
         id: el.id,
         name: $('.anchor', el).textContent,
         el: el
       })
-    })
+    })*/
   }
 })

@@ -205,7 +205,8 @@ export default {
           {val: 7, label: 'Turtle'}
         ],
         justified: true,
-        search: true
+        search: true,
+        multible: []
       },
       ajax: {
         value:null

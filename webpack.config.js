@@ -9,7 +9,10 @@ module.exports = {
     filename: 'build-docs.js'
   },
   resolve: {
-    root: path.resolve('./')
+    root: path.resolve('./'),
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
   },
   module: {
     loaders: [
