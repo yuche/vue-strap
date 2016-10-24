@@ -187,7 +187,7 @@ export default {
       this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())
     },
     daySelect (date, el) {
-      if (el.$el.classList[0] === 'datepicker-item-disable') {
+      if (this.$el.classList[0] === 'datepicker-item-disable') {
         return false
       } else {
         this.currDate = date

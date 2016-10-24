@@ -24,9 +24,9 @@
             <aside-docs></aside-docs>
             <button-group-docs></button-group-docs>
             <carousel-docs></carousel-docs>
-            <checkbox-docs></checkbox-docs>
+            <checkbox-docs></checkbox-docs> -->
             <datepicker-docs></datepicker-docs>
-            <input-docs></input-docs>
+            <!-- <input-docs></input-docs>
             <modal-docs></modal-docs>
             <navbar-docs></navbar-docs>
             <popover-docs></popover-docs>
@@ -70,7 +70,7 @@
 // import buttonGroupDocs  from './example/buttonGroupDocs.vue'
 // import carouselDocs from './example/carouselDocs.vue'
 // import checkboxDocs from './example/checkboxDocs.vue'
-// import datepickerDocs from './example/datepickerDocs.vue'
+import datepickerDocs from './example/datepickerDocs.vue'
 // import formGroupDocs from './example/formGroupDocs.vue'
 // import inputDocs from './example/inputDocs.vue'
 // import modalDocs from './example/modalDocs.vue'
@@ -96,7 +96,7 @@ export default {
     // buttonGroupDocs,
     // carouselDocs,
     // checkboxDocs,
-    // datepickerDocs,
+    datepickerDocs,
     // formGroupDocs,
     // inputDocs,
     // modalDocs,

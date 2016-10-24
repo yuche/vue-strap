@@ -2,7 +2,7 @@
   <doc-section id="datepicker" name="Datepicker">
     <div class="bs-example">
       <p>
-        <pre>Selected date is: {{new Date($refs.dp.parse()).toString()}}</pre>
+        <pre>Selected date is: {{dp_string}}</pre>
       </p>
       <datepicker ref="dp" v-model="value" :disabled-days-of-Week="disabled" :format="format" :clear-button="clear" :placeholder="placeholder" width="370px"></datepicker>
       <h4>Disabled days of week</h4>
@@ -84,6 +84,7 @@ export default {
   data () {
     return {
       clear: true,
+      datestr: '',
       disabled: [],
       format: 'yyyy-MM-dd',
       formats: ['dd/MM/yyyy', 'dd-MM-yyyy', 'yyyy,MM,dd', 'yyyy-MM-dd', 'yyyy.MM.dd', 'MMM/dd/yyyy', 'MMMM/dd/yyyy', 'MM/dd/yyyy', 'MM-dd-yyyy'],
@@ -91,7 +92,19 @@ export default {
       value: '2015-06-10'
     }
   },
+  computed: {
+    dp_string() {
+      return this.datestr
+    }
+  },
+  mounted() {
+    this.datestr = new Date(this.$refs.dp.parse()).toString()
+  },
   watch: {
+    value( nval ) {
+      if(this.$refs.dp)
+        this.datestr = new Date(this.$refs.dp.parse()).toString()
+    },
     disabled () {
       this.$refs.dp.getDateRange()
     },
