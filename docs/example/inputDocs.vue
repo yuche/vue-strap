@@ -60,7 +60,7 @@
         <pre> Test event on textarea: {{event}}</pre>
       </form>
       <doc-code>
-        <bs-input v-model="input"
+        &lt;bs-input v-model="input"
           label="Username"
           help="Only allows lowercase letters and numbers."
           error="Insert username"
@@ -71,13 +71,19 @@
           readonly
           required
           icon
-        ></bs-input>
-        <bs-input required label="Match value" type="password" :match="input"></bs-input>
-        <bs-input label="Textarea" type="textarea" @focus="event = 'focused'" @blur="event = 'blured'"></bs-input>
+        >&lt;/bs-input>
+        &lt;bs-input required label="Match value" type="password"
+          :match="input"
+        >&lt;/bs-input>
+        &lt;bs-input label="Textarea" type="textarea"
+          @focus="event = 'focused'"
+          @blur="event = 'blured'"
+        >&lt;/bs-input>
       </doc-code>
       <doc-code language="javascript">
         mask: function (value) {
-          // change to lowercase, remove up to the first letter, and then remove all other unsuported characters
+          // change to lowercase, remove up to the first letter,
+          // and then remove all other unsuported characters
           return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/[^a-z0-9]/g,'');
         }
       </doc-code>
@@ -92,24 +98,24 @@
         </span>
       </bs-input>
       <doc-code>
-        <bs-input label="With dropdown and button" type="text">
-          <dropdown slot="before" text="dropdown">
-            <li><a href="#">option</a></li>
-          </dropdown>
-          <span slot="after" class="input-group-btn">
-            <button type="button" class="btn btn-primary">Go!</button>
-          </span>
-        </bs-input>
+        &lt;bs-input label="With dropdown and button" type="text">
+          &lt;dropdown slot="before" text="dropdown">
+            &lt;li>&lt;a href="#">option&lt;/a>&lt;/li>
+          &lt;/dropdown>
+          &lt;span slot="after" class="input-group-btn">
+            &lt;button type="button" class="btn btn-primary">Go!&lt;/button>
+          &lt;/span>
+        &lt;/bs-input>
       </doc-code>
       <bs-input label="With text and icon" type="number" placeholder="Insert how much cost your house">
         <span slot="before" class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
         <span slot="after" class="input-group-addon">$</span>
       </bs-input>
       <doc-code>
-        <bs-input label="With text and icon" type="number" placeholder="Insert how much cost your house">
-          <span slot="before" class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
-          <span slot="after" class="input-group-addon">$</span>
-        </bs-input>
+        &lt;bs-input label="With text and icon" type="number" placeholder="Insert how much cost your house">
+          &lt;span slot="before" class="input-group-addon">&lt;span class="glyphicon glyphicon-home">&lt;/span>&lt;/span>
+          &lt;span slot="after" class="input-group-addon">$&lt;/span>
+        &lt;/bs-input>
       </doc-code>
     </div>
     <doc-table>
@@ -251,8 +257,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import bsInput from 'src/components/Input.vue'
 import buttonGroup from 'src/buttonGroup.vue'
 import checkbox from 'src/Checkbox.vue'

@@ -48,16 +48,16 @@
     </div>
     <doc-code language="markup">
       Stacked:
-      <div class="progress">
-        <progressbar now="" label type="warning" striped></progressbar>
-        <progressbar now="" label type="success" ></progressbar>
-        <progressbar now="" label type="danger"></progressbar>
-        <progressbar now="" label type="primary" striped animated></progressbar>
-      </div>
+      &lt;div class="progress">
+        &lt;progressbar now="..." label type="warning" striped>&lt;/progressbar>
+        &lt;progressbar now="..." label type="success" >&lt;/progressbar>
+        &lt;progressbar now="..." label type="danger">&lt;/progressbar>
+        &lt;progressbar now="..." label type="primary" striped animated>&lt;/progressbar>
+      &lt;/div>
       Single:
-      <div class="progress">
-        <progressbar now="" label type="warning" striped></progressbar>
-      </div>
+      &lt;div class="progress">
+        &lt;progressbar now="" label type="warning" striped>&lt;/progressbar>
+      &lt;/div>
     </doc-code>
     <doc-table>
       <div>
@@ -90,8 +90,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import progressbar from 'src/Progressbar.vue'
 
 export default {

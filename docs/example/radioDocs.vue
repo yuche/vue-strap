@@ -15,10 +15,10 @@
       <p><pre>Radio value: {{ radioValue }}</pre></p>
     </div>
     <doc-code language="markup">
-      <radio :checked="radioValue" @checked="radioValue = arguments[0]" value="one">One</radio>
-      <radio :checked="radioValue" @checked="radioValue = arguments[0]" value="two" type="primary">Two</radio>
-      <radio button :checked="radioValue" @checked="radioValue = arguments[0]" value="three" type="danger">Three</radio>
-      <radio button :checked="radioValue" @checked="radioValue = arguments[0]" value="four" type="info">Four</radio>
+      &lt;radio :checked="radioValue" @checked="radioValue = arguments[0]" value="one">One&lt;/radio>
+      &lt;radio :checked="radioValue" @checked="radioValue = arguments[0]" value="two" type="primary">Two&lt;/radio>
+      &lt;radio button :checked="radioValue" @checked="radioValue = arguments[0]" value="three" type="danger">Three&lt;/radio>
+      &lt;radio button :checked="radioValue" @checked="radioValue = arguments[0]" value="four" type="info">Four&lt;/radio>
     </doc-code>
     <doc-table>
       <div>
@@ -57,8 +57,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import radio from 'src/Radio.vue'
 
 export default {

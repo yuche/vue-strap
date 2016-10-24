@@ -8,7 +8,7 @@
       <div><spinner id="spinner-box" global :size="size" :fixed="fixed" text="I will close in 2 secs"></spinner></div>
     </div>
     <doc-code language="markup">
-      <spinner ref="spinner" size="md" fixed text="I will close in 2 secs"></spinner>
+      &lt;spinner ref="spinner" size="md" fixed text="I will close in 2 secs">&lt;/spinner>
     </doc-code>
     <doc-code language="javascript">
       // using ref
@@ -37,8 +37,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import checkbox from 'src/Checkbox.vue'
 import vSelect from 'src/components/Select.vue'
 import spinner from 'src/Spinner.vue'

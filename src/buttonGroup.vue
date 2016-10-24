@@ -5,18 +5,10 @@
 </template>
 
 <script>
-// let coerce = {
-//   buttons: 'boolean',
-//   justified: 'boolean',
-//   vertical: 'boolean'
-// }
 
 export default {
   props: {
-    buttons: {
-      type: Boolean,
-      default: true
-    },
+    buttons: true,
     justified: {
       type: Boolean,
       default: false

@@ -16,7 +16,7 @@
       <checkbox :checked="clear" @checked="clear = arguments[0]" type="primary">toggle clear button</checkbox>
     </div>
     <doc-code language="markup">
-      <datepicker v-model="value" :disabled-days-of-Week="disabled" :format="format" :clear-button="clear" :placeholder="placeholder"></datepicker>
+      &lt;datepicker v-model="value" :disabled-days-of-Week="disabled" :format="format" :clear-button="clear" :placeholder="placeholder">&lt;/datepicker>
     </doc-code>
     <doc-table>
       <div>
@@ -64,8 +64,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import checkbox from 'src/Checkbox.vue'
 import datepicker from 'src/Datepicker.vue'
 import vSelect from 'src/components/Select.vue'

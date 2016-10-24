@@ -7,6 +7,7 @@ import tabGroup from './components/TabGroup.vue'
 import tabs from './components/Tabs.vue'
 
 // Need to be inspected and/or fixed
+// import formValidator from './components/FormValidator.vue'
 import accordion from './Accordion.vue'
 import affix from './Affix.vue'
 import alert from './Alert.vue'
@@ -16,7 +17,6 @@ import carousel from './Carousel.vue'
 import checkbox from './Checkbox.vue'
 import datepicker from './Datepicker.vue'
 import formGroup from './FormGroup.vue'
-// import formValidator from './components/FormValidator.vue'
 import modal from './Modal.vue'
 import navbar from './Navbar.vue'
 import option from './Option.vue'
@@ -38,6 +38,7 @@ const VueStrap = {
   tabGroup,
   tabs,
   // Pending
+  // formValidator,
   accordion,
   affix,
   alert,
@@ -47,7 +48,6 @@ const VueStrap = {
   checkbox,
   datepicker,
   formGroup,
-  // formValidator,
   modal,
   navbar,
   option,

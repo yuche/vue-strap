@@ -12,35 +12,37 @@
           <p><a class="btn btn-outline-inverse btn-lg" href="https://github.com/yuche/vue-strap">Code on GitHub</a></p>
         </div>
       </div>
-      <container>
-        <div ref="sections" class="col-md-9">
-          <getting-started></getting-started>
-          <accordion-docs></accordion-docs>
-          <affix-docs></affix-docs>
-          <alert-docs></alert-docs>
-          <aside-docs></aside-docs>
-          <button-group-docs></button-group-docs>
-          <checkbox-docs></checkbox-docs>
-          <carousel-docs></carousel-docs>
-          <datepicker-docs></datepicker-docs>
-          <dropdown-docs></dropdown-docs>
-          <input-docs></input-docs>
-          <modal-docs></modal-docs>
-          <navbar-docs></navbar-docs>
-          <popover-docs></popover-docs>
-          <progressbar-docs></progressbar-docs>
-          <radio-docs></radio-docs>
-          <select-docs></select-docs>
-          <tabs-docs></tabs-docs>
-          <tooltip-docs></tooltip-docs>
-          <typeahead-docs></typeahead-docs>
-          <spinner-docs></spinner-docs>
-          <form-group-docs></form-group-docs>
+      <div class="container bs-docs-container">
+        <div class="row">
+          <div class="col-md-9">
+            <getting-started></getting-started>
+            <dropdown-docs></dropdown-docs>
+            <tabs-docs></tabs-docs>
+            <!-- <accordion-docs></accordion-docs>
+            <affix-docs></affix-docs>
+            <alert-docs></alert-docs>
+            <aside-docs></aside-docs>
+            <button-group-docs></button-group-docs>
+            <carousel-docs></carousel-docs>
+            <checkbox-docs></checkbox-docs>
+            <datepicker-docs></datepicker-docs>
+            <input-docs></input-docs>
+            <modal-docs></modal-docs>
+            <navbar-docs></navbar-docs>
+            <popover-docs></popover-docs>
+            <progressbar-docs></progressbar-docs>
+            <radio-docs></radio-docs>
+            <select-docs></select-docs>
+            <spinner-docs></spinner-docs>
+            <tooltip-docs></tooltip-docs>
+            <typeahead-docs></typeahead-docs>
+            <form-group-docs></form-group-docs> -->
+          </div>
+          <div class="col-md-3">
+            <!-- <affix-sidebar></affix-sidebar> -->
+          </div>
         </div>
-        <div class="col-md-3">
-          <affix-sidebar></affix-sidebar>
-        </div>
-      </container>
+      </div>
     </div>
     <footer class="bs-docs-footer">
       <div class="container">
@@ -60,57 +62,55 @@
 </template>
 
 <script>
-import affixSidebar from './affixSidebar.vue'
-import container from './example/container.vue'
-import gettingStarted from './example/gettingStarted.vue'
-import accordionDocs from './example/accordionDocs.vue'
-import affixDocs from './example/affixDocs.vue'
-import alertDocs from './example/alertDocs.vue'
-import asideDocs from './example/asideDocs.vue'
-import buttonGroupDocs  from './example/buttonGroupDocs.vue'
-import carouselDocs from './example/carouselDocs.vue'
-import checkboxDocs from './example/checkboxDocs.vue'
-import datepickerDocs from './example/datepickerDocs.vue'
+// import accordionDocs from './example/accordionDocs.vue'
+// import affixDocs from './example/affixDocs.vue'
+// import affixSidebar from './affixSidebar.vue'
+// import alertDocs from './example/alertDocs.vue'
+// import asideDocs from './example/asideDocs.vue'
+// import buttonGroupDocs  from './example/buttonGroupDocs.vue'
+// import carouselDocs from './example/carouselDocs.vue'
+// import checkboxDocs from './example/checkboxDocs.vue'
+// import datepickerDocs from './example/datepickerDocs.vue'
+// import formGroupDocs from './example/formGroupDocs.vue'
+// import inputDocs from './example/inputDocs.vue'
+// import modalDocs from './example/modalDocs.vue'
+// import navbarDocs from './example/navbarDocs.vue'
+// import popoverDocs from './example/popoverDocs.vue'
+// import progressbarDocs from './example/progressbar-docs.vue'
+// import radioDocs from './example/radioDocs.vue'
+// import selectDocs from './example/selectDocs.vue'
+// import spinnerDocs from './example/spinnerDocs.vue'
+// import tooltipDocs from './example/tooltipDocs.vue'
+// import typeaheadDocs from './example/typeaheadDocs.vue'
 import dropdownDocs from './example/dropdownDocs.vue'
-import formGroupDocs from './example/formGroupDocs.vue'
-import inputDocs from './example/inputDocs.vue'
-import modalDocs from './example/modalDocs.vue'
-import navbarDocs from './example/navbarDocs.vue'
-import popoverDocs from './example/popoverDocs.vue'
-import progressbarDocs from './example/progressbar-docs.vue'
-import radioDocs from './example/radioDocs.vue'
-import selectDocs from './example/selectDocs.vue'
-import spinnerDocs from './example/spinnerDocs.vue'
+import gettingStarted from './example/gettingStarted.vue'
 import tabsDocs from './example/tabsDocs.vue'
-import tooltipDocs from './example/tooltipDocs.vue'
-import typeaheadDocs from './example/typeaheadDocs.vue'
 
 export default {
   components: {
-    affixSidebar,
-    container,
-    gettingStarted,
-    accordionDocs,
-    affixDocs,
-    alertDocs,
-    asideDocs,
-    buttonGroupDocs,
-    carouselDocs,
-    checkboxDocs,
-    datepickerDocs,
+    // accordionDocs,
+    // affixDocs,
+    // affixSidebar,
+    // alertDocs,
+    // asideDocs,
+    // buttonGroupDocs,
+    // carouselDocs,
+    // checkboxDocs,
+    // datepickerDocs,
+    // formGroupDocs,
+    // inputDocs,
+    // modalDocs,
+    // navbarDocs,
+    // popoverDocs,
+    // progressbarDocs,
+    // radioDocs,
+    // selectDocs,
+    // spinnerDocs,
+    // tooltipDocs,
+    // typeaheadDocs,
     dropdownDocs,
-    formGroupDocs,
-    inputDocs,
-    modalDocs,
-    navbarDocs,
-    popoverDocs,
-    progressbarDocs,
-    radioDocs,
-    selectDocs,
-    spinnerDocs,
+    gettingStarted,
     tabsDocs,
-    tooltipDocs,
-    typeaheadDocs 
   },
   computed: {
     local () { return location.hostname === 'localhost' }

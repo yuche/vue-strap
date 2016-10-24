@@ -39,24 +39,24 @@
       </p>
     </div>
     <doc-code language="markup">
-      <button-group v-model="checkboxValue">
-        <checkbox value="left">Left</checkbox>
-        <checkbox value="middle">Middle</checkbox>
-        <checkbox value="right">Right</checkbox>
-      </button-group>
+      &lt;button-group v-model="checkboxValue">
+        &lt;checkbox value="left">Left&lt;/checkbox>
+        &lt;checkbox value="middle">Middle&lt;/checkbox>
+        &lt;checkbox value="right">Right&lt;/checkbox>
+      &lt;/button-group>
 
-      <button-group v-model="radioValue" type="primary">
-        <radio value="left">Left</radio>
-        <radio value="middle">Middle</radio>
-        <radio value="right">Right</radio>
-      </button-group>
+      &lt;button-group v-model="radioValue" type="primary">
+        &lt;radio value="left">Left&lt;/radio>
+        &lt;radio value="middle">Middle&lt;/radio>
+        &lt;radio value="right">Right&lt;/radio>
+      &lt;/button-group>
 
       Not Buttons:
-      <button-group v-model="radioValue" type="info" buttons="false">
-        <radio value="left">Left</radio>
-        <radio value="middle">Middle</radio>
-        <radio value="right">Right</radio>
-      </button-group>
+      &lt;button-group v-model="radioValue" type="info" buttons="false">
+        &lt;radio value="left">Left&lt;/radio>
+        &lt;radio value="middle">Middle&lt;/radio>
+        &lt;radio value="right">Right&lt;/radio>
+      &lt;/button-group>
     </doc-code>
 
     <doc-table>
@@ -93,8 +93,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import buttonGroup from 'src/buttonGroup.vue'
 import checkbox from 'src/Checkbox.vue'
 import radio from 'src/Radio.vue'

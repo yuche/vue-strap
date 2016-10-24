@@ -23,25 +23,25 @@
       </div>
     </div>
     <doc-code language="markup">
-      <navbar placement="top" type="default">
-        <!-- Brand as slot -->
-        <a slot="brand" href="/" title="Home" class="navbar-brand">VueStrap</a>
-        <!-- You can use dropdown component -->
-        <dropdown text="Dropdown">
-          <li><a href="link">Option</a></li>
-        </dropdown>
-        <!-- Or normal bootstrap style -->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle">Dropdown</a>
-          <ul class="dropdown-menu">
-            <li><a href="link">Option</a></li>
-          </ul>
-        </li>
-        <!-- For right positioning use slot -->
-        <li slot="right">
-          <a href="https://github.com/yuche/vue-strap" target="_blank">Fork...</a>
-        </li>
-      </navbar>
+      &lt;navbar placement="top" type="default">
+        &lt;!-- Brand as slot -->
+        &lt;a slot="brand" href="/" title="Home" class="navbar-brand">VueStrap&lt;/a>
+        &lt;!-- You can use dropdown component -->
+        &lt;dropdown text="Dropdown">
+          &lt;li>&lt;a href="link">Option&lt;/a>&lt;/li>
+        &lt;/dropdown>
+        &lt;!-- Or normal bootstrap style -->
+        &lt;li class="dropdown">
+          &lt;a href="#" class="dropdown-toggle">Dropdown&lt;/a>
+          &lt;ul class="dropdown-menu">
+            &lt;li>&lt;a href="link">Option&lt;/a>&lt;/li>
+          &lt;/ul>
+        &lt;/li>
+        &lt;!-- For right positioning use slot -->
+        &lt;li slot="right">
+          &lt;a href="https://github.com/yuche/vue-strap" target="_blank">Fork...&lt;/a>
+        &lt;/li>
+      &lt;/navbar>
     </doc-code>
     <doc-table>
       <div>
@@ -62,8 +62,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import dropdown from 'src/components/Dropdown.vue'
 import navbar from 'src/Navbar.vue'
 import tooltip from 'src/Tooltip.vue'

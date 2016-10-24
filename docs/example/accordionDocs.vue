@@ -97,8 +97,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import accordion from 'src/Accordion.vue'
 import checkbox from 'src/Checkbox.vue'
 import panel from 'src/Panel.vue'

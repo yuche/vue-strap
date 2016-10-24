@@ -89,38 +89,38 @@
       </modal>
     </div>
     <doc-code language="markup">
-      <modal v-model="show">
-        <div slot="modal-header" class="modal-header">
-          <h4 class="modal-title">Modal title</h4>
-        </div>
-        <div slot="modal-body" class="modal-body">...</div>
-      </modal>
+      &lt;modal v-model="show">
+        &lt;div slot="modal-header" class="modal-header">
+          &lt;h4 class="modal-title">Modal title&lt;/h4>
+        &lt;/div>
+        &lt;div slot="modal-body" class="modal-body">...&lt;/div>
+      &lt;/modal>
 
-      <modal title="Fade Modal" v-model="show" effect="fade" width="800">
-        <div slot="modal-body" class="modal-body">...</div>
-      </modal>
+      &lt;modal title="Fade Modal" v-model="show" effect="fade" width="800">
+        &lt;div slot="modal-body" class="modal-body">...&lt;/div>
+      &lt;/modal>
 
-      <modal title="Zoom Modal" v-model="show" effect="zoom" width="400">
-        <div slot="modal-body" class="modal-body">...</div>
-      </modal>
-      <modal v-model="show" effect="fade" width="400">
-        <div slot="modal-header" class="modal-header">
-          <h4 class="modal-title">
-            <i>Custom</i> <code>Modal</code> <b>Title</b>
-          </h4>
-        </div>
-        <div slot="modal-body" class="modal-body">...</div>
-        <div slot="modal-footer" class="modal-footer">
-          <button type="button" class="btn btn-default" @click="showCustomModal = false">Exit</button>
-          <button type="button" class="btn btn-success" @click="showCustomModal = false">Custom Save</button>
-        </div>
-      </modal>
-      <modal title="Large Modal" large v-model="show">
-        <div slot="modal-body" class="modal-body">...</div>
-      </modal>
-      <modal title="Small Modal" small v-model="show">
-        <div slot="modal-body" class="modal-body">...</div>
-      </modal>
+      &lt;modal title="Zoom Modal" v-model="show" effect="zoom" width="400">
+        &lt;div slot="modal-body" class="modal-body">...&lt;/div>
+      &lt;/modal>
+      &lt;modal v-model="show" effect="fade" width="400">
+        &lt;div slot="modal-header" class="modal-header">
+          &lt;h4 class="modal-title">
+            &lt;i>Custom&lt;/i> &lt;code>Modal&lt;/code> &lt;b>Title&lt;/b>
+          &lt;/h4>
+        &lt;/div>
+        &lt;div slot="modal-body" class="modal-body">...&lt;/div>
+        &lt;div slot="modal-footer" class="modal-footer">
+          &lt;button type="button" class="btn btn-default" @click="showCustomModal = false">Exit&lt;/button>
+          &lt;button type="button" class="btn btn-success" @click="showCustomModal = false">Custom Save&lt;/button>
+        &lt;/div>
+      &lt;/modal>
+      &lt;modal title="Large Modal" large v-model="show">
+        &lt;div slot="modal-body" class="modal-body">...&lt;/div>
+      &lt;/modal>
+      &lt;modal title="Small Modal" small v-model="show">
+        &lt;div slot="modal-body" class="modal-body">...&lt;/div>
+      &lt;/modal>
   </doc-code>
   <doc-table>
     <div>
@@ -184,8 +184,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import modal from 'src/Modal.vue'
 
 export default {

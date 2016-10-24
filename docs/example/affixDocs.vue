@@ -10,14 +10,14 @@
       </h3>
     </div>
     <doc-code language="markup">
-      <affix offset="50">
-        <ul>
-          <li>...</li>
-          <li>...</li>
-          <li>...</li>
-        </ul>
-        <a href="#">...</a>
-      </affix>
+      &lt;affix offset="50">
+        &lt;ul>
+          &lt;li>...&lt;/li>
+          &lt;li>...&lt;/li>
+          &lt;li>...&lt;/li>
+        &lt;/ul>
+        &lt;a href="#">...&lt;/a>
+      &lt;/affix>
     </doc-code>
     <doc-table>
       <div>
@@ -32,8 +32,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import tooltip from 'src/Tooltip.vue'
 
 export default {

@@ -37,31 +37,31 @@
       ></typeahead>
     </div>
     <doc-code language="markup">
-      <h4>Static arrays</h4>
-      <typeahead
+      &lt;h4>Static arrays&lt;/h4>
+      &lt;typeahead
         :data="USstate"
         placeholder="USA states">
-      </typeahead>
+      &lt;/typeahead>
 
-      <h4>Asynchronous results</h4>
-        <typeahead
+      &lt;h4>Asynchronous results&lt;/h4>
+        &lt;typeahead
           placeholder="Address, async via maps.googleapis.com"
           key="results"
           src="https://maps.googleapis.com/maps/api/geocode/json?address="
           template-name="async"
           :template="asyncTemplate"
           :on-hit="googleCallback">
-      </typeahead>
+      &lt;/typeahead>
 
-      <h4>Custom templates for results</h4>
-        <typeahead
+      &lt;h4>Custom templates for results&lt;/h4>
+        &lt;typeahead
           placeholder="Github users, async via api.github.com"
           key="items"
           src="https://api.github.com/search/users?q="
           template-name="typeahead-github-template"
           :template="githubTemplate"
           :on-hit="githubCallback">
-      </typeahead>
+      &lt;/typeahead>
     </doc-code>
     <doc-code language="javascript">
       new Vue {
@@ -72,8 +72,8 @@
           return {
             USstate: ['Alabama', 'Alaska', 'Arizona',...],
             asynchronous: '{{formatted_address}}',
-            customTemplate: '<img width="18px" height="18px" :src="avatar_url"/>' +
-            '<span>{{login}}</span>'
+            customTemplate: '&lt;img width="18px" height="18px" :src="avatar_url"/>' +
+            '&lt;span>{{login}}&lt;/span>'
           }
         },
         methods: {
@@ -149,8 +149,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import typeahead from 'src/Typeahead.vue'
 import tooltip from 'src/Tooltip.vue'
 

@@ -17,7 +17,7 @@
         </li>
       </ul>
     </div>
-    <h2>CommonJS</h2>
+    <h4>CommonJS</h4>
     <doc-code language="javascript">
       $ npm install vue-strap
 
@@ -31,7 +31,7 @@
         }
       })
     </doc-code>
-    <h2>ES6</h2>
+    <h4>ES6</h4>
     <doc-code language="javascript">
       $ npm install vue-strap
 
@@ -42,17 +42,17 @@
       new Vue({
         components: {
           alert
-        }``
+        }
       })
     </doc-code>
 
-    <h2>AMD</h2>
+    <h4>AMD</h4>
     <doc-code language="javascript">
       $ bower install vue-strap
 
       define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
     </doc-code>
-    <h2>Browser globals</h2>
+    <h4>Browser globals</h4>
     <p>
       The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.min.js</code> with
       all components exported in the <code>window.VueStrap</code> object. These bundles are also available on both the
@@ -79,7 +79,7 @@
     <doc-code language="markup">
       &lt;script src="path/to/vue-strap-lang.js">&lt;/script>
     </doc-code>
-    <h2>CommonJS</h2>
+    <h4>CommonJS</h4>
     <doc-code language="javascript">
       require('vue-strap/dist/vue-strap-lang.js')
     </doc-code>
@@ -89,6 +89,10 @@
     <p>If you need to enable/disable options if is a mobile device you can add:</p>
     <doc-code language="markup">
       &lt;script src="path/to/isMobileBrowser.js">&lt;/script>
+    </doc-code>
+    <h4>CommonJS</h4>
+    <doc-code language="javascript">
+      require('vue-strap/dist/isMobileBrowser.js')
     </doc-code>
     <p>Then in javascript you can check it just doing:</p>
     <doc-code language="javascript">
@@ -107,7 +111,7 @@
   </div>
 </template>
 <script>
-import docCode from './utils/docCode.vue'
+import docCode from './utils/docCode.js'
 export default {
   components: {
     docCode

@@ -19,9 +19,9 @@
       </tooltip>
     </div>
     <doc-code language="markup">
-      <tooltip effect="scale" placement="bottom" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
-        <button class="btn btn-default">tooltip on bottom</button>
-      </tooltip>
+      &lt;tooltip effect="scale" placement="bottom" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
+        &lt;button class="btn btn-default">tooltip on bottom&lt;/button>
+      &lt;/tooltip>
     </doc-code>
     <doc-table>
       <div>
@@ -56,8 +56,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import bsInput from 'src/components/Input.vue'
 import tooltip from 'src/Tooltip.vue'
 

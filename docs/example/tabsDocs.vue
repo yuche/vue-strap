@@ -33,27 +33,27 @@
       </tabs>
     </div>
     <doc-code language="markup">
-      <tabs>
-        <tab header="one">
+      &lt;tabs>
+        &lt;tab header="one">
           ...
-        </tab>
-        <tab header="two" disabled>
+        &lt;/tab>
+        &lt;tab header="two" disabled>
           ...
-        </tab>
-        <tab-group header="group1">
-          <tab header="three">
+        &lt;/tab>
+        &lt;tab-group header="group1">
+          &lt;tab header="three">
             ...
-          </tab>
-          <tab header="four" disabled>
+          &lt;/tab>
+          &lt;tab header="four" disabled>
             ...
-          </tab>
-        </tab-group>
-        <tab-group header="group2">
-          <tab header="five">
+          &lt;/tab>
+        &lt;/tab-group>
+        &lt;tab-group header="group2">
+          &lt;tab header="five">
             ...
-          </tab>
-        </tab-group>
-      </tabs>
+          &lt;/tab>
+        &lt;/tab-group>
+      &lt;/tabs>
     </doc-code>
     <doc-code language="javascript">
       components: {
@@ -103,8 +103,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import tabs from 'src/components/Tabs.vue'
 import tabGroup from 'src/components/TabGroup.vue'
 import tab from 'src/components/Tab.vue'

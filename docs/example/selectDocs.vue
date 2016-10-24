@@ -42,14 +42,14 @@
         </div>
       </button-group>
       <doc-code>
-        <form action="./#select" method="get">
-          <v-select v-model="select.value" :options="select.options" options-value="val"
+        &lt;form action="./#select" method="get">
+          &lt;v-select v-model="select.value" :options="select.options" options-value="val"
             multiple name="animals[]" limit="3"
             search justified required disabled
             clear-button close-on-select
-          ></v-select>
-          <button type="submit" class="btn btn-default">Submit form</button>
-        </form>
+          >&lt;/v-select>
+          &lt;button type="submit" class="btn btn-default">Submit form&lt;/button>
+        &lt;/form>
       </doc-code>
       <doc-code language="javascript">
         options: [
@@ -73,13 +73,13 @@
         <v-option value="grape">Grape</v-option>
       </v-select>
       <doc-code>
-        <v-select>
-          <v-option value="apple">Apple</v-option>
-          <v-option value="banana">Banana</v-option>
-          <v-option value="cherry">Cherry</v-option>
-          <v-option value="orange">Orange</v-option>
-          <v-option value="grape">Grape</v-option>
-        </v-select>
+        &lt;v-select>
+          &lt;v-option value="apple">Apple&lt;/v-option>
+          &lt;v-option value="banana">Banana&lt;/v-option>
+          &lt;v-option value="cherry">Cherry&lt;/v-option>
+          &lt;v-option value="orange">Orange&lt;/v-option>
+          &lt;v-option value="grape">Grape&lt;/v-option>
+        &lt;/v-select>
       </doc-code>
       <hr/>
       <h4>Use button-group (component or <a href="http://getbootstrap.com/components/#btn-groups-justified">bootstrap element</a>) if you want to justify.</h4>
@@ -106,9 +106,9 @@
         </v-select>
       </button-group>
       <doc-code>
-        <button-group justified><select>...</select></button-group>
+        &lt;button-group justified>&lt;select>...&lt;/select>&lt;/button-group>
         // or
-        <div class="btn-group btn-group-justified"><select>...</select></div>
+        &lt;div class="btn-group btn-group-justified">&lt;select>...&lt;/select>&lt;/div>
       </doc-code>
       <hr/>
       <h4>Ajax data and parent dependency:</h4>
@@ -116,11 +116,11 @@
       <v-select url="docs/data.json" options-label="text" v-model="ajax.value" clear-button ref="ajax"></v-select>
       <v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value"></v-select>
       <doc-code>
-        <v-select url="docs/data.json" options-label="text" v-model="ajax.value" clear-button></v-select>
-        <v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value"></v-select>
+        &lt;v-select url="docs/data.json" options-label="text" v-model="ajax.value" clear-button>&lt;/v-select>
+        &lt;v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value">&lt;/v-select>
       </doc-code>
       <p>Ajax response:</p>
-      <pre v-html="$refs.ajax.options"></pre>
+      <pre v-html="$refs.ajax&&$refs.ajax.options"></pre>
     </div>
     <doc-table name="Other">
       <div>
@@ -174,8 +174,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import buttonGroup from 'src/buttonGroup.vue'
 import checkbox from 'src/Checkbox.vue'
 import vSelect from 'src/components/Select.vue'
@@ -194,6 +194,8 @@ export default {
   data () {
     return {
       select: {
+        justified: true,
+        multiple: [],
         options: [
           {val: 0, label: 'Cat'},
           {val: 1, label: 'Cow'},
@@ -204,9 +206,7 @@ export default {
           {val: 6, label: 'Tiger'},
           {val: 7, label: 'Turtle'}
         ],
-        justified: true,
-        search: true,
-        multible: []
+        search: true
       },
       ajax: {
         value:null

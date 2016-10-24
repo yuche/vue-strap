@@ -17,10 +17,10 @@
       </p>
     </div>
     <doc-code language="markup">
-      <checkbox :checked="checkboxValue.one" @checked="checkboxValue.one = arguments[0]" value="one">One</checkbox>
-      <checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = arguments[0]" value="two" type="primary">Two</checkbox>
-      <checkbox :checked="checkboxValue.three" @checked="checkboxValue.three = arguments[0]" value="three" type="info">Three</checkbox>
-      <checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = arguments[0]" value="four" type="danger">Four</checkbox>
+      &lt;checkbox :checked="checkboxValue.one" @checked="checkboxValue.one = arguments[0]" value="one">One&lt;/checkbox>
+      &lt;checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = arguments[0]" value="two" type="primary">Two&lt;/checkbox>
+      &lt;checkbox :checked="checkboxValue.three" @checked="checkboxValue.three = arguments[0]" value="three" type="info">Three&lt;/checkbox>
+      &lt;checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = arguments[0]" value="four" type="danger">Four&lt;/checkbox>
     </doc-code>
     <doc-table>
       <div>
@@ -59,8 +59,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import checkbox from 'src/Checkbox.vue'
 
 export default {

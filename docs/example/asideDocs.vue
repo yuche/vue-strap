@@ -38,12 +38,12 @@
       </sidebar>
     </div>
     <doc-code language="markup">
-      <sidebar v-model="showRight" placement="right" header="Title" width="350">
+      &lt;sidebar v-model="showRight" placement="right" header="Title" width="350">
         ...
-      </sidebar>
-      <sidebar v-model="showLeft" placement="left" header="Title" width="350">
+      &lt;/sidebar>
+      &lt;sidebar v-model="showLeft" placement="left" header="Title" width="350">
         ...
-      </sidebar>
+      &lt;/sidebar>
     </doc-code>
     <doc-table>
       <div>
@@ -76,8 +76,8 @@
 
 <script>
 import docSection from './utils/docSection.vue'
-import docTable from './utils/docTable.vue'
-import docCode from './utils/docCode.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import sidebar from 'src/Aside.vue'
 
 export default {
