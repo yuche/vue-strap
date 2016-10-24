@@ -1,7 +1,5 @@
 <template>
-  <div ref="panel" role="tabpanel" :class="['tab-pane',{'active fade':active,'in':fadein}]">
-    <slot></slot>
-  </div>
+  <div ref="panel" role="tabpanel" :class="['tab-pane',{'active fade':active,'in':fadein}]"><slot></slot></div>
 </template>
 
 <script>
