@@ -1,6 +1,6 @@
 <template>
-  <div class="bs-docs-section" id="getting-started">
-    <h1 class="page-header"><a href="#getting-started" class="anchor">Getting started</a></h1>
+<div>
+  <doc-section id="getting-started" name="Getting started">
     <div class="bs-callout bs-callout-success">
       <h4>About this project</h4>
       <p>
@@ -108,13 +108,46 @@
       }
     </doc-code>
     <p>Based on <a href="http://detectmobilebrowsers.com/">Detect Mobile Browsers</a>.</p>
-  </div>
+  </doc-section>
+  <doc-section id="handle-events" name="Event Handling">
+    <p>The events return values as arguments, you have 2 ways to handle them:</p>
+    <doc-code>
+      &lt;!-- using expression -->
+      &lt;component @event="arg0 = arguments[0]">&lt;/component>
+      &lt;!-- using method -->
+      &lt;component @event="callable">&lt;/component>
+    </doc-code>
+    <doc-code language="javascript">
+      methods: {
+        callable: function (arg0, arg1, ...) {
+          // defined arguments
+          this.arg0 = arg0
+          // or global arguments array
+          this.arg0 = arguments[0]
+        }
+      }
+    </doc-code>
+    <p>The number of arguments depend on the event.</p>
+  </doc-section>
+  <doc-section id="vue2-binding" name="vue 2 binding">
+    <p>According to the vue2 specifications, <code>twoWay</code> binding is not supported anymore, except for <code>v-model</code>.</p>
+    <p>For use in vue 1, keep in mind:</p>
+    <doc-code>
+      &lt;!-- using v-model -->
+      &lt;component v-model="element">&lt;/component>
+      &lt;!-- will be translated in vue2 to (or use it in vue 1 like): -->
+      &lt;component :value="element" @input="element = argument[0]">&lt;/component>
+    </doc-code>
+  </doc-section>
+</div>
 </template>
 <script>
 import docCode from './utils/docCode.js'
+import docSection from './utils/docSection.vue'
 export default {
   components: {
-    docCode
+    docCode,
+    docSection
   }
 }
 </script>

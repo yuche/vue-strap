@@ -1,6 +1,6 @@
 <template>
   <div tabs>
-    <ul :class="'nav nav-' + navStyle" role="tablist">
+    <ul :class="navStyleClass" role="tablist">
       <template v-for="header in headers">
         <li v-if="header._isTab" :class="{active:header.active, disabled:header.disabled}" @click.prevent="select(header)">
           <slot name="header"><a href="#" v-html="header.header"></a></slot>
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import {coerce} from './utils/utils.js'
 import dropdown from './Dropdown.vue'
 
 export default {
@@ -23,7 +24,8 @@ export default {
   },
   props: {
     // effect: {type: String, default: 'fadein'},
-    navStyle: {type: String, default: 'tabs'},
+    justified: false,
+    navStyle: {type: String, default: null},
     value: {type: Number, default: 0}
   },
   data () {
@@ -44,6 +46,16 @@ export default {
     }
   },
   computed: {
+    navStyleClass () {
+      return [
+        'nav',
+        ~['pills', 'stacked'].indexOf(this.navStyle) ? 'nav-' + this.navStyle : 'nav-tabs',
+        {
+          'nav-justified': coerce.boolean(this.justified),
+          'nav-pills': this.navStyle === 'stacked'
+        }
+      ]
+    },
     show () { return this.tabs[this.index] || this.tabs[0] }
   },
   methods: {

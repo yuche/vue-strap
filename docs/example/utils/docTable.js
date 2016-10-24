@@ -5,13 +5,14 @@ export default {
       options: ['Name', 'Type', 'Default', 'Description']
     }
     var headers = this.headers || defaultHeaders[this.type.toLowerCase()] || []
+    var len = headers.length
     headers = [createElement('tr',
       headers.map(name => createElement('th', name))
     )]
     var options = this.$slots.default.filter(el => el.tag)
     options.forEach(el => {
       el.tag = 'tr'
-      el.children = el.children.filter(el => el.tag)
+      el.children = el.children.filter(el => el.tag).filter((el, i) => i < len)
       el.children.forEach(el => { el.tag = 'td' })
     })
     return createElement('div', [

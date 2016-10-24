@@ -91,16 +91,10 @@
     </doc-code>
     <doc-table>
       <div>
-        <p>show</p>
+        <p>value (v-model)</p>
         <p><code>Boolean</code></p>
-        <p></p>
+        <p>false</p>
         <p>Whether show the component.</p>
-      </div>
-      <div>
-        <p>class</p>
-        <p><code>String</code></p>
-        <p><code>null</code></p>
-        <p>classes to change the style.</p>
       </div>
       <div>
         <p>disabled</p>
@@ -116,18 +110,28 @@
       </div>
       <div>
         <p>type</p>
-        <p><code>String</code>, one of <code>default</code>
-        <code>primary</code>
-        <code>danger</code>
-        <code>info</code>
-        <code>warning</code>
-        <code>success</code></p>
+        <p>
+          <code>String</code>, one of
+          <code>default</code>
+          <code>primary</code>
+          <code>danger</code>
+          <code>info</code>
+          <code>warning</code>
+          <code>success</code>
+        </p>
         <p><code>default</code></p>
         <p></p>
       </div>
     </doc-table>
+    <doc-table type="Events">
+      <div>
+        <p>input</p>
+        <p>(<code>Boolean</code>)</p>
+        <p>Return if the dropdown is shown.</p>
+      </div>
+    </doc-table>
     <h2>Usage</h2>
-    <p>Just like the examples. Can use it as the <a target="_blank" href="http://getbootstrap.com/javascript/#dropdowns">original Bootstrap way</a>.</p>
+    <p>Just like the examples. With slots you can use it as the <a target="_blank" href="http://getbootstrap.com/javascript/#dropdowns">original Bootstrap way</a>.</p>
   </doc-section>
 </template>
 
