@@ -55,8 +55,6 @@ export default {
   },
   created () {
     this._isTabs = true
-    console.log(this.$children)
-    console.log(this.headers)
   }
 }
 </script>
