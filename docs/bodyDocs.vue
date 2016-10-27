@@ -26,9 +26,9 @@
             <carousel-docs></carousel-docs>
             <checkbox-docs></checkbox-docs> -->
             <datepicker-docs></datepicker-docs>
-            <!-- <input-docs></input-docs>
+            <input-docs></input-docs>
             <modal-docs></modal-docs>
-            <navbar-docs></navbar-docs>
+            <!--<navbar-docs></navbar-docs>
             <popover-docs></popover-docs>
             <progressbar-docs></progressbar-docs>
             <radio-docs></radio-docs>
@@ -72,8 +72,8 @@
 // import checkboxDocs from './example/checkboxDocs.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
 // import formGroupDocs from './example/formGroupDocs.vue'
-// import inputDocs from './example/inputDocs.vue'
-// import modalDocs from './example/modalDocs.vue'
+import inputDocs from './example/inputDocs.vue'
+import modalDocs from './example/modalDocs.vue'
 // import navbarDocs from './example/navbarDocs.vue'
 // import popoverDocs from './example/popoverDocs.vue'
 // import progressbarDocs from './example/progressbar-docs.vue'
@@ -98,8 +98,8 @@ export default {
     // checkboxDocs,
     datepickerDocs,
     // formGroupDocs,
-    // inputDocs,
-    // modalDocs,
+    inputDocs,
+    modalDocs,
     // navbarDocs,
     // popoverDocs,
     // progressbarDocs,

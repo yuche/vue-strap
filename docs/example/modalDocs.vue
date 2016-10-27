@@ -2,7 +2,7 @@
   <doc-section id="modal" name="Modal">
     <div class="bs-example">
       <button class="btn btn-default" @click="showModal = true">Show modal</button>
-      <modal title="Modal title" v-model="showModal">
+      <modal title="Modal title" :show="showModal" @cancel="showModal = false">
         <div slot="modal-header" class="modal-header">
           <h4 class="modal-title">Modal <b>Title</b></h4>
         </div>
@@ -16,7 +16,7 @@
         </div>
       </modal>
       <button class="btn btn-success" @click="fadeModal = true">Fade modal</button>
-      <modal title="Fade Modal" v-model="fadeModal" effect="fade" width="800">
+      <modal title="Fade Modal" :show="fadeModal" @cancel="fadeModal = false" effect="fade" width="800">
         <div slot="modal-body" class="modal-body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -27,7 +27,7 @@
         </div>
       </modal>
       <button class="btn btn-primary" @click="zoomModal = true">Zoom modal</button>
-      <modal title="Zoom Modal" v-model="zoomModal" effect="zoom" width="400">
+      <modal title="Zoom Modal" :show="zoomModal" @cancel="zoomModal = false" effect="zoom" width="400">
         <div slot="modal-body" class="modal-body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -38,7 +38,7 @@
         </div>
       </modal>
       <button class="btn btn-default" @click="showCustomModal = true">Show custom modal</button>
-      <modal v-model="showCustomModal" effect="fade" width="50%">
+      <modal :show="showCustomModal" @cancel="showCustomModel = false" effect="fade" width="50%">
         <div slot="modal-header" class="modal-header">
           <h4 class="modal-title"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>
         </div>
@@ -56,7 +56,7 @@
         </div>
       </modal>
       <button class="btn btn-warning" @click="largeModal = true">Large modal</button>
-      <modal title="Large Modal" v-model="largeModal" large>
+      <modal title="Large Modal" :show="largeModal" @cancel="largeModal = false" large>
         <div slot="modal-body" class="modal-body">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -79,7 +79,7 @@
         </div>
       </modal>
       <button class="btn btn-danger" @click="smallModal = true">Small modal</button>
-      <modal title="Small Modal" v-model="smallModal" small>
+      <modal title="Small Modal" :show="smallModal" @cancel="smallModal = false" small>
         <div slot="modal-body" class="modal-body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -89,18 +89,18 @@
       </modal>
     </div>
     <doc-code language="markup">
-      &lt;modal v-model="show">
+      &lt;modal v-bind:show="show">
         &lt;div slot="modal-header" class="modal-header">
           &lt;h4 class="modal-title">Modal title&lt;/h4>
         &lt;/div>
         &lt;div slot="modal-body" class="modal-body">...&lt;/div>
       &lt;/modal>
 
-      &lt;modal title="Fade Modal" v-model="show" effect="fade" width="800">
+      &lt;modal title="Fade Modal" v-bind:show="show" effect="fade" width="800">
         &lt;div slot="modal-body" class="modal-body">...&lt;/div>
       &lt;/modal>
 
-      &lt;modal title="Zoom Modal" v-model="show" effect="zoom" width="400">
+      &lt;modal title="Zoom Modal" v-bind:show="show" effect="zoom" width="400">
         &lt;div slot="modal-body" class="modal-body">...&lt;/div>
       &lt;/modal>
       &lt;modal v-model="show" effect="fade" width="400">
@@ -115,14 +115,20 @@
           &lt;button type="button" class="btn btn-success" @click="showCustomModal = false">Custom Save&lt;/button>
         &lt;/div>
       &lt;/modal>
-      &lt;modal title="Large Modal" large v-model="show">
+      &lt;modal title="Large Modal" large v-bind:show="show">
         &lt;div slot="modal-body" class="modal-body">...&lt;/div>
       &lt;/modal>
-      &lt;modal title="Small Modal" small v-model="show">
+      &lt;modal title="Small Modal" small v-bind:show="show">
         &lt;div slot="modal-body" class="modal-body">...&lt;/div>
       &lt;/modal>
   </doc-code>
   <doc-table>
+    <div>
+      <p>show</p>
+      <p><code>Boolean</code></p>
+      <p></p>
+      <p>true if modal need to be shown, note the Modal has no intenal state</p>
+    </div>
     <div>
       <p>title</p>
       <p><code>String</code></p>

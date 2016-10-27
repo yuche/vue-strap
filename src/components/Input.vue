@@ -182,8 +182,17 @@ export default {
       if (this.match !== null) { return this.match === value }
       if (value.length < this.minlength) { return false }
       if (this.nativeValidate && !this.input.checkValidity()) { return false }
-      if (this.pattern) {
-        return this.pattern instanceof Function ? this.pattern(this.value) : this.pattern.test(this.value)
+      if (this.pattern ) {
+        if( typeof this.pattern == 'string' ) { 
+          let re = new RegExp( this.pattern )
+
+          return re.test(this.value)
+        }
+        if( this.pattern instanceof Function ) 
+          return this.pattern(this.value)
+
+        if( this.pattern instanceof RegExp ) 
+          return this.pattern.test(this.value)
       }
       return true
     }

@@ -5,7 +5,7 @@
         <slot name="modal-header">
           <div class="modal-header">
             <button type="button" class="close" @click="close"><span>&times;</span></button>
-            <h4 class="modal-title"><slot name="title">{{title}}</slot></h4>
+            <h4 class="modal-title"><slot name="title">{{ title }}</slot></h4>
           </div>
         </slot>
         <slot name="modal-body"><div class="modal-body"></div></slot>
@@ -33,15 +33,15 @@ import $ from './utils/NodeList.js'
 export default {
   props: {
     backdrop: {type: Boolean, default: true},
-    callback: {type: Function, default: null},
+    callback: {type: Function, default: null}, // called on ok
     cancelText: {type: String, default: 'Close'},
     effect: {type: String, default: null},
     large: {type: Boolean, default: false},
     okText: {type: String, default: 'Save changes'},
     small: {type: Boolean, default: false},
     title: {type: String, default: ''},
-    value: {type: Boolean, required: true},
-    width: {default: null}
+    width: {default: null},
+    show: {type: Boolean, required: false}
   },
   computed: {
     optionalWidth () {
@@ -54,8 +54,8 @@ export default {
     }
   },
   watch: {
-    value (val) {
-      this.$emit('input', val)
+    show (val) {
+      this.$emit('show', val)
       const el = this.$el
       const body = document.body
       const scrollBarWidth = getScrollBarWidth()
@@ -69,7 +69,8 @@ export default {
         }
         if (this.backdrop) {
           $(el).on('click', e => {
-            if (e.target === el) this.value = false
+            if (e.target === el) 
+              this.$emit( 'cancel' )
           })
         }
       } else {
@@ -84,12 +85,16 @@ export default {
   },
   methods: {
     cancel () {
-      this.value = false
       this.$emit('cancel')
     },
     ok () {
-      if (this.callback instanceof Function) this.callback()
+      if (this.callback instanceof Function) 
+        this.callback()
+
       this.$emit('ok')
+    },
+    close() { 
+      this.$emit( 'cancel' )
     }
   }
 }

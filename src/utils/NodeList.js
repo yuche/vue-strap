@@ -262,7 +262,7 @@ class NodeList {
     } else if (typeof events === 'string') {
       for (let i in this) {
         Events.forEach(e => {
-          events.events.split(' ').forEach(event => {
+          events.split(' ').forEach(event => {
             if (Events[e] && Events[e].el === this[i] && Events[e].event === event) {
               Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
               delete Events[e]
