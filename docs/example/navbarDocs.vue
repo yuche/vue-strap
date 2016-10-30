@@ -86,11 +86,6 @@ export default {
       sections: []
     }
   },
-  watch: {
-    sections( val ) {
-      console.log(val)
-    }
-  },
   created () {
     if (!this.$root.sections) {
       this.$root.sections = []

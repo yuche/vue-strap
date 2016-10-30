@@ -4,7 +4,7 @@
       <slot name="header"><h4 class="panel-title">{{ header }}</h4></slot>
     </div>
     <transition name="collapse">
-      <div class="panel-collapse" v-show="isOpen">
+      <div class="panel-collapse" v-if="isOpen">
         <div class="panel-body">
           <slot></slot>
         </div>

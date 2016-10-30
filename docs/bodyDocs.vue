@@ -29,14 +29,14 @@
             <input-docs></input-docs>
             <modal-docs></modal-docs>
             <navbar-docs></navbar-docs>
-            <!-- <popover-docs></popover-docs>
+            <popover-docs></popover-docs>
             <progressbar-docs></progressbar-docs>
-            <radio-docs></radio-docs>
-            <select-docs></select-docs>
+            <radio-docs></radio-docs> 
+            <!--<select-docs></select-docs> -->
             <spinner-docs></spinner-docs>
             <tooltip-docs></tooltip-docs>
-            <typeahead-docs></typeahead-docs>
-            <form-group-docs></form-group-docs> -->
+             <typeahead-docs></typeahead-docs>
+            <form-group-docs></form-group-docs>
           </div>
           <div class="col-md-3">
             <!-- <affix-sidebar></affix-sidebar> -->
