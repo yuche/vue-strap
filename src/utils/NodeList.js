@@ -389,8 +389,12 @@ function setterGetter (prop) {
       },
       set: function (value) {
         for (let i in this) {
-          if (this[i] && prop in this[i]) {
-            this[i][prop] = value
+          if( i ) {
+            let o = this[ i ]
+
+            if (typeof o == 'object' && prop in o) {
+              o[prop] = value
+            }
           }
         }
       }

@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
+  <div class="form-group" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}" @focus="input_focus" @blur="input_blur">
     <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
     <div v-if="slots.before||slots.after" class="input-group">
       <slot name="before"></slot>
@@ -58,7 +58,6 @@
 
 <script>
 import {translations} from './utils/utils.js'
-import $ from './utils/NodeList.js'
 
 export default {
   props: {
@@ -143,6 +142,15 @@ export default {
     }
   },
   methods: {
+    input_focus( e ) {
+      this.$emit('focus', e)
+    },
+    input_blur( e ) {
+      if (this.canValidate) { 
+        this.valid = this.validate() 
+      }
+      this.$emit('blur', e)
+    },
     attr (value) {
       return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value
     },
@@ -206,17 +214,12 @@ export default {
   },
   mounted () {
     this._parent && this._parent.children.push(this)
-    $(this.input).on('focus', e => this.$emit('focus', e)).on('blur', e => {
-      if (this.canValidate) { this.valid = this.validate() }
-      this.$emit('blur', e)
-    })
   },
   beforeDestroy () {
     if (this._parent) {
       var index = this._parent.children.indexOf(this)
       this._parent.children.splice(index, 1)
     }
-    $(this.input).off()
   }
 }
 </script>

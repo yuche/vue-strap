@@ -68,7 +68,7 @@
 
 <script>
 import {translations} from './utils/utils.js'
-import $ from './utils/NodeList.js'
+// import $ from './utils/NodeList.js'
 
 export default {
   props: {
@@ -101,15 +101,17 @@ export default {
     }
   },
   mounted () {
+    let el = this.$el
     this._blur = e => {
-      if (!this.$el.contains(e.target)) this.close()
+      if (!el.contains(e.target)) 
+        this.close()
     }
     this.$emit('child-created', this)
     this.currDate = this.parse(this.value) || this.parse(new Date())
-    $(window).on('click', this._blur)
+    window.addEventListener('click', this._blur);
   },
   beforeDestroy () {
-    $(window).off('click', this._blur)
+    window.removeEventListner('click', this._blur)
   },
   data () {
     return {

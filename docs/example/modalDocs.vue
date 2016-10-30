@@ -165,6 +165,12 @@
       <p><code>true</code></p>
       <p>Enables/disables closing the modal by clicking on the backdrop.</p>
     </div>
+    <div>
+      <p>effect</p>
+      <p><code>String</code></p>
+      <p></p>
+      <p>set the name of the effect to use on modal, like fade or zoom</p>
+    </div>
   </doc-table>
   <h2>Usage</h2>
   <p>

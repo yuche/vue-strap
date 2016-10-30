@@ -4,7 +4,7 @@
       <navbar :placement="placement" :type="type">
         <a href="/" title="Home" slot="brand" class="navbar-brand">VueStrap</a>
         <dropdown text="Component List" type="primary">
-          <li v-for="s in sections"><a :href="'#'+s.id" v-text="s.name"></a></li>
+          <li v-for="s in sections"><a :href="'#'+s.id" v-text="s.name[0]"></a></li>
         </dropdown>
         <li>
           <a href="https://github.com/yuche/vue-strap" target="_blank">
@@ -84,6 +84,11 @@ export default {
       placement : 'top',
       type : 'default',
       sections: []
+    }
+  },
+  watch: {
+    sections( val ) {
+      console.log(val)
     }
   },
   created () {

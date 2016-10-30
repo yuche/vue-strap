@@ -1,5 +1,5 @@
 <template>
-  <transition name="modal" v-on:after-leave='after_leave'>
+  <transition :name="effect" v-on:after-leave='after_leave'>
     <div v-if="show" role="dialog" class='modal in' style="display: block" @click="check_backdrop">
       <div class="modal-dialog" :class="{'modal-lg':large,'modal-sm':small}" role="document" :style="{width: optionalWidth}">
         <div class="modal-content" ref="content">
@@ -38,7 +38,7 @@ export default {
     backdrop: {type: Boolean, default: true},
     callback: {type: Function, default: null}, // called on ok
     cancelText: {type: String, default: 'Close'},
-    effect: {type: String, default: null},
+    effect: {type: String, default: ''},
     large: {type: Boolean, default: false},
     okText: {type: String, default: 'Save changes'},
     small: {type: Boolean, default: false},
@@ -98,24 +98,30 @@ export default {
 }
 </script>
 <style>
-.modal {
+.fade-enter-active, .fade-leave-active {
   transition: all 0.3s ease;
 }
-.modal.in {
+.fade-enter, .zoom-leave {
+  opacity: 0;
+}
+.modal {
   background-color: rgba(0,0,0,0.5);
 }
-.modal.zoom .modal-dialog {
+.modal-dialog {
+  
+}
+.zoom-enter-active, .zoom-leave-active {
   -webkit-transform: scale(0.1);
   -moz-transform: scale(0.1);
   -ms-transform: scale(0.1);
   transform: scale(0.1);
-  top: 300px;
   opacity: 0;
+  top: 300px;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
 }
-.modal.zoom.in .modal-dialog {
+.zoom-enter, .zoom-leave {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);

@@ -18,18 +18,18 @@
             <getting-started></getting-started>
             <dropdown-docs></dropdown-docs>
             <tabs-docs></tabs-docs>
-            <!-- <accordion-docs></accordion-docs>
+            <accordion-docs></accordion-docs>
             <affix-docs></affix-docs>
             <alert-docs></alert-docs>
             <aside-docs></aside-docs>
             <button-group-docs></button-group-docs>
             <carousel-docs></carousel-docs>
-            <checkbox-docs></checkbox-docs> -->
+            <checkbox-docs></checkbox-docs>
             <datepicker-docs></datepicker-docs>
             <input-docs></input-docs>
             <modal-docs></modal-docs>
-            <!--<navbar-docs></navbar-docs>
-            <popover-docs></popover-docs>
+            <navbar-docs></navbar-docs>
+            <!-- <popover-docs></popover-docs>
             <progressbar-docs></progressbar-docs>
             <radio-docs></radio-docs>
             <select-docs></select-docs>
@@ -62,55 +62,55 @@
 </template>
 
 <script>
-// import accordionDocs from './example/accordionDocs.vue'
-// import affixDocs from './example/affixDocs.vue'
-// import affixSidebar from './affixSidebar.vue'
-// import alertDocs from './example/alertDocs.vue'
-// import asideDocs from './example/asideDocs.vue'
-// import buttonGroupDocs  from './example/buttonGroupDocs.vue'
-// import carouselDocs from './example/carouselDocs.vue'
-// import checkboxDocs from './example/checkboxDocs.vue'
+import accordionDocs from './example/accordionDocs.vue'
+import affixDocs from './example/affixDocs.vue'
+import affixSidebar from './affixSidebar.vue'
+import alertDocs from './example/alertDocs.vue'
+import asideDocs from './example/asideDocs.vue'
+import buttonGroupDocs  from './example/buttonGroupDocs.vue'
+import carouselDocs from './example/carouselDocs.vue'
+import checkboxDocs from './example/checkboxDocs.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
-// import formGroupDocs from './example/formGroupDocs.vue'
+import formGroupDocs from './example/formGroupDocs.vue'
 import inputDocs from './example/inputDocs.vue'
 import modalDocs from './example/modalDocs.vue'
-// import navbarDocs from './example/navbarDocs.vue'
-// import popoverDocs from './example/popoverDocs.vue'
-// import progressbarDocs from './example/progressbar-docs.vue'
-// import radioDocs from './example/radioDocs.vue'
-// import selectDocs from './example/selectDocs.vue'
-// import spinnerDocs from './example/spinnerDocs.vue'
-// import tooltipDocs from './example/tooltipDocs.vue'
-// import typeaheadDocs from './example/typeaheadDocs.vue'
+import navbarDocs from './example/navbarDocs.vue'
+import popoverDocs from './example/popoverDocs.vue'
+import progressbarDocs from './example/progressbar-docs.vue'
+import radioDocs from './example/radioDocs.vue'
+import selectDocs from './example/selectDocs.vue'
+import spinnerDocs from './example/spinnerDocs.vue'
+import tooltipDocs from './example/tooltipDocs.vue'
+import typeaheadDocs from './example/typeaheadDocs.vue'
 import dropdownDocs from './example/dropdownDocs.vue'
 import gettingStarted from './example/gettingStarted.vue'
 import tabsDocs from './example/tabsDocs.vue'
 
 export default {
   components: {
-    // accordionDocs,
-    // affixDocs,
-    // affixSidebar,
-    // alertDocs,
-    // asideDocs,
-    // buttonGroupDocs,
-    // carouselDocs,
-    // checkboxDocs,
+    accordionDocs,
+    affixDocs,
+    affixSidebar,
+    alertDocs,
+    asideDocs,
+    buttonGroupDocs,
+    carouselDocs,
+    checkboxDocs,
     datepickerDocs,
-    // formGroupDocs,
+    formGroupDocs,
     inputDocs,
     modalDocs,
-    // navbarDocs,
-    // popoverDocs,
-    // progressbarDocs,
-    // radioDocs,
-    // selectDocs,
-    // spinnerDocs,
-    // tooltipDocs,
-    // typeaheadDocs,
+    navbarDocs,
+    popoverDocs,
+    progressbarDocs,
+    radioDocs,
+    selectDocs,
+    spinnerDocs,
+    tooltipDocs,
+    typeaheadDocs,
     dropdownDocs,
     gettingStarted,
-    tabsDocs,
+    tabsDocs
   },
   computed: {
     local () { return location.hostname === 'localhost' }
