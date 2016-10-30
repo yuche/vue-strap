@@ -1,4 +1,4 @@
-import $ from './utils/NodeList.js'
+import $ from './NodeList.js'
 // let coerce = {
 //   header: 'boolean'
 // }

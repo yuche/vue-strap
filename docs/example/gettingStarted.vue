@@ -1,6 +1,6 @@
 <template>
-  <div class="bs-docs-section" id="getting-started">
-    <h1 class="page-header"><a href="#getting-started" class="anchor">Getting started</a></h1>
+<div>
+  <doc-section id="getting-started" name="Getting started">
     <div class="bs-callout bs-callout-success">
       <h4>About this project</h4>
       <p>
@@ -17,7 +17,7 @@
         </li>
       </ul>
     </div>
-    <h2>CommonJS</h2>
+    <h4>CommonJS</h4>
     <doc-code language="javascript">
       $ npm install vue-strap
 
@@ -31,7 +31,7 @@
         }
       })
     </doc-code>
-    <h2>ES6</h2>
+    <h4>ES6</h4>
     <doc-code language="javascript">
       $ npm install vue-strap
 
@@ -42,28 +42,28 @@
       new Vue({
         components: {
           alert
-        }``
+        }
       })
     </doc-code>
 
-    <h2>AMD</h2>
+    <h4>AMD</h4>
     <doc-code language="javascript">
       $ bower install vue-strap
 
       define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
     </doc-code>
-    <h2>Browser globals</h2>
+    <h4>Browser globals</h4>
     <p>
       The <code>dist</code> folder contains <code>vue-strap.js</code> and <code>vue-strap.min.js</code> with
       all components exported in the <code>window.VueStrap</code> object. These bundles are also available on both the
       Bower and NPM packages.
     </p>
     <doc-code language="markup">
-      <v-select :options="options"></v-select>
+      &lt;v-select :options="options">&lt;/v-select>
 
-      <script src="path/to/vue.js"></script>
-      <script src="path/to/vue-strap.js"></script>
-      <script>
+      &lt;script src="path/to/vue.js">&lt;/script>
+      &lt;script src="path/to/vue-strap.js">&lt;/script>
+      &lt;script>
         new Vue({
           components: {
             vSelect: VueStrap.select
@@ -72,14 +72,14 @@
             options: []
           }
         })
-      </script>
+      &lt;/script>
     </doc-code>
     <h2>Translations (optional):</h2>
     <p>If you want to enable language support, you have to add:</p>
     <doc-code language="markup">
-      <script src="path/to/vue-strap-lang.js"></script>
+      &lt;script src="path/to/vue-strap-lang.js">&lt;/script>
     </doc-code>
-    <h2>CommonJS</h2>
+    <h4>CommonJS</h4>
     <doc-code language="javascript">
       require('vue-strap/dist/vue-strap-lang.js')
     </doc-code>
@@ -88,7 +88,11 @@
     <h2>Mobile detection (optional):</h2>
     <p>If you need to enable/disable options if is a mobile device you can add:</p>
     <doc-code language="markup">
-      <script src="path/to/isMobileBrowser.js"></script>
+      &lt;script src="path/to/isMobileBrowser.js">&lt;/script>
+    </doc-code>
+    <h4>CommonJS</h4>
+    <doc-code language="javascript">
+      require('vue-strap/dist/isMobileBrowser.js')
     </doc-code>
     <p>Then in javascript you can check it just doing:</p>
     <doc-code language="javascript">
@@ -104,13 +108,46 @@
       }
     </doc-code>
     <p>Based on <a href="http://detectmobilebrowsers.com/">Detect Mobile Browsers</a>.</p>
-  </div>
+  </doc-section>
+  <doc-section id="handle-events" name="Event Handling">
+    <p>The events return values as arguments, you have 2 ways to handle them:</p>
+    <doc-code>
+      &lt;!-- using expression -->
+      &lt;component @event="arg0 = arguments[0]">&lt;/component>
+      &lt;!-- using method -->
+      &lt;component @event="callable">&lt;/component>
+    </doc-code>
+    <doc-code language="javascript">
+      methods: {
+        callable: function (arg0, arg1, ...) {
+          // defined arguments
+          this.arg0 = arg0
+          // or global arguments array
+          this.arg0 = arguments[0]
+        }
+      }
+    </doc-code>
+    <p>The number of arguments depend on the event.</p>
+  </doc-section>
+  <doc-section id="vue2-binding" name="vue 2 binding">
+    <p>According to the vue2 specifications, <code>twoWay</code> binding is not supported anymore, except for <code>v-model</code>.</p>
+    <p>For use in vue 1, keep in mind:</p>
+    <doc-code>
+      &lt;!-- using v-model -->
+      &lt;component v-model="element">&lt;/component>
+      &lt;!-- will be translated in vue2 to (or use it in vue 1 like): -->
+      &lt;component :value="element" @input="element = argument[0]">&lt;/component>
+    </doc-code>
+  </doc-section>
+</div>
 </template>
 <script>
-import docCode from './docCode.vue'
+import docCode from './utils/docCode.js'
+import docSection from './utils/docSection.vue'
 export default {
   components: {
-    docCode
+    docCode,
+    docSection
   }
 }
 </script>

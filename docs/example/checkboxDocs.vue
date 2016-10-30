@@ -2,25 +2,25 @@
   <doc-section id="checkbox" name="Checkbox">
     <div class="bs-example">
       <h4>Checkbox</h4>
-      <checkbox :checked.sync="checkboxValue.one" value="one">One</checkbox>
-      <checkbox :checked.sync="checkboxValue.two" value="two" type="danger" disabled>Two (disabled)</checkbox>
-      <checkbox :checked.sync="checkboxValue.two" value="two" type="warning" readonly>Two (readonly)</checkbox>
-      <checkbox :checked.sync="checkboxValue.two" value="two" type="success">Two</checkbox>
+      <checkbox :checked="checkboxValue.one" @checked="checkboxValue.one = arguments[0]" value="one">One</checkbox>
+      <checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = arguments[0]" value="two" type="danger" disabled>Two (disabled)</checkbox>
+      <checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = arguments[0]" value="two" type="warning" readonly>Two (readonly)</checkbox>
+      <checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = arguments[0]" value="two" type="success">Two</checkbox>
       <hr>
       <h4>Checkbox Button (Single button)</h4>
-      <checkbox button :checked.sync="checkboxValue.three" value="three" type="primary">Three</checkbox>
-      <checkbox button :checked.sync="checkboxValue.four" value="four" type="info" disabled>Four (disabled)</checkbox>
-      <checkbox button :checked.sync="checkboxValue.four" value="four" type="info" readonly>Four (readonly)</checkbox>
-      <checkbox button :checked.sync="checkboxValue.four" value="four" type="info">Four</checkbox>
+      <checkbox button :checked="checkboxValue.three" @checked="checkboxValue.three = arguments[0]" value="three" type="primary">Three</checkbox>
+      <checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = arguments[0]" value="four" type="info" disabled>Four (disabled)</checkbox>
+      <checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = arguments[0]" value="four" type="info" readonly>Four (readonly)</checkbox>
+      <checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = arguments[0]" value="four" type="info">Four</checkbox>
       <p>
-        <pre>Checkbox values: {{checkboxValue | json}}</pre>
+        <pre>Checkbox values: {{ checkboxValue }}</pre>
       </p>
     </div>
     <doc-code language="markup">
-      <checkbox :checked.sync="checkboxValue.one" value="one">One</checkbox>
-      <checkbox :checked.sync="checkboxValue.two" value="two" type="primary">Two</checkbox>
-      <checkbox :checked.sync="checkboxValue.three" value="three" type="info">Three</checkbox>
-      <checkbox button :checked.sync="checkboxValue.four" value="four" type="danger">Four</checkbox>
+      &lt;checkbox :checked="checkboxValue.one" @checked="checkboxValue.one = arguments[0]" value="one">One&lt;/checkbox>
+      &lt;checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = arguments[0]" value="two" type="primary">Two&lt;/checkbox>
+      &lt;checkbox :checked="checkboxValue.three" @checked="checkboxValue.three = arguments[0]" value="three" type="info">Three&lt;/checkbox>
+      &lt;checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = arguments[0]" value="four" type="danger">Four&lt;/checkbox>
     </doc-code>
     <doc-table>
       <div>
@@ -58,9 +58,9 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import checkbox from 'src/Checkbox.vue'
 
 export default {

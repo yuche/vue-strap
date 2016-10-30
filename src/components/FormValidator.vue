@@ -9,18 +9,9 @@ import $ from './utils/NodeList.js'
 
 export default {
   props: {
-    enterSubmit: {
-      type: Boolean,
-      default: false
-    },
-    icon: {
-      type: Boolean,
-      default: false
-    },
-    lang: {
-      type: String,
-      default: navigator.language
-    },
+    enterSubmit: {type: Boolean, default: false},
+    icon: {type: Boolean, default: false},
+    lang: {type: String, default: navigator.language},
   },
   data () {
     return {
@@ -31,6 +22,7 @@ export default {
   },
   watch: {
     valid (val, old) {
+      this.$emit('input', val)
       this.$emit('isvalid', val)
       this.$emit(!val ? 'invalid' : 'valid')
       if (val !== old && this._parent) this._parent.validate()

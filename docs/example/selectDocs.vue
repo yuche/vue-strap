@@ -6,7 +6,7 @@
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
           <p><pre>Normal select data: {{select.normal}}</pre></p>
           <form action="./#select" method="get">
-            <v-select :options="select.options" options-value="val" :value.sync="select.normal" name="animal" :search="select.search"
+            <v-select :options="select.options" options-value="val" v-model="select.normal" name="animal" :search="select.search"
               :required="select.required" :clear-button="select.clearButton" :disabled="select.disabled"
             ></v-select>
             <button type="submit" class="btn btn-default">Submit</button>
@@ -15,7 +15,7 @@
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
           <p><pre>Multiple select data : {{select.multiple.join(',')}}</pre></p>
           <form action="./#select" method="get">
-            <v-select :options="select.options" options-value="val" :value.sync="select.multiple" name="animals[]" :search="select.search"
+            <v-select :options="select.options" options-value="val" v-model="select.multiple" name="animals[]" :search="select.search"
               multiple :required="select.required" :clear-button="select.clearButton"
               :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"
             ></v-select>
@@ -27,29 +27,29 @@
       <button-group type="primary" buttons="false">
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <p><checkbox :checked.sync="select.disabled">Disabled</checkbox></p>
-            <p><checkbox :checked.sync="select.search">Search</checkbox></p>
-            <p><checkbox :checked.sync="select.clearButton">Clear Button</checkbox></p>
+            <p><checkbox :checked="select.disabled" @checked="select.disabled = arguments[0]">Disabled</checkbox></p>
+            <p><checkbox :checked="select.search" @checked="select.search = arguments[0]">Search</checkbox></p>
+            <p><checkbox :checked="select.clearButton" @checked="select.clearButton = arguments[0]">Clear Button</checkbox></p>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <p><checkbox :checked.sync="select.required">Required (empty value if noting selected)</checkbox></p>
+            <p><checkbox :checked="select.required" @checked="select.required = arguments[0]">Required (empty value if noting selected)</checkbox></p>
             <p>
               Multiple:
-              <checkbox v-if="select.multiple" :checked.sync="select.limit">Limit (e.g. 3)</checkbox>
-              <checkbox v-if="select.multiple" :checked.sync="select.closeOnSelect">Close on Select</checkbox>
+              <checkbox v-if="select.multiple" :checked="select.limit" @checked="select.limit = arguments[0]">Limit (e.g. 3)</checkbox>
+              <checkbox v-if="select.multiple" :checked="select.closeOnSelect" @checked="select.closeOnSelect = arguments[0]">Close on Select</checkbox>
             </p>
           </div>
         </div>
       </button-group>
       <doc-code>
-        <form action="./#select" method="get">
-          <v-select :value.sync="select.value" :options="select.options" options-value="val"
+        &lt;form action="./#select" method="get">
+          &lt;v-select v-model="select.value" :options="select.options" options-value="val"
             multiple name="animals[]" limit="3"
             search justified required disabled
             clear-button close-on-select
-          ></v-select>
-          <button type="submit" class="btn btn-default">Submit form</button>
-        </form>
+          >&lt;/v-select>
+          &lt;button type="submit" class="btn btn-default">Submit form&lt;/button>
+        &lt;/form>
       </doc-code>
       <doc-code language="javascript">
         options: [
@@ -65,7 +65,7 @@
       </doc-code>
       <h4>Select with option component:</h4>
       <p><pre>Selected data : {{single}}</pre></p>
-      <v-select :value.sync="single">
+      <v-select v-model="single">
         <v-option value="apple">Apple</v-option>
         <v-option value="banana">Banana</v-option>
         <v-option value="cherry">Cherry</v-option>
@@ -73,13 +73,13 @@
         <v-option value="grape">Grape</v-option>
       </v-select>
       <doc-code>
-        <v-select>
-          <v-option value="apple">Apple</v-option>
-          <v-option value="banana">Banana</v-option>
-          <v-option value="cherry">Cherry</v-option>
-          <v-option value="orange">Orange</v-option>
-          <v-option value="grape">Grape</v-option>
-        </v-select>
+        &lt;v-select>
+          &lt;v-option value="apple">Apple&lt;/v-option>
+          &lt;v-option value="banana">Banana&lt;/v-option>
+          &lt;v-option value="cherry">Cherry&lt;/v-option>
+          &lt;v-option value="orange">Orange&lt;/v-option>
+          &lt;v-option value="grape">Grape&lt;/v-option>
+        &lt;/v-select>
       </doc-code>
       <hr/>
       <h4>Use button-group (component or <a href="http://getbootstrap.com/components/#btn-groups-justified">bootstrap element</a>) if you want to justify.</h4>
@@ -106,21 +106,21 @@
         </v-select>
       </button-group>
       <doc-code>
-        <button-group justified><select>...</select></button-group>
+        &lt;button-group justified>&lt;select>...&lt;/select>&lt;/button-group>
         // or
-        <div class="btn-group btn-group-justified"><select>...</select></div>
+        &lt;div class="btn-group btn-group-justified">&lt;select>...&lt;/select>&lt;/div>
       </doc-code>
       <hr/>
       <h4>Ajax data and parent dependency:</h4>
       <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>
-      <v-select url="docs/data.json" options-label="text" :value.sync="ajax.value" clear-button v-ref:ajax></v-select>
+      <v-select url="docs/data.json" options-label="text" v-model="ajax.value" clear-button ref="ajax"></v-select>
       <v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value"></v-select>
       <doc-code>
-        <v-select url="docs/data.json" options-label="text" :value.sync="ajax.value" clear-button></v-select>
-        <v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value"></v-select>
+        &lt;v-select url="docs/data.json" options-label="text" v-model="ajax.value" clear-button>&lt;/v-select>
+        &lt;v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value">&lt;/v-select>
       </doc-code>
       <p>Ajax response:</p>
-      <pre v-html="$refs.ajax.options|json"></pre>
+      <pre v-html="$refs.ajax&&$refs.ajax.options"></pre>
     </div>
     <doc-table name="Other">
       <div>
@@ -173,12 +173,12 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import buttonGroup from 'src/buttonGroup.vue'
 import checkbox from 'src/Checkbox.vue'
-import vSelect from 'src/Select.vue'
+import vSelect from 'src/components/Select.vue'
 import vOption from 'src/Option.vue'
 
 export default {
@@ -194,6 +194,8 @@ export default {
   data () {
     return {
       select: {
+        justified: true,
+        multiple: [],
         options: [
           {val: 0, label: 'Cat'},
           {val: 1, label: 'Cow'},
@@ -204,7 +206,6 @@ export default {
           {val: 6, label: 'Tiger'},
           {val: 7, label: 'Turtle'}
         ],
-        justified: true,
         search: true
       },
       ajax: {

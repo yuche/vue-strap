@@ -3,26 +3,30 @@ require('./assets/style.css')
 require('prismjs')
 require('./js/showLanguage')
 
-import $ from 'src/utils/NodeList.js'
+var Vue = window.Vue = require('vue')
+require('dist/vue-strap-lang.js')
+require('dist/isMobileBrowser.js')
+
+import $ from 'src/components/utils/NodeList.js'
 import bodyDocs from './bodyDocs.vue'
 
 Vue.config.devtools = true
 Vue.config.debug = true
 
 new Vue({
-  el: 'body',
+  el: '#app',
   components: {
-    bodyDocs,
+    bodyDocs
   },
   created () {
     if (!this.$root.sections) {
       this.$root.sections = []
     }
   },
-  ready () {
+  mounted () {
     var list = this.$root.sections
     while(list.length) list.pop()
-    $('.bs-docs-section', this.$els.sections).each((el) => {
+    $('.bs-docs-section').each(el => {
       list.push({
         id: el.id,
         name: $('.anchor', el).textContent,

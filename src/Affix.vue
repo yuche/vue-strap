@@ -7,20 +7,19 @@
 </template>
 
 <script>
-import {coerce} from './utils/utils.js'
 import $ from './utils/NodeList.js'
+// let coerce = {offset: 'number'}
 
 export default {
   props: {
     offset: {
       type: Number,
-      coerce: coerce.number,
       default: 0
     }
   },
   data () {
     return {
-      affixed:false
+      affixed: false
     }
   },
   computed: {
@@ -57,7 +56,7 @@ export default {
       if (this.affixed !== fix) { this.affixed = fix }
     }
   },
-  ready () {
+  mounted () {
     $(window).on('scroll resize', () => this.checkScroll())
     setTimeout(() => this.checkScroll(), 0)
   },

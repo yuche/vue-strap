@@ -1,20 +1,20 @@
 <template>
-  <label v-if="buttonStyle" :class="['btn btn-'+typeColor,{active:active,disabled:disabled,readonly:readonly}]" @click.prevent="toggle">
-    <input type="radio" autocomplete="off"
-      v-el:input
-      v-show="!readonly"
-      :checked="active"
-      :value="value"
-      :name="name"
-      :readonly="readonly"
-      :disabled="disabled"
-    />
-    <slot></slot>
-  </label>
-  <div v-else :class="['radio',typeColor,{active:active,disabled:disabled,readonly:readonly}]" @click.prevent="toggle">
-    <label class="open">
-      <input type="radio" autocomplete="off"
-        v-el:input
+  <div :as="buttonStyle?'label':'div'" @click.prevent="toggle"
+    :class="[(buttonStyle?'btn btn-'+typeColor:'radio '+typeColor),{active:active,disabled:disabled,readonly:readonly}]"
+  >
+    <template v-if="buttonStyle">
+      <input type="radio" autocomplete="off" ref="input"
+        v-show="!readonly"
+        :checked="active"
+        :value="value"
+        :name="name"
+        :readonly="readonly"
+        :disabled="disabled"
+      />
+      <slot></slot>
+    </template>
+    <label v-else class="open">
+      <input type="radio" autocomplete="off" ref="input"
         :checked="active"
         :value="value"
         :name="name"
@@ -29,62 +29,46 @@
 </template>
 
 <script>
-import {coerce} from './utils/utils.js'
+// let coerce = {
+//   disabled: 'boolean',
+//   readonly: 'boolean'
+// }
 
 export default {
   props: {
-    value: {
-      default: true
-    },
-    checked: {
-      twoWay: true
-    },
-    button: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    name: {
-      type: String,
-      default: null
-    },
-    readonly: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    type: {
-      type: String,
-      default: null
-    }
+    button: {type: Boolean, default: false},
+    checked: {type: Boolean, default: false},
+    disabled: {type: Boolean, default: false},
+    name: {type: String, default: null},
+    readonly: {type: Boolean, default: false},
+    type: {type: String, default: null},
+    value: {default: true}
   },
   computed: {
-    active () {
-      return this.group ? this.$parent.value === this.value : this.value === this.checked
-    },
-    buttonStyle () {
-      return this.button || (this.group && this.$parent.buttons)
-    },
-    group () {
-      return this.$parent && this.$parent._radioGroup
-    },
-    typeColor () {
-      return (this.type || (this.$parent && this.$parent.type)) || 'default'
+    active () { return this._inGroup ? this.$parent.value === this.value : this.value === this.checked },
+    buttonStyle () { return this.button || (this._inGroup && this.$parent.buttons) },
+    typeColor () { return (this.type || (this.$parent && this.$parent.type)) || 'default' }
+  },
+  watch: {
+    checked (val, old) {
+      this.$emit('checked', val)
+      if (typeof this.value !== 'boolean') {
+        this.$emit('input', this.checked ? this.value : null)
+        if (this._inGroup && this.checked) {
+          this.$parent.value = this.value
+        }
+      }
     }
   },
   created () {
     const parent = this.$parent
     if (!parent) return
     if (parent._btnGroup && !parent._checkboxGroup) {
+      this._inGroup = true
       parent._radioGroup = true
     }
   },
-  ready () {
+  mounted () {
     if (!this.$parent._radioGroup) return
     if (this.$parent.value) {
       this.checked = (this.$parent.value === this.value)
@@ -94,14 +78,14 @@ export default {
   },
   methods: {
     focus () {
-      this.$els.input.focus()
+      this.$refs.input.focus()
     },
     toggle () {
       if (this.disabled) { return }
       this.focus()
       if (this.readonly) { return }
       this.checked = this.value
-      if (this.group) {
+      if (this._inGroup) {
         this.$parent.value = this.value
       }
     }

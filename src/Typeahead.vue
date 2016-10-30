@@ -1,21 +1,18 @@
 <template>
-  <div style="position: relative"
-    v-bind:class="{'open':showDropdown}"
-  >
-    <input type="text" class="form-control"
+  <div style="position: relative" :class="{'open':showDropdown}">
+    <input type="text" class="form-control" autocomplete="off"
       :placeholder="placeholder"
-      autocomplete="off"
-      v-model="value"
+      :value="value"
+      @blur="showDropdown = false"
       @input="update"
-      @keydown.up="up"
       @keydown.down="down"
       @keydown.enter= "hit"
       @keydown.esc="reset"
-      @blur="showDropdown = false"
+      @keydown.up="up"
     />
-    <ul class="dropdown-menu" v-el:dropdown>
-      <li v-for="item in items" v-bind:class="{'active': isActive($index)}">
-        <a @mousedown.prevent="hit" @mousemove="setActive($index)">
+    <ul class="dropdown-menu" ref="dropdown">
+      <li v-for="(item, i) in items" :class="{'active': isActive(i)}">
+        <a @mousedown.prevent="hit" @mousemove="setActive(i)">
           <partial :name="templateName"></partial>
         </a>
       </li>
@@ -24,54 +21,27 @@
 </template>
 
 <script>
-import {getJSON, coerce} from './utils/utils.js'
+import {getJSON} from './utils/utils.js'
+import {Vue} from 'vue'
 
-let Vue = window.Vue
+// let coerce = {
+//     matchCase: 'boolean',
+//     matchStart: 'boolean'
+// }
+
+// let Vue = window.Vue
 
 export default {
-  created () {
-    this.items = this.primitiveData
-  },
   partials: {
-    default: '<span v-html="item | highlight query"></span>'
+    default: '<span v-html="highlight(item,query)"></span>'
   },
   props: {
-    value: {
-      twoWay : true,
-      type: String,
-      default: ''
-    },
-    data: {
-      type: Array
-    },
-    limit: {
-      type: Number,
-      default: 8
-    },
-    async: {
-      type: String
-    },
-    template: {
-      type: String
-    },
-    templateName: {
-      type: String,
-      default: 'default'
-    },
-    key: {
-      type: String,
-      default: null
-    },
-    matchCase: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    matchStart: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
+    async: {type: String},
+    data: {type: Array},
+    key: {type: String, default: null},
+    limit: {type: Number, default: 8},
+    matchCase: {type: Boolean, default: false},
+    matchStart: {type: Boolean, default: false},
     onHit: {
       type: Function,
       default (items) {
@@ -79,9 +49,10 @@ export default {
         this.value = items
       }
     },
-    placeholder: {
-      type: String
-    }
+    placeholder: {type: String},
+    template: {type: String},
+    templateName: {type: String, default: 'default'},
+    value: {type: String, default: ''}
   },
   data () {
     return {
@@ -102,14 +73,24 @@ export default {
       }
     }
   },
-  ready () {
-    // register a partial:
-    if (this.templateName && this.templateName !== 'default') {
-      Vue.partial(this.templateName, this.template)
+  watch: {
+    value (val) {
+      this.$emit('input', val)
     }
   },
+  created () {
+    this.items = this.primitiveData
+  },
+  mounted () {
+    // register a partial:
+    /*if (this.templateName && this.templateName !== 'default') {
+      Vue.partial(this.templateName, this.template)
+    }*/
+  },
   methods: {
-    update () {
+    highlight (value, phrase) { return value.replace(new RegExp('(' + phrase + ')', 'gi'), '<strong>$1</strong>') },
+    update (e) {
+      this.$emit('input', this.value, e)
       if (!this.value) {
         this.reset()
         return false
@@ -146,11 +127,6 @@ export default {
     },
     down () {
       if (this.current < this.items.length - 1) this.current++
-    }
-  },
-  filters: {
-    highlight (value, phrase) {
-      return value.replace(new RegExp('(' + phrase + ')', 'gi'), '<strong>$1</strong>')
     }
   }
 }
