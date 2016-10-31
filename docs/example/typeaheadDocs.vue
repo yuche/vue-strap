@@ -71,9 +71,8 @@
         data() {
           return {
             USstate: ['Alabama', 'Alaska', 'Arizona',...],
-            asynchronous: '{{formatted_address}}',
-            customTemplate: '<img width="18px" height="18px" v-attr="src:avatar_url"/>' +
-            '<span>{{login}}</span>'
+            asyncTemplate: '{{ item.formatted_address }}',
+            githubTemplate: '<img width="18px" height="18px" :src="item.avatar_url"/> <span>{{item.login}}</span>'
           }
         },
         methods: {
