@@ -1,6 +1,7 @@
 require('./assets/docs.css')
 require('./assets/style.css')
-require('prismjs')
+
+var Prism = require('prismjs')
 require('./js/showLanguage')
 
 var Vue = window.Vue = require('vue')
@@ -33,5 +34,8 @@ new Vue({
         el: el
       })
     })
+  },
+  updated () {
+    Prism.highlightAll();
   }
 })
