@@ -21,6 +21,9 @@
         <ul class="nav navbar-nav">
           <slot></slot>
         </ul>
+        <ul v-if="slots.left" class="nav navbar-nav navbar-left">
+          <slot name="left"></slot>
+        </ul>
         <ul v-if="slots.right" class="nav navbar-nav navbar-right">
           <slot name="right"></slot>
         </ul>
