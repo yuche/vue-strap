@@ -2,16 +2,13 @@
 
 <script>
 import $ from './utils/NodeList.js'
-// let coerce = {
-//     enterSubmit: 'boolean',
-//     icon: 'boolean'
-// }
 
 export default {
   props: {
     enterSubmit: {type: Boolean, default: false},
     icon: {type: Boolean, default: false},
     lang: {type: String, default: navigator.language},
+    value: null
   },
   data () {
     return {
@@ -22,22 +19,23 @@ export default {
   },
   watch: {
     valid (val, old) {
-      this.$emit('input', val)
       this.$emit('isvalid', val)
+      this.$emit('input', val)
       this.$emit(!val ? 'invalid' : 'valid')
       if (val !== old && this._parent) this._parent.validate()
     }
   },
   methods: {
     validate () {
-      let valid = true
-      this.children.some(el => {
-        let v = el.validate ? el.validate() : el.valid !== undefined ? el.valid : el.required && !~['', null, undefined].indexOf(el.value)
-        if (!v) valid = false
-        return !valid
+      let invalid = !this.children.some(el => {
+        return (
+          el.validate ? el.validate() :
+          el.valid !== undefined ? el.valid :
+          el.required && !~['', null, undefined].indexOf(el.value)
+        )
       })
-      this.valid = valid
-      return valid === true
+      this.valid = !invalid
+      return !invalid
     }
   },
   created () {

@@ -37,6 +37,7 @@
             <tooltip-docs></tooltip-docs>
             <typeahead-docs></typeahead-docs>
             <form-group-docs></form-group-docs> -->
+            <form-validator-docs></form-validator-docs>
           </div>
           <div class="col-md-3">
             <!-- <affix-sidebar></affix-sidebar> -->
@@ -72,6 +73,7 @@
 // import checkboxDocs from './example/checkboxDocs.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
 // import formGroupDocs from './example/formGroupDocs.vue'
+import formValidatorDocs from './example/formValidatorDocs.vue'
 import inputDocs from './example/inputDocs.vue'
 import modalDocs from './example/modalDocs.vue'
 // import navbarDocs from './example/navbarDocs.vue'
@@ -98,6 +100,7 @@ export default {
     // checkboxDocs,
     datepickerDocs,
     // formGroupDocs,
+    formValidatorDocs,
     inputDocs,
     modalDocs,
     // navbarDocs,
