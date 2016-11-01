@@ -1,7 +1,7 @@
 <template>
   <div class="form-group" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
     <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
-    <div v-if="slots.before||slots.after" class="input-group">
+    <div v-if="$slots.before||$slots.after" class="input-group">
       <slot name="before"></slot>
       <textarea :is="type=='textarea'?type:'input'" class="form-control" ref="input"
         :cols="cols"
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import {translations} from './utils/utils.js'
+import {coerce, translations} from './utils/utils.js'
 import $ from './utils/NodeList.js'
 
 export default {
@@ -99,7 +99,7 @@ export default {
     }
   },
   computed: {
-    canValidate () { return !this.disabled && !this.readonly && (this.required || this.pattern || this.nativeValidate || this.match !== null) },
+    canValidate () { return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null) },
     errorText () {
       let value = this.value
       let error = [this.error]
@@ -109,9 +109,9 @@ export default {
     },
     input () { return this.$refs.input },
     nativeValidate () { return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max) },
+    regex () { return coerce.pattern(this.pattern) },
     showError () { return this.error && this.valid === false },
     showHelp () { return this.help && (!this.showError || !this.hideHelp) },
-    slots () { return this._slotContents || {} },
     text () { return translations(this.lang) },
     title () { return this.errorText || this.help || '' }
   },
@@ -126,7 +126,6 @@ export default {
             if (this._timeout.mask) clearTimeout(this._timeout.mask)
             this._timeout.mask = setTimeout(() => {
               this.val = val
-              this.$refs.input.value = val
             }, isNaN(this.maskDelay) ? 0 : this.maskDelay)
           }
         }
@@ -136,7 +135,7 @@ export default {
     valid (val, old) {
       this.$emit('isvalid', val)
       this.$emit(!val ? 'invalid' : 'valid')
-      if (val !== old && this._parent) this._parent.validate()
+      if (this._parent) this._parent.validate()
     },
     value (val) {
       if (this.val !== val) { this.val = val }
@@ -163,7 +162,7 @@ export default {
     },
     focus () { this.input.focus() },
     submit () {
-      if (this.$parent._formGroup) {
+      if (this.$parent._formValidator) {
         return this.$parent.validate()
       }
       if (this.input.form) {
@@ -177,22 +176,13 @@ export default {
     },
     validate () {
       if (!this.canValidate) { return true }
-      let value = (this.value || '').trim()
+      let value = (this.val || '').trim()
       if (!value) { return !this.required }
       if (this.match !== null) { return this.match === value }
       if (value.length < this.minlength) { return false }
       if (this.nativeValidate && !this.input.checkValidity()) { return false }
-      if (this.pattern ) {
-        if( typeof this.pattern == 'string' ) { 
-          let re = new RegExp( this.pattern )
-
-          return re.test(this.value)
-        }
-        if( this.pattern instanceof Function ) 
-          return this.pattern(this.value)
-
-        if( this.pattern instanceof RegExp ) 
-          return this.pattern.test(this.value)
+      if (this.regex) {
+        if (!(this.regex instanceof Function ? this.regex(this.value) : this.regex.test(this.value))) { return false }
       }
       return true
     }
@@ -201,22 +191,24 @@ export default {
     this._input = true
     this._timeout = {}
     let parent = this.$parent
-    while (parent && !parent._formGroup) { parent = parent.$parent }
-    if (parent && parent._formGroup) { this._parent = parent }
+    while (parent && !parent._formValidator) { parent = parent.$parent }
+    if (parent && parent._formValidator) {
+      this._parent = parent
+      this._parent && this._parent.children.push(this)
+    }
   },
   mounted () {
-    this._parent && this._parent.children.push(this)
-    $(this.input).on('focus', e => this.$emit('focus', e)).on('blur', e => {
+    $(this.input).on('focus', e => { this.$emit('focus', e) }).on('blur', e => {
       if (this.canValidate) { this.valid = this.validate() }
       this.$emit('blur', e)
     })
   },
   beforeDestroy () {
+    $(this.input).off()
     if (this._parent) {
       var index = this._parent.children.indexOf(this)
       this._parent.children.splice(index, 1)
     }
-    $(this.input).off()
   }
 }
 </script>
