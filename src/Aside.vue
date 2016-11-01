@@ -1,10 +1,10 @@
 <template>
   <transition :name="'side' + this.placement">
-    <div class="aside" v-show="value" :style="{width:width+'px'}" :class="placement">
+    <div class="aside" v-if="show" :style="{width:width+'px'}" :class="placement">
       <div class="aside-dialog">
         <div class="aside-content">
           <div class="aside-header">
-            <button type="button" class="close" @click='trigger.close'><span>&times;</span></button>
+            <button type="button" class="close" @click='trigger_close'><span>&times;</span></button>
             <h4 class="aside-title"><slot name="header">{{ header }}</slot></h4>
           </div>
           <div class="aside-body"><slot></slot></div>
@@ -26,13 +26,13 @@ export default {
   props: {
     header: {type: String},
     placement: {type: String, default: 'right'},
-    value: {type: Boolean, required: true},
+    show: {type: Boolean, required: true},
     width: {type: Number, default: 320}
   },
   watch: {
-    value (val, old) {
+    show (val, old) {
       this.$emit('input', val)
-      this.$emit(this.value ? 'open' : 'close')
+      this.$emit(this.show ? 'open' : 'close')
       const body = document.body
       const scrollBarWidth = getScrollBarWidth()
       if (val) {
@@ -48,7 +48,7 @@ export default {
         // request property that requires layout to force a layout
         var x = this._backdrop.clientHeight
         this._backdrop.classList.add('in')
-        $(this._backdrop).on('click', () => this.trigger.close())
+        $(this._backdrop).on('click', () => this.trigger_close())
       } else {
         $(this._backdrop).on('transitionend', () => {
           $(this._backdrop).off()
@@ -66,9 +66,15 @@ export default {
   methods: {
     trigger () {
       return {
-        close: () => { this.value = false },
-        open: () => { this.value = true }
+        close: () => this.trigger_close(),
+        open: () => this.trigger_open()
       }
+    },
+    trigger_close () { 
+      this.$emit( 'close' )
+    },
+    trigger_open() { 
+      this.$emit( 'open' )
     }
   },
   mounted () {

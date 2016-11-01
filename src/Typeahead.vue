@@ -22,12 +22,14 @@
 
 <script>
 import {getJSON} from './utils/utils.js'
+import {Vue} from 'vue'
+
 // let coerce = {
 //     matchCase: 'boolean',
 //     matchStart: 'boolean'
 // }
 
-let Vue = window.Vue
+// let Vue = window.Vue
 
 export default {
   partials: {
@@ -81,9 +83,9 @@ export default {
   },
   mounted () {
     // register a partial:
-    if (this.templateName && this.templateName !== 'default') {
+    /*if (this.templateName && this.templateName !== 'default') {
       Vue.partial(this.templateName, this.template)
-    }
+    }*/
   },
   methods: {
     highlight (value, phrase) { return value.replace(new RegExp('(' + phrase + ')', 'gi'), '<strong>$1</strong>') },

@@ -59,7 +59,8 @@ export default {
   mounted () {
     if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') { return }
     if (this.$parent.value.length) {
-      this.checked = ~this.$parent.value.indexOf(this.value)
+      // this.checked = ~this.$parent.value.indexOf(this.value)
+      this.$emit('checked', ~this.$parent.value.indexOf(this.value))
     } else if (this.checked) {
       this.$parent.value.push(this.value)
     }
@@ -67,7 +68,8 @@ export default {
   methods: {
     eval () {
       if (typeof this.value !== 'boolean' && this._inGroup) {
-        this.checked = ~this.$parent.value.indexOf(this.value)
+        // this.checked = ~this.$parent.value.indexOf(this.value)
+        this.$emit('checked', ~this.$parent.value.indexOf(this.value))
       }
     },
     focus () {
@@ -77,7 +79,8 @@ export default {
       if (!this.disabled) {
         this.focus()
         if (!this.readonly) {
-          this.checked = this.checked ? null : this.value
+          // this.checked = this.checked ? null : this.value
+          this.$emit('checked', this.checked ? null : this.value )
           if (this._inGroup && typeof this.value !== 'boolean') {
             const index = this.$parent.value.indexOf(this.value)
             this.$parent.value[~index ? '$remove' : 'push'](this.value)
