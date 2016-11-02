@@ -213,7 +213,7 @@ export default {
     // })
   },
   beforeDestroy () {
-    $(this.input).off()
+    // $(this.input).off()
     if (this._parent) {
       var index = this._parent.children.indexOf(this)
       this._parent.children.splice(index, 1)

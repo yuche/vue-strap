@@ -3,7 +3,7 @@
     <div class="bs-example">
       <h3>
         The sub-navigation on the RIGHT is a live demo of the affix.
-        <spam class="visible-xs-block visible-sm-block">(The live demo is hidden in small screens)</spam>
+        <span class="visible-xs-block visible-sm-block">(The live demo is hidden in small screens)</span>
         <tooltip trigger="hover" effect="fadein" content="I'm a direction, not jerking off!" placement="left">
           <span class="glyphicon glyphicon-hand-right pull-right animated shake hidden-xs hidden-sm"></span>
         </tooltip>
