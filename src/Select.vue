@@ -1,5 +1,5 @@
 <template>
-  <div v-el:select :class="classes">
+  <div v-el:select :class="classes" v-click-outside="blur">
     <button type="button" class="form-control dropdown-toggle"
       :disabled="disabled || !hasParent"
       :readonly="readonly"
@@ -40,10 +40,14 @@
 
 <script>
 import {getJSON, coerce, translations} from './utils/utils.js'
+import ClickOutside from './utils/ClickOutside.js'
 import $ from './utils/NodeList.js'
 
 var timeout = {}
 export default {
+  directives: {
+    ClickOutside
+  },
   props: {
     value: {
       twoWay: true
@@ -304,12 +308,8 @@ export default {
       this._parent = parent
     }
   },
-  ready () {
-    $(this.$els.select).onBlur(e => { this.show = false })
-  },
   beforeDestroy () {
     if (this._parent) this._parent.children.$remove(this)
-    $(this.$els.select).offBlur()
   }
 }
 </script>
