@@ -1,5 +1,5 @@
 <template>
-  <div ref="select" :class="classes">
+  <div ref="select" :class="classes" v-click-outside="blur">
     <button type="button" class="form-control dropdown-toggle"
       :disabled="disabled || !hasParent"
       :readonly="readonly"
@@ -40,11 +40,13 @@
 
 <script>
 import {translations} from './utils/utils.js'
-// import {onBlur, offBlur} from './utils/utils.js'
-// import $ from './utils/NodeList.js'
+import ClickOutside from './utils/ClickOutside.js'
 
 var timeout = {}
 export default {
+  directives: {
+    ClickOutside
+  },
   props: {
     clearButton: {type: Boolean, default: false},
     closeOnSelect: {type: Boolean, default: false},
