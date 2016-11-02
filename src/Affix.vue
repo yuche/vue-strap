@@ -1,5 +1,5 @@
 <template>
-  <div class="hidden-print hidden-xs hidden-sm">
+  <div class="hidden-print hidden-xs hidden-sm" v-scroll="checkScroll">
     <nav class="bs-docs-sidebar" :class="{affix:affixed}" :style="{marginTop:top}">
       <slot></slot>
     </nav>
@@ -7,10 +7,12 @@
 </template>
 
 <script>
-import $ from './utils/NodeList.js'
-// let coerce = {offset: 'number'}
+import Scroll from './directives/Scroll.js'
 
 export default {
+  directives: {
+    Scroll
+  },
   props: {
     offset: {
       type: Number,
@@ -30,6 +32,7 @@ export default {
   methods: {
     // from https://github.com/ant-design/ant-design/blob/master/components/affix/index.jsx#L20
     checkScroll () {
+      console.log('affix scroll')
       // if is hidden don't calculate anything
       if (!(this.$el.offsetWidth || this.$el.offsetHeight || this.$el.getClientRects().length)) { return }
       // get window scroll and element position to detect if have to be normal or affixed
@@ -57,11 +60,7 @@ export default {
     }
   },
   mounted () {
-    $(window).on('scroll resize', () => this.checkScroll())
-    setTimeout(() => this.checkScroll(), 0)
-  },
-  beforeDestroy () {
-    $(window).off('scroll resize', () => this.checkScroll())
+    this.checkScroll()
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <affix :offset="50">
+  <affix :offset="50"> <!-- v-scroll="scrollSpy"> -->
     <ul class="nav bs-docs-sidenav" id="sidenav">
       <li v-for="s in sections" :class="{active:active==s.id}"><a :href="'#' + s.id">{{ s.name }}</a></li>
     </ul>
@@ -9,12 +9,15 @@
 </template>
 
 <script>
-import $ from 'src/components/utils/NodeList.js'
-import affix from 'src/Affix.vue'
+import Affix from 'src/Affix.vue'
+import Scroll from 'src/directives/Scroll.js'
 
 export default {
+  directives: {
+    Scroll
+  },
   components: {
-    affix
+    Affix
   },
   filters: {
     space(val) {
@@ -27,12 +30,8 @@ export default {
       sections: []
     }
   },
-  created () {
-    $(window).on('scroll load resize', () => this.scrollSpy())
-    if (!this.$root.sections) {
-      this.$root.sections = []
-    }
-    this.sections = this.$root.sections
+  computed: {
+    sections () { return this.$root.sections || [] }
   },
   methods: {
     scrollSpy () {

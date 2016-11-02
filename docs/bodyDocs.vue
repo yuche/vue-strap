@@ -40,7 +40,7 @@
             <form-validator-docs></form-validator-docs>
           </div>
           <div class="col-md-3">
-            <!-- <affix-sidebar></affix-sidebar> -->
+            <affix-sidebar></affix-sidebar>
           </div>
         </div>
       </div>
@@ -72,8 +72,10 @@ import buttonGroupDocs  from './example/buttonGroupDocs.vue'
 import carouselDocs from './example/carouselDocs.vue'
 import checkboxDocs from './example/checkboxDocs.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
+import dropdownDocs from './example/dropdownDocs.vue'
 import formGroupDocs from './example/formGroupDocs.vue'
 import formValidatorDocs from './example/formValidatorDocs.vue'
+import gettingStarted from './example/gettingStarted.vue'
 import inputDocs from './example/inputDocs.vue'
 import modalDocs from './example/modalDocs.vue'
 import navbarDocs from './example/navbarDocs.vue'
@@ -82,11 +84,9 @@ import progressbarDocs from './example/progressbar-docs.vue'
 import radioDocs from './example/radioDocs.vue'
 import selectDocs from './example/selectDocs.vue'
 import spinnerDocs from './example/spinnerDocs.vue'
+import tabsDocs from './example/tabsDocs.vue'
 import tooltipDocs from './example/tooltipDocs.vue'
 import typeaheadDocs from './example/typeaheadDocs.vue'
-import dropdownDocs from './example/dropdownDocs.vue'
-import gettingStarted from './example/gettingStarted.vue'
-import tabsDocs from './example/tabsDocs.vue'
 
 export default {
   components: {
@@ -99,8 +99,10 @@ export default {
     carouselDocs,
     checkboxDocs,
     datepickerDocs,
+    dropdownDocs,
     formGroupDocs,
     formValidatorDocs,
+    gettingStarted,
     inputDocs,
     modalDocs,
     navbarDocs,
@@ -109,11 +111,9 @@ export default {
     radioDocs,
     selectDocs,
     spinnerDocs,
+    tabsDocs,
     tooltipDocs,
-    typeaheadDocs,
-    dropdownDocs,
-    gettingStarted,
-    tabsDocs
+    typeaheadDocs
   },
   computed: {
     local () { return location.hostname === 'localhost' }
