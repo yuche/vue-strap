@@ -31,8 +31,8 @@
             <navbar-docs></navbar-docs>
             <popover-docs></popover-docs>
             <progressbar-docs></progressbar-docs>
-            <radio-docs></radio-docs> 
-            <!--<select-docs></select-docs> -->
+            <radio-docs></radio-docs>
+            <select-docs></select-docs>
             <spinner-docs></spinner-docs>
             <tooltip-docs></tooltip-docs>
             <typeahead-docs></typeahead-docs>

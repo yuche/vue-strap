@@ -4,15 +4,16 @@
     <div class="bs-example">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <p><pre>Normal select data: {{select.normal}}</pre></p>
+          <v-select></v-select>
+          <!-- <p><pre>Normal select data: {{select.normal}}</pre></p>
           <form action="./#select" method="get">
             <v-select :options="select.options" options-value="val" v-model="select.normal" name="animal" :search="select.search"
               :required="select.required" :clear-button="select.clearButton" :disabled="select.disabled"
             ></v-select>
             <button type="submit" class="btn btn-default">Submit</button>
-          </form>
+          </form> -->
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
           <p><pre>Multiple select data : {{select.multiple.join(',')}}</pre></p>
           <form action="./#select" method="get">
             <v-select :options="select.options" options-value="val" v-model="select.multiple" name="animals[]" :search="select.search"
@@ -21,9 +22,9 @@
             ></v-select>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
-        </div>
+        </div> -->
       </div>
-      <br/>
+      <!-- <br/>
       <button-group type="primary" buttons="false">
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -120,9 +121,9 @@
         &lt;v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value">&lt;/v-select>
       </doc-code>
       <p>Ajax response:</p>
-      <pre v-html="$refs.ajax&&$refs.ajax.options"></pre>
+      <pre v-html="$refs.ajax&&$refs.ajax.options"></pre> -->
     </div>
-    <doc-table name="Other">
+    <!-- <doc-table name="Other">
       <div>
         <p>min-search</p>
         <p><code>Number</code></p>
@@ -168,7 +169,7 @@
         <p>(<code>labels:String</code>)</p>
         <p>Return a string with the label(s) of the selected item(s).</p>
       </div>
-    </doc-table>
+    </doc-table> -->
   </doc-section>
 </template>
 
