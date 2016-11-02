@@ -1,5 +1,7 @@
 <template>
-  <div :is="isLi?'li':'div'" ref="dropdown" :class="[{open:show,disabled:disabled,dropdown:isLi,'input-group-btn':inInput,'btn-group':!isLi&&!inInput}]">
+  <div :is="isLi?'li':'div'" v-click-outside="blur"
+    :class="[{open:show,disabled:disabled,dropdown:isLi,'input-group-btn':inInput,'btn-group':!isLi&&!inInput}]"
+  >
     <slot name="before"></slot>
     <slot name="button">
       <a v-if="isLi" role="button" :class="['dropdown-toggle',buttonSize,{disabled:disabled}]" @keyup.esc="show = false">
@@ -18,8 +20,12 @@
 </template>
 <script>
 import $ from './utils/NodeList.js'
+import ClickOutside from './../directives/ClickOutside.js'
 
 export default {
+  directives: {
+    ClickOutside
+  },
   props: {
     disabled: {type: Boolean, default: false},
     size: {type: String, default: null},
@@ -43,9 +49,11 @@ export default {
     slots () { return this._slotContents },
     submenu () { return this.$parent && (this.$parent.menu || this.$parent.submenu) }
   },
+  methods: {
+    blur () { this.show = false }
+  },
   mounted () {
-    var $el = $(this.$refs.dropdown)
-    $el.onBlur(e => { this.show = false })
+    var $el = $(this.$el)
     $el.findChildren('a,button.dropdown-toggle').on('click', e => {
       e.preventDefault()
       if (!this.disabled) { this.show = !this.show }
@@ -54,9 +62,7 @@ export default {
     $el.findChildren('ul').on('click', 'li>a', e => { this.show = false })
   },
   beforeDestroy () {
-    var $el = $(this.$refs.dropdown)
-    $el.offBlur()
-    $el.findChildren('a,button,ul').off()
+    $(this.$el).findChildren('a,button,ul').off()
   }
 }
 </script>

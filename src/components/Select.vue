@@ -40,7 +40,7 @@
 
 <script>
 import {translations} from './utils/utils.js'
-import ClickOutside from './utils/ClickOutside.js'
+import ClickOutside from './../directives/ClickOutside.js'
 
 var timeout = {}
 export default {
