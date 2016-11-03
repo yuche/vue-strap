@@ -4,7 +4,7 @@
       <slot name="header"><h4 class="panel-title">{{ header }}</h4></slot>
     </div>
     <transition name="collapse">
-      <div class="panel-collapse" v-if="isOpen">
+      <div class="panel-collapse" v-if="open">
         <div class="panel-body">
           <slot></slot>
         </div>
@@ -20,13 +20,23 @@ export default {
     isOpen: {type: Boolean, default: null},
     type: {type: String, default : null}
   },
+  data() {
+    return {
+      open: this.isOpen
+    }
+  },
+  watch: {
+    isOpen( val ) {
+      this.open = val
+    }
+  },
   computed: {
     inAccordion () { return this.$parent && this.$parent._isAccordion },
     panelType () { return 'panel-' + (this.type || (this.$parent && this.$parent.type) || 'default') }
   },
   methods: {
     toggle () {
-      this.isOpen = !this.isOpen
+      this.open = !this.open
       this.$emit('open', this)
     }
   },
@@ -46,7 +56,7 @@ export default {
   },
   created () {
     if (this.isOpen === null) {
-      this.isOpen = !this.inAccordion
+      this.open = !this.inAccordion
     }
   }
 }

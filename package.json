@@ -3,6 +3,7 @@
   "version": "2.0.0-pre",
   "description": "Bootstrap components built with Vue.js",
   "main": "dist/vue-strap.js",
+  "typings": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "yuche/vue-strap"
@@ -20,7 +21,8 @@
     "README.md",
     "CHANGELOG.md",
     "src",
-    "dist"
+    "dist",
+    "types/index.d.ts"
   ],
   "keywords": [
     "vue",
