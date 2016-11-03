@@ -1,5 +1,5 @@
 <template>
-  <div :as="buttonStyle?'label':'div'" @click.prevent="toggle"
+  <div :is="buttonStyle?'label':'div'" @click.prevent="toggle"
     :class="[(buttonStyle?'btn btn-'+typeColor:'radio '+typeColor),{active:active,disabled:disabled,readonly:readonly}]"
   >
     <template v-if="buttonStyle">
