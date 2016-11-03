@@ -1,5 +1,5 @@
 <template>
-  <affix :offset="50"> <!-- v-scroll="scrollSpy"> -->
+  <affix :offset="50" v-scroll="scrollSpy">
     <ul class="nav bs-docs-sidenav" id="sidenav">
       <li v-for="s in sections" :class="{active:active==s.id}"><a :href="'#' + s.id">{{ s.name }}</a></li>
     </ul>
@@ -26,12 +26,11 @@ export default {
   },
   data () {
     return {
-      active: null,
-      sections: []
+      active: null
     }
   },
   computed: {
-    sections () { return this.$root.sections || [] }
+    sections () { return this.$root.sections }
   },
   methods: {
     scrollSpy () {
@@ -44,6 +43,9 @@ export default {
         }
       }
     }
+  },
+  mounted () {
+    this.scrollSpy()
   }
 }
 </script>

@@ -131,11 +131,11 @@
   </doc-section>
   <doc-section id="vue2-binding" name="vue 2 binding">
     <p>According to the vue2 specifications, <code>twoWay</code> binding is not supported anymore, except for <code>v-model</code>.</p>
-    <p>For use in vue 1, keep in mind:</p>
+    <p>Keep in mind that in vue2 v-model is equal to bind value an handle input event, like this:</p>
     <doc-code>
-      &lt;!-- using v-model -->
+      &lt;!-- v-model like this: -->
       &lt;component v-model="element">&lt;/component>
-      &lt;!-- will be translated in vue2 to (or use it in vue 1 like): -->
+      &lt;!-- will be translated to: -->
       &lt;component :value="element" @input="element = argument[0]">&lt;/component>
     </doc-code>
   </doc-section>

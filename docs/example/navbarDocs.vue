@@ -4,7 +4,7 @@
       <navbar :placement="placement" :type="type">
         <a href="/" title="Home" slot="brand" class="navbar-brand">VueStrap</a>
         <dropdown text="Component List" type="primary">
-          <li v-for="s in sections"><a :href="'#'+s.id" v-text="s.name[0]"></a></li>
+          <li v-for="s in sections"><a :href="'#'+s.id" v-text="s.name"></a></li>
         </dropdown>
         <li>
           <a href="https://github.com/yuche/vue-strap" target="_blank">
@@ -64,9 +64,9 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import dropdown from 'src/components/Dropdown.vue'
-import navbar from 'src/Navbar.vue'
-import tooltip from 'src/Tooltip.vue'
+import Dropdown from 'src/components/Dropdown.vue'
+import Navbar from 'src/Navbar.vue'
+import Tooltip from 'src/Tooltip.vue'
 import vSelect from 'src/components/Select.vue'
 
 export default {
@@ -74,23 +74,19 @@ export default {
     docSection,
     docTable,
     docCode,
-    dropdown,
-    navbar,
-    tooltip,
+    Dropdown,
+    Navbar,
+    Tooltip,
     vSelect
   },
   data () {
     return {
       placement : 'top',
-      type : 'default',
-      sections: []
+      type : 'default'
     }
   },
-  created () {
-    if (!this.$root.sections) {
-      this.$root.sections = []
-    }
-    this.sections = this.$root.sections
+  computed: {
+    sections () { return this.$root.sections }
   }
 }
 </script>

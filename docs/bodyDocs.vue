@@ -16,8 +16,6 @@
         <div class="row">
           <div class="col-md-9">
             <getting-started></getting-started>
-            <dropdown-docs></dropdown-docs>
-            <tabs-docs></tabs-docs>
             <accordion-docs></accordion-docs>
             <affix-docs></affix-docs>
             <alert-docs></alert-docs>
@@ -26,6 +24,7 @@
             <carousel-docs></carousel-docs>
             <checkbox-docs></checkbox-docs>
             <datepicker-docs></datepicker-docs>
+            <dropdown-docs></dropdown-docs>
             <input-docs></input-docs>
             <modal-docs></modal-docs>
             <navbar-docs></navbar-docs>
@@ -34,6 +33,7 @@
             <radio-docs></radio-docs>
             <select-docs></select-docs>
             <spinner-docs></spinner-docs>
+            <tabs-docs></tabs-docs>
             <tooltip-docs></tooltip-docs>
             <typeahead-docs></typeahead-docs>
             <form-group-docs></form-group-docs>
