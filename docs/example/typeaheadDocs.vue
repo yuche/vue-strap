@@ -17,9 +17,8 @@
       </h4>
       <typeahead
         placeholder="CCCAddress, async via maps.googleapis.com"
-        key="results"
+        async-key="results"
         async="https://maps.googleapis.com/maps/api/geocode/json?address="
-        template-name="async"
         :template="asyncTemplate"
         :on-hit="googleCallback"
       ></typeahead>
@@ -29,9 +28,8 @@
       </h4>
       <typeahead
         placeholder="Github users, async via api.github.com"
-        key="items"
+        async-key="items"
         async="https://api.github.com/search/users?q="
-        template-name="github"
         :template="githubTemplate"
         :on-hit="githubCallback"
       ></typeahead>
@@ -46,9 +44,8 @@
       &lt;h4>Asynchronous results&lt;/h4>
         &lt;typeahead
           placeholder="Address, async via maps.googleapis.com"
-          key="results"
+          async-key="results"
           src="https://maps.googleapis.com/maps/api/geocode/json?address="
-          template-name="async"
           :template="asyncTemplate"
           :on-hit="googleCallback">
       &lt;/typeahead>
@@ -56,9 +53,8 @@
       &lt;h4>Custom templates for results&lt;/h4>
         &lt;typeahead
           placeholder="Github users, async via api.github.com"
-          key="items"
+          async-key="items"
           src="https://api.github.com/search/users?q="
-          template-name="typeahead-github-template"
           :template="githubTemplate"
           :on-hit="githubCallback">
       &lt;/typeahead>
@@ -71,9 +67,8 @@
         data() {
           return {
             USstate: ['Alabama', 'Alaska', 'Arizona',...],
-            asynchronous: '{{formatted_address}}',
-            customTemplate: '&lt;img width="18px" height="18px" :src="avatar_url"/>' +
-            '&lt;span>{{login}}&lt;/span>'
+            asynchronous: '{{'{{'}}item.formatted_address}}',
+            customTemplate: '&lt;img width="18px" height="18px" :src="avatar_url"/>&lt;span>{{'{{'}}item.login}}&lt;/span>'
           }
         },
         methods: {
@@ -108,16 +103,16 @@
         <p>An HTTP URL for asynchronous suggestions. Expected to return a JSON object.</p>
       </div>
       <div>
+        <p>async-key</p>
+        <p><code>String</code></p>
+        <p><code>null</code></p>
+        <p>The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).</p>
+      </div>
+      <div>
         <p>limit</p>
         <p><code>Number</code></p>
         <p><code>8</code></p>
         <p>The max number of suggestions to be displayed.</p>
-      </div>
-      <div>
-        <p>key</p>
-        <p><code>String</code></p>
-        <p><code>null</code></p>
-        <p>The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).</p>
       </div>
       <div>
         <p>match-case</p>
@@ -140,8 +135,16 @@
       <div>
         <p>template</p>
         <p><code>String</code></p>
-        <p><code>&lt;span v-html=&quot;$value | highlight query&quot;&gt;&lt;/span&gt;</code></p>
-        <p>Used to render suggestion.</p>
+        <p><code>&lt;span v-html="item">&lt;/span></code></p>
+        <p>Used to render every suggestion. Handler:<code>item</code>. The item can be whatever (e.g. <code>string</code>/<code>array</code>/<code>object</code>)</p>
+      </div>
+      <div>
+        <p>template-name</p>
+        <p><code>String</code></p>
+        <p><code>null</code></p>
+        <p>
+          Use <code>&lt;script type="text/x-template"></code> template to render the suggestions. See the <a href="https://vuejs.org/guide/components.html#DOM-Template-Parsing-Caveats">template parsing</a> section for more details.
+        </p>
       </div>
     </doc-table>
   </div>
@@ -162,12 +165,11 @@ export default {
     typeahead,
     tooltip
   },
-  partials: {},
   data () {
     return {
       USstate: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
-      'asyncTemplate': '{{ item.formatted_address }}',
-      'githubTemplate': '<img width="18px" height="18px" :src="item.avatar_url"/> <span>{{item.login}}</span>'
+      asyncTemplate: '{{ item.formatted_address }}',
+      githubTemplate: '<img width="18px" height="18px" :src="item.avatar_url"/> <span>{{item.login}}</span>'
     }
   },
   methods: {
