@@ -2,7 +2,7 @@
 <div class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators" v-show="indicators">
-    <li v-for="(indicator,i) in indicators" @click="indicatorClick(i)" :class="{active:i === index}"><span></span></li>
+    <li v-for="(indicator,i) in indicator_list" @click="indicatorClick(i)" :class="{active:i === index}"><span></span></li>
   </ol>
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
@@ -43,7 +43,7 @@ export default {
   },
   data () {
     return {
-      indicators: [],
+      indicator_list: [],
       index: 0,
       isAnimating: false
     }

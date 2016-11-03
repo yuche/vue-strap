@@ -7,6 +7,7 @@
       :name="name"
       :readonly="readonly"
       :disabled="disabled"
+      @checked="toggle"
     />
     <span v-if="!isButton" class="icon dropdown-toggle" :class="[active?'btn-'+typeColor:'',{bg:typeColor==='default'}]"></span>
     <span v-if="!isButton&active&&typeColor==='default'" class="icon"></span>
@@ -31,13 +32,16 @@ export default {
     value: {default: true}
   },
   computed: {
-    active () { return typeof this.value !== 'boolean' && this._inGroup ? ~this.$parent.value.indexOf(this.value) : this.checked === this.value },
+    active () { 
+      return typeof this.value !== 'boolean' && this._inGroup ? ~this.$parent.value.indexOf(this.value) : this.checked 
+    },
     isButton () { return this.button || (this._inGroup && this.$parent.buttons) },
     typeColor () { return (this.type || (this.$parent && this.$parent.type)) || 'default' }
   },
   watch: {
     checked (val, old) {
-      this.$emit('checked', val)
+      this.$emit('checked', val ? this.value : null )
+
       if (typeof this.value !== 'boolean') {
         this.$emit('input', this.checked ? this.value : null)
         if (this._inGroup) {

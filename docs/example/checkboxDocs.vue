@@ -2,30 +2,30 @@
   <doc-section id="checkbox" name="Checkbox">
     <div class="bs-example">
       <h4>Checkbox</h4>
-      <checkbox :checked="checkboxValue.one" @checked="checkboxValue.one = arguments[0]" value="one">One</checkbox>
-      <checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = arguments[0]" value="two" type="danger" disabled>Two (disabled)</checkbox>
-      <checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = arguments[0]" value="two" type="warning" readonly>Two (readonly)</checkbox>
-      <checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = arguments[0]" value="two" type="success">Two</checkbox>
+      <checkbox :checked="checkboxValue.one" @checked="checkboxValue.one = 'one' == arguments[0]" value="one">One</checkbox>
+      <checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = 'two' == arguments[0]" value="two" type="danger" disabled>Two (disabled)</checkbox>
+      <checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = 'two' == arguments[0]" value="two" type="warning" readonly>Two (readonly)</checkbox>
+      <checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = 'two' == arguments[0]" value="two" type="success">Two</checkbox>
       <hr>
       <h4>Checkbox Button (Single button)</h4>
-      <checkbox button :checked="checkboxValue.three" @checked="checkboxValue.three = arguments[0]" value="three" type="primary">Three</checkbox>
-      <checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = arguments[0]" value="four" type="info" disabled>Four (disabled)</checkbox>
-      <checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = arguments[0]" value="four" type="info" readonly>Four (readonly)</checkbox>
-      <checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = arguments[0]" value="four" type="info">Four</checkbox>
+      <checkbox button :checked="checkboxValue.three" @checked="checkboxValue.three = 'tree' == arguments[0]" value="three" type="primary">Three</checkbox>
+      <checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = 'four' == arguments[0]" value="four" type="info" disabled>Four (disabled)</checkbox>
+      <checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = 'four' == arguments[0]" value="four" type="info" readonly>Four (readonly)</checkbox>
+      <checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = 'four' == arguments[0]" value="four" type="info">Four</checkbox>
       <p>
         <pre>Checkbox values: {{ checkboxValue }}</pre>
       </p>
     </div>
     <doc-code language="markup">
-      &lt;checkbox :checked="checkboxValue.one" @checked="checkboxValue.one = arguments[0]" value="one">One&lt;/checkbox>
-      &lt;checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = arguments[0]" value="two" type="primary">Two&lt;/checkbox>
-      &lt;checkbox :checked="checkboxValue.three" @checked="checkboxValue.three = arguments[0]" value="three" type="info">Three&lt;/checkbox>
-      &lt;checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = arguments[0]" value="four" type="danger">Four&lt;/checkbox>
+      &lt;checkbox :checked="checkboxValue.one" @checked="checkboxValue.one = 'one' == arguments[0]" value="one">One&lt;/checkbox>
+      &lt;checkbox :checked="checkboxValue.two" @checked="checkboxValue.two = 'two' == arguments[0]" value="two" type="primary">Two&lt;/checkbox>
+      &lt;checkbox :checked="checkboxValue.three" @checked="checkboxValue.three = 'tree' == arguments[0]" value="three" type="info">Three&lt;/checkbox>
+      &lt;checkbox button :checked="checkboxValue.four" @checked="checkboxValue.four = 'four' == arguments[0]" value="four" type="danger">Four&lt;/checkbox>
     </doc-code>
     <doc-table>
       <div>
         <p>checked</p>
-        <p><code>Number</code> or <code>String</code></p>
+        <p><code>Boolean</code></p>
         <p></p>
         <p>Handle the selected value.</p>
       </div>
@@ -73,10 +73,10 @@ export default {
   data () {
     return {
       checkboxValue: {
-        one: null,
-        two: 'two',
-        three: null,
-        four: null
+        one: false,
+        two: true,
+        three: false,
+        four: false
       }
     }
   }
