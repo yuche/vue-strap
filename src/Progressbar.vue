@@ -1,6 +1,6 @@
 <template>
-  <div v-text="labelBool ? now+'%' : null"
-    :style="{width: nowNum + '%'}"
+  <div v-text="labelBool ? nowNum+'%' : null"
+    :style="{width: nowNum+'%'}"
     :class="['progress-bar', 'progress-bar-'+type, {active:animated, 'progress-bar-striped':striped}]"
   ></div>
 </template>
