@@ -1,4 +1,4 @@
-<template><li ref="v" v-if="loading"><slot></slot></li></template>
+<template><li v-if="loading"><slot></slot></li></template>
 <script>
 export default {
   props: {value: null},
@@ -7,7 +7,7 @@ export default {
     if (this.$parent._select) {
       if (!this.$parent.options) { this.$parent.options = [] }
       let el = {}
-      el[this.$parent.optionsLabel] = this.$refs.v.innerHTML
+      el[this.$parent.optionsLabel] = this.$el.innerHTML
       el[this.$parent.optionsValue] = this.value
       this.$parent.options.push(el)
       this.loading = false
