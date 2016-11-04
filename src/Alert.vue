@@ -15,35 +15,19 @@
 </template>
 
 <script>
-// let coerce = {
-//   dismissable: 'boolean',
-//   duration: 'number',
-//   value: 'boolean'
-// }
+import {coerce} from './utils/utils.js'
 
 export default {
   props: {
-    dismissable: {
-      type: Boolean,
-      default: false
-    },
-    duration: {
-      type: Number,
-      default: 0
-    },
-    placement: {
-      type: String
-    },
-    value: {
-      type: Boolean,
-      default: true
-    },
-    type: {
-      type: String
-    },
-    width: {
-      type: String
-    }
+    dismissable: {type: Boolean, default: false},
+    duration: {default: null},
+    placement: {type: String},
+    type: {type: String},
+    value: {type: Boolean, default: true },
+    width: {type: String}
+  },
+  computed: {
+    durationNum () { return coerce.number(this.duration, 0) }
   },
   watch: {
     value (val, old) {
