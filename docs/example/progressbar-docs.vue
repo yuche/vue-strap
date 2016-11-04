@@ -47,16 +47,16 @@
 
     </div>
     <doc-code language="markup">
-      Stacked:
-      &lt;div class="progress">
-        &lt;progressbar now="..." label type="warning" striped>&lt;/progressbar>
-        &lt;progressbar now="..." label type="success" >&lt;/progressbar>
-        &lt;progressbar now="..." label type="danger">&lt;/progressbar>
-        &lt;progressbar now="..." label type="primary" striped animated>&lt;/progressbar>
-      &lt;/div>
-      Single:
+      &lt;!-- Single -->
       &lt;div class="progress">
         &lt;progressbar now="" label type="warning" striped>&lt;/progressbar>
+      &lt;/div>
+      &lt;!-- Stacked -->
+      &lt;div class="progress">
+        &lt;progressbar now="..." label type="warning" striped>&lt;/progressbar>
+        &lt;progressbar now="..." label type="success">&lt;/progressbar>
+        &lt;progressbar now="..." label type="danger">&lt;/progressbar>
+        &lt;progressbar now="..." label type="primary" striped animated>&lt;/progressbar>
       &lt;/div>
     </doc-code>
     <doc-table>
