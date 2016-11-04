@@ -13,7 +13,6 @@
       <li v-for="(item, i) in items" :class="{'active': isActive(i)}">
         <a @mousedown.prevent="hit" @mousemove="setActive(i)">
           <component :is="tmpl" :item="item"></component>
-          <!-- <partial :name="templateName"></partial> -->
         </a>
       </li>
     </ul>
@@ -35,14 +34,13 @@ export default {
     matchStart: {type: Boolean, default: false},
     onHit: {
       type: Function,
-      default (items) {
+      default (item) {
         this.reset()
-        this.value = items
+        this.value = item
       }
     },
     placeholder: {type: String},
     template: {type: String},
-    templateName: {type: String, default: null},
     value: {type: String, default: ''}
   },
   data () {
@@ -70,7 +68,7 @@ export default {
   created () {
     this.val = this.value
     this._tmpl = {
-      template: this.templateHtml || this.templateName || '<strong v-html="item"></strong>',
+      template: this.templateHtml || '<strong v-html="item"></strong>',
       props: {
         item: {default: null}
       }

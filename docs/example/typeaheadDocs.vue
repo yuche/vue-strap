@@ -138,14 +138,6 @@
         <p><code>&lt;span v-html="item">&lt;/span></code></p>
         <p>Used to render every suggestion. Handler:<code>item</code>. The item can be whatever (e.g. <code>string</code>/<code>array</code>/<code>object</code>)</p>
       </div>
-      <div>
-        <p>template-name</p>
-        <p><code>String</code></p>
-        <p><code>null</code></p>
-        <p>
-          Use <code>&lt;script type="text/x-template"></code> template to render the suggestions. See the <a href="https://vuejs.org/guide/components.html#DOM-Template-Parsing-Caveats">template parsing</a> section for more details.
-        </p>
-      </div>
     </doc-table>
   </div>
 </template>
