@@ -1,5 +1,5 @@
-# vue-strap
-Bootstrap components built with Vue.js.
+# vue-strap-ar
+This is a forked project from [VueStrap](https://github.com/yuche/vue-strap). We changed some items based on our needs. 
 
 This repository contains a set of native Vue.js components based on Bootstrap's markup and CSS. As a result no dependency on jQuery or Bootstrap's JavaScript is required. The only required dependencies are:
 
@@ -11,14 +11,14 @@ This repository contains a set of native Vue.js components based on Bootstrap's 
 ### NPM
 
 ```bash
-$ npm install vue-strap
+$ npm install vue-strap-ar
 ```
 
 ### CommonJS
 ```js
-var alert = require('vue-strap/src/alert');
+var alert = require('vue-strap-ar/src/alert');
 // or
-var alert = require('vue-strap').alert;
+var alert = require('vue-strap-ar').alert;
 
 new Vue({
   components: {
@@ -29,43 +29,15 @@ new Vue({
 
 ### ES6
 ```js
-import alert from 'vue-strap/src/alert'
+import alert from 'vue-strap-ar/src/alert'
 // or
-import { alert } from 'vue-strap'
+import { alert } from 'vue-strap-ar'
 
 new Vue({
   components: {
     alert
   }
 })
-```
-
-### AMD
-```js
-$ bower install vue-strap
-
-define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
-```
-
-### Browser globals
-The `dist` folder contains `vue-strap.js` and `vue-strap.min.js` with all components exported in the <code>window.VueStrap</code> object. These bundles are also available in [CDNJS](https://cdnjs.com/libraries/vue-strap),
-and on both the Bower and NPM packages.
-
-```html
-<script src="path/to/vue.js"></script>
-<script src="path/to/vue-strap.js"></script>
-<script>
-    var vm = new Vue({
-        components: {
-            alert: VueStrap.alert
-        },
-        el: "#app",
-        data: {
-            showRight: false,
-            showTop: false
-        }
-    })
-</script>
 ```
 
 ## Docs
@@ -76,8 +48,5 @@ See the [documentation](http://yuche.github.io/vue-strap/) with live editable ex
 * Run the docs site in development mode with `npm run docs`. This will watch for file changes as you work.
 * Build with `npm run build`.
 
-## TODO
-See [Roadmap](https://github.com/yuche/vue-strap/issues/41)
-
 ## License
-vue-strap is licensed under [The MIT License](LICENSE).
+vue-strap-ar is licensed under [The MIT License](LICENSE).
