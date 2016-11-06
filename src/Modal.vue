@@ -25,7 +25,10 @@
         <slot name="modal-footer">
           <div class="modal-footer">
             <button type="button" class="btn btn-default" @click="close">{{ cancelText }}</button>
-            <button type="button" class="btn btn-primary" @click="callback">{{ okText }}</button>
+            <button @click="callback" type="button" :class="`btn btn-labeled btn-${okStatus}`">
+            <span class="btn-label"><i :class="`fa fa-${okIcon}`"></i></span>
+                   {{ okText }}
+            </button>            
           </div>
         </slot>
       </div>
@@ -39,6 +42,14 @@ import $ from './utils/NodeList.js'
 
 export default {
   props: {
+    okStatus: {
+      type: String,
+      default: 'success'
+    },
+    okIcon: {
+      type: String,
+      default: 'check'
+    },    
     okText: {
       type: String,
       default: 'Save changes'
