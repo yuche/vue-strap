@@ -44,20 +44,29 @@ export default {
     type: {type: String, default: null},
     value: {default: true}
   },
+  data () {
+    var check = this.checked
+    return {
+      check
+    }
+  },
   computed: {
-    active () { return this._inGroup ? this.$parent.value === this.value : this.value === this.checked },
+    active () { return this._inGroup ? this.$parent.value === this.value : this.value === this.check },
     buttonStyle () { return this.button || (this._inGroup && this.$parent.buttons) },
     typeColor () { return (this.type || (this.$parent && this.$parent.type)) || 'default' }
   },
   watch: {
-    checked (val, old) {
+    check (val) {
       this.$emit('checked', val)
       if (typeof this.value !== 'boolean') {
-        this.$emit('input', this.checked ? this.value : null)
-        if (this._inGroup && this.checked) {
+        this.$emit('input', this.check ? this.value : null)
+        if (this._inGroup && this.check) {
           this.$parent.value = this.value
         }
       }
+    },
+    checked (val) {
+      if (this.check !== val) { this.check = val }
     }
   },
   created () {
@@ -71,8 +80,8 @@ export default {
   mounted () {
     if (!this.$parent._radioGroup) return
     if (this.$parent.value) {
-      this.checked = (this.$parent.value === this.value)
-    } else if (this.checked) {
+      this.check = (this.$parent.value === this.value)
+    } else if (this.check) {
       this.$parent.value = this.value
     }
   },
@@ -84,7 +93,7 @@ export default {
       if (this.disabled) { return }
       this.focus()
       if (this.readonly) { return }
-      this.checked = this.value
+      this.check = this.value
       if (this._inGroup) {
         this.$parent.value = this.value
       }
