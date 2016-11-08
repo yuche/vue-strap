@@ -4,16 +4,15 @@
     <div class="bs-example">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <v-select></v-select>
-          <!-- <p><pre>Normal select data: {{select.normal}}</pre></p>
+          <p><pre>Normal select data: {{select.normal}}</pre></p>
           <form action="./#select" method="get">
             <v-select :options="select.options" options-value="val" v-model="select.normal" name="animal" :search="select.search"
               :required="select.required" :clear-button="select.clearButton" :disabled="select.disabled"
             ></v-select>
             <button type="submit" class="btn btn-default">Submit</button>
-          </form> -->
+          </form>
         </div>
-        <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
           <p><pre>Multiple select data : {{select.multiple.join(',')}}</pre></p>
           <form action="./#select" method="get">
             <v-select :options="select.options" options-value="val" v-model="select.multiple" name="animals[]" :search="select.search"
@@ -22,22 +21,22 @@
             ></v-select>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
-        </div> -->
+        </div>
       </div>
-      <!-- <br/>
-      <button-group type="primary" buttons="false">
+      <br/>
+      <button-group type="primary" :buttons="false">
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <p><checkbox :checked="select.disabled" @checked="select.disabled = arguments[0]">Disabled</checkbox></p>
-            <p><checkbox :checked="select.search" @checked="select.search = arguments[0]">Search</checkbox></p>
-            <p><checkbox :checked="select.clearButton" @checked="select.clearButton = arguments[0]">Clear Button</checkbox></p>
+            <p><checkbox v-model="select.disabled">Disabled</checkbox></p>
+            <p><checkbox v-model="select.search">Search</checkbox></p>
+            <p><checkbox v-model="select.clearButton">Clear Button</checkbox></p>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <p><checkbox :checked="select.required" @checked="select.required = arguments[0]">Required (empty value if noting selected)</checkbox></p>
+            <p><checkbox v-model="select.required">Required (empty value if noting selected)</checkbox></p>
             <p>
               Multiple:
-              <checkbox v-if="select.multiple" :checked="select.limit" @checked="select.limit = arguments[0]">Limit (e.g. 3)</checkbox>
-              <checkbox v-if="select.multiple" :checked="select.closeOnSelect" @checked="select.closeOnSelect = arguments[0]">Close on Select</checkbox>
+              <checkbox v-if="select.multiple" v-model="select.limit">Limit (e.g. 3)</checkbox>
+              <checkbox v-if="select.multiple" v-model="select.closeOnSelect">Close on Select</checkbox>
             </p>
           </div>
         </div>
@@ -106,6 +105,7 @@
           <v-option value="s">Strawberry</v-option>
         </v-select>
       </button-group>
+      <!--
       <doc-code>
         &lt;button-group justified>&lt;select>...&lt;/select>&lt;/button-group>
         // or
@@ -121,9 +121,10 @@
         &lt;v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value">&lt;/v-select>
       </doc-code>
       <p>Ajax response:</p>
-      <pre v-html="$refs.ajax&&$refs.ajax.options"></pre> -->
+      <pre v-html="$refs.ajax&&$refs.ajax.options"></pre>
+      -->
     </div>
-    <!-- <doc-table name="Other">
+    <doc-table name="Other">
       <div>
         <p>min-search</p>
         <p><code>Number</code></p>
@@ -152,10 +153,13 @@
         <p>placeholder</p>
         <p><code>String</code></p>
         <p>Nothing Selected</p>
+        <p></p>
       </div>
       <div>
         <p>search-text</p>
         <p><code>String</code></p>
+        <p></p>
+        <p></p>
       </div>
     </doc-table>
     <doc-table type="Events">
@@ -169,7 +173,7 @@
         <p>(<code>labels:String</code>)</p>
         <p>Return a string with the label(s) of the selected item(s).</p>
       </div>
-    </doc-table> -->
+    </doc-table>
   </doc-section>
 </template>
 
@@ -195,7 +199,11 @@ export default {
   data () {
     return {
       select: {
+        clearButton: false,
+        closeOnSelect: false,
+        disabled: false,
         justified: true,
+        limit: false,
         multiple: [],
         options: [
           {val: 0, label: 'Cat'},
@@ -207,6 +215,7 @@ export default {
           {val: 6, label: 'Tiger'},
           {val: 7, label: 'Turtle'}
         ],
+        required: false,
         search: true
       },
       ajax: {
