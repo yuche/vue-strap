@@ -9,33 +9,22 @@
 export default {
   props: {
     buttons: true,
-    justified: {
-      type: Boolean,
-      default: false
-    },
-    type: {
-      type: String,
-      default: 'default'
-    },
+    justified: {type: Boolean, default: false},
+    type: {type: String, default: 'default'},
     value: null,
-    vertical: {
-      type: Boolean,
-      default: false
+    vertical: {type: Boolean, default: false}
+  },
+  data () {
+    var val = this.value
+    this._btnGroup = true
+    return {
+      val
     }
   },
   watch: {
-    value: {
-      deep: true,
-      handler (val) {
-        this.$emit('input', val)
-        this.$children.forEach(el => {
-          if (el._inGroup && el.eval) el.eval()
-        })
-      }
+    val (val) {
+      this.$emit('input', val)
     }
-  },
-  created () {
-    this._btnGroup = true
   }
 }
 </script>
