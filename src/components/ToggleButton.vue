@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import {coerce} from './vuestrap/utils/utils.js'
+import {coerce} from './utils/utils.js'
 
 export default {
   props: {
