@@ -841,10 +841,10 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "C:\\laragon\\www\\vue-strap\\src\\Checkbox.vue"
+	__vue_options__.__file = "C:\\laragon\\www\\vue-strap\\src\\components\\Checkbox.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-	__vue_options__._scopeId = "data-v-6922bf24"
+	__vue_options__._scopeId = "data-v-5fb81638"
 	
 	/* hot reload */
 	if (false) {(function () {
@@ -853,9 +853,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-6922bf24", __vue_options__)
+	    hotAPI.createRecord("data-v-5fb81638", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-6922bf24", __vue_options__)
+	    hotAPI.reload("data-v-5fb81638", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Checkbox.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -879,8 +879,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js?sourceMap!./../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-6922bf24&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Checkbox.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js?sourceMap!./../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-6922bf24&scoped=true!./../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Checkbox.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-5fb81638&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Checkbox.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-5fb81638&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Checkbox.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -898,7 +898,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\nlabel.checkbox[data-v-6922bf24] {\r\n  position: relative;\r\n  padding-left: 18px;\n}\nlabel.checkbox > input[data-v-6922bf24] {\r\n  box-sizing: border-box;\r\n  position: absolute;\r\n  z-index: -1;\r\n  padding: 0;\r\n  opacity: 0;\r\n  margin: 0;\n}\nlabel.checkbox > .icon[data-v-6922bf24] {\r\n  position: absolute;\r\n  top: .2rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  line-height:1rem;\r\n  text-align: center;\r\n  user-select: none;\r\n  border-radius: .35rem;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\n}\nlabel.checkbox:not(.active) > .icon[data-v-6922bf24] {\r\n  background-color: #ddd;\r\n  border: 1px solid #bbb;\n}\nlabel.checkbox > input:focus ~ .icon[data-v-6922bf24] {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\n}\nlabel.checkbox.active > .icon[data-v-6922bf24] {\r\n  background-size: 1rem 1rem;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJtNS43MywwLjUybC0zLjEyNDIyLDMuMzQxNjFsLTEuMzM4OTUsLTEuNDMyMTJsLTEuMjQ5NjksMS4zMzY2NWwyLjU4ODYzLDIuNzY4NzZsNC4zNzM5LC00LjY3ODI2bC0xLjI0OTY5LC0xLjMzNjY1bDAsMGwwLjAwMDAyLDAuMDAwMDF6Ii8+PC9zdmc+);\n}\nlabel.checkbox.active .btn-default[data-v-6922bf24] { filter: brightness(75%);\n}\nlabel.checkbox.disabled[data-v-6922bf24],\r\nlabel.checkbox.readonly[data-v-6922bf24],\r\n.btn.readonly[data-v-6922bf24] {\r\n  filter: alpha(opacity=65);\r\n  box-shadow: none;\r\n  opacity: .65;\n}\nlabel.btn > input[type=checkbox][data-v-6922bf24] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\n}\r\n", "", {"version":3,"sources":["/./src/Checkbox.vue?f0c9e1c2"],"names":[],"mappings":";AAoGA;EACA,mBAAA;EACA,mBAAA;CACA;AACA;EACA,uBAAA;EACA,mBAAA;EACA,YAAA;EACA,WAAA;EACA,WAAA;EACA,UAAA;CACA;AACA;EACA,mBAAA;EACA,WAAA;EACA,QAAA;EACA,eAAA;EACA,cAAA;EACA,eAAA;EACA,iBAAA;EACA,mBAAA;EACA,kBAAA;EACA,sBAAA;EACA,6BAAA;EACA,mCAAA;EACA,yBAAA;CACA;AACA;EACA,uBAAA;EACA,uBAAA;CACA;AACA;EACA,WAAA;EACA,0BAAA;EACA,0EAAA;CACA;AACA;EACA,2BAAA;EACA,kZAAA;CACA;AACA,sDAAA,wBAAA;CAAA;AAEA;;;EAGA,0BAAA;EACA,iBAAA;EACA,aAAA;CACA;AACA;EACA,mBAAA;EACA,oBAAA;EACA,qBAAA;CACA","file":"Checkbox.vue","sourcesContent":["<template>\r\n  <label :class=\"[isButton?'btn btn-'+typeColor:'open checkbox '+typeColor,{active:checked,disabled:disabled,readonly:readonly}]\" @click.prevent=\"toggle\">\r\n    <input type=\"checkbox\" autocomplete=\"off\"\r\n      ref=\"input\"\r\n      :checked=\"active\"\r\n      :value=\"value\"\r\n      :name=\"name\"\r\n      :readonly=\"readonly\"\r\n      :disabled=\"disabled\"\r\n      @checked=\"toggle\"\r\n    />\r\n    <span v-if=\"!isButton\" class=\"icon dropdown-toggle\" :class=\"[active?'btn-'+typeColor:'',{bg:typeColor==='default'}]\"></span>\r\n    <span v-if=\"!isButton&active&&typeColor==='default'\" class=\"icon\"></span>\r\n    <slot></slot>\r\n  </label>\r\n</template>\r\n\r\n<script>\r\n// let coerce = {\r\n//   disabled: 'boolean',\r\n//   readonly: 'boolean'\r\n// }\r\n\r\nexport default {\r\n  props: {\r\n    button: {type: Boolean, default: false},\r\n    checked: {type: Boolean, default: false},\r\n    disabled: {type: Boolean, default: false},\r\n    name: {type: String, default: null},\r\n    readonly: {type: Boolean, default: false},\r\n    type: {type: String, default: null},\r\n    value: {default: true}\r\n  },\r\n  computed: {\r\n    active () { \r\n      return typeof this.value !== 'boolean' && this._inGroup ? ~this.$parent.value.indexOf(this.value) : this.checked \r\n    },\r\n    isButton () { return this.button || (this._inGroup && this.$parent.buttons) },\r\n    typeColor () { return (this.type || (this.$parent && this.$parent.type)) || 'default' }\r\n  },\r\n  watch: {\r\n    checked (val, old) {\r\n      this.$emit('checked', val ? this.value : null )\r\n\r\n      if (typeof this.value !== 'boolean') {\r\n        this.$emit('input', this.checked ? this.value : null)\r\n        if (this._inGroup) {\r\n          if (this.checked && !~this.$parent.value.indexOf(this.value)) this.$parent.value.push(this.value)\r\n          if (!this.checked && ~this.$parent.value.indexOf(this.value)) parent.value.splice(parent.value.indexOf(this.value), 1)\r\n        }\r\n      }\r\n    }\r\n  },\r\n  created () {\r\n    if (typeof this.value === 'boolean') { return }\r\n    const parent = this.$parent\r\n    if (parent && parent._btnGroup && !parent._radioGroup) {\r\n      this._inGroup = true\r\n      parent._checkboxGroup = true\r\n      if (!(parent.value instanceof Array)) { parent.value = [] }\r\n    }\r\n  },\r\n  mounted () {\r\n    if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') { return }\r\n    if (this.$parent.value.length) {\r\n      // this.checked = ~this.$parent.value.indexOf(this.value)\r\n      this.$emit('checked', ~this.$parent.value.indexOf(this.value))\r\n    } else if (this.checked) {\r\n      this.$parent.value.push(this.value)\r\n    }\r\n  },\r\n  methods: {\r\n    eval () {\r\n      if (typeof this.value !== 'boolean' && this._inGroup) {\r\n        // this.checked = ~this.$parent.value.indexOf(this.value)\r\n        this.$emit('checked', ~this.$parent.value.indexOf(this.value))\r\n      }\r\n    },\r\n    focus () {\r\n      this.$refs.input.focus()\r\n    },\r\n    toggle () {\r\n      if (!this.disabled) {\r\n        this.focus()\r\n        if (!this.readonly) {\r\n          // this.checked = this.checked ? null : this.value\r\n          this.$emit('checked', this.checked ? null : this.value )\r\n          if (this._inGroup && typeof this.value !== 'boolean') {\r\n            const index = this.$parent.value.indexOf(this.value)\r\n            this.$parent.value[~index ? '$remove' : 'push'](this.value)\r\n          }\r\n        }\r\n      }\r\n      return false\r\n    }\r\n  }\r\n}\r\n</script>\r\n\r\n<style scoped>\r\nlabel.checkbox {\r\n  position: relative;\r\n  padding-left: 18px;\r\n}\r\nlabel.checkbox > input {\r\n  box-sizing: border-box;\r\n  position: absolute;\r\n  z-index: -1;\r\n  padding: 0;\r\n  opacity: 0;\r\n  margin: 0;\r\n}\r\nlabel.checkbox > .icon {\r\n  position: absolute;\r\n  top: .2rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  line-height:1rem;\r\n  text-align: center;\r\n  user-select: none;\r\n  border-radius: .35rem;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\r\n}\r\nlabel.checkbox:not(.active) > .icon {\r\n  background-color: #ddd;\r\n  border: 1px solid #bbb;\r\n}\r\nlabel.checkbox > input:focus ~ .icon {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\nlabel.checkbox.active > .icon {\r\n  background-size: 1rem 1rem;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJtNS43MywwLjUybC0zLjEyNDIyLDMuMzQxNjFsLTEuMzM4OTUsLTEuNDMyMTJsLTEuMjQ5NjksMS4zMzY2NWwyLjU4ODYzLDIuNzY4NzZsNC4zNzM5LC00LjY3ODI2bC0xLjI0OTY5LC0xLjMzNjY1bDAsMGwwLjAwMDAyLDAuMDAwMDF6Ii8+PC9zdmc+);\r\n}\r\nlabel.checkbox.active .btn-default { filter: brightness(75%); }\r\n\r\nlabel.checkbox.disabled,\r\nlabel.checkbox.readonly,\r\n.btn.readonly {\r\n  filter: alpha(opacity=65);\r\n  box-shadow: none;\r\n  opacity: .65;\r\n}\r\nlabel.btn > input[type=checkbox] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\nlabel.checkbox[data-v-5fb81638] {\r\n  position: relative;\r\n  padding-left: 18px;\n}\nlabel.checkbox > input[data-v-5fb81638] {\r\n  box-sizing: border-box;\r\n  position: absolute;\r\n  z-index: -1;\r\n  padding: 0;\r\n  opacity: 0;\r\n  margin: 0;\n}\nlabel.checkbox > .icon[data-v-5fb81638] {\r\n  position: absolute;\r\n  top: .2rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  line-height:1rem;\r\n  text-align: center;\r\n  user-select: none;\r\n  border-radius: .35rem;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\n}\nlabel.checkbox:not(.active) > .icon[data-v-5fb81638] {\r\n  background-color: #ddd;\r\n  border: 1px solid #bbb;\n}\nlabel.checkbox > input:focus ~ .icon[data-v-5fb81638] {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\n}\nlabel.checkbox.active > .icon[data-v-5fb81638] {\r\n  background-size: 1rem 1rem;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJtNS43MywwLjUybC0zLjEyNDIyLDMuMzQxNjFsLTEuMzM4OTUsLTEuNDMyMTJsLTEuMjQ5NjksMS4zMzY2NWwyLjU4ODYzLDIuNzY4NzZsNC4zNzM5LC00LjY3ODI2bC0xLjI0OTY5LC0xLjMzNjY1bDAsMGwwLjAwMDAyLDAuMDAwMDF6Ii8+PC9zdmc+);\n}\nlabel.checkbox.active .btn-default[data-v-5fb81638] { filter: brightness(75%);\n}\nlabel.checkbox.disabled[data-v-5fb81638],\r\nlabel.checkbox.readonly[data-v-5fb81638],\r\n.btn.readonly[data-v-5fb81638] {\r\n  filter: alpha(opacity=65);\r\n  box-shadow: none;\r\n  opacity: .65;\n}\nlabel.btn > input[type=checkbox][data-v-5fb81638] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\n}\r\n", "", {"version":3,"sources":["/./src/components/Checkbox.vue?da64ff4a"],"names":[],"mappings":";AAmFA;EACA,mBAAA;EACA,mBAAA;CACA;AACA;EACA,uBAAA;EACA,mBAAA;EACA,YAAA;EACA,WAAA;EACA,WAAA;EACA,UAAA;CACA;AACA;EACA,mBAAA;EACA,WAAA;EACA,QAAA;EACA,eAAA;EACA,cAAA;EACA,eAAA;EACA,iBAAA;EACA,mBAAA;EACA,kBAAA;EACA,sBAAA;EACA,6BAAA;EACA,mCAAA;EACA,yBAAA;CACA;AACA;EACA,uBAAA;EACA,uBAAA;CACA;AACA;EACA,WAAA;EACA,0BAAA;EACA,0EAAA;CACA;AACA;EACA,2BAAA;EACA,kZAAA;CACA;AACA,sDAAA,wBAAA;CAAA;AAEA;;;EAGA,0BAAA;EACA,iBAAA;EACA,aAAA;CACA;AACA;EACA,mBAAA;EACA,oBAAA;EACA,qBAAA;CACA","file":"Checkbox.vue","sourcesContent":["<template>\r\n  <a :is=\"isButton?'a':'label'\" @click=\"toggle\" :class=\"[isButton?'btn btn-'+typeColor:'open checkbox '+typeColor,{active:checked,disabled:disabled,readonly:readonly}]\">\r\n    <input v-if=\"name\" type=\"hidden\" :name=\"name\" :value=\"checked?trueValue:falseValue\" />\r\n    <span v-if=\"!isButton\" class=\"icon dropdown-toggle\" :class=\"[checked?'btn-'+typeColor:'',{bg:typeColor==='default'}]\"></span>\r\n    <span v-if=\"!isButton&&checked&&typeColor==='default'\" class=\"icon\"></span>\r\n    <slot></slot>\r\n  </a>\r\n</template>\r\n\r\n<script>\r\nexport default {\r\n  props: {\r\n    button: {type: Boolean, default: false},\r\n    disabled: {type: Boolean, default: false},\r\n    falseValue: {default: false},\r\n    name: {type: String, default: null},\r\n    readonly: {type: Boolean, default: false},\r\n    trueValue: {default: true},\r\n    type: {type: String, default: null},\r\n    value: {default: false}\r\n  },\r\n  data () {\r\n    var checked = (this.value === this.trueValue)\r\n    return {\r\n      checked\r\n    }\r\n  },\r\n  computed: {\r\n    isButton () { return this.button || (this._inGroup && this.$parent.buttons) },\r\n    isFalse () { return this.value === this.falseValue },\r\n    isTrue () { return this.value === this.trueValue },\r\n    typeColor () { return (this.type || (this.$parent && this.$parent.type)) || 'default' }\r\n  },\r\n  watch: {\r\n    checked (val, old) {\r\n      var value = val ? this.trueValue : this.falseValue\r\n      this.$emit('checked', val)\r\n      this.$emit('input', value)\r\n      this.eval()\r\n    },\r\n    value (val, old) {\r\n      var checked = !(val !== this.trueValue)\r\n      if (this.checked !== checked) {\r\n        this.checked = checked\r\n      } \r\n    }\r\n  },\r\n  created () {\r\n    const parent = this.$parent\r\n    if (parent && parent._btnGroup && !parent._radioGroup) {\r\n      this._inGroup = true\r\n      parent._checkboxGroup = true\r\n      if (!(parent.val instanceof Array)) { parent.val = [] }\r\n      this.eval()\r\n    }\r\n  },\r\n  mounted () {\r\n    if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') { return }\r\n    if (this.$parent.val.length) {\r\n      // this.checked = ~this.$parent.val.indexOf(this.value)\r\n      this.$emit('checked', ~this.$parent.val.indexOf(this.value))\r\n    } else if (this.checked) {\r\n      this.$parent.val.push(this.value)\r\n    }\r\n  },\r\n  methods: {\r\n    eval () {\r\n      if (this._inGroup) {\r\n        var value = this.checked ? this.isTrue : this.isFalse\r\n        var index = this.$parent.val.indexOf(value)\r\n        if (this.checked && !~index) this.$parent.val.push(value)\r\n        if (!this.checked && ~index) this.$parent.val.splice(index, 1)\r\n      }\r\n    },\r\n    toggle () {\r\n      if (this.disabled || this.readonly) { return }\r\n      this.checked = !this.checked\r\n    }\r\n  }\r\n}\r\n</script>\r\n\r\n<style scoped>\r\nlabel.checkbox {\r\n  position: relative;\r\n  padding-left: 18px;\r\n}\r\nlabel.checkbox > input {\r\n  box-sizing: border-box;\r\n  position: absolute;\r\n  z-index: -1;\r\n  padding: 0;\r\n  opacity: 0;\r\n  margin: 0;\r\n}\r\nlabel.checkbox > .icon {\r\n  position: absolute;\r\n  top: .2rem;\r\n  left: 0;\r\n  display: block;\r\n  width: 1.4rem;\r\n  height: 1.4rem;\r\n  line-height:1rem;\r\n  text-align: center;\r\n  user-select: none;\r\n  border-radius: .35rem;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: 50% 50%;\r\n}\r\nlabel.checkbox:not(.active) > .icon {\r\n  background-color: #ddd;\r\n  border: 1px solid #bbb;\r\n}\r\nlabel.checkbox > input:focus ~ .icon {\r\n  outline: 0;\r\n  border: 1px solid #66afe9;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\nlabel.checkbox.active > .icon {\r\n  background-size: 1rem 1rem;\r\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJtNS43MywwLjUybC0zLjEyNDIyLDMuMzQxNjFsLTEuMzM4OTUsLTEuNDMyMTJsLTEuMjQ5NjksMS4zMzY2NWwyLjU4ODYzLDIuNzY4NzZsNC4zNzM5LC00LjY3ODI2bC0xLjI0OTY5LC0xLjMzNjY1bDAsMGwwLjAwMDAyLDAuMDAwMDF6Ii8+PC9zdmc+);\r\n}\r\nlabel.checkbox.active .btn-default { filter: brightness(75%); }\r\n\r\nlabel.checkbox.disabled,\r\nlabel.checkbox.readonly,\r\n.btn.readonly {\r\n  filter: alpha(opacity=65);\r\n  box-shadow: none;\r\n  opacity: .65;\r\n}\r\nlabel.btn > input[type=checkbox] {\r\n  position: absolute;\r\n  clip: rect(0,0,0,0);\r\n  pointer-events: none;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -1199,36 +1199,34 @@
 	//
 	//
 	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	
-	// let coerce = {
-	//   disabled: 'boolean',
-	//   readonly: 'boolean'
-	// }
 	
 	exports.default = {
 	  props: {
 	    button: { type: Boolean, default: false },
-	    checked: { type: Boolean, default: false },
 	    disabled: { type: Boolean, default: false },
+	    falseValue: { default: false },
 	    name: { type: String, default: null },
 	    readonly: { type: Boolean, default: false },
+	    trueValue: { default: true },
 	    type: { type: String, default: null },
-	    value: { default: true }
+	    value: { default: false }
 	  },
+	  data: function data() {
+	    var checked = this.value === this.trueValue;
+	    return {
+	      checked: checked
+	    };
+	  },
+	
 	  computed: {
-	    active: function active() {
-	      return typeof this.value !== 'boolean' && this._inGroup ? ~this.$parent.value.indexOf(this.value) : this.checked;
-	    },
 	    isButton: function isButton() {
 	      return this.button || this._inGroup && this.$parent.buttons;
+	    },
+	    isFalse: function isFalse() {
+	      return this.value === this.falseValue;
+	    },
+	    isTrue: function isTrue() {
+	      return this.value === this.trueValue;
 	    },
 	    typeColor: function typeColor() {
 	      return this.type || this.$parent && this.$parent.type || 'default';
@@ -1236,65 +1234,55 @@
 	  },
 	  watch: {
 	    checked: function checked(val, old) {
-	      this.$emit('checked', val ? this.value : null);
-	
-	      if (typeof this.value !== 'boolean') {
-	        this.$emit('input', this.checked ? this.value : null);
-	        if (this._inGroup) {
-	          if (this.checked && !~this.$parent.value.indexOf(this.value)) this.$parent.value.push(this.value);
-	          if (!this.checked && ~this.$parent.value.indexOf(this.value)) parent.value.splice(parent.value.indexOf(this.value), 1);
-	        }
+	      var value = val ? this.trueValue : this.falseValue;
+	      this.$emit('checked', val);
+	      this.$emit('input', value);
+	      this.eval();
+	    },
+	    value: function value(val, old) {
+	      var checked = !(val !== this.trueValue);
+	      if (this.checked !== checked) {
+	        this.checked = checked;
 	      }
 	    }
 	  },
 	  created: function created() {
-	    if (typeof this.value === 'boolean') {
-	      return;
-	    }
 	    var parent = this.$parent;
 	    if (parent && parent._btnGroup && !parent._radioGroup) {
 	      this._inGroup = true;
 	      parent._checkboxGroup = true;
-	      if (!(parent.value instanceof Array)) {
-	        parent.value = [];
+	      if (!(parent.val instanceof Array)) {
+	        parent.val = [];
 	      }
+	      this.eval();
 	    }
 	  },
 	  mounted: function mounted() {
 	    if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') {
 	      return;
 	    }
-	    if (this.$parent.value.length) {
-	      // this.checked = ~this.$parent.value.indexOf(this.value)
-	      this.$emit('checked', ~this.$parent.value.indexOf(this.value));
+	    if (this.$parent.val.length) {
+	      // this.checked = ~this.$parent.val.indexOf(this.value)
+	      this.$emit('checked', ~this.$parent.val.indexOf(this.value));
 	    } else if (this.checked) {
-	      this.$parent.value.push(this.value);
+	      this.$parent.val.push(this.value);
 	    }
 	  },
 	
 	  methods: {
 	    eval: function _eval() {
-	      if (typeof this.value !== 'boolean' && this._inGroup) {
-	        // this.checked = ~this.$parent.value.indexOf(this.value)
-	        this.$emit('checked', ~this.$parent.value.indexOf(this.value));
+	      if (this._inGroup) {
+	        var value = this.checked ? this.isTrue : this.isFalse;
+	        var index = this.$parent.val.indexOf(value);
+	        if (this.checked && !~index) this.$parent.val.push(value);
+	        if (!this.checked && ~index) this.$parent.val.splice(index, 1);
 	      }
-	    },
-	    focus: function focus() {
-	      this.$refs.input.focus();
 	    },
 	    toggle: function toggle() {
-	      if (!this.disabled) {
-	        this.focus();
-	        if (!this.readonly) {
-	          // this.checked = this.checked ? null : this.value
-	          this.$emit('checked', this.checked ? null : this.value);
-	          if (this._inGroup && typeof this.value !== 'boolean') {
-	            var index = this.$parent.value.indexOf(this.value);
-	            this.$parent.value[~index ? '$remove' : 'push'](this.value);
-	          }
-	        }
+	      if (this.disabled || this.readonly) {
+	        return;
 	      }
-	      return false;
+	      this.checked = !this.checked;
 	    }
 	  }
 	};
@@ -1304,47 +1292,37 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){with(this) {
-	  return _h('label', {
+	  return _h(isButton ? 'a' : 'label', {
+	    tag: "a",
 	    class: [isButton ? 'btn btn-' + typeColor : 'open checkbox ' + typeColor, {
 	      active: checked,
 	      disabled: disabled,
 	      readonly: readonly
 	    }],
 	    on: {
-	      "click": function($event) {
-	        $event.preventDefault();
-	        toggle($event)
-	      }
+	      "click": toggle
 	    }
-	  }, [_h('input', {
-	    ref: "input",
+	  }, [(name) ? _h('input', {
 	    attrs: {
-	      "type": "checkbox",
-	      "autocomplete": "off",
-	      "name": name,
-	      "readonly": readonly,
-	      "disabled": disabled
+	      "type": "hidden",
+	      "name": name
 	    },
 	    domProps: {
-	      "checked": active,
-	      "value": value
-	    },
-	    on: {
-	      "checked": toggle
+	      "value": checked ? trueValue : falseValue
 	    }
-	  }), " ", (!isButton) ? _h('span', {
+	  }) : _e(), " ", (!isButton) ? _h('span', {
 	    staticClass: "icon dropdown-toggle",
-	    class: [active ? 'btn-' + typeColor : '', {
+	    class: [checked ? 'btn-' + typeColor : '', {
 	      bg: typeColor === 'default'
 	    }]
-	  }) : _e(), " ", (!isButton & active && typeColor === 'default') ? _h('span', {
+	  }) : _e(), " ", (!isButton && checked && typeColor === 'default') ? _h('span', {
 	    staticClass: "icon"
 	  }) : _e(), " ", _t("default")])
 	}},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-6922bf24", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-5fb81638", module.exports)
 	  }
 	}
 
@@ -7213,33 +7191,23 @@
 	exports.default = {
 	  props: {
 	    buttons: true,
-	    justified: {
-	      type: Boolean,
-	      default: false
-	    },
-	    type: {
-	      type: String,
-	      default: 'default'
-	    },
+	    justified: { type: Boolean, default: false },
+	    type: { type: String, default: 'default' },
 	    value: null,
-	    vertical: {
-	      type: Boolean,
-	      default: false
-	    }
+	    vertical: { type: Boolean, default: false }
 	  },
-	  watch: {
-	    value: {
-	      deep: true,
-	      handler: function handler(val) {
-	        this.$emit('input', val);
-	        this.$children.forEach(function (el) {
-	          if (el._inGroup && el.eval) el.eval();
-	        });
-	      }
-	    }
-	  },
-	  created: function created() {
+	  data: function data() {
+	    var val = this.value;
 	    this._btnGroup = true;
+	    return {
+	      val: val
+	    };
+	  },
+	
+	  watch: {
+	    val: function val(_val) {
+	      this.$emit('input', _val);
+	    }
 	  }
 	};
 
@@ -8452,6 +8420,12 @@
 	//
 	//
 	//
+	//
+	//
+	//
+	//
+	//
+	//
 	
 	exports.default = {
 	  components: {
@@ -8485,121 +8459,166 @@
 	  }, [_h('div', {
 	    staticClass: "bs-example"
 	  }, [_m(0), " ", _h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (checkboxValue.one),
+	      expression: "checkboxValue.one"
+	    }],
 	    attrs: {
-	      "value": "one"
+	      "true-value": "1"
 	    },
 	    domProps: {
-	      "checked": checkboxValue.one
+	      "value": (checkboxValue.one)
 	    },
 	    on: {
-	      "checked": function($event) {
-	        checkboxValue.one = 'one' == arguments[0]
+	      "input": function($event) {
+	        checkboxValue.one = $event
 	      }
 	    }
 	  }, ["One"]), " ", _h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (checkboxValue.two),
+	      expression: "checkboxValue.two"
+	    }],
 	    attrs: {
-	      "value": "two",
+	      "true-value": "two",
 	      "type": "danger",
 	      "disabled": ""
 	    },
 	    domProps: {
-	      "checked": checkboxValue.two
+	      "value": (checkboxValue.two)
 	    },
 	    on: {
-	      "checked": function($event) {
-	        checkboxValue.two = 'two' == arguments[0]
+	      "input": function($event) {
+	        checkboxValue.two = $event
 	      }
 	    }
 	  }, ["Two (disabled)"]), " ", _h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (checkboxValue.two),
+	      expression: "checkboxValue.two"
+	    }],
 	    attrs: {
-	      "value": "two",
+	      "true-value": "two",
 	      "type": "warning",
 	      "readonly": ""
 	    },
 	    domProps: {
-	      "checked": checkboxValue.two
+	      "value": (checkboxValue.two)
 	    },
 	    on: {
-	      "checked": function($event) {
-	        checkboxValue.two = 'two' == arguments[0]
+	      "input": function($event) {
+	        checkboxValue.two = $event
 	      }
 	    }
 	  }, ["Two (readonly)"]), " ", _h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (checkboxValue.two),
+	      expression: "checkboxValue.two"
+	    }],
 	    attrs: {
-	      "value": "two",
+	      "true-value": "two",
 	      "type": "success"
 	    },
 	    domProps: {
-	      "checked": checkboxValue.two
+	      "value": (checkboxValue.two)
 	    },
 	    on: {
-	      "checked": function($event) {
-	        checkboxValue.two = 'two' == arguments[0]
+	      "input": function($event) {
+	        checkboxValue.two = $event
 	      }
 	    }
 	  }, ["Two"]), " ", _m(1), " ", _m(2), " ", _h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (checkboxValue.three),
+	      expression: "checkboxValue.three"
+	    }],
 	    attrs: {
 	      "button": "",
-	      "value": "three",
+	      "true-value": 2 + 1,
 	      "type": "primary"
 	    },
 	    domProps: {
-	      "checked": checkboxValue.three
+	      "value": (checkboxValue.three)
 	    },
 	    on: {
-	      "checked": function($event) {
-	        checkboxValue.three = 'tree' == arguments[0]
+	      "input": function($event) {
+	        checkboxValue.three = $event
 	      }
 	    }
 	  }, ["Three"]), " ", _h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (checkboxValue.four),
+	      expression: "checkboxValue.four"
+	    }],
 	    attrs: {
 	      "button": "",
-	      "value": "four",
 	      "type": "info",
 	      "disabled": ""
 	    },
 	    domProps: {
-	      "checked": checkboxValue.four
+	      "value": (checkboxValue.four)
 	    },
 	    on: {
-	      "checked": function($event) {
-	        checkboxValue.four = 'four' == arguments[0]
+	      "input": function($event) {
+	        checkboxValue.four = $event
 	      }
 	    }
 	  }, ["Four (disabled)"]), " ", _h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (checkboxValue.four),
+	      expression: "checkboxValue.four"
+	    }],
 	    attrs: {
 	      "button": "",
-	      "value": "four",
 	      "type": "info",
 	      "readonly": ""
 	    },
 	    domProps: {
-	      "checked": checkboxValue.four
+	      "value": (checkboxValue.four)
 	    },
 	    on: {
-	      "checked": function($event) {
-	        checkboxValue.four = 'four' == arguments[0]
+	      "input": function($event) {
+	        checkboxValue.four = $event
 	      }
 	    }
 	  }, ["Four (readonly)"]), " ", _h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (checkboxValue.four),
+	      expression: "checkboxValue.four"
+	    }],
 	    attrs: {
 	      "button": "",
-	      "value": "four",
 	      "type": "info"
 	    },
 	    domProps: {
-	      "checked": checkboxValue.four
+	      "value": (checkboxValue.four)
 	    },
 	    on: {
-	      "checked": function($event) {
-	        checkboxValue.four = 'four' == arguments[0]
+	      "input": function($event) {
+	        checkboxValue.four = $event
 	      }
 	    }
 	  }, ["Four"]), " ", _h('p', [_h('pre', ["Checkbox values: " + _s(checkboxValue)])])]), " ", _h('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, ["\n    <checkbox :checked=\"checkboxValue.one\" @checked=\"checkboxValue.one = 'one' == arguments[0]\" value=\"one\">One</checkbox>\n    <checkbox :checked=\"checkboxValue.two\" @checked=\"checkboxValue.two = 'two' == arguments[0]\" value=\"two\" type=\"primary\">Two</checkbox>\n    <checkbox :checked=\"checkboxValue.three\" @checked=\"checkboxValue.three = 'tree' == arguments[0]\" value=\"three\" type=\"info\">Three</checkbox>\n    <checkbox button :checked=\"checkboxValue.four\" @checked=\"checkboxValue.four = 'four' == arguments[0]\" value=\"four\" type=\"danger\">Four</checkbox>\n  "]), " ", _h('doc-table', [_m(3), " ", _m(4), " ", _m(5), " ", _m(6)]), " ", _m(7)])
+	  }, ["\n    <checkbox v-model=\"checkboxValue.one\" true-value=\"1\">One</checkbox>\n    <checkbox v-model=\"checkboxValue.two\" true-value=\"two\" type=\"primary\">Two</checkbox>\n    <checkbox v-model=\"checkboxValue.three\" :true-value=\"2+1\" type=\"info\">Three</checkbox>\n    <checkbox button v-model=\"checkboxValue.four\" type=\"danger\">Four</checkbox>\n  "]), " ", _h('doc-table', [_m(3), " ", _m(4), " ", _m(5), " ", _m(6), " ", _m(7)]), " ", _m(8)])
 	}},staticRenderFns: [function (){with(this) {
 	  return _h('h4', ["Checkbox"])
 	}},function (){with(this) {
@@ -8607,9 +8626,11 @@
 	}},function (){with(this) {
 	  return _h('h4', ["Checkbox Button (Single button)"])
 	}},function (){with(this) {
-	  return _h('div', [_h('p', ["checked"]), " ", _h('p', [_h('code', ["Boolean"])]), " ", _h('p'), " ", _h('p', ["Handle the selected value."])])
+	  return _h('div', [_h('p', ["value"]), " ", _h('p', [_h('code', ["Mixed"])]), " ", _h('p'), " ", _h('p', ["Handle the selected value."])])
 	}},function (){with(this) {
-	  return _h('div', [_h('p', ["value"]), " ", _h('p', [_h('code', ["Number"]), " or ", _h('code', ["String"])]), " ", _h('p'), " ", _h('p', ["Value to return if the checkbox item is selected."])])
+	  return _h('div', [_h('p', ["true-value"]), " ", _h('p', [_h('code', ["Mixed"])]), " ", _h('p', [_h('code', ["true"])]), " ", _h('p', ["Value when is checked."])])
+	}},function (){with(this) {
+	  return _h('div', [_h('p', ["false-value"]), " ", _h('p', [_h('code', ["Mixed"])]), " ", _h('p', [_h('code', ["false"])]), " ", _h('p', ["Value when is not checked."])])
 	}},function (){with(this) {
 	  return _h('div', [_h('p', ["type"]), " ", _h('p', [_h('code', ["String"]), ", one of ", _h('code', ["default"]), " ", _h('code', ["primary"]), " ", _h('code', ["danger"]), " ", _h('code', ["info"]), " ", _h('code', ["warning"]), " ", _h('code', ["success"])]), " ", _h('p', [_h('code', ["default"])]), " ", _h('p')])
 	}},function (){with(this) {
@@ -13111,6 +13132,7 @@
 	//
 	//
 	//
+	//
 	
 	exports.default = {
 	  components: {
@@ -13176,10 +13198,10 @@
 	    }
 	  }, ["\r\n      methods: {\r\n        callable: function (arg0, arg1, ...) {\r\n          // defined arguments\r\n          this.arg0 = arg0\r\n          // or global arguments array\r\n          this.arg0 = arguments[0]\r\n        }\r\n      }\r\n    "]), " ", _m(17)]), " ", _h('doc-section', {
 	    attrs: {
-	      "id": "vue2-binding",
-	      "name": "vue 2 binding"
+	      "id": "v-model",
+	      "name": "v-model"
 	    }
-	  }, [_m(18), " ", _m(19), " ", _h('doc-code', ["\r\n      <!-- v-model like this: -->\r\n      <component v-model=\"element\"></component>\r\n      <!-- will be translated to: -->\r\n      <component :value=\"element\" @input=\"element = argument[0]\"></component>\r\n    "])])])
+	  }, [_m(18), " ", _m(19), " ", _m(20), " ", _h('doc-code', ["\r\n      <!-- using v-model like this: -->\r\n      <component v-model=\"element\"></component>\r\n      <!-- is the same that: -->\r\n      <component :value=\"element\" @input=\"element = argument[0]\"></component>\r\n    "])])])
 	}},staticRenderFns: [function (){with(this) {
 	  return _h('div', {
 	    staticClass: "bs-callout bs-callout-success"
@@ -13233,7 +13255,9 @@
 	}},function (){with(this) {
 	  return _h('p', ["According to the vue2 specifications, ", _h('code', ["twoWay"]), " binding is not supported anymore, except for ", _h('code', ["v-model"]), "."])
 	}},function (){with(this) {
-	  return _h('p', ["Keep in mind that in vue2 v-model is equal to bind value an handle input event, like this:"])
+	  return _h('p', ["The ", _h('code', ["v-model"]), " directive in a component always link to ", _h('code', ["value"]), " attribute."])
+	}},function (){with(this) {
+	  return _h('p', ["Keep in mind that in vue2:"])
 	}}]}
 	if (false) {
 	  module.hot.accept()
@@ -15066,9 +15090,12 @@
 	  },
 	  beforeDestroy: function beforeDestroy() {
 	    (0, _NodeList2.default)('.dropdown', this.$el).off('click').offBlur();
-	    if (this.slots.collapse) (0, _NodeList2.default)('[data-toggle="collapse"]', this.$el).off('click');
+	    if (this.$slots.collapse) (0, _NodeList2.default)('[data-toggle="collapse"]', this.$el).off('click');
 	  }
 	}; //
+	//
+	//
+	//
 	//
 	//
 	//
@@ -15120,7 +15147,9 @@
 	    }]
 	  }, [_h('ul', {
 	    staticClass: "nav navbar-nav"
-	  }, [_t("default")]), " ", ($slots.right) ? _h('ul', {
+	  }, [_t("default")]), " ", ($slots.left) ? _h('ul', {
+	    staticClass: "nav navbar-nav navbar-left"
+	  }, [_t("left")]) : _e(), " ", ($slots.right) ? _h('ul', {
 	    staticClass: "nav navbar-nav navbar-right"
 	  }, [_t("right")]) : _e()])])])
 	}},staticRenderFns: [function (){with(this) {
@@ -16515,7 +16544,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.checkbox>label:not(:first-child) {\r\n  margin-left: 15px;\n}\r\n", "", {"version":3,"sources":["/./docs/example/selectDocs.vue?6eb8bbb3"],"names":[],"mappings":";AA6NA;EACA,kBAAA;CACA","file":"selectDocs.vue","sourcesContent":["<template>\r\n  <doc-section id=\"select\" name=\"Select\">\r\n    <p>Based in a <a target=\"_blank\" href=\"https://silviomoreto.github.io/bootstrap-select/\">bootstrap-select</a> implementation.</p>\r\n    <div class=\"bs-example\">\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n          <v-select></v-select>\r\n          <!-- <p><pre>Normal select data: {{select.normal}}</pre></p>\r\n          <form action=\"./#select\" method=\"get\">\r\n            <v-select :options=\"select.options\" options-value=\"val\" v-model=\"select.normal\" name=\"animal\" :search=\"select.search\"\r\n              :required=\"select.required\" :clear-button=\"select.clearButton\" :disabled=\"select.disabled\"\r\n            ></v-select>\r\n            <button type=\"submit\" class=\"btn btn-default\">Submit</button>\r\n          </form> -->\r\n        </div>\r\n        <!-- <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n          <p><pre>Multiple select data : {{select.multiple.join(',')}}</pre></p>\r\n          <form action=\"./#select\" method=\"get\">\r\n            <v-select :options=\"select.options\" options-value=\"val\" v-model=\"select.multiple\" name=\"animals[]\" :search=\"select.search\"\r\n              multiple :required=\"select.required\" :clear-button=\"select.clearButton\"\r\n              :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"\r\n            ></v-select>\r\n            <button type=\"submit\" class=\"btn btn-default\">Submit</button>\r\n          </form>\r\n        </div> -->\r\n      </div>\r\n      <!-- <br/>\r\n      <button-group type=\"primary\" buttons=\"false\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n            <p><checkbox :checked=\"select.disabled\" @checked=\"select.disabled = arguments[0]\">Disabled</checkbox></p>\r\n            <p><checkbox :checked=\"select.search\" @checked=\"select.search = arguments[0]\">Search</checkbox></p>\r\n            <p><checkbox :checked=\"select.clearButton\" @checked=\"select.clearButton = arguments[0]\">Clear Button</checkbox></p>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n            <p><checkbox :checked=\"select.required\" @checked=\"select.required = arguments[0]\">Required (empty value if noting selected)</checkbox></p>\r\n            <p>\r\n              Multiple:\r\n              <checkbox v-if=\"select.multiple\" :checked=\"select.limit\" @checked=\"select.limit = arguments[0]\">Limit (e.g. 3)</checkbox>\r\n              <checkbox v-if=\"select.multiple\" :checked=\"select.closeOnSelect\" @checked=\"select.closeOnSelect = arguments[0]\">Close on Select</checkbox>\r\n            </p>\r\n          </div>\r\n        </div>\r\n      </button-group>\r\n      <doc-code>\r\n        &lt;form action=\"./#select\" method=\"get\">\r\n          &lt;v-select v-model=\"select.value\" :options=\"select.options\" options-value=\"val\"\r\n            multiple name=\"animals[]\" limit=\"3\"\r\n            search justified required disabled\r\n            clear-button close-on-select\r\n          >&lt;/v-select>\r\n          &lt;button type=\"submit\" class=\"btn btn-default\">Submit form&lt;/button>\r\n        &lt;/form>\r\n      </doc-code>\r\n      <doc-code language=\"javascript\">\r\n        options: [\r\n          {val: 0, label: 'Cat'},\r\n          {val: 1, label: 'Cow'},\r\n          {val: 2, label: 'Dog'},\r\n          {val: 3, label: 'Elephant'},\r\n          {val: 4, label: 'Fish'},\r\n          {val: 5, label: 'Lion'},\r\n          {val: 6, label: 'Tiger'},\r\n          {val: 7, label: 'Turtle'}\r\n        ]\r\n      </doc-code>\r\n      <h4>Select with option component:</h4>\r\n      <p><pre>Selected data : {{single}}</pre></p>\r\n      <v-select v-model=\"single\">\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n      <doc-code>\r\n        &lt;v-select>\r\n          &lt;v-option value=\"apple\">Apple&lt;/v-option>\r\n          &lt;v-option value=\"banana\">Banana&lt;/v-option>\r\n          &lt;v-option value=\"cherry\">Cherry&lt;/v-option>\r\n          &lt;v-option value=\"orange\">Orange&lt;/v-option>\r\n          &lt;v-option value=\"grape\">Grape&lt;/v-option>\r\n        &lt;/v-select>\r\n      </doc-code>\r\n      <hr/>\r\n      <h4>Use button-group (component or <a href=\"http://getbootstrap.com/components/#btn-groups-justified\">bootstrap element</a>) if you want to justify.</h4>\r\n      <button-group justified>\r\n        <v-select multiple clear-button>\r\n          <v-option value=\"apple\">Apple</v-option>\r\n          <v-option value=\"banana\">Banana</v-option>\r\n          <v-option value=\"cherry\">Cherry</v-option>\r\n          <v-option value=\"cranberry\">Cranberry</v-option>\r\n          <v-option value=\"grape\">Grape</v-option>\r\n          <v-option value=\"orange\">Orange</v-option>\r\n          <v-option value=\"passionfruit\">Passionfruit</v-option>\r\n          <v-option value=\"pineapple\">Pineapple</v-option>\r\n          <v-option value=\"strawberry\">Strawberry</v-option>\r\n          <v-option value=\"a\">Apple</v-option>\r\n          <v-option value=\"b\">Banana</v-option>\r\n          <v-option value=\"c\">Cherry</v-option>\r\n          <v-option value=\"c\">Cranberry</v-option>\r\n          <v-option value=\"g\">Grape</v-option>\r\n          <v-option value=\"o\">Orange</v-option>\r\n          <v-option value=\"p\">Passionfruit</v-option>\r\n          <v-option value=\"p\">Pineapple</v-option>\r\n          <v-option value=\"s\">Strawberry</v-option>\r\n        </v-select>\r\n      </button-group>\r\n      <doc-code>\r\n        &lt;button-group justified>&lt;select>...&lt;/select>&lt;/button-group>\r\n        // or\r\n        &lt;div class=\"btn-group btn-group-justified\">&lt;select>...&lt;/select>&lt;/div>\r\n      </doc-code>\r\n      <hr/>\r\n      <h4>Ajax data and parent dependency:</h4>\r\n      <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>\r\n      <v-select url=\"docs/data.json\" options-label=\"text\" v-model=\"ajax.value\" clear-button ref=\"ajax\"></v-select>\r\n      <v-select url=\"docs/data.json\" options-label=\"text\" multiple :parent=\"ajax.value\"></v-select>\r\n      <doc-code>\r\n        &lt;v-select url=\"docs/data.json\" options-label=\"text\" v-model=\"ajax.value\" clear-button>&lt;/v-select>\r\n        &lt;v-select url=\"docs/data.json\" options-label=\"text\" multiple :parent=\"ajax.value\">&lt;/v-select>\r\n      </doc-code>\r\n      <p>Ajax response:</p>\r\n      <pre v-html=\"$refs.ajax&&$refs.ajax.options\"></pre> -->\r\n    </div>\r\n    <!-- <doc-table name=\"Other\">\r\n      <div>\r\n        <p>min-search</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p>If defined, the searchbox is disabled if are less than the minimum value you set.</p>\r\n      </div>\r\n      <div>\r\n        <p>lang</p>\r\n        <p><code>String</code></p>\r\n        <p>Browser language</p>\r\n        <p><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>\r\n      </div>\r\n      <div>\r\n        <p>options-label</p>\r\n        <p><code>String</code></p>\r\n        <p><code>label</code></p>\r\n        <p>Define the value in the data used as label.</p>\r\n      </div>\r\n      <div>\r\n        <p>options-value</p>\r\n        <p><code>String</code></p>\r\n        <p><code>value</code></p>\r\n        <p>Define the value in the data used as value.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p>Nothing Selected</p>\r\n      </div>\r\n      <div>\r\n        <p>search-text</p>\r\n        <p><code>String</code></p>\r\n      </div>\r\n    </doc-table>\r\n    <doc-table type=\"Events\">\r\n      <div>\r\n        <p>change</p>\r\n        <p>(<code>value</code>)</p>\r\n        <p>Return the selected value(s).</p>\r\n      </div>\r\n      <div>\r\n        <p>selected</p>\r\n        <p>(<code>labels:String</code>)</p>\r\n        <p>Return a string with the label(s) of the selected item(s).</p>\r\n      </div>\r\n    </doc-table> -->\r\n  </doc-section>\r\n</template>\r\n\r\n<script>\r\nimport docSection from './utils/docSection.vue'\r\nimport docTable from './utils/docTable.js'\r\nimport docCode from './utils/docCode.js'\r\nimport buttonGroup from 'src/buttonGroup.vue'\r\nimport checkbox from 'src/Checkbox.vue'\r\nimport vSelect from 'src/components/Select.vue'\r\nimport vOption from 'src/Option.vue'\r\n\r\nexport default {\r\n  components: {\r\n    docSection,\r\n    docTable,\r\n    docCode,\r\n    buttonGroup,\r\n    checkbox,\r\n    vSelect,\r\n    vOption\r\n  },\r\n  data () {\r\n    return {\r\n      select: {\r\n        justified: true,\r\n        multiple: [],\r\n        options: [\r\n          {val: 0, label: 'Cat'},\r\n          {val: 1, label: 'Cow'},\r\n          {val: 2, label: 'Dog'},\r\n          {val: 3, label: 'Elephant'},\r\n          {val: 4, label: 'Fish'},\r\n          {val: 5, label: 'Lion'},\r\n          {val: 6, label: 'Tiger'},\r\n          {val: 7, label: 'Turtle'}\r\n        ],\r\n        search: true\r\n      },\r\n      ajax: {\r\n        value:null\r\n      },\r\n      single: []\r\n    }\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.checkbox>label:not(:first-child) {\r\n  margin-left: 15px;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.checkbox>label:not(:first-child) {\r\n  margin-left: 15px;\n}\r\n", "", {"version":3,"sources":["/./docs/example/selectDocs.vue?b7d557ae"],"names":[],"mappings":";AAsOA;EACA,kBAAA;CACA","file":"selectDocs.vue","sourcesContent":["<template>\r\n  <doc-section id=\"select\" name=\"Select\">\r\n    <p>Based in a <a target=\"_blank\" href=\"https://silviomoreto.github.io/bootstrap-select/\">bootstrap-select</a> implementation.</p>\r\n    <div class=\"bs-example\">\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n          <p><pre>Normal select data: {{select.normal}}</pre></p>\r\n          <form action=\"./#select\" method=\"get\">\r\n            <v-select :options=\"select.options\" options-value=\"val\" v-model=\"select.normal\" name=\"animal\" :search=\"select.search\"\r\n              :required=\"select.required\" :clear-button=\"select.clearButton\" :disabled=\"select.disabled\"\r\n            ></v-select>\r\n            <button type=\"submit\" class=\"btn btn-default\">Submit</button>\r\n          </form>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n          <p><pre>Multiple select data : {{select.multiple.join(',')}}</pre></p>\r\n          <form action=\"./#select\" method=\"get\">\r\n            <v-select :options=\"select.options\" options-value=\"val\" v-model=\"select.multiple\" name=\"animals[]\" :search=\"select.search\"\r\n              multiple :required=\"select.required\" :clear-button=\"select.clearButton\"\r\n              :close-on-select=\"select.closeOnSelect\" :limit=\"select.limit?3:1024\" :disabled=\"select.disabled\"\r\n            ></v-select>\r\n            <button type=\"submit\" class=\"btn btn-default\">Submit</button>\r\n          </form>\r\n        </div>\r\n      </div>\r\n      <br/>\r\n      <button-group type=\"primary\" :buttons=\"false\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n            <p><checkbox v-model=\"select.disabled\">Disabled</checkbox></p>\r\n            <p><checkbox v-model=\"select.search\">Search</checkbox></p>\r\n            <p><checkbox v-model=\"select.clearButton\">Clear Button</checkbox></p>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">\r\n            <p><checkbox v-model=\"select.required\">Required (empty value if noting selected)</checkbox></p>\r\n            <p>\r\n              Multiple:\r\n              <checkbox v-if=\"select.multiple\" v-model=\"select.limit\">Limit (e.g. 3)</checkbox>\r\n              <checkbox v-if=\"select.multiple\" v-model=\"select.closeOnSelect\">Close on Select</checkbox>\r\n            </p>\r\n          </div>\r\n        </div>\r\n      </button-group>\r\n      <doc-code>\r\n        &lt;form action=\"./#select\" method=\"get\">\r\n          &lt;v-select v-model=\"select.value\" :options=\"select.options\" options-value=\"val\"\r\n            multiple name=\"animals[]\" limit=\"3\"\r\n            search justified required disabled\r\n            clear-button close-on-select\r\n          >&lt;/v-select>\r\n          &lt;button type=\"submit\" class=\"btn btn-default\">Submit form&lt;/button>\r\n        &lt;/form>\r\n      </doc-code>\r\n      <doc-code language=\"javascript\">\r\n        options: [\r\n          {val: 0, label: 'Cat'},\r\n          {val: 1, label: 'Cow'},\r\n          {val: 2, label: 'Dog'},\r\n          {val: 3, label: 'Elephant'},\r\n          {val: 4, label: 'Fish'},\r\n          {val: 5, label: 'Lion'},\r\n          {val: 6, label: 'Tiger'},\r\n          {val: 7, label: 'Turtle'}\r\n        ]\r\n      </doc-code>\r\n      <h4>Select with option component:</h4>\r\n      <p><pre>Selected data : {{single}}</pre></p>\r\n      <v-select v-model=\"single\">\r\n        <v-option value=\"apple\">Apple</v-option>\r\n        <v-option value=\"banana\">Banana</v-option>\r\n        <v-option value=\"cherry\">Cherry</v-option>\r\n        <v-option value=\"orange\">Orange</v-option>\r\n        <v-option value=\"grape\">Grape</v-option>\r\n      </v-select>\r\n      <doc-code>\r\n        &lt;v-select>\r\n          &lt;v-option value=\"apple\">Apple&lt;/v-option>\r\n          &lt;v-option value=\"banana\">Banana&lt;/v-option>\r\n          &lt;v-option value=\"cherry\">Cherry&lt;/v-option>\r\n          &lt;v-option value=\"orange\">Orange&lt;/v-option>\r\n          &lt;v-option value=\"grape\">Grape&lt;/v-option>\r\n        &lt;/v-select>\r\n      </doc-code>\r\n      <hr/>\r\n      <h4>Use button-group (component or <a href=\"http://getbootstrap.com/components/#btn-groups-justified\">bootstrap element</a>) if you want to justify.</h4>\r\n      <button-group justified>\r\n        <v-select multiple clear-button>\r\n          <v-option value=\"apple\">Apple</v-option>\r\n          <v-option value=\"banana\">Banana</v-option>\r\n          <v-option value=\"cherry\">Cherry</v-option>\r\n          <v-option value=\"cranberry\">Cranberry</v-option>\r\n          <v-option value=\"grape\">Grape</v-option>\r\n          <v-option value=\"orange\">Orange</v-option>\r\n          <v-option value=\"passionfruit\">Passionfruit</v-option>\r\n          <v-option value=\"pineapple\">Pineapple</v-option>\r\n          <v-option value=\"strawberry\">Strawberry</v-option>\r\n          <v-option value=\"a\">Apple</v-option>\r\n          <v-option value=\"b\">Banana</v-option>\r\n          <v-option value=\"c\">Cherry</v-option>\r\n          <v-option value=\"c\">Cranberry</v-option>\r\n          <v-option value=\"g\">Grape</v-option>\r\n          <v-option value=\"o\">Orange</v-option>\r\n          <v-option value=\"p\">Passionfruit</v-option>\r\n          <v-option value=\"p\">Pineapple</v-option>\r\n          <v-option value=\"s\">Strawberry</v-option>\r\n        </v-select>\r\n      </button-group>\r\n      <!--\r\n      <doc-code>\r\n        &lt;button-group justified>&lt;select>...&lt;/select>&lt;/button-group>\r\n        // or\r\n        &lt;div class=\"btn-group btn-group-justified\">&lt;select>...&lt;/select>&lt;/div>\r\n      </doc-code>\r\n      <hr/>\r\n      <h4>Ajax data and parent dependency:</h4>\r\n      <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>\r\n      <v-select url=\"docs/data.json\" options-label=\"text\" v-model=\"ajax.value\" clear-button ref=\"ajax\"></v-select>\r\n      <v-select url=\"docs/data.json\" options-label=\"text\" multiple :parent=\"ajax.value\"></v-select>\r\n      <doc-code>\r\n        &lt;v-select url=\"docs/data.json\" options-label=\"text\" v-model=\"ajax.value\" clear-button>&lt;/v-select>\r\n        &lt;v-select url=\"docs/data.json\" options-label=\"text\" multiple :parent=\"ajax.value\">&lt;/v-select>\r\n      </doc-code>\r\n      <p>Ajax response:</p>\r\n      <pre v-html=\"$refs.ajax&&$refs.ajax.options\"></pre>\r\n      -->\r\n    </div>\r\n    <doc-table name=\"Other\">\r\n      <div>\r\n        <p>min-search</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p>If defined, the searchbox is disabled if are less than the minimum value you set.</p>\r\n      </div>\r\n      <div>\r\n        <p>lang</p>\r\n        <p><code>String</code></p>\r\n        <p>Browser language</p>\r\n        <p><abbr title=\"ISO 639-1 code\"><a href=\"https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\">Language</a></abbr>. Default <code>en</code> if the translation doesn't exist.</p>\r\n      </div>\r\n      <div>\r\n        <p>options-label</p>\r\n        <p><code>String</code></p>\r\n        <p><code>label</code></p>\r\n        <p>Define the value in the data used as label.</p>\r\n      </div>\r\n      <div>\r\n        <p>options-value</p>\r\n        <p><code>String</code></p>\r\n        <p><code>value</code></p>\r\n        <p>Define the value in the data used as value.</p>\r\n      </div>\r\n      <div>\r\n        <p>placeholder</p>\r\n        <p><code>String</code></p>\r\n        <p>Nothing Selected</p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>search-text</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p></p>\r\n      </div>\r\n    </doc-table>\r\n    <doc-table type=\"Events\">\r\n      <div>\r\n        <p>change</p>\r\n        <p>(<code>value</code>)</p>\r\n        <p>Return the selected value(s).</p>\r\n      </div>\r\n      <div>\r\n        <p>selected</p>\r\n        <p>(<code>labels:String</code>)</p>\r\n        <p>Return a string with the label(s) of the selected item(s).</p>\r\n      </div>\r\n    </doc-table>\r\n  </doc-section>\r\n</template>\r\n\r\n<script>\r\nimport docSection from './utils/docSection.vue'\r\nimport docTable from './utils/docTable.js'\r\nimport docCode from './utils/docCode.js'\r\nimport buttonGroup from 'src/buttonGroup.vue'\r\nimport checkbox from 'src/components/Checkbox.vue'\r\nimport vSelect from 'src/components/Select.vue'\r\nimport vOption from 'src/Option.vue'\r\n\r\nexport default {\r\n  components: {\r\n    docSection,\r\n    docTable,\r\n    docCode,\r\n    buttonGroup,\r\n    checkbox,\r\n    vSelect,\r\n    vOption\r\n  },\r\n  data () {\r\n    return {\r\n      select: {\r\n        clearButton: false,\r\n        closeOnSelect: false,\r\n        disabled: false,\r\n        justified: true,\r\n        limit: false,\r\n        multiple: [],\r\n        options: [\r\n          {val: 0, label: 'Cat'},\r\n          {val: 1, label: 'Cow'},\r\n          {val: 2, label: 'Dog'},\r\n          {val: 3, label: 'Elephant'},\r\n          {val: 4, label: 'Fish'},\r\n          {val: 5, label: 'Lion'},\r\n          {val: 6, label: 'Tiger'},\r\n          {val: 7, label: 'Turtle'}\r\n        ],\r\n        required: false,\r\n        search: true\r\n      },\r\n      ajax: {\r\n        value:null\r\n      },\r\n      single: []\r\n    }\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.checkbox>label:not(:first-child) {\r\n  margin-left: 15px;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -16573,9 +16602,14 @@
 	  data: function data() {
 	    return {
 	      select: {
+	        clearButton: false,
+	        closeOnSelect: false,
+	        disabled: false,
 	        justified: true,
+	        limit: false,
 	        multiple: [],
 	        options: [{ val: 0, label: 'Cat' }, { val: 1, label: 'Cow' }, { val: 2, label: 'Dog' }, { val: 3, label: 'Elephant' }, { val: 4, label: 'Fish' }, { val: 5, label: 'Lion' }, { val: 6, label: 'Tiger' }, { val: 7, label: 'Turtle' }],
+	        required: false,
 	        search: true
 	      },
 	      ajax: {
@@ -16585,6 +16619,10 @@
 	    };
 	  }
 	}; //
+	//
+	//
+	//
+	//
 	//
 	//
 	//
@@ -16776,7 +16814,299 @@
 	    staticClass: "row"
 	  }, [_h('div', {
 	    staticClass: "col-xs-12 col-sm-12 col-md-6 col-lg-6"
-	  }, [_h('v-select'), " "]), " "]), " "]), " "])
+	  }, [_h('p', [_h('pre', ["Normal select data: " + _s(select.normal)])]), " ", _h('form', {
+	    attrs: {
+	      "action": "./#select",
+	      "method": "get"
+	    }
+	  }, [_h('v-select', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (select.normal),
+	      expression: "select.normal"
+	    }],
+	    attrs: {
+	      "options": select.options,
+	      "options-value": "val",
+	      "name": "animal",
+	      "search": select.search,
+	      "required": select.required,
+	      "clear-button": select.clearButton,
+	      "disabled": select.disabled
+	    },
+	    domProps: {
+	      "value": (select.normal)
+	    },
+	    on: {
+	      "input": function($event) {
+	        select.normal = $event
+	      }
+	    }
+	  }), " ", _m(1)])]), " ", _h('div', {
+	    staticClass: "col-xs-12 col-sm-12 col-md-6 col-lg-6"
+	  }, [_h('p', [_h('pre', ["Multiple select data : " + _s(select.multiple.join(','))])]), " ", _h('form', {
+	    attrs: {
+	      "action": "./#select",
+	      "method": "get"
+	    }
+	  }, [_h('v-select', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (select.multiple),
+	      expression: "select.multiple"
+	    }],
+	    attrs: {
+	      "options": select.options,
+	      "options-value": "val",
+	      "name": "animals[]",
+	      "search": select.search,
+	      "multiple": "",
+	      "required": select.required,
+	      "clear-button": select.clearButton,
+	      "close-on-select": select.closeOnSelect,
+	      "limit": select.limit ? 3 : 1024,
+	      "disabled": select.disabled
+	    },
+	    domProps: {
+	      "value": (select.multiple)
+	    },
+	    on: {
+	      "input": function($event) {
+	        select.multiple = $event
+	      }
+	    }
+	  }), " ", _m(2)])])]), " ", _m(3), " ", _h('button-group', {
+	    attrs: {
+	      "type": "primary",
+	      "buttons": false
+	    }
+	  }, [_h('div', {
+	    staticClass: "row"
+	  }, [_h('div', {
+	    staticClass: "col-xs-12 col-sm-12 col-md-6 col-lg-6"
+	  }, [_h('p', [_h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (select.disabled),
+	      expression: "select.disabled"
+	    }],
+	    domProps: {
+	      "value": (select.disabled)
+	    },
+	    on: {
+	      "input": function($event) {
+	        select.disabled = $event
+	      }
+	    }
+	  }, ["Disabled"])]), " ", _h('p', [_h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (select.search),
+	      expression: "select.search"
+	    }],
+	    domProps: {
+	      "value": (select.search)
+	    },
+	    on: {
+	      "input": function($event) {
+	        select.search = $event
+	      }
+	    }
+	  }, ["Search"])]), " ", _h('p', [_h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (select.clearButton),
+	      expression: "select.clearButton"
+	    }],
+	    domProps: {
+	      "value": (select.clearButton)
+	    },
+	    on: {
+	      "input": function($event) {
+	        select.clearButton = $event
+	      }
+	    }
+	  }, ["Clear Button"])])]), " ", _h('div', {
+	    staticClass: "col-xs-12 col-sm-12 col-md-6 col-lg-6"
+	  }, [_h('p', [_h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (select.required),
+	      expression: "select.required"
+	    }],
+	    domProps: {
+	      "value": (select.required)
+	    },
+	    on: {
+	      "input": function($event) {
+	        select.required = $event
+	      }
+	    }
+	  }, ["Required (empty value if noting selected)"])]), " ", _h('p', ["\n            Multiple:\n            ", (select.multiple) ? _h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (select.limit),
+	      expression: "select.limit"
+	    }],
+	    domProps: {
+	      "value": (select.limit)
+	    },
+	    on: {
+	      "input": function($event) {
+	        select.limit = $event
+	      }
+	    }
+	  }, ["Limit (e.g. 3)"]) : _e(), " ", (select.multiple) ? _h('checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (select.closeOnSelect),
+	      expression: "select.closeOnSelect"
+	    }],
+	    domProps: {
+	      "value": (select.closeOnSelect)
+	    },
+	    on: {
+	      "input": function($event) {
+	        select.closeOnSelect = $event
+	      }
+	    }
+	  }, ["Close on Select"]) : _e()])])])]), " ", _h('doc-code', ["\n      <form action=\"./#select\" method=\"get\">\n        <v-select v-model=\"select.value\" :options=\"select.options\" options-value=\"val\"\n          multiple name=\"animals[]\" limit=\"3\"\n          search justified required disabled\n          clear-button close-on-select\n        ></v-select>\n        <button type=\"submit\" class=\"btn btn-default\">Submit form</button>\n      </form>\n    "]), " ", _h('doc-code', {
+	    attrs: {
+	      "language": "javascript"
+	    }
+	  }, ["\n      options: [\n        {val: 0, label: 'Cat'},\n        {val: 1, label: 'Cow'},\n        {val: 2, label: 'Dog'},\n        {val: 3, label: 'Elephant'},\n        {val: 4, label: 'Fish'},\n        {val: 5, label: 'Lion'},\n        {val: 6, label: 'Tiger'},\n        {val: 7, label: 'Turtle'}\n      ]\n    "]), " ", _m(4), " ", _h('p', [_h('pre', ["Selected data : " + _s(single)])]), " ", _h('v-select', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (single),
+	      expression: "single"
+	    }],
+	    domProps: {
+	      "value": (single)
+	    },
+	    on: {
+	      "input": function($event) {
+	        single = $event
+	      }
+	    }
+	  }, [_h('v-option', {
+	    attrs: {
+	      "value": "apple"
+	    }
+	  }, ["Apple"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "banana"
+	    }
+	  }, ["Banana"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "cherry"
+	    }
+	  }, ["Cherry"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "orange"
+	    }
+	  }, ["Orange"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "grape"
+	    }
+	  }, ["Grape"])]), " ", _h('doc-code', ["\n      <v-select>\n        <v-option value=\"apple\">Apple</v-option>\n        <v-option value=\"banana\">Banana</v-option>\n        <v-option value=\"cherry\">Cherry</v-option>\n        <v-option value=\"orange\">Orange</v-option>\n        <v-option value=\"grape\">Grape</v-option>\n      </v-select>\n    "]), " ", _m(5), " ", _m(6), " ", _h('button-group', {
+	    attrs: {
+	      "justified": ""
+	    }
+	  }, [_h('v-select', {
+	    attrs: {
+	      "multiple": "",
+	      "clear-button": ""
+	    }
+	  }, [_h('v-option', {
+	    attrs: {
+	      "value": "apple"
+	    }
+	  }, ["Apple"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "banana"
+	    }
+	  }, ["Banana"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "cherry"
+	    }
+	  }, ["Cherry"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "cranberry"
+	    }
+	  }, ["Cranberry"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "grape"
+	    }
+	  }, ["Grape"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "orange"
+	    }
+	  }, ["Orange"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "passionfruit"
+	    }
+	  }, ["Passionfruit"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "pineapple"
+	    }
+	  }, ["Pineapple"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "strawberry"
+	    }
+	  }, ["Strawberry"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "a"
+	    }
+	  }, ["Apple"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "b"
+	    }
+	  }, ["Banana"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "c"
+	    }
+	  }, ["Cherry"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "c"
+	    }
+	  }, ["Cranberry"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "g"
+	    }
+	  }, ["Grape"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "o"
+	    }
+	  }, ["Orange"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "p"
+	    }
+	  }, ["Passionfruit"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "p"
+	    }
+	  }, ["Pineapple"]), " ", _h('v-option', {
+	    attrs: {
+	      "value": "s"
+	    }
+	  }, ["Strawberry"])])]), " "]), " ", _h('doc-table', {
+	    attrs: {
+	      "name": "Other"
+	    }
+	  }, [_m(7), " ", _m(8), " ", _m(9), " ", _m(10), " ", _m(11), " ", _m(12)]), " ", _h('doc-table', {
+	    attrs: {
+	      "type": "Events"
+	    }
+	  }, [_m(13), " ", _m(14)])])
 	}},staticRenderFns: [function (){with(this) {
 	  return _h('p', ["Based in a ", _h('a', {
 	    attrs: {
@@ -16784,6 +17114,56 @@
 	      "href": "https://silviomoreto.github.io/bootstrap-select/"
 	    }
 	  }, ["bootstrap-select"]), " implementation."])
+	}},function (){with(this) {
+	  return _h('button', {
+	    staticClass: "btn btn-default",
+	    attrs: {
+	      "type": "submit"
+	    }
+	  }, ["Submit"])
+	}},function (){with(this) {
+	  return _h('button', {
+	    staticClass: "btn btn-default",
+	    attrs: {
+	      "type": "submit"
+	    }
+	  }, ["Submit"])
+	}},function (){with(this) {
+	  return _h('br')
+	}},function (){with(this) {
+	  return _h('h4', ["Select with option component:"])
+	}},function (){with(this) {
+	  return _h('hr')
+	}},function (){with(this) {
+	  return _h('h4', ["Use button-group (component or ", _h('a', {
+	    attrs: {
+	      "href": "http://getbootstrap.com/components/#btn-groups-justified"
+	    }
+	  }, ["bootstrap element"]), ") if you want to justify."])
+	}},function (){with(this) {
+	  return _h('div', [_h('p', ["min-search"]), " ", _h('p', [_h('code', ["Number"])]), " ", _h('p', [_h('code', ["0"])]), " ", _h('p', ["If defined, the searchbox is disabled if are less than the minimum value you set."])])
+	}},function (){with(this) {
+	  return _h('div', [_h('p', ["lang"]), " ", _h('p', [_h('code', ["String"])]), " ", _h('p', ["Browser language"]), " ", _h('p', [_h('abbr', {
+	    attrs: {
+	      "title": "ISO 639-1 code"
+	    }
+	  }, [_h('a', {
+	    attrs: {
+	      "href": "https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
+	    }
+	  }, ["Language"])]), ". Default ", _h('code', ["en"]), " if the translation doesn't exist."])])
+	}},function (){with(this) {
+	  return _h('div', [_h('p', ["options-label"]), " ", _h('p', [_h('code', ["String"])]), " ", _h('p', [_h('code', ["label"])]), " ", _h('p', ["Define the value in the data used as label."])])
+	}},function (){with(this) {
+	  return _h('div', [_h('p', ["options-value"]), " ", _h('p', [_h('code', ["String"])]), " ", _h('p', [_h('code', ["value"])]), " ", _h('p', ["Define the value in the data used as value."])])
+	}},function (){with(this) {
+	  return _h('div', [_h('p', ["placeholder"]), " ", _h('p', [_h('code', ["String"])]), " ", _h('p', ["Nothing Selected"]), " ", _h('p')])
+	}},function (){with(this) {
+	  return _h('div', [_h('p', ["search-text"]), " ", _h('p', [_h('code', ["String"])]), " ", _h('p'), " ", _h('p')])
+	}},function (){with(this) {
+	  return _h('div', [_h('p', ["change"]), " ", _h('p', ["(", _h('code', ["value"]), ")"]), " ", _h('p', ["Return the selected value(s)."])])
+	}},function (){with(this) {
+	  return _h('div', [_h('p', ["selected"]), " ", _h('p', ["(", _h('code', ["labels:String"]), ")"]), " ", _h('p', ["Return a string with the label(s) of the selected item(s)."])])
 	}}]}
 	if (false) {
 	  module.hot.accept()

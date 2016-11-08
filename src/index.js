@@ -1,10 +1,12 @@
 import $ from './components/utils/NodeList.js'
+import checkbox from './components/Checkbox.vue'
 import dropdown from './components/Dropdown.vue'
 import input from './components/Input.vue'
 import select from './components/Select.vue'
 import tab from './components/Tab.vue'
 import tabGroup from './components/TabGroup.vue'
 import tabs from './components/Tabs.vue'
+import toggleButton from './components/ToggleButton.vue'
 
 // Need to be inspected and/or fixed
 import accordion from './Accordion.vue'
@@ -13,7 +15,6 @@ import alert from './Alert.vue'
 import aside from './Aside.vue'
 import buttonGroup from './buttonGroup.vue'
 import carousel from './Carousel.vue'
-import checkbox from './Checkbox.vue'
 import datepicker from './Datepicker.vue'
 import formGroup from './FormGroup.vue'
 import formValidator from './components/FormValidator.vue'
@@ -57,6 +58,7 @@ const VueStrap = {
   radio,
   slider,
   spinner,
+  toggleButton,
   tooltip,
   typeahead
 }
