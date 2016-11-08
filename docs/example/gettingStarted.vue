@@ -129,13 +129,14 @@
     </doc-code>
     <p>The number of arguments depend on the event.</p>
   </doc-section>
-  <doc-section id="vue2-binding" name="vue 2 binding">
+  <doc-section id="v-model" name="v-model">
     <p>According to the vue2 specifications, <code>twoWay</code> binding is not supported anymore, except for <code>v-model</code>.</p>
-    <p>Keep in mind that in vue2 v-model is equal to bind value an handle input event, like this:</p>
+    <p>The <code>v-model</code> directive in a component always link to <code>value</code> attribute.</p>
+    <p>Keep in mind that in vue2:</p>
     <doc-code>
-      &lt;!-- v-model like this: -->
+      &lt;!-- using v-model like this: -->
       &lt;component v-model="element">&lt;/component>
-      &lt;!-- will be translated to: -->
+      &lt;!-- is the same that: -->
       &lt;component :value="element" @input="element = argument[0]">&lt;/component>
     </doc-code>
   </doc-section>
