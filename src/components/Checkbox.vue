@@ -1,97 +1,80 @@
 <template>
-  <label :class="[isButton?'btn btn-'+typeColor:'open checkbox '+typeColor,{active:checked,disabled:disabled,readonly:readonly}]" @click.prevent="toggle">
-    <input type="checkbox" autocomplete="off"
-      ref="input"
-      :checked="active"
-      :value="value"
-      :name="name"
-      :readonly="readonly"
-      :disabled="disabled"
-      @checked="toggle"
-    />
-    <span v-if="!isButton" class="icon dropdown-toggle" :class="[active?'btn-'+typeColor:'',{bg:typeColor==='default'}]"></span>
-    <span v-if="!isButton&active&&typeColor==='default'" class="icon"></span>
+  <a :is="isButton?'a':'label'" @click="toggle" :class="[isButton?'btn btn-'+typeColor:'open checkbox '+typeColor,{active:checked,disabled:disabled,readonly:readonly}]">
+    <input v-if="name" type="hidden" :name="name" :value="checked?trueValue:falseValue" />
+    <span v-if="!isButton" class="icon dropdown-toggle" :class="[checked?'btn-'+typeColor:'',{bg:typeColor==='default'}]"></span>
+    <span v-if="!isButton&&checked&&typeColor==='default'" class="icon"></span>
     <slot></slot>
-  </label>
+  </a>
 </template>
 
 <script>
-// let coerce = {
-//   disabled: 'boolean',
-//   readonly: 'boolean'
-// }
-
 export default {
   props: {
     button: {type: Boolean, default: false},
-    checked: {type: Boolean, default: false},
     disabled: {type: Boolean, default: false},
+    falseValue: {default: false},
     name: {type: String, default: null},
     readonly: {type: Boolean, default: false},
+    trueValue: {default: true},
     type: {type: String, default: null},
-    value: {default: true}
+    value: {default: false}
+  },
+  data () {
+    var checked = (this.value === this.trueValue)
+    return {
+      checked
+    }
   },
   computed: {
-    active () { 
-      return typeof this.value !== 'boolean' && this._inGroup ? ~this.$parent.value.indexOf(this.value) : this.checked 
-    },
     isButton () { return this.button || (this._inGroup && this.$parent.buttons) },
+    isFalse () { return this.value === this.falseValue },
+    isTrue () { return this.value === this.trueValue },
     typeColor () { return (this.type || (this.$parent && this.$parent.type)) || 'default' }
   },
   watch: {
     checked (val, old) {
-      this.$emit('checked', val ? this.value : null )
-
-      if (typeof this.value !== 'boolean') {
-        this.$emit('input', this.checked ? this.value : null)
-        if (this._inGroup) {
-          if (this.checked && !~this.$parent.value.indexOf(this.value)) this.$parent.value.push(this.value)
-          if (!this.checked && ~this.$parent.value.indexOf(this.value)) parent.value.splice(parent.value.indexOf(this.value), 1)
-        }
-      }
+      var value = val ? this.trueValue : this.falseValue
+      this.$emit('checked', val)
+      this.$emit('input', value)
+      this.eval()
+    },
+    value (val, old) {
+      var checked = !(val !== this.trueValue)
+      if (this.checked !== checked) {
+        this.checked = checked
+      } 
     }
   },
   created () {
-    if (typeof this.value === 'boolean') { return }
     const parent = this.$parent
     if (parent && parent._btnGroup && !parent._radioGroup) {
       this._inGroup = true
       parent._checkboxGroup = true
-      if (!(parent.value instanceof Array)) { parent.value = [] }
+      if (!(parent.val instanceof Array)) { parent.val = [] }
+      this.eval()
     }
   },
   mounted () {
     if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') { return }
-    if (this.$parent.value.length) {
-      // this.checked = ~this.$parent.value.indexOf(this.value)
-      this.$emit('checked', ~this.$parent.value.indexOf(this.value))
+    if (this.$parent.val.length) {
+      // this.checked = ~this.$parent.val.indexOf(this.value)
+      this.$emit('checked', ~this.$parent.val.indexOf(this.value))
     } else if (this.checked) {
-      this.$parent.value.push(this.value)
+      this.$parent.val.push(this.value)
     }
   },
   methods: {
     eval () {
-      if (typeof this.value !== 'boolean' && this._inGroup) {
-        // this.checked = ~this.$parent.value.indexOf(this.value)
-        this.$emit('checked', ~this.$parent.value.indexOf(this.value))
+      if (this._inGroup) {
+        var value = this.checked ? this.isTrue : this.isFalse
+        var index = this.$parent.val.indexOf(value)
+        if (this.checked && !~index) this.$parent.val.push(value)
+        if (!this.checked && ~index) this.$parent.val.splice(index, 1)
       }
-    },
-    focus () {
-      this.$refs.input.focus()
     },
     toggle () {
-      if (!this.disabled) {
-        this.focus()
-        if (!this.readonly) {
-          // this.checked = this.checked ? null : this.value
-          this.$emit('checked', this.checked ? null : this.value )
-          if (this._inGroup && typeof this.value !== 'boolean') {
-            const index = this.$parent.value.indexOf(this.value)
-            this.$parent.value[~index ? '$remove' : 'push'](this.value)
-          }
-        }
-      }
-      return false
+      if (this.disabled || this.readonly) { return }
+      this.checked = !this.checked
     }
   }
 }

@@ -261,7 +261,7 @@ import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
 import bsInput from 'src/components/Input.vue'
 import buttonGroup from 'src/buttonGroup.vue'
-import checkbox from 'src/Checkbox.vue'
+import checkbox from 'src/components/Checkbox.vue'
 import dropdown from 'src/components/Dropdown.vue'
 
 export default {

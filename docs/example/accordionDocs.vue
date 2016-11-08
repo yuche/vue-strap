@@ -100,7 +100,7 @@ import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
 import accordion from 'src/Accordion.vue'
-import checkbox from 'src/Checkbox.vue'
+import checkbox from 'src/components/Checkbox.vue'
 import panel from 'src/Panel.vue'
 import vSelect from 'src/components/Select.vue'
 
