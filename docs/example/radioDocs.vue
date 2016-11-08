@@ -2,23 +2,23 @@
   <doc-section id="radio" name="Radio">
     <div class="bs-example">
       <h4>Radio</h4>
-      <radio :checked.sync="radioValue" value="one">One</radio>
-      <radio :checked.sync="radioValue" value="two" type="danger" disabled>Two (disabled)</radio>
-      <radio :checked.sync="radioValue" value="two" type="warning" readonly>Two (readonly)</radio>
-      <radio :checked.sync="radioValue" value="two" type="success">Two</radio>
+      <radio :checked="radioValue" @checked="radioValue = arguments[0]" value="one">One</radio>
+      <radio :checked="radioValue" @checked="radioValue = arguments[0]" value="two" type="danger" disabled>Two (disabled)</radio>
+      <radio :checked="radioValue" @checked="radioValue = arguments[0]" value="two" type="warning" readonly>Two (readonly)</radio>
+      <radio :checked="radioValue" @checked="radioValue = arguments[0]" value="two" type="success">Two</radio>
       <hr>
       <h4>Radio Button (Single buttons)</h4>
-      <radio button :checked.sync="radioValue" value="three" type="primary">Three</radio>
-      <radio button :checked.sync="radioValue" value="four" type="info" disabled>Four (disabled)</radio>
-      <radio button :checked.sync="radioValue" value="four" type="info" readonly>Four (readonly)</radio>
-      <radio button :checked.sync="radioValue" value="four" type="info">Four</radio>
-      <p><pre>Radio value: {{radioValue | json}}</pre></p>
+      <radio button :checked="radioValue" @checked="radioValue = arguments[0]" value="three" type="primary">Three</radio>
+      <radio button :checked="radioValue" @checked="radioValue = arguments[0]" value="four" type="info" disabled>Four (disabled)</radio>
+      <radio button :checked="radioValue" @checked="radioValue = arguments[0]" value="four" type="info" readonly>Four (readonly)</radio>
+      <radio button :checked="radioValue" @checked="radioValue = arguments[0]" value="four" type="info">Four</radio>
+      <p><pre>Radio value: {{ radioValue }}</pre></p>
     </div>
     <doc-code language="markup">
-      <radio :checked.sync="radioValue" value="one">One</radio>
-      <radio :checked.sync="radioValue" value="two" type="primary">Two</radio>
-      <radio button :checked.sync="radioValue" value="three" type="danger">Three</radio>
-      <radio button :checked.sync="radioValue" value="four" type="info">Four</radio>
+      &lt;radio :checked="radioValue" @checked="radioValue = arguments[0]" value="one">One&lt;/radio>
+      &lt;radio :checked="radioValue" @checked="radioValue = arguments[0]" value="two" type="primary">Two&lt;/radio>
+      &lt;radio button :checked="radioValue" @checked="radioValue = arguments[0]" value="three" type="danger">Three&lt;/radio>
+      &lt;radio button :checked="radioValue" @checked="radioValue = arguments[0]" value="four" type="info">Four&lt;/radio>
     </doc-code>
     <doc-table>
       <div>
@@ -56,9 +56,9 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import radio from 'src/Radio.vue'
 
 export default {

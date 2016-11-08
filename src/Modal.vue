@@ -1,31 +1,18 @@
 <template>
-  <div role="dialog"
-    v-bind:class="{
-    'modal':true,
-    'fade':effect === 'fade',
-    'zoom':effect === 'zoom'
-    }"
-    >
-    <div v-bind:class="{'modal-dialog':true,'modal-lg':large,'modal-sm':small}" role="document"
-      v-bind:style="{width: optionalWidth}">
+  <div role="dialog" :class="['modal',effect]" @click="backClose" @transitionend="transitionend">
+    <div :class="{'modal-dialog':true,'modal-lg':large,'modal-sm':small}" role="document" :style="{width: optionalWidth}">
       <div class="modal-content">
         <slot name="modal-header">
           <div class="modal-header">
             <button type="button" class="close" @click="close"><span>&times;</span></button>
-            <h4 class="modal-title">
-              <slot name="title">
-                {{title}}
-              </slot>
-            </h4>
+            <h4 class="modal-title"><slot name="title">{{title}}</slot></h4>
           </div>
         </slot>
-        <slot name="modal-body">
-          <div class="modal-body"></div>
-        </slot>
+        <slot name="modal-body"><div class="modal-body"><slot></slot></div></slot>
         <slot name="modal-footer">
           <div class="modal-footer">
             <button type="button" class="btn btn-default" @click="close">{{ cancelText }}</button>
-            <button type="button" class="btn btn-primary" @click="callback">{{ okText }}</button>
+            <button type="button" class="btn btn-primary" @click="ok">{{ okText }}</button>
           </div>
         </slot>
       </div>
@@ -34,55 +21,20 @@
 </template>
 
 <script>
-import {coerce, getScrollBarWidth} from './utils/utils.js'
-import $ from './utils/NodeList.js'
+import {getScrollBarWidth} from './utils/utils.js'
 
 export default {
   props: {
-    okText: {
-      type: String,
-      default: 'Save changes'
-    },
-    cancelText: {
-      type: String,
-      default: 'Close'
-    },
-    title: {
-      type: String,
-      default: ''
-    },
-    show: {
-      required: true,
-      type: Boolean,
-      coerce: coerce.boolean,
-      twoWay: true
-    },
-    width: {
-      default: null
-    },
-    callback: {
-      type: Function,
-      default () {}
-    },
-    effect: {
-      type: String,
-      default: null
-    },
-    backdrop: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: true
-    },
-    large: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    small: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    }
+    backdrop: {type: Boolean, default: true},
+    callback: {type: Function, default: null},
+    cancelText: {type: String, default: 'Close'},
+    effect: {type: String, default: null},
+    large: {type: Boolean, default: false},
+    okText: {type: String, default: 'Save changes'},
+    small: {type: Boolean, default: false},
+    title: {type: String, default: ''},
+    value: {type: Boolean, required: true},
+    width: {default: null}
   },
   computed: {
     optionalWidth () {
@@ -95,36 +47,45 @@ export default {
     }
   },
   watch: {
-    show (val) {
-      const el = this.$el
-      const body = document.body
-      const scrollBarWidth = getScrollBarWidth()
-      if (val) {
-        $(el).find('.modal-content').focus()
-        el.style.display = 'block'
-        setTimeout(() => $(el).addClass('in'), 0)
-        $(body).addClass('modal-open')
-        if (scrollBarWidth !== 0) {
-          body.style.paddingRight = scrollBarWidth + 'px'
-        }
-        if (this.backdrop) {
-          $(el).on('click', e => {
-            if (e.target === el) this.show = false
-          })
-        }
-      } else {
-        body.style.paddingRight = null
-        $(body).removeClass('modal-open')
-        $(el).removeClass('in').on('transitionend', () => {
-          $(el).off('click transitionend')
-          el.style.display = 'none'
-        })
-      }
+    value (val) {
+      this.transitionstart()
     }
   },
   methods: {
+    backClose (e) {
+      if (this.backdrop && e.target === this.$el) { this.cose() }
+    },
     close () {
-      this.show = false
+      this.$emit('cancel')
+      this.$emit('input', false)
+    },
+    ok () {
+      if (this.callback instanceof Function) this.callback()
+      this.$emit('ok')
+    },
+    transitionstart () {
+      const el = this.$el
+      const body = document.body
+      const scrollBarWidth = getScrollBarWidth()
+      if (this.value) {
+        el.querySelector('.modal-content').focus()
+        el.style.display = 'block'
+        setTimeout(() => el.classList.add('in'), 0)
+        body.classList.add('modal-open')
+        if (scrollBarWidth !== 0) {
+          body.style.paddingRight = scrollBarWidth + 'px'
+        }
+      } else {
+        el.classList.remove('in')
+      }
+    },
+    transitionend () {
+      if (!this.value) {
+        this.$el.style.display = 'none'
+        const body = document.body
+        body.style.paddingRight = null
+        body.classList.remove('modal-open')
+      }
     }
   }
 }

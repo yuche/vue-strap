@@ -3,21 +3,21 @@
     <div class="bs-example">
       <h3>
         The sub-navigation on the RIGHT is a live demo of the affix.
-        <spam class="visible-xs-block visible-sm-block">(The live demo is hidden in small screens)</spam>
+        <span class="visible-xs-block visible-sm-block">(The live demo is hidden in small screens)</span>
         <tooltip trigger="hover" effect="fadein" content="I'm a direction, not jerking off!" placement="left">
           <span class="glyphicon glyphicon-hand-right pull-right animated shake hidden-xs hidden-sm"></span>
         </tooltip>
       </h3>
     </div>
     <doc-code language="markup">
-      <affix offset="50">
-        <ul>
-          <li>...</li>
-          <li>...</li>
-          <li>...</li>
-        </ul>
-        <a href="#">...</a>
-      </affix>
+      &lt;affix offset="50">
+        &lt;ul>
+          &lt;li>...&lt;/li>
+          &lt;li>...&lt;/li>
+          &lt;li>...&lt;/li>
+        &lt;/ul>
+        &lt;a href="#">...&lt;/a>
+      &lt;/affix>
     </doc-code>
     <doc-table>
       <div>
@@ -31,9 +31,9 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import tooltip from 'src/Tooltip.vue'
 
 export default {

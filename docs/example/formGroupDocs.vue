@@ -16,18 +16,18 @@
         </div>
       </div>
       <div class="row">
-        <form-group :valid.sync="valid.all">
+        <form-group @valid="valid.all = true" @invalid="valid.all = false">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <tabs :active.sync="active">
+            <tabs :active="active">
               <tab header="User">
-                <form-group :valid.sync="valid.user">
+                <form-group @valid="valid.user = true" @invalid="valid.user = false">
                   <bs-input label="User Name" required></bs-input>
                   <bs-input label="Email" type="email" required></bs-input>
                 </form-group>
                 <button type="button" class="btn btn-primary" :disabled="!valid.user" @click="active = 1">Continue</button>
               </tab>
               <tab header="Direction" :disabled="!valid.user">
-                <form-group :valid.sync="valid.direction">
+                <form-group @valid="valid.direction = true" @invalid="valid.direction = false">
                   <div class="form-group">
                     <label class="control-label">Continent</label>
                     <v-select required justified :options="['America','Europe']" clear-button></v-select>
@@ -42,29 +42,29 @@
       </div>
     </div>
     <doc-code language="markup">
-        <form-group :valid.sync="valid.all">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <tabs :active.sync="active">
-              <tab header="User">
-                <form-group :valid.sync="valid.user">
-                  <bs-input label="User Name" required></bs-input>
-                  <bs-input label="Email" type="email" required></bs-input>
-                </form-group>
-                <button type="button" class="btn btn-primary" :disabled="!valid.user" @click="active = 1">Continue</button>
-              </tab>
-              <tab header="Direction" :disabled="!valid.user">
-                <form-group :valid.sync="valid.direction">
-                  <div class="form-group">
-                    <label class="control-label">Continent</label>
-                    <v-select required justified :options="['America','Europe']" clear-button></v-select>
-                  </div>
-                  <bs-input label="City" type="text" required></bs-input>
-                </form-group>
-                <button type="button" class="btn btn-primary" :disabled="!valid.all">Done!!</button>
-              </tab>
-            </tabs>
-          </div>
-        </form-group>
+        &lt;form-group @valid="valid.all = true" @invalid="valid.all = false">
+          &lt;div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            &lt;tabs :active="active">
+              &lt;tab header="User">
+                &lt;form-group @valid="valid.user = true" @invalid="valid.user = false">
+                  &lt;bs-input label="User Name" required>&lt;/bs-input>
+                  &lt;bs-input label="Email" type="email" required>&lt;/bs-input>
+                &lt;/form-group>
+                &lt;button type="button" class="btn btn-primary" :disabled="!valid.user" @click="active = 1">Continue&lt;/button>
+              &lt;/tab>
+              &lt;tab header="Direction" :disabled="!valid.user">
+                &lt;form-group @valid="valid.direction = true" @invalid="valid.direction = false">
+                  &lt;div class="form-group">
+                    &lt;label class="control-label">Continent&lt;/label>
+                    &lt;v-select required justified :options="['America','Europe']" clear-button>&lt;/v-select>
+                  &lt;/div>
+                  &lt;bs-input label="City" type="text" required>&lt;/bs-input>
+                &lt;/form-group>
+                &lt;button type="button" class="btn btn-primary" :disabled="!valid.all">Done!!&lt;/button>
+              &lt;/tab>
+            &lt;/tabs>
+          &lt;/div>
+        &lt;/form-group>
     </doc-code>
     <doc-table>
       <div>
@@ -78,14 +78,14 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
-import formGroup from 'src/formGroup.vue'
-import bsInput from 'src/Input.vue'
-import tab from 'src/Tab.vue'
-import tabs from 'src/Tabset.vue'
-import vSelect from 'src/Select.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
+import formGroup from 'src/FormGroup.vue'
+import bsInput from 'src/components/Input.vue'
+import tab from 'src/components/Tab.vue'
+import tabs from 'src/components/Tabs.vue'
+import vSelect from 'src/components/Select.vue'
 
 export default {
   components: {

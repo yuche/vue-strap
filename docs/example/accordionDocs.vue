@@ -1,9 +1,9 @@
 <template>
   <doc-section id="accordion" name="Accordion">
     <div class="bs-example">
-      <checkbox :checked.sync="checked" type="primary">Open only one at a time.</checkbox>
-      <p><v-select :options="types" clear-button :value.sync="selected" placeholder="Global type"></v-select></p>
-      <p><v-select :options="types" clear-button :value.sync="first" placeholder="First element type"></v-select></p>
+      <checkbox :checked="checked" @checked="checked=argument[0]" type="primary">Open only one at a time.</checkbox>
+      <p><v-select :options="types" clear-button v-model="selected" placeholder="Global type"></v-select></p>
+      <p><v-select :options="types" clear-button v-model="first" placeholder="First element type"></v-select></p>
       <accordion :one-at-atime="checked" :type="selected">
         <panel is-open :type="first=='panel'?null:first">
           <strong slot="header"><u>Panel #1</u></strong>
@@ -41,21 +41,21 @@
       </accordion>
     </div>
     <doc-code language="markup">
-      <accordion :one-at-atime="checked" type="info">
-        <panel is-open type="primary">
-          <strong slot="header"><u>Panel #1</u></strong>
+      &lt;accordion :one-at-atime="checked" type="info">
+        &lt;panel is-open type="primary">
+          &lt;strong slot="header">&lt;u>Panel #1&lt;/u>&lt;/strong>
           ...
-        </panel>
-        <panel header="Panel #2">
+        &lt;/panel>
+        &lt;panel header="Panel #2">
           ...
-        </panel>
-        <panel header="Panel #3">
+        &lt;/panel>
+        &lt;panel header="Panel #3">
           ...
-        </panel>
-        <panel header="Panel #4">
+        &lt;/panel>
+        &lt;panel header="Panel #4">
           ...
-        </panel>
-      </accordion>
+        &lt;/panel>
+      &lt;/accordion>
     </doc-code>
     <doc-table>
       <div>
@@ -96,13 +96,13 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import accordion from 'src/Accordion.vue'
 import checkbox from 'src/Checkbox.vue'
 import panel from 'src/Panel.vue'
-import vSelect from 'src/Select.vue'
+import vSelect from 'src/components/Select.vue'
 
 export default {
   components: {

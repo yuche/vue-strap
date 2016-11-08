@@ -1,33 +1,34 @@
 require('./assets/docs.css')
 require('./assets/style.css')
-require('prismjs')
+
+var Prism = require('prismjs')
 require('./js/showLanguage')
 
-import $ from 'src/utils/NodeList.js'
+var Vue = window.Vue = require('vue')
+require('dist/vue-strap-lang.js')
+require('dist/isMobileBrowser.js')
+
 import bodyDocs from './bodyDocs.vue'
 
 Vue.config.devtools = true
 Vue.config.debug = true
 
 new Vue({
-  el: 'body',
+  el: '#app',
   components: {
-    bodyDocs,
+    bodyDocs
   },
-  created () {
-    if (!this.$root.sections) {
-      this.$root.sections = []
-    }
+  data: {
+    sections : []
   },
-  ready () {
-    var list = this.$root.sections
-    while(list.length) list.pop()
-    $('.bs-docs-section', this.$els.sections).each((el) => {
-      list.push({
-        id: el.id,
-        name: $('.anchor', el).textContent,
-        el: el
-      })
+  mounted () {
+    document.querySelectorAll('.bs-docs-section').forEach(el => {
+      var id = el.id
+      var name = el.querySelector('.anchor', el).innerText
+      if (id && name) this.sections.push({el, id, name})
     })
+  },
+  updated () {
+    Prism.highlightAll();
   }
 })
