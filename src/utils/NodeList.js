@@ -60,7 +60,8 @@ class NodeList {
   }
   find (element) {
     let nodes = []
-    for (let el of flatten(this)) {
+    for (var i = 0; i < this.length; i++) {
+      let el = this[i]
       let node = el.querySelectorAll(element)
       if (node && node.length) nodes.push(node)
     }
@@ -152,7 +153,8 @@ class NodeList {
 
   get (prop) {
     let arr = []
-    for (let el of this) {
+    for (var i = 0; i < this.length; i++) {
+      let el = this[i]
       if (el !== null) {
         el = el[prop]
       }
@@ -162,7 +164,8 @@ class NodeList {
   }
   set (prop, value) {
     if (prop.constructor === Object) {
-      for (let el of this) {
+      for (var i = 0; i < this.length; i++) {
+        let el = this[i]
         if (el) {
           for (key in prop) {
             if (key in el) {
@@ -172,7 +175,8 @@ class NodeList {
         }
       }
     } else {
-      for (let el of this) {
+      for (var i = 0; i < this.length; i++) {
+        let el = this[i]
         if (prop in el) {
           el[prop] = value
         }
@@ -184,7 +188,8 @@ class NodeList {
     const method = ArrayProto.shift.call(args)
     let arr = []
     let returnThis = true
-    for (let el of this) {
+    for (var i = 0; i < this.length; i++) {
+      let el = this[i]
       if (el && el[method] instanceof Function) {
         el = el[method].apply(el, args)
         arr.push(el)
@@ -226,7 +231,9 @@ class NodeList {
       fn.apply(this, [e, this])
     }
     for (let event of events) {
-      for (let el of this) if (el) {
+      for (var i = 0; i < this.length; i++) {
+        let el = this[i]
+        if (!el) continue;
         el.addEventListener(event, callback, false)
         Events.push({
           el: el,
@@ -243,7 +250,8 @@ class NodeList {
       events = null
     }
     if (typeof events === 'string' && callback instanceof Function) {
-      for (let el of this) {
+      for (var i = 0; i < this.length; i++) {
+        let el = this[i]
         for(let e in Events) {
           for (let event of events.split(' ')) {
             if(Events[e] && Events[e].el === el && Events[e].event === event && Events[e].callback === callback) {
@@ -254,7 +262,8 @@ class NodeList {
         }
       }
     } else if (typeof events === 'string') {
-      for (let el of this) {
+      for (var i = 0; i < this.length; i++) {
+        let el = this[i]
         for (let e in Events) {
           for (let event of events.split(' ')) {
             if (Events[e] && Events[e].el === el && Events[e].event === event) {
@@ -265,7 +274,8 @@ class NodeList {
         }
       }
     } else if (callback instanceof Function) {
-      for (let el of this) {
+      for (var i = 0; i < this.length; i++) {
+        let el = this[i]
         for (let e in Events) {
           if (Events[e] && Events[e].el === el && Events[e].callback === callback) {
             Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
@@ -274,7 +284,8 @@ class NodeList {
         }
       }
     } else {
-      for (let el of this) {
+      for (var i = 0; i < this.length; i++) {
+        let el = this[i]
         for (let e in Events) {
           if (Events[e] && Events[e].el === el) {
             Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
@@ -371,7 +382,8 @@ function setterGetter (prop) {
     Object.defineProperty(NL, prop, {
       get: function () {
         let arr = []
-        for (let el of this) {
+        for (var i = 0; i < this.length; i++) {
+          let el = this[i]
           if (el !== null) {
             el = el[prop]
           }
@@ -380,7 +392,8 @@ function setterGetter (prop) {
         return flatten(arr, this)
       },
       set: function (value) {
-        for (let el of this) {
+        for (var i = 0; i < this.length; i++) {
+          let el = this[i]
           if (el && prop in el) {
             el[prop] = value
           }
