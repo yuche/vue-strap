@@ -1,35 +1,40 @@
 <template>
   <span v-el:trigger>
-    <slot>
-    </slot>
+    <slot></slot>
   </span>
-  <div class="popover"
-    v-bind:class="{
-    'top':placement === 'top',
-    'left':placement === 'left',
-    'right':placement === 'right',
-    'bottom':placement === 'bottom'
-    }"
-    v-el:popover
-    v-show="show"
-    :transition="effect">
-      <div class="arrow"></div>
-      <h3 class="popover-title" v-show="header">{{title}}</h3>
-      <div class="popover-content">
-        {{{content}}}
-      </div>
+  <div v-el:popover v-if="show"
+    :class="['popover',placement]"
+    :transition="effect"
+  >
+    <div class="arrow"></div>
+    <h3 class="popover-title" v-if="title">
+      <slot name="title">{{title}}</slot>
+    </h3>
+    <div class="popover-content">
+      <slot name="content">{{{content}}}</slot>
+    </div>
   </div>
 </template>
 
 <script>
 import PopoverMixin from './popoverMixins.js'
-  export default {
-    mixins: [PopoverMixin]
+
+export default {
+  mixins: [PopoverMixin],
+  props: {
+    trigger: {
+      type: String,
+      default: 'click'
+    }
   }
+}
 </script>
+
 <style>
-.scale-transition,
-.fade-transition {
+.popover.top,
+.popover.left,
+.popover.right,
+.popover.bottom {
   display: block;
 }
 .scale-enter {
@@ -58,6 +63,4 @@ import PopoverMixin from './popoverMixins.js'
     opacity: 0;
   }
 }
-
-
 </style>

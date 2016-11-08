@@ -1,51 +1,74 @@
 <template>
-  <div>
-    <!-- Nav tabs -->
-     <ul class="nav nav-tabs" role="tablist">
-            <li
-                v-for="r in renderData"
-                v-bind:class="{
-                  'active': ($index === activeIndex),
-                  'disabled': r.disabled
-                }"
-                @click.prevent="handleTabListClick($index, r)"
-                :disabled="r.disabled"
-            >
-                <a href="#">{{r.header}}</a>
-            </li>
-     </ul>
-
-     <!-- Tab panes -->
-     <div class="tab-content" v-el:tabContent>
-        <slot></slot>
-     </div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-{{navStyle}}" role="tablist">
+    <template v-for="t in headers">
+      <li v-if="!t._tabgroup" :class="{active:t.active, disabled:t.disabled}" @click.prevent="select(t)">
+        <a href="#"><slot name="header">{{{t.header}}}</slot></a>
+      </li>
+      <dropdown v-else :text="t.header" :class="{active:t.active}" :disabled="t.disabled">
+        <li v-for="tab in t.tabs" :class="{disabled:tab.disabled}"><a href="#" @click.prevent="select(tab)">{{tab.header}}</a></li>
+      </dropdown>
+    </template>
+  </ul>
+  <div class="tab-content" v-el:tab-content>
+    <slot></slot>
   </div>
 </template>
 
 <script>
-  export default {
-    props: {
-      effect: {
-        type: String,
-        default: 'fadein'
-      }
+import {coerce} from './utils/utils.js'
+import dropdown from './Dropdown.vue'
+
+export default {
+  components: {
+    dropdown
+  },
+  props: {
+    navStyle: {
+      type: String,
+      default: 'tabs'
     },
-    data() {
-      return {
-        renderData: [],
-        activeIndex: 0
-      }
+    effect: {
+      type: String,
+      default: 'fadein'
     },
-    methods: {
-        handleTabListClick(index, el) {
-            if (!el.disabled) this.activeIndex = index
-        }
+    active: {
+      twoWay: true,
+      type: Number,
+      coerce: coerce.number,
+      default: 0
+    }
+  },
+  data () {
+    return {
+      show: null,
+      headers: [],
+      tabs: []
+    }
+  },
+  created () {
+    this._tabset = true
+  },
+  watch: {
+    active (val) {
+      this.show = this.tabs[val]
+    }
+  },
+  ready () {
+    this.show = this.tabs[this.active]
+  },
+  methods: {
+    select (tab) {
+      if (!tab.disabled) {
+        this.active = tab.index
+      }
     }
   }
+}
 </script>
 
 <style scoped>
-  .nav-tabs {
-    margin-bottom: 15px
-  }
+.nav-tabs {
+  margin-bottom: 15px;
+}
 </style>

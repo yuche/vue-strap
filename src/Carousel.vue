@@ -2,121 +2,112 @@
 <div class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators" v-show="indicators">
-    <indicator></indicator>
+    <li v-for="i in indicator" @click="indicatorClick($index)" v-bind:class="{active:$index === index}"><span></span></li>
   </ol>
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <slot></slot>
   </div>
   <!-- Controls -->
-  <a v-show="controls" class="left carousel-control" @click="prevClick">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a v-show="controls" class="right carousel-control" @click="nextClick">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  <div v-show="controls" class="carousel-controls hidden-xs">
+    <a class="left carousel-control" role="button" @click="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </a>
+    <a class="right carousel-control" role="button" @click="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </a>
+  </div>
 </div>
 </template>
 
 <script>
-import EventListener from './utils/EventListener.js'
+import {coerce} from './utils/utils.js'
+import $ from './utils/NodeList.js'
+
   export default {
     props: {
       indicators: {
         type: Boolean,
+        coerce: coerce.boolean,
         default: true
       },
       controls: {
         type: Boolean,
+        coerce: coerce.boolean,
         default: true
       },
       interval: {
         type: Number,
+        coerce: coerce.number,
         default: 5000
       }
     },
-    components: {
-      'indicator': {
-        inherit: true,
-        template: '<li v-for="i in indicator" @click="handleIndicatorClick($index)" v-bind:class="{\'active\':$index === activeIndex}"</li>',
-        methods: {
-          handleIndicatorClick(index) {
-            if (this.isAnimating) return false
-            this.isAnimating = true
-            this.activeIndex = index
-          }
-        },
-      }
-    },
-    data() {
+    data () {
       return {
         indicator: [],
-        activeIndex: 0,
+        index: 0,
         isAnimating: false
       }
     },
-    computed: {
-      slider() {
-        return this.$el.querySelectorAll('.item')
-      }
-    },
     watch: {
-      activeIndex(newVal, oldVal) {
-        newVal > oldVal ? this.slide('left', newVal, oldVal) : this.slide('right', newVal, oldVal)
+      index(newVal, oldVal) {
+        this.slide(newVal > oldVal ? 'left' : 'right', newVal, oldVal)
       }
     },
     methods: {
-      slide(direction, selected, prev) {
-        if (this._prevSelectedEvent) this._prevSelectedEvent.remove()
-        if (this._selectedEvent) this._selectedEvent.remove()
-
-        const prevSelectedEl = this.slider[prev]
-        const selectedEl = this.slider[selected]
-        const transitionendFn = ()=> {
-          [...this.slider].forEach((el)=> el.className = 'item')
-          selectedEl.classList.add('active')
-          this.isAnimating = false
-        }
-
-        direction === 'left' ? selectedEl.classList.add('next') : selectedEl.classList.add('prev')
+      indicatorClick(index) {
+        if (this.isAnimating || this.index === index) return false
+        this.isAnimating = true
+        this.index = index
+      },
+      slide (direction, next, prev) {
+        if (!this.$el) { return }
+        const $slider = $('.item', this.$el)
+        if (!$slider.length) { return }
+        const selected = $slider[next] || $slider[0]
+        $(selected).addClass(direction === 'left' ? 'next' : 'prev')
         // request property that requires layout to force a layout
-        var x = selectedEl.clientHeight
-        this._prevSelectedEvent = EventListener.listen(prevSelectedEl, 'transitionend', transitionendFn)
-        this._selectedEvent = EventListener.listen(selectedEl, 'transitionend', transitionendFn)
-        prevSelectedEl.classList.add(direction)
-        selectedEl.classList.add(direction)
+        var x = selected.clientHeight
+        $([$slider[prev], selected]).addClass(direction).on('transitionend', () => {
+          $slider.off('transitionend').className = 'item'
+          $(selected).addClass('active')
+          this.isAnimating = false
+        })
       },
-      nextClick() {
-        if (this.isAnimating) return false
+      next() {
+        if (!this.$el || this.isAnimating) { return false }
         this.isAnimating = true
-        this.activeIndex + 1 < this.slider.length ? this.activeIndex += 1 : this.activeIndex = 0
+        this.index + 1 < $('.item', this.$el).length ? this.index += 1 : this.index = 0
       },
-      prevClick() {
-        if (this.isAnimating) return false
+      prev() {
+        if (!this.$el || this.isAnimating) { return false }
         this.isAnimating = true
-        this.activeIndex === 0 ? this.activeIndex = this.slider.length - 1 : this.activeIndex -= 1
+        this.index === 0 ? this.index = $('.item', this.$el).length - 1 : this.index -= 1
+      },
+      toggleInterval (val) {
+        if (val === undefined) { val = this._intervalID }
+        if(this._intervalID) {
+          clearInterval(this._intervalID)
+          delete this._intervalID
+        }
+        if(val && this.interval > 0) {
+          this._intervalID = setInterval(this.next, this.interval)
+        }
       }
     },
-    ready() {
-      let intervalID = null
-      const el = this.$el
-      function intervalManager(flag, func, time) {
-        flag ? intervalID =  setInterval(func, time) : clearInterval(intervalID)
-      }
-      if (!!this.interval) {
-        intervalManager(true, this.nextClick, this.interval)
-        el.addEventListener('mouseenter', ()=> intervalManager(false))
-        el.addEventListener('mouseleave', ()=> intervalManager(true, this.nextClick, this.interval))
-      }
+    ready () {
+      this.toggleInterval(true)
+      $(this.$el).on('mouseenter', () => this.toggleInterval(false)).on('mouseleave', () => this.toggleInterval(true))
     },
-
+    beforeDestroy () {
+      this.toggleInterval(false)
+      $(this.$el).off('mouseenter mouseleave')
+    }
   }
 </script>
 
 <style scoped>
-  .carousel-control {
-    cursor: pointer;
-  }
+.carousel-control {
+  cursor: pointer;
+}
 </style>

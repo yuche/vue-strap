@@ -1,8 +1,8 @@
 {
   "name": "vue-strap",
-  "version": "0.1.2",
+  "version": "1.1.29",
   "description": "Bootstrap components built with Vue.js",
-  "main": "src/main.js",
+  "main": "dist/vue-strap.js",
   "repository": {
     "type": "git",
     "url": "yuche/vue-strap"
@@ -12,8 +12,8 @@
     "src": "src/"
   },
   "dependencies": {
-    "vue": "^1.0.8",
-    "bootstrap": "^3.3.5"
+    "bootstrap": "^3.3.7",
+    "vue": "^1.0.26"
   },
   "files": [
     "LICENSE",
@@ -29,22 +29,35 @@
     "bootstrap"
   ],
   "devDependencies": {
-    "babel-core": "^6.1.21",
-    "babel-loader": "^6.1.0",
-    "babel-plugin-transform-runtime": "^6.1.18",
-    "babel-preset-es2015": "^6.1.18",
-    "babel-runtime": "^6.1.18",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-runtime": "^6.11.0",
     "css-loader": "^0.21.0",
-    "prismjs": "^1.3.0",
-    "style-loader": "^0.13.0",
-    "vue-hot-reload-api": "^1.2.0",
-    "vue-html-loader": "^1.0.0",
-    "vue-loader": "^7.0.3",
-    "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.12.0"
+    "gh-pages": "^0.11.0",
+    "less": "^2.7.0",
+    "less-loader": "^2.2.3",
+    "node-sass": "^3.10.1",
+    "prismjs": "^1.5.1",
+    "sass-loader": "^3.2.3",
+    "style-loader": "^0.13.1",
+    "vue-hot-reload-api": "^1.3.3",
+    "vue-html-loader": "^1.2.3",
+    "vue-loader": "7.1.7",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.0"
   },
   "browserify": {
     "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ],
       [
         "vueify"
       ]
@@ -52,7 +65,11 @@
   },
   "scripts": {
     "docs": "webpack-dev-server --inline --hot --quiet",
-    "build": "webpack --progress --hide-modules --config  webpack.build.min.js"
+    "builddocs": "webpack --progress --hide-modules && set NODE_ENV=production webpack --progress --hide-modules",
+    "build": "webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags",
+    "gpages": "gh-pages -d build"
   },
   "author": "yuche",
   "license": "MIT"

@@ -1,53 +1,19 @@
-<template>
-  <li style="position:relative">
-    <a @mousedown.prevent="handleClick" style="cursor:pointer">
-      <slot></slot>
-      <slot name="span">
-        {{value}}
-      </slot>
-      <span class="glyphicon glyphicon-ok check-mark" v-show="chosen"></span>
-    </a>
-  </li>
-</template>
-
+<template><li v-el:v v-if="loading"><slot></slot></li></template>
 <script>
-  export default {
-    props: {
-      value: {
-        type: String
-      }
-    },
-    data() {
-      return {
-        chosen: false
-      }
-    },
-    computed: {
-      chosen() {
-        return this.$parent.value.indexOf(this.value) !== -1 ? true : false
-      }
-    },
-    methods: {
-      handleClick() {
-        const parent = this.$parent
-        const index = parent.value.indexOf(this.value)
-        if (parent.multiple) {
-          index === -1 ? parent.value.push(this.value) : parent.value.splice(index, 1)
-        } else {
-          parent.value = []
-          parent.value.push(this.value)
-          parent.show = false
-        }
-      }
+export default {
+  props: {value: null},
+  data () { return {loading: true} },
+  ready () {
+    if (this.$parent._select) {
+      if (!this.$parent.options) { this.$parent.options = [] }
+      let el = {}
+      el[this.$parent.optionsLabel] = this.$els.v.innerHTML
+      el[this.$parent.optionsValue] = this.value
+      this.$parent.options.push(el)
+      this.loading = false
+    } else {
+      console.warn('options only work inside a select component')
     }
   }
+}
 </script>
-
-<style>
-  a span.check-mark {
-    position: absolute;
-    display: inline-block;
-    right: 15px;
-    margin-top: 5px;
-  }
-</style>

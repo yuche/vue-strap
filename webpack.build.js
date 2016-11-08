@@ -10,17 +10,5 @@ config.output = {
   libraryTarget: 'umd'
 }
 
-config.output.filename = config.output.filename.replace(/\.js$/, '.min.js')
-
-delete config.devtool
-
-config.plugins = [
-  new webpack.optimize.UglifyJsPlugin({
-    sourceMap: false,
-    compress: {
-        warnings: false
-    }
-  })
-]
 
 module.exports = config

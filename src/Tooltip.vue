@@ -1,47 +1,43 @@
 <template>
   <span v-el:trigger>
-    <slot>
-    </slot>
+    <slot></slot>
   </span>
-  <div class="tooltip"
-    v-bind:class="{
-    'top':    placement === 'top',
-    'left':   placement === 'left',
-    'right':  placement === 'right',
-    'bottom': placement === 'bottom'
-    }"
-    v-el:popover
-    v-show="show"
+  <div v-el:popover v-if="show" style="display:block;"
+    :class="['tooltip',placement]"
     :transition="effect"
-    role="tooltip">
+  >
     <div class="tooltip-arrow"></div>
     <div class="tooltip-inner">
-      {{{content}}}
-    </div>
+      <slot name="content">{{{content}}}</slot>
+   </div>
   </div>
 </template>
 
 <script>
 import PopoverMixin from './popoverMixins.js'
-  export default {
-    mixins: [PopoverMixin],
-    props: {
-      trigger: {
-        type: String,
-        default: 'hover'
-      },
-      effect: {
-        type: String,
-        default: 'scale'
-      }
+
+export default {
+  mixins: [PopoverMixin],
+  props: {
+    trigger: {
+      type: String,
+      default: 'hover'
+    },
+    effect: {
+      type: String,
+      default: 'scale'
     }
   }
+}
 </script>
 
 <style>
-  .tooltip {
-    opacity: .9
-  }
+.tooltip.top,
+.tooltip.left,
+.tooltip.right,
+.tooltip.bottom {
+  opacity: .9
+}
 .fadein-enter {
   animation:fadein-in 0.3s ease-in;
 }
@@ -53,16 +49,15 @@ import PopoverMixin from './popoverMixins.js'
     opacity: 0;
   }
   100% {
-    opacity: 1;
+    opacity: .9;
   }
 }
 @keyframes fadein-out {
   0% {
-    opacity: 1;
+    opacity: .9;
   }
   100% {
     opacity: 0;
   }
 }
-
 </style>

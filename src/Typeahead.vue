@@ -1,148 +1,159 @@
 <template>
-<div style="position: relative"
-  v-bind:class="{'open':showDropdown}"
+  <div style="position: relative"
+    v-bind:class="{'open':showDropdown}"
   >
-  <input type="text" class="form-control"
-    :placeholder="placeholder"
-    autocomplete="off"
-    v-model="query"
-    @input="update"
-    @keydown.up="up"
-    @keydown.down="down"
-    @keydown.enter= "hit"
-    @keydown.esc="reset"
-    @blur="showDropdown = false"
-  />
-  <ul class="dropdown-menu" v-el:dropdown>
-    <li v-for="item in items" v-bind:class="{'active': isActive($index)}">
-      <a @mousedown.prevent="hit" @mousemove="setActive($index)">
-        <partial :name="templateName"></partial>
-      </a>
-    </li> 
-  </ul>
-</div>
-
+    <input type="text" class="form-control"
+      :placeholder="placeholder"
+      autocomplete="off"
+      v-model="value"
+      @input="update"
+      @keydown.up="up"
+      @keydown.down="down"
+      @keydown.enter= "hit"
+      @keydown.esc="reset"
+      @blur="showDropdown = false"
+    />
+    <ul class="dropdown-menu" v-el:dropdown>
+      <li v-for="item in items" v-bind:class="{'active': isActive($index)}">
+        <a @mousedown.prevent="hit" @mousemove="setActive($index)">
+          <partial :name="templateName"></partial>
+        </a>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-import callAjax from './utils/callAjax.js'
-const typeahead = {
-    created() {
-      this.items = this.primitiveData
+import {getJSON, coerce} from './utils/utils.js'
+
+let Vue = window.Vue
+
+export default {
+  created () {
+    this.items = this.primitiveData
+  },
+  partials: {
+    default: '<span v-html="item | highlight query"></span>'
+  },
+  props: {
+    value: {
+      twoWay : true,
+      type: String,
+      default: ''
     },
-    partials: {
-      'default': 'asdf<span v-html="item | highlight query"></span>',
+    data: {
+      type: Array
     },
-    props: {
-      data: {
-        type: Array
-      },
-      limit: {
-        type: Number,
-        default: 8
-      },
-      async: {
-        type: String
-      },
-      template: {
-        type:String
-      },
-      templateName: {
-        type:String,
-        default: 'default'
-      },
-      key: {
-        type: String
-      },
-      matchCase: {
-        type: Boolean,
-        default: false
-      },
-      onHit: {
-        type: Function,
-        default(items) {
-          this.reset()
-          this.query = items
-        }
-      },
-      placeholder: {
-        type: String
+    limit: {
+      type: Number,
+      default: 8
+    },
+    async: {
+      type: String
+    },
+    template: {
+      type: String
+    },
+    templateName: {
+      type: String,
+      default: 'default'
+    },
+    key: {
+      type: String,
+      default: null
+    },
+    matchCase: {
+      type: Boolean,
+      coerce: coerce.boolean,
+      default: false
+    },
+    matchStart: {
+      type: Boolean,
+      coerce: coerce.boolean,
+      default: false
+    },
+    onHit: {
+      type: Function,
+      default (items) {
+        this.reset()
+        this.value = items
       }
     },
-    data() {
-      return {
-        query: '',
-        showDropdown: false,
-        noResults: true,
-        current: 0,
-        items: [],
-      }
-    },
-    computed: {
-      primitiveData() {
-        if (this.data) {
-          return this.data.filter(value=> {
-            value = this.matchCase ? value : value.toLowerCase()
-            return value.indexOf(this.query) !== -1
-          }).slice(0, this.limit)
-        }
-      }
-    },
-    ready() {
-      // register a partial:
-      if (this.templateName && this.templateName!=='default')
-      {
-        Vue.partial(this.templateName, this.template)
-      }
-    },
-    methods: {
-      update() {
-        if (!this.query) {
-          this.reset()
-          return false
-        }
-        if (this.data) {
-          this.items = this.primitiveData
-          this.showDropdown = this.items.length ? true : false
-        }
-        if (this.async) {
-          callAjax(this.async + this.query, (data)=> {
-            this.items = data[this.key].slice(0, this.limit)
-            this.showDropdown = this.items.length ? true : false
-          })
-        }
-      },
-      reset() {
-        this.items = []
-        this.query = ''
-        this.loading = false
-        this.showDropdown = false
-      },
-      setActive(index) {
-        this.current = index
-      },
-      isActive(index) {
-        return this.current === index
-      },
-      hit(e) {
-        console.log("e", e, "e.targetVm", e.targetVM);
-        e.preventDefault()
-        this.onHit(this.items[this.current], this);
-      },
-      up() {
-        if (this.current > 0) this.current--
-      },
-      down() {
-        if (this.current < this.items.length - 1) this.current++
-      }
-    },
-    filters: {
-      highlight(value, phrase) {
-        return value.replace(new RegExp('('+phrase+')', 'gi'), '<strong>$1</strong>')
+    placeholder: {
+      type: String
+    }
+  },
+  data () {
+    return {
+      showDropdown: false,
+      noResults: true,
+      current: 0,
+      items: []
+    }
+  },
+  computed: {
+    primitiveData () {
+      if (this.data) {
+        return this.data.filter(value => {
+          value = this.matchCase ? value : value.toLowerCase()
+          var query = this.matchCase ? this.value : this.value.toLowerCase()
+          return this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1
+        }).slice(0, this.limit)
       }
     }
+  },
+  ready () {
+    // register a partial:
+    if (this.templateName && this.templateName !== 'default') {
+      Vue.partial(this.templateName, this.template)
+    }
+  },
+  methods: {
+    update () {
+      if (!this.value) {
+        this.reset()
+        return false
+      }
+      if (this.data) {
+        this.items = this.primitiveData
+        this.showDropdown = this.items.length > 0
+      }
+      if (this.async) {
+        getJSON(this.async + this.value).then(data => {
+          this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
+          this.showDropdown = this.items.length > 0
+        })
+      }
+    },
+    reset () {
+      this.items = []
+      this.value = ''
+      this.loading = false
+      this.showDropdown = false
+    },
+    setActive (index) {
+      this.current = index
+    },
+    isActive (index) {
+      return this.current === index
+    },
+    hit (e) {
+      e.preventDefault()
+      this.onHit(this.items[this.current], this)
+    },
+    up () {
+      if (this.current > 0) this.current--
+    },
+    down () {
+      if (this.current < this.items.length - 1) this.current++
+    }
+  },
+  filters: {
+    highlight (value, phrase) {
+      return value.replace(new RegExp('(' + phrase + ')', 'gi'), '<strong>$1</strong>')
+    }
   }
-export default typeahead
+}
 </script>
 
 <style>

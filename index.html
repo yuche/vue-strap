@@ -2,75 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VueStrap - Bootstrap components built with Vue.js</title>
-  <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600|Source+Code+Pro' rel='stylesheet' type='text/css'> -->
-  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <!-- <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600|Source+Code+Pro' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" type="text/css" href="docs/assets/prism-coy.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+  <script src="./dist/isMobileBrowser.js" type="text/javascript" charset="utf-8"></script>
+  <style type="text/css" media="screen">
+    .page-header { padding-top: 50px; }
+    code[class*="language"] {
+      max-height: calc(30em - 19px);
+      padding-top: 5px;
+    }
+  </style>
 </head>
 <body>
-<div id="wrapper">
-  <header-docs></header-docs>
-  <div class="bs-docs-header">
-        <div class="container">
-          <h1>VueStrap</h1>
-          <p>Bootstrap components built with <a target="_blank" href="http://vuejs.org/">Vue.js</a>.</p>
-          <p>No jQuery, bootstrap.js, or any 3rd party plugins required.</p>
-          <br>
-          <p>
-            <a class="btn btn-outline-inverse btn-lg" href="https://github.com/yuche/vue-strap">
-              Code on GitHub
-            </a>
-          </p>
-      </div>
-  </div>
-  <container>
-    <div class="col-md-9">
-      <getting-started></getting-started>
-      <accordion-docs></accordion-docs>
-      <affix-docs></affix-docs>
-      <alert-docs></alert-docs>
-      <aside-docs></aside-docs>
-      <buttons-docs></buttons-docs>
-      <carousel-docs></carousel-docs>
-      <datepicker-docs></datepicker-docs>
-      <dropdown-docs></dropdown-docs>
-      <modal-docs></modal-docs>
-      <popover-docs></popover-docs>
-      <progressbar-docs></progressbar-docs>
-      <select-docs></select-docs>
-      <tabs-docs></tabs-docs>
-      <tooltip-docs></tooltip-docs>
-      <typeahead-docs></typeahead-docs>
-    </div>
-    <div class="col-md-3">
-    <affix>
-      <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm ">
-        <ul class="nav bs-docs-sidenav" id="sidenav">
-          <li v-for="a in anchor"><a href="#{{ a.toLowerCase() }}">{{ a | space}}</a></li>
-        </ul>
-        <a href="#top" class="back-to-top">Back to top</a>
-        <a href="https://github.com/yuche/vue-strap" class="back-to-top">GitHub</a>
-      </nav>
-    </affix>
-    </div>
-  </container>
-</div>
-<footer class="bs-docs-footer">
-  <div class="container">
-    <p>
-      Designed and built by <a href="https://github.com/yuche/">yuche</a>.
-    </p>
-    <p>
-      <p>Using <a href="http://twitter.github.com/bootstrap" target="_blank">Twitter Bootstrap</a> and the <a href="css/docs.css" target="_blank">Bootstrap's docs styles</a> designed and built by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
-    </p>
-    <p>
-<p>Code licensed under <a href="//github.com/mgcrea/angular-strap/blob/master/LICENSE.md" target="_blank">The MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>    </p>
-  </div>
-</footer>
-<script src="node_modules/vue/dist/vue.js"></script>
-<script src="static/build.js"></script>
-
+<body-docs></body-docs>
+<!-- using cdn version here so it works under gh-pages -->
+<script src="docs/js/vue.min.js"></script>
+<script src="dist/vue-strap-lang.js"></script>
+<script src="build/build-docs.js"></script>
 </body>
 </html>

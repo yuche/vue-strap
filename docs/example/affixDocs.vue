@@ -1,54 +1,49 @@
 <template>
-  <div class="bs-docs-section" id="affix">
-    <h1 class="page-header"><a href="#affix" class="anchor">Affix</a></h1>
+  <doc-section id="affix" name="Affix">
     <div class="bs-example">
       <h3>
         The sub-navigation on the RIGHT is a live demo of the affix.
+        <spam class="visible-xs-block visible-sm-block">(The live demo is hidden in small screens)</spam>
         <tooltip trigger="hover" effect="fadein" content="I'm a direction, not jerking off!" placement="left">
-          <span class="glyphicon glyphicon-hand-right pull-right animated shake"></span>
+          <span class="glyphicon glyphicon-hand-right pull-right animated shake hidden-xs hidden-sm"></span>
         </tooltip>
       </h3>
     </div>
-    <pre><code class="language-markup"><script type="language-mark-up">
-<affix offset="">
-  <nav class="sidebar">
-    <ul>
-      <li>...</li>
-      <li>...</li>
-      <li>...</li>
-    </ul>
-  </nav>
-</affix>
-</script></code></pre>
-    <h2>Options</h2>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>offset</td>
-          <td><code>Number</code></td>
-          <td><code>0</code></td>
-          <td>Pixels to offset from top of screen when calculating position of scroll.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <doc-code language="markup">
+      <affix offset="50">
+        <ul>
+          <li>...</li>
+          <li>...</li>
+          <li>...</li>
+        </ul>
+        <a href="#">...</a>
+      </affix>
+    </doc-code>
+    <doc-table>
+      <div>
+        <p>offset</p>
+        <p><code>Number</code></p>
+        <p><code>0</code></p>
+        <p>Pixels to offset from top of screen when calculating position of scroll.</p>
+      </div>
+    </doc-table>
+  </doc-section>
 </template>
 
 <script>
-  import tooltip from 'src/Tooltip.vue'
-  export default {
-    components: {
-      tooltip
-    }
+import docSection from './docSection.vue'
+import docTable from './docTable.vue'
+import docCode from './docCode.vue'
+import tooltip from 'src/Tooltip.vue'
+
+export default {
+  components: {
+    docSection,
+    docTable,
+    docCode,
+    tooltip
   }
+}
 </script>
 
 <style>
