@@ -1,30 +1,16 @@
-import {coerce} from './utils/utils.js'
 import $ from './utils/NodeList.js'
+// let coerce = {
+//   header: 'boolean'
+// }
 
 export default {
   props: {
-    trigger: {
-      type: String
-    },
-    effect: {
-      type: String,
-      default: 'fade'
-    },
-    title: {
-      type: String
-    },
-    content: {
-      type: String
-    },
-    header: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: true
-    },
-    placement: {
-      type: String,
-      default: 'top'
-    }
+    content: {type: String},
+    effect: {type: String, default: 'fade'},
+    header: {type: Boolean, default: true},
+    placement: {type: String, default: 'top'},
+    title: {type: String},
+    trigger: {type: String}
   },
   data () {
     return {
@@ -40,8 +26,8 @@ export default {
       if (e && this.trigger === 'contextmenu') e.preventDefault()
       if (!(this.show = !this.show)) { return }
       setTimeout(() => {
-        const popover = this.$els.popover
-        const trigger = this.$els.trigger.children[0]
+        const popover = this.$refs.popover
+        const trigger = this.$refs.trigger.children[0]
         switch (this.placement) {
           case 'top' :
             this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2
@@ -67,8 +53,8 @@ export default {
       }, 0)
     }
   },
-  ready () {
-    let trigger = this.$els.trigger
+  mounted () {
+    let trigger = this.$refs.trigger
     if (!trigger) return console.error('Could not find trigger v-el in your component that uses popoverMixin.')
 
     if (this.trigger === 'focus' && !~trigger.tabIndex) {

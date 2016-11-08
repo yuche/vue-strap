@@ -1,8 +1,4 @@
-<template>
-  <div class="item">
-    <slot></slot>
-  </div>
-</template>
+<template><div class="item"><slot></slot></div></template>
 
 <script>
 export default {
@@ -17,7 +13,7 @@ export default {
       return this.$parent.index === this.index
     }
   },
-  ready() {
+  mounted () {
     for (var c in this.$parent.$children) {
       if (this.$parent.$children[c] === this) {
           this.index = parseInt(c,10);
@@ -25,7 +21,9 @@ export default {
       }
     }
     //this.index = [...this.$el.parentNode.children].indexOf(this.$el)
-    this.$parent.indicator.push(this.index)
+    if( this.$parent.indicator )
+      this.$parent.indicator.push(this.index)
+      
     if (this.index === 0) {
       this.$el.classList.add('active')
     }

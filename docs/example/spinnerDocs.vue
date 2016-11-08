@@ -1,21 +1,22 @@
 <template>
   <doc-section id="spinner" name="Spinner">
     <div class="bs-example">
-      <p><checkbox :checked.sync="fixed" type="info">fixed</checkbox></p>
-      <p><v-select :options="['sm','md','lg','xl']" :value.sync="size">size</v-select></p>
-      <p><button class="btn btn-info" @click="$broadcast('show::spinner')">show spinner</button></p>
-      <div><spinner id="spinner-box" :size="size" :fixed="fixed" text="I will close in 2 secs"></spinner></div>
+      <p><checkbox :checked="fixed" @checked="fixed = arguments[0]" type="info">fixed</checkbox></p>
+      <p><v-select :options="['sm','md','lg','xl']" v-model="size">size</v-select></p>
+      <p><button class="btn btn-info" @click="$root.$emit('spinner::show')">show spinner</button></p>
+      <p><button class="btn btn-info" @click="$emit('show::spinner')">show spinner</button></p>
+      <div><spinner id="spinner-box" global :size="size" :fixed="fixed" text="I will close in 2 secs"></spinner></div>
     </div>
     <doc-code language="markup">
-      <spinner v-ref:spinner size="md" fixed text="I will close in 2 secs"></spinner>
+      &lt;spinner ref="spinner" size="md" fixed text="I will close in 2 secs">&lt;/spinner>
     </doc-code>
     <doc-code language="javascript">
       // using ref
       this.$refs.spinner.show()
       this.$refs.spinner.hide()
-      // using broadcast
-      this.$broadcast('show::spinner')
-      this.$broadcast('hide::spinner')
+      // using emit
+      this.$emit('show::spinner')
+      this.$emit('hide::spinner')
     </doc-code>
     <doc-table>
       <div>
@@ -35,11 +36,11 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
-import checkbox from 'src/Checkbox.vue'
-import vSelect from 'src/Select.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
+import checkbox from 'src/components/Checkbox.vue'
+import vSelect from 'src/components/Select.vue'
 import spinner from 'src/Spinner.vue'
 
 export default {

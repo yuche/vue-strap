@@ -24,9 +24,9 @@
       </popover>
     </div>
     <doc-code language="markup">
-      <popover effect="fade" placement="bottom" title="Title" content="content">
-        <button class="btn btn-default">Popover on bottom</button>
-      </popover>
+      &lt;popover effect="fade" placement="bottom" title="Title" content="content">
+        &lt;button class="btn btn-default">Popover on bottom&lt;/button>
+      &lt;/popover>
     </doc-code>
     <doc-table>
       <div>
@@ -73,11 +73,11 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import popover from 'src/Popover.vue'
-import bsInput from 'src/Input.vue'
+import bsInput from 'src/components/Input.vue'
 
 export default {
   components: {

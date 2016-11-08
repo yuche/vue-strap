@@ -26,20 +26,20 @@
       </carousel>
     </div>
     <doc-code language="markup">
-      <carousel>
-        <slider>
-          <img src="https://placehold.it/1200x400?text=one">
-          <div class="carousel-caption">
+      &lt;carousel>
+        &lt;slider>
+          &lt;img src="https://placehold.it/1200x400?text=one">
+          &lt;div class="carousel-caption">
             ...
-          </div>
-        </slider>
-        <slider>
-          <img src="https://placehold.it/1200x400?text=two">
-        </slider>
-        <slider>
-          <img src="https://placehold.it/1200x400?text=three">
-        </slider>
-      </carousel>
+          &lt;/div>
+        &lt;/slider>
+        &lt;slider>
+          &lt;img src="https://placehold.it/1200x400?text=two">
+        &lt;/slider>
+        &lt;slider>
+          &lt;img src="https://placehold.it/1200x400?text=three">
+        &lt;/slider>
+      &lt;/carousel>
     </doc-code>
     <doc-table>
       <div>
@@ -67,9 +67,9 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import carousel from 'src/Carousel.vue'
 import slider from 'src/Slider.vue'
 

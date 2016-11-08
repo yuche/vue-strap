@@ -5,43 +5,26 @@
 </template>
 
 <script>
-import {coerce} from './utils/utils.js'
 
 export default {
   props: {
+    buttons: true,
+    justified: {type: Boolean, default: false},
+    type: {type: String, default: 'default'},
     value: null,
-    buttons: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: true
-    },
-    justified: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    type: {
-      type: String,
-      default: 'default'
-    },
-    vertical: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
+    vertical: {type: Boolean, default: false}
+  },
+  data () {
+    var val = this.value
+    this._btnGroup = true
+    return {
+      val
     }
   },
   watch: {
-    value: {
-      deep: true,
-      handler (val) {
-        this.$children.forEach((el) => {
-          if (el.group && el.eval) el.eval()
-        })
-      }
+    val (val) {
+      this.$emit('input', val)
     }
-  },
-  created () {
-    this._btnGroup = true
   }
 }
 </script>

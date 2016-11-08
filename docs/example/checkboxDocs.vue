@@ -2,38 +2,44 @@
   <doc-section id="checkbox" name="Checkbox">
     <div class="bs-example">
       <h4>Checkbox</h4>
-      <checkbox :checked.sync="checkboxValue.one" value="one">One</checkbox>
-      <checkbox :checked.sync="checkboxValue.two" value="two" type="danger" disabled>Two (disabled)</checkbox>
-      <checkbox :checked.sync="checkboxValue.two" value="two" type="warning" readonly>Two (readonly)</checkbox>
-      <checkbox :checked.sync="checkboxValue.two" value="two" type="success">Two</checkbox>
+      <checkbox v-model="checkboxValue.one" true-value="1">One</checkbox>
+      <checkbox v-model="checkboxValue.two" true-value="two" type="danger" disabled>Two (disabled)</checkbox>
+      <checkbox v-model="checkboxValue.two" true-value="two" type="warning" readonly>Two (readonly)</checkbox>
+      <checkbox v-model="checkboxValue.two" true-value="two" type="success">Two</checkbox>
       <hr>
       <h4>Checkbox Button (Single button)</h4>
-      <checkbox button :checked.sync="checkboxValue.three" value="three" type="primary">Three</checkbox>
-      <checkbox button :checked.sync="checkboxValue.four" value="four" type="info" disabled>Four (disabled)</checkbox>
-      <checkbox button :checked.sync="checkboxValue.four" value="four" type="info" readonly>Four (readonly)</checkbox>
-      <checkbox button :checked.sync="checkboxValue.four" value="four" type="info">Four</checkbox>
+      <checkbox button v-model="checkboxValue.three" :true-value="2+1" type="primary">Three</checkbox>
+      <checkbox button v-model="checkboxValue.four" type="info" disabled>Four (disabled)</checkbox>
+      <checkbox button v-model="checkboxValue.four" type="info" readonly>Four (readonly)</checkbox>
+      <checkbox button v-model="checkboxValue.four" type="info">Four</checkbox>
       <p>
-        <pre>Checkbox values: {{checkboxValue | json}}</pre>
+        <pre>Checkbox values: {{ checkboxValue }}</pre>
       </p>
     </div>
     <doc-code language="markup">
-      <checkbox :checked.sync="checkboxValue.one" value="one">One</checkbox>
-      <checkbox :checked.sync="checkboxValue.two" value="two" type="primary">Two</checkbox>
-      <checkbox :checked.sync="checkboxValue.three" value="three" type="info">Three</checkbox>
-      <checkbox button :checked.sync="checkboxValue.four" value="four" type="danger">Four</checkbox>
+      &lt;checkbox v-model="checkboxValue.one" true-value="1">One&lt;/checkbox>
+      &lt;checkbox v-model="checkboxValue.two" true-value="two" type="primary">Two&lt;/checkbox>
+      &lt;checkbox v-model="checkboxValue.three" :true-value="2+1" type="info">Three&lt;/checkbox>
+      &lt;checkbox button v-model="checkboxValue.four" type="danger">Four&lt;/checkbox>
     </doc-code>
     <doc-table>
       <div>
-        <p>checked</p>
-        <p><code>Number</code> or <code>String</code></p>
+        <p>value</p>
+        <p><code>Mixed</code></p>
         <p></p>
         <p>Handle the selected value.</p>
       </div>
       <div>
-        <p>value</p>
-        <p><code>Number</code> or <code>String</code></p>
-        <p></p>
-        <p>Value to return if the checkbox item is selected.</p>
+        <p>true-value</p>
+        <p><code>Mixed</code></p>
+        <p><code>true</code></p>
+        <p>Value when is checked.</p>
+      </div>
+      <div>
+        <p>false-value</p>
+        <p><code>Mixed</code></p>
+        <p><code>false</code></p>
+        <p>Value when is not checked.</p>
       </div>
       <div>
         <p>type</p>
@@ -58,10 +64,10 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
-import checkbox from 'src/Checkbox.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
+import checkbox from 'src/components/Checkbox.vue'
 
 export default {
   components: {
@@ -73,10 +79,10 @@ export default {
   data () {
     return {
       checkboxValue: {
-        one: null,
-        two: 'two',
-        three: null,
-        four: null
+        one: false,
+        two: true,
+        three: false,
+        four: false
       }
     }
   }

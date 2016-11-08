@@ -1,8 +1,9 @@
 {
   "name": "vue-strap",
-  "version": "1.1.29",
+  "version": "2.0.0-pre.1",
   "description": "Bootstrap components built with Vue.js",
   "main": "dist/vue-strap.js",
+  "typings": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "yuche/vue-strap"
@@ -13,14 +14,15 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "vue": "^1.0.26"
+    "vue": "^2.0.1"
   },
   "files": [
     "LICENSE",
     "README.md",
     "CHANGELOG.md",
     "src",
-    "dist"
+    "dist",
+    "types/index.d.ts"
   ],
   "keywords": [
     "vue",
@@ -29,22 +31,23 @@
     "bootstrap"
   ],
   "devDependencies": {
-    "babel-core": "^6.17.0",
-    "babel-loader": "^6.2.0",
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-es2015": "^6.16.0",
-    "babel-runtime": "^6.11.0",
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-plugin-transform-runtime": "^6.0.0",
+    "babel-preset-es2015": "^6.0.0",
+    "babel-runtime": "^6.0.0",
     "css-loader": "^0.21.0",
     "gh-pages": "^0.11.0",
     "less": "^2.7.0",
     "less-loader": "^2.2.3",
+    "marked": "^0.3.6",
     "node-sass": "^3.10.1",
     "prismjs": "^1.5.1",
     "sass-loader": "^3.2.3",
     "style-loader": "^0.13.1",
-    "vue-hot-reload-api": "^1.3.3",
+    "vue-hot-reload-api": "^2.0.0",
     "vue-html-loader": "^1.2.3",
-    "vue-loader": "7.1.7",
+    "vue-loader": "^9.4.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.0"
   },

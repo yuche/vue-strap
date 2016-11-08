@@ -2,25 +2,25 @@
   <doc-section id="button-group" name="Button Group">
     <div class="bs-example">
       <h4>Checkbox</h4>
-      <button-group :value.sync="checkboxValue">
+      <button-group v-model="checkboxValue">
         <checkbox value="left">Left</checkbox>
         <checkbox value="middle">Middle</checkbox>
         <checkbox value="right">Right</checkbox>
       </button-group>
       <p>
-        <pre>Checkbox value: {{checkboxValue | json}}</pre>
+        <pre>Checkbox value: {{ checkboxValue }}</pre>
       </p>
       <hr>
       <h4>Radio</h4>
       <p>
-        <button-group :value.sync="radioValue" type="primary">
+        <button-group v-model="radioValue" type="primary">
           <radio value="left">Left</radio>
           <radio value="middle">Middle</radio>
           <radio value="right">Right</radio>
         </button-group>
       </p>
       <p>
-        <button-group :value.sync="radioValue" type="success">
+        <button-group v-model="radioValue" type="success">
           <radio value="left">Left</radio>
           <radio value="middle">Middle</radio>
           <radio value="right">Right</radio>
@@ -28,35 +28,35 @@
       </p>
       <p>
         <label>Not buttons:</label>
-        <button-group :value.sync="radioValue" type="info" buttons="false">
+        <button-group v-model="radioValue" type="info" buttons="false">
           <radio value="left">Left</radio>
           <radio value="middle">Middle</radio>
           <radio value="right">Right</radio>
         </button-group>
       </p>
       <p>
-        <pre>Radio value: {{radioValue}}</pre>
+        <pre>Radio value: {{ radioValue }}</pre>
       </p>
     </div>
     <doc-code language="markup">
-      <button-group :value.sync="checkboxValue">
-        <checkbox value="left">Left</checkbox>
-        <checkbox value="middle">Middle</checkbox>
-        <checkbox value="right">Right</checkbox>
-      </button-group>
+      &lt;button-group v-model="checkboxValue">
+        &lt;checkbox value="left">Left&lt;/checkbox>
+        &lt;checkbox value="middle">Middle&lt;/checkbox>
+        &lt;checkbox value="right">Right&lt;/checkbox>
+      &lt;/button-group>
 
-      <button-group :value.sync="radioValue" type="primary">
-        <radio value="left">Left</radio>
-        <radio value="middle">Middle</radio>
-        <radio value="right">Right</radio>
-      </button-group>
+      &lt;button-group v-model="radioValue" type="primary">
+        &lt;radio value="left">Left&lt;/radio>
+        &lt;radio value="middle">Middle&lt;/radio>
+        &lt;radio value="right">Right&lt;/radio>
+      &lt;/button-group>
 
       Not Buttons:
-      <button-group :value.sync="radioValue" type="info" buttons="false">
-        <radio value="left">Left</radio>
-        <radio value="middle">Middle</radio>
-        <radio value="right">Right</radio>
-      </button-group>
+      &lt;button-group v-model="radioValue" type="info" buttons="false">
+        &lt;radio value="left">Left&lt;/radio>
+        &lt;radio value="middle">Middle&lt;/radio>
+        &lt;radio value="right">Right&lt;/radio>
+      &lt;/button-group>
     </doc-code>
 
     <doc-table>
@@ -92,11 +92,11 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import buttonGroup from 'src/buttonGroup.vue'
-import checkbox from 'src/Checkbox.vue'
+import checkbox from 'src/components/Checkbox.vue'
 import radio from 'src/Radio.vue'
 
 export default {

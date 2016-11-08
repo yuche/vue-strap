@@ -4,7 +4,7 @@
       <button class="btn btn-danger btn-lg" @click="showLeft = true">Show Aside on left</button>
       <button class="btn btn-success btn-lg" @click="showRight = true">Show Aside on right</button>
 
-      <sidebar :show.sync="showLeft" placement="left" header="Title" :width="350">
+      <sidebar :show="showLeft" @close="showLeft = false" placement="left" header="Title" :width="350">
         <h4>Text in aside</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -20,7 +20,7 @@
           <button type="button" class="btn btn-default" @click="showLeft=false">Close</button>
         </div>
       </sidebar>
-      <sidebar :show.sync="showRight" placement="right" header="Title" :width="350">
+      <sidebar :show="showRight" @close='showRight = false' placement="right" header="Title" :width="350">
         <h4>Text in aside</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -38,16 +38,16 @@
       </sidebar>
     </div>
     <doc-code language="markup">
-      <aside :show.sync="showRight" placement="right" header="Title" width="350">
+      &lt;sidebar v-model="showRight" placement="right" header="Title" width="350">
         ...
-      </aside>
-      <aside :show.sync="showLeft" placement="left" header="Title" width="350">
+      &lt;/sidebar>
+      &lt;sidebar v-model="showLeft" placement="left" header="Title" width="350">
         ...
-      </aside>
+      &lt;/sidebar>
     </doc-code>
     <doc-table>
       <div>
-        <p>show</p>
+        <p>value</p>
         <p><code>Boolean</code></p>
         <p></p>
         <p>Whether show the component.</p>
@@ -75,9 +75,9 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import sidebar from 'src/Aside.vue'
 
 export default {

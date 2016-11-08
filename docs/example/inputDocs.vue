@@ -19,7 +19,7 @@
               :required="check.required"
               :hide-help="check.hideHelp"
               :clear-button="check.clearButton"
-              :value.sync="input"
+              v-model="input"
             ></bs-input>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -31,20 +31,20 @@
         <div class="row">
           <button-group type="primary" buttons="false">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <p><checkbox :checked.sync="check.label">Label</checkbox></p>
-              <p><checkbox :checked.sync="check.placeholder">placeholder</checkbox></p>
-              <p><checkbox :checked.sync="check.hideHelp">hide help</checkbox></p>
-              <p><checkbox :checked.sync="check.disabled">disabled</checkbox></p>
-              <p><checkbox :checked.sync="check.error">error</checkbox></p>
-              <p><checkbox :checked.sync="check.icon">icon</checkbox></p>
+              <p><checkbox :checked="check.label" @checked="check.label = arguments[0]">Label</checkbox></p>
+              <p><checkbox :checked="check.placeholder" @checked="check.placeholder = arguments[0]">placeholder</checkbox></p>
+              <p><checkbox :checked="check.hideHelp" @checked="check.hideHelp = arguments[0]">hide help</checkbox></p>
+              <p><checkbox :checked="check.disabled" @checked="check.disabled = arguments[0]">disabled</checkbox></p>
+              <p><checkbox :checked="check.error" @checked="check.error = arguments[0]">error</checkbox></p>
+              <p><checkbox :checked="check.icon" @checked="check.icon = arguments[0]">icon</checkbox></p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <p><checkbox :checked.sync="check.mask">mask</checkbox></p>
-              <p><checkbox :checked.sync="check.minlength">minlength=5</checkbox></p>
-              <p><checkbox :checked.sync="check.readonly">readonly</checkbox></p>
-              <p><checkbox :checked.sync="check.required">required</checkbox></p>
-              <p><checkbox :checked.sync="check.clearButton">clear button</checkbox></p>
-              <p><checkbox :checked.sync="check.enterSubmit">enter submit</checkbox></p>
+              <p><checkbox :checked="check.mask" @checked="check.mask = arguments[0]">mask</checkbox></p>
+              <p><checkbox :checked="check.minlength" @checked="check.minlength = arguments[0]">minlength=5</checkbox></p>
+              <p><checkbox :checked="check.readonly" @checked="check.readonly = arguments[0]">readonly</checkbox></p>
+              <p><checkbox :checked="check.required" @checked="check.required = arguments[0]">required</checkbox></p>
+              <p><checkbox :checked="check.clearButton" @checked="check.clearButton = arguments[0]">clear button</checkbox></p>
+              <p><checkbox :checked="check.enterSubmit" @checked="check.enterSubmit = arguments[0]">enter submit</checkbox></p>
             </div>
           </button-group>
         </div>
@@ -60,7 +60,7 @@
         <pre> Test event on textarea: {{event}}</pre>
       </form>
       <doc-code>
-        <bs-input :value.sync="input"
+        &lt;bs-input v-model="input"
           label="Username"
           help="Only allows lowercase letters and numbers."
           error="Insert username"
@@ -71,13 +71,19 @@
           readonly
           required
           icon
-        ></bs-input>
-        <bs-input required label="Match value" type="password" :match="input"></bs-input>
-        <bs-input label="Textarea" type="textarea" @focus="event = 'focused'" @blur="event = 'blured'"></bs-input>
+        >&lt;/bs-input>
+        &lt;bs-input required label="Match value" type="password"
+          :match="input"
+        >&lt;/bs-input>
+        &lt;bs-input label="Textarea" type="textarea"
+          @focus="event = 'focused'"
+          @blur="event = 'blured'"
+        >&lt;/bs-input>
       </doc-code>
       <doc-code language="javascript">
         mask: function (value) {
-          // change to lowercase, remove up to the first letter, and then remove all other unsuported characters
+          // change to lowercase, remove up to the first letter,
+          // and then remove all other unsuported characters
           return value.toLowerCase().replace(/^[^a-z]+/,'').replace(/[^a-z0-9]/g,'');
         }
       </doc-code>
@@ -92,24 +98,24 @@
         </span>
       </bs-input>
       <doc-code>
-        <bs-input label="With dropdown and button" type="text">
-          <dropdown slot="before" text="dropdown">
-            <li><a href="#">option</a></li>
-          </dropdown>
-          <span slot="after" class="input-group-btn">
-            <button type="button" class="btn btn-primary">Go!</button>
-          </span>
-        </bs-input>
+        &lt;bs-input label="With dropdown and button" type="text">
+          &lt;dropdown slot="before" text="dropdown">
+            &lt;li>&lt;a href="#">option&lt;/a>&lt;/li>
+          &lt;/dropdown>
+          &lt;span slot="after" class="input-group-btn">
+            &lt;button type="button" class="btn btn-primary">Go!&lt;/button>
+          &lt;/span>
+        &lt;/bs-input>
       </doc-code>
       <bs-input label="With text and icon" type="number" placeholder="Insert how much cost your house">
         <span slot="before" class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
         <span slot="after" class="input-group-addon">$</span>
       </bs-input>
       <doc-code>
-        <bs-input label="With text and icon" type="number" placeholder="Insert how much cost your house">
-          <span slot="before" class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
-          <span slot="after" class="input-group-addon">$</span>
-        </bs-input>
+        &lt;bs-input label="With text and icon" type="number" placeholder="Insert how much cost your house">
+          &lt;span slot="before" class="input-group-addon">&lt;span class="glyphicon glyphicon-home">&lt;/span>&lt;/span>
+          &lt;span slot="after" class="input-group-addon">$&lt;/span>
+        &lt;/bs-input>
       </doc-code>
     </div>
     <doc-table>
@@ -117,7 +123,7 @@
         <p>value</p>
         <p><code>String</code></p>
         <p><code>''</code></p>
-        <p>Input value. Use <code>:value.sync="value"</code></p>
+        <p>Input value. Use <code>v-model="value"</code></p>
       </div>
       <div>
         <p>match</p>
@@ -250,13 +256,13 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
-import bsInput from 'src/Input.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
+import bsInput from 'src/components/Input.vue'
 import buttonGroup from 'src/buttonGroup.vue'
-import checkbox from 'src/Checkbox.vue'
-import dropdown from 'src/Dropdown.vue'
+import checkbox from 'src/components/Checkbox.vue'
+import dropdown from 'src/components/Dropdown.vue'
 
 export default {
   components: {

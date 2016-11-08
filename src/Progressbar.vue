@@ -1,17 +1,8 @@
 <template>
-  <div role="progressbar" 
-    :class="['progress-bar',{
-      'progress-bar-success':type == 'success',
-      'progress-bar-warning':type == 'warning',
-      'progress-bar-info':type == 'info',
-      'progress-bar-danger':type == 'danger',
-      'progress-bar-striped':striped,
-      'active':animated
-    }]"
-    :style="{width: now + '%'}"
-  >
-    {{label ? now + '%' : ''}}
-  </div>
+  <div v-text="labelBool ? nowNum+'%' : null"
+    :style="{width: nowNum+'%'}"
+    :class="['progress-bar', 'progress-bar-'+type, {active:animated, 'progress-bar-striped':striped}]"
+  ></div>
 </template>
 
 <script>
@@ -19,29 +10,15 @@ import {coerce} from './utils/utils.js'
 
 export default {
   props: {
-    now: {
-      type: Number,
-      coerce: coerce.number,
-      required: true
-    },
-    label: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    type: {
-      type: String
-    },
-    striped: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    animated: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    }
+    animated: {type: Boolean, default: false},
+    label: {default: false},
+    now: {required: true},
+    striped: {type: Boolean, default: false},
+    type: {type: String}
+  },
+  computed: {
+    labelBool () { return coerce.boolean(this.label) },
+    nowNum () { return coerce.number(this.now) }
   }
 }
 </script>
