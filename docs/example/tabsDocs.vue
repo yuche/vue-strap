@@ -1,7 +1,20 @@
 <template>
   <doc-section id="tabs" name="Tabs">
     <div class="bs-example">
-      <tabs>
+      <v-select v-model="navStyle" :options="['tabs','pills','stacked']"></v-select>
+      <v-select v-model="justified" :options="[true,false]"></v-select>
+      <!-- <checkbox v-model="justified">Justified</checkbox> -->
+      <tabs :nav-style="navStyle" :justified="justified">
+        <tab header="zero">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </tab>
         <tab header="one">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -33,90 +46,101 @@
       </tabs>
     </div>
     <doc-code language="markup">
-      <tabs>
-        <tab header="one">
+      &lt;tabs v-model="activeTab" nav-style="tabs" justified>
+        &lt;tab header="zero">
           ...
-        </tab>
-        <tab header="two" disabled>
+        &lt;/tab>
+        &lt;tab header="one">
           ...
-        </tab>
-        <tab-group header="group1">
-          <tab header="three">
+        &lt;/tab>
+        &lt;tab header="two" disabled>
+          ...
+        &lt;/tab>
+        &lt;tab-group header="group1">
+          &lt;tab header="three">
             ...
-          </tab>
-          <tab header="four" disabled>
+          &lt;/tab>
+          &lt;tab header="four" disabled>
             ...
-          </tab>
-        </tab-group>
-        <tab-group header="group2">
-          <tab header="five">
+          &lt;/tab>
+        &lt;/tab-group>
+        &lt;tab-group header="group2">
+          &lt;tab header="five">
             ...
-          </tab>
-        </tab-group>
-      </tabs>
+          &lt;/tab>
+        &lt;/tab-group>
+      &lt;/tabs>
     </doc-code>
-    <doc-code language="javascript">
-      components: {
-        tabs: VueStrap.tabset,
-        tabGroup: VueStrap.tabGroup,
-        tab: VueStrap.tab
-      }
-    </doc-code>
-    <doc-table name="Tabset (container)">
+    <doc-table name="Tabs (container)">
       <div>
-        <p>active</p>
+        <p>value (v-model)</p>
         <p><code>Number</code></p>
         <p><code>0</code></p>
         <p>Active tab index (0 based)</p>
       </div>
+      <div>
+        <p>justified</p>
+        <p><code>Boolean</code></p>
+        <p><code>false</code></p>
+        <p>Justify (<code>tabs</code> and <code>pills</code>).</p>
+      </div>
+      <div>
+        <p>nav-style</p>
+        <p><code>String</code>. One of <code>tabs</code>, <code>pills</code>, <code>stacked</code>.</p>
+        <p><code>'tabs'</code></p>
+        <p>Style for tabs</p>
+      </div>
     </doc-table>
-    <doc-table name="TabGroup (dropdown)">
+    <doc-table name="Tabs" type="Events">
+      <div>
+        <p>active / input</p>
+        <p>(<code>Number</code>)</p>
+        <p>Return the Active tab index (0 based).</p>
+      </div>
+    </doc-table>
+    <doc-table name="TabGroup & Tab">
       <div>
         <p>disabled</p>
         <p><code>Boolean</code></p>
         <p><code>false</code></p>
-        <p>Whether tabgroup is clickable.</p>
+        <p>Option can't be selected.</p>
       </div>
       <div>
         <p>header</p>
         <p><code>String</code></p>
         <p><code>null</code></p>
-        <p>Group Title</p>
-      </div>
-    </doc-table>
-    <doc-table name="Tab (element)">
-      <div>
-        <p>header</p>
-        <p><code>String</code></p>
-        <p></p>
-        <p>Tab Title</p>
-      </div>
-      <div>
-        <p>disabled</p>
-        <p><code>Boolean</code></p>
-        <p>false</p>
-        <p>Whether tab is clickable and can be activated.</p>
+        <p>Title</p>
       </div>
     </doc-table>
   </doc-section>
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
-import tabs from 'src/Tabset.vue'
-import tabGroup from 'src/TabGroup.vue'
-import tab from 'src/Tab.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
+import checkbox from 'src/Checkbox.vue'
+import tabs from 'src/components/Tabs.vue'
+import tabGroup from 'src/components/TabGroup.vue'
+import tab from 'src/components/Tab.vue'
+import vSelect from 'src/components/Select.vue'
 
 export default {
   components: {
     docSection,
     docTable,
     docCode,
+    checkbox,
     tabGroup,
     tabs,
-    tab
+    tab,
+    vSelect
+  },
+  data () {
+    return {
+      justified: false,
+      navStyle: 'tabs'
+    }
   }
 }
 </script>

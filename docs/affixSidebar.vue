@@ -1,7 +1,7 @@
 <template>
-  <affix offset="50">
+  <affix :offset="50" v-scroll="scrollSpy">
     <ul class="nav bs-docs-sidenav" id="sidenav">
-      <li v-for="s in sections" :class="{active:active==s.id}"><a href="#{{ s.id }}">{{ s.name }}</a></li>
+      <li v-for="s in sections" :class="{active:active==s.id}"><a :href="'#' + s.id">{{ s.name }}</a></li>
     </ul>
     <a href="#" class="back-to-top">Back to top</a>
     <a href="https://github.com/yuche/vue-strap" class="back-to-top">GitHub</a>
@@ -9,12 +9,15 @@
 </template>
 
 <script>
-import $ from 'src/utils/NodeList.js'
-import affix from 'src/Affix.vue'
+import Affix from 'src/Affix.vue'
+import Scroll from 'src/directives/Scroll.js'
 
 export default {
+  directives: {
+    Scroll
+  },
   components: {
-    affix
+    Affix
   },
   filters: {
     space(val) {
@@ -23,16 +26,11 @@ export default {
   },
   data () {
     return {
-      active: null,
-      sections: []
+      active: null
     }
   },
-  created () {
-    $(window).on('scroll load resize', () => this.scrollSpy())
-    if (!this.$root.sections) {
-      this.$root.sections = []
-    }
-    this.sections = this.$root.sections
+  computed: {
+    sections () { return this.$root.sections }
   },
   methods: {
     scrollSpy () {
@@ -45,6 +43,9 @@ export default {
         }
       }
     }
+  },
+  mounted () {
+    this.scrollSpy()
   }
 }
 </script>

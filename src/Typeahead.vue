@@ -1,22 +1,18 @@
 <template>
-  <div style="position: relative"
-    v-bind:class="{'open':showDropdown}"
-  >
-    <input type="text" class="form-control"
+  <div style="position: relative" :class="{'open':showDropdown}">
+    <input type="text" class="form-control" autocomplete="off"
+      v-model="val"
       :placeholder="placeholder"
-      autocomplete="off"
-      v-model="value"
-      @input="update"
-      @keydown.up="up"
+      @blur="showDropdown = false"
       @keydown.down="down"
       @keydown.enter= "hit"
       @keydown.esc="reset"
-      @blur="showDropdown = false"
+      @keydown.up="up"
     />
-    <ul class="dropdown-menu" v-el:dropdown>
-      <li v-for="item in items" v-bind:class="{'active': isActive($index)}">
-        <a @mousedown.prevent="hit" @mousemove="setActive($index)">
-          <partial :name="templateName"></partial>
+    <ul class="dropdown-menu" ref="dropdown">
+      <li v-for="(item, i) in items" :class="{'active': isActive(i)}">
+        <a @mousedown.prevent="hit" @mousemove="setActive(i)">
+          <component :is="tmpl" :item="item"></component>
         </a>
       </li>
     </ul>
@@ -24,110 +20,92 @@
 </template>
 
 <script>
-import {getJSON, coerce} from './utils/utils.js'
-
-let Vue = window.Vue
+import {delayer, getJSON} from './utils/utils.js'
+var DELAY = 300
 
 export default {
-  created () {
-    this.items = this.primitiveData
-  },
-  partials: {
-    default: '<span v-html="item | highlight query"></span>'
-  },
   props: {
-    value: {
-      twoWay : true,
-      type: String,
-      default: ''
-    },
-    data: {
-      type: Array
-    },
-    limit: {
-      type: Number,
-      default: 8
-    },
-    async: {
-      type: String
-    },
-    template: {
-      type: String
-    },
-    templateName: {
-      type: String,
-      default: 'default'
-    },
-    key: {
-      type: String,
-      default: null
-    },
-    matchCase: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    matchStart: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
+    async: {type: String},
+    data: {type: Array},
+    delay: {type: Number, default: DELAY},
+    asyncKey: {type: String, default: null},
+    limit: {type: Number, default: 8},
+    matchCase: {type: Boolean, default: false},
+    matchStart: {type: Boolean, default: false},
     onHit: {
       type: Function,
-      default (items) {
+      default (item) {
         this.reset()
-        this.value = items
+        this.value = item
       }
     },
-    placeholder: {
-      type: String
-    }
+    placeholder: {type: String},
+    template: {type: String},
+    value: {type: String, default: ''}
   },
   data () {
     return {
       showDropdown: false,
       noResults: true,
       current: 0,
-      items: []
+      items: [],
+      val: ''
     }
   },
   computed: {
-    primitiveData () {
-      if (this.data) {
-        return this.data.filter(value => {
+    templateHtml () { return typeof this.template === 'string' ? '<span>' + this.template + '</span>' : null },
+    tmpl () { return this._tmpl}
+  },
+  watch: {
+    val (val, old) {
+      this.$emit('input', val)
+      if (val !== old) this.update()
+    },
+    value (val) {
+      if (this.val !== val) { this.val = val }
+    }
+  },
+  created () {
+    this.val = this.value
+    this._tmpl = {
+      template: this.templateHtml || '<strong v-html="item"></strong>',
+      props: {
+        item: {default: null}
+      }
+    }
+    this.update()
+  },
+  methods: {
+    setItems (data) {
+      if (this.async) {
+        this.items = this.asyncKey ? data[this.asyncKey] : data
+        this.items = this.items.slice(0, this.limit)
+      } else {
+        this.items = (data || []).filter(value => {
+          if (typeof value === 'object') { return true }
           value = this.matchCase ? value : value.toLowerCase()
-          var query = this.matchCase ? this.value : this.value.toLowerCase()
+          var query = this.matchCase ? this.val : this.val.toLowerCase()
           return this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1
         }).slice(0, this.limit)
       }
-    }
-  },
-  ready () {
-    // register a partial:
-    if (this.templateName && this.templateName !== 'default') {
-      Vue.partial(this.templateName, this.template)
-    }
-  },
-  methods: {
-    update () {
-      if (!this.value) {
+      this.showDropdown = this.items.length > 0
+    },
+    update: delayer(function () {
+      if (!this.val) {
         this.reset()
         return false
       }
-      if (this.data) {
-        this.items = this.primitiveData
-        this.showDropdown = this.items.length > 0
-      }
       if (this.async) {
-        getJSON(this.async + this.value).then(data => {
-          this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
-          this.showDropdown = this.items.length > 0
+        getJSON(this.async + this.val).then(data => {
+          this.setItems(data)
         })
+      } else if (this.data) {
+        this.setItems(this.data)
       }
-    },
+    }, 'delay', DELAY),
     reset () {
       this.items = []
-      this.value = ''
+      this.val = ''
       this.loading = false
       this.showDropdown = false
     },
@@ -146,11 +124,6 @@ export default {
     },
     down () {
       if (this.current < this.items.length - 1) this.current++
-    }
-  },
-  filters: {
-    highlight (value, phrase) {
-      return value.replace(new RegExp('(' + phrase + ')', 'gi'), '<strong>$1</strong>')
     }
   }
 }

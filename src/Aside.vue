@@ -1,57 +1,38 @@
 <template>
-  <div class="aside"
-    v-bind:style="{width:width + 'px'}"
-    v-bind:class="{
-    left:placement === 'left',
-    right:placement === 'right'
-    }"
-    v-show="show"
-    :transition="(this.placement === 'left') ? 'slideleft' : 'slideright'">
-    <div class="aside-dialog">
-      <div class="aside-content">
-        <div class="aside-header">
-          <button type="button" class="close" @click='close'><span>&times;</span></button>
-          <h4 class="aside-title">
-          <slot name="header">
-            {{ header }}
-          </slot>
-          </h4>
-        </div>
-        <div class="aside-body">
-          <slot></slot>
+  <transition :name="'side' + this.placement">
+    <div class="aside" v-if="show" :style="{width:width+'px'}" :class="placement">
+      <div class="aside-dialog">
+        <div class="aside-content">
+          <div class="aside-header">
+            <button type="button" class="close" @click='trigger_close'><span>&times;</span></button>
+            <h4 class="aside-title"><slot name="header">{{ header }}</slot></h4>
+          </div>
+          <div class="aside-body"><slot></slot></div>
         </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
-import {coerce, getScrollBarWidth} from './utils/utils.js'
+import {getScrollBarWidth} from './utils/utils.js'
 import $ from './utils/NodeList.js'
+// let coerce = {
+//   value: 'boolean',
+//   width: 'number'
+// }
 
 export default {
   props: {
-    show: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      required: true,
-      twoWay: true
-    },
-    placement: {
-      type: String,
-      default: 'right'
-    },
-    header: {
-      type: String
-    },
-    width: {
-      type: Number,
-      coerce: coerce.number,
-      default: 320
-    }
+    header: {type: String},
+    placement: {type: String, default: 'right'},
+    show: {type: Boolean, required: true},
+    width: {type: Number, default: 320}
   },
   watch: {
-    show (val) {
+    show (val, old) {
+      this.$emit('input', val)
+      this.$emit(this.show ? 'open' : 'close')
       const body = document.body
       const scrollBarWidth = getScrollBarWidth()
       if (val) {
@@ -67,7 +48,7 @@ export default {
         // request property that requires layout to force a layout
         var x = this._backdrop.clientHeight
         this._backdrop.classList.add('in')
-        $(this._backdrop).on('click', () => this.close())
+        $(this._backdrop).on('click', () => this.trigger_close())
       } else {
         $(this._backdrop).on('transitionend', () => {
           $(this._backdrop).off()
@@ -83,9 +64,21 @@ export default {
     }
   },
   methods: {
-    close () {
-      this.show = false
+    trigger () {
+      return {
+        close: () => this.trigger_close(),
+        open: () => this.trigger_open()
+      }
+    },
+    trigger_close () { 
+      this.$emit( 'close' )
+    },
+    trigger_open() { 
+      this.$emit( 'open' )
     }
+  },
+  mounted () {
+    this.$emit('trigger', () => this.trigger)
   }
 }
 </script>
@@ -116,7 +109,7 @@ export default {
 .slideleft-enter {
   animation:slideleft-in .3s;
 }
-.slideleft-leave {
+.slideleft-leave-active {
   animation:slideleft-out .3s;
 }
 @keyframes slideleft-in {
@@ -142,7 +135,7 @@ export default {
 .slideright-enter {
   animation:slideright-in .3s;
 }
-.slideright-leave {
+.slideright-leave-active {
   animation:slideright-out .3s;
 }
 @keyframes slideright-in {

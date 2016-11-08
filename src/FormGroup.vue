@@ -1,63 +1,42 @@
-<template>
-  <slot></slot>
-</template>
+<template><span><slot></slot></span></template>
 
 <script>
-import {coerce} from './utils/utils.js'
 import $ from './utils/NodeList.js'
+// let coerce = {
+//     enterSubmit: 'boolean',
+//     icon: 'boolean'
+// }
 
 export default {
   props: {
-    valid: {
-      twoWay: true,
-      default: null
-    },
     enterSubmit: {
       type: Boolean,
-      coerce: coerce.boolean,
       default: false
     },
     icon: {
       type: Boolean,
-      coerce: coerce.boolean,
       default: false
     },
     lang: {
       type: String,
       default: navigator.language
     },
-    // readonly: {
-    //   type: Boolean,
-    //   coerce: coerce.boolean,
-    //   default: false
-    // },
-    // required: {
-    //   type: Boolean,
-    //   coerce: coerce.boolean,
-    //   default: false
-    // },
-    // validationDelay: {
-    //   type: Number,
-    //   coerce: coerce.number,
-    //   default: 250
-    // }
   },
   data () {
     return {
       children: [],
+      valid:null,
       timeout: null
     }
   },
   watch: {
     valid (val, old) {
-      if (val === old) { return }
-      this._parent && this._parent.validate()
+      this.$emit('isvalid', val)
+      this.$emit(!val ? 'invalid' : 'valid')
+      if (val !== old && this._parent) this._parent.validate()
     }
   },
   methods: {
-    focus () {
-      this.$els.input.focus()
-    },
     validate () {
       let valid = true
       this.children.some(el => {
@@ -78,11 +57,14 @@ export default {
       this._parent = parent
     }
   },
-  ready () {
+  mounted () {
     this.validate()
   },
   beforeDestroy () {
-    if (this._parent) this._parent.children.$remove(this)
+    if (this._parent) {
+      var index = this._parent.children.indexOf(this)
+      this._parent.children.splice(index, 1)
+    }
   }
 }
 </script>

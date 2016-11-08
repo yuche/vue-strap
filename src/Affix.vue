@@ -1,26 +1,27 @@
 <template>
   <div class="hidden-print hidden-xs hidden-sm">
-    <nav class="bs-docs-sidebar" :class="{affix:affixed}" :style="{marginTop:top}">
+    <nav class="bs-docs-sidebar" :class="{affix:affixed}" :style="{marginTop:top}" v-scroll="checkScroll">
       <slot></slot>
     </nav>
   </div>
 </template>
 
 <script>
-import {coerce} from './utils/utils.js'
-import $ from './utils/NodeList.js'
+import Scroll from './directives/Scroll.js'
 
 export default {
+  directives: {
+    Scroll
+  },
   props: {
     offset: {
       type: Number,
-      coerce: coerce.number,
       default: 0
     }
   },
   data () {
     return {
-      affixed:false
+      affixed: false
     }
   },
   computed: {
@@ -56,13 +57,6 @@ export default {
       let fix = scroll.top > element.top - this.offset
       if (this.affixed !== fix) { this.affixed = fix }
     }
-  },
-  ready () {
-    $(window).on('scroll resize', () => this.checkScroll())
-    setTimeout(() => this.checkScroll(), 0)
-  },
-  beforeDestroy () {
-    $(window).off('scroll resize', () => this.checkScroll())
   }
 }
 </script>

@@ -23,14 +23,14 @@
       <alert type="warning" dismissable>
         <strong>Warning!</strong> Better check yourself, you're not looking too good.
       </alert>
-      <alert :show.sync="showRight" placement="top-right" duration="3000"
+      <alert v-model="showRight" placement="top-right" :duration="3000"
         type="success" width="400px" dismissable
       >
         <span class="icon-ok-circled alert-icon-float-left"></span>
         <strong>Well Done!</strong>
         <p>You successfully read this important alert message.</p>
       </alert>
-      <alert :show.sync="showTop" placement="top" duration="3000"
+      <alert v-model="showTop" placement="top" :duration="3000"
         type="danger" width="400px" dismissable
       >
         <span class="icon-info-circled alert-icon-float-left"></span>
@@ -40,21 +40,21 @@
     </div>
 
     <doc-code language="markup">
-      <alert type="success/info/danger/warning">
+      &lt;alert type="success/info/danger/warning">
         ...
-      </alert>
+      &lt;/alert>
 
-      <alert :show.sync="showRight" placement="top-right" duration="3000" type="success" width="400px" dismissable>
-        <span class="icon-ok-circled alert-icon-float-left"></span>
-        <strong>Well Done!</strong>
-        <p>You successfully read this important alert message.</p>
-      </alert>
+      &lt;alert v-model="showRight" placement="top-right" duration="3000" type="success" width="400px" dismissable>
+        &lt;span class="icon-ok-circled alert-icon-float-left">&lt;/span>
+        &lt;strong>Well Done!&lt;/strong>
+        &lt;p>You successfully read this important alert message.&lt;/p>
+      &lt;/alert>
 
-      <alert :show.sync="showTop" placement="top" duration="3000" type="danger" width="400px" dismissable>
-        <span class="icon-info-circled alert-icon-float-left"></span>
-        <strong>Heads up!</strong>
-        <p>This alert needs your attention.</p>
-      </alert>
+      &lt;alert v-models="showTop" placement="top" duration="3000" type="danger" width="400px" dismissable>
+        &lt;span class="icon-info-circled alert-icon-float-left">&lt;/span>
+        &lt;strong>Heads up!&lt;/strong>
+        &lt;p>This alert needs your attention.&lt;/p>
+      &lt;/alert>
     </doc-code>
     <doc-table>
       <div>
@@ -101,9 +101,9 @@
 </template>
 
 <script>
-import docSection from './docSection.vue'
-import docTable from './docTable.vue'
-import docCode from './docCode.vue'
+import docSection from './utils/docSection.vue'
+import docTable from './utils/docTable.js'
+import docCode from './utils/docCode.js'
 import alert from 'src/Alert.vue'
 
 export default {

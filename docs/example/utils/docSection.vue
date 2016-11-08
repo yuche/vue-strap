@@ -1,6 +1,6 @@
 <template>
   <div class="bs-docs-section" :id="id">
-    <h1 class="page-header"><a href="#{{id}}" class="anchor">{{name}}</a></h1>
+    <h1 class="page-header"><a :href="'#' + id" class="anchor">{{name}}</a></h1>
     <slot></slot>
   </div>
 </template>
