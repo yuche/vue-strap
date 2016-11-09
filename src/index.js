@@ -11,7 +11,7 @@ import toggleButton from './components/ToggleButton.vue'
 // Need to be inspected and/or fixed
 import accordion from './Accordion.vue'
 import affix from './Affix.vue'
-import alert from './Alert.vue'
+import alert from './components/Alert.vue'
 import aside from './Aside.vue'
 import buttonGroup from './buttonGroup.vue'
 import carousel from './Carousel.vue'
@@ -32,23 +32,22 @@ import typeahead from './Typeahead.vue'
 
 const VueStrap = {
   $,
+  alert,
   dropdown,
-  formValidator,
-  input,
-  select,
   tab,
   tabGroup,
   tabs,
   // Pending
   accordion,
   affix,
-  alert,
   aside,
   buttonGroup,
   carousel,
   checkbox,
   datepicker,
   formGroup,
+  formValidator,
+  input,
   modal,
   navbar,
   option,
@@ -56,6 +55,7 @@ const VueStrap = {
   popover,
   progressbar,
   radio,
+  select,
   slider,
   spinner,
   toggleButton,

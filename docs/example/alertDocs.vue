@@ -58,7 +58,7 @@
     </doc-code>
     <doc-table>
       <div>
-        <p>show</p>
+        <p>value</p>
         <p><code>Boolean</code></p>
         <p><code>true</code></p>
         <p>Whether show the component</p>
@@ -104,7 +104,7 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import alert from 'src/Alert.vue'
+import alert from 'src/components/Alert.vue'
 
 export default {
   components: {

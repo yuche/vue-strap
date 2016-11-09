@@ -42,7 +42,7 @@ export default {
       var checked = !(val !== this.trueValue)
       if (this.checked !== checked) {
         this.checked = checked
-      } 
+      }
     }
   },
   created () {

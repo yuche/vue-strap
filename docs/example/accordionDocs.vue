@@ -1,7 +1,7 @@
 <template>
   <doc-section id="accordion" name="Accordion">
     <div class="bs-example">
-      <checkbox :checked="checked" @checked="checked=argument[0]" type="primary">Open only one at a time.</checkbox>
+      <checkbox v-model="checked" type="primary">Open only one at a time.</checkbox>
       <p><v-select :options="types" clear-button v-model="selected" placeholder="Global type"></v-select></p>
       <p><v-select :options="types" clear-button v-model="first" placeholder="First element type"></v-select></p>
       <accordion :one-at-atime="checked" :type="selected">

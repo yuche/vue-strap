@@ -82,7 +82,7 @@ export default {
   computed: {
     canSearch () { return this.minSearch ? this.list.length >= this.minSearch : this.search },
     classes () { return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'] },
-    filteredOptions: function () {
+    filteredOptions () {
       var search = (this.searchValue || '').toLowerCase()
       return !search ? this.list : this.list.filter(el => {
         return !!~el[this.optionsValue].toLowerCase().search(search)

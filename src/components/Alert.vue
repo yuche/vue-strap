@@ -1,12 +1,7 @@
 <template>
   <transition name="fade">
-    <div v-show="value"
-      :class="['alert', 'alert-'+type, placement]"
-      :style="{width:width}"
-      role="alert"
-    >
-      <button v-show="dismissable" type="button" class="close"
-        @click="value = false">
+    <div v-show="val" :class="['alert', 'alert-'+type, placement]" :style="{width:width}" role="alert">
+      <button v-show="dismissable" type="button" class="close" @click="val = false">
         <span>&times;</span>
       </button>
       <slot></slot>
@@ -15,27 +10,35 @@
 </template>
 
 <script>
-import {coerce} from './utils/utils.js'
+import {coerce, delayer} from './utils/utils.js'
 
+var DURATION = 0
 export default {
   props: {
     dismissable: {type: Boolean, default: false},
-    duration: {default: null},
+    duration: {default: DURATION},
     placement: {type: String},
     type: {type: String},
     value: {type: Boolean, default: true },
     width: {type: String}
   },
+  data () {
+    return {
+      val: this.value
+    }
+  },
   computed: {
-    durationNum () { return coerce.number(this.duration, 0) }
+    durationNum () { return coerce.number(this.duration, DURATION) }
   },
   watch: {
-    value (val, old) {
-      if (this._timeout) clearTimeout(this._timeout)
-      if (val && this.duration) {
-        this._timeout = setTimeout(() => { this.value = false }, this.duration)
-      }
+    val: delayer(function (val) {
+      this.val = false
       this.$emit('input', val)
+    }, 'durationNum'),
+    value (val) {
+      if (this.val !== val) {
+        this.val = val
+      }
     }
   }
 }
