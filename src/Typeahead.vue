@@ -1,6 +1,6 @@
 <template>
   <div style="position: relative"
-    v-bind:class="{'open':showDropdown}"
+       v-bind:class="{'open':showDropdown}"
   >
     <input type="text" class="form-control"
       :placeholder="placeholder"
@@ -25,15 +25,22 @@
 
 <script>
 import {getJSON, coerce} from './utils/utils.js'
+import _ from 'lodash'
 
 let Vue = window.Vue
 
 export default {
   created () {
     this.items = this.primitiveData
+    this.debounceUpdate =  _.debounce(function(that){
+       getJSON(that.async + that.value).then(data => {
+          that.items = (that.key ? data[that.key] : data).slice(0, that.limit)
+          that.showDropdown = that.items.length > 0
+        })
+    }, this.debounce);
   },
   partials: {
-    default: '<span v-html="item | highlight query"></span>'
+    default: '<span v-html="item | highlight value"></span>'
   },
   props: {
     value: {
@@ -119,10 +126,7 @@ export default {
         this.showDropdown = this.items.length > 0
       }
       if (this.async) {
-        getJSON(this.async + this.value).then(data => {
-          this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
-          this.showDropdown = this.items.length > 0
-        })
+        this.debounceUpdate(this)
       }
     },
     reset () {
