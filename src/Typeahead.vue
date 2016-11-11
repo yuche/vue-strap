@@ -88,6 +88,11 @@ export default {
     },
     placeholder: {
       type: String
+    },
+    debounce:{
+      type:Number,
+      default:100,
+      coerce: coerce.number
     }
   },
   data () {
