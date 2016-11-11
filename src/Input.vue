@@ -30,7 +30,7 @@
         @keyup.enter="enterSubmit&&submit()"
         @blur="onblur" @focus="onfocus"
       />
-      <div v-if="clearButton && value" :class="{icon:icon}">
+      <div v-if="showClear && value" :class="{icon:icon}">
         <span class="close" @click="value = ''">&times;</span>
       </div>
       <div v-if="icon" class="icon">
@@ -66,7 +66,7 @@
         @keyup.enter="enterSubmit&&submit()"
         @blur="onblur" @focus="onfocus"
       />
-      <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
+      <span v-if="showClear && value" class="close" @click="value = ''">&times;</span>
       <span v-if="icon&&valid!==null" :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]" aria-hidden="true"></span>
     </template>
     <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
@@ -214,6 +214,10 @@ export default {
     },
     input () { return this.$els.input },
     nativeValidate () { return (this.input||{}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max) },
+    showClear () {
+      // Disable the clear-button on Edge if is enabled. Edge has a native clear button.
+      return /\bEdge\//.test(window.navigator.userAgent) ? false : this.clearButton
+    },
     showError () { return this.error && this.valid===false },
     showHelp () { return this.help && (!this.showError || !this.hideHelp) },
     slots () { return this._slotContents || {} },

@@ -43,7 +43,7 @@
               <p><checkbox :checked.sync="check.minlength">minlength=5</checkbox></p>
               <p><checkbox :checked.sync="check.readonly">readonly</checkbox></p>
               <p><checkbox :checked.sync="check.required">required</checkbox></p>
-              <p><checkbox :checked.sync="check.clearButton">clear button</checkbox></p>
+              <p><checkbox :checked.sync="check.clearButton">clear button (unnecessary in Edge browser)</checkbox></p>
               <p><checkbox :checked.sync="check.enterSubmit">enter submit</checkbox></p>
             </div>
           </button-group>

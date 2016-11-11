@@ -29,6 +29,5 @@ new Vue({
         el: el
       })
     })
-    console.log(list)
   }
 })
