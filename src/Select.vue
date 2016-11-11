@@ -6,7 +6,7 @@
       @click="toggle()"
       @keyup.esc="show = false"
     >
-      <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selected }}</span>
+      <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selected"></span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
     </button>
     <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
@@ -27,7 +27,7 @@
         <li v-for="option in options | filterBy searchValue" :id="option[optionsValue]||option">
           <a @mousedown.prevent="select(option[optionsValue],option)">
             <span v-html="option[optionsLabel]||option"></span>
-            <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option[optionsValue]||option)"></span>
+            <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option[optionsValue])"></span>
           </a>
         </li>
       </template>
@@ -142,7 +142,7 @@ export default {
     selected () {
       if (this.options.length === 0) { return '' }
       let foundItems = []
-      for (var item of this.values) {
+      this.values.forEach(item => {
         if (~['number', 'string'].indexOf(typeof item)) {
           let option = null
           if (this.options.some(o => {
@@ -152,7 +152,7 @@ export default {
             }
           })) { foundItems.push(option[this.optionsLabel] || option) }
         }
-      }
+      })
       return foundItems.join(', ')
     },
     classes () {
@@ -275,9 +275,9 @@ export default {
       this.loading = true
       getJSON(this.url).then(data => {
         let options = []
-        for (let opc of data) {
+        data.forEach(opc => {
           if (opc[this.optionsValue] !== undefined && opc[this.optionsLabel] !== undefined) options.push(opc)
-        }
+        })
         this.options = options
         if (!options.length) { this.value = this.value instanceof Array ? [] : null }
       }).always(() => {

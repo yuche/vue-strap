@@ -19,13 +19,13 @@ export function getJSON (url) {
     catch (fn) { return p.fail(fn) },
     always (fn) { return p.done(fn).fail(fn) }
   }
-  for (let name of ['done', 'fail']) {
+  ['done', 'fail'].forEach(name => {
     data[name] = []
     p[name] = (fn) => {
       if (fn instanceof Function) data[name].push(fn)
       return p
     }
-  }
+  })
   p.done(JSON.parse)
   request.onreadystatechange = () => {
     if (request.readyState === 4) {
@@ -33,14 +33,14 @@ export function getJSON (url) {
       if (request.status === 200) {
         try {
           let value, response = request.responseText
-          for (let done of data.done) {
+          data.done.forEach(done => {
             if ((value = done(response)) !== undefined) { response = value }
-          }
+          })
         } catch (e) {
-          for (let fail of data.fail) fail(e)
+          data.fail.forEach(fail => { fail(e) })
         }
       } else {
-        for (let fail of data.fail) fail(e)
+        data.fail.forEach(fail => { fail(e) })
       }
     }
   }
