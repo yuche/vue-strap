@@ -320,7 +320,7 @@ function flatten (arr, owner) {
     } else if (el instanceof Node) {
       if (!~list.indexOf(el)) list.push(el)
     } else if (el instanceof window.NodeList || el instanceof NodeList || el instanceof HTMLCollection || el instanceof Array) {
-      el.forEach(el2 => { list.push(el2) })
+      ArrayProto.forEach.call(el, el2 => { list.push(el2) })
     } else {
       arr.get = NL.get
       arr.set = NL.set
