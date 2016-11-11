@@ -26,7 +26,7 @@ es: {
   notSelected: 'Nada seleccionado',
   required: 'Requerido',
   search: 'Buscar',
-  limit: 'Limite alcanzado (máximo {{limit}} items).',
+  limit: 'Limite alcanzado (máximo {{limit}} items).'
 },
 
 'pt-BR': {
@@ -40,7 +40,7 @@ es: {
   ],
   notSelected: 'Nada selecionado',
   required: 'Requerido',
-  search: 'Buscar',
+  search: 'Buscar'
 },
 
 fr: {
@@ -55,7 +55,22 @@ fr: {
   notSelected: 'Aucune sélection',
   required: 'Requis',
   search: 'Recherche'
+},
+
+de: {
+  daysOfWeek: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+  limit: 'Limit erreicht (max {{limit}}).',
+  loading: 'Lade...',
+  minLength: 'Min. Länge',
+  months: [
+    'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+    'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
+  ],
+  notSelected: 'Nichts ausgewählt',
+  required: 'Benötigt',
+  search: 'Suche'
 }
+
 
 };
 
@@ -66,7 +81,8 @@ fr: {
  */
 var aliases = {
   es: /^es-[A-Z]{2}$/i,
-  en: /^en-[A-Z]{2}$/i
+  en: /^en-[A-Z]{2}$/i,
+  de: /^de-[A-Z]{2}$/i
 };
 
 return function (lang) {
