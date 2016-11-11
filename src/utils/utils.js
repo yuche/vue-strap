@@ -18,7 +18,7 @@ export function getJSON (url) {
     then (fn1, fn2) { return p.done(fn1).fail(fn2) },
     catch (fn) { return p.fail(fn) },
     always (fn) { return p.done(fn).fail(fn) }
-  }
+  };
   ['done', 'fail'].forEach(name => {
     data[name] = []
     p[name] = (fn) => {

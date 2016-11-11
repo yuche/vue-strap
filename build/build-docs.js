@@ -81,10 +81,11 @@
 	    }(0, _NodeList2.default)('.bs-docs-section', this.$els.sections).each(function (el) {
 	      list.push({
 	        id: el.id,
-	        name: (0, _NodeList2.default)('.anchor', el).textContent,
+	        name: el.querySelector('.anchor').innerText,
 	        el: el
 	      });
 	    });
+	    console.log(list);
 	  }
 	});
 
@@ -271,7 +272,7 @@
 	    key: 'find',
 	    value: function find(element) {
 	      var nodes = [];
-	      this.forEach(function (el) {
+	      this.each(function (el) {
 	        var node = el.querySelectorAll(element);
 	        if (node && node.length) nodes.push(node);
 	      });
@@ -415,14 +416,12 @@
 	  }, {
 	    key: 'toggleClass',
 	    value: function toggleClass(classes, value) {
-	      var _this4 = this;
-	
 	      var method = value === undefined || value === null ? 'toggle' : value ? 'add' : 'remove';
 	      if (typeof classes === 'string') {
 	        classes = classes.trim().replace(/\s+/, ' ').split(' ');
 	      }
-	      classes.forEach(function (c) {
-	        return _this4.each(function (el) {
+	      this.each(function (el) {
+	        return classes.forEach(function (c) {
 	          return el.classList[method](c);
 	        });
 	      });
@@ -432,7 +431,7 @@
 	    key: 'get',
 	    value: function get(prop) {
 	      var arr = [];
-	      this.forEach(function (el) {
+	      this.each(function (el) {
 	        if (el !== null) {
 	          el = el[prop];
 	        }
@@ -444,7 +443,7 @@
 	    key: 'set',
 	    value: function set(prop, value) {
 	      if (prop.constructor === Object) {
-	        this.forEach(function (el) {
+	        this.each(function (el) {
 	          if (el) {
 	            for (var key in prop) {
 	              if (key in el) {
@@ -454,7 +453,7 @@
 	          }
 	        });
 	      } else {
-	        this.forEach(function (el) {
+	        this.each(function (el) {
 	          if (prop in el) {
 	            el[prop] = value;
 	          }
@@ -472,7 +471,7 @@
 	      var method = ArrayProto.shift.call(args);
 	      var arr = [];
 	      var returnThis = true;
-	      this.forEach(function (el) {
+	      this.each(function (el) {
 	        if (el && el[method] instanceof Function) {
 	          el = el[method].apply(el, args);
 	          arr.push(el);
@@ -496,8 +495,6 @@
 	
 	    // event handlers
 	    value: function on(events, selector, callback) {
-	      var _this5 = this;
-	
 	      if (typeof events === 'string') {
 	        events = events.trim().replace(/\s+/, ' ').split(' ');
 	      }
@@ -521,8 +518,8 @@
 	      } : function (e) {
 	        fn.apply(this, [e, this]);
 	      };
-	      events.forEach(function (event) {
-	        _this5.forEach(function (el) {
+	      this.each(function (el) {
+	        events.forEach(function (event) {
 	          if (!el) return;
 	          el.addEventListener(event, callback, false);
 	          Events.push({
@@ -542,7 +539,7 @@
 	        events = null;
 	      }
 	      if (typeof events === 'string' && callback instanceof Function) {
-	        this.forEach(function (el) {
+	        this.each(function (el) {
 	          events.split(' ').forEach(function (event) {
 	            for (var e in Events) {
 	              if (Events[e] && Events[e].el === el && Events[e].event === event && Events[e].callback === callback) {
@@ -553,7 +550,7 @@
 	          });
 	        });
 	      } else if (typeof events === 'string') {
-	        this.forEach(function (el) {
+	        this.each(function (el) {
 	          events.split(' ').forEach(function (event) {
 	            for (var e in Events) {
 	              if (Events[e] && Events[e].el === el && Events[e].event === event) {
@@ -564,7 +561,7 @@
 	          });
 	        });
 	      } else if (callback instanceof Function) {
-	        this.forEach(function (el) {
+	        this.each(function (el) {
 	          for (var e in Events) {
 	            if (Events[e] && Events[e].el === el && Events[e].callback === callback) {
 	              Events[e].el.removeEventListener(Events[e].event, Events[e].callback);
@@ -573,7 +570,7 @@
 	          }
 	        });
 	      } else {
-	        this.forEach(function (el) {
+	        this.each(function (el) {
 	          for (var e in Events) {
 	            if (Events[e] && Events[e].el === el) {
 	              Events[e].el.removeEventListener(Events[e].event, Events[e].callback);
@@ -663,7 +660,7 @@
 	}
 	var div = document.createElement('div');
 	function setterGetter(prop) {
-	  var _this6 = this;
+	  var _this4 = this;
 	
 	  if (div[prop] instanceof Function) {
 	    NL[prop] = function () {
@@ -684,13 +681,13 @@
 	          arr.push(undefined);
 	        }
 	      });
-	      return returnThis ? _this6 : flatten(arr, _this6);
+	      return returnThis ? _this4 : flatten(arr, _this4);
 	    };
 	  } else {
 	    (0, _defineProperty2.default)(NL, prop, {
 	      get: function get() {
 	        var arr = [];
-	        this.forEach(function (el) {
+	        this.each(function (el) {
 	          if (el !== null) {
 	            el = el[prop];
 	          }
@@ -699,7 +696,7 @@
 	        return flatten(arr, this);
 	      },
 	      set: function set(value) {
-	        this.forEach(function (el) {
+	        this.each(function (el) {
 	          if (el && prop in el) {
 	            el[prop] = value;
 	          }
@@ -2174,7 +2171,8 @@
 	      var scroll = {};
 	      var element = {};
 	      var rect = this.$el.getBoundingClientRect();
-	      var body = document.body[('Top', 'Left')].forEach(function (type) {
+	      var body = document.body;
+	      ['Top', 'Left'].forEach(function (type) {
 	        var t = type.toLowerCase();
 	        var ret = window['page' + (type === 'Top' ? 'Y' : 'X') + 'Offset'];
 	        var method = 'scroll' + type;
@@ -2262,7 +2260,8 @@
 	    always: function always(fn) {
 	      return p.done(fn).fail(fn);
 	    }
-	  }[('done', 'fail')].forEach(function (name) {
+	  };
+	  ['done', 'fail'].forEach(function (name) {
 	    data[name] = [];
 	    p[name] = function (fn) {
 	      if (fn instanceof Function) data[name].push(fn);
