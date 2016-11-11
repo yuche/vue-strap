@@ -142,7 +142,7 @@ export default {
     selected () {
       if (this.options.length === 0) { return '' }
       let foundItems = []
-      for (var item of this.values) {
+      this.values.forEach(item => {
         if (~['number', 'string'].indexOf(typeof item)) {
           let option = null
           if (this.options.some(o => {
@@ -152,7 +152,7 @@ export default {
             }
           })) { foundItems.push(option[this.optionsLabel] || option) }
         }
-      }
+      })
       return foundItems.join(', ')
     },
     classes () {
@@ -275,9 +275,9 @@ export default {
       this.loading = true
       getJSON(this.url).then(data => {
         let options = []
-        for (let opc of data) {
+        data.forEach(opc => {
           if (opc[this.optionsValue] !== undefined && opc[this.optionsLabel] !== undefined) options.push(opc)
-        }
+        })
         this.options = options
         if (!options.length) { this.value = this.value instanceof Array ? [] : null }
       }).always(() => {

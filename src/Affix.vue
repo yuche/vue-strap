@@ -38,7 +38,7 @@ export default {
       let element = {}
       const rect = this.$el.getBoundingClientRect()
       const body = document.body
-      for(let type of ['Top','Left']) {
+      ['Top','Left'].forEach(type => {
         let t = type.toLowerCase()
         let ret = window['page' + (type==='Top' ? 'Y' : 'X') + 'Offset']
         const method = 'scroll' + type
@@ -52,7 +52,7 @@ export default {
         }
         scroll[t] = ret
         element[t] = scroll[t] + rect[t] - (this.$el['client'+type] || body['client'+type] || 0)
-      }
+      })
       let fix = scroll.top > element.top - this.offset
       if (this.affixed !== fix) { this.affixed = fix }
     }

@@ -96,8 +96,6 @@ class NodeList {
     return this
   }
   delete () {
-    let list = NodeListJS([], this.owner)
-    let splice = index => ArrayProto.splice.apply()
     for (let i = this.length - 1, el = this[i]; i; el = this[--i]) {
       if (el.remove) {
         el.remove()
@@ -107,6 +105,7 @@ class NodeList {
         this.splice(i, 1)
       }
     }
+    if (this.length) console.warn('NodeList: Some nodes could not be deleted.')
     return this
   }
   shift (amount) {

@@ -37,13 +37,13 @@ export default {
   methods: {
     scrollSpy () {
       const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop
-      for (let s of this.sections) {
+      this.sections.forEach(s => {
         // 420 = firstSection.getBoundingClientRect().top (when body.scrollTop = 0)
         // = nav.height + header.height + firstSection.margin-top - 6 (for offset)
         if (s.el.offsetTop + 420 <= scrollPosition) {
           this.active = s.id
         }
-      }
+      })
     }
   }
 }
