@@ -37,7 +37,7 @@ export default {
       let scroll = {}
       let element = {}
       const rect = this.$el.getBoundingClientRect()
-      const body = document.body
+      const body = document.body;
       ['Top','Left'].forEach(type => {
         let t = type.toLowerCase()
         let ret = window['page' + (type==='Top' ? 'Y' : 'X') + 'Offset']

@@ -60,7 +60,7 @@ class NodeList {
   }
   find (element) {
     let nodes = []
-    this.forEach(el => {
+    this.each(el => {
       let node = el.querySelectorAll(element)
       if (node && node.length) nodes.push(node)
     })
@@ -144,13 +144,13 @@ class NodeList {
     if (typeof classes === 'string') {
       classes = classes.trim().replace(/\s+/, ' ').split(' ')
     }
-    classes.forEach(c => this.each(el => el.classList[method](c)))
+    this.each(el => classes.forEach(c => el.classList[method](c)))
     return this
   }
 
   get (prop) {
     let arr = []
-    this.forEach(el => {
+    this.each(el => {
       if (el !== null) { el = el[prop] }
       arr.push(el)
     })
@@ -158,7 +158,7 @@ class NodeList {
   }
   set (prop, value) {
     if (prop.constructor === Object) {
-      this.forEach(el => {
+      this.each(el => {
         if (el) {
           for (var key in prop) {
             if (key in el) {
@@ -168,7 +168,7 @@ class NodeList {
         }
       })
     } else {
-      this.forEach(el => {
+      this.each(el => {
         if (prop in el) { el[prop] = value }
       })
     }
@@ -178,7 +178,7 @@ class NodeList {
     const method = ArrayProto.shift.call(args)
     let arr = []
     let returnThis = true
-    this.forEach(el => {
+    this.each(el => {
       if (el && el[method] instanceof Function) {
         el = el[method].apply(el, args)
         arr.push(el)
@@ -219,8 +219,8 @@ class NodeList {
     } : function (e) {
       fn.apply(this, [e, this])
     }
-    events.forEach(event => {
-      this.forEach(el => {
+    this.each(el => {
+      events.forEach(event => {
         if (!el) return;
         el.addEventListener(event, callback, false)
         Events.push({
@@ -238,7 +238,7 @@ class NodeList {
       events = null
     }
     if (typeof events === 'string' && callback instanceof Function) {
-      this.forEach(el => {
+      this.each(el => {
         events.split(' ').forEach(event => {
           for (let e in Events) {
             if(Events[e] && Events[e].el === el && Events[e].event === event && Events[e].callback === callback) {
@@ -249,7 +249,7 @@ class NodeList {
         })
       })
     } else if (typeof events === 'string') {
-      this.forEach(el => {
+      this.each(el => {
         events.split(' ').forEach(event => {
           for (let e in Events) {
             if (Events[e] && Events[e].el === el && Events[e].event === event) {
@@ -260,7 +260,7 @@ class NodeList {
         })
       })
     } else if (callback instanceof Function) {
-      this.forEach(el => {
+      this.each(el => {
         for (let e in Events) {
           if (Events[e] && Events[e].el === el && Events[e].callback === callback) {
             Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
@@ -269,7 +269,7 @@ class NodeList {
         }
       })
     } else {
-      this.forEach(el => {
+      this.each(el => {
         for (let e in Events) {
           if (Events[e] && Events[e].el === el) {
             Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
@@ -363,14 +363,14 @@ function setterGetter (prop) {
     Object.defineProperty(NL, prop, {
       get () {
         let arr = []
-        this.forEach(el => {
+        this.each(el => {
           if (el !== null) { el = el[prop] }
           arr.push(el)
         })
         return flatten(arr, this)
       },
       set (value) {
-        this.forEach(el => {
+        this.each(el => {
           if (el && prop in el) { el[prop] = value }
         })
       }
