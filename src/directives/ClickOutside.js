@@ -1,31 +1,38 @@
 /**
  * Click outside directive
  */
-const HANDLER = '_vue_clickoutside_handler'
+var binded = []
 
-function bind (el, binding) {
-  unbind(el)
+function handler (e) { binded.forEach(b => { if (!b.el.contains(e.target)) b.callback(e) }) }
 
-  var callback = binding.value
-  if (typeof callback !== 'function') {
-    if (process.env.NODE_ENV !== 'production') {
-      Vue.util.warn('ClickOutside only work with a function value, received: v-' + binding.name + '="' + binding.expression + '"')
-    }
-  } else {
-    el[HANDLER] = function (e) { if (!el.contains(e.target)) callback(e) }
-    document.addEventListener('click', el[HANDLER], false)
-  }
+function addListener (node, callback) {
+  if (!binded.length) document.addEventListener('click', handler, false)
+  binded.push({node, callback})
 }
 
-function unbind(el) {
-  document.removeEventListener('click', el[HANDLER], false)
-  delete el[HANDLER];
+function removeListener (node, callback) {
+  binded = binded.filter(el => el.node !== node ? true : !callback ? false : el.node.callback !== callback)
+  if (!binded.length) document.removeEventListener('click', handler, false)
 }
 
 export default {
-  bind,
-  unbind,
+  bind (el, binding) {
+    removeListener(el, binding.value)
+    if (typeof binding.value !== 'function') {
+      if (process.env.NODE_ENV !== 'production') {
+        Vue.util.warn('ClickOutside only work with a function, received: v-' + binding.name + '="' + binding.expression + '"')
+      }
+    } else {
+      addEventListener(el, binding.value)
+    }
+  },
   update (el, binding) {
-    if (binding.value !== binding.oldValue) bind(el, binding)
+    if (binding.value !== binding.oldValue){
+      addEventListener(el, binding.value)
+      removeListener(el, binding.oldValue)
+    }
+  },
+  unbind (el, binding) {
+    removeEventListener(el, binding.value)
   }
 }
