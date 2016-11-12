@@ -1,6 +1,6 @@
 {
   "name": "vue-strap",
-  "version": "1.1.31",
+  "version": "1.1.32",
   "description": "Bootstrap components built with Vue.js",
   "main": "dist/vue-strap.js",
   "repository": {
@@ -23,10 +23,10 @@
     "dist"
   ],
   "keywords": [
-    "vue",
+    "bootstrap",
     "vue-bootstrap",
     "vue-component",
-    "bootstrap"
+    "vue"
   ],
   "devDependencies": {
     "babel-core": "^6.17.0",
@@ -64,12 +64,12 @@
     ]
   },
   "scripts": {
-    "docs": "webpack-dev-server --inline --hot --quiet",
-    "builddocs": "webpack --progress --hide-modules && set NODE_ENV=production webpack --progress --hide-modules",
     "build": "webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js",
-    "version": "npm run build && git add -A dist",
+    "builddocs": "webpack --progress --hide-modules && set NODE_ENV=production webpack --progress --hide-modules",
+    "docs": "webpack-dev-server --inline --hot --quiet",
+    "gpages": "gh-pages -d build",
     "postversion": "git push && git push --tags",
-    "gpages": "gh-pages -d build"
+    "version": "npm run build && git add -A dist"
   },
   "author": "yuche",
   "license": "MIT"

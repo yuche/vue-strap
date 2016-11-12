@@ -156,17 +156,17 @@
 	
 	var _defineProperty2 = _interopRequireDefault(_defineProperty);
 	
-	var _keys = __webpack_require__(74);
-	
-	var _keys2 = _interopRequireDefault(_keys);
-	
-	var _iterator = __webpack_require__(94);
+	var _iterator = __webpack_require__(74);
 	
 	var _iterator2 = _interopRequireDefault(_iterator);
 	
-	var _getOwnPropertyNames = __webpack_require__(114);
+	var _getOwnPropertyNames = __webpack_require__(110);
 	
 	var _getOwnPropertyNames2 = _interopRequireDefault(_getOwnPropertyNames);
+	
+	var _keys = __webpack_require__(116);
+	
+	var _keys2 = _interopRequireDefault(_keys);
 	
 	var _classCallCheck2 = __webpack_require__(119);
 	
@@ -184,6 +184,13 @@
 	var blurList = [];
 	var Events = [];
 	
+	function isNode(val) {
+	  return val instanceof window.Node;
+	}
+	function isNodeList(val) {
+	  return val instanceof window.NodeList || val instanceof NodeList || val instanceof window.HTMLCollection || val instanceof Array;
+	}
+	
 	var NodeList = function () {
 	  function NodeList(args) {
 	    (0, _classCallCheck3.default)(this, NodeList);
@@ -196,7 +203,7 @@
 	      if (args[1]) {
 	        this.owner = args[1];
 	      }
-	    } else if (0 in args && !(args[0] instanceof Node) && args[0] && 'length' in args[0]) {
+	    } else if (0 in args && !isNode(args[0]) && args[0] && 'length' in args[0]) {
 	      nodes = args[0];
 	      if (args[1]) {
 	        this.owner = args[1];
@@ -218,22 +225,17 @@
 	      var nodes = ArrayProto.slice.call(this);
 	      function flatten(arr) {
 	        ArrayProto.forEach.call(arr, function (el) {
-	          if (el instanceof Node) {
+	          if (isNode(el)) {
 	            if (!~nodes.indexOf(el)) nodes.push(el);
 	          } else if (el) {
 	            flatten(el);
 	          }
 	        });
 	      }
-	
-	      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	        args[_key] = arguments[_key];
-	      }
-	
-	      ArrayProto.forEach.call(args, function (arg) {
-	        if (arg instanceof Node) {
+	      ArrayProto.forEach.call(arguments, function (arg) {
+	        if (isNode(arg)) {
 	          if (!~nodes.indexOf(arg)) nodes.push(arg);
-	        } else if (arg instanceof window.NodeList || arg instanceof NodeList || arg instanceof HTMLCollection || arg instanceof Array) {
+	        } else if (isNodeList(arg)) {
 	          flatten(arg);
 	        } else {
 	          throw Error('Concat arguments must be of a Node, NodeList, HTMLCollection, or Array of (Node, NodeList, HTMLCollection, Array)');
@@ -242,38 +244,36 @@
 	      return NodeListJS(nodes, this);
 	    }
 	  }, {
-	    key: 'each',
-	    value: function each() {
-	      for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	        args[_key2] = arguments[_key2];
-	      }
-	
-	      ArrayProto.forEach.apply(this, args);
-	      return this;
+	    key: 'delete',
+	    value: function _delete() {
+	      var notRemoved = flatten(this).filter(function (el) {
+	        if (el.remove) {
+	          el.remove();
+	        } else if (el.parentNode) {
+	          el.parentNode.removeChild(el);
+	        }
+	        return document.body.contains(el);
+	      });
+	      if (notRemoved.length) console.warn('NodeList: Some nodes could not be deleted.');
+	      return notRemoved;
 	    }
 	  }, {
-	    key: 'parent',
-	    value: function parent() {
-	      return this.map(function (el) {
-	        return el.parentNode;
-	      });
+	    key: 'each',
+	    value: function each() {
+	      ArrayProto.forEach.apply(this, arguments);
+	      return this;
 	    }
 	  }, {
 	    key: 'filter',
 	    value: function filter() {
-	      for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	        args[_key3] = arguments[_key3];
-	      }
-	
-	      return NodeListJS(ArrayProto.filter.apply(this, args), this);
+	      return NodeListJS(ArrayProto.filter.apply(this, arguments), this);
 	    }
 	  }, {
 	    key: 'find',
 	    value: function find(element) {
 	      var nodes = [];
-	      this.each(function (el) {
-	        var node = el.querySelectorAll(element);
-	        if (node && node.length) nodes.push(node);
+	      flatten(this).forEach(function (node) {
+	        ArrayProto.push.apply(nodes, node.querySelectorAll(element));
 	      });
 	      return flatten(nodes, this.owner);
 	    }
@@ -282,18 +282,17 @@
 	    value: function findChildren(element) {
 	      var _this = this;
 	
-	      return this.find(element).filter(function (el) {
+	      if (element) return this.find(element).filter(function (el) {
 	        return _this.includes(el.parentElement);
 	      });
+	      return flatten(this.map(function (el) {
+	        return el.children;
+	      }));
 	    }
 	  }, {
 	    key: 'forEach',
 	    value: function forEach() {
-	      for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	        args[_key4] = arguments[_key4];
-	      }
-	
-	      ArrayProto.forEach.apply(this, args);
+	      ArrayProto.forEach.apply(this, arguments);
 	      return this;
 	    }
 	  }, {
@@ -304,11 +303,17 @@
 	  }, {
 	    key: 'map',
 	    value: function map() {
-	      for (var _len5 = arguments.length, args = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-	        args[_key5] = arguments[_key5];
-	      }
-	
-	      return flatten(ArrayProto.map.apply(this, args), this);
+	      var mapped = ArrayProto.map.apply(this, arguments);
+	      return mapped.some(function (el) {
+	        return isNode(el) || isNodeList(el);
+	      }) ? flatten(mapped, this) : mapped;
+	    }
+	  }, {
+	    key: 'parent',
+	    value: function parent() {
+	      return flatten(this.map(function (el) {
+	        return el.parentNode;
+	      }), this);
 	    }
 	  }, {
 	    key: 'pop',
@@ -327,29 +332,10 @@
 	    value: function push() {
 	      var _this2 = this;
 	
-	      for (var _len6 = arguments.length, args = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
-	        args[_key6] = arguments[_key6];
-	      }
-	
-	      ArrayProto.forEach.call(args, function (arg) {
-	        if (!(arg instanceof Node)) throw nodeError;
+	      ArrayProto.forEach.call(arguments, function (arg) {
+	        if (!isNode(arg)) throw nodeError;
 	        if (!~_this2.indexOf(arg)) ArrayProto.push.call(_this2, arg);
 	      });
-	      return this;
-	    }
-	  }, {
-	    key: 'delete',
-	    value: function _delete() {
-	      for (var i = this.length - 1, el = this[i]; i; el = this[--i]) {
-	        if (el.remove) {
-	          el.remove();
-	          this.splice(i, 1);
-	        } else if (el.parentNode) {
-	          el.parentNode.removeChild(el);
-	          this.splice(i, 1);
-	        }
-	      }
-	      if (this.length) console.warn('NodeList: Some nodes could not be deleted.');
 	      return this;
 	    }
 	  }, {
@@ -366,21 +352,17 @@
 	  }, {
 	    key: 'slice',
 	    value: function slice() {
-	      for (var _len7 = arguments.length, args = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
-	        args[_key7] = arguments[_key7];
-	      }
-	
-	      return NodeListJS(ArrayProto.slice.apply(this, args), this);
+	      return NodeListJS(ArrayProto.slice.apply(this, arguments), this);
 	    }
 	  }, {
 	    key: 'splice',
 	    value: function splice() {
-	      for (var _len8 = arguments.length, args = Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {
-	        args[_key8] = arguments[_key8];
+	      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	        args[_key] = arguments[_key];
 	      }
 	
 	      for (var i = 2, l = args.length; i < l; i++) {
-	        if (!(args[i] instanceof Node)) throw nodeError;
+	        if (!isNode(args[i])) throw nodeError;
 	      }
 	      ArrayProto.splice.apply(this, args);
 	      return this;
@@ -392,12 +374,12 @@
 	
 	      var unshift = ArrayProto.unshift.bind(this);
 	
-	      for (var _len9 = arguments.length, args = Array(_len9), _key9 = 0; _key9 < _len9; _key9++) {
-	        args[_key9] = arguments[_key9];
+	      for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	        args[_key2] = arguments[_key2];
 	      }
 	
 	      ArrayProto.forEach.call(args, function (arg) {
-	        if (!(arg instanceof Node)) throw nodeError;
+	        if (!isNode(arg)) throw nodeError;
 	        if (!~_this3.indexOf(arg)) unshift(arg);
 	      });
 	      return this;
@@ -444,11 +426,11 @@
 	      if (prop.constructor === Object) {
 	        this.each(function (el) {
 	          if (el) {
-	            for (var key in prop) {
+	            (0, _keys2.default)(prop).forEach(function (key) {
 	              if (key in el) {
 	                el[key] = prop[key];
 	              }
-	            }
+	            });
 	          }
 	        });
 	      } else {
@@ -463,8 +445,8 @@
 	  }, {
 	    key: 'call',
 	    value: function call() {
-	      for (var _len10 = arguments.length, args = Array(_len10), _key10 = 0; _key10 < _len10; _key10++) {
-	        args[_key10] = arguments[_key10];
+	      for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	        args[_key3] = arguments[_key3];
 	      }
 	
 	      var method = ArrayProto.shift.call(args);
@@ -519,13 +501,14 @@
 	      };
 	      this.each(function (el) {
 	        events.forEach(function (event) {
-	          if (!el) return;
-	          el.addEventListener(event, callback, false);
-	          Events.push({
-	            el: el,
-	            event: event,
-	            callback: callback
-	          });
+	          if (el === window || isNode(el)) {
+	            el.addEventListener(event, callback, false);
+	            Events.push({
+	              el: el,
+	              event: event,
+	              callback: callback
+	            });
+	          }
 	        });
 	      });
 	      return this;
@@ -540,42 +523,42 @@
 	      if (typeof events === 'string' && callback instanceof Function) {
 	        this.each(function (el) {
 	          events.split(' ').forEach(function (event) {
-	            for (var e in Events) {
+	            Events.forEach(function (e) {
 	              if (Events[e] && Events[e].el === el && Events[e].event === event && Events[e].callback === callback) {
 	                Events[e].el.removeEventListener(Events[e].event, Events[e].callback);
 	                delete Events[e];
 	              }
-	            }
+	            });
 	          });
 	        });
 	      } else if (typeof events === 'string') {
 	        this.each(function (el) {
 	          events.split(' ').forEach(function (event) {
-	            for (var e in Events) {
+	            Events.forEach(function (e) {
 	              if (Events[e] && Events[e].el === el && Events[e].event === event) {
 	                Events[e].el.removeEventListener(Events[e].event, Events[e].callback);
 	                delete Events[e];
 	              }
-	            }
+	            });
 	          });
 	        });
 	      } else if (callback instanceof Function) {
 	        this.each(function (el) {
-	          for (var e in Events) {
+	          Events.forEach(function (e) {
 	            if (Events[e] && Events[e].el === el && Events[e].callback === callback) {
 	              Events[e].el.removeEventListener(Events[e].event, Events[e].callback);
 	              delete Events[e];
 	            }
-	          }
+	          });
 	        });
 	      } else {
 	        this.each(function (el) {
-	          for (var e in Events) {
+	          Events.forEach(function (e) {
 	            if (Events[e] && Events[e].el === el) {
 	              Events[e].el.removeEventListener(Events[e].event, Events[e].callback);
 	              delete Events[e];
 	            }
-	          }
+	          });
 	        });
 	      }
 	      Events = Events.filter(function (el) {
@@ -630,15 +613,13 @@
 	function flatten(arr, owner) {
 	  var list = [];
 	  ArrayProto.forEach.call(arr, function (el) {
-	    if (el === null) {
-	      return;
-	    } else if (el instanceof Node) {
+	    if (isNode(el)) {
 	      if (!~list.indexOf(el)) list.push(el);
-	    } else if (el instanceof window.NodeList || el instanceof NodeList || el instanceof HTMLCollection || el instanceof Array) {
-	      ArrayProto.forEach.call(el, function (el2) {
-	        list.push(el2);
-	      });
-	    } else {
+	    } else if (isNodeList(el)) {
+	      for (var id in el) {
+	        list.push(el[id]);
+	      }
+	    } else if (el !== null) {
 	      arr.get = NL.get;
 	      arr.set = NL.set;
 	      arr.call = NL.call;
@@ -661,10 +642,11 @@
 	function setterGetter(prop) {
 	  var _this4 = this;
 	
+	  if (NL[prop]) return;
 	  if (div[prop] instanceof Function) {
 	    NL[prop] = function () {
-	      for (var _len11 = arguments.length, args = Array(_len11), _key11 = 0; _key11 < _len11; _key11++) {
-	        args[_key11] = arguments[_key11];
+	      for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	        args[_key4] = arguments[_key4];
 	      }
 	
 	      var arr = [];
@@ -707,11 +689,7 @@
 	for (var prop in div) {
 	  setterGetter(prop);
 	}function NodeListJS() {
-	  for (var _len12 = arguments.length, args = Array(_len12), _key12 = 0; _key12 < _len12; _key12++) {
-	    args[_key12] = arguments[_key12];
-	  }
-	
-	  return new NodeList(args);
+	  return new NodeList(arguments);
 	}
 	window.NL = NodeListJS;
 	
@@ -991,254 +969,18 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(76);
-	module.exports = __webpack_require__(61).Object.keys;
+	__webpack_require__(105);
+	module.exports = __webpack_require__(109).f('iterator');
 
 /***/ },
 /* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// 19.1.2.14 Object.keys(O)
-	var toObject = __webpack_require__(77)
-	  , $keys    = __webpack_require__(79);
-	
-	__webpack_require__(93)('keys', function(){
-	  return function keys(it){
-	    return $keys(toObject(it));
-	  };
-	});
-
-/***/ },
-/* 77 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 7.1.13 ToObject(argument)
-	var defined = __webpack_require__(78);
-	module.exports = function(it){
-	  return Object(defined(it));
-	};
-
-/***/ },
-/* 78 */
-/***/ function(module, exports) {
-
-	// 7.2.1 RequireObjectCoercible(argument)
-	module.exports = function(it){
-	  if(it == undefined)throw TypeError("Can't call method on  " + it);
-	  return it;
-	};
-
-/***/ },
-/* 79 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 19.1.2.14 / 15.2.3.14 Object.keys(O)
-	var $keys       = __webpack_require__(80)
-	  , enumBugKeys = __webpack_require__(92);
-	
-	module.exports = Object.keys || function keys(O){
-	  return $keys(O, enumBugKeys);
-	};
-
-/***/ },
-/* 80 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var has          = __webpack_require__(81)
-	  , toIObject    = __webpack_require__(82)
-	  , arrayIndexOf = __webpack_require__(85)(false)
-	  , IE_PROTO     = __webpack_require__(89)('IE_PROTO');
-	
-	module.exports = function(object, names){
-	  var O      = toIObject(object)
-	    , i      = 0
-	    , result = []
-	    , key;
-	  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
-	  // Don't enum bug & hidden keys
-	  while(names.length > i)if(has(O, key = names[i++])){
-	    ~arrayIndexOf(result, key) || result.push(key);
-	  }
-	  return result;
-	};
-
-/***/ },
-/* 81 */
-/***/ function(module, exports) {
-
-	var hasOwnProperty = {}.hasOwnProperty;
-	module.exports = function(it, key){
-	  return hasOwnProperty.call(it, key);
-	};
-
-/***/ },
-/* 82 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// to indexed object, toObject with fallback for non-array-like ES3 strings
-	var IObject = __webpack_require__(83)
-	  , defined = __webpack_require__(78);
-	module.exports = function(it){
-	  return IObject(defined(it));
-	};
-
-/***/ },
-/* 83 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var cof = __webpack_require__(84);
-	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
-	  return cof(it) == 'String' ? it.split('') : Object(it);
-	};
-
-/***/ },
-/* 84 */
-/***/ function(module, exports) {
-
-	var toString = {}.toString;
-	
-	module.exports = function(it){
-	  return toString.call(it).slice(8, -1);
-	};
-
-/***/ },
-/* 85 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// false -> Array#indexOf
-	// true  -> Array#includes
-	var toIObject = __webpack_require__(82)
-	  , toLength  = __webpack_require__(86)
-	  , toIndex   = __webpack_require__(88);
-	module.exports = function(IS_INCLUDES){
-	  return function($this, el, fromIndex){
-	    var O      = toIObject($this)
-	      , length = toLength(O.length)
-	      , index  = toIndex(fromIndex, length)
-	      , value;
-	    // Array#includes uses SameValueZero equality algorithm
-	    if(IS_INCLUDES && el != el)while(length > index){
-	      value = O[index++];
-	      if(value != value)return true;
-	    // Array#toIndex ignores holes, Array#includes - not
-	    } else for(;length > index; index++)if(IS_INCLUDES || index in O){
-	      if(O[index] === el)return IS_INCLUDES || index || 0;
-	    } return !IS_INCLUDES && -1;
-	  };
-	};
-
-/***/ },
-/* 86 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 7.1.15 ToLength
-	var toInteger = __webpack_require__(87)
-	  , min       = Math.min;
-	module.exports = function(it){
-	  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
-	};
-
-/***/ },
-/* 87 */
-/***/ function(module, exports) {
-
-	// 7.1.4 ToInteger
-	var ceil  = Math.ceil
-	  , floor = Math.floor;
-	module.exports = function(it){
-	  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
-	};
-
-/***/ },
-/* 88 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var toInteger = __webpack_require__(87)
-	  , max       = Math.max
-	  , min       = Math.min;
-	module.exports = function(index, length){
-	  index = toInteger(index);
-	  return index < 0 ? max(index + length, 0) : min(index, length);
-	};
-
-/***/ },
-/* 89 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var shared = __webpack_require__(90)('keys')
-	  , uid    = __webpack_require__(91);
-	module.exports = function(key){
-	  return shared[key] || (shared[key] = uid(key));
-	};
-
-/***/ },
-/* 90 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var global = __webpack_require__(60)
-	  , SHARED = '__core-js_shared__'
-	  , store  = global[SHARED] || (global[SHARED] = {});
-	module.exports = function(key){
-	  return store[key] || (store[key] = {});
-	};
-
-/***/ },
-/* 91 */
-/***/ function(module, exports) {
-
-	var id = 0
-	  , px = Math.random();
-	module.exports = function(key){
-	  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
-	};
-
-/***/ },
-/* 92 */
-/***/ function(module, exports) {
-
-	// IE 8- don't enum bug keys
-	module.exports = (
-	  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
-	).split(',');
-
-/***/ },
-/* 93 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// most Object methods by ES6 should accept primitives
-	var $export = __webpack_require__(59)
-	  , core    = __webpack_require__(61)
-	  , fails   = __webpack_require__(70);
-	module.exports = function(KEY, exec){
-	  var fn  = (core.Object || {})[KEY] || Object[KEY]
-	    , exp = {};
-	  exp[KEY] = exec(fn);
-	  $export($export.S + $export.F * fails(function(){ fn(1); }), 'Object', exp);
-	};
-
-/***/ },
-/* 94 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(95), __esModule: true };
-
-/***/ },
-/* 95 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(96);
-	__webpack_require__(109);
-	module.exports = __webpack_require__(113).f('iterator');
-
-/***/ },
-/* 96 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
-	var $at  = __webpack_require__(97)(true);
+	var $at  = __webpack_require__(77)(true);
 	
 	// 21.1.3.27 String.prototype[@@iterator]()
-	__webpack_require__(98)(String, 'String', function(iterated){
+	__webpack_require__(80)(String, 'String', function(iterated){
 	  this._t = String(iterated); // target
 	  this._i = 0;                // next index
 	// 21.1.5.2.1 %StringIteratorPrototype%.next()
@@ -1253,11 +995,11 @@
 	});
 
 /***/ },
-/* 97 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var toInteger = __webpack_require__(87)
-	  , defined   = __webpack_require__(78);
+	var toInteger = __webpack_require__(78)
+	  , defined   = __webpack_require__(79);
 	// true  -> String#at
 	// false -> String#codePointAt
 	module.exports = function(TO_STRING){
@@ -1275,20 +1017,41 @@
 	};
 
 /***/ },
-/* 98 */
+/* 78 */
+/***/ function(module, exports) {
+
+	// 7.1.4 ToInteger
+	var ceil  = Math.ceil
+	  , floor = Math.floor;
+	module.exports = function(it){
+	  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+	};
+
+/***/ },
+/* 79 */
+/***/ function(module, exports) {
+
+	// 7.2.1 RequireObjectCoercible(argument)
+	module.exports = function(it){
+	  if(it == undefined)throw TypeError("Can't call method on  " + it);
+	  return it;
+	};
+
+/***/ },
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var LIBRARY        = __webpack_require__(99)
+	var LIBRARY        = __webpack_require__(81)
 	  , $export        = __webpack_require__(59)
-	  , redefine       = __webpack_require__(100)
+	  , redefine       = __webpack_require__(82)
 	  , hide           = __webpack_require__(64)
-	  , has            = __webpack_require__(81)
-	  , Iterators      = __webpack_require__(101)
-	  , $iterCreate    = __webpack_require__(102)
-	  , setToStringTag = __webpack_require__(106)
-	  , getPrototypeOf = __webpack_require__(108)
-	  , ITERATOR       = __webpack_require__(107)('iterator')
+	  , has            = __webpack_require__(83)
+	  , Iterators      = __webpack_require__(84)
+	  , $iterCreate    = __webpack_require__(85)
+	  , setToStringTag = __webpack_require__(101)
+	  , getPrototypeOf = __webpack_require__(103)
+	  , ITERATOR       = __webpack_require__(102)('iterator')
 	  , BUGGY          = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
 	  , FF_ITERATOR    = '@@iterator'
 	  , KEYS           = 'keys'
@@ -1350,35 +1113,44 @@
 	};
 
 /***/ },
-/* 99 */
+/* 81 */
 /***/ function(module, exports) {
 
 	module.exports = true;
 
 /***/ },
-/* 100 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(64);
 
 /***/ },
-/* 101 */
+/* 83 */
+/***/ function(module, exports) {
+
+	var hasOwnProperty = {}.hasOwnProperty;
+	module.exports = function(it, key){
+	  return hasOwnProperty.call(it, key);
+	};
+
+/***/ },
+/* 84 */
 /***/ function(module, exports) {
 
 	module.exports = {};
 
 /***/ },
-/* 102 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var create         = __webpack_require__(103)
+	var create         = __webpack_require__(86)
 	  , descriptor     = __webpack_require__(73)
-	  , setToStringTag = __webpack_require__(106)
+	  , setToStringTag = __webpack_require__(101)
 	  , IteratorPrototype = {};
 	
 	// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-	__webpack_require__(64)(IteratorPrototype, __webpack_require__(107)('iterator'), function(){ return this; });
+	__webpack_require__(64)(IteratorPrototype, __webpack_require__(102)('iterator'), function(){ return this; });
 	
 	module.exports = function(Constructor, NAME, next){
 	  Constructor.prototype = create(IteratorPrototype, {next: descriptor(1, next)});
@@ -1386,14 +1158,14 @@
 	};
 
 /***/ },
-/* 103 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 	var anObject    = __webpack_require__(66)
-	  , dPs         = __webpack_require__(104)
-	  , enumBugKeys = __webpack_require__(92)
-	  , IE_PROTO    = __webpack_require__(89)('IE_PROTO')
+	  , dPs         = __webpack_require__(87)
+	  , enumBugKeys = __webpack_require__(99)
+	  , IE_PROTO    = __webpack_require__(96)('IE_PROTO')
 	  , Empty       = function(){ /* empty */ }
 	  , PROTOTYPE   = 'prototype';
 	
@@ -1406,7 +1178,7 @@
 	    , gt     = '>'
 	    , iframeDocument;
 	  iframe.style.display = 'none';
-	  __webpack_require__(105).appendChild(iframe);
+	  __webpack_require__(100).appendChild(iframe);
 	  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
 	  // createDict = iframe.contentWindow.Object;
 	  // html.removeChild(iframe);
@@ -1433,12 +1205,12 @@
 
 
 /***/ },
-/* 104 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var dP       = __webpack_require__(65)
 	  , anObject = __webpack_require__(66)
-	  , getKeys  = __webpack_require__(79);
+	  , getKeys  = __webpack_require__(88);
 	
 	module.exports = __webpack_require__(69) ? Object.defineProperties : function defineProperties(O, Properties){
 	  anObject(O);
@@ -1451,29 +1223,183 @@
 	};
 
 /***/ },
-/* 105 */
+/* 88 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+	var $keys       = __webpack_require__(89)
+	  , enumBugKeys = __webpack_require__(99);
+	
+	module.exports = Object.keys || function keys(O){
+	  return $keys(O, enumBugKeys);
+	};
+
+/***/ },
+/* 89 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var has          = __webpack_require__(83)
+	  , toIObject    = __webpack_require__(90)
+	  , arrayIndexOf = __webpack_require__(93)(false)
+	  , IE_PROTO     = __webpack_require__(96)('IE_PROTO');
+	
+	module.exports = function(object, names){
+	  var O      = toIObject(object)
+	    , i      = 0
+	    , result = []
+	    , key;
+	  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
+	  // Don't enum bug & hidden keys
+	  while(names.length > i)if(has(O, key = names[i++])){
+	    ~arrayIndexOf(result, key) || result.push(key);
+	  }
+	  return result;
+	};
+
+/***/ },
+/* 90 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// to indexed object, toObject with fallback for non-array-like ES3 strings
+	var IObject = __webpack_require__(91)
+	  , defined = __webpack_require__(79);
+	module.exports = function(it){
+	  return IObject(defined(it));
+	};
+
+/***/ },
+/* 91 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// fallback for non-array-like ES3 and non-enumerable old V8 strings
+	var cof = __webpack_require__(92);
+	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
+	  return cof(it) == 'String' ? it.split('') : Object(it);
+	};
+
+/***/ },
+/* 92 */
+/***/ function(module, exports) {
+
+	var toString = {}.toString;
+	
+	module.exports = function(it){
+	  return toString.call(it).slice(8, -1);
+	};
+
+/***/ },
+/* 93 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// false -> Array#indexOf
+	// true  -> Array#includes
+	var toIObject = __webpack_require__(90)
+	  , toLength  = __webpack_require__(94)
+	  , toIndex   = __webpack_require__(95);
+	module.exports = function(IS_INCLUDES){
+	  return function($this, el, fromIndex){
+	    var O      = toIObject($this)
+	      , length = toLength(O.length)
+	      , index  = toIndex(fromIndex, length)
+	      , value;
+	    // Array#includes uses SameValueZero equality algorithm
+	    if(IS_INCLUDES && el != el)while(length > index){
+	      value = O[index++];
+	      if(value != value)return true;
+	    // Array#toIndex ignores holes, Array#includes - not
+	    } else for(;length > index; index++)if(IS_INCLUDES || index in O){
+	      if(O[index] === el)return IS_INCLUDES || index || 0;
+	    } return !IS_INCLUDES && -1;
+	  };
+	};
+
+/***/ },
+/* 94 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.15 ToLength
+	var toInteger = __webpack_require__(78)
+	  , min       = Math.min;
+	module.exports = function(it){
+	  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+	};
+
+/***/ },
+/* 95 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var toInteger = __webpack_require__(78)
+	  , max       = Math.max
+	  , min       = Math.min;
+	module.exports = function(index, length){
+	  index = toInteger(index);
+	  return index < 0 ? max(index + length, 0) : min(index, length);
+	};
+
+/***/ },
+/* 96 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var shared = __webpack_require__(97)('keys')
+	  , uid    = __webpack_require__(98);
+	module.exports = function(key){
+	  return shared[key] || (shared[key] = uid(key));
+	};
+
+/***/ },
+/* 97 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var global = __webpack_require__(60)
+	  , SHARED = '__core-js_shared__'
+	  , store  = global[SHARED] || (global[SHARED] = {});
+	module.exports = function(key){
+	  return store[key] || (store[key] = {});
+	};
+
+/***/ },
+/* 98 */
+/***/ function(module, exports) {
+
+	var id = 0
+	  , px = Math.random();
+	module.exports = function(key){
+	  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+	};
+
+/***/ },
+/* 99 */
+/***/ function(module, exports) {
+
+	// IE 8- don't enum bug keys
+	module.exports = (
+	  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+	).split(',');
+
+/***/ },
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(60).document && document.documentElement;
 
 /***/ },
-/* 106 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var def = __webpack_require__(65).f
-	  , has = __webpack_require__(81)
-	  , TAG = __webpack_require__(107)('toStringTag');
+	  , has = __webpack_require__(83)
+	  , TAG = __webpack_require__(102)('toStringTag');
 	
 	module.exports = function(it, tag, stat){
 	  if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
 	};
 
 /***/ },
-/* 107 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var store      = __webpack_require__(90)('wks')
-	  , uid        = __webpack_require__(91)
+	var store      = __webpack_require__(97)('wks')
+	  , uid        = __webpack_require__(98)
 	  , Symbol     = __webpack_require__(60).Symbol
 	  , USE_SYMBOL = typeof Symbol == 'function';
 	
@@ -1485,13 +1411,13 @@
 	$exports.store = store;
 
 /***/ },
-/* 108 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
-	var has         = __webpack_require__(81)
-	  , toObject    = __webpack_require__(77)
-	  , IE_PROTO    = __webpack_require__(89)('IE_PROTO')
+	var has         = __webpack_require__(83)
+	  , toObject    = __webpack_require__(104)
+	  , IE_PROTO    = __webpack_require__(96)('IE_PROTO')
 	  , ObjectProto = Object.prototype;
 	
 	module.exports = Object.getPrototypeOf || function(O){
@@ -1503,14 +1429,24 @@
 	};
 
 /***/ },
-/* 109 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(110);
+	// 7.1.13 ToObject(argument)
+	var defined = __webpack_require__(79);
+	module.exports = function(it){
+	  return Object(defined(it));
+	};
+
+/***/ },
+/* 105 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(106);
 	var global        = __webpack_require__(60)
 	  , hide          = __webpack_require__(64)
-	  , Iterators     = __webpack_require__(101)
-	  , TO_STRING_TAG = __webpack_require__(107)('toStringTag');
+	  , Iterators     = __webpack_require__(84)
+	  , TO_STRING_TAG = __webpack_require__(102)('toStringTag');
 	
 	for(var collections = ['NodeList', 'DOMTokenList', 'MediaList', 'StyleSheetList', 'CSSRuleList'], i = 0; i < 5; i++){
 	  var NAME       = collections[i]
@@ -1521,20 +1457,20 @@
 	}
 
 /***/ },
-/* 110 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var addToUnscopables = __webpack_require__(111)
-	  , step             = __webpack_require__(112)
-	  , Iterators        = __webpack_require__(101)
-	  , toIObject        = __webpack_require__(82);
+	var addToUnscopables = __webpack_require__(107)
+	  , step             = __webpack_require__(108)
+	  , Iterators        = __webpack_require__(84)
+	  , toIObject        = __webpack_require__(90);
 	
 	// 22.1.3.4 Array.prototype.entries()
 	// 22.1.3.13 Array.prototype.keys()
 	// 22.1.3.29 Array.prototype.values()
 	// 22.1.3.30 Array.prototype[@@iterator]()
-	module.exports = __webpack_require__(98)(Array, 'Array', function(iterated, kind){
+	module.exports = __webpack_require__(80)(Array, 'Array', function(iterated, kind){
 	  this._t = toIObject(iterated); // target
 	  this._i = 0;                   // next index
 	  this._k = kind;                // kind
@@ -1560,13 +1496,13 @@
 	addToUnscopables('entries');
 
 /***/ },
-/* 111 */
+/* 107 */
 /***/ function(module, exports) {
 
 	module.exports = function(){ /* empty */ };
 
 /***/ },
-/* 112 */
+/* 108 */
 /***/ function(module, exports) {
 
 	module.exports = function(done, value){
@@ -1574,43 +1510,58 @@
 	};
 
 /***/ },
-/* 113 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports.f = __webpack_require__(107);
+	exports.f = __webpack_require__(102);
 
 /***/ },
-/* 114 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(115), __esModule: true };
+	module.exports = { "default": __webpack_require__(111), __esModule: true };
 
 /***/ },
-/* 115 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(116);
+	__webpack_require__(112);
 	var $Object = __webpack_require__(61).Object;
 	module.exports = function getOwnPropertyNames(it){
 	  return $Object.getOwnPropertyNames(it);
 	};
 
 /***/ },
-/* 116 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.7 Object.getOwnPropertyNames(O)
-	__webpack_require__(93)('getOwnPropertyNames', function(){
-	  return __webpack_require__(117).f;
+	__webpack_require__(113)('getOwnPropertyNames', function(){
+	  return __webpack_require__(114).f;
 	});
 
 /***/ },
-/* 117 */
+/* 113 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// most Object methods by ES6 should accept primitives
+	var $export = __webpack_require__(59)
+	  , core    = __webpack_require__(61)
+	  , fails   = __webpack_require__(70);
+	module.exports = function(KEY, exec){
+	  var fn  = (core.Object || {})[KEY] || Object[KEY]
+	    , exp = {};
+	  exp[KEY] = exec(fn);
+	  $export($export.S + $export.F * fails(function(){ fn(1); }), 'Object', exp);
+	};
+
+/***/ },
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
-	var toIObject = __webpack_require__(82)
-	  , gOPN      = __webpack_require__(118).f
+	var toIObject = __webpack_require__(90)
+	  , gOPN      = __webpack_require__(115).f
 	  , toString  = {}.toString;
 	
 	var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
@@ -1630,16 +1581,43 @@
 
 
 /***/ },
-/* 118 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
-	var $keys      = __webpack_require__(80)
-	  , hiddenKeys = __webpack_require__(92).concat('length', 'prototype');
+	var $keys      = __webpack_require__(89)
+	  , hiddenKeys = __webpack_require__(99).concat('length', 'prototype');
 	
 	exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O){
 	  return $keys(O, hiddenKeys);
 	};
+
+/***/ },
+/* 116 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(117), __esModule: true };
+
+/***/ },
+/* 117 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(118);
+	module.exports = __webpack_require__(61).Object.keys;
+
+/***/ },
+/* 118 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.2.14 Object.keys(O)
+	var toObject = __webpack_require__(104)
+	  , $keys    = __webpack_require__(88);
+	
+	__webpack_require__(113)('keys', function(){
+	  return function keys(it){
+	    return $keys(toObject(it));
+	  };
+	});
 
 /***/ },
 /* 119 */
@@ -2224,11 +2202,13 @@
 	exports.getJSON = getJSON;
 	exports.getScrollBarWidth = getScrollBarWidth;
 	exports.translations = translations;
+	exports.delayer = delayer;
+	exports.VueFixer = VueFixer;
 	// coerce convert som types of data into another type
 	var coerce = exports.coerce = {
 	  // Convert a string to booleam. Otherwise, return the value without modification, so if is not boolean, Vue throw a warning.
 	  boolean: function boolean(val) {
-	    return typeof val === 'string' ? val === 'false' || val === 'null' || val === 'undefined' ? false : val === 'true' ? true : val : val;
+	    return typeof val === 'string' ? val === '' || val === 'true' ? true : val === 'false' || val === 'null' || val === 'undefined' ? false : val : val;
 	  },
 	  // Attempt to convert a string value to a Number. Otherwise, return 0.
 	  number: function number(val) {
@@ -2270,27 +2250,31 @@
 	  p.done(JSON.parse);
 	  request.onreadystatechange = function () {
 	    if (request.readyState === 4) {
+	      var response;
+	      var i;
+	      var value;
+	
 	      (function () {
 	        var e = { status: request.status };
 	        if (request.status === 200) {
 	          try {
-	            (function () {
-	              var value = void 0,
-	                  response = request.responseText;
-	              data.done.forEach(function (done) {
-	                if ((value = done(response)) !== undefined) {
-	                  response = value;
-	                }
-	              });
-	            })();
-	          } catch (e) {
+	            response = request.responseText;
+	
+	            for (i in data.done) {
+	              value = data.done[i](response);
+	
+	              if (value !== undefined) {
+	                response = value;
+	              }
+	            }
+	          } catch (err) {
 	            data.fail.forEach(function (fail) {
-	              fail(e);
+	              return fail(err);
 	            });
 	          }
 	        } else {
 	          data.fail.forEach(function (fail) {
-	            fail(e);
+	            return fail(e);
 	          });
 	        }
 	      })();
@@ -2332,8 +2316,9 @@
 	}
 	
 	// return all the translations or the default language (english)
-	function translations(lang) {
-	  lang = lang || 'en';
+	function translations() {
+	  var lang = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'en';
+	
 	  var text = {
 	    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
 	    limit: 'Limit reached ({{limit}} items max).',
@@ -2345,6 +2330,74 @@
 	    search: 'Search'
 	  };
 	  return window.VueStrapLang ? window.VueStrapLang(lang) : text;
+	}
+	
+	// delayer: set a function that execute after a delay
+	// @params (function, delay_prop or value, default_value)
+	function delayer(fn, varTimer) {
+	  var ifNaN = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 100;
+	
+	  function toInt(el) {
+	    return (/^[0-9]+$/.test(el) ? Number(el) || 1 : null
+	    );
+	  }
+	  var timerId;
+	  return function () {
+	    var _this = this;
+	
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+	
+	    if (timerId) clearTimeout(timerId);
+	    timerId = setTimeout(function () {
+	      fn.apply(_this, args);
+	    }, toInt(varTimer) || toInt(this[varTimer]) || ifNaN);
+	  };
+	}
+	
+	// Fix a vue instance Lifecycle to vue 1/2 (just the basic elements, is not a real parser, so this work only if your code is compatible with both)
+	function VueFixer(vue) {
+	  var vue2 = !window.Vue || !window.Vue.partial;
+	  var mixin = {
+	    computed: {
+	      vue2: function vue2() {
+	        return !this.$dispatch;
+	      }
+	    }
+	  };
+	  if (!vue2) {
+	    if (vue.beforeCreate) {
+	      mixin.create = vue.beforeCreate;
+	      delete vue.beforeCreate;
+	    }
+	    if (vue.beforeMount) {
+	      vue.beforeCompile = vue.beforeMount;
+	      delete vue.beforeMount;
+	    }
+	    if (vue.mounted) {
+	      vue.ready = vue.mounted;
+	      delete vue.mounted;
+	    }
+	  } else {
+	    if (vue.beforeCompile) {
+	      vue.beforeMount = vue.beforeCompile;
+	      delete vue.beforeCompile;
+	    }
+	    if (vue.compiled) {
+	      mixin.compiled = vue.compiled;
+	      delete vue.compiled;
+	    }
+	    if (vue.ready) {
+	      vue.mounted = vue.ready;
+	      delete vue.ready;
+	    }
+	  }
+	  if (!vue.mixins) {
+	    vue.mixins = [];
+	  }
+	  vue.mixins.unshift(mixin);
+	  return vue;
 	}
 
 /***/ },
@@ -3154,7 +3207,9 @@
 	    var container = this._slotContents.default;
 	    if (container) {
 	      (0, _NodeList2.default)(container.children).each(function (option) {
-	        if (option && option.children) _this.options.push((0, _NodeList2.default)(option.children).innerHTML);
+	        if (option && option.children) _this.options.push((0, _NodeList2.default)(option.children).map(function (el) {
+	          return el.innerHTML;
+	        }));
 	      });
 	    }
 	  }
@@ -4766,7 +4821,7 @@
 	
 	exports.__esModule = true;
 	
-	var _iterator = __webpack_require__(94);
+	var _iterator = __webpack_require__(74);
 	
 	var _iterator2 = _interopRequireDefault(_iterator);
 	
@@ -4807,30 +4862,30 @@
 	'use strict';
 	// ECMAScript 6 symbols shim
 	var global         = __webpack_require__(60)
-	  , has            = __webpack_require__(81)
+	  , has            = __webpack_require__(83)
 	  , DESCRIPTORS    = __webpack_require__(69)
 	  , $export        = __webpack_require__(59)
-	  , redefine       = __webpack_require__(100)
+	  , redefine       = __webpack_require__(82)
 	  , META           = __webpack_require__(167).KEY
 	  , $fails         = __webpack_require__(70)
-	  , shared         = __webpack_require__(90)
-	  , setToStringTag = __webpack_require__(106)
-	  , uid            = __webpack_require__(91)
-	  , wks            = __webpack_require__(107)
-	  , wksExt         = __webpack_require__(113)
+	  , shared         = __webpack_require__(97)
+	  , setToStringTag = __webpack_require__(101)
+	  , uid            = __webpack_require__(98)
+	  , wks            = __webpack_require__(102)
+	  , wksExt         = __webpack_require__(109)
 	  , wksDefine      = __webpack_require__(168)
 	  , keyOf          = __webpack_require__(169)
 	  , enumKeys       = __webpack_require__(170)
 	  , isArray        = __webpack_require__(173)
 	  , anObject       = __webpack_require__(66)
-	  , toIObject      = __webpack_require__(82)
+	  , toIObject      = __webpack_require__(90)
 	  , toPrimitive    = __webpack_require__(72)
 	  , createDesc     = __webpack_require__(73)
-	  , _create        = __webpack_require__(103)
-	  , gOPNExt        = __webpack_require__(117)
+	  , _create        = __webpack_require__(86)
+	  , gOPNExt        = __webpack_require__(114)
 	  , $GOPD          = __webpack_require__(174)
 	  , $DP            = __webpack_require__(65)
-	  , $keys          = __webpack_require__(79)
+	  , $keys          = __webpack_require__(88)
 	  , gOPD           = $GOPD.f
 	  , dP             = $DP.f
 	  , gOPN           = gOPNExt.f
@@ -4953,11 +5008,11 @@
 	
 	  $GOPD.f = $getOwnPropertyDescriptor;
 	  $DP.f   = $defineProperty;
-	  __webpack_require__(118).f = gOPNExt.f = $getOwnPropertyNames;
+	  __webpack_require__(115).f = gOPNExt.f = $getOwnPropertyNames;
 	  __webpack_require__(172).f  = $propertyIsEnumerable;
 	  __webpack_require__(171).f = $getOwnPropertySymbols;
 	
-	  if(DESCRIPTORS && !__webpack_require__(99)){
+	  if(DESCRIPTORS && !__webpack_require__(81)){
 	    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
 	  }
 	
@@ -5044,9 +5099,9 @@
 /* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var META     = __webpack_require__(91)('meta')
+	var META     = __webpack_require__(98)('meta')
 	  , isObject = __webpack_require__(67)
-	  , has      = __webpack_require__(81)
+	  , has      = __webpack_require__(83)
 	  , setDesc  = __webpack_require__(65).f
 	  , id       = 0;
 	var isExtensible = Object.isExtensible || function(){
@@ -5104,8 +5159,8 @@
 
 	var global         = __webpack_require__(60)
 	  , core           = __webpack_require__(61)
-	  , LIBRARY        = __webpack_require__(99)
-	  , wksExt         = __webpack_require__(113)
+	  , LIBRARY        = __webpack_require__(81)
+	  , wksExt         = __webpack_require__(109)
 	  , defineProperty = __webpack_require__(65).f;
 	module.exports = function(name){
 	  var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
@@ -5116,8 +5171,8 @@
 /* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getKeys   = __webpack_require__(79)
-	  , toIObject = __webpack_require__(82);
+	var getKeys   = __webpack_require__(88)
+	  , toIObject = __webpack_require__(90);
 	module.exports = function(object, el){
 	  var O      = toIObject(object)
 	    , keys   = getKeys(O)
@@ -5132,7 +5187,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// all enumerable object keys, includes symbols
-	var getKeys = __webpack_require__(79)
+	var getKeys = __webpack_require__(88)
 	  , gOPS    = __webpack_require__(171)
 	  , pIE     = __webpack_require__(172);
 	module.exports = function(it){
@@ -5164,7 +5219,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.2.2 IsArray(argument)
-	var cof = __webpack_require__(84);
+	var cof = __webpack_require__(92);
 	module.exports = Array.isArray || function isArray(arg){
 	  return cof(arg) == 'Array';
 	};
@@ -5175,9 +5230,9 @@
 
 	var pIE            = __webpack_require__(172)
 	  , createDesc     = __webpack_require__(73)
-	  , toIObject      = __webpack_require__(82)
+	  , toIObject      = __webpack_require__(90)
 	  , toPrimitive    = __webpack_require__(72)
-	  , has            = __webpack_require__(81)
+	  , has            = __webpack_require__(83)
 	  , IE8_DOM_DEFINE = __webpack_require__(68)
 	  , gOPD           = Object.getOwnPropertyDescriptor;
 	
@@ -15043,8 +15098,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./spinner.scss", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./spinner.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./spinner.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./spinner.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -16004,6 +16059,18 @@
 	
 	//       <div>
 	
+	//         <p>delay</p>
+	
+	//         <p><code>Number</code></p>
+	
+	//         <p><code>200</code></p>
+	
+	//         <p>Delay before calling async data while typing.</p>
+	
+	//       </div>
+	
+	//       <div>
+	
 	//         <p>limit</p>
 	
 	//         <p><code>Number</code></p>
@@ -16164,7 +16231,7 @@
 	
 	//   <div style="position: relative"
 	
-	//     v-bind:class="{'open':showDropdown}"
+	//        v-bind:class="{'open':showDropdown}"
 	
 	//   >
 	
@@ -16210,13 +16277,16 @@
 	
 	
 	// <script>
+	
+	var _DELAY_ = 200;
+	
 	exports.default = {
 	  created: function created() {
 	    this.items = this.primitiveData;
 	  },
 	
 	  partials: {
-	    default: '<span v-html="item | highlight query"></span>'
+	    default: '<span v-html="item | highlight value"></span>'
 	  },
 	  props: {
 	    value: {
@@ -16264,6 +16334,11 @@
 	    },
 	    placeholder: {
 	      type: String
+	    },
+	    delay: {
+	      type: Number,
+	      default: _DELAY_,
+	      coerce: _utils.coerce.number
 	    }
 	  },
 	  data: function data() {
@@ -16297,8 +16372,6 @@
 	
 	  methods: {
 	    update: function update() {
-	      var _this2 = this;
-	
 	      if (!this.value) {
 	        this.reset();
 	        return false;
@@ -16307,13 +16380,17 @@
 	        this.items = this.primitiveData;
 	        this.showDropdown = this.items.length > 0;
 	      }
-	      if (this.async) {
-	        (0, _utils.getJSON)(this.async + this.value).then(function (data) {
-	          _this2.items = (_this2.key ? data[_this2.key] : data).slice(0, _this2.limit);
-	          _this2.showDropdown = _this2.items.length > 0;
-	        });
-	      }
+	      if (this.async) this.query();
 	    },
+	
+	    query: (0, _utils.delayer)(function () {
+	      var _this2 = this;
+	
+	      (0, _utils.getJSON)(this.async + this.value).then(function (data) {
+	        _this2.items = (_this2.key ? data[_this2.key] : data).slice(0, _this2.limit);
+	        _this2.showDropdown = _this2.items.length;
+	      });
+	    }, 'delay', _DELAY_),
 	    reset: function reset() {
 	      this.items = [];
 	      this.value = '';
@@ -16360,13 +16437,13 @@
 /* 344 */
 /***/ function(module, exports) {
 
-	module.exports = "<div style=\"position: relative\"\r\n    v-bind:class=\"{'open':showDropdown}\"\r\n  >\r\n    <input type=\"text\" class=\"form-control\"\r\n      :placeholder=\"placeholder\"\r\n      autocomplete=\"off\"\r\n      v-model=\"value\"\r\n      @input=\"update\"\r\n      @keydown.up=\"up\"\r\n      @keydown.down=\"down\"\r\n      @keydown.enter= \"hit\"\r\n      @keydown.esc=\"reset\"\r\n      @blur=\"showDropdown = false\"\r\n    />\r\n    <ul class=\"dropdown-menu\" v-el:dropdown>\r\n      <li v-for=\"item in items\" v-bind:class=\"{'active': isActive($index)}\">\r\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive($index)\">\r\n          <partial :name=\"templateName\"></partial>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>";
+	module.exports = "<div style=\"position: relative\"\r\n       v-bind:class=\"{'open':showDropdown}\"\r\n  >\r\n    <input type=\"text\" class=\"form-control\"\r\n      :placeholder=\"placeholder\"\r\n      autocomplete=\"off\"\r\n      v-model=\"value\"\r\n      @input=\"update\"\r\n      @keydown.up=\"up\"\r\n      @keydown.down=\"down\"\r\n      @keydown.enter= \"hit\"\r\n      @keydown.esc=\"reset\"\r\n      @blur=\"showDropdown = false\"\r\n    />\r\n    <ul class=\"dropdown-menu\" v-el:dropdown>\r\n      <li v-for=\"item in items\" v-bind:class=\"{'active': isActive($index)}\">\r\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive($index)\">\r\n          <partial :name=\"templateName\"></partial>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>";
 
 /***/ },
 /* 345 */
 /***/ function(module, exports) {
 
-	module.exports = "<doc-section id=\"typeahead\" name=\"Typeahead\">\r\n    <div class=\"bs-example\">\r\n      <h4>\r\n        Static arrays\r\n      </h4>\r\n      <typeahead\r\n        :data=\"USstate\"\r\n        placeholder=\"USA states\"\r\n      ></typeahead>\r\n      <hr>\r\n      <h4>\r\n      Asynchronous results\r\n      <tooltip trigger=\"click\" content=\"The suggestions via a Google Map API, are you behind a FireWall?\" placement=\"top\">\r\n        <small style=\"cursor:pointer\">(not working?)</small>\r\n      </tooltip>\r\n      </h4>\r\n      <typeahead\r\n        placeholder=\"CCCAddress, async via maps.googleapis.com\"\r\n        key=\"results\"\r\n        async=\"https://maps.googleapis.com/maps/api/geocode/json?address=\"\r\n        template-name=\"async\"\r\n        :template=\"asyncTemplate\"\r\n        :on-hit=\"googleCallback\"\r\n      ></typeahead>\r\n      <hr>\r\n      <h4>\r\n      Custom templates for results\r\n      </h4>\r\n      <typeahead\r\n        placeholder=\"Github users, async via api.github.com\"\r\n        key=\"items\"\r\n        async=\"https://api.github.com/search/users?q=\"\r\n        template-name=\"github\"\r\n        :template=\"githubTemplate\"\r\n        :on-hit=\"githubCallback\"\r\n      ></typeahead>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <h4>Static arrays</h4>\r\n      <typeahead\r\n        :data=\"USstate\"\r\n        placeholder=\"USA states\">\r\n      </typeahead>\r\n\r\n      <h4>Asynchronous results</h4>\r\n        <typeahead\r\n          placeholder=\"Address, async via maps.googleapis.com\"\r\n          key=\"results\"\r\n          src=\"https://maps.googleapis.com/maps/api/geocode/json?address=\"\r\n          template-name=\"async\"\r\n          :template=\"asyncTemplate\"\r\n          :on-hit=\"googleCallback\">\r\n      </typeahead>\r\n\r\n      <h4>Custom templates for results</h4>\r\n        <typeahead\r\n          placeholder=\"Github users, async via api.github.com\"\r\n          key=\"items\"\r\n          src=\"https://api.github.com/search/users?q=\"\r\n          template-name=\"typeahead-github-template\"\r\n          :template=\"githubTemplate\"\r\n          :on-hit=\"githubCallback\">\r\n      </typeahead>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      new Vue {\r\n        components: {\r\n          typeahead\r\n        },\r\n        data() {\r\n          return {\r\n            USstate: ['Alabama', 'Alaska', 'Arizona',...],\r\n            asyncTemplate: '{{ item.formatted_address }}',\r\n            githubTemplate: '<img width=\"18px\" height=\"18px\" :src=\"item.avatar_url\"/> <span>{{item.login}}</span>'\r\n          }\r\n        },\r\n        methods: {\r\n          googleCallback(items, targetVM) {\r\n            const that = targetVM;\r\n            that.reset()\r\n            that.value = items.formatted_address\r\n          },\r\n          githubCallback(items) {\r\n            window.open(items.html_url, '_blank')\r\n          }\r\n        }\r\n      }\r\n    </doc-code>\r\n    <doc-table>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>data</p>\r\n        <p><code>Array</code></p>\r\n        <p></p>\r\n        <p>The local data source for suggestions. Expected to be a primitive array.</p>\r\n      </div>\r\n      <div>\r\n        <p>async</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>An HTTP URL for asynchronous suggestions. Expected to return a JSON object.</p>\r\n      </div>\r\n      <div>\r\n        <p>limit</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>8</code></p>\r\n        <p>The max number of suggestions to be displayed.</p>\r\n      </div>\r\n      <div>\r\n        <p>key</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).</p>\r\n      </div>\r\n      <div>\r\n        <p>match-case</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Case sensitive for suggestions.</p>\r\n      </div>\r\n      <div>\r\n        <p>match-start</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Match only against start of suggestions. E.g. if true, \"a\" matches \"ab\" but not \"ba\".</p>\r\n      </div>\r\n      <div>\r\n        <p>on-hit</p>\r\n        <p><code>Function</code></p>\r\n        <p></p>\r\n        <p>A callback function when you click or hit return on an item.</p>\r\n      </div>\r\n      <div>\r\n        <p>template</p>\r\n        <p><code>String</code></p>\r\n        <p><code>&lt;span v-html=&quot;$value | highlight query&quot;&gt;&lt;/span&gt;</code></p>\r\n        <p>Used to render suggestion.</p>\r\n      </div>\r\n    </doc-table>\r\n  </div>\r\n</template>";
+	module.exports = "<doc-section id=\"typeahead\" name=\"Typeahead\">\r\n    <div class=\"bs-example\">\r\n      <h4>\r\n        Static arrays\r\n      </h4>\r\n      <typeahead\r\n        :data=\"USstate\"\r\n        placeholder=\"USA states\"\r\n      ></typeahead>\r\n      <hr>\r\n      <h4>\r\n      Asynchronous results\r\n      <tooltip trigger=\"click\" content=\"The suggestions via a Google Map API, are you behind a FireWall?\" placement=\"top\">\r\n        <small style=\"cursor:pointer\">(not working?)</small>\r\n      </tooltip>\r\n      </h4>\r\n      <typeahead\r\n        placeholder=\"CCCAddress, async via maps.googleapis.com\"\r\n        key=\"results\"\r\n        async=\"https://maps.googleapis.com/maps/api/geocode/json?address=\"\r\n        template-name=\"async\"\r\n        :template=\"asyncTemplate\"\r\n        :on-hit=\"googleCallback\"\r\n      ></typeahead>\r\n      <hr>\r\n      <h4>\r\n      Custom templates for results\r\n      </h4>\r\n      <typeahead\r\n        placeholder=\"Github users, async via api.github.com\"\r\n        key=\"items\"\r\n        async=\"https://api.github.com/search/users?q=\"\r\n        template-name=\"github\"\r\n        :template=\"githubTemplate\"\r\n        :on-hit=\"githubCallback\"\r\n      ></typeahead>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      <h4>Static arrays</h4>\r\n      <typeahead\r\n        :data=\"USstate\"\r\n        placeholder=\"USA states\">\r\n      </typeahead>\r\n\r\n      <h4>Asynchronous results</h4>\r\n        <typeahead\r\n          placeholder=\"Address, async via maps.googleapis.com\"\r\n          key=\"results\"\r\n          src=\"https://maps.googleapis.com/maps/api/geocode/json?address=\"\r\n          template-name=\"async\"\r\n          :template=\"asyncTemplate\"\r\n          :on-hit=\"googleCallback\">\r\n      </typeahead>\r\n\r\n      <h4>Custom templates for results</h4>\r\n        <typeahead\r\n          placeholder=\"Github users, async via api.github.com\"\r\n          key=\"items\"\r\n          src=\"https://api.github.com/search/users?q=\"\r\n          template-name=\"typeahead-github-template\"\r\n          :template=\"githubTemplate\"\r\n          :on-hit=\"githubCallback\">\r\n      </typeahead>\r\n    </doc-code>\r\n    <doc-code language=\"javascript\">\r\n      new Vue {\r\n        components: {\r\n          typeahead\r\n        },\r\n        data() {\r\n          return {\r\n            USstate: ['Alabama', 'Alaska', 'Arizona',...],\r\n            asyncTemplate: '{{ item.formatted_address }}',\r\n            githubTemplate: '<img width=\"18px\" height=\"18px\" :src=\"item.avatar_url\"/> <span>{{item.login}}</span>'\r\n          }\r\n        },\r\n        methods: {\r\n          googleCallback(items, targetVM) {\r\n            const that = targetVM;\r\n            that.reset()\r\n            that.value = items.formatted_address\r\n          },\r\n          githubCallback(items) {\r\n            window.open(items.html_url, '_blank')\r\n          }\r\n        }\r\n      }\r\n    </doc-code>\r\n    <doc-table>\r\n      <div>\r\n        <p>value</p>\r\n        <p><code>String</code></p>\r\n        <p><code>''</code></p>\r\n        <p></p>\r\n      </div>\r\n      <div>\r\n        <p>data</p>\r\n        <p><code>Array</code></p>\r\n        <p></p>\r\n        <p>The local data source for suggestions. Expected to be a primitive array.</p>\r\n      </div>\r\n      <div>\r\n        <p>async</p>\r\n        <p><code>String</code></p>\r\n        <p></p>\r\n        <p>An HTTP URL for asynchronous suggestions. Expected to return a JSON object.</p>\r\n      </div>\r\n      <div>\r\n        <p>delay</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>200</code></p>\r\n        <p>Delay before calling async data while typing.</p>\r\n      </div>\r\n      <div>\r\n        <p>limit</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>8</code></p>\r\n        <p>The max number of suggestions to be displayed.</p>\r\n      </div>\r\n      <div>\r\n        <p>key</p>\r\n        <p><code>String</code></p>\r\n        <p><code>null</code></p>\r\n        <p>The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).</p>\r\n      </div>\r\n      <div>\r\n        <p>match-case</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Case sensitive for suggestions.</p>\r\n      </div>\r\n      <div>\r\n        <p>match-start</p>\r\n        <p><code>Boolean</code></p>\r\n        <p><code>false</code></p>\r\n        <p>Match only against start of suggestions. E.g. if true, \"a\" matches \"ab\" but not \"ba\".</p>\r\n      </div>\r\n      <div>\r\n        <p>on-hit</p>\r\n        <p><code>Function</code></p>\r\n        <p></p>\r\n        <p>A callback function when you click or hit return on an item.</p>\r\n      </div>\r\n      <div>\r\n        <p>template</p>\r\n        <p><code>String</code></p>\r\n        <p><code>&lt;span v-html=&quot;$value | highlight query&quot;&gt;&lt;/span&gt;</code></p>\r\n        <p>Used to render suggestion.</p>\r\n      </div>\r\n    </doc-table>\r\n  </div>\r\n</template>";
 
 /***/ },
 /* 346 */
