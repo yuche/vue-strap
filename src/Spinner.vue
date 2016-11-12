@@ -9,7 +9,7 @@
 
 <script>
 // import styling
-import './spinner.scss'
+import './utils/spinner.scss'
 import {coerce} from './utils/utils.js'
 
 const MIN_WAIT = 500 // in ms

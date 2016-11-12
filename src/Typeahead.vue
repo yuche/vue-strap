@@ -1,6 +1,6 @@
 <template>
   <div style="position: relative"
-    v-bind:class="{'open':showDropdown}"
+       v-bind:class="{'open':showDropdown}"
   >
     <input type="text" class="form-control"
       :placeholder="placeholder"
@@ -24,16 +24,17 @@
 </template>
 
 <script>
-import {getJSON, coerce} from './utils/utils.js'
+import {coerce, delayer, getJSON} from './utils/utils.js'
 
 let Vue = window.Vue
+const _DELAY_ = 200
 
 export default {
   created () {
     this.items = this.primitiveData
   },
   partials: {
-    default: '<span v-html="item | highlight query"></span>'
+    default: '<span v-html="item | highlight value"></span>'
   },
   props: {
     value: {
@@ -81,6 +82,11 @@ export default {
     },
     placeholder: {
       type: String
+    },
+    delay: {
+      type: Number,
+      default: _DELAY_,
+      coerce: coerce.number
     }
   },
   data () {
@@ -118,13 +124,14 @@ export default {
         this.items = this.primitiveData
         this.showDropdown = this.items.length > 0
       }
-      if (this.async) {
-        getJSON(this.async + this.value).then(data => {
-          this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
-          this.showDropdown = this.items.length > 0
-        })
-      }
+      if (this.async) this.query()
     },
+    query: delayer(function () {
+      getJSON(this.async + this.value).then(data => {
+        this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
+        this.showDropdown = this.items.length
+      })
+    }, 'delay', _DELAY_),
     reset () {
       this.items = []
       this.value = ''

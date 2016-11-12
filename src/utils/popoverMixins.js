@@ -1,5 +1,5 @@
-import {coerce} from './utils/utils.js'
-import $ from './utils/NodeList.js'
+import {coerce} from './utils.js'
+import $ from './NodeList.js'
 
 export default {
   props: {

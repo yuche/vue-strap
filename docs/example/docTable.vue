@@ -63,8 +63,8 @@ export default {
   ready () {
     const container = this._slotContents.default
     if (container) {
-      $(container.children).each((option) => {
-        if(option && option.children) this.options.push($(option.children).innerHTML)
+      $(container.children).each(option => {
+        if(option && option.children) this.options.push($(option.children).map(el => el.innerHTML))
       })
     }
   }
