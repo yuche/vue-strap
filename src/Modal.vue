@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     backClose (e) {
-      if (this.backdrop && e.target === this.$el) { this.cose() }
+      if (this.backdrop && e.target === this.$el) { this.close() }
     },
     close () {
       this.$emit('cancel')
