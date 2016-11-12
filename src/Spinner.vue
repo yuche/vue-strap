@@ -9,7 +9,7 @@
 
 <script>
 // import styling
-import './spinner.scss'
+import './utils/spinner.scss'
 // let coerce = {
 //     fixed: 'boolean',
 //     global: 'boolean'
