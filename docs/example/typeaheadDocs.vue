@@ -107,6 +107,12 @@
         <p>An HTTP URL for asynchronous suggestions. Expected to return a JSON object.</p>
       </div>
       <div>
+        <p>delay</p>
+        <p><code>Number</code></p>
+        <p><code>200</code></p>
+        <p>Delay before calling async data while typing.</p>
+      </div>
+      <div>
         <p>limit</p>
         <p><code>Number</code></p>
         <p><code>8</code></p>

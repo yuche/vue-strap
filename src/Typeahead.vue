@@ -24,20 +24,14 @@
 </template>
 
 <script>
-import {getJSON, coerce} from './utils/utils.js'
-import _ from 'lodash'
+import {coerce, delayer, getJSON} from './utils/utils.js'
 
 let Vue = window.Vue
+const _DELAY_ = 200
 
 export default {
   created () {
     this.items = this.primitiveData
-    this.debounceUpdate =  _.debounce(function(that){
-       getJSON(that.async + that.value).then(data => {
-          that.items = (that.key ? data[that.key] : data).slice(0, that.limit)
-          that.showDropdown = that.items.length > 0
-        })
-    }, this.debounce);
   },
   partials: {
     default: '<span v-html="item | highlight value"></span>'
@@ -89,9 +83,9 @@ export default {
     placeholder: {
       type: String
     },
-    debounce:{
-      type:Number,
-      default:100,
+    delay: {
+      type: Number,
+      default: _DELAY_,
       coerce: coerce.number
     }
   },
@@ -130,10 +124,14 @@ export default {
         this.items = this.primitiveData
         this.showDropdown = this.items.length > 0
       }
-      if (this.async) {
-        this.debounceUpdate(this)
-      }
+      if (this.async) this.query()
     },
+    query: delayer(function () {
+      getJSON(this.async + this.value).then(data => {
+        this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
+        this.showDropdown = this.items.length
+      })
+    }, 'delay', _DELAY_),
     reset () {
       this.items = []
       this.value = ''
