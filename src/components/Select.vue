@@ -214,7 +214,11 @@ export default {
       })
     },
     validate () {
-      return !this.required ? true : this.val instanceof Array ? this.val.length > 0 : this.val !== null
+      return (
+        !this.required ? true :
+        this.val instanceof Array ? this.val.length > 0 :
+        !~['', null, undefined].indexOf(this.val)
+      )
     }
   },
   created () {
@@ -228,8 +232,8 @@ export default {
     this.checkMultiple()
     if (this.url) this.urlChanged()
     let parent = this.$parent
-    while (parent && !parent._formGroup) { parent = parent.$parent }
-    if (parent && parent._formGroup) {
+    while (parent && !parent._formValidator) { parent = parent.$parent }
+    if (parent && parent._formValidator) {
       this._parent = parent
     }
   },

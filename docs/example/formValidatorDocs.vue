@@ -37,7 +37,7 @@
       <div class="row">
         <form-validator v-model="valid.all">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <tabs :active="active">
+            <tabs v-model="active">
               <tab header="User">
                 <form-validator v-model="valid.user">
                   <bs-input label="User Name" required></bs-input>
