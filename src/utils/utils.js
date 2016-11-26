@@ -18,9 +18,8 @@ export function getJSON (url) {
     then (fn1, fn2) { return p.done(fn1).fail(fn2) },
     catch (fn) { return p.fail(fn) },
     always (fn) { return p.done(fn).fail(fn) }
-  }
-  var actions = ['done', 'fail']
-  actions.forEach(name => {
+  };
+  ['done', 'fail'].forEach(name => {
     data[name] = []
     p[name] = (fn) => {
       if (fn instanceof Function) data[name].push(fn)
@@ -33,9 +32,11 @@ export function getJSON (url) {
       let e = {status: request.status}
       if (request.status === 200) {
         try {
-          let value
-          let response = request.responseText
-          data.done.forEach(done => { if ((value = done(response)) !== undefined) { response = value } })
+          var response = request.responseText
+          for (var i in data.done) {
+            var value = data.done[i](response)
+            if (value !== undefined) { response = value }
+          }
         } catch (err) {
           data.fail.forEach(fail => fail(err))
         }
@@ -94,7 +95,8 @@ export function translations (lang = 'en') {
   return window.VueStrapLang ? window.VueStrapLang(lang) : text
 }
 
-// delayer: set a function that execute after a delay. Work with a prop timer set in the vue object, or a direct number value.
+// delayer: set a function that execute after a delay
+// @params (function, delay_prop or value, default_value)
 export function delayer (fn, varTimer, ifNaN = 100) {
   function toInt (el) { return /^[0-9]+$/.test(el) ? Number(el) || 1 : null }
   var timerId
@@ -106,47 +108,8 @@ export function delayer (fn, varTimer, ifNaN = 100) {
   }
 }
 
-var blurList = []
-export function oneBlur (node, callback) {
-  if (!callback) { return }
-  var blurEvent = e => {
-    if (!node.contains(e.target) && node !== e.target) {
-      callback.call(node, e, node)
-      offBlur(node, callback)
-    }
-  }
-  blurList.push({
-    node: node,
-    callback: callback,
-    blurEvent: blurEvent
-  })
-  document.addEventListener('click', blurEvent, false)
-  document.addEventListener('touchstart', blurEvent, false)
-}
-
-export function onBlur (node, callback) {
-  if (!callback) { return }
-  var blurEvent = e => {
-    if (!node.contains(e.target) && node !== e.target) callback.call(node, e, node)
-  }
-  blurList.push({
-    node: node,
-    callback: callback,
-    blurEvent: blurEvent
-  })
-  document.addEventListener('click', blurEvent, false)
-  document.addEventListener('touchstart', blurEvent, false)
-}
-
-export function offBlur (node, callback) {
-  blurList.filter(el => el.node === node && (callback ? el.callback === callback : true)).forEach(el => {
-    el.node.removeEventListener('click', el.callback)
-    el.node.removeEventListener('touchstart', el.callback)
-  })
-  blurList = blurList.filter(el => el.node !== node || (callback ? el.callback !== callback : false))
-}
-
-// Fix a vue instance Lifecycle to vue 1/2 (just the basic elements, is not a parser, so this work only if your code is compatible with both)
+// Fix a vue instance Lifecycle to vue 1/2 (just the basic elements, is not a real parser, so this work only if your code is compatible with both)
+// (Waiting for testing)
 export function VueFixer (vue) {
   var vue2 = !window.Vue || !window.Vue.partial
   var mixin = {
@@ -155,6 +118,7 @@ export function VueFixer (vue) {
     }
   }
   if (!vue2) {
+    //translate vue2 attributes to vue1
     if (vue.beforeCreate) {
       mixin.create = vue.beforeCreate
       delete vue.beforeCreate
@@ -168,6 +132,7 @@ export function VueFixer (vue) {
       delete vue.mounted
     }
   } else {
+    //translate vue1 attributes to vue2
     if (vue.beforeCompile) {
       vue.beforeMount = vue.beforeCompile
       delete vue.beforeCompile

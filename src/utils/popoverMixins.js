@@ -22,7 +22,7 @@ export default {
     toggle (e) {
       if (e && this.trigger === 'contextmenu') e.preventDefault()
       if (!(this.show = !this.show)) { return }
-      this.$nextThick(() => {
+      this.$nextTick(() => {
         const popover = this.$refs.popover
         const trigger = this.$refs.trigger.children[0]
         switch (this.placement) {
