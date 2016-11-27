@@ -260,9 +260,9 @@ import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
 import bsInput from 'src/Input.vue'
-import buttonGroup from 'src/buttonGroup.vue'
-import checkbox from 'src/Checkbox.vue'
-import dropdown from 'src/Dropdown.vue'
+import ButtonGroup from 'src/ButtonGroup.vue'
+import Checkbox from 'src/Checkbox.vue'
+import Dropdown from 'src/Dropdown.vue'
 
 export default {
   components: {
@@ -270,9 +270,9 @@ export default {
     docTable,
     docCode,
     bsInput,
-    buttonGroup,
-    checkbox,
-    dropdown
+    ButtonGroup,
+    Checkbox,
+    Dropdown
   },
   data () {
     return {

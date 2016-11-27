@@ -12,6 +12,7 @@ export default {
   props: {
     button: {type: Boolean, default: false},
     disabled: {type: Boolean, default: false},
+    falseValue: {default: false},
     name: {type: String, default: null},
     readonly: {type: Boolean, default: false},
     trueValue: {default: true},

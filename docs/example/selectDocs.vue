@@ -181,7 +181,7 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import buttonGroup from 'src/buttonGroup.vue'
+import ButtonGroup from 'src/ButtonGroup.vue'
 import checkbox from 'src/Checkbox.vue'
 import vSelect from 'src/Select.vue'
 import vOption from 'src/Option.vue'
@@ -191,7 +191,7 @@ export default {
     docSection,
     docTable,
     docCode,
-    buttonGroup,
+    ButtonGroup,
     checkbox,
     vSelect,
     vOption
