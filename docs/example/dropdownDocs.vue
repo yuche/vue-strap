@@ -139,7 +139,7 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import dropdown from 'src/components/Dropdown.vue'
+import dropdown from 'src/Dropdown.vue'
 
 export default {
   components: {

@@ -64,10 +64,10 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import Dropdown from 'src/components/Dropdown.vue'
+import Dropdown from 'src/Dropdown.vue'
 import Navbar from 'src/Navbar.vue'
 import Tooltip from 'src/Tooltip.vue'
-import vSelect from 'src/components/Select.vue'
+import vSelect from 'src/Select.vue'
 
 export default {
   components: {

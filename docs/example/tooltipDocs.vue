@@ -58,7 +58,7 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import bsInput from 'src/components/Input.vue'
+import bsInput from 'src/Input.vue'
 import tooltip from 'src/Tooltip.vue'
 
 export default {

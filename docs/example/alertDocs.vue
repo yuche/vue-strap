@@ -1,14 +1,28 @@
 <template>
   <doc-section id="alert" name="Alert">
-    <div class="bs-example" >
+    <div class="bs-example">
       <button class="btn btn-danger btn-lg"
         @click="showTop = !showTop">
         Click to toggle alert on top
       </button>
+      <alert v-model="showTop" placement="top" :duration="3000"
+        type="danger" width="400px" dismissable
+      >
+        <span class="icon-info-circled alert-icon-float-left"></span>
+        <strong>Heads up!</strong>
+        <p>This alert needs your attention.</p>
+      </alert>
       <button class="btn btn-success btn-lg"
         @click="showRight = !showRight">
         Click to toggle alert on right
       </button>
+      <alert v-model="showRight" placement="top-right" :duration="3000"
+        type="success" width="400px" dismissable
+      >
+        <span class="icon-ok-circled alert-icon-float-left"></span>
+        <strong>Well Done!</strong>
+        <p>You successfully read this important alert message.</p>
+      </alert>
       <hr>
       <alert type="success">
         <strong>Well Done!</strong>
@@ -22,20 +36,6 @@
       </alert>
       <alert type="warning" dismissable>
         <strong>Warning!</strong> Better check yourself, you're not looking too good.
-      </alert>
-      <alert v-model="showRight" placement="top-right" :duration="3000"
-        type="success" width="400px" dismissable
-      >
-        <span class="icon-ok-circled alert-icon-float-left"></span>
-        <strong>Well Done!</strong>
-        <p>You successfully read this important alert message.</p>
-      </alert>
-      <alert v-model="showTop" placement="top" :duration="3000"
-        type="danger" width="400px" dismissable
-      >
-        <span class="icon-info-circled alert-icon-float-left"></span>
-        <strong>Heads up!</strong>
-        <p>This alert needs your attention.</p>
       </alert>
     </div>
 
@@ -104,7 +104,7 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import alert from 'src/components/Alert.vue'
+import alert from 'src/Alert.vue'
 
 export default {
   components: {

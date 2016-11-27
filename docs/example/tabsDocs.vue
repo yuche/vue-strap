@@ -119,11 +119,11 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import checkbox from 'src/components/Checkbox.vue'
-import tabs from 'src/components/Tabs.vue'
-import tabGroup from 'src/components/TabGroup.vue'
-import tab from 'src/components/Tab.vue'
-import vSelect from 'src/components/Select.vue'
+import checkbox from 'src/Checkbox.vue'
+import tabs from 'src/Tabs.vue'
+import tabGroup from 'src/TabGroup.vue'
+import tab from 'src/Tab.vue'
+import vSelect from 'src/Select.vue'
 
 export default {
   components: {
