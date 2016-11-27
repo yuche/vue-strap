@@ -85,7 +85,7 @@ export default {
     filteredOptions () {
       var search = (this.searchValue || '').toLowerCase()
       return !search ? this.list : this.list.filter(el => {
-        return !!~el[this.optionsValue].toLowerCase().search(search)
+        return ~el[this.optionsValue].toLowerCase().search(search)
       })
     },
     hasParent () { return this.parent instanceof Array ? this.parent.length : this.parent },
@@ -100,7 +100,8 @@ export default {
     },
     showPlaceholder () { return (this.values.length === 0 || !this.hasParent) ? (this.placeholder || this.text.notSelected) : null },
     text () { return translations(this.lang) },
-    values () { return this.val instanceof Array ? this.val : ~[null, undefined].indexOf(this.val) ? [] : [this.val] }
+    values () { return this.val instanceof Array ? this.val : ~[null, undefined].indexOf(this.val) ? [] : [this.val] },
+    valOptions () { return this.list.map(el => el[this.optionsValue]) }
   },
   watch: {
     options (options) {
@@ -132,6 +133,7 @@ export default {
         this.$emit('input', val)
       }
       if (val instanceof Array && val.length > this.limit) {
+        this.val = val.slice(0, this.limit)
         this.notify = true
         if (timeout.limit) clearTimeout(timeout.limit)
         timeout.limit = setTimeout(() => {
@@ -139,7 +141,6 @@ export default {
           this.notify = false
         }, 1500)
       }
-      this.checkMultiple()
       this.valid = this.validate()
     }
   },
@@ -147,15 +148,19 @@ export default {
     blur () {
       this.show = false
     },
-    checkMultiple () {
+    checkData () {
       if (this.multiple) {
         if (this.limit < 1) { this.limit = 1 }
         if (!(this.val instanceof Array)) {
           this.val = (this.val === null || this.val === undefined) ? [] : [this.val]
         }
+        var values = this.valOptions
+        this.val = this.val.filter(el => ~values.indexOf(el))
         if (this.values.length > this.limit) {
           this.val = this.val.slice(0, this.limit)
         }
+      } else {
+        if (!~this.valOptions.indexOf(this.val)) { this.val = null }
       }
     },
     clear () {
@@ -194,7 +199,7 @@ export default {
         obj[this.optionsValue] = el
         return obj
       })
-      this.$emit('input-options', this.list)
+      this.$emit('options', this.list)
     },
     toggle () {
       this.show = !this.show
@@ -207,10 +212,9 @@ export default {
         try { data = JSON.parse(data) } catch (e) {}
         this.setOptions(data)
         this.loading = false
-        this.checkMultiple()
+        this.checkData()
       }, response => {
         this.loading = false
-        this.checkMultiple()
       })
     },
     validate () {
@@ -225,7 +229,7 @@ export default {
     if (!this.multiple && this.val instanceof Array) {
       this.val = this.val[0]
     }
-    this.checkMultiple()
+    this.checkData()
     if (this.url) this.urlChanged()
     let parent = this.$parent
     while (parent && !parent._formGroup) { parent = parent.$parent }
