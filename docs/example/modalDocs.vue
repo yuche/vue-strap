@@ -89,14 +89,15 @@
       >
         ...
       &lt;/modal>
-      &lt;!-- personalice buttons -->
       &lt;modal v-model="show" effect="fade">
+        &lt;!-- custom header -->
         &lt;div slot="modal-header" class="modal-header">
           &lt;h4 class="modal-title">
             &lt;i>Custom&lt;/i> &lt;code>Modal&lt;/code> &lt;b>Title&lt;/b>
           &lt;/h4>
         &lt;/div>
         ...
+        &lt;!-- custom buttons -->
         &lt;div slot="modal-footer" class="modal-footer">
           &lt;button type="button" class="btn btn-default" @click="showCustomModal = false">Exit&lt;/button>
           &lt;button type="button" class="btn btn-success" @click="saveMethod">Custom Save&lt;/button>

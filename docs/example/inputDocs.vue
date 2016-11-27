@@ -6,15 +6,15 @@
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <bs-input name="username"
               :disabled="check.disabled"
-              :error="check.error && 'Insert user name'"
+              :error="check.error ? 'Insert user name' : null"
               help="Only allows lowercase letters and numbers."
               :enter-submit="check.enterSubmit"
               :icon="check.icon"
-              :label="check.label && 'User Name'"
+              :label="check.label ? 'User Name' : null"
               :mask="check.mask?mask:null"
               :minlength="check.minlength?5:0"
               pattern="^[a-z][a-z0-9]+$"
-              :placeholder="check.placeholder && 'Username can\'t start with a number.'"
+              :placeholder="check.placeholder ? 'Username can\'t start with a number.' : null"
               :readonly="check.readonly"
               :required="check.required"
               :hide-help="check.hideHelp"
@@ -29,22 +29,22 @@
           </div>
         </div>
         <div class="row">
-          <button-group type="primary" buttons="false">
+          <button-group type="primary" :buttons="false">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <p><checkbox :checked="check.label" @checked="check.label = arguments[0]">Label</checkbox></p>
-              <p><checkbox :checked="check.placeholder" @checked="check.placeholder = arguments[0]">placeholder</checkbox></p>
-              <p><checkbox :checked="check.hideHelp" @checked="check.hideHelp = arguments[0]">hide help</checkbox></p>
-              <p><checkbox :checked="check.disabled" @checked="check.disabled = arguments[0]">disabled</checkbox></p>
-              <p><checkbox :checked="check.error" @checked="check.error = arguments[0]">error</checkbox></p>
-              <p><checkbox :checked="check.icon" @checked="check.icon = arguments[0]">icon</checkbox></p>
+              <p><checkbox v-model="check.label">Label</checkbox></p>
+              <p><checkbox v-model="check.placeholder">placeholder</checkbox></p>
+              <p><checkbox v-model="check.hideHelp">hide help</checkbox></p>
+              <p><checkbox v-model="check.disabled">disabled</checkbox></p>
+              <p><checkbox v-model="check.error">error</checkbox></p>
+              <p><checkbox v-model="check.icon">icon</checkbox></p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <p><checkbox :checked="check.mask" @checked="check.mask = arguments[0]">mask</checkbox></p>
-              <p><checkbox :checked="check.minlength" @checked="check.minlength = arguments[0]">minlength=5</checkbox></p>
-              <p><checkbox :checked="check.readonly" @checked="check.readonly = arguments[0]">readonly</checkbox></p>
-              <p><checkbox :checked="check.required" @checked="check.required = arguments[0]">required</checkbox></p>
-              <p><checkbox :checked="check.clearButton" @checked="check.clearButton = arguments[0]">clear button</checkbox></p>
-              <p><checkbox :checked="check.enterSubmit" @checked="check.enterSubmit = arguments[0]">enter submit</checkbox></p>
+              <p><checkbox v-model="check.mask">mask</checkbox></p>
+              <p><checkbox v-model="check.minlength">minlength=5</checkbox></p>
+              <p><checkbox v-model="check.readonly">readonly</checkbox></p>
+              <p><checkbox v-model="check.required">required</checkbox></p>
+              <p><checkbox v-model="check.clearButton">clear button</checkbox></p>
+              <p><checkbox v-model="check.enterSubmit">enter submit</checkbox></p>
             </div>
           </button-group>
         </div>
@@ -107,12 +107,12 @@
           &lt;/span>
         &lt;/bs-input>
       </doc-code>
-      <bs-input label="With text and icon" type="number" placeholder="Insert how much cost your house">
+      <bs-input label="With icon and text" type="number" placeholder="Insert how much cost your house">
         <span slot="before" class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
         <span slot="after" class="input-group-addon">$</span>
       </bs-input>
       <doc-code>
-        &lt;bs-input label="With text and icon" type="number" placeholder="Insert how much cost your house">
+        &lt;bs-input label="With icon and text" type="number" placeholder="Insert how much cost your house">
           &lt;span slot="before" class="input-group-addon">&lt;span class="glyphicon glyphicon-home">&lt;/span>&lt;/span>
           &lt;span slot="after" class="input-group-addon">$&lt;/span>
         &lt;/bs-input>

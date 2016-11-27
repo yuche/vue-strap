@@ -37,7 +37,7 @@
             &lt;li>&lt;a href="link">Option&lt;/a>&lt;/li>
           &lt;/ul>
         &lt;/li>
-        &lt;!-- For right positioning use slot -->
+        &lt;!-- For positioning use slot="left" or slot="right" -->
         &lt;li slot="right">
           &lt;a href="https://github.com/yuche/vue-strap" target="_blank">Fork...&lt;/a>
         &lt;/li>
