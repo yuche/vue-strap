@@ -32,8 +32,10 @@ export default {
   },
   watch: {
     val: delayer(function (val) {
-      this.val = false
-      this.$emit('input', val)
+      if(this.durationNum > 0) {
+        this.val = false
+        this.$emit('input', false)
+      }
     }, 'durationNum'),
     value (val) {
       if (this.val !== val) {
