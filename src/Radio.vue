@@ -51,7 +51,7 @@ export default {
     }
   },
   computed: {
-    active () { return this._inGroup ? this.$parent.value === this.value : this.value === this.check },
+    active () { return this._inGroup ? this.$parent.val === this.value : this.value === this.check },
     buttonStyle () { return this.button || (this._inGroup && this.$parent.buttons) },
     typeColor () { return (this.type || (this.$parent && this.$parent.type)) || 'default' }
   },
@@ -61,7 +61,7 @@ export default {
       if (typeof this.value !== 'boolean') {
         this.$emit('input', this.check ? this.value : null)
         if (this._inGroup && this.check) {
-          this.$parent.value = this.value
+          this.$parent.val = this.value
         }
       }
     },
@@ -79,10 +79,10 @@ export default {
   },
   mounted () {
     if (!this.$parent._radioGroup) return
-    if (this.$parent.value) {
-      this.check = (this.$parent.value === this.value)
+    if (this.$parent.val) {
+      this.check = (this.$parent.val === this.value)
     } else if (this.check) {
-      this.$parent.value = this.value
+      this.$parent.val = this.value
     }
   },
   methods: {
@@ -95,7 +95,7 @@ export default {
       if (this.readonly) { return }
       this.check = this.value
       if (this._inGroup) {
-        this.$parent.value = this.value
+        this.$parent.val = this.value
       }
     }
   }

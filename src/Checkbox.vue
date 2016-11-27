@@ -12,7 +12,6 @@ export default {
   props: {
     button: {type: Boolean, default: false},
     disabled: {type: Boolean, default: false},
-    falseValue: {default: false},
     name: {type: String, default: null},
     readonly: {type: Boolean, default: false},
     trueValue: {default: true},
@@ -20,15 +19,15 @@ export default {
     value: {default: false}
   },
   data () {
-    var checked = (this.value === this.trueValue)
     return {
-      checked
+      checked: (this.value === this.trueValue)
     }
   },
   computed: {
     isButton () { return this.button || (this._inGroup && this.$parent.buttons) },
     isFalse () { return this.value === this.falseValue },
     isTrue () { return this.value === this.trueValue },
+    parentValue () { return this._ingroup && this.$parent.val },
     typeColor () { return (this.type || (this.$parent && this.$parent.type)) || 'default' }
   },
   watch: {
@@ -38,8 +37,14 @@ export default {
       this.$emit('input', value)
       this.eval()
     },
+    parentValue (val) {
+      var checked = val === this.trueValue
+      if (this.checked !== checked) {
+        this.checked = checked
+      }
+    },
     value (val, old) {
-      var checked = !(val !== this.trueValue)
+      var checked = val === this.trueValue
       if (this.checked !== checked) {
         this.checked = checked
       }
