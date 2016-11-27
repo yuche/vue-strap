@@ -20,7 +20,7 @@
 </template>
 <script>
 import $ from './utils/NodeList.js'
-import ClickOutside from './../directives/ClickOutside.js'
+import ClickOutside from './directives/ClickOutside.js'
 
 export default {
   directives: {
