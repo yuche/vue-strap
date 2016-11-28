@@ -1,11 +1,11 @@
 <template>
-  <doc-section id="button-group" name="Button Group">
+  <doc-section id="button-group" name="***Button Group">
     <div class="bs-example">
       <h4>Checkbox</h4>
       <button-group v-model="checkboxValue">
-        <checkbox value="left">Left</checkbox>
-        <checkbox value="middle">Middle</checkbox>
-        <checkbox value="right">Right</checkbox>
+        <checkbox true-value="left">Left</checkbox>
+        <checkbox true-value="middle">Middle</checkbox>
+        <checkbox true-value="right">Right</checkbox>
       </button-group>
       <p>
         <pre>Checkbox value: {{ checkboxValue }}</pre>
@@ -14,24 +14,24 @@
       <h4>Radio</h4>
       <p>
         <button-group v-model="radioValue" type="primary">
-          <radio value="left">Left</radio>
-          <radio value="middle">Middle</radio>
-          <radio value="right">Right</radio>
+          <radio true-value="left">Left</radio>
+          <radio true-value="middle">Middle</radio>
+          <radio true-value="right">Right</radio>
         </button-group>
       </p>
       <p>
         <button-group v-model="radioValue" type="success">
-          <radio value="left">Left</radio>
-          <radio value="middle">Middle</radio>
-          <radio value="right">Right</radio>
+          <radio true-value="left">Left</radio>
+          <radio true-value="middle">Middle</radio>
+          <radio true-value="right">Right</radio>
         </button-group>
       </p>
       <p>
         <label>Not buttons:</label>
         <button-group v-model="radioValue" type="info" buttons="false">
-          <radio value="left">Left</radio>
-          <radio value="middle">Middle</radio>
-          <radio value="right">Right</radio>
+          <radio true-value="left">Left</radio>
+          <radio true-value="middle">Middle</radio>
+          <radio true-value="right">Right</radio>
         </button-group>
       </p>
       <p>
@@ -95,18 +95,18 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import buttonGroup from 'src/buttonGroup.vue'
-import checkbox from 'src/Checkbox.vue'
-import radio from 'src/Radio.vue'
+import ButtonGroup from 'src/ButtonGroup.vue'
+import Checkbox from 'src/Checkbox.vue'
+import Radio from 'src/Radio.vue'
 
 export default {
   components: {
     docSection,
     docTable,
     docCode,
-    buttonGroup,
-    checkbox,
-    radio
+    ButtonGroup,
+    Checkbox,
+    Radio
   },
   data () {
     return {

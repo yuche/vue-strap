@@ -1,8 +1,8 @@
 <template>
   <doc-section id="tabs" name="Tabs">
     <div class="bs-example">
-      <v-select v-model="navStyle" :options="['tabs','pills','stacked']"></v-select>
-      <v-select v-model="justified" :options="[true,false]"></v-select>
+      <p>Style: <v-select v-model="navStyle" :options="['tabs','pills','stacked']"></v-select></p>
+      <p v-if="navStyle!='stacked'">Justified: <v-select v-model="justified" :options="[true,false]"></v-select></p>
       <!-- <checkbox v-model="justified">Justified</checkbox> -->
       <tabs :nav-style="navStyle" :justified="justified">
         <tab header="zero">
@@ -120,10 +120,10 @@ import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
 import checkbox from 'src/Checkbox.vue'
-import tabs from 'src/components/Tabs.vue'
-import tabGroup from 'src/components/TabGroup.vue'
-import tab from 'src/components/Tab.vue'
-import vSelect from 'src/components/Select.vue'
+import tabs from 'src/Tabs.vue'
+import tabGroup from 'src/TabGroup.vue'
+import tab from 'src/Tab.vue'
+import vSelect from 'src/Select.vue'
 
 export default {
   components: {
@@ -140,6 +140,11 @@ export default {
     return {
       justified: false,
       navStyle: 'tabs'
+    }
+  },
+  watch: {
+    navStyle (val) {
+      if (val === 'stacked') { this.justified = false }
     }
   }
 }

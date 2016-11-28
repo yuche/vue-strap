@@ -15,6 +15,9 @@
         <ul class="nav navbar-nav">
           <slot></slot>
         </ul>
+        <ul v-if="$slots.left" class="nav navbar-nav navbar-left">
+          <slot name="left"></slot>
+        </ul>
         <ul v-if="$slots.right" class="nav navbar-nav navbar-right">
           <slot name="right"></slot>
         </ul>
@@ -95,7 +98,7 @@ export default {
   },
   beforeDestroy () {
     $('.dropdown',this.$el).off('click').offBlur()
-    if (this.slots.collapse) $('[data-toggle="collapse"]',this.$el).off('click')
+    if (this.$slots.collapse) $('[data-toggle="collapse"]',this.$el).off('click')
   }
 }
 </script>

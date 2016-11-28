@@ -5,37 +5,24 @@
 </template>
 
 <script>
-
 export default {
   props: {
-    buttons: true,
-    justified: {
-      type: Boolean,
-      default: false
-    },
-    type: {
-      type: String,
-      default: 'default'
-    },
-    value: null,
-    vertical: {
-      type: Boolean,
-      default: false
+    buttons: {default: true},
+    justified: {type: Boolean, default: false},
+    type: {type: String, default: 'default'},
+    value: {default: null},
+    vertical: {type: Boolean, default: false}
+  },
+  data () {
+    this._btnGroup = true
+    return {
+      val: this.value
     }
   },
   watch: {
-    value: {
-      deep: true,
-      handler (val) {
-        this.$emit('input', val)
-        this.$children.forEach(el => {
-          if (el._inGroup && el.eval) el.eval()
-        })
-      }
+    val (val) {
+      this.$emit('input', val)
     }
-  },
-  created () {
-    this._btnGroup = true
   }
 }
 </script>

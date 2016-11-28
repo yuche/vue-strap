@@ -72,46 +72,13 @@ import {translations} from './utils/utils.js'
 
 export default {
   props: {
-    value: {
-      type: String
-    },
-    format: {
-      default: 'MM/dd/yyyy'
-    },
-    disabledDaysOfWeek: {
-      type: Array,
-      default () {
-        return []
-      }
-    },
-    width: {
-      type: String,
-      default: '200px'
-    },
-    clearButton: {
-      type: Boolean,
-      default: false
-    },
-    lang: {
-      type: String,
-      default: navigator.language
-    },
-    placeholder: {
-      type: String
-    }
-  },
-  mounted () {
-    let el = this.$el
-    this._blur = e => {
-      if (!el.contains(e.target)) 
-        this.close()
-    }
-    this.$emit('child-created', this)
-    this.currDate = this.parse(this.value) || this.parse(new Date())
-    window.addEventListener('click', this._blur);
-  },
-  beforeDestroy () {
-    window.removeEventListner('click', this._blur)
+    value: {type: String},
+    format: {default: 'MM/dd/yyyy'},
+    disabledDaysOfWeek: {type: Array, default () { return [] }},
+    width: {type: String, default: '200px'},
+    clearButton: {type: Boolean, default: false},
+    lang: {type: String, default: navigator.language},
+    placeholder: {type: String}
   },
   data () {
     return {
@@ -343,12 +310,25 @@ export default {
         }
       }
     }
+  },
+  mounted () {
+    let el = this.$el
+    this._blur = e => {
+      if (!el.contains(e.target)) 
+        this.close()
+    }
+    this.$emit('child-created', this)
+    this.currDate = this.parse(this.value) || this.parse(new Date())
+    window.addEventListener('click', this._blur);
+  },
+  beforeDestroy () {
+    window.removeEventListner('click', this._blur)
   }
 }
 </script>
 
 <style>
-.datepicker{
+.datepicker {
   position: relative;
   display: inline-block;
 }
@@ -370,7 +350,7 @@ input.datepicker-input.with-reset-button {
 .datepicker > button.close:focus {
   opacity: .2;
 }
-.datepicker-popup{
+.datepicker-popup {
   position: absolute;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -379,15 +359,15 @@ input.datepicker-input.with-reset-button {
   z-index: 1000;
   box-shadow: 0 6px 12px rgba(0,0,0,0.175);
 }
-.datepicker-inner{
+.datepicker-inner {
   width: 218px;
 }
-.datepicker-body{
+.datepicker-body {
   padding: 10px 10px;
 }
 .datepicker-ctrl p,
 .datepicker-ctrl span,
-.datepicker-body span{
+.datepicker-body span {
   display: inline-block;
   width: 28px;
   line-height: 28px;
@@ -403,7 +383,7 @@ input.datepicker-input.with-reset-button {
 .datepicker-body span {
   text-align: center;
 }
-.datepicker-monthRange span{
+.datepicker-monthRange span {
   width: 48px;
   height: 50px;
   line-height: 45px;
@@ -415,7 +395,7 @@ input.datepicker-input.with-reset-button {
 .decadeRange span:first-child,
 .decadeRange span:last-child,
 .datepicker-item-disable,
-.datepicker-item-gray{
+.datepicker-item-gray {
   color: #999;
 }
 
@@ -440,33 +420,33 @@ input.datepicker-input.with-reset-button {
 .datepicker-dateRange-item-hover {
   background-color : #eeeeee;
 }
-.datepicker-weekRange span{
+.datepicker-weekRange span {
   font-weight: bold;
 }
-.datepicker-label{
+.datepicker-label {
   background-color: #f8f8f8;
   font-weight: 700;
   padding: 7px 0;
   text-align: center;
 }
-.datepicker-ctrl{
+.datepicker-ctrl {
   position: relative;
   height: 30px;
   line-height: 30px;
   font-weight: bold;
   text-align: center;
 }
-.month-btn{
+.month-btn {
   font-weight: bold;
   -webkit-user-select:none;
   -moz-user-select:none;
   -ms-user-select:none;
   user-select:none;
 }
-.datepicker-preBtn{
+.datepicker-preBtn {
   left: 2px;
 }
-.datepicker-nextBtn{
+.datepicker-nextBtn {
   right: 2px;
 }
 </style>

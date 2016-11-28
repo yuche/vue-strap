@@ -82,7 +82,7 @@ export default {
   computed: {
     canSearch () { return this.minSearch ? this.list.length >= this.minSearch : this.search },
     classes () { return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'] },
-    filteredOptions: function () {
+    filteredOptions () {
       var search = (this.searchValue || '').toLowerCase()
       return !search ? this.list : this.list.filter(el => {
         return !!~el[this.optionsValue].toLowerCase().search(search)
@@ -214,7 +214,11 @@ export default {
       })
     },
     validate () {
-      return !this.required ? true : this.val instanceof Array ? this.val.length > 0 : this.val !== null
+      return (
+        !this.required ? true :
+        this.val instanceof Array ? this.val.length > 0 :
+        !~['', null, undefined].indexOf(this.val)
+      )
     }
   },
   created () {
@@ -228,8 +232,8 @@ export default {
     this.checkMultiple()
     if (this.url) this.urlChanged()
     let parent = this.$parent
-    while (parent && !parent._formGroup) { parent = parent.$parent }
-    if (parent && parent._formGroup) {
+    while (parent && !parent._formValidator) { parent = parent.$parent }
+    if (parent && parent._formValidator) {
       this._parent = parent
     }
   },

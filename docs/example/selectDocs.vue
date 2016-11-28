@@ -4,40 +4,42 @@
     <div class="bs-example">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <v-select></v-select>
-          <!-- <p><pre>Normal select data: {{select.normal}}</pre></p>
+          <p><pre>Normal select data: {{select.normal}}</pre></p>
           <form action="./#select" method="get">
             <v-select :options="select.options" options-value="val" v-model="select.normal" name="animal" :search="select.search"
               :required="select.required" :clear-button="select.clearButton" :disabled="select.disabled"
+              :placeholder="select.placeholder?'Using placeholder':null"
             ></v-select>
             <button type="submit" class="btn btn-default">Submit</button>
-          </form> -->
+          </form>
         </div>
-        <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
           <p><pre>Multiple select data : {{select.multiple.join(',')}}</pre></p>
           <form action="./#select" method="get">
             <v-select :options="select.options" options-value="val" v-model="select.multiple" name="animals[]" :search="select.search"
               multiple :required="select.required" :clear-button="select.clearButton"
+              :placeholder="select.placeholder?'Using placeholder':null"
               :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024" :disabled="select.disabled"
             ></v-select>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
-        </div> -->
+        </div>
       </div>
-      <!-- <br/>
-      <button-group type="primary" buttons="false">
+      <br/>
+      <button-group type="primary" :buttons="false">
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <p><checkbox :checked="select.disabled" @checked="select.disabled = arguments[0]">Disabled</checkbox></p>
-            <p><checkbox :checked="select.search" @checked="select.search = arguments[0]">Search</checkbox></p>
-            <p><checkbox :checked="select.clearButton" @checked="select.clearButton = arguments[0]">Clear Button</checkbox></p>
+            <p><checkbox v-model="select.disabled">Disabled</checkbox></p>
+            <p><checkbox v-model="select.placeholder">Placeholder</checkbox></p>
+            <p><checkbox v-model="select.search">Search</checkbox></p>
+            <p><checkbox v-model="select.clearButton">Clear Button</checkbox></p>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <p><checkbox :checked="select.required" @checked="select.required = arguments[0]">Required (empty value if noting selected)</checkbox></p>
+            <p><checkbox v-model="select.required">Required (empty value if noting selected)</checkbox></p>
             <p>
               Multiple:
-              <checkbox v-if="select.multiple" :checked="select.limit" @checked="select.limit = arguments[0]">Limit (e.g. 3)</checkbox>
-              <checkbox v-if="select.multiple" :checked="select.closeOnSelect" @checked="select.closeOnSelect = arguments[0]">Close on Select</checkbox>
+              <checkbox v-if="select.multiple" v-model="select.limit">Limit (e.g. 3)</checkbox>
+              <checkbox v-if="select.multiple" v-model="select.closeOnSelect">Close on Select</checkbox>
             </p>
           </div>
         </div>
@@ -46,6 +48,7 @@
         &lt;form action="./#select" method="get">
           &lt;v-select v-model="select.value" :options="select.options" options-value="val"
             multiple name="animals[]" limit="3"
+            placeholder="Using placeholder"
             search justified required disabled
             clear-button close-on-select
           >&lt;/v-select>
@@ -113,17 +116,18 @@
       </doc-code>
       <hr/>
       <h4>Ajax data and parent dependency:</h4>
-      <p>The second element has inheritance. Enable when the first get some value and the ajax return values.</p>
-      <v-select url="docs/data.json" options-label="text" v-model="ajax.value" clear-button ref="ajax"></v-select>
+      <p>Depend on <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">vue-resource</a>. Disabled if not present.</p>
+      <p>The second select has inheritance, is enabled when the first get some value and the ajax return values.</p>
+      <v-select url="docs/data.json" options-label="text" v-model="ajax.value" clear-button @options="ajax.options = arguments[0]"></v-select>
       <v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value"></v-select>
       <doc-code>
-        &lt;v-select url="docs/data.json" options-label="text" v-model="ajax.value" clear-button>&lt;/v-select>
+        &lt;v-select url="docs/data.json" options-label="text" v-model="ajax.value" clear-button @options="ajax.options = arguments[0]">&lt;/v-select>
         &lt;v-select url="docs/data.json" options-label="text" multiple :parent="ajax.value">&lt;/v-select>
       </doc-code>
       <p>Ajax response:</p>
-      <pre v-html="$refs.ajax&&$refs.ajax.options"></pre> -->
+      <pre v-html="ajax.options"></pre>
     </div>
-    <!-- <doc-table name="Other">
+    <doc-table name="Other">
       <div>
         <p>min-search</p>
         <p><code>Number</code></p>
@@ -152,10 +156,13 @@
         <p>placeholder</p>
         <p><code>String</code></p>
         <p>Nothing Selected</p>
+        <p></p>
       </div>
       <div>
         <p>search-text</p>
         <p><code>String</code></p>
+        <p></p>
+        <p></p>
       </div>
     </doc-table>
     <doc-table type="Events">
@@ -165,11 +172,16 @@
         <p>Return the selected value(s).</p>
       </div>
       <div>
+        <p>options</p>
+        <p>(<code>options:Array</code>)</p>
+        <p>Return the options array. Helpfull for dinamic/url options.</p>
+      </div>
+      <div>
         <p>selected</p>
         <p>(<code>labels:String</code>)</p>
         <p>Return a string with the label(s) of the selected item(s).</p>
       </div>
-    </doc-table> -->
+    </doc-table>
   </doc-section>
 </template>
 
@@ -177,9 +189,9 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import buttonGroup from 'src/buttonGroup.vue'
+import ButtonGroup from 'src/ButtonGroup.vue'
 import checkbox from 'src/Checkbox.vue'
-import vSelect from 'src/components/Select.vue'
+import vSelect from 'src/Select.vue'
 import vOption from 'src/Option.vue'
 
 export default {
@@ -187,7 +199,7 @@ export default {
     docSection,
     docTable,
     docCode,
-    buttonGroup,
+    ButtonGroup,
     checkbox,
     vSelect,
     vOption
@@ -195,7 +207,11 @@ export default {
   data () {
     return {
       select: {
+        clearButton: false,
+        closeOnSelect: false,
+        disabled: false,
         justified: true,
+        limit: false,
         multiple: [],
         options: [
           {val: 0, label: 'Cat'},
@@ -207,9 +223,12 @@ export default {
           {val: 6, label: 'Tiger'},
           {val: 7, label: 'Turtle'}
         ],
+        placeholder: false,
+        required: false,
         search: true
       },
       ajax: {
+        options: [],
         value:null
       },
       single: []
