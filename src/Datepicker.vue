@@ -4,16 +4,16 @@
         :style="{width:width}"
         :value="value"
         @click="inputClick"
-        @input="this.$emit('input',$event.target.value)" />
-    <button v-if="clearButton && value" type="button" class="close" @click="value = ''">
+        @input="$emit('input',$event.target.value)" />
+    <button v-if="clearButton && value" type="button" class="close" @click="$emit('input', '')">
       <span>&times;</span>
     </button>
     <div class="datepicker-popup" v-show="displayDayView">
       <div class="datepicker-inner">
         <div class="datepicker-body">
           <div class="datepicker-ctrl">
-            <span class="datepicker-preBtn glyphicon glyphicon-chevron-left" aria-hidden="true" @click="preNextMonthClick(0)"></span>
-            <span class="datepicker-nextBtn glyphicon glyphicon-chevron-right" aria-hidden="true" @click="preNextMonthClick(1)"></span>
+            <span :class="preBtnClasses" aria-hidden="true" @click="preNextMonthClick(0)"></span>
+            <span :class="nextBtnClasses" aria-hidden="true" @click="preNextMonthClick(1)"></span>
             <p @click="switchMonthView">{{stringifyDayHeader(currDate)}}</p>
           </div>
           <div class="datepicker-weekRange">
@@ -29,8 +29,8 @@
       <div class="datepicker-inner">
         <div class="datepicker-body">
           <div class="datepicker-ctrl">
-            <span class="datepicker-preBtn glyphicon glyphicon-chevron-left" aria-hidden="true" @click="preNextYearClick(0)"></span>
-            <span class="datepicker-nextBtn glyphicon glyphicon-chevron-right" aria-hidden="true" @click="preNextYearClick(1)"></span>
+            <span :class="preBtnClasses" aria-hidden="true" @click="preNextYearClick(0)"></span>
+            <span :class="nextBtnClasses" aria-hidden="true" @click="preNextYearClick(1)"></span>
             <p @click="switchDecadeView">{{stringifyYearHeader(currDate)}}</p>
           </div>
           <div class="datepicker-monthRange">
@@ -49,8 +49,8 @@
       <div class="datepicker-inner">
         <div class="datepicker-body">
           <div class="datepicker-ctrl">
-            <span class="datepicker-preBtn glyphicon glyphicon-chevron-left" aria-hidden="true" @click="preNextDecadeClick(0)"></span>
-            <span class="datepicker-nextBtn glyphicon glyphicon-chevron-right" aria-hidden="true" @click="preNextDecadeClick(1)"></span>
+            <span :class="preBtnClasses" aria-hidden="true" @click="preNextDecadeClick(0)"></span>
+            <span :class="nextBtnClasses" aria-hidden="true" @click="preNextDecadeClick(1)"></span>
             <p>{{stringifyDecadeHeader(currDate)}}</p>
           </div>
           <div class="datepicker-monthRange decadeRange">
@@ -75,10 +75,11 @@ export default {
     value: {type: String},
     format: {default: 'MM/dd/yyyy'},
     disabledDaysOfWeek: {type: Array, default () { return [] }},
-    width: {type: String, default: '200px'},
+    width: {type: String/*, default: '200px'*/},
     clearButton: {type: Boolean, default: false},
     lang: {type: String, default: navigator.language},
-    placeholder: {type: String}
+    placeholder: {type: String},
+    iconsFont: {type: String, default: 'glyphicon'}
   },
   data () {
     return {
@@ -87,13 +88,10 @@ export default {
       decadeRange: [],
       displayDayView: false,
       displayMonthView: false,
-      displayYearView: false
+      displayYearView: false,
     }
   },
   watch: {
-    value (val) {
-      this.$emit('input', val)
-    },
     currDate () {
       this.getDateRange()
     }
@@ -101,6 +99,12 @@ export default {
   computed: {
     text () {
       return translations(this.lang)
+    },
+    preBtnClasses () {
+      return `datepicker-preBtn ${this.iconsFont} ${this.iconsFont}-chevron-left`
+    },
+    nextBtnClasses () {
+      return `datepicker-nextBtn ${this.iconsFont} ${this.iconsFont}-chevron-right`
     }
   },
   methods: {
@@ -160,7 +164,7 @@ export default {
         return false
       } else {
         this.currDate = date
-        this.value = this.stringify(this.currDate)
+        this.$emit('input', this.stringify(this.currDate))
         this.displayDayView = false
       }
     },
@@ -314,7 +318,7 @@ export default {
   mounted () {
     let el = this.$el
     this._blur = e => {
-      if (!el.contains(e.target)) 
+      if (!el.contains(e.target))
         this.close()
     }
     this.$emit('child-created', this)
@@ -322,7 +326,7 @@ export default {
     window.addEventListener('click', this._blur);
   },
   beforeDestroy () {
-    window.removeEventListner('click', this._blur)
+    window.removeEventListener('click', this._blur)
   }
 }
 </script>
