@@ -117,6 +117,11 @@
           &lt;span slot="after" class="input-group-addon">$&lt;/span>
         &lt;/bs-input>
       </doc-code>
+      <bs-input label="With datalist (new on html5)" type="text" placeholder="Insert a fruit" :datalist="fruits"></bs-input>
+      <doc-code>
+        &lt;bs-input label="With datalist" type="text" placeholder="Insert a fruit" :datalist="fruits">
+        &lt;/bs-input>
+      </doc-code>
     </div>
     <doc-table>
       <div>
@@ -126,10 +131,12 @@
         <p>Input value. Use <code>v-model="value"</code></p>
       </div>
       <div>
-        <p>match</p>
-        <p><code>String</code></p>
-        <p><code>''</code></p>
-        <p>Matching value. Both have to be the same value.</p>
+        <p>datalist</p>
+        <p><code>Array</code></p>
+        <p><code>null</code></p>
+        <p>
+          A list of predefined values that you can select. Work closer to an autocomplete. The items must be <code>String</code> values.
+        </p>
       </div>
       <div>
         <p>disabled</p>
@@ -192,6 +199,12 @@
         <p>Delay time before apply the mask.</p>
       </div>
       <div>
+        <p>match</p>
+        <p><code>String</code></p>
+        <p><code>''</code></p>
+        <p>Matching value. Both have to be the same value.</p>
+      </div>
+      <div>
         <p>maxlength</p>
         <p><code>Number</code></p>
         <p><code>null</code></p>
@@ -232,6 +245,18 @@
         <p><code>String</code></p>
         <p><code>text</code></p>
         <p></p>
+      </div>
+      <div>
+        <p>url</p>
+        <p><code>String</code></p>
+        <p><code>null</code></p>
+        <p>url for a datalist.</p>
+      </div>
+      <div>
+        <p>url-map</p>
+        <p><code>Function</code></p>
+        <p><code>null</code></p>
+        <p>A map function that handle the data receibed from the url.</p>
       </div>
       <div>
         <p>validation-delay</p>
@@ -288,6 +313,7 @@ export default {
         required:true
       },
       event: null,
+      fruits: ['apple', 'banana', 'cherry', 'coconut', 'grapefruit', 'lime', 'orange', 'strawberry', 'watermelon'],
       input: null,
       match: null
     }

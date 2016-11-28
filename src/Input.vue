@@ -1,11 +1,12 @@
 <template>
-  <div class="form-group" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}" @focus="input_focus" @blur="input_blur">
+  <div class="form-group" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
     <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
     <div v-if="$slots.before||$slots.after" class="input-group">
       <slot name="before"></slot>
       <textarea :is="type=='textarea'?type:'input'" class="form-control" ref="input"
         :cols="cols"
         :disabled="disabled"
+        :list="id_datalist"
         :max="attr(max)"
         :maxlength="maxlength"
         :min="attr(min)"
@@ -33,6 +34,7 @@
       <textarea :is="type=='textarea'?type:'input'" class="form-control" ref="input"
         :cols="cols"
         :disabled="disabled"
+        :list="id_datalist"
         :max="attr(max)"
         :maxlength="maxlength"
         :min="attr(min)"
@@ -51,19 +53,25 @@
       <span v-if="clearButton && val" class="close" @click="val = ''">&times;</span>
       <span v-if="icon&&valid!==null" :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]" aria-hidden="true"></span>
     </template>
+    <datalist v-if="id_datalist" :id="id_datalist">
+      <option v-for="opc in options" :value="opc"></option>
+    </datalist>
     <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
     <div v-if="showError" class="help-block with-errors" @click="focus">{{errorText}}</div>
   </div>
 </template>
 
 <script>
-import {coerce, translations} from './utils/utils.js'
+import {coerce, delayer, translations} from './utils/utils.js'
 import $ from './utils/NodeList.js'
+
+var DELAY = 300
 
 export default {
   props: {
     clearButton: {type: Boolean, default: false},
     cols: {type: Number, default: null},
+    datalist: {type: Array, default: null},
     disabled: {type: Boolean, default: false},
     enterSubmit: {type: Boolean, default: false},
     error: {type: String, default: null},
@@ -87,12 +95,15 @@ export default {
     rows: {type: Number, default: 3},
     step: {type: Number, default: null},
     type: {type: String, default: 'text'},
+    url: {type: String, default: null},
+    urlMap: {type: Function, default: null},
     validationDelay: {type: Number, default: 250},
     value: {default: null}
   },
   data () {
     var val = this.value
     return {
+      options: this.datalist,
       val,
       valid: null,
       timeout: null
@@ -107,6 +118,16 @@ export default {
       if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')
       return error.join(' ')
     },
+    id_datalist () {
+      if (this.type !== 'textarea' && this.datalist instanceof Array) {
+        if (!this._id_datalist) {
+          if (!this.$root.id_datalist) { this.$root.id_datalist = 0 }
+          this._id_datalist = 'input-datalist' + this.$root.id_datalist++
+        }
+        return this._id_datalist
+      }
+      return null
+    },
     input () { return this.$refs.input },
     nativeValidate () { return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max) },
     regex () { return coerce.pattern(this.pattern) },
@@ -116,7 +137,16 @@ export default {
     title () { return this.errorText || this.help || '' }
   },
   watch: {
+    datalist (val, old) {
+      if (val !== old && val instanceof Array) { this.options = val }
+    },
     match (val) { this.eval() },
+    options (val, old) {
+      if (val !== old) this.$emit('options', val)
+    },
+    url (val) {
+      this._url()
+    },
     val (val, old) {
       this.$emit('input', val)
       if (val !== old) {
@@ -142,15 +172,6 @@ export default {
     }
   },
   methods: {
-    input_focus( e ) {
-      this.$emit('focus', e)
-    },
-    input_blur( e ) {
-      if (this.canValidate) { 
-        this.valid = this.validate() 
-      }
-      this.$emit('blur', e)
-    },
     attr (value) {
       return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value
     },
@@ -205,6 +226,20 @@ export default {
       this._parent = parent
       this._parent && this._parent.children.push(this)
     }
+    this._url = delayer(function () {
+      if (!this.url || !this.$http || this._loading) { return }
+      this._loading = true
+      this.$http.get(this.url).then(response => {
+        var data = response.data instanceof Array ? response.data : []
+        try { data = JSON.parse(data) } catch (e) {}
+        if (this.urlMap) { data = data.map(this.urlMap) }
+        this.options = data
+        this.loading = false
+      }, response => {
+        this.loading = false
+      })
+    }, DELAY)
+    if (this.url) this._url()
   },
   mounted () {
     // $(this.input).on('focus', e => { this.$emit('focus', e) }).on('blur', e => {
