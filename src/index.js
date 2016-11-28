@@ -2,8 +2,8 @@
 import $ from './utils/NodeList.js'
 import {coerce} from './utils/utils.js'
 // Directives
-import ClickOutside from './directives/ClickOutside.vue'
-import Scroll from './directives/Scroll.vue'
+import ClickOutside from './directives/ClickOutside.js'
+import Scroll from './directives/Scroll.js'
 // Components
 import accordion from './Accordion.vue'
 import affix from './Affix.vue'
