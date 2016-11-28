@@ -1,7 +1,7 @@
 <template>
-  <doc-section id="accordion" name="Accordion">
+  <doc-section id="accordion" name="***Accordion">
     <div class="bs-example">
-      <checkbox :checked="checked" @checked="checked=argument[0]" type="primary">Open only one at a time.</checkbox>
+      <checkbox v-model="checked" type="primary">Open only one at a time.</checkbox>
       <p><v-select :options="types" clear-button v-model="selected" placeholder="Global type"></v-select></p>
       <p><v-select :options="types" clear-button v-model="first" placeholder="First element type"></v-select></p>
       <accordion :one-at-atime="checked" :type="selected">
@@ -99,19 +99,19 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import accordion from 'src/Accordion.vue'
-import checkbox from 'src/components/Checkbox.vue'
-import panel from 'src/Panel.vue'
-import vSelect from 'src/components/Select.vue'
+import Accordion from 'src/Accordion.vue'
+import Checkbox from 'src/Checkbox.vue'
+import Panel from 'src/Panel.vue'
+import vSelect from 'src/Select.vue'
 
 export default {
   components: {
     docSection,
     docTable,
     docCode,
-    accordion,
-    checkbox,
-    panel,
+    Accordion,
+    Checkbox,
+    Panel,
     vSelect
   },
   data () {

@@ -5,20 +5,18 @@
 </template>
 
 <script>
-
 export default {
   props: {
-    buttons: true,
+    buttons: {default: true},
     justified: {type: Boolean, default: false},
     type: {type: String, default: 'default'},
-    value: null,
+    value: {default: null},
     vertical: {type: Boolean, default: false}
   },
   data () {
-    var val = this.value
     this._btnGroup = true
     return {
-      val
+      val: this.value
     }
   },
   watch: {

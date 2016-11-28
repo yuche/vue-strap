@@ -6,15 +6,15 @@
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <bs-input name="username"
               :disabled="check.disabled"
-              :error="check.error && 'Insert user name'"
+              :error="check.error ? 'Insert user name' : null"
               help="Only allows lowercase letters and numbers."
               :enter-submit="check.enterSubmit"
               :icon="check.icon"
-              :label="check.label && 'User Name'"
+              :label="check.label ? 'User Name' : null"
               :mask="check.mask?mask:null"
               :minlength="check.minlength?5:0"
               pattern="^[a-z][a-z0-9]+$"
-              :placeholder="check.placeholder && 'Username can\'t start with a number.'"
+              :placeholder="check.placeholder ? 'Username can\'t start with a number.' : null"
               :readonly="check.readonly"
               :required="check.required"
               :hide-help="check.hideHelp"
@@ -29,22 +29,22 @@
           </div>
         </div>
         <div class="row">
-          <button-group type="primary" buttons="false">
+          <button-group type="primary" :buttons="false">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <p><checkbox :checked="check.label" @checked="check.label = arguments[0]">Label</checkbox></p>
-              <p><checkbox :checked="check.placeholder" @checked="check.placeholder = arguments[0]">placeholder</checkbox></p>
-              <p><checkbox :checked="check.hideHelp" @checked="check.hideHelp = arguments[0]">hide help</checkbox></p>
-              <p><checkbox :checked="check.disabled" @checked="check.disabled = arguments[0]">disabled</checkbox></p>
-              <p><checkbox :checked="check.error" @checked="check.error = arguments[0]">error</checkbox></p>
-              <p><checkbox :checked="check.icon" @checked="check.icon = arguments[0]">icon</checkbox></p>
+              <p><checkbox v-model="check.label">Label</checkbox></p>
+              <p><checkbox v-model="check.placeholder">placeholder</checkbox></p>
+              <p><checkbox v-model="check.hideHelp">hide help</checkbox></p>
+              <p><checkbox v-model="check.disabled">disabled</checkbox></p>
+              <p><checkbox v-model="check.error">error</checkbox></p>
+              <p><checkbox v-model="check.icon">icon</checkbox></p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <p><checkbox :checked="check.mask" @checked="check.mask = arguments[0]">mask</checkbox></p>
-              <p><checkbox :checked="check.minlength" @checked="check.minlength = arguments[0]">minlength=5</checkbox></p>
-              <p><checkbox :checked="check.readonly" @checked="check.readonly = arguments[0]">readonly</checkbox></p>
-              <p><checkbox :checked="check.required" @checked="check.required = arguments[0]">required</checkbox></p>
-              <p><checkbox :checked="check.clearButton" @checked="check.clearButton = arguments[0]">clear button</checkbox></p>
-              <p><checkbox :checked="check.enterSubmit" @checked="check.enterSubmit = arguments[0]">enter submit</checkbox></p>
+              <p><checkbox v-model="check.mask">mask</checkbox></p>
+              <p><checkbox v-model="check.minlength">minlength=5</checkbox></p>
+              <p><checkbox v-model="check.readonly">readonly</checkbox></p>
+              <p><checkbox v-model="check.required">required</checkbox></p>
+              <p><checkbox v-model="check.clearButton">clear button</checkbox></p>
+              <p><checkbox v-model="check.enterSubmit">enter submit</checkbox></p>
             </div>
           </button-group>
         </div>
@@ -107,14 +107,19 @@
           &lt;/span>
         &lt;/bs-input>
       </doc-code>
-      <bs-input label="With text and icon" type="number" placeholder="Insert how much cost your house">
+      <bs-input label="With icon and text" type="number" placeholder="Insert how much cost your house">
         <span slot="before" class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
         <span slot="after" class="input-group-addon">$</span>
       </bs-input>
       <doc-code>
-        &lt;bs-input label="With text and icon" type="number" placeholder="Insert how much cost your house">
+        &lt;bs-input label="With icon and text" type="number" placeholder="Insert how much cost your house">
           &lt;span slot="before" class="input-group-addon">&lt;span class="glyphicon glyphicon-home">&lt;/span>&lt;/span>
           &lt;span slot="after" class="input-group-addon">$&lt;/span>
+        &lt;/bs-input>
+      </doc-code>
+      <bs-input label="With datalist (new on html5)" type="text" placeholder="Insert a fruit" :datalist="fruits"></bs-input>
+      <doc-code>
+        &lt;bs-input label="With datalist" type="text" placeholder="Insert a fruit" :datalist="fruits">
         &lt;/bs-input>
       </doc-code>
     </div>
@@ -126,10 +131,12 @@
         <p>Input value. Use <code>v-model="value"</code></p>
       </div>
       <div>
-        <p>match</p>
-        <p><code>String</code></p>
-        <p><code>''</code></p>
-        <p>Matching value. Both have to be the same value.</p>
+        <p>datalist</p>
+        <p><code>Array</code></p>
+        <p><code>null</code></p>
+        <p>
+          A list of predefined values that you can select. Work closer to an autocomplete. The items must be <code>String</code> values.
+        </p>
       </div>
       <div>
         <p>disabled</p>
@@ -192,6 +199,12 @@
         <p>Delay time before apply the mask.</p>
       </div>
       <div>
+        <p>match</p>
+        <p><code>String</code></p>
+        <p><code>''</code></p>
+        <p>Matching value. Both have to be the same value.</p>
+      </div>
+      <div>
         <p>maxlength</p>
         <p><code>Number</code></p>
         <p><code>null</code></p>
@@ -234,6 +247,18 @@
         <p></p>
       </div>
       <div>
+        <p>url</p>
+        <p><code>String</code></p>
+        <p><code>null</code></p>
+        <p>url for a datalist.</p>
+      </div>
+      <div>
+        <p>url-map</p>
+        <p><code>Function</code></p>
+        <p><code>null</code></p>
+        <p>A map function that handle the data receibed from the url.</p>
+      </div>
+      <div>
         <p>validation-delay</p>
         <p><code>Number</code></p>
         <p><code>250</code></p>
@@ -259,10 +284,10 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import bsInput from 'src/components/Input.vue'
-import buttonGroup from 'src/buttonGroup.vue'
-import checkbox from 'src/components/Checkbox.vue'
-import dropdown from 'src/components/Dropdown.vue'
+import bsInput from 'src/Input.vue'
+import ButtonGroup from 'src/ButtonGroup.vue'
+import Checkbox from 'src/Checkbox.vue'
+import Dropdown from 'src/Dropdown.vue'
 
 export default {
   components: {
@@ -270,9 +295,9 @@ export default {
     docTable,
     docCode,
     bsInput,
-    buttonGroup,
-    checkbox,
-    dropdown
+    ButtonGroup,
+    Checkbox,
+    Dropdown
   },
   data () {
     return {
@@ -288,6 +313,7 @@ export default {
         required:true
       },
       event: null,
+      fruits: ['apple', 'banana', 'cherry', 'coconut', 'grapefruit', 'lime', 'orange', 'strawberry', 'watermelon'],
       input: null,
       match: null
     }

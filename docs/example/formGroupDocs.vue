@@ -1,5 +1,5 @@
 <template>
-  <doc-section id="form-group" name="Form Group">
+  <doc-section id="form-group" name="***Form Group">
     <p>This is not a style component, is just a global validation manager.</p>
     <p>If you need to evaluate if a group of elements are all valids, you can handle easier with this component.</p>
     <p>In this example, the buttons and tabs are disabled while the inner elements are empty.</p>
@@ -82,10 +82,10 @@ import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
 import formGroup from 'src/FormGroup.vue'
-import bsInput from 'src/components/Input.vue'
-import tab from 'src/components/Tab.vue'
-import tabs from 'src/components/Tabs.vue'
-import vSelect from 'src/components/Select.vue'
+import bsInput from 'src/Input.vue'
+import tab from 'src/Tab.vue'
+import tabs from 'src/Tabs.vue'
+import vSelect from 'src/Select.vue'
 
 export default {
   components: {

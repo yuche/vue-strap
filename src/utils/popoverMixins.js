@@ -1,7 +1,4 @@
-import $ from './utils/NodeList.js'
-// let coerce = {
-//   header: 'boolean'
-// }
+import $ from './NodeList.js'
 
 export default {
   props: {
@@ -25,7 +22,7 @@ export default {
     toggle (e) {
       if (e && this.trigger === 'contextmenu') e.preventDefault()
       if (!(this.show = !this.show)) { return }
-      setTimeout(() => {
+      this.$nextTick(() => {
         const popover = this.$refs.popover
         const trigger = this.$refs.trigger.children[0]
         switch (this.placement) {
@@ -50,7 +47,7 @@ export default {
         }
         popover.style.top = this.position.top + 'px'
         popover.style.left = this.position.left + 'px'
-      }, 0)
+      })
     }
   },
   mounted () {

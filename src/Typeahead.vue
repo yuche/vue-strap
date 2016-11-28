@@ -59,21 +59,11 @@ export default {
   watch: {
     val (val, old) {
       this.$emit('input', val)
-      if (val !== old) this.update()
+      if (val !== old) this._update()
     },
     value (val) {
       if (this.val !== val) { this.val = val }
     }
-  },
-  created () {
-    this.val = this.value
-    this._tmpl = {
-      template: this.templateHtml || '<strong v-html="item"></strong>',
-      props: {
-        item: {default: null}
-      }
-    }
-    this.update()
   },
   methods: {
     setItems (data) {
@@ -90,19 +80,6 @@ export default {
       }
       this.showDropdown = this.items.length > 0
     },
-    update: delayer(function () {
-      if (!this.val) {
-        this.reset()
-        return false
-      }
-      if (this.async) {
-        getJSON(this.async + this.val).then(data => {
-          this.setItems(data)
-        })
-      } else if (this.data) {
-        this.setItems(this.data)
-      }
-    }, 'delay', DELAY),
     reset () {
       this.items = []
       this.val = ''
@@ -125,6 +102,29 @@ export default {
     down () {
       if (this.current < this.items.length - 1) this.current++
     }
+  },
+  created () {
+    this.val = this.value
+    this._tmpl = {
+      template: this.templateHtml || '<strong v-html="item"></strong>',
+      props: {
+        item: {default: null}
+      }
+    }
+    this._update = delayer(function () {
+      if (!this.val) {
+        this.reset()
+        return false
+      }
+      if (this.async) {
+        getJSON(this.async + this.val).then(data => {
+          this.setItems(data)
+        })
+      } else if (this.data) {
+        this.setItems(this.data)
+      }
+    }, 'delay', DELAY)
+    this._update()
   }
 }
 </script>

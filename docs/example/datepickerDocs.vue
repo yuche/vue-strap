@@ -1,5 +1,5 @@
 <template>
-  <doc-section id="datepicker" name="Datepicker">
+  <doc-section id="datepicker" name="***Datepicker">
     <div class="bs-example">
       <p>
         <pre>Selected date is: {{dp_string}}</pre>
@@ -66,9 +66,9 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import checkbox from 'src/components/Checkbox.vue'
-import datepicker from 'src/Datepicker.vue'
-import vSelect from 'src/components/Select.vue'
+import Checkbox from 'src/Checkbox.vue'
+import Datepicker from 'src/Datepicker.vue'
+import vSelect from 'src/Select.vue'
 import vOption from 'src/Option.vue'
 
 export default {
@@ -76,8 +76,8 @@ export default {
     docSection,
     docTable,
     docCode,
-    checkbox,
-    datepicker,
+    Checkbox,
+    Datepicker,
     vSelect,
     vOption
   },

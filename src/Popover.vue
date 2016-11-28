@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import PopoverMixin from './popoverMixins.js'
+import PopoverMixin from './utils/popoverMixins.js'
 
 export default {
   mixins: [PopoverMixin],

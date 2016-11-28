@@ -1,13 +1,10 @@
 <template>
-  <doc-section id="typeahead" name="Typeahead">
+  <doc-section id="typeahead" name="***Typeahead">
     <div class="bs-example">
-      <h4>
-        Static arrays
-      </h4>
-      <typeahead
-        :data="USstate"
-        placeholder="USA states"
-      ></typeahead>
+      Typeahead failing.
+      <!--
+      <h4>Static arrays</h4>
+      <typeahead :data="USstate" placeholder="USA states"></typeahead>
       <hr>
       <h4>
       Asynchronous results
@@ -33,6 +30,7 @@
         :template="githubTemplate"
         :on-hit="githubCallback"
       ></typeahead>
+      -->
     </div>
     <doc-code language="markup">
       &lt;h4>Static arrays&lt;/h4>

@@ -31,20 +31,15 @@ export default {
     durationNum () { return coerce.number(this.duration, DURATION) }
   },
   watch: {
-    val (val) {
-      if (val && this.durationNum > 0) { this._delayClose() }
+    val: delayer(function (val) {
+      this.val = false
       this.$emit('input', val)
-    },
+    }, 'durationNum'),
     value (val) {
       if (this.val !== val) {
         this.val = val
       }
     }
-  },
-  created () {
-    this._delayClose = delayer(function () {
-      this.val = false
-    }, 'durationNum')
   }
 }
 </script>

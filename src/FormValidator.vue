@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     validate () {
-      let invalid = !this.children.every(el => {
+      let invalid = !this.children.some(el => {
         return (
           el.validate ? el.validate() :
           el.valid !== undefined ? el.valid :
@@ -39,10 +39,10 @@ export default {
     }
   },
   created () {
-    this._formValidator = true
+    this._formGroup = true
     let parent = this.$parent
-    while (parent && !parent._formValidator) { parent = parent.$parent }
-    if (parent && parent._formValidator) {
+    while (parent && !parent._formGroup) { parent = parent.$parent }
+    if (parent && parent._formGroup) {
       parent.children.push(this)
       this._parent = parent
     }

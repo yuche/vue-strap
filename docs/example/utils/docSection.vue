@@ -7,16 +7,8 @@
 <script>
 export default {
   props: {
-    id: {
-      required: true,
-      type: String,
-      default: null
-    },
-    name: {
-      required: true,
-      type: String,
-      default: null
-    }
+    id: {type: String, default: null, required: true},
+    name: {type: String, default: null, required: true}
   },
   created () {
     this._section = true

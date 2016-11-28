@@ -5,6 +5,7 @@ var Prism = require('prismjs')
 require('./js/showLanguage')
 
 var Vue = window.Vue = require('vue')
+Vue.use(require('vue-resource'));
 require('dist/vue-strap-lang.js')
 require('dist/isMobileBrowser.js')
 
