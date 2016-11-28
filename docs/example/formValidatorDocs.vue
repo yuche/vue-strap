@@ -1,5 +1,5 @@
 <template>
-  <doc-section id="form-validator" name="Form Validator">
+  <doc-section id="form-validator" name="***Form Validator">
     <p>This is not a style component, is just a global validation manager.</p>
     <p>If you need to evaluate if a group of elements are all valids, you can handle easier with this component.</p>
     <p>In this example, the buttons and tabs are disabled while the inner elements are empty.</p>
@@ -21,8 +21,7 @@
         &lt;form-validator @valid="valid.all = true" @invalid="valid.all = false">
             ...
         &lt;/form-validator>
-    </doc-code>
-
+      </doc-code>
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
           <p><pre>Valid user data : {{valid.user}}</pre></p>
