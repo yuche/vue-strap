@@ -3,7 +3,12 @@
     <div :class="['panel-heading',{'accordion-toggle':inAccordion}]" @click.prevent="inAccordion&&toggle()">
       <slot name="header"><h4 class="panel-title">{{ header }}</h4></slot>
     </div>
-    <transition name="collapse">
+    <transition
+      name="collapse"
+      @enter="enter"
+      @after-enter="afterEnter"
+      @before-leave="beforeLeave"
+    >
       <div class="panel-collapse" v-if="open">
         <div class="panel-body">
           <slot></slot>
@@ -37,22 +42,25 @@ export default {
   methods: {
     toggle () {
       this.open = !this.open
-      this.$emit('open', this)
-    }
-  },
-  transitions: {
-    collapse: {
-      afterEnter (el) {
-        el.style.maxHeight = ''
-        el.style.overflow = ''
-      },
-      beforeLeave (el) {
-        el.style.maxHeight = el.offsetHeight + 'px'
-        el.style.overflow = 'hidden'
-        // Recalculate DOM before the class gets added.
-        return el.offsetHeight
+      if (this.inAccordion) {
+        this.$parent.openChild(this)
       }
-    }
+    },
+    enter (el) {
+      el.style.height = 'auto'
+      var endWidth = getComputedStyle(el).height
+      el.style.height = '0px'
+      el.offsetHeight // force repaint
+      el.style.height = endWidth;
+    },
+    afterEnter (el) {
+      el.style.height = 'auto'
+    },
+    beforeLeave (el) {
+      el.style.height = getComputedStyle(el).height
+      el.offsetHeight // force repaint
+      el.style.height = '0px'
+    },
   },
   created () {
     if (this.isOpen === null) {
@@ -68,10 +76,12 @@ export default {
 }
 .collapse-enter-active,
 .collapse-leave-active {
-  transition: max-height .5s ease;
+  transition: all .5s ease;
+  overflow: hidden;
 }
 .collapse-enter,
 .collapse-leave-active {
-  max-height: 0 !important;
+
 }
+
 </style>
