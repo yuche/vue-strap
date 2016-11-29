@@ -176,7 +176,7 @@ export default {
       return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value
     },
     emit (e) {
-      this.$emit(e.type, e)
+      this.$emit(e.type, e.type == 'input' ? e.target.value : e)
       if (e.type === 'blur' && this.canValidate) { this.valid = this.validate() }
     },
     eval () {
