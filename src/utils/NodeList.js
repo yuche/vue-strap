@@ -29,18 +29,18 @@ class NodeList {
     }
   }
 
-  concat () {
+  concat (...args) {
     let nodes = ArrayProto.slice.call(this)
     function flatten (arr) {
       ArrayProto.forEach.call(arr, el => {
         if (isNode(el)) {
           if (!~nodes.indexOf(el)) nodes.push(el)
-        } else if (el) {
+        } else if (isNodeList(el)) {
           flatten(el)
         }
       })
     }
-    ArrayProto.forEach.call(arguments, arg => {
+    ArrayProto.forEach.call(args, arg => {
       if (isNode(arg)) {
         if (!~nodes.indexOf(arg)) nodes.push(arg)
       } else if (isNodeList(arg)) {
@@ -63,12 +63,12 @@ class NodeList {
     if (notRemoved.length) console.warn('NodeList: Some nodes could not be deleted.')
     return notRemoved
   }
-  each () {
-    ArrayProto.forEach.apply(this, arguments)
+  each (...args) {
+    ArrayProto.forEach.apply(this, args)
     return this
   }
-  filter () {
-    return NodeListJS(ArrayProto.filter.apply(this, arguments), this)
+  filter (...args) {
+    return NodeListJS(ArrayProto.filter.apply(this, args), this)
   }
   find (element) {
     let nodes = []
@@ -79,15 +79,15 @@ class NodeList {
     if (element) return this.find(element).filter(el => this.includes(el.parentElement))
     return flatten(this.map(el => el.children))
   }
-  forEach () {
-    ArrayProto.forEach.apply(this, arguments)
+  forEach (...args) {
+    ArrayProto.forEach.apply(this, args)
     return this
   }
   includes (element, index) {
     return ~this.indexOf(element, index)
   }
-  map () {
-    var mapped = ArrayProto.map.apply(this, arguments)
+  map (...args) {
+    var mapped = ArrayProto.map.apply(this, args)
     return mapped.some(el => (isNode(el) || isNodeList(el))) ? flatten(mapped, this) : mapped
   }
   parent () {
@@ -100,8 +100,8 @@ class NodeList {
     while (amount--) nodes.push(pop())
     return NodeListJS(nodes, this)
   }
-  push () {
-    ArrayProto.forEach.call(arguments, arg => {
+  push (...args) {
+    ArrayProto.forEach.call(args, arg => {
       if (!isNode(arg)) throw nodeError
       if (!~this.indexOf(arg)) ArrayProto.push.call(this, arg)
     })
@@ -111,10 +111,10 @@ class NodeList {
     if (typeof amount !== 'number') { amount = 1 }
     let nodes = []
     while (amount--) nodes.push(ArrayProto.shift.call(this))
-    return NodeListJS(nodes, this)
+    return nodes.length == 1 ? nodes[0] : NodeListJS(nodes, this)
   }
-  slice () {
-    return NodeListJS(ArrayProto.slice.apply(this, arguments), this)
+  slice (...args) {
+    return NodeListJS(ArrayProto.slice.apply(this, args), this)
   }
   splice (...args) {
     for (let i = 2, l = args.length; i < l; i++) {
@@ -139,11 +139,19 @@ class NodeList {
     return this.toggleClass(classes, false)
   }
   toggleClass (classes, value) {
-    const method = (value === undefined || value === null) ? 'toggle' : value ? 'add' : 'remove'
+    var method = (value === undefined || value === null) ? 'toggle' : value ? 'add' : 'remove'
     if (typeof classes === 'string') {
       classes = classes.trim().replace(/\s+/, ' ').split(' ')
     }
-    this.each(el => classes.forEach(c => el.classList[method](c)))
+    this.each(el => {
+      var list = el.className.trim().replace(/\s+/, ' ').split(' ')
+      classes.forEach(c => {
+        var hasClass = ~list.indexOf(c)
+        if (!hasClass && method !== 'remove') list.push(c)
+        if (hasClass && method !== 'add') { list = list.filter(el => (el !== c)) }
+      })
+      el.className = list
+    })
     return this
   }
 
@@ -159,11 +167,9 @@ class NodeList {
     if (prop.constructor === Object) {
       this.each(el => {
         if (el) {
-          Object.keys(prop).forEach(key => {
-            if (key in el) {
-              el[key] = prop[key]
-            }
-          })
+          for (let key in prop) {
+            if (key in el) { el[key] = prop[key] }
+          }
         }
       })
     } else {
@@ -345,17 +351,18 @@ function setterGetter (prop) {
     NL[prop] = (...args) => {
       let arr = []
       let returnThis = true
-      Object.keys(NL).forEach(el => {
-        if (NL[el] && NL[el][prop] instanceof Function) {
-          NL[el] = NL[el][prop].apply(NL[el], args)
-          arr.push(NL[el])
-          if (returnThis && NL[el] !== undefined) {
+      for (let i in NL) {
+        let el = NL[i]
+        if (el && el[prop] instanceof Function) {
+          el = el[prop].apply(el, args)
+          arr.push(el)
+          if (returnThis && el !== undefined) {
             returnThis = false
           }
         } else {
           arr.push(undefined)
         }
-      })
+      }
       return returnThis ? this : flatten(arr, this)
     }
   } else {
@@ -378,9 +385,7 @@ function setterGetter (prop) {
 }
 for (let prop in div) setterGetter(prop)
 
-function NodeListJS () {
-  return new NodeList(arguments)
-}
+function NodeListJS (...args) { return new NodeList(args) }
 window.NL = NodeListJS
 
 export default NodeListJS
