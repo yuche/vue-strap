@@ -1,5 +1,5 @@
 <template>
-  <doc-section id="affix" name="Affix">
+  <doc-section id="affix" name="***Affix">
     <div class="bs-example">
       <h3>
         The sub-navigation on the RIGHT is a live demo of the affix.
