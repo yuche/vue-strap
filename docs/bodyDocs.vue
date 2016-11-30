@@ -9,7 +9,7 @@
           <p>Bootstrap components built with <a target="_blank" href="http://vuejs.org/">Vue.js</a>.</p>
           <p>No jQuery, bootstrap.js, or any 3rd party plugins required.</p>
           <br>
-          <p><a class="btn btn-outline-inverse btn-lg" href="https://github.com/yuche/vue-strap">Code on GitHub</a></p>
+          <p><a class="btn btn-outline-inverse btn-lg" href="https://github.com/wffranco/vue-strap">Code on GitHub</a></p>
         </div>
       </div>
       <div class="container bs-docs-container">
@@ -48,6 +48,7 @@
     <footer class="bs-docs-footer">
       <div class="container">
         <p>Designed and built by <a href="https://github.com/yuche/">yuche</a>.</p>
+        <p>Vue 2 version built by <a href="https://github.com/wffranco/">wffranco</a>.</p>
         <p>
           Using <a href="http://twitter.github.com/bootstrap" target="_blank">Twitter Bootstrap</a>
           and the <a href="css/docs.css" target="_blank">Bootstrap's docs styles</a> designed and built by <a href="http://twitter.com/mdo" target="_blank">@mdo</a>

@@ -304,6 +304,7 @@
 	//
 	//
 	//
+	//
 	
 	exports.default = {
 	  components: {
@@ -5121,7 +5122,7 @@
 	  }, ["Back to top"]), " ", _vm._h('a', {
 	    staticClass: "back-to-top",
 	    attrs: {
-	      "href": "https://github.com/yuche/vue-strap"
+	      "href": "https://github.com/wffranco/vue-strap"
 	    }
 	  }, ["GitHub"])])
 	},staticRenderFns: []}
@@ -11904,7 +11905,7 @@
 	        required: true
 	      },
 	      event: null,
-	      fruits: ['apple', 'banana', 'cherry', 'coconut', 'grapefruit', 'lime', 'orange', 'strawberry', 'watermelon'],
+	      fruits: ['apple', 'avocado', 'banana', 'cherry', 'coconut', 'grapefruit', 'kiwi', 'lime', 'orange', 'quince', 'strawberry', 'watermelon'],
 	      input: null,
 	      match: null
 	    };
@@ -13739,7 +13740,7 @@
 	    })])
 	  })]), " ", _vm._h('li', [_vm._h('a', {
 	    attrs: {
-	      "href": "https://github.com/yuche/vue-strap",
+	      "href": "https://github.com/wffranco/vue-strap",
 	      "target": "_blank"
 	    }
 	  }, ["\n          Fork this project on Github\n          ", _vm._h('svg', {
@@ -13800,7 +13801,7 @@
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, ["\n    <navbar placement=\"top\" type=\"default\">\n      <!-- Brand as slot -->\n      <a slot=\"brand\" href=\"/\" title=\"Home\" class=\"navbar-brand\">VueStrap</a>\n      <!-- You can use dropdown component -->\n      <dropdown text=\"Dropdown\">\n        <li><a href=\"link\">Option</a></li>\n      </dropdown>\n      <!-- Or normal bootstrap style -->\n      <li class=\"dropdown\">\n        <a href=\"#\" class=\"dropdown-toggle\">Dropdown</a>\n        <ul class=\"dropdown-menu\">\n          <li><a href=\"link\">Option</a></li>\n        </ul>\n      </li>\n      <!-- For positioning use slot=\"left\" or slot=\"right\" -->\n      <li slot=\"right\">\n        <a href=\"https://github.com/yuche/vue-strap\" target=\"_blank\">Fork...</a>\n      </li>\n    </navbar>\n  "]), " ", _vm._h('doc-table', [_vm._h('div', [_vm._h('p', ["placement"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["top"]), ", ", _vm._h('code', ["bottom"]), ", ", _vm._h('code', ["static"]), ", or empty for normal."]), " ", _vm._h('p', [_vm._h('code', ["''"])]), " ", _vm._h('p')]), " ", _vm._h('div', [_vm._h('p', ["type"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["inverse"]), ", ", _vm._h('code', ["default"]), "."]), " ", _vm._h('p', [_vm._h('code', ["default"])]), " ", _vm._h('p')])])])
+	  }, ["\n    <navbar placement=\"top\" type=\"default\">\n      <!-- Brand as slot -->\n      <a slot=\"brand\" href=\"/\" title=\"Home\" class=\"navbar-brand\">VueStrap</a>\n      <!-- You can use dropdown component -->\n      <dropdown text=\"Dropdown\">\n        <li><a href=\"link\">Option</a></li>\n      </dropdown>\n      <!-- Or normal bootstrap style -->\n      <li class=\"dropdown\">\n        <a href=\"#\" class=\"dropdown-toggle\">Dropdown</a>\n        <ul class=\"dropdown-menu\">\n          <li><a href=\"link\">Option</a></li>\n        </ul>\n      </li>\n      <!-- For positioning use slot=\"left\" or slot=\"right\" -->\n      <li slot=\"right\">\n        <a href=\"https://github.com/wffranco/vue-strap\" target=\"_blank\">Fork...</a>\n      </li>\n    </navbar>\n  "]), " ", _vm._h('doc-table', [_vm._h('div', [_vm._h('p', ["placement"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["top"]), ", ", _vm._h('code', ["bottom"]), ", ", _vm._h('code', ["static"]), ", or empty for normal."]), " ", _vm._h('p', [_vm._h('code', ["''"])]), " ", _vm._h('p')]), " ", _vm._h('div', [_vm._h('p', ["type"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["inverse"]), ", ", _vm._h('code', ["default"]), "."]), " ", _vm._h('p', [_vm._h('code', ["default"])]), " ", _vm._h('p')])])])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -14962,7 +14963,7 @@
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, ["\n    <radio v-model=\"radioValue\" checked-value=\"one\">One</radio>\n    <radio v-model=\"radioValue\" checked-value=\"two\" type=\"primary\">Two</radio>\n    <radio button v-model=\"radioValue\" checked-value=\"three\" type=\"danger\">Three</radio>\n    <radio button v-model=\"radioValue\" checked-value=\"four\" type=\"info\">Four</radio>\n  "]), " ", _vm._h('doc-table', [_vm._h('div', [_vm._h('p', ["value"]), " ", _vm._h('p', [_vm._h('code', ["Mixed"])]), " ", _vm._h('p'), " ", _vm._h('p', ["Handle the selected value."])]), " ", _vm._h('div', [_vm._h('p', ["checkedValue"]), " ", _vm._h('p', [_vm._h('code', ["Mixed"])]), " ", _vm._h('p', [_vm._h('code', ["true"])]), " ", _vm._h('p', ["Value to return if the radio item is selected."])]), " ", _vm._h('div', [_vm._h('p', ["type"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["default"]), " ", _vm._h('code', ["primary"]), " ", _vm._h('code', ["danger"]), " ", _vm._h('code', ["info"]), " ", _vm._h('code', ["warning"]), " ", _vm._h('code', ["success"])]), " ", _vm._h('p', [_vm._h('code', ["default"])]), " ", _vm._h('p')]), " ", _vm._h('div', [_vm._h('p', ["button"]), " ", _vm._h('p', [_vm._h('code', ["Boolean"])]), " ", _vm._h('p', [_vm._h('code', ["false"])]), " ", _vm._h('p', ["Enable/Disable button style."])])]), " ", _vm._h('p', ["See ", _vm._h('a', {
+	  }, ["\n    <radio v-model=\"radioValue\" checked-value=\"one\">One</radio>\n    <radio v-model=\"radioValue\" checked-value=\"two\" type=\"primary\">Two</radio>\n    <radio button v-model=\"radioValue\" checked-value=\"three\" type=\"danger\">Three</radio>\n    <radio button v-model=\"radioValue\" checked-value=\"four\" type=\"info\">Four</radio>\n  "]), " ", _vm._h('doc-table', [_vm._h('div', [_vm._h('p', ["value"]), " ", _vm._h('p', [_vm._h('code', ["Mixed"])]), " ", _vm._h('p'), " ", _vm._h('p', ["Handle the selected value."])]), " ", _vm._h('div', [_vm._h('p', ["checked-value"]), " ", _vm._h('p', [_vm._h('code', ["Mixed"])]), " ", _vm._h('p', [_vm._h('code', ["true"])]), " ", _vm._h('p', ["Value to return if the radio item is selected."])]), " ", _vm._h('div', [_vm._h('p', ["type"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["default"]), " ", _vm._h('code', ["primary"]), " ", _vm._h('code', ["danger"]), " ", _vm._h('code', ["info"]), " ", _vm._h('code', ["warning"]), " ", _vm._h('code', ["success"])]), " ", _vm._h('p', [_vm._h('code', ["default"])]), " ", _vm._h('p')]), " ", _vm._h('div', [_vm._h('p', ["button"]), " ", _vm._h('p', [_vm._h('code', ["Boolean"])]), " ", _vm._h('p', [_vm._h('code', ["false"])]), " ", _vm._h('p', ["Enable/Disable button style."])])]), " ", _vm._h('p', ["See ", _vm._h('a', {
 	    attrs: {
 	      "href": "#button-group"
 	    }
@@ -16167,7 +16168,7 @@
 	        _vm.size = $event
 	      }
 	    }
-	  }, ["size"])]), " ", _vm._h('p', [_vm._h('button', {
+	  })]), " ", _vm._h('p', [_vm._h('button', {
 	    staticClass: "btn btn-info",
 	    on: {
 	      "click": _vm.showRef
@@ -18024,7 +18025,7 @@
 	  }, ["Vue.js"]), "."]), " ", _vm._h('p', ["No jQuery, bootstrap.js, or any 3rd party plugins required."]), " ", _vm._h('br'), " ", _vm._h('p', [_vm._h('a', {
 	    staticClass: "btn btn-outline-inverse btn-lg",
 	    attrs: {
-	      "href": "https://github.com/yuche/vue-strap"
+	      "href": "https://github.com/wffranco/vue-strap"
 	    }
 	  }, ["Code on GitHub"])])])])
 	},function (){var _vm=this;
@@ -18036,7 +18037,11 @@
 	    attrs: {
 	      "href": "https://github.com/yuche/"
 	    }
-	  }, ["yuche"]), "."]), " ", _vm._h('p', ["\n        Using ", _vm._h('a', {
+	  }, ["yuche"]), "."]), " ", _vm._h('p', ["Vue 2 version built by ", _vm._h('a', {
+	    attrs: {
+	      "href": "https://github.com/wffranco/"
+	    }
+	  }, ["wffranco"]), "."]), " ", _vm._h('p', ["\n        Using ", _vm._h('a', {
 	    attrs: {
 	      "href": "http://twitter.github.com/bootstrap",
 	      "target": "_blank"

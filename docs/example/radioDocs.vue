@@ -28,7 +28,7 @@
         <p>Handle the selected value.</p>
       </div>
       <div>
-        <p>checkedValue</p>
+        <p>checked-value</p>
         <p><code>Mixed</code></p>
         <p><code>true</code></p>
         <p>Value to return if the radio item is selected.</p>
