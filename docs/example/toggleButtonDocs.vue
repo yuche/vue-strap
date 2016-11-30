@@ -62,25 +62,7 @@
         <p><code>default</code></p>
         <p></p>
       </div>
-      <div>
-        <p>type</p>
-        <p><code>String</code>, one of <code>default</code>
-        <code>primary</code>
-        <code>danger</code>
-        <code>info</code>
-        <code>warning</code>
-        <code>success</code></p>
-        <p><code>default</code></p>
-        <p></p>
-      </div>
-      <div>
-        <p>button</p>
-        <p><code>Boolean</code></p>
-        <p>false</p>
-        <p>Button style.</p>
-      </div>
     </doc-table>
-    <p>See <a href="#button-group">Button Group</a> for more options.</p>
     <doc-table type="Events">
       <div>
         <p>changed</p>
