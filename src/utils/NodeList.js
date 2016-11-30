@@ -63,12 +63,12 @@ class NodeList {
     if (notRemoved.length) console.warn('NodeList: Some nodes could not be deleted.')
     return notRemoved
   }
-  each () {
-    ArrayProto.forEach.apply(this, arguments)
+  each (...args) {
+    ArrayProto.forEach.apply(this, args)
     return this
   }
-  filter () {
-    return NodeListJS(ArrayProto.filter.apply(this, arguments), this)
+  filter (...args) {
+    return NodeListJS(ArrayProto.filter.apply(this, args), this)
   }
   find (element) {
     let nodes = []
@@ -79,8 +79,8 @@ class NodeList {
     if (element) return this.find(element).filter(el => this.includes(el.parentElement))
     return flatten(this.map(el => el.children))
   }
-  forEach () {
-    ArrayProto.forEach.apply(this, arguments)
+  forEach (...args) {
+    ArrayProto.forEach.apply(this, args)
     return this
   }
   includes (element, index) {
@@ -139,11 +139,19 @@ class NodeList {
     return this.toggleClass(classes, false)
   }
   toggleClass (classes, value) {
-    const method = (value === undefined || value === null) ? 'toggle' : value ? 'add' : 'remove'
+    var method = (value === undefined || value === null) ? 'toggle' : value ? 'add' : 'remove'
     if (typeof classes === 'string') {
       classes = classes.trim().replace(/\s+/, ' ').split(' ')
     }
-    classes.forEach(c => this.each(el => el.classList[method](c)))
+    this.each(el => {
+      var list = el.className.trim().replace(/\s+/, ' ').split(' ')
+      classes.forEach(c => {
+        var hasClass = ~list.indexOf(c)
+        if (!hasClass && method !== 'remove') list.push(c)
+        if (hasClass && method !== 'add') { list = list.filter(el => (el !== c)) }
+      })
+      el.className = list
+    })
     return this
   }
 
