@@ -1,5 +1,5 @@
 <template>
-  <doc-section id="tooltip" name="***Tooltip">
+  <doc-section id="tooltip" name="Tooltip">
     <div class="bs-example">
       <tooltip v-for="place in ['top','left','right','bottom']" header content="Lorem ipsum dolor sit amet" :placement="place">
         <button class="btn btn-default">Popover on {{place}}</button>

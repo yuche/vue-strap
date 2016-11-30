@@ -4,7 +4,9 @@
     <transition :name="effect">
       <div ref="popover" v-if="show" style="display:block;" :class="['tooltip',placement]">
         <div class="tooltip-arrow"></div>
-        <div class="tooltip-inner"><slot name="content" v-html="content"></slot></div>
+        <div class="tooltip-inner">
+          <slot name="content"><div v-html="content"></div></slot>
+        </div>
       </div>
     </transition>
   </span>
