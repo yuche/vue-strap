@@ -4,7 +4,7 @@
       <li v-for="s in sections" :class="{active:active==s.id}"><a :href="'#' + s.id">{{ s.name }}</a></li>
     </ul>
     <a href="#" class="back-to-top">Back to top</a>
-    <a href="https://github.com/yuche/vue-strap" class="back-to-top">GitHub</a>
+    <a href="https://github.com/wffranco/vue-strap" class="back-to-top">GitHub</a>
   </affix>
 </template>
 
