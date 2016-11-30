@@ -4959,7 +4959,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  methods: {
 	    validate: function validate() {
-	      var invalid = !this.children.some(function (el) {
+	      var invalid = !this.children.every(function (el) {
 	        return el.validate ? el.validate() : el.valid !== undefined ? el.valid : el.required && !~['', null, undefined].indexOf(el.value);
 	      });
 	      this.valid = !invalid;
@@ -4967,12 +4967,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  created: function created() {
-	    this._formGroup = true;
+	    this._formValidator = true;
 	    var parent = this.$parent;
-	    while (parent && !parent._formGroup) {
+	    while (parent && !parent._formValidator) {
 	      parent = parent.$parent;
 	    }
-	    if (parent && parent._formGroup) {
+	    if (parent && parent._formValidator) {
 	      parent.children.push(this);
 	      this._parent = parent;
 	    }
@@ -8576,15 +8576,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = {
 	  props: {
-	    isTrue: { default: 'primary' },
-	    isFalse: { default: null },
+	    disabled: { default: null },
+	    falseType: { default: null },
 	    name: null,
+	    readonly: { default: null },
+	    trueType: { default: 'primary' },
 	    value: false
 	  },
 	  data: function data() {
-	    var active = _utils.coerce.boolean(this.value);
 	    return {
-	      active: active,
+	      active: _utils.coerce.boolean(this.value),
 	      types: {
 	        danger: 'btn-danger',
 	        info: 'btn-info',
@@ -8610,8 +8611,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  computed: {
+	    boolDisabled: function boolDisabled() {
+	      return _utils.coerce.boolean(this.disabled);
+	    },
+	    boolReadonly: function boolReadonly() {
+	      return _utils.coerce.boolean(this.readonly);
+	    },
 	    type: function type() {
-	      return this.types[this.value ? this.isTrue : this.isFalse] || 'btn-default';
+	      return this.types[this.value ? this.trueType : this.falseType] || 'btn-default';
+	    }
+	  },
+	  methods: {
+	    toggle: function toggle() {
+	      if (this.boolDisabled || this.boolReadonly) {
+	        return;
+	      }
+	      this.active = !this.active;
 	    }
 	  }
 	}; //
@@ -8629,14 +8644,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports={render:function (){var _vm=this;
 	  return _vm._h('a', {
-	    class: ['btn', _vm.type],
+	    class: ['btn', _vm.type, {
+	      readonly: _vm.boolReadonly
+	    }],
 	    attrs: {
-	      "href": "javascript:void(0)"
+	      "href": "javascript:void(0)",
+	      "disabled": _vm.boolDisabled
 	    },
 	    on: {
-	      "click": function($event) {
-	        _vm.active = !_vm.active
-	      }
+	      "click": _vm.toggle
 	    }
 	  }, [_vm._h('span', {
 	    class: ['glyphicon', 'glyphicon-' + (_vm.value ? 'ok' : 'remove')]

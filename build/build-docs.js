@@ -52,16 +52,16 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(298);
-	__webpack_require__(301);
-	
-	var Prism = __webpack_require__(303);
 	__webpack_require__(304);
-	
-	var Vue = window.Vue = __webpack_require__(305);
-	Vue.use(__webpack_require__(306));
 	__webpack_require__(307);
-	__webpack_require__(308);
+	
+	var Prism = __webpack_require__(309);
+	__webpack_require__(310);
+	
+	var Vue = window.Vue = __webpack_require__(311);
+	Vue.use(__webpack_require__(312));
+	__webpack_require__(313);
+	__webpack_require__(314);
 	
 	Vue.config.devtools = true;
 	Vue.config.debug = true;
@@ -99,7 +99,7 @@
 	__vue_exports__ = __webpack_require__(2)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(297)
+	var __vue_template__ = __webpack_require__(303)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -230,81 +230,19 @@
 	
 	var _tabsDocs2 = _interopRequireDefault(_tabsDocs);
 	
-	var _tooltipDocs = __webpack_require__(271);
+	var _toggleButtonDocs = __webpack_require__(271);
+	
+	var _toggleButtonDocs2 = _interopRequireDefault(_toggleButtonDocs);
+	
+	var _tooltipDocs = __webpack_require__(277);
 	
 	var _tooltipDocs2 = _interopRequireDefault(_tooltipDocs);
 	
-	var _typeaheadDocs = __webpack_require__(274);
+	var _typeaheadDocs = __webpack_require__(280);
 	
 	var _typeaheadDocs2 = _interopRequireDefault(_typeaheadDocs);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
 	
 	exports.default = {
 	  components: {
@@ -330,6 +268,7 @@
 	    selectDocs: _selectDocs2.default,
 	    spinnerDocs: _spinnerDocs2.default,
 	    tabsDocs: _tabsDocs2.default,
+	    toggleButtonDocs: _toggleButtonDocs2.default,
 	    tooltipDocs: _tooltipDocs2.default,
 	    typeaheadDocs: _typeaheadDocs2.default
 	  },
@@ -338,7 +277,72 @@
 	      return location.hostname === 'localhost';
 	    }
 	  }
-	};
+	}; //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 
 /***/ },
 /* 3 */
@@ -2791,7 +2795,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.animated {\r\n    -webkit-animation-duration: 3s;\r\n    animation-duration: 3s;\r\n    -webkit-animation-fill-mode: both;\r\n    animation-fill-mode: both;\r\n    animation-iteration-count: infinite\n}\n@keyframes shake {\n0%, 100% {transform: translateX(0);\n}\n10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);\n}\n20%, 40%, 60%, 80% {transform: translateX(5px);\n}\n}\n.shake {\r\n    -webkit-animation-name: shake;\r\n    animation-name: shake;\n}\r\n", "", {"version":3,"sources":["/./docs/example/affixDocs.vue?2d2dca86"],"names":[],"mappings":";AAiDA;IACA,+BAAA;IACA,uBAAA;IACA,kCAAA;IACA,0BAAA;IACA,mCAAA;CACA;AACA;AACA,UAAA,yBAAA;CAAA;AACA,yBAAA,4BAAA;CAAA;AACA,oBAAA,2BAAA;CAAA;CACA;AACA;IACA,8BAAA;IACA,sBAAA;CACA","file":"affixDocs.vue","sourcesContent":["<template>\r\n  <doc-section id=\"affix\" name=\"Affix\">\r\n    <div class=\"bs-example\">\r\n      <h3>\r\n        The sub-navigation on the RIGHT is a live demo of the affix.\r\n        <span class=\"visible-xs-block visible-sm-block\">(The live demo is hidden in small screens)</span>\r\n        <tooltip trigger=\"hover\" effect=\"fadein\" content=\"I'm a direction, not jerking off!\" placement=\"left\">\r\n          <span class=\"glyphicon glyphicon-hand-right pull-right animated shake hidden-xs hidden-sm\"></span>\r\n        </tooltip>\r\n      </h3>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      &lt;affix offset=\"50\">\r\n        &lt;ul>\r\n          &lt;li>...&lt;/li>\r\n          &lt;li>...&lt;/li>\r\n          &lt;li>...&lt;/li>\r\n        &lt;/ul>\r\n        &lt;a href=\"#\">...&lt;/a>\r\n      &lt;/affix>\r\n    </doc-code>\r\n    <doc-table>\r\n      <div>\r\n        <p>offset</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p>Pixels to offset from top of screen when calculating position of scroll.</p>\r\n      </div>\r\n    </doc-table>\r\n  </doc-section>\r\n</template>\r\n\r\n<script>\r\nimport docSection from './utils/docSection.vue'\r\nimport docTable from './utils/docTable.js'\r\nimport docCode from './utils/docCode.js'\r\nimport tooltip from 'src/Tooltip.vue'\r\n\r\nexport default {\r\n  components: {\r\n    docSection,\r\n    docTable,\r\n    docCode,\r\n    tooltip\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.animated {\r\n    -webkit-animation-duration: 3s;\r\n    animation-duration: 3s;\r\n    -webkit-animation-fill-mode: both;\r\n    animation-fill-mode: both;\r\n    animation-iteration-count: infinite\r\n}\r\n@keyframes shake {\r\n    0%, 100% {transform: translateX(0);}\r\n    10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);}\r\n    20%, 40%, 60%, 80% {transform: translateX(5px);}\r\n}\r\n.shake {\r\n    -webkit-animation-name: shake;\r\n    animation-name: shake;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.animated {\r\n    -webkit-animation-duration: 3s;\r\n    animation-duration: 3s;\r\n    -webkit-animation-fill-mode: both;\r\n    animation-fill-mode: both;\r\n    animation-iteration-count: infinite\n}\n@keyframes shake {\n0%, 100% {transform: translateX(0);\n}\n10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);\n}\n20%, 40%, 60%, 80% {transform: translateX(5px);\n}\n}\n.shake {\r\n    -webkit-animation-name: shake;\r\n    animation-name: shake;\n}\r\n", "", {"version":3,"sources":["/./docs/example/affixDocs.vue?dc509142"],"names":[],"mappings":";AAiDA;IACA,+BAAA;IACA,uBAAA;IACA,kCAAA;IACA,0BAAA;IACA,mCAAA;CACA;AACA;AACA,UAAA,yBAAA;CAAA;AACA,yBAAA,4BAAA;CAAA;AACA,oBAAA,2BAAA;CAAA;CACA;AACA;IACA,8BAAA;IACA,sBAAA;CACA","file":"affixDocs.vue","sourcesContent":["<template>\r\n  <doc-section id=\"affix\" name=\"***Affix\">\r\n    <div class=\"bs-example\">\r\n      <h3>\r\n        The sub-navigation on the RIGHT is a live demo of the affix.\r\n        <span class=\"visible-xs-block visible-sm-block\">(The live demo is hidden in small screens)</span>\r\n        <tooltip trigger=\"hover\" effect=\"fadein\" content=\"I'm a direction, not jerking off!\" placement=\"left\">\r\n          <span class=\"glyphicon glyphicon-hand-right pull-right animated shake hidden-xs hidden-sm\"></span>\r\n        </tooltip>\r\n      </h3>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n      &lt;affix offset=\"50\">\r\n        &lt;ul>\r\n          &lt;li>...&lt;/li>\r\n          &lt;li>...&lt;/li>\r\n          &lt;li>...&lt;/li>\r\n        &lt;/ul>\r\n        &lt;a href=\"#\">...&lt;/a>\r\n      &lt;/affix>\r\n    </doc-code>\r\n    <doc-table>\r\n      <div>\r\n        <p>offset</p>\r\n        <p><code>Number</code></p>\r\n        <p><code>0</code></p>\r\n        <p>Pixels to offset from top of screen when calculating position of scroll.</p>\r\n      </div>\r\n    </doc-table>\r\n  </doc-section>\r\n</template>\r\n\r\n<script>\r\nimport docSection from './utils/docSection.vue'\r\nimport docTable from './utils/docTable.js'\r\nimport docCode from './utils/docCode.js'\r\nimport tooltip from 'src/Tooltip.vue'\r\n\r\nexport default {\r\n  components: {\r\n    docSection,\r\n    docTable,\r\n    docCode,\r\n    tooltip\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.animated {\r\n    -webkit-animation-duration: 3s;\r\n    animation-duration: 3s;\r\n    -webkit-animation-fill-mode: both;\r\n    animation-fill-mode: both;\r\n    animation-iteration-count: infinite\r\n}\r\n@keyframes shake {\r\n    0%, 100% {transform: translateX(0);}\r\n    10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);}\r\n    20%, 40%, 60%, 80% {transform: translateX(5px);}\r\n}\r\n.shake {\r\n    -webkit-animation-name: shake;\r\n    animation-name: shake;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -4640,7 +4644,7 @@
 	  return _vm._h('doc-section', {
 	    attrs: {
 	      "id": "affix",
-	      "name": "Affix"
+	      "name": "***Affix"
 	    }
 	  }, [_vm._h('div', {
 	    staticClass: "bs-example"
@@ -11043,7 +11047,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.checkbox>label:not(:first-child) {\r\n  margin-left: 15px;\n}\r\n", "", {"version":3,"sources":["/./docs/example/formValidatorDocs.vue?24f3911a"],"names":[],"mappings":";AAsIA;EACA,kBAAA;CACA","file":"formValidatorDocs.vue","sourcesContent":["<template>\r\n  <doc-section id=\"form-validator\" name=\"***Form Validator\">\r\n    <p>This is not a style component, is just a global validation manager.</p>\r\n    <p>If you need to evaluate if a group of elements are all valids, you can handle easier with this component.</p>\r\n    <p>In this example, the buttons and tabs are disabled while the inner elements are empty.</p>\r\n    <div class=\"bs-example\">\r\n      <h4>Basic Usage:</h4>\r\n      <doc-code>\r\n        &lt;!-- Using v-model -->\r\n        &lt;!-- The starting variable value will be ignored. -->\r\n        &lt;form-validator v-model=\"valid\">\r\n          ...\r\n        &lt;/form-validator>\r\n        &lt;!-- Using event isvalid -->\r\n          &lt;form-validator @isvalid=\"valid = arguments[0]\">...&lt;/form-validator>\r\n          &lt;!-- or -->\r\n          &lt;form-validator @isvalid=\"validMethod\">\r\n            &lt;!-- the method receive true or false in the first argument -->\r\n          &lt;/form-validator>\r\n        &lt;!-- Using events valid and/or invalid -->\r\n        &lt;form-validator @valid=\"valid.all = true\" @invalid=\"valid.all = false\">\r\n            ...\r\n        &lt;/form-validator>\r\n      </doc-code>\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-12 col-md-4 col-lg-4\">\r\n          <p><pre>Valid user data : {{valid.user}}</pre></p>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-4 col-lg-4\">\r\n          <p><pre>Valid direction : {{valid.direction}}</pre></p>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-4 col-lg-4\">\r\n          <p><pre>All valid : {{valid.all}}</pre></p>\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <form-validator v-model=\"valid.all\">\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">\r\n            <tabs v-model=\"active\">\r\n              <tab header=\"User\">\r\n                <form-validator v-model=\"valid.user\">\r\n                  <bs-input label=\"User Name\" required></bs-input>\r\n                  <bs-input label=\"Email\" type=\"email\" required></bs-input>\r\n                </form-validator>\r\n                <button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.user\" @click=\"active = 1\">Continue</button>\r\n              </tab>\r\n              <tab header=\"Direction\" :disabled=\"!valid.user\">\r\n                <form-validator v-model=\"valid.direction\">\r\n                  <div class=\"form-validator\">\r\n                    <label class=\"control-label\">Continent</label>\r\n                    <v-select required justified :options=\"['America','Europe']\" clear-button></v-select>\r\n                  </div>\r\n                  <bs-input label=\"City\" type=\"text\" required></bs-input>\r\n                </form-validator>\r\n                <button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.all\">Done!!</button>\r\n              </tab>\r\n            </tabs>\r\n          </div>\r\n        </form-validator>\r\n      </div>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n        &lt;form-validator v-model=\"valid.all\">\r\n          &lt;div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">\r\n            &lt;tabs v-model=\"active\">\r\n              &lt;tab header=\"User\">\r\n                &lt;form-validator @valid=\"valid.user = true\" @invalid=\"valid.user = false\">\r\n                  &lt;bs-input label=\"User Name\" required>&lt;/bs-input>\r\n                  &lt;bs-input label=\"Email\" type=\"email\" required>&lt;/bs-input>\r\n                &lt;/form-validator>\r\n                &lt;button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.user\" @click=\"active = 1\">Continue&lt;/button>\r\n              &lt;/tab>\r\n              &lt;tab header=\"Direction\" :disabled=\"!valid.user\">\r\n                &lt;form-validator @isvalid=\"valid.direction = arguments[0]\">\r\n                  &lt;div class=\"form-validator\">\r\n                    &lt;label class=\"control-label\">Continent&lt;/label>\r\n                    &lt;v-select required justified :options=\"['America','Europe']\" clear-button>&lt;/v-select>\r\n                  &lt;/div>\r\n                  &lt;bs-input label=\"City\" type=\"text\" required>&lt;/bs-input>\r\n                &lt;/form-validator>\r\n                &lt;button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.all\">Done!!&lt;/button>\r\n              &lt;/tab>\r\n            &lt;/tabs>\r\n          &lt;/div>\r\n        &lt;/form-validator>\r\n    </doc-code>\r\n    <doc-table>\r\n      <div>\r\n        <p>valid</p>\r\n        <p><code>Boolean</code></p>\r\n        <p></p>\r\n        <p>Return if all the internal form elements (<code>select</code>, <code>input</code>) are valids.</p>\r\n      </div>\r\n    </doc-table>\r\n  </doc-section>\r\n</template>\r\n\r\n<script>\r\nimport docSection from './utils/docSection.vue'\r\nimport docTable from './utils/docTable.js'\r\nimport docCode from './utils/docCode.js'\r\nimport formValidator from 'src/FormValidator.vue'\r\nimport bsInput from 'src/Input.vue'\r\nimport tab from 'src/Tab.vue'\r\nimport tabs from 'src/Tabs.vue'\r\nimport vSelect from 'src/Select.vue'\r\n\r\nexport default {\r\n  components: {\r\n    docSection,\r\n    docTable,\r\n    docCode,\r\n    formValidator,\r\n    bsInput,\r\n    tab,\r\n    tabs,\r\n    vSelect\r\n  },\r\n  data () {\r\n    var valid = {}; ['all', 'direction', 'user'].forEach(el => { valid[el] = null })\r\n    return {\r\n      active: 0,\r\n      valid\r\n    }\r\n  },\r\n  methods: {\r\n    show (value) {\r\n      return value instanceof Array ? value.join(', ') : value\r\n    }\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.checkbox>label:not(:first-child) {\r\n  margin-left: 15px;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.checkbox>label:not(:first-child) {\r\n  margin-left: 15px;\n}\r\n", "", {"version":3,"sources":["/./docs/example/formValidatorDocs.vue?af0a4146"],"names":[],"mappings":";AAuIA;EACA,kBAAA;CACA","file":"formValidatorDocs.vue","sourcesContent":["<template>\r\n  <doc-section id=\"form-validator\" name=\"Form Validator\">\r\n    <p>This is not a style component, but a global validation manager.</p>\r\n    <p>If you need to evaluate if a group of components are valids, you can handle easier with this component.</p>\r\n    <p>Actually only supported input & select components.</p>\r\n    <p>In this example, the buttons and tabs are disabled while the inner elements are empty.</p>\r\n    <div class=\"bs-example\">\r\n      <h4>Basic Usage:</h4>\r\n      <doc-code>\r\n        &lt;!-- Using v-model -->\r\n        &lt;!-- The starting variable value will be ignored. -->\r\n        &lt;form-validator v-model=\"valid\">\r\n          ...\r\n        &lt;/form-validator>\r\n        &lt;!-- Using event isvalid -->\r\n          &lt;form-validator @isvalid=\"valid = arguments[0]\">...&lt;/form-validator>\r\n          &lt;!-- or -->\r\n          &lt;form-validator @isvalid=\"validMethod\">\r\n            &lt;!-- the method receive true or false in the first argument -->\r\n          &lt;/form-validator>\r\n        &lt;!-- Using events valid and/or invalid -->\r\n        &lt;form-validator @valid=\"valid.all = true\" @invalid=\"valid.all = false\">\r\n            ...\r\n        &lt;/form-validator>\r\n      </doc-code>\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-12 col-md-4 col-lg-4\">\r\n          <p><pre>Valid user data : {{valid.user}}</pre></p>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-4 col-lg-4\">\r\n          <p><pre>Valid direction : {{valid.direction}}</pre></p>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-4 col-lg-4\">\r\n          <p><pre>All valid : {{valid.all}}</pre></p>\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <form-validator v-model=\"valid.all\">\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">\r\n            <tabs v-model=\"active\">\r\n              <tab header=\"User\">\r\n                <form-validator v-model=\"valid.user\">\r\n                  <bs-input label=\"User Name\" required></bs-input>\r\n                  <bs-input label=\"Email\" type=\"email\" required></bs-input>\r\n                </form-validator>\r\n                <button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.user\" @click=\"active = 1\">Continue</button>\r\n              </tab>\r\n              <tab header=\"Direction\" :disabled=\"!valid.user\">\r\n                <form-validator v-model=\"valid.direction\">\r\n                  <div class=\"form-validator\">\r\n                    <label class=\"control-label\">Continent</label>\r\n                    <v-select required justified :options=\"['America','Europe']\" clear-button></v-select>\r\n                  </div>\r\n                  <bs-input label=\"City\" type=\"text\" required></bs-input>\r\n                </form-validator>\r\n                <button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.all\">Done!!</button>\r\n              </tab>\r\n            </tabs>\r\n          </div>\r\n        </form-validator>\r\n      </div>\r\n    </div>\r\n    <doc-code language=\"markup\">\r\n        &lt;form-validator v-model=\"valid.all\">\r\n          &lt;div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">\r\n            &lt;tabs v-model=\"active\">\r\n              &lt;tab header=\"User\">\r\n                &lt;form-validator @valid=\"valid.user = true\" @invalid=\"valid.user = false\">\r\n                  &lt;bs-input label=\"User Name\" required>&lt;/bs-input>\r\n                  &lt;bs-input label=\"Email\" type=\"email\" required>&lt;/bs-input>\r\n                &lt;/form-validator>\r\n                &lt;button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.user\" @click=\"active = 1\">Continue&lt;/button>\r\n              &lt;/tab>\r\n              &lt;tab header=\"Direction\" :disabled=\"!valid.user\">\r\n                &lt;form-validator @isvalid=\"valid.direction = arguments[0]\">\r\n                  &lt;div class=\"form-validator\">\r\n                    &lt;label class=\"control-label\">Continent&lt;/label>\r\n                    &lt;v-select required justified :options=\"['America','Europe']\" clear-button>&lt;/v-select>\r\n                  &lt;/div>\r\n                  &lt;bs-input label=\"City\" type=\"text\" required>&lt;/bs-input>\r\n                &lt;/form-validator>\r\n                &lt;button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.all\">Done!!&lt;/button>\r\n              &lt;/tab>\r\n            &lt;/tabs>\r\n          &lt;/div>\r\n        &lt;/form-validator>\r\n    </doc-code>\r\n    <doc-table>\r\n      <div>\r\n        <p>valid</p>\r\n        <p><code>Boolean</code></p>\r\n        <p></p>\r\n        <p>Return if all the internal form elements (<code>select</code>, <code>input</code>) are valids.</p>\r\n      </div>\r\n    </doc-table>\r\n  </doc-section>\r\n</template>\r\n\r\n<script>\r\nimport docSection from './utils/docSection.vue'\r\nimport docTable from './utils/docTable.js'\r\nimport docCode from './utils/docCode.js'\r\nimport formValidator from 'src/FormValidator.vue'\r\nimport bsInput from 'src/Input.vue'\r\nimport tab from 'src/Tab.vue'\r\nimport tabs from 'src/Tabs.vue'\r\nimport vSelect from 'src/Select.vue'\r\n\r\nexport default {\r\n  components: {\r\n    docSection,\r\n    docTable,\r\n    docCode,\r\n    formValidator,\r\n    bsInput,\r\n    tab,\r\n    tabs,\r\n    vSelect\r\n  },\r\n  data () {\r\n    var valid = {}; ['all', 'direction', 'user'].forEach(el => { valid[el] = null })\r\n    return {\r\n      active: 0,\r\n      valid\r\n    }\r\n  },\r\n  methods: {\r\n    show (value) {\r\n      return value instanceof Array ? value.join(', ') : value\r\n    }\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.checkbox>label:not(:first-child) {\r\n  margin-left: 15px;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -11092,6 +11096,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	//
 	//
 	//
 	//
@@ -11303,7 +11308,7 @@
 	  },
 	  methods: {
 	    validate: function validate() {
-	      var invalid = !this.children.some(function (el) {
+	      var invalid = !this.children.every(function (el) {
 	        return el.validate ? el.validate() : el.valid !== undefined ? el.valid : el.required && !~['', null, undefined].indexOf(el.value);
 	      });
 	      this.valid = !invalid;
@@ -11311,12 +11316,12 @@
 	    }
 	  },
 	  created: function created() {
-	    this._formGroup = true;
+	    this._formValidator = true;
 	    var parent = this.$parent;
-	    while (parent && !parent._formGroup) {
+	    while (parent && !parent._formValidator) {
 	      parent = parent.$parent;
 	    }
-	    if (parent && parent._formGroup) {
+	    if (parent && parent._formValidator) {
 	      parent.children.push(this);
 	      this._parent = parent;
 	    }
@@ -11355,9 +11360,9 @@
 	  return _vm._h('doc-section', {
 	    attrs: {
 	      "id": "form-validator",
-	      "name": "***Form Validator"
+	      "name": "Form Validator"
 	    }
-	  }, [_vm._h('p', ["This is not a style component, is just a global validation manager."]), " ", _vm._h('p', ["If you need to evaluate if a group of elements are all valids, you can handle easier with this component."]), " ", _vm._h('p', ["In this example, the buttons and tabs are disabled while the inner elements are empty."]), " ", _vm._h('div', {
+	  }, [_vm._h('p', ["This is not a style component, but a global validation manager."]), " ", _vm._h('p', ["If you need to evaluate if a group of components are valids, you can handle easier with this component."]), " ", _vm._h('p', ["Actually only supported input & select components."]), " ", _vm._h('p', ["In this example, the buttons and tabs are disabled while the inner elements are empty."]), " ", _vm._h('div', {
 	    staticClass: "bs-example"
 	  }, [_vm._h('h4', ["Basic Usage:"]), " ", _vm._h('doc-code', ["\n      <!-- Using v-model -->\n      <!-- The starting variable value will be ignored. -->\n      <form-validator v-model=\"valid\">\n        ...\n      </form-validator>\n      <!-- Using event isvalid -->\n        <form-validator @isvalid=\"valid = arguments[0]\">...</form-validator>\n        <!-- or -->\n        <form-validator @isvalid=\"validMethod\">\n          <!-- the method receive true or false in the first argument -->\n        </form-validator>\n      <!-- Using events valid and/or invalid -->\n      <form-validator @valid=\"valid.all = true\" @invalid=\"valid.all = false\">\n          ...\n      </form-validator>\n    "]), " ", _vm._h('div', {
 	    staticClass: "row"
@@ -16729,7 +16734,523 @@
 	__vue_exports__ = __webpack_require__(272)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(273)
+	var __vue_template__ = __webpack_require__(276)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "C:\\laragon\\www\\vue-strap\\docs\\example\\toggleButtonDocs.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-0285333b", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-0285333b", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] toggleButtonDocs.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+	
+	module.exports = __vue_exports__
+
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _docSection = __webpack_require__(5);
+	
+	var _docSection2 = _interopRequireDefault(_docSection);
+	
+	var _docTable = __webpack_require__(8);
+	
+	var _docTable2 = _interopRequireDefault(_docTable);
+	
+	var _docCode = __webpack_require__(9);
+	
+	var _docCode2 = _interopRequireDefault(_docCode);
+	
+	var _Input = __webpack_require__(187);
+	
+	var _Input2 = _interopRequireDefault(_Input);
+	
+	var _ToggleButton = __webpack_require__(273);
+	
+	var _ToggleButton2 = _interopRequireDefault(_ToggleButton);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  components: {
+	    docSection: _docSection2.default,
+	    docTable: _docTable2.default,
+	    docCode: _docCode2.default,
+	    bsInput: _Input2.default,
+	    ToggleButton: _ToggleButton2.default
+	  },
+	  data: function data() {
+	    return {
+	      one: false,
+	      two: true,
+	      three: false,
+	      input: false,
+	      content: ''
+	    };
+	  }
+	}; //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+	
+	/* script */
+	__vue_exports__ = __webpack_require__(274)
+	
+	/* template */
+	var __vue_template__ = __webpack_require__(275)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "C:\\laragon\\www\\vue-strap\\src\\ToggleButton.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-f034a5f2", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-f034a5f2", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] ToggleButton.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+	
+	module.exports = __vue_exports__
+
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _utils = __webpack_require__(29);
+	
+	exports.default = {
+	  props: {
+	    disabled: { default: null },
+	    falseType: { default: null },
+	    name: null,
+	    readonly: { default: null },
+	    trueType: { default: 'primary' },
+	    value: false
+	  },
+	  data: function data() {
+	    return {
+	      active: _utils.coerce.boolean(this.value),
+	      types: {
+	        danger: 'btn-danger',
+	        info: 'btn-info',
+	        primary: 'btn-primary',
+	        success: 'btn-success',
+	        warning: 'btn-warning'
+	      }
+	    };
+	  },
+	
+	  watch: {
+	    active: function active(val, old) {
+	      if (val !== old) {
+	        this.$emit('changed', val);
+	        this.$emit(val ? 'enabled' : 'disabled');
+	        this.$emit('input', val);
+	      }
+	    },
+	    value: function value(val, old) {
+	      if (val !== old) {
+	        this.active = _utils.coerce.boolean(this.value);
+	      }
+	    }
+	  },
+	  computed: {
+	    boolDisabled: function boolDisabled() {
+	      return _utils.coerce.boolean(this.disabled);
+	    },
+	    boolReadonly: function boolReadonly() {
+	      return _utils.coerce.boolean(this.readonly);
+	    },
+	    type: function type() {
+	      return this.types[this.value ? this.trueType : this.falseType] || 'btn-default';
+	    }
+	  },
+	  methods: {
+	    toggle: function toggle() {
+	      if (this.boolDisabled || this.boolReadonly) {
+	        return;
+	      }
+	      this.active = !this.active;
+	    }
+	  }
+	}; //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;
+	  return _vm._h('a', {
+	    class: ['btn', _vm.type, {
+	      readonly: _vm.boolReadonly
+	    }],
+	    attrs: {
+	      "href": "javascript:void(0)",
+	      "disabled": _vm.boolDisabled
+	    },
+	    on: {
+	      "click": _vm.toggle
+	    }
+	  }, [_vm._h('span', {
+	    class: ['glyphicon', 'glyphicon-' + (_vm.value ? 'ok' : 'remove')]
+	  }), " ", _vm._t("default"), " ", (_vm.name) ? _vm._h('input', {
+	    attrs: {
+	      "type": "hidden",
+	      "name": _vm.name
+	    },
+	    domProps: {
+	      "value": _vm.active ? 1 : 0
+	    }
+	  }) : _vm._e()])
+	},staticRenderFns: []}
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-f034a5f2", module.exports)
+	  }
+	}
+
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;
+	  return _vm._h('doc-section', {
+	    attrs: {
+	      "id": "toggle-button",
+	      "name": "ToggleButton"
+	    }
+	  }, [_vm._h('div', {
+	    staticClass: "bs-example form-group"
+	  }, [_vm._h('h4', ["ToggleButton"]), " ", _vm._h('p', ["A 2 states button (single true/false) but with a better looking."]), " ", _vm._h('div', {
+	    staticClass: "form-group"
+	  }, [_vm._h('toggle-button', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.one),
+	      expression: "one"
+	    }],
+	    domProps: {
+	      "value": (_vm.one)
+	    },
+	    on: {
+	      "input": function($event) {
+	        _vm.one = $event
+	      }
+	    }
+	  }, ["One"]), " ", _vm._h('toggle-button', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.two),
+	      expression: "two"
+	    }],
+	    domProps: {
+	      "value": (_vm.two)
+	    },
+	    on: {
+	      "input": function($event) {
+	        _vm.two = $event
+	      }
+	    }
+	  }, ["Two"]), " ", _vm._h('toggle-button', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.two),
+	      expression: "two"
+	    }],
+	    attrs: {
+	      "true-type": "info",
+	      "disabled": ""
+	    },
+	    domProps: {
+	      "value": (_vm.two)
+	    },
+	    on: {
+	      "input": function($event) {
+	        _vm.two = $event
+	      }
+	    }
+	  }, ["Two (disabled)"]), " ", _vm._h('toggle-button', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.two),
+	      expression: "two"
+	    }],
+	    attrs: {
+	      "false-type": "warning",
+	      "readonly": ""
+	    },
+	    domProps: {
+	      "value": (_vm.two)
+	    },
+	    on: {
+	      "input": function($event) {
+	        _vm.two = $event
+	      }
+	    }
+	  }, ["Two (readonly)"]), " ", _vm._h('toggle-button', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.three),
+	      expression: "three"
+	    }],
+	    attrs: {
+	      "true-type": "success",
+	      "false-type": "danger"
+	    },
+	    domProps: {
+	      "value": (_vm.three)
+	    },
+	    on: {
+	      "input": function($event) {
+	        _vm.three = $event
+	      }
+	    }
+	  }, ["Three"])]), " ", _vm._h('div', {
+	    staticClass: "form-group"
+	  }, [_vm._h('bs-input', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.content),
+	      expression: "content"
+	    }],
+	    attrs: {
+	      "disabled": !_vm.input,
+	      "placeholder": "Will be cleaned when is disabled."
+	    },
+	    domProps: {
+	      "value": (_vm.content)
+	    },
+	    on: {
+	      "input": function($event) {
+	        _vm.content = $event
+	      }
+	    }
+	  }, [_vm._h('span', {
+	    staticClass: "input-group-btn",
+	    slot: "before"
+	  }, [_vm._h('toggle-button', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.input),
+	      expression: "input"
+	    }],
+	    domProps: {
+	      "value": (_vm.input)
+	    },
+	    on: {
+	      "disabled": function($event) {
+	        _vm.content = ''
+	      },
+	      "input": function($event) {
+	        _vm.input = $event
+	      }
+	    }
+	  }, ["Toggle Input:"])])])]), " ", _vm._h('p', [_vm._h('pre', ["Toggle values: " + _vm._s(_vm.$data)])])]), " ", _vm._h('doc-code', {
+	    attrs: {
+	      "language": "markup"
+	    }
+	  }, ["\n    <toggle-button v-model=\"one\">One</toggle-button>\n    <toggle-button v-model=\"two\">Two</toggle-button>\n    <toggle-button v-model=\"two\" true-type=\"info\" disabled>Two (disabled)</toggle-button>\n    <toggle-button v-model=\"two\" false-type=\"warning\" readonly>Two (readonly)</toggle-button>\n    <toggle-button v-model=\"three\" true-type=\"success\" false-type=\"danger\">Three</toggle-button>\n    <bs-input v-model=\"content\" :disabled=\"!input\" placeholder=\"Will be cleaned when is disabled.\">\n      <span slot=\"before\" class=\"input-group-btn\">\n        <toggle-button v-model=\"input\" @disabled=\"content=''\">Toggle Input:</toggle-button>\n      </span>\n    </bs-input>\n  "]), " ", _vm._h('doc-table', [_vm._h('div', [_vm._h('p', ["value"]), " ", _vm._h('p', [_vm._h('code', ["Mixed"])]), " ", _vm._h('p'), " ", _vm._h('p', ["Handle the selected value."])]), " ", _vm._h('div', [_vm._h('p', ["true-type"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["default"]), " ", _vm._h('code', ["primary"]), " ", _vm._h('code', ["danger"]), " ", _vm._h('code', ["info"]), " ", _vm._h('code', ["warning"]), " ", _vm._h('code', ["success"])]), " ", _vm._h('p', [_vm._h('code', ["primary"])]), " ", _vm._h('p')]), " ", _vm._h('div', [_vm._h('p', ["false-type"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["default"]), " ", _vm._h('code', ["primary"]), " ", _vm._h('code', ["danger"]), " ", _vm._h('code', ["info"]), " ", _vm._h('code', ["warning"]), " ", _vm._h('code', ["success"])]), " ", _vm._h('p', [_vm._h('code', ["default"])]), " ", _vm._h('p')]), " ", _vm._h('div', [_vm._h('p', ["type"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["default"]), " ", _vm._h('code', ["primary"]), " ", _vm._h('code', ["danger"]), " ", _vm._h('code', ["info"]), " ", _vm._h('code', ["warning"]), " ", _vm._h('code', ["success"])]), " ", _vm._h('p', [_vm._h('code', ["default"])]), " ", _vm._h('p')]), " ", _vm._h('div', [_vm._h('p', ["button"]), " ", _vm._h('p', [_vm._h('code', ["Boolean"])]), " ", _vm._h('p', ["false"]), " ", _vm._h('p', ["Button style."])])]), " ", _vm._h('p', ["See ", _vm._h('a', {
+	    attrs: {
+	      "href": "#button-group"
+	    }
+	  }, ["Button Group"]), " for more options."]), " ", _vm._h('doc-table', {
+	    attrs: {
+	      "type": "Events"
+	    }
+	  }, [_vm._h('div', [_vm._h('p', ["changed"]), " ", _vm._h('p', ["(", _vm._h('code', ["boolean:value"]), ")"]), " ", _vm._h('p', ["If changed, return the actual state."])]), " ", _vm._h('div', [_vm._h('p', ["disabled"]), " ", _vm._h('p'), " ", _vm._h('p', ["Call this event if the button was disabled."])]), " ", _vm._h('div', [_vm._h('p', ["enabled"]), " ", _vm._h('p'), " ", _vm._h('p', ["Call this event if the button was enabled."])])])])
+	},staticRenderFns: []}
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-0285333b", module.exports)
+	  }
+	}
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+	
+	/* script */
+	__vue_exports__ = __webpack_require__(278)
+	
+	/* template */
+	var __vue_template__ = __webpack_require__(279)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -16763,7 +17284,7 @@
 
 
 /***/ },
-/* 272 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16866,7 +17387,7 @@
 	//
 
 /***/ },
-/* 273 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -16931,17 +17452,17 @@
 	}
 
 /***/ },
-/* 274 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(275)
+	__vue_exports__ = __webpack_require__(281)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(296)
+	var __vue_template__ = __webpack_require__(302)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -16975,7 +17496,7 @@
 
 
 /***/ },
-/* 275 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16996,7 +17517,7 @@
 	
 	var _docCode2 = _interopRequireDefault(_docCode);
 	
-	var _Typeahead = __webpack_require__(276);
+	var _Typeahead = __webpack_require__(282);
 	
 	var _Typeahead2 = _interopRequireDefault(_Typeahead);
 	
@@ -17175,20 +17696,20 @@
 	//
 
 /***/ },
-/* 276 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(277)
+	__webpack_require__(283)
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(279)
+	__vue_exports__ = __webpack_require__(285)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(295)
+	var __vue_template__ = __webpack_require__(301)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -17222,13 +17743,13 @@
 
 
 /***/ },
-/* 277 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(278);
+	var content = __webpack_require__(284);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -17248,7 +17769,7 @@
 	}
 
 /***/ },
-/* 278 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(16)();
@@ -17262,7 +17783,7 @@
 
 
 /***/ },
-/* 279 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17271,7 +17792,7 @@
 	  value: true
 	});
 	
-	var _typeof2 = __webpack_require__(280);
+	var _typeof2 = __webpack_require__(286);
 	
 	var _typeof3 = _interopRequireDefault(_typeof2);
 	
@@ -17420,7 +17941,7 @@
 	};
 
 /***/ },
-/* 280 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -17431,7 +17952,7 @@
 	
 	var _iterator2 = _interopRequireDefault(_iterator);
 	
-	var _symbol = __webpack_require__(281);
+	var _symbol = __webpack_require__(287);
 	
 	var _symbol2 = _interopRequireDefault(_symbol);
 	
@@ -17446,23 +17967,23 @@
 	};
 
 /***/ },
-/* 281 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(282), __esModule: true };
+	module.exports = { "default": __webpack_require__(288), __esModule: true };
 
 /***/ },
-/* 282 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(283);
-	__webpack_require__(292);
-	__webpack_require__(293);
-	__webpack_require__(294);
+	__webpack_require__(289);
+	__webpack_require__(298);
+	__webpack_require__(299);
+	__webpack_require__(300);
 	module.exports = __webpack_require__(49).Symbol;
 
 /***/ },
-/* 283 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17472,24 +17993,24 @@
 	  , DESCRIPTORS    = __webpack_require__(57)
 	  , $export        = __webpack_require__(47)
 	  , redefine       = __webpack_require__(70)
-	  , META           = __webpack_require__(284).KEY
+	  , META           = __webpack_require__(290).KEY
 	  , $fails         = __webpack_require__(58)
 	  , shared         = __webpack_require__(85)
 	  , setToStringTag = __webpack_require__(89)
 	  , uid            = __webpack_require__(86)
 	  , wks            = __webpack_require__(90)
 	  , wksExt         = __webpack_require__(97)
-	  , wksDefine      = __webpack_require__(285)
-	  , keyOf          = __webpack_require__(286)
-	  , enumKeys       = __webpack_require__(287)
-	  , isArray        = __webpack_require__(290)
+	  , wksDefine      = __webpack_require__(291)
+	  , keyOf          = __webpack_require__(292)
+	  , enumKeys       = __webpack_require__(293)
+	  , isArray        = __webpack_require__(296)
 	  , anObject       = __webpack_require__(54)
 	  , toIObject      = __webpack_require__(78)
 	  , toPrimitive    = __webpack_require__(60)
 	  , createDesc     = __webpack_require__(61)
 	  , _create        = __webpack_require__(74)
 	  , gOPNExt        = __webpack_require__(102)
-	  , $GOPD          = __webpack_require__(291)
+	  , $GOPD          = __webpack_require__(297)
 	  , $DP            = __webpack_require__(53)
 	  , $keys          = __webpack_require__(76)
 	  , gOPD           = $GOPD.f
@@ -17615,8 +18136,8 @@
 	  $GOPD.f = $getOwnPropertyDescriptor;
 	  $DP.f   = $defineProperty;
 	  __webpack_require__(103).f = gOPNExt.f = $getOwnPropertyNames;
-	  __webpack_require__(289).f  = $propertyIsEnumerable;
-	  __webpack_require__(288).f = $getOwnPropertySymbols;
+	  __webpack_require__(295).f  = $propertyIsEnumerable;
+	  __webpack_require__(294).f = $getOwnPropertySymbols;
 	
 	  if(DESCRIPTORS && !__webpack_require__(69)){
 	    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
@@ -17702,7 +18223,7 @@
 	setToStringTag(global.JSON, 'JSON', true);
 
 /***/ },
-/* 284 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var META     = __webpack_require__(86)('meta')
@@ -17760,7 +18281,7 @@
 	};
 
 /***/ },
-/* 285 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var global         = __webpack_require__(48)
@@ -17774,7 +18295,7 @@
 	};
 
 /***/ },
-/* 286 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var getKeys   = __webpack_require__(76)
@@ -17789,13 +18310,13 @@
 	};
 
 /***/ },
-/* 287 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// all enumerable object keys, includes symbols
 	var getKeys = __webpack_require__(76)
-	  , gOPS    = __webpack_require__(288)
-	  , pIE     = __webpack_require__(289);
+	  , gOPS    = __webpack_require__(294)
+	  , pIE     = __webpack_require__(295);
 	module.exports = function(it){
 	  var result     = getKeys(it)
 	    , getSymbols = gOPS.f;
@@ -17809,19 +18330,19 @@
 	};
 
 /***/ },
-/* 288 */
+/* 294 */
 /***/ function(module, exports) {
 
 	exports.f = Object.getOwnPropertySymbols;
 
 /***/ },
-/* 289 */
+/* 295 */
 /***/ function(module, exports) {
 
 	exports.f = {}.propertyIsEnumerable;
 
 /***/ },
-/* 290 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.2.2 IsArray(argument)
@@ -17831,10 +18352,10 @@
 	};
 
 /***/ },
-/* 291 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pIE            = __webpack_require__(289)
+	var pIE            = __webpack_require__(295)
 	  , createDesc     = __webpack_require__(61)
 	  , toIObject      = __webpack_require__(78)
 	  , toPrimitive    = __webpack_require__(60)
@@ -17852,25 +18373,25 @@
 	};
 
 /***/ },
-/* 292 */
+/* 298 */
 /***/ function(module, exports) {
 
 
 
 /***/ },
-/* 293 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(285)('asyncIterator');
+	__webpack_require__(291)('asyncIterator');
 
 /***/ },
-/* 294 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(285)('observable');
+	__webpack_require__(291)('observable');
 
 /***/ },
-/* 295 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -17953,7 +18474,7 @@
 	}
 
 /***/ },
-/* 296 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -17982,7 +18503,7 @@
 	}
 
 /***/ },
-/* 297 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -18009,7 +18530,7 @@
 	    staticClass: "row"
 	  }, [_vm._h('div', {
 	    staticClass: "col-md-9"
-	  }, [_vm._h('getting-started'), " ", _vm._h('accordion-docs'), " ", _vm._h('affix-docs'), " ", _vm._h('alert-docs'), " ", _vm._h('aside-docs'), " ", _vm._h('button-group-docs'), " ", _vm._h('carousel-docs'), " ", _vm._h('checkbox-docs'), " ", _vm._h('datepicker-docs'), " ", _vm._h('dropdown-docs'), " ", _vm._h('input-docs'), " ", _vm._h('modal-docs'), " ", _vm._h('navbar-docs'), " ", _vm._h('popover-docs'), " ", _vm._h('progressbar-docs'), " ", _vm._h('radio-docs'), " ", _vm._h('select-docs'), " ", _vm._h('spinner-docs'), " ", _vm._h('tabs-docs'), " ", _vm._h('tooltip-docs'), " ", _vm._h('typeahead-docs'), " ", _vm._h('form-group-docs'), " ", _vm._h('form-validator-docs')]), " ", _vm._h('div', {
+	  }, [_vm._h('getting-started'), " ", _vm._h('accordion-docs'), " ", _vm._h('affix-docs'), " ", _vm._h('alert-docs'), " ", _vm._h('aside-docs'), " ", _vm._h('button-group-docs'), " ", _vm._h('carousel-docs'), " ", _vm._h('checkbox-docs'), " ", _vm._h('datepicker-docs'), " ", _vm._h('dropdown-docs'), " ", _vm._h('form-validator-docs'), " ", _vm._h('input-docs'), " ", _vm._h('modal-docs'), " ", _vm._h('navbar-docs'), " ", _vm._h('popover-docs'), " ", _vm._h('progressbar-docs'), " ", _vm._h('radio-docs'), " ", _vm._h('select-docs'), " ", _vm._h('spinner-docs'), " ", _vm._h('tabs-docs'), " ", _vm._h('toggle-button-docs'), " ", _vm._h('tooltip-docs'), " ", _vm._h('typeahead-docs'), " "]), " ", _vm._h('div', {
 	    staticClass: "col-md-3"
 	  }, [_vm._h('affix-sidebar')])])])]), " ", _vm._m(1)])
 	},staticRenderFns: [function (){var _vm=this;
@@ -18080,16 +18601,16 @@
 	}
 
 /***/ },
-/* 298 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(299);
+	var content = __webpack_require__(305);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(300)(content, {});
+	var update = __webpack_require__(306)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -18106,7 +18627,7 @@
 	}
 
 /***/ },
-/* 299 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(16)();
@@ -18120,7 +18641,7 @@
 
 
 /***/ },
-/* 300 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -18372,16 +18893,16 @@
 
 
 /***/ },
-/* 301 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(302);
+	var content = __webpack_require__(308);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(300)(content, {});
+	var update = __webpack_require__(306)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -18398,7 +18919,7 @@
 	}
 
 /***/ },
-/* 302 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(16)();
@@ -18412,7 +18933,7 @@
 
 
 /***/ },
-/* 303 */
+/* 309 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
@@ -19200,7 +19721,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 304 */
+/* 310 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -19224,7 +19745,7 @@
 	})();
 
 /***/ },
-/* 305 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -27347,7 +27868,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 306 */
+/* 312 */
 /***/ function(module, exports) {
 
 	/*!
@@ -28870,7 +29391,7 @@
 	module.exports = plugin;
 
 /***/ },
-/* 307 */
+/* 313 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28962,7 +29483,7 @@
 	}();
 
 /***/ },
-/* 308 */
+/* 314 */
 /***/ function(module, exports) {
 
 	'use strict';
