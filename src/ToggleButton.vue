@@ -1,5 +1,5 @@
 <template>
-  <a :class="['btn', type]" href="javascript:void(0)" @click="active = !active">
+  <a :class="['btn', type, {readonly:boolReadonly}]" href="javascript:void(0)" @click="toggle" :disabled="boolDisabled">
     <span :class="['glyphicon','glyphicon-'+(value?'ok':'remove')]"></span>
     <slot></slot>
     <input v-if="name" type="hidden" :name="name" :value="active?1:0" />
@@ -11,15 +11,16 @@ import {coerce} from './utils/utils.js'
 
 export default {
   props: {
-    isTrue: {default: 'primary'},
-    isFalse: {default: null},
+    disabled: {default: null},
+    falseType: {default: null},
     name: null,
+    readonly: {default: null},
+    trueType: {default: 'primary'},
     value: false
   },
   data () {
-    var active = coerce.boolean(this.value)
     return {
-      active,
+      active: coerce.boolean(this.value),
       types: {
         danger: 'btn-danger',
         info: 'btn-info',
@@ -44,7 +45,15 @@ export default {
     }
   },
   computed: {
-    type () { return this.types[this.value ? this.isTrue : this.isFalse] || 'btn-default' }
+    boolDisabled () { return coerce.boolean(this.disabled) },
+    boolReadonly () { return coerce.boolean(this.readonly) },
+    type () { return this.types[this.value ? this.trueType : this.falseType] || 'btn-default' }
+  },
+  methods: {
+    toggle () {
+      if (this.boolDisabled || this.boolReadonly) { return }
+      this.active = !this.active
+    }
   }
 }
 </script>
