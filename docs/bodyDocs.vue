@@ -38,7 +38,7 @@
             <toggle-button-docs></toggle-button-docs>
             <tooltip-docs></tooltip-docs>
             <typeahead-docs></typeahead-docs>
-            <form-group-docs></form-group-docs>
+            <!--<form-group-docs></form-group-docs>-->
           </div>
           <div class="col-md-3">
             <affix-sidebar></affix-sidebar>
