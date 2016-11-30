@@ -16901,24 +16901,6 @@
 	//
 	//
 	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
 
 /***/ },
 /* 273 */
@@ -17222,11 +17204,7 @@
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, ["\n    <toggle-button v-model=\"one\">One</toggle-button>\n    <toggle-button v-model=\"two\">Two</toggle-button>\n    <toggle-button v-model=\"two\" true-type=\"info\" disabled>Two (disabled)</toggle-button>\n    <toggle-button v-model=\"two\" false-type=\"warning\" readonly>Two (readonly)</toggle-button>\n    <toggle-button v-model=\"three\" true-type=\"success\" false-type=\"danger\">Three</toggle-button>\n    <bs-input v-model=\"content\" :disabled=\"!input\" placeholder=\"Will be cleaned when is disabled.\">\n      <span slot=\"before\" class=\"input-group-btn\">\n        <toggle-button v-model=\"input\" @disabled=\"content=''\">Toggle Input:</toggle-button>\n      </span>\n    </bs-input>\n  "]), " ", _vm._h('doc-table', [_vm._h('div', [_vm._h('p', ["value"]), " ", _vm._h('p', [_vm._h('code', ["Mixed"])]), " ", _vm._h('p'), " ", _vm._h('p', ["Handle the selected value."])]), " ", _vm._h('div', [_vm._h('p', ["true-type"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["default"]), " ", _vm._h('code', ["primary"]), " ", _vm._h('code', ["danger"]), " ", _vm._h('code', ["info"]), " ", _vm._h('code', ["warning"]), " ", _vm._h('code', ["success"])]), " ", _vm._h('p', [_vm._h('code', ["primary"])]), " ", _vm._h('p')]), " ", _vm._h('div', [_vm._h('p', ["false-type"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["default"]), " ", _vm._h('code', ["primary"]), " ", _vm._h('code', ["danger"]), " ", _vm._h('code', ["info"]), " ", _vm._h('code', ["warning"]), " ", _vm._h('code', ["success"])]), " ", _vm._h('p', [_vm._h('code', ["default"])]), " ", _vm._h('p')]), " ", _vm._h('div', [_vm._h('p', ["type"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["default"]), " ", _vm._h('code', ["primary"]), " ", _vm._h('code', ["danger"]), " ", _vm._h('code', ["info"]), " ", _vm._h('code', ["warning"]), " ", _vm._h('code', ["success"])]), " ", _vm._h('p', [_vm._h('code', ["default"])]), " ", _vm._h('p')]), " ", _vm._h('div', [_vm._h('p', ["button"]), " ", _vm._h('p', [_vm._h('code', ["Boolean"])]), " ", _vm._h('p', ["false"]), " ", _vm._h('p', ["Button style."])])]), " ", _vm._h('p', ["See ", _vm._h('a', {
-	    attrs: {
-	      "href": "#button-group"
-	    }
-	  }, ["Button Group"]), " for more options."]), " ", _vm._h('doc-table', {
+	  }, ["\n    <toggle-button v-model=\"one\">One</toggle-button>\n    <toggle-button v-model=\"two\">Two</toggle-button>\n    <toggle-button v-model=\"two\" true-type=\"info\" disabled>Two (disabled)</toggle-button>\n    <toggle-button v-model=\"two\" false-type=\"warning\" readonly>Two (readonly)</toggle-button>\n    <toggle-button v-model=\"three\" true-type=\"success\" false-type=\"danger\">Three</toggle-button>\n    <bs-input v-model=\"content\" :disabled=\"!input\" placeholder=\"Will be cleaned when is disabled.\">\n      <span slot=\"before\" class=\"input-group-btn\">\n        <toggle-button v-model=\"input\" @disabled=\"content=''\">Toggle Input:</toggle-button>\n      </span>\n    </bs-input>\n  "]), " ", _vm._h('doc-table', [_vm._h('div', [_vm._h('p', ["value"]), " ", _vm._h('p', [_vm._h('code', ["Mixed"])]), " ", _vm._h('p'), " ", _vm._h('p', ["Handle the selected value."])]), " ", _vm._h('div', [_vm._h('p', ["true-type"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["default"]), " ", _vm._h('code', ["primary"]), " ", _vm._h('code', ["danger"]), " ", _vm._h('code', ["info"]), " ", _vm._h('code', ["warning"]), " ", _vm._h('code', ["success"])]), " ", _vm._h('p', [_vm._h('code', ["primary"])]), " ", _vm._h('p')]), " ", _vm._h('div', [_vm._h('p', ["false-type"]), " ", _vm._h('p', [_vm._h('code', ["String"]), ", one of ", _vm._h('code', ["default"]), " ", _vm._h('code', ["primary"]), " ", _vm._h('code', ["danger"]), " ", _vm._h('code', ["info"]), " ", _vm._h('code', ["warning"]), " ", _vm._h('code', ["success"])]), " ", _vm._h('p', [_vm._h('code', ["default"])]), " ", _vm._h('p')])]), " ", _vm._h('doc-table', {
 	    attrs: {
 	      "type": "Events"
 	    }
