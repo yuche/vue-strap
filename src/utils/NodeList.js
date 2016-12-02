@@ -150,7 +150,7 @@ class NodeList {
         if (!hasClass && method !== 'remove') list.push(c)
         if (hasClass && method !== 'add') { list = list.filter(el => (el !== c)) }
       })
-      el.className = list
+      el.className = list.join(' ')
     })
     return this
   }
@@ -246,10 +246,10 @@ class NodeList {
     if (typeof events === 'string' && callback instanceof Function) {
       this.each(el => {
         events.split(' ').forEach(event => {
-          Events.forEach(e => {
-            if(Events[e] && Events[e].el === el && Events[e].event === event && Events[e].callback === callback) {
-              Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-              delete Events[e]
+          Events.forEach((e, i) => {
+            if(Events[i] && Events[i].el === el && Events[i].event === event && Events[i].callback === callback) {
+              Events[i].el.removeEventListener(Events[i].event, Events[i].callback)
+              delete Events[i]
             }
           })
         })
@@ -257,10 +257,10 @@ class NodeList {
     } else if (typeof events === 'string') {
       this.each(el => {
         events.split(' ').forEach(event => {
-          Events.forEach(e => {
-            if (Events[e] && Events[e].el === el && Events[e].event === event) {
-              Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-              delete Events[e]
+          Events.forEach((e, i) => {
+            if (Events[i] && Events[i].el === el && Events[i].event === event) {
+              Events[i].el.removeEventListener(Events[i].event, Events[i].callback)
+              delete Events[i]
             }
           })
         })
