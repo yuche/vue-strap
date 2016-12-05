@@ -215,6 +215,12 @@ export default {
         if (!(this.regex instanceof Function ? this.regex(this.value) : this.regex.test(this.value))) { return false }
       }
       return true
+    },
+    reset() {
+      this.value = ''
+      this.valid = null
+      if (this._timeout.mask) clearTimeout(this._timeout.mask)
+      if (this._timeout.eval) clearTimeout(this._timeout.eval)
     }
   },
   created () {
