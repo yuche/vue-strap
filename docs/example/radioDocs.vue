@@ -20,7 +20,7 @@
       <radio button :checked.sync="radioValue" value="three" type="danger">Three</radio>
       <radio button :checked.sync="radioValue" value="four" type="info">Four</radio>
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>checked</p>
         <p><code>Number</code> or <code>String</code></p>
@@ -50,21 +50,21 @@
         <p>false</p>
         <p>Button style.</p>
       </div>
-    </doc-options>
+    </doc-table>
     <p>See <a href="#button-group">Button Group</a> for more options.</p>
   </doc-section>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import radio from 'src/Radio.vue'
 
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     radio
   },

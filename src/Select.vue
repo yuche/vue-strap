@@ -1,21 +1,18 @@
 <template>
-<div v-el:select :class="{'btn-group btn-group-justified': justified, 'btn-select': !justified}">
-  <slot name="before"></slot>
-  <div :class="{open:show,dropdown:!justified}">
-    <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
-      <option v-if="required" value=""></option>
-      <option v-for="option in options" :value="option[optionsValue]||option">{{ option[optionsLabel]||option }}</option>
-    </select>
+  <div v-el:select :class="classes">
     <button type="button" class="form-control dropdown-toggle"
       :disabled="disabled || !hasParent"
       :readonly="readonly"
       @click="toggle()"
       @keyup.esc="show = false"
     >
-      <span class="btn-content">{{ loading ? text.loading : showPlaceholder || selectedItems }}</span>
-      <span class="caret"></span>
+      <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selected"></span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
     </button>
+    <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
+      <option v-if="required" value=""></option>
+      <option v-for="option in options" :value="option[optionsValue]||option">{{ option[optionsLabel]||option }}</option>
+    </select>
     <ul class="dropdown-menu">
       <template v-if="options.length">
         <li v-if="canSearch" class="bs-searchbox">
@@ -30,7 +27,7 @@
         <li v-for="option in options | filterBy searchValue" :id="option[optionsValue]||option">
           <a @mousedown.prevent="select(option[optionsValue],option)">
             <span v-html="option[optionsLabel]||option"></span>
-            <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option[optionsValue]||option)"></span>
+            <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option[optionsValue])"></span>
           </a>
         </li>
       </template>
@@ -39,8 +36,6 @@
     </ul>
     <div v-if="showNotify && closeOnSelect" class="notify out" transition="fadein"><div>{{limitText}}</div></div>
   </div>
-  <slot name="after"></slot>
-</div>
 </template>
 
 <script>
@@ -73,11 +68,6 @@ export default {
       default: false
     },
     disabled: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
-    },
-    justified: {
       type: Boolean,
       coerce: coerce.boolean,
       default: false
@@ -149,22 +139,27 @@ export default {
     }
   },
   computed: {
-    selectedItems () {
+    selected () {
       if (this.options.length === 0) { return '' }
       let foundItems = []
-      for (var item of this.values) {
+      this.values.forEach(item => {
         if (~['number', 'string'].indexOf(typeof item)) {
           let option = null
           if (this.options.some(o => {
-            if (o instanceof Object ? o.value === item : o === item ) {
+            if (o instanceof Object ? o[this.optionsValue] === item : o === item ) {
               option = o
               return true
             }
           })) { foundItems.push(option[this.optionsLabel] || option) }
         }
-      }
+      })
       return foundItems.join(', ')
     },
+    classes () {
+      return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn': 'btn-group']
+    },
+    inInput () { return this.$parent._input },
+    isLi () { return this.$parent._navbar || this.$parent.menu || this.$parent._tabset },
     canSearch () {
       return this.minSearch ? this.options.length >= this.minSearch : this.search
     },
@@ -211,6 +206,8 @@ export default {
       this.update()
     },
     value (val) {
+      this.$emit('change', val)
+      this.$emit('selected', this.selected)
       if (this.value instanceof Array && val.length > this.limit) {
         this.showNotify = true
         if (timeout.limit) clearTimeout(timeout.limit)
@@ -278,9 +275,9 @@ export default {
       this.loading = true
       getJSON(this.url).then(data => {
         let options = []
-        for (let opc of data) {
+        data.forEach(opc => {
           if (opc[this.optionsValue] !== undefined && opc[this.optionsLabel] !== undefined) options.push(opc)
-        }
+        })
         this.options = options
         if (!options.length) { this.value = this.value instanceof Array ? [] : null }
       }).always(() => {
@@ -318,9 +315,21 @@ export default {
 </script>
 
 <style scoped>
-.btn-select { display: inline-block; }
-.btn-select>.btn-group>.dropdown-menu>li { position:relative; }
-.btn-select>.btn-group>.dropdown-menu>li>a { cursor:pointer; }
+button.form-control.dropdown-toggle{
+  height: auto;
+  padding-right: 24px;
+}
+button.form-control.dropdown-toggle:after{
+  content: ' ';
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  margin: -1px 0 0;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
 .bs-searchbox {
   position: relative;
   margin: 4px 8px;
@@ -335,6 +344,22 @@ export default {
   height: 34px;
   line-height: 34px;
   text-align: center;
+}
+.bs-searchbox input:focus,
+.secret:focus + button {
+  outline: 0;
+  border-color: #66afe9 !important;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+.secret {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 button>.close { margin-left: 5px;}
 .notify.out { position: relative; }
@@ -358,27 +383,13 @@ button>.close { margin-left: 5px;}
   opacity: .9;
   bottom: 5px;
 }
-.btn-group.btn-group-justified .dropdown-menu { width: 100%; }
-span.caret {
-  float: right;
-  margin-top: 9px;
-  margin-left: 5px;
-}
-.secret {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
+.btn-group-justified .dropdown-toggle>span:not(.close) {
+  width: calc(100% - 18px);
+  display: inline-block;
   overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: -4px;
 }
-.bs-searchbox input:focus,
-.secret:focus + button {
-  outline: 0;
-  border-color: #66afe9 !important;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-}
+.btn-group-justified .dropdown-menu { width: 100%; }
 </style>

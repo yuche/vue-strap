@@ -62,15 +62,15 @@
         tab: VueStrap.tab
       }
     </doc-code>
-    <doc-options name="Tabset (container)">
+    <doc-table name="Tabset (container)">
       <div>
         <p>active</p>
         <p><code>Number</code></p>
         <p><code>0</code></p>
         <p>Active tab index (0 based)</p>
       </div>
-    </doc-options>
-    <doc-options name="TabGroup (dropdown)">
+    </doc-table>
+    <doc-table name="TabGroup (dropdown)">
       <div>
         <p>disabled</p>
         <p><code>Boolean</code></p>
@@ -83,8 +83,8 @@
         <p><code>null</code></p>
         <p>Group Title</p>
       </div>
-    </doc-options>
-    <doc-options name="Tab (element)">
+    </doc-table>
+    <doc-table name="Tab (element)">
       <div>
         <p>header</p>
         <p><code>String</code></p>
@@ -97,13 +97,13 @@
         <p>false</p>
         <p>Whether tab is clickable and can be activated.</p>
       </div>
-    </doc-options>
+    </doc-table>
   </doc-section>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import tabs from 'src/Tabset.vue'
 import tabGroup from 'src/TabGroup.vue'
@@ -112,7 +112,7 @@ import tab from 'src/Tab.vue'
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     tabGroup,
     tabs,

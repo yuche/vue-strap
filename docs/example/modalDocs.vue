@@ -123,7 +123,7 @@
         <div slot="modal-body" class="modal-body">...</div>
       </modal>
   </doc-code>
-  <doc-options>
+  <doc-table>
     <div>
       <p>title</p>
       <p><code>String</code></p>
@@ -172,7 +172,7 @@
       <p><code>true</code></p>
       <p>Enables/disables closing the modal by clicking on the backdrop.</p>
     </div>
-  </doc-options>
+  </doc-table>
   <h2>Usage</h2>
   <p>
     If you just need a simple modal, you can use the <code>title</code> prop and the default footer. However, if you
@@ -185,14 +185,14 @@
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import modal from 'src/Modal.vue'
 
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     modal
   },

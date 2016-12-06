@@ -71,9 +71,8 @@
         data() {
           return {
             USstate: ['Alabama', 'Alaska', 'Arizona',...],
-            asynchronous: '{{formatted_address}}',
-            customTemplate: '<img width="18px" height="18px" v-attr="src:avatar_url"/>' +
-            '<span>{{login}}</span>'
+            asyncTemplate: '{{ item.formatted_address }}',
+            githubTemplate: '<img width="18px" height="18px" :src="item.avatar_url"/> <span>{{item.login}}</span>'
           }
         },
         methods: {
@@ -88,7 +87,7 @@
         }
       }
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>value</p>
         <p><code>String</code></p>
@@ -106,6 +105,12 @@
         <p><code>String</code></p>
         <p></p>
         <p>An HTTP URL for asynchronous suggestions. Expected to return a JSON object.</p>
+      </div>
+      <div>
+        <p>delay</p>
+        <p><code>Number</code></p>
+        <p><code>200</code></p>
+        <p>Delay before calling async data while typing.</p>
       </div>
       <div>
         <p>limit</p>
@@ -143,13 +148,13 @@
         <p><code>&lt;span v-html=&quot;$value | highlight query&quot;&gt;&lt;/span&gt;</code></p>
         <p>Used to render suggestion.</p>
       </div>
-    </doc-options>
+    </doc-table>
   </div>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import typeahead from 'src/Typeahead.vue'
 import tooltip from 'src/Tooltip.vue'
@@ -157,7 +162,7 @@ import tooltip from 'src/Tooltip.vue'
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     typeahead,
     tooltip

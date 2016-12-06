@@ -37,8 +37,8 @@ export default {
       let scroll = {}
       let element = {}
       const rect = this.$el.getBoundingClientRect()
-      const body = document.body
-      for(let type of ['Top','Left']) {
+      const body = document.body;
+      ['Top','Left'].forEach(type => {
         let t = type.toLowerCase()
         let ret = window['page' + (type==='Top' ? 'Y' : 'X') + 'Offset']
         const method = 'scroll' + type
@@ -52,14 +52,14 @@ export default {
         }
         scroll[t] = ret
         element[t] = scroll[t] + rect[t] - (this.$el['client'+type] || body['client'+type] || 0)
-      }
+      })
       let fix = scroll.top > element.top - this.offset
       if (this.affixed !== fix) { this.affixed = fix }
     }
   },
   ready () {
-    this.checkScroll()
     $(window).on('scroll resize', () => this.checkScroll())
+    setTimeout(() => this.checkScroll(), 0)
   },
   beforeDestroy () {
     $(window).off('scroll resize', () => this.checkScroll())
