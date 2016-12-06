@@ -58,6 +58,12 @@
         <p>Width of the input DOM</p>
       </div>
     </doc-table>
+    <doc-table type="Events">
+      <div>
+        <p>input</p>
+        <p>(<code>value</code>)</p>
+        <p>Return the selected value.</p>
+    </doc-table>
   </div>
   <div></div>
 </template>
