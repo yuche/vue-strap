@@ -2,10 +2,10 @@
   <div class="datepicker">
     <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text" :placeholder="placeholder"
         :style="{width:width}"
-        :value="value"
+        :value="val"
         @click="inputClick"
         @input="this.$emit('input',$event.target.value)" />
-    <button v-if="clearButton && value" type="button" class="close" @click="value = ''">
+    <button v-if="clearButton && val" type="button" class="close" @click="val = ''">
       <span>&times;</span>
     </button>
     <div class="datepicker-popup" v-show="displayDayView">
@@ -36,8 +36,8 @@
           <div class="datepicker-monthRange">
             <template v-for="(m, index) in text.months">
               <span   :class="{'datepicker-dateRange-item-active':
-                  (text.months[parse(value).getMonth()]  === m) &&
-                  currDate.getFullYear() === parse(value).getFullYear()}"
+                  (text.months[parse(val).getMonth()]  === m) &&
+                  currDate.getFullYear() === parse(val).getFullYear()}"
                   @click="monthSelect(index)"
                 >{{m.substr(0,3)}}</span>
             </template>
@@ -55,7 +55,7 @@
           </div>
           <div class="datepicker-monthRange decadeRange">
             <template v-for="decade in decadeRange">
-              <span :class="{'datepicker-dateRange-item-active':parse(this.value).getFullYear() === decade.text}"
+              <span :class="{'datepicker-dateRange-item-active':parse(this.val).getFullYear() === decade.text}"
                 @click.stop="yearSelect(decade.text)"
               >{{decade.text}}</span>
             </template>
@@ -83,6 +83,7 @@ export default {
   data () {
     return {
       currDate: new Date(),
+      currValue: this.value,
       dateRange: [],
       decadeRange: [],
       displayDayView: false,
@@ -92,13 +93,22 @@ export default {
   },
   watch: {
     value (val) {
-      this.$emit('input', val)
+      this.currValue = val
     },
     currDate () {
       this.getDateRange()
     }
   },
   computed: {
+    val: {
+      get () {
+        return this.currValue
+      },
+      set (newVal) {
+        this.$emit('input', newVal)
+        this.currValue = newVal
+      }
+    },
     text () {
       return translations(this.lang)
     }
@@ -108,7 +118,7 @@ export default {
       this.displayDayView = this.displayMonthView = this.displayYearView = false
     },
     inputClick () {
-      this.currDate = this.parse(this.value) || this.parse(new Date())
+      this.currDate = this.parse(this.val) || this.parse(new Date())
       if (this.displayMonthView || this.displayYearView) {
         this.displayDayView = false
       } else {
@@ -160,7 +170,7 @@ export default {
         return false
       } else {
         this.currDate = date
-        this.value = this.stringify(this.currDate)
+        this.val = this.stringify(this.currDate)
         this.displayDayView = false
       }
     },
@@ -220,7 +230,7 @@ export default {
       .replace(/M(?!a)/g, month)
       .replace(/d/g, day)
     },
-    parse (str = this.value) {
+    parse (str = this.val) {
       let date
       if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {
         date = new Date(str.substring(6, 10), str.substring(3, 5), str.substring(0, 2))
@@ -281,8 +291,8 @@ export default {
           if (week === parseInt(el, 10)) sclass = 'datepicker-item-disable'
         })
         if (i === time.day) {
-          if (this.value) {
-            const valueDate = this.parse(this.value)
+          if (this.val) {
+            const valueDate = this.parse(this.val)
             if (valueDate) {
               if (valueDate.getFullYear() === time.year && valueDate.getMonth() === time.month) {
                 sclass = 'datepicker-dateRange-item-active'
@@ -314,15 +324,15 @@ export default {
   mounted () {
     let el = this.$el
     this._blur = e => {
-      if (!el.contains(e.target)) 
+      if (!el.contains(e.target))
         this.close()
     }
     this.$emit('child-created', this)
-    this.currDate = this.parse(this.value) || this.parse(new Date())
+    this.currDate = this.parse(this.val) || this.parse(new Date())
     window.addEventListener('click', this._blur);
   },
   beforeDestroy () {
-    window.removeEventListner('click', this._blur)
+    window.removeEventListener('click', this._blur)
   }
 }
 </script>
