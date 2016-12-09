@@ -332,7 +332,7 @@ export default {
     window.addEventListener('click', this._blur);
   },
   beforeDestroy () {
-    window.removeEventListner('click', this._blur)
+    window.removeEventListener('click', this._blur)
   }
 }
 </script>
