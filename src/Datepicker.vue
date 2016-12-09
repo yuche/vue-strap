@@ -4,8 +4,8 @@
         :style="{width:width}"
         :value="value"
         @click="inputClick"
-        @input="this.$emit('input',$event.target.value)" />
-    <button v-if="clearButton && value" type="button" class="close" @click="value = ''">
+        @input="$emit('input', $event.target.value)" />
+    <button v-if="clearButton && value" type="button" class="close" @click="$emit('input', '')">
       <span>&times;</span>
     </button>
     <div class="datepicker-popup" v-show="displayDayView">
@@ -20,7 +20,7 @@
             <span v-for="w in text.daysOfWeek">{{w}}</span>
           </div>
           <div class="datepicker-dateRange">
-            <span v-for="d in dateRange" :class="d.sclass" @click="daySelect(d.date,this)">{{d.text}}</span>
+            <span v-for="d in dateRange" :class="d.sclass" @click="daySelect(d.date)">{{d.text}}</span>
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@
           </div>
           <div class="datepicker-monthRange decadeRange">
             <template v-for="decade in decadeRange">
-              <span :class="{'datepicker-dateRange-item-active':parse(this.value).getFullYear() === decade.text}"
+              <span :class="{'datepicker-dateRange-item-active':parse(value).getFullYear() === decade.text}"
                 @click.stop="yearSelect(decade.text)"
               >{{decade.text}}</span>
             </template>
@@ -155,13 +155,13 @@ export default {
       this.displayMonthView = true
       this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())
     },
-    daySelect (date, el) {
+    daySelect (date) {
       if (this.$el.classList[0] === 'datepicker-item-disable') {
         return false
       } else {
         this.currDate = date
-        this.value = this.stringify(this.currDate)
         this.displayDayView = false
+        this.$emit('input', this.stringify(this.currDate))
       }
     },
     switchMonthView () {
@@ -223,7 +223,7 @@ export default {
     parse (str = this.value) {
       let date
       if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {
-        date = new Date(str.substring(6, 10), str.substring(3, 5), str.substring(0, 2))
+        date = new Date(str.substring(6, 10), str.substring(3, 5) - 1, str.substring(0, 2))
       } else {
         date = new Date(str)
       }
@@ -322,7 +322,7 @@ export default {
     window.addEventListener('click', this._blur);
   },
   beforeDestroy () {
-    window.removeEventListner('click', this._blur)
+    window.removeEventListener('click', this._blur)
   }
 }
 </script>
