@@ -1,5 +1,5 @@
 <template>
-  <transition :name="'side' + this.placement">
+  <transition :name="'slide' + placement">
     <div class="aside" v-if="show" :style="{width:width+'px'}" :class="placement">
       <div class="aside-dialog">
         <div class="aside-content">
@@ -70,10 +70,10 @@ export default {
         open: () => this.trigger_open()
       }
     },
-    trigger_close () { 
+    trigger_close () {
       this.$emit( 'close' )
     },
-    trigger_open() { 
+    trigger_open() {
       this.$emit( 'open' )
     }
   },
@@ -106,7 +106,7 @@ export default {
   left: auto;
   right: 0;
 }
-.slideleft-enter {
+.slideleft-enter-active {
   animation:slideleft-in .3s;
 }
 .slideleft-leave-active {
@@ -132,7 +132,7 @@ export default {
     opacity: 0;
   }
 }
-.slideright-enter {
+.slideright-enter-active {
   animation:slideright-in .3s;
 }
 .slideright-leave-active {
@@ -165,14 +165,6 @@ export default {
   .aside {
     min-width:240px
   }
-}
-.aside.left {
-  right: auto;
-  left: 0
-}
-.aside.right {
-  right: 0;
-  left: auto
 }
 .aside .aside-dialog .aside-header {
   border-bottom: 1px solid #e5e5e5;
