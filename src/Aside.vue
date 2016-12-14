@@ -1,5 +1,5 @@
 <template>
-  <transition :name="'side' + this.placement">
+  <transition :name="'slide' + this.placement">
     <div class="aside" v-if="show" :style="{width:width+'px'}" :class="placement">
       <div class="aside-dialog">
         <div class="aside-content">
