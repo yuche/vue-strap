@@ -150,7 +150,7 @@ class NodeList {
         if (!hasClass && method !== 'remove') list.push(c)
         if (hasClass && method !== 'add') { list = list.filter(el => (el !== c)) }
       })
-      el.className = list
+      el.className = list.join(' ')
     })
     return this
   }
@@ -243,48 +243,16 @@ class NodeList {
       callback = events
       events = null
     }
-    if (typeof events === 'string' && callback instanceof Function) {
-      this.each(el => {
-        events.split(' ').forEach(event => {
-          Events.forEach(e => {
-            if(Events[e] && Events[e].el === el && Events[e].event === event && Events[e].callback === callback) {
-              Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-              delete Events[e]
-            }
-          })
-        })
+    events = events instanceof Array ? events : typeof events === 'string' ? events.trim().replace(/\s+/,' ').split(' ') : null
+    this.each(el => {
+      Events = Events.filter(e => {
+        if(e && e.el === el && (!callback || callback === e.callback) && (!events || ~events.indexOf(e.event))) {
+          e.el.removeEventListener(e.event, e.callback)
+          return false
+        }
+        return true
       })
-    } else if (typeof events === 'string') {
-      this.each(el => {
-        events.split(' ').forEach(event => {
-          Events.forEach(e => {
-            if (Events[e] && Events[e].el === el && Events[e].event === event) {
-              Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-              delete Events[e]
-            }
-          })
-        })
-      })
-    } else if (callback instanceof Function) {
-      this.each(el => {
-        Events.forEach(e => {
-          if (Events[e] && Events[e].el === el && Events[e].callback === callback) {
-            Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-            delete Events[e]
-          }
-        })
-      })
-    } else {
-      this.each(el => {
-        Events.forEach(e => {
-          if (Events[e] && Events[e].el === el) {
-            Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-            delete Events[e]
-          }
-        })
-      })
-    }
-    Events = Events.filter(el => (el !== undefined ))
+    })
     return this
   }
   onBlur (callback) {
