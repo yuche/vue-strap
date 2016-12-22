@@ -20,7 +20,7 @@
             <span v-for="w in text.daysOfWeek">{{w}}</span>
           </div>
           <div class="datepicker-dateRange">
-            <span v-for="d in dateRange" :class="d.sclass" @click="daySelect(d.date,this)">{{d.text}}</span>
+            <span v-for="d in dateRange" :class="d.sclass" @click="daySelect(d)">{{d.text}}</span>
           </div>
         </div>
       </div>
@@ -94,6 +94,9 @@ export default {
   watch: {
     currDate () {
       this.getDateRange()
+    },
+    format () {
+      this.$emit('input', this.stringify(this.currDate))
     }
   },
   computed: {
@@ -105,6 +108,9 @@ export default {
     },
     nextBtnClasses () {
       return `datepicker-nextBtn ${this.iconsFont} ${this.iconsFont}-chevron-right`
+    },
+    disabledDaysArray () {
+      return this.disabledDaysOfWeek.map(d => parseInt(d, 10))
     }
   },
   methods: {
@@ -159,11 +165,11 @@ export default {
       this.displayMonthView = true
       this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())
     },
-    daySelect (date, el) {
-      if (this.$el.classList[0] === 'datepicker-item-disable') {
+    daySelect (day) {
+      if (day.sclass === 'datepicker-item-disable') {
         return false
       } else {
-        this.currDate = date
+        this.currDate = day.date
         this.$emit('input', this.stringify(this.currDate))
         this.displayDayView = false
       }
@@ -269,9 +275,14 @@ export default {
         const prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month)
         for (let i = 1; i < firstDayWeek; i++) {
           const dayText = prevMonthDayCount - firstDayWeek + i + 1
+          const date = new Date(preMonth.year, preMonth.month, dayText)
+          let sclass = 'datepicker-item-gray'
+          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
+            sclass = 'datepicker-item-disable'
+          }
           this.dateRange.push({
             text: dayText,
-            date: new Date(preMonth.year, preMonth.month, dayText),
+            date: date,
             sclass: 'datepicker-item-gray'
           })
         }
@@ -279,20 +290,12 @@ export default {
 
       for (let i = 1; i <= dayCount; i++) {
         const date = new Date(time.year, time.month, i)
-        const week = date.getDay()
         let sclass = ''
-        this.disabledDaysOfWeek.forEach((el) => {
-          if (week === parseInt(el, 10)) sclass = 'datepicker-item-disable'
-        })
-        if (i === time.day) {
-          if (this.value) {
-            const valueDate = this.parse(this.value)
-            if (valueDate) {
-              if (valueDate.getFullYear() === time.year && valueDate.getMonth() === time.month) {
-                sclass = 'datepicker-dateRange-item-active'
-              }
-            }
-          }
+        if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
+          sclass = 'datepicker-item-disable'
+        }
+        if (i == time.day && date.getFullYear() == time.year && date.getMonth() == time.month){
+          sclass = 'datepicker-dateRange-item-active'
         }
         this.dateRange.push({
           text: i,
@@ -306,10 +309,15 @@ export default {
         const nextMonth = this.getYearMonth(time.year, time.month + 1)
 
         for (let i = 1; i <= nextMonthNeed; i++) {
+          const date = new Date(nextMonth.year, nextMonth.month, i)
+          let sclass = 'datepicker-item-gray'
+          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
+            sclass = 'datepicker-item-disable'
+          }
           this.dateRange.push({
             text: i,
-            date: new Date(nextMonth.year, nextMonth.month, i),
-            sclass: 'datepicker-item-gray'
+            date: date,
+            sclass: sclass
           })
         }
       }

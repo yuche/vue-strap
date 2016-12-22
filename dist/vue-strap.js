@@ -349,13 +349,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'each',
 	    value: function each() {
-	      ArrayProto.forEach.apply(this, arguments);
+	      for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	        args[_key2] = arguments[_key2];
+	      }
+	
+	      ArrayProto.forEach.apply(this, args);
 	      return this;
 	    }
 	  }, {
 	    key: 'filter',
 	    value: function filter() {
-	      return NodeListJS(ArrayProto.filter.apply(this, arguments), this);
+	      for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	        args[_key3] = arguments[_key3];
+	      }
+	
+	      return NodeListJS(ArrayProto.filter.apply(this, args), this);
 	    }
 	  }, {
 	    key: 'find',
@@ -381,7 +389,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'forEach',
 	    value: function forEach() {
-	      ArrayProto.forEach.apply(this, arguments);
+	      for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	        args[_key4] = arguments[_key4];
+	      }
+	
+	      ArrayProto.forEach.apply(this, args);
 	      return this;
 	    }
 	  }, {
@@ -392,8 +404,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'map',
 	    value: function map() {
-	      for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	        args[_key2] = arguments[_key2];
+	      for (var _len5 = arguments.length, args = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+	        args[_key5] = arguments[_key5];
 	      }
 	
 	      var mapped = ArrayProto.map.apply(this, args);
@@ -425,8 +437,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function push() {
 	      var _this2 = this;
 	
-	      for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	        args[_key3] = arguments[_key3];
+	      for (var _len6 = arguments.length, args = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+	        args[_key6] = arguments[_key6];
 	      }
 	
 	      ArrayProto.forEach.call(args, function (arg) {
@@ -449,8 +461,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'slice',
 	    value: function slice() {
-	      for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	        args[_key4] = arguments[_key4];
+	      for (var _len7 = arguments.length, args = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
+	        args[_key7] = arguments[_key7];
 	      }
 	
 	      return NodeListJS(ArrayProto.slice.apply(this, args), this);
@@ -458,8 +470,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'splice',
 	    value: function splice() {
-	      for (var _len5 = arguments.length, args = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-	        args[_key5] = arguments[_key5];
+	      for (var _len8 = arguments.length, args = Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {
+	        args[_key8] = arguments[_key8];
 	      }
 	
 	      for (var i = 2, l = args.length; i < l; i++) {
@@ -475,8 +487,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      var unshift = ArrayProto.unshift.bind(this);
 	
-	      for (var _len6 = arguments.length, args = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
-	        args[_key6] = arguments[_key6];
+	      for (var _len9 = arguments.length, args = Array(_len9), _key9 = 0; _key9 < _len9; _key9++) {
+	        args[_key9] = arguments[_key9];
 	      }
 	
 	      ArrayProto.forEach.call(args, function (arg) {
@@ -498,16 +510,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'toggleClass',
 	    value: function toggleClass(classes, value) {
-	      var _this4 = this;
-	
 	      var method = value === undefined || value === null ? 'toggle' : value ? 'add' : 'remove';
 	      if (typeof classes === 'string') {
 	        classes = classes.trim().replace(/\s+/, ' ').split(' ');
 	      }
-	      classes.forEach(function (c) {
-	        return _this4.each(function (el) {
-	          return el.classList[method](c);
+	      this.each(function (el) {
+	        var list = el.className.trim().replace(/\s+/, ' ').split(' ');
+	        classes.forEach(function (c) {
+	          var hasClass = ~list.indexOf(c);
+	          if (!hasClass && method !== 'remove') list.push(c);
+	          if (hasClass && method !== 'add') {
+	            list = list.filter(function (el) {
+	              return el !== c;
+	            });
+	          }
 	        });
+	        el.className = list.join(' ');
 	      });
 	      return this;
 	    }
@@ -548,8 +566,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'call',
 	    value: function call() {
-	      for (var _len7 = arguments.length, args = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
-	        args[_key7] = arguments[_key7];
+	      for (var _len10 = arguments.length, args = Array(_len10), _key10 = 0; _key10 < _len10; _key10++) {
+	        args[_key10] = arguments[_key10];
 	      }
 	
 	      var method = ArrayProto.shift.call(args);
@@ -623,49 +641,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	        callback = events;
 	        events = null;
 	      }
-	      if (typeof events === 'string' && callback instanceof Function) {
-	        this.each(function (el) {
-	          events.split(' ').forEach(function (event) {
-	            Events.forEach(function (e) {
-	              if (Events[e] && Events[e].el === el && Events[e].event === event && Events[e].callback === callback) {
-	                Events[e].el.removeEventListener(Events[e].event, Events[e].callback);
-	                delete Events[e];
-	              }
-	            });
-	          });
+	      events = events instanceof Array ? events : typeof events === 'string' ? events.trim().replace(/\s+/, ' ').split(' ') : null;
+	      this.each(function (el) {
+	        Events = Events.filter(function (e) {
+	          if (e && e.el === el && (!callback || callback === e.callback) && (!events || ~events.indexOf(e.event))) {
+	            e.el.removeEventListener(e.event, e.callback);
+	            return false;
+	          }
+	          return true;
 	        });
-	      } else if (typeof events === 'string') {
-	        this.each(function (el) {
-	          events.split(' ').forEach(function (event) {
-	            Events.forEach(function (e) {
-	              if (Events[e] && Events[e].el === el && Events[e].event === event) {
-	                Events[e].el.removeEventListener(Events[e].event, Events[e].callback);
-	                delete Events[e];
-	              }
-	            });
-	          });
-	        });
-	      } else if (callback instanceof Function) {
-	        this.each(function (el) {
-	          Events.forEach(function (e) {
-	            if (Events[e] && Events[e].el === el && Events[e].callback === callback) {
-	              Events[e].el.removeEventListener(Events[e].event, Events[e].callback);
-	              delete Events[e];
-	            }
-	          });
-	        });
-	      } else {
-	        this.each(function (el) {
-	          Events.forEach(function (e) {
-	            if (Events[e] && Events[e].el === el) {
-	              Events[e].el.removeEventListener(Events[e].event, Events[e].callback);
-	              delete Events[e];
-	            }
-	          });
-	        });
-	      }
-	      Events = Events.filter(function (el) {
-	        return el !== undefined;
 	      });
 	      return this;
 	    }
@@ -743,13 +727,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	var div = document.createElement('div');
 	function setterGetter(prop) {
-	  var _this5 = this;
+	  var _this4 = this;
 	
 	  if (NL[prop]) return;
 	  if (div[prop] instanceof Function) {
 	    NL[prop] = function () {
-	      for (var _len8 = arguments.length, args = Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {
-	        args[_key8] = arguments[_key8];
+	      for (var _len11 = arguments.length, args = Array(_len11), _key11 = 0; _key11 < _len11; _key11++) {
+	        args[_key11] = arguments[_key11];
 	      }
 	
 	      var arr = [];
@@ -766,7 +750,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          arr.push(undefined);
 	        }
 	      }
-	      return returnThis ? _this5 : flatten(arr, _this5);
+	      return returnThis ? _this4 : flatten(arr, _this4);
 	    };
 	  } else {
 	    (0, _defineProperty2.default)(NL, prop, {
@@ -793,8 +777,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	for (var prop in div) {
 	  setterGetter(prop);
 	}function NodeListJS() {
-	  for (var _len9 = arguments.length, args = Array(_len9), _key9 = 0; _key9 < _len9; _key9++) {
-	    args[_key9] = arguments[_key9];
+	  for (var _len12 = arguments.length, args = Array(_len12), _key12 = 0; _key12 < _len12; _key12++) {
+	    args[_key12] = arguments[_key12];
 	  }
 	
 	  return new NodeList(args);
@@ -2346,10 +2330,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    staticClass: "panel-group"
-	  }, [_vm._t("default")])
+	  }, [_vm._t("default")], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -2487,10 +2471,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    staticClass: "hidden-print hidden-xs hidden-sm"
-	  }, [_vm._h('nav', {
+	  }, [_vm._c('nav', {
 	    directives: [{
 	      name: "scroll",
 	      rawName: "v-scroll",
@@ -2504,7 +2488,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    style: ({
 	      marginTop: _vm.top
 	    })
-	  }, [_vm._t("default")])])
+	  }, [_vm._t("default")], true)])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -2946,12 +2930,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('transition', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('transition', {
 	    attrs: {
 	      "name": "fade"
 	    }
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    directives: [{
 	      name: "show",
 	      rawName: "v-show",
@@ -2965,7 +2949,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    attrs: {
 	      "role": "alert"
 	    }
-	  }, [_vm._h('button', {
+	  }, [_vm._c('button', {
 	    directives: [{
 	      name: "show",
 	      rawName: "v-show",
@@ -2981,7 +2965,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.val = false
 	      }
 	    }
-	  }, [_vm._h('span', ["×"])]), " ", _vm._t("default")])])
+	  }, [_vm._c('span', [_vm._v("×")])]), _vm._v(" "), _vm._t("default")], true)])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -3072,7 +3056,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n.aside-open {\r\n  transition: transform 0.3s;\n}\n.aside-open.has-push-right {\r\n  transform: translateX(-300px);\n}\n.aside {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    z-index: 1049;\r\n    overflow: auto;\r\n    background: #fff;\n}\n.aside.left {\r\n  left: 0;\r\n  right: auto;\n}\n.aside.right {\r\n  left: auto;\r\n  right: 0;\n}\n.slideleft-enter {\r\n  animation:slideleft-in .3s;\n}\n.slideleft-leave-active {\r\n  animation:slideleft-out .3s;\n}\n@keyframes slideleft-in {\n0% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\n}\n100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n}\n@keyframes slideleft-out {\n0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n100% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\n}\n}\n.slideright-enter {\r\n  animation:slideright-in .3s;\n}\n.slideright-leave-active {\r\n  animation:slideright-out .3s;\n}\n@keyframes slideright-in {\n0% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\n}\n100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n}\n@keyframes slideright-out {\n0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n100% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\n}\n}\n.aside:focus {\r\n    outline: 0\n}\n@media (max-width: 991px) {\n.aside {\r\n    min-width:240px\n}\n}\n.aside.left {\r\n  right: auto;\r\n  left: 0\n}\n.aside.right {\r\n  right: 0;\r\n  left: auto\n}\n.aside .aside-dialog .aside-header {\r\n  border-bottom: 1px solid #e5e5e5;\r\n  min-height: 16.43px;\r\n  padding: 6px 15px;\r\n  background: #337ab7;\r\n  color: #fff\n}\n.aside .aside-dialog .aside-header .close {\r\n  margin-right: -8px;\r\n  padding: 4px 8px;\r\n  color: #fff;\r\n  font-size: 25px;\r\n  opacity: .8\n}\n.aside .aside-dialog .aside-body {\r\n  position: relative;\r\n  padding: 15px\n}\n.aside .aside-dialog .aside-footer {\r\n  padding: 15px;\r\n  text-align: right;\r\n  border-top: 1px solid #e5e5e5\n}\n.aside .aside-dialog .aside-footer .btn+.btn {\r\n  margin-left: 5px;\r\n  margin-bottom: 0\n}\n.aside .aside-dialog .aside-footer .btn-group .btn+.btn {\r\n  margin-left: -1px\n}\n.aside .aside-dialog .aside-footer .btn-block+.btn-block {\r\n  margin-left: 0\n}\n.aside-backdrop {\r\n  position: fixed;\r\n  top: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 1040;\r\n  opacity: 0;\r\n  transition: opacity .3s ease;\r\n  background-color: #000\n}\n.aside-backdrop.in {\r\n  opacity: .5;\r\n  filter: alpha(opacity=50)\n}\r\n", "", {"version":3,"sources":["/./src/Aside.vue?37593035"],"names":[],"mappings":";AAsFA;EACA,2BAAA;CACA;AACA;EACA,8BAAA;CACA;AACA;IACA,gBAAA;IACA,OAAA;IACA,UAAA;IACA,cAAA;IACA,eAAA;IACA,iBAAA;CACA;AACA;EACA,QAAA;EACA,YAAA;CACA;AACA;EACA,WAAA;EACA,SAAA;CACA;AACA;EACA,2BAAA;CACA;AACA;EACA,4BAAA;CACA;AACA;AACA;IACA,6BAAA;IACA,WAAA;CACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;CACA;AACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;AACA;IACA,6BAAA;IACA,WAAA;CACA;CACA;AACA;EACA,4BAAA;CACA;AACA;EACA,6BAAA;CACA;AACA;AACA;IACA,4BAAA;IACA,WAAA;CACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;CACA;AACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;AACA;IACA,4BAAA;IACA,WAAA;CACA;CACA;AACA;IACA,UAAA;CACA;AACA;AACA;IACA,eAAA;CACA;CACA;AACA;EACA,YAAA;EACA,OAAA;CACA;AACA;EACA,SAAA;EACA,UAAA;CACA;AACA;EACA,iCAAA;EACA,oBAAA;EACA,kBAAA;EACA,oBAAA;EACA,WAAA;CACA;AACA;EACA,mBAAA;EACA,iBAAA;EACA,YAAA;EACA,gBAAA;EACA,WAAA;CACA;AACA;EACA,mBAAA;EACA,aAAA;CACA;AACA;EACA,cAAA;EACA,kBAAA;EACA,6BAAA;CACA;AACA;EACA,iBAAA;EACA,gBAAA;CACA;AACA;EACA,iBAAA;CACA;AACA;EACA,cAAA;CACA;AACA;EACA,gBAAA;EACA,OAAA;EACA,SAAA;EACA,UAAA;EACA,QAAA;EACA,cAAA;EACA,WAAA;EACA,6BAAA;EACA,sBAAA;CACA;AACA;EACA,YAAA;EACA,yBAAA;CACA","file":"Aside.vue","sourcesContent":["<template>\r\n  <transition :name=\"'side' + this.placement\">\r\n    <div class=\"aside\" v-if=\"show\" :style=\"{width:width+'px'}\" :class=\"placement\">\r\n      <div class=\"aside-dialog\">\r\n        <div class=\"aside-content\">\r\n          <div class=\"aside-header\">\r\n            <button type=\"button\" class=\"close\" @click='trigger_close'><span>&times;</span></button>\r\n            <h4 class=\"aside-title\"><slot name=\"header\">{{ header }}</slot></h4>\r\n          </div>\r\n          <div class=\"aside-body\"><slot></slot></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </transition>\r\n</template>\r\n\r\n<script>\r\nimport {getScrollBarWidth} from './utils/utils.js'\r\nimport $ from './utils/NodeList.js'\r\n// let coerce = {\r\n//   value: 'boolean',\r\n//   width: 'number'\r\n// }\r\n\r\nexport default {\r\n  props: {\r\n    header: {type: String},\r\n    placement: {type: String, default: 'right'},\r\n    show: {type: Boolean, required: true},\r\n    width: {type: Number, default: 320}\r\n  },\r\n  watch: {\r\n    show (val, old) {\r\n      this.$emit('input', val)\r\n      this.$emit(this.show ? 'open' : 'close')\r\n      const body = document.body\r\n      const scrollBarWidth = getScrollBarWidth()\r\n      if (val) {\r\n        if (!this._backdrop) {\r\n          this._backdrop = document.createElement('div')\r\n        }\r\n        this._backdrop.className = 'aside-backdrop'\r\n        body.appendChild(this._backdrop)\r\n        body.classList.add('modal-open')\r\n        if (scrollBarWidth !== 0) {\r\n          body.style.paddingRight = scrollBarWidth + 'px'\r\n        }\r\n        // request property that requires layout to force a layout\r\n        var x = this._backdrop.clientHeight\r\n        this._backdrop.classList.add('in')\r\n        $(this._backdrop).on('click', () => this.trigger_close())\r\n      } else {\r\n        $(this._backdrop).on('transitionend', () => {\r\n          $(this._backdrop).off()\r\n          try {\r\n            body.classList.remove('modal-open')\r\n            body.style.paddingRight = '0'\r\n            body.removeChild(this._backdrop)\r\n            this._backdrop = null\r\n          } catch (e) {}\r\n        })\r\n        this._backdrop.className = 'aside-backdrop'\r\n      }\r\n    }\r\n  },\r\n  methods: {\r\n    trigger () {\r\n      return {\r\n        close: () => this.trigger_close(),\r\n        open: () => this.trigger_open()\r\n      }\r\n    },\r\n    trigger_close () { \r\n      this.$emit( 'close' )\r\n    },\r\n    trigger_open() { \r\n      this.$emit( 'open' )\r\n    }\r\n  },\r\n  mounted () {\r\n    this.$emit('trigger', () => this.trigger)\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.aside-open {\r\n  transition: transform 0.3s;\r\n}\r\n.aside-open.has-push-right {\r\n  transform: translateX(-300px);\r\n}\r\n.aside {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    z-index: 1049;\r\n    overflow: auto;\r\n    background: #fff;\r\n}\r\n.aside.left {\r\n  left: 0;\r\n  right: auto;\r\n}\r\n.aside.right {\r\n  left: auto;\r\n  right: 0;\r\n}\r\n.slideleft-enter {\r\n  animation:slideleft-in .3s;\r\n}\r\n.slideleft-leave-active {\r\n  animation:slideleft-out .3s;\r\n}\r\n@keyframes slideleft-in {\r\n  0% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes slideleft-out {\r\n  0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\r\n  }\r\n}\r\n.slideright-enter {\r\n  animation:slideright-in .3s;\r\n}\r\n.slideright-leave-active {\r\n  animation:slideright-out .3s;\r\n}\r\n@keyframes slideright-in {\r\n  0% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes slideright-out {\r\n  0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\r\n  }\r\n}\r\n.aside:focus {\r\n    outline: 0\r\n}\r\n@media (max-width: 991px) {\r\n  .aside {\r\n    min-width:240px\r\n  }\r\n}\r\n.aside.left {\r\n  right: auto;\r\n  left: 0\r\n}\r\n.aside.right {\r\n  right: 0;\r\n  left: auto\r\n}\r\n.aside .aside-dialog .aside-header {\r\n  border-bottom: 1px solid #e5e5e5;\r\n  min-height: 16.43px;\r\n  padding: 6px 15px;\r\n  background: #337ab7;\r\n  color: #fff\r\n}\r\n.aside .aside-dialog .aside-header .close {\r\n  margin-right: -8px;\r\n  padding: 4px 8px;\r\n  color: #fff;\r\n  font-size: 25px;\r\n  opacity: .8\r\n}\r\n.aside .aside-dialog .aside-body {\r\n  position: relative;\r\n  padding: 15px\r\n}\r\n.aside .aside-dialog .aside-footer {\r\n  padding: 15px;\r\n  text-align: right;\r\n  border-top: 1px solid #e5e5e5\r\n}\r\n.aside .aside-dialog .aside-footer .btn+.btn {\r\n  margin-left: 5px;\r\n  margin-bottom: 0\r\n}\r\n.aside .aside-dialog .aside-footer .btn-group .btn+.btn {\r\n  margin-left: -1px\r\n}\r\n.aside .aside-dialog .aside-footer .btn-block+.btn-block {\r\n  margin-left: 0\r\n}\r\n.aside-backdrop {\r\n  position: fixed;\r\n  top: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 1040;\r\n  opacity: 0;\r\n  transition: opacity .3s ease;\r\n  background-color: #000\r\n}\r\n.aside-backdrop.in {\r\n  opacity: .5;\r\n  filter: alpha(opacity=50)\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.aside-open {\r\n  transition: transform 0.3s;\n}\n.aside-open.has-push-right {\r\n  transform: translateX(-300px);\n}\n.aside {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    z-index: 1049;\r\n    overflow: auto;\r\n    background: #fff;\n}\n.aside.left {\r\n  left: 0;\r\n  right: auto;\n}\n.aside.right {\r\n  left: auto;\r\n  right: 0;\n}\n.slideleft-enter-active {\r\n  animation:slideleft-in .3s;\n}\n.slideleft-leave-active {\r\n  animation:slideleft-out .3s;\n}\n@keyframes slideleft-in {\n0% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\n}\n100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n}\n@keyframes slideleft-out {\n0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n100% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\n}\n}\n.slideright-enter-active {\r\n  animation:slideright-in .3s;\n}\n.slideright-leave-active {\r\n  animation:slideright-out .3s;\n}\n@keyframes slideright-in {\n0% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\n}\n100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n}\n@keyframes slideright-out {\n0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n100% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\n}\n}\n.aside:focus {\r\n    outline: 0\n}\n@media (max-width: 991px) {\n.aside {\r\n    min-width:240px\n}\n}\n.aside .aside-dialog .aside-header {\r\n  border-bottom: 1px solid #e5e5e5;\r\n  min-height: 16.43px;\r\n  padding: 6px 15px;\r\n  background: #337ab7;\r\n  color: #fff\n}\n.aside .aside-dialog .aside-header .close {\r\n  margin-right: -8px;\r\n  padding: 4px 8px;\r\n  color: #fff;\r\n  font-size: 25px;\r\n  opacity: .8\n}\n.aside .aside-dialog .aside-body {\r\n  position: relative;\r\n  padding: 15px\n}\n.aside .aside-dialog .aside-footer {\r\n  padding: 15px;\r\n  text-align: right;\r\n  border-top: 1px solid #e5e5e5\n}\n.aside .aside-dialog .aside-footer .btn+.btn {\r\n  margin-left: 5px;\r\n  margin-bottom: 0\n}\n.aside .aside-dialog .aside-footer .btn-group .btn+.btn {\r\n  margin-left: -1px\n}\n.aside .aside-dialog .aside-footer .btn-block+.btn-block {\r\n  margin-left: 0\n}\n.aside-backdrop {\r\n  position: fixed;\r\n  top: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 1040;\r\n  opacity: 0;\r\n  transition: opacity .3s ease;\r\n  background-color: #000\n}\n.aside-backdrop.in {\r\n  opacity: .5;\r\n  filter: alpha(opacity=50)\n}\r\n", "", {"version":3,"sources":["/./src/Aside.vue?bfece130"],"names":[],"mappings":";AAsFA;EACA,2BAAA;CACA;AACA;EACA,8BAAA;CACA;AACA;IACA,gBAAA;IACA,OAAA;IACA,UAAA;IACA,cAAA;IACA,eAAA;IACA,iBAAA;CACA;AACA;EACA,QAAA;EACA,YAAA;CACA;AACA;EACA,WAAA;EACA,SAAA;CACA;AACA;EACA,2BAAA;CACA;AACA;EACA,4BAAA;CACA;AACA;AACA;IACA,6BAAA;IACA,WAAA;CACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;CACA;AACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;AACA;IACA,6BAAA;IACA,WAAA;CACA;CACA;AACA;EACA,4BAAA;CACA;AACA;EACA,6BAAA;CACA;AACA;AACA;IACA,4BAAA;IACA,WAAA;CACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;CACA;AACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;AACA;IACA,4BAAA;IACA,WAAA;CACA;CACA;AACA;IACA,UAAA;CACA;AACA;AACA;IACA,eAAA;CACA;CACA;AACA;EACA,iCAAA;EACA,oBAAA;EACA,kBAAA;EACA,oBAAA;EACA,WAAA;CACA;AACA;EACA,mBAAA;EACA,iBAAA;EACA,YAAA;EACA,gBAAA;EACA,WAAA;CACA;AACA;EACA,mBAAA;EACA,aAAA;CACA;AACA;EACA,cAAA;EACA,kBAAA;EACA,6BAAA;CACA;AACA;EACA,iBAAA;EACA,gBAAA;CACA;AACA;EACA,iBAAA;CACA;AACA;EACA,cAAA;CACA;AACA;EACA,gBAAA;EACA,OAAA;EACA,SAAA;EACA,UAAA;EACA,QAAA;EACA,cAAA;EACA,WAAA;EACA,6BAAA;EACA,sBAAA;CACA;AACA;EACA,YAAA;EACA,yBAAA;CACA","file":"Aside.vue","sourcesContent":["<template>\r\n  <transition :name=\"'slide' + placement\">\r\n    <div class=\"aside\" v-if=\"show\" :style=\"{width:width+'px'}\" :class=\"placement\">\r\n      <div class=\"aside-dialog\">\r\n        <div class=\"aside-content\">\r\n          <div class=\"aside-header\">\r\n            <button type=\"button\" class=\"close\" @click='trigger_close'><span>&times;</span></button>\r\n            <h4 class=\"aside-title\"><slot name=\"header\">{{ header }}</slot></h4>\r\n          </div>\r\n          <div class=\"aside-body\"><slot></slot></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </transition>\r\n</template>\r\n\r\n<script>\r\nimport {getScrollBarWidth} from './utils/utils.js'\r\nimport $ from './utils/NodeList.js'\r\n// let coerce = {\r\n//   value: 'boolean',\r\n//   width: 'number'\r\n// }\r\n\r\nexport default {\r\n  props: {\r\n    header: {type: String},\r\n    placement: {type: String, default: 'right'},\r\n    show: {type: Boolean, required: true},\r\n    width: {type: Number, default: 320}\r\n  },\r\n  watch: {\r\n    show (val, old) {\r\n      this.$emit('input', val)\r\n      this.$emit(this.show ? 'open' : 'close')\r\n      const body = document.body\r\n      const scrollBarWidth = getScrollBarWidth()\r\n      if (val) {\r\n        if (!this._backdrop) {\r\n          this._backdrop = document.createElement('div')\r\n        }\r\n        this._backdrop.className = 'aside-backdrop'\r\n        body.appendChild(this._backdrop)\r\n        body.classList.add('modal-open')\r\n        if (scrollBarWidth !== 0) {\r\n          body.style.paddingRight = scrollBarWidth + 'px'\r\n        }\r\n        // request property that requires layout to force a layout\r\n        var x = this._backdrop.clientHeight\r\n        this._backdrop.classList.add('in')\r\n        $(this._backdrop).on('click', () => this.trigger_close())\r\n      } else {\r\n        $(this._backdrop).on('transitionend', () => {\r\n          $(this._backdrop).off()\r\n          try {\r\n            body.classList.remove('modal-open')\r\n            body.style.paddingRight = '0'\r\n            body.removeChild(this._backdrop)\r\n            this._backdrop = null\r\n          } catch (e) {}\r\n        })\r\n        this._backdrop.className = 'aside-backdrop'\r\n      }\r\n    }\r\n  },\r\n  methods: {\r\n    trigger () {\r\n      return {\r\n        close: () => this.trigger_close(),\r\n        open: () => this.trigger_open()\r\n      }\r\n    },\r\n    trigger_close () {\r\n      this.$emit( 'close' )\r\n    },\r\n    trigger_open() {\r\n      this.$emit( 'open' )\r\n    }\r\n  },\r\n  mounted () {\r\n    this.$emit('trigger', () => this.trigger)\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.aside-open {\r\n  transition: transform 0.3s;\r\n}\r\n.aside-open.has-push-right {\r\n  transform: translateX(-300px);\r\n}\r\n.aside {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    z-index: 1049;\r\n    overflow: auto;\r\n    background: #fff;\r\n}\r\n.aside.left {\r\n  left: 0;\r\n  right: auto;\r\n}\r\n.aside.right {\r\n  left: auto;\r\n  right: 0;\r\n}\r\n.slideleft-enter-active {\r\n  animation:slideleft-in .3s;\r\n}\r\n.slideleft-leave-active {\r\n  animation:slideleft-out .3s;\r\n}\r\n@keyframes slideleft-in {\r\n  0% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes slideleft-out {\r\n  0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\r\n  }\r\n}\r\n.slideright-enter-active {\r\n  animation:slideright-in .3s;\r\n}\r\n.slideright-leave-active {\r\n  animation:slideright-out .3s;\r\n}\r\n@keyframes slideright-in {\r\n  0% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes slideright-out {\r\n  0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\r\n  }\r\n}\r\n.aside:focus {\r\n    outline: 0\r\n}\r\n@media (max-width: 991px) {\r\n  .aside {\r\n    min-width:240px\r\n  }\r\n}\r\n.aside .aside-dialog .aside-header {\r\n  border-bottom: 1px solid #e5e5e5;\r\n  min-height: 16.43px;\r\n  padding: 6px 15px;\r\n  background: #337ab7;\r\n  color: #fff\r\n}\r\n.aside .aside-dialog .aside-header .close {\r\n  margin-right: -8px;\r\n  padding: 4px 8px;\r\n  color: #fff;\r\n  font-size: 25px;\r\n  opacity: .8\r\n}\r\n.aside .aside-dialog .aside-body {\r\n  position: relative;\r\n  padding: 15px\r\n}\r\n.aside .aside-dialog .aside-footer {\r\n  padding: 15px;\r\n  text-align: right;\r\n  border-top: 1px solid #e5e5e5\r\n}\r\n.aside .aside-dialog .aside-footer .btn+.btn {\r\n  margin-left: 5px;\r\n  margin-bottom: 0\r\n}\r\n.aside .aside-dialog .aside-footer .btn-group .btn+.btn {\r\n  margin-left: -1px\r\n}\r\n.aside .aside-dialog .aside-footer .btn-block+.btn-block {\r\n  margin-left: 0\r\n}\r\n.aside-backdrop {\r\n  position: fixed;\r\n  top: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 1040;\r\n  opacity: 0;\r\n  transition: opacity .3s ease;\r\n  background-color: #000\r\n}\r\n.aside-backdrop.in {\r\n  opacity: .5;\r\n  filter: alpha(opacity=50)\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -3195,24 +3179,24 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('transition', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('transition', {
 	    attrs: {
-	      "name": 'side' + this.placement
+	      "name": 'slide' + _vm.placement
 	    }
-	  }, [(_vm.show) ? _vm._h('div', {
+	  }, [(_vm.show) ? _vm._c('div', {
 	    staticClass: "aside",
 	    class: _vm.placement,
 	    style: ({
 	      width: _vm.width + 'px'
 	    })
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "aside-dialog"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "aside-content"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "aside-header"
-	  }, [_vm._h('button', {
+	  }, [_vm._c('button', {
 	    staticClass: "close",
 	    attrs: {
 	      "type": "button"
@@ -3220,11 +3204,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "click": _vm.trigger_close
 	    }
-	  }, [_vm._h('span', ["×"])]), " ", _vm._h('h4', {
+	  }, [_vm._c('span', [_vm._v("×")])]), _vm._v(" "), _vm._c('h4', {
 	    staticClass: "aside-title"
-	  }, [_vm._t("header", [_vm._s(_vm.header)])])]), " ", _vm._h('div', {
+	  }, [_vm._t("header", [_vm._v(_vm._s(_vm.header))])], true)]), _vm._v(" "), _vm._c('div', {
 	    staticClass: "aside-body"
-	  }, [_vm._t("default")])])])]) : _vm._e()])
+	  }, [_vm._t("default")], true)])])]) : _vm._e()])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -3319,15 +3303,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    class: {
 	      'btn-group': _vm.buttons, 'btn-group-justified': _vm.justified, 'btn-group-vertical': _vm.vertical
 	    },
 	    attrs: {
 	      "data-toggle": _vm.buttons && 'buttons'
 	    }
-	  }, [_vm._t("default")])
+	  }, [_vm._t("default")], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -3566,13 +3550,13 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    staticClass: "carousel slide",
 	    attrs: {
 	      "data-ride": "carousel"
 	    }
-	  }, [_vm._h('ol', {
+	  }, [_vm._c('ol', {
 	    directives: [{
 	      name: "show",
 	      rawName: "v-show",
@@ -3580,8 +3564,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      expression: "indicators"
 	    }],
 	    staticClass: "carousel-indicators"
-	  }, [_vm._l((_vm.indicator_list), function(indicator, i) {
-	    return _vm._h('li', {
+	  }, _vm._l((_vm.indicator_list), function(indicator, i) {
+	    return _vm._c('li', {
 	      class: {
 	        active: i === _vm.index
 	      },
@@ -3590,13 +3574,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _vm.indicatorClick(i)
 	        }
 	      }
-	    }, [_vm._h('span')])
-	  })]), " ", " ", _vm._h('div', {
+	    }, [_vm._c('span')])
+	  })), _vm._v(" "), _vm._v(" "), _vm._c('div', {
 	    staticClass: "carousel-inner",
 	    attrs: {
 	      "role": "listbox"
 	    }
-	  }, [_vm._t("default")]), " ", " ", _vm._h('div', {
+	  }, [_vm._t("default")], true), _vm._v(" "), _vm._v(" "), _vm._c('div', {
 	    directives: [{
 	      name: "show",
 	      rawName: "v-show",
@@ -3604,7 +3588,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      expression: "controls"
 	    }],
 	    staticClass: "carousel-controls hidden-xs"
-	  }, [_vm._h('a', {
+	  }, [_vm._c('a', {
 	    staticClass: "left carousel-control",
 	    attrs: {
 	      "role": "button"
@@ -3612,12 +3596,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "click": _vm.prev
 	    }
-	  }, [_vm._h('span', {
+	  }, [_vm._c('span', {
 	    staticClass: "glyphicon glyphicon-chevron-left",
 	    attrs: {
 	      "aria-hidden": "true"
 	    }
-	  })]), " ", _vm._h('a', {
+	  })]), _vm._v(" "), _vm._c('a', {
 	    staticClass: "right carousel-control",
 	    attrs: {
 	      "role": "button"
@@ -3625,7 +3609,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "click": _vm.next
 	    }
-	  }, [_vm._h('span', {
+	  }, [_vm._c('span', {
 	    staticClass: "glyphicon glyphicon-chevron-right",
 	    attrs: {
 	      "aria-hidden": "true"
@@ -3845,8 +3829,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h(_vm.isButton ? 'a' : 'label', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c(_vm.isButton ? 'a' : 'label', {
 	    tag: "a",
 	    class: [_vm.isButton ? 'btn btn-' + _vm.typeColor : 'open checkbox ' + _vm.typeColor, {
 	      active: _vm.checked,
@@ -3856,7 +3840,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "click": _vm.toggle
 	    }
-	  }, [(_vm.name) ? _vm._h('input', {
+	  }, [(_vm.name) ? _vm._c('input', {
 	    attrs: {
 	      "type": "hidden",
 	      "name": _vm.name
@@ -3864,14 +3848,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    domProps: {
 	      "value": _vm.checked ? _vm.trueValue : _vm.falseValue
 	    }
-	  }) : _vm._e(), " ", (!_vm.isButton) ? _vm._h('span', {
+	  }) : _vm._e(), _vm._v(" "), (!_vm.isButton) ? _vm._c('span', {
 	    staticClass: "icon dropdown-toggle",
 	    class: [_vm.checked ? 'btn-' + _vm.typeColor : '', {
 	      bg: _vm.typeColor === 'default'
 	    }]
-	  }) : _vm._e(), " ", (!_vm.isButton && _vm.checked && _vm.typeColor === 'default') ? _vm._h('span', {
+	  }) : _vm._e(), _vm._v(" "), (!_vm.isButton && _vm.checked && _vm.typeColor === 'default') ? _vm._c('span', {
 	    staticClass: "icon"
-	  }) : _vm._e(), " ", _vm._t("default")])
+	  }) : _vm._e(), _vm._v(" "), _vm._t("default")], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -3962,7 +3946,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n.datepicker {\r\n  position: relative;\r\n  display: inline-block;\n}\ninput.datepicker-input.with-reset-button {\r\n  padding-right: 25px;\n}\n.datepicker > button.close {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  outline: none;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\n}\n.datepicker > button.close:focus {\r\n  opacity: .2;\n}\n.datepicker-popup {\r\n  position: absolute;\r\n  border: 1px solid #ccc;\r\n  border-radius: 5px;\r\n  background: #fff;\r\n  margin-top: 2px;\r\n  z-index: 1000;\r\n  box-shadow: 0 6px 12px rgba(0,0,0,0.175);\n}\n.datepicker-inner {\r\n  width: 218px;\n}\n.datepicker-body {\r\n  padding: 10px 10px;\n}\n.datepicker-ctrl p,\r\n.datepicker-ctrl span,\r\n.datepicker-body span {\r\n  display: inline-block;\r\n  width: 28px;\r\n  line-height: 28px;\r\n  height: 28px;\r\n  border-radius: 4px;\n}\n.datepicker-ctrl p {\r\n  width: 65%;\n}\n.datepicker-ctrl span {\r\n  position: absolute;\n}\n.datepicker-body span {\r\n  text-align: center;\n}\n.datepicker-monthRange span {\r\n  width: 48px;\r\n  height: 50px;\r\n  line-height: 45px;\n}\n.datepicker-item-disable {\r\n  background-color: white!important;\r\n  cursor: not-allowed!important;\n}\n.decadeRange span:first-child,\r\n.decadeRange span:last-child,\r\n.datepicker-item-disable,\r\n.datepicker-item-gray {\r\n  color: #999;\n}\n.datepicker-dateRange-item-active:hover,\r\n.datepicker-dateRange-item-active {\r\n  background: rgb(50, 118, 177)!important;\r\n  color: white!important;\n}\n.datepicker-monthRange {\r\n  margin-top: 10px\n}\n.datepicker-monthRange span,\r\n.datepicker-ctrl span,\r\n.datepicker-ctrl p,\r\n.datepicker-dateRange span {\r\n  cursor: pointer;\n}\n.datepicker-monthRange span:hover,\r\n.datepicker-ctrl p:hover,\r\n.datepicker-ctrl i:hover,\r\n.datepicker-dateRange span:hover,\r\n.datepicker-dateRange-item-hover {\r\n  background-color : #eeeeee;\n}\n.datepicker-weekRange span {\r\n  font-weight: bold;\n}\n.datepicker-label {\r\n  background-color: #f8f8f8;\r\n  font-weight: 700;\r\n  padding: 7px 0;\r\n  text-align: center;\n}\n.datepicker-ctrl {\r\n  position: relative;\r\n  height: 30px;\r\n  line-height: 30px;\r\n  font-weight: bold;\r\n  text-align: center;\n}\n.month-btn {\r\n  font-weight: bold;\r\n  -webkit-user-select:none;\r\n  -moz-user-select:none;\r\n  -ms-user-select:none;\r\n  user-select:none;\n}\n.datepicker-preBtn {\r\n  left: 2px;\n}\n.datepicker-nextBtn {\r\n  right: 2px;\n}\r\n", "", {"version":3,"sources":["/./src/Datepicker.vue?507386e5"],"names":[],"mappings":";AA8UA;EACA,mBAAA;EACA,sBAAA;CACA;AACA;EACA,oBAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,cAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,YAAA;CACA;AACA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,iBAAA;EACA,gBAAA;EACA,cAAA;EACA,yCAAA;CACA;AACA;EACA,aAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;;;EAGA,sBAAA;EACA,YAAA;EACA,kBAAA;EACA,aAAA;EACA,mBAAA;CACA;AACA;EACA,WAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;CACA;AACA;EACA,kCAAA;EACA,8BAAA;CACA;AACA;;;;EAIA,YAAA;CACA;AAEA;;EAEA,wCAAA;EACA,uBAAA;CACA;AACA;EACA,gBAAA;CACA;AACA;;;;EAIA,gBAAA;CACA;AACA;;;;;EAKA,2BAAA;CACA;AACA;EACA,kBAAA;CACA;AACA;EACA,0BAAA;EACA,iBAAA;EACA,eAAA;EACA,mBAAA;CACA;AACA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,kBAAA;EACA,yBAAA;EACA,sBAAA;EACA,qBAAA;EACA,iBAAA;CACA;AACA;EACA,UAAA;CACA;AACA;EACA,WAAA;CACA","file":"Datepicker.vue","sourcesContent":["<template>\r\n  <div class=\"datepicker\">\r\n    <input class=\"form-control datepicker-input\" :class=\"{'with-reset-button': clearButton}\" type=\"text\" :placeholder=\"placeholder\"\r\n        :style=\"{width:width}\"\r\n        :value=\"value\"\r\n        @click=\"inputClick\"\r\n        @input=\"$emit('input',$event.target.value)\" />\r\n    <button v-if=\"clearButton && value\" type=\"button\" class=\"close\" @click=\"$emit('input', '')\">\r\n      <span>&times;</span>\r\n    </button>\r\n    <div class=\"datepicker-popup\" v-show=\"displayDayView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(0)\"></span>\r\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(1)\"></span>\r\n            <p @click=\"switchMonthView\">{{stringifyDayHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-weekRange\">\r\n            <span v-for=\"w in text.daysOfWeek\">{{w}}</span>\r\n          </div>\r\n          <div class=\"datepicker-dateRange\">\r\n            <span v-for=\"d in dateRange\" :class=\"d.sclass\" @click=\"daySelect(d.date,this)\">{{d.text}}</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayMonthView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(0)\"></span>\r\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(1)\"></span>\r\n            <p @click=\"switchDecadeView\">{{stringifyYearHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange\">\r\n            <template v-for=\"(m, index) in text.months\">\r\n              <span   :class=\"{'datepicker-dateRange-item-active':\r\n                  (text.months[parse(value).getMonth()]  === m) &&\r\n                  currDate.getFullYear() === parse(value).getFullYear()}\"\r\n                  @click=\"monthSelect(index)\"\r\n                >{{m.substr(0,3)}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayYearView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(0)\"></span>\r\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(1)\"></span>\r\n            <p>{{stringifyDecadeHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange decadeRange\">\r\n            <template v-for=\"decade in decadeRange\">\r\n              <span :class=\"{'datepicker-dateRange-item-active':parse(this.value).getFullYear() === decade.text}\"\r\n                @click.stop=\"yearSelect(decade.text)\"\r\n              >{{decade.text}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {translations} from './utils/utils.js'\r\n// import $ from './utils/NodeList.js'\r\n\r\nexport default {\r\n  props: {\r\n    value: {type: String},\r\n    format: {default: 'MM/dd/yyyy'},\r\n    disabledDaysOfWeek: {type: Array, default () { return [] }},\r\n    width: {type: String/*, default: '200px'*/},\r\n    clearButton: {type: Boolean, default: false},\r\n    lang: {type: String, default: navigator.language},\r\n    placeholder: {type: String},\r\n    iconsFont: {type: String, default: 'glyphicon'}\r\n  },\r\n  data () {\r\n    return {\r\n      currDate: new Date(),\r\n      dateRange: [],\r\n      decadeRange: [],\r\n      displayDayView: false,\r\n      displayMonthView: false,\r\n      displayYearView: false,\r\n    }\r\n  },\r\n  watch: {\r\n    currDate () {\r\n      this.getDateRange()\r\n    }\r\n  },\r\n  computed: {\r\n    text () {\r\n      return translations(this.lang)\r\n    },\r\n    preBtnClasses () {\r\n      return `datepicker-preBtn ${this.iconsFont} ${this.iconsFont}-chevron-left`\r\n    },\r\n    nextBtnClasses () {\r\n      return `datepicker-nextBtn ${this.iconsFont} ${this.iconsFont}-chevron-right`\r\n    }\r\n  },\r\n  methods: {\r\n    close () {\r\n      this.displayDayView = this.displayMonthView = this.displayYearView = false\r\n    },\r\n    inputClick () {\r\n      this.currDate = this.parse(this.value) || this.parse(new Date())\r\n      if (this.displayMonthView || this.displayYearView) {\r\n        this.displayDayView = false\r\n      } else {\r\n        this.displayDayView = !this.displayDayView\r\n      }\r\n    },\r\n    preNextDecadeClick (flag) {\r\n      const year = this.currDate.getFullYear()\r\n      const months = this.currDate.getMonth()\r\n      const date = this.currDate.getDate()\r\n\r\n      if (flag === 0) {\r\n        this.currDate = new Date(year - 10, months, date)\r\n      } else {\r\n        this.currDate = new Date(year + 10, months, date)\r\n      }\r\n    },\r\n    preNextMonthClick (flag) {\r\n      const year = this.currDate.getFullYear()\r\n      const month = this.currDate.getMonth()\r\n      const date = this.currDate.getDate()\r\n\r\n      if (flag === 0) {\r\n        const preMonth = this.getYearMonth(year, month - 1)\r\n        this.currDate = new Date(preMonth.year, preMonth.month, date)\r\n      } else {\r\n        const nextMonth = this.getYearMonth(year, month + 1)\r\n        this.currDate = new Date(nextMonth.year, nextMonth.month, date)\r\n      }\r\n    },\r\n    preNextYearClick (flag) {\r\n      const year = this.currDate.getFullYear()\r\n      const months = this.currDate.getMonth()\r\n      const date = this.currDate.getDate()\r\n\r\n      if (flag === 0) {\r\n        this.currDate = new Date(year - 1, months, date)\r\n      } else {\r\n        this.currDate = new Date(year + 1, months, date)\r\n      }\r\n    },\r\n    yearSelect (year) {\r\n      this.displayYearView = false\r\n      this.displayMonthView = true\r\n      this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())\r\n    },\r\n    daySelect (date, el) {\r\n      if (this.$el.classList[0] === 'datepicker-item-disable') {\r\n        return false\r\n      } else {\r\n        this.currDate = date\r\n        this.$emit('input', this.stringify(this.currDate))\r\n        this.displayDayView = false\r\n      }\r\n    },\r\n    switchMonthView () {\r\n      this.displayDayView = false\r\n      this.displayMonthView = true\r\n    },\r\n    switchDecadeView () {\r\n      this.displayMonthView = false\r\n      this.displayYearView = true\r\n    },\r\n    monthSelect (index) {\r\n      this.displayMonthView = false\r\n      this.displayDayView = true\r\n      this.currDate = new Date(this.currDate.getFullYear(), index, this.currDate.getDate())\r\n    },\r\n    getYearMonth (year, month) {\r\n      if (month > 11) {\r\n        year++\r\n        month = 0\r\n      } else if (month < 0) {\r\n        year--\r\n        month = 11\r\n      }\r\n      return {year: year, month: month}\r\n    },\r\n    stringifyDecadeHeader (date) {\r\n      const yearStr = date.getFullYear().toString()\r\n      const firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0\r\n      const lastYearOfDecade = parseInt(firstYearOfDecade, 10) + 10\r\n      return firstYearOfDecade + '-' + lastYearOfDecade\r\n    },\r\n    stringifyDayHeader (date) {\r\n      return this.text.months[date.getMonth()] + ' ' + date.getFullYear()\r\n    },\r\n    parseMonth (date) {\r\n      return this.text.months[date.getMonth()]\r\n    },\r\n    stringifyYearHeader (date) {\r\n      return date.getFullYear()\r\n    },\r\n    stringify (date, format = this.format) {\r\n      if (!date) date = this.parse()\r\n      if (!date) return ''\r\n      const year = date.getFullYear()\r\n      const month = date.getMonth() + 1\r\n      const day = date.getDate()\r\n      const monthName = this.parseMonth(date)\r\n\r\n      return format\r\n      .replace(/yyyy/g, year)\r\n      .replace(/MMMM/g, monthName)\r\n      .replace(/MMM/g, monthName.substring(0, 3))\r\n      .replace(/MM/g, ('0' + month).slice(-2))\r\n      .replace(/dd/g, ('0' + day).slice(-2))\r\n      .replace(/yy/g, year)\r\n      .replace(/M(?!a)/g, month)\r\n      .replace(/d/g, day)\r\n    },\r\n    parse (str = this.value) {\r\n      let date\r\n      if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {\r\n        date = new Date(str.substring(6, 10), str.substring(3, 5), str.substring(0, 2))\r\n      } else {\r\n        date = new Date(str)\r\n      }\r\n      return isNaN(date.getFullYear()) ? new Date() : date\r\n    },\r\n    getDayCount (year, month) {\r\n      const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]\r\n      if (month === 1) {\r\n        if ((year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0)) {\r\n          return 29\r\n        }\r\n      }\r\n      return dict[month]\r\n    },\r\n    getDateRange () {\r\n      this.dateRange = []\r\n      this.decadeRange = []\r\n      const time = {\r\n        year: this.currDate.getFullYear(),\r\n        month: this.currDate.getMonth(),\r\n        day: this.currDate.getDate()\r\n      }\r\n      const yearStr = time.year.toString()\r\n      const firstYearOfDecade = (yearStr.substring(0, yearStr.length - 1) + 0) - 1\r\n      for (let i = 0; i < 12; i++) {\r\n        this.decadeRange.push({\r\n          text: firstYearOfDecade + i\r\n        })\r\n      }\r\n\r\n      const currMonthFirstDay = new Date(time.year, time.month, 1)\r\n      let firstDayWeek = currMonthFirstDay.getDay() + 1\r\n      if (firstDayWeek === 0) {\r\n        firstDayWeek = 7\r\n      }\r\n      const dayCount = this.getDayCount(time.year, time.month)\r\n      if (firstDayWeek > 1) {\r\n        const preMonth = this.getYearMonth(time.year, time.month - 1)\r\n        const prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month)\r\n        for (let i = 1; i < firstDayWeek; i++) {\r\n          const dayText = prevMonthDayCount - firstDayWeek + i + 1\r\n          this.dateRange.push({\r\n            text: dayText,\r\n            date: new Date(preMonth.year, preMonth.month, dayText),\r\n            sclass: 'datepicker-item-gray'\r\n          })\r\n        }\r\n      }\r\n\r\n      for (let i = 1; i <= dayCount; i++) {\r\n        const date = new Date(time.year, time.month, i)\r\n        const week = date.getDay()\r\n        let sclass = ''\r\n        this.disabledDaysOfWeek.forEach((el) => {\r\n          if (week === parseInt(el, 10)) sclass = 'datepicker-item-disable'\r\n        })\r\n        if (i === time.day) {\r\n          if (this.value) {\r\n            const valueDate = this.parse(this.value)\r\n            if (valueDate) {\r\n              if (valueDate.getFullYear() === time.year && valueDate.getMonth() === time.month) {\r\n                sclass = 'datepicker-dateRange-item-active'\r\n              }\r\n            }\r\n          }\r\n        }\r\n        this.dateRange.push({\r\n          text: i,\r\n          date: date,\r\n          sclass: sclass\r\n        })\r\n      }\r\n\r\n      if (this.dateRange.length < 42) {\r\n        const nextMonthNeed = 42 - this.dateRange.length\r\n        const nextMonth = this.getYearMonth(time.year, time.month + 1)\r\n\r\n        for (let i = 1; i <= nextMonthNeed; i++) {\r\n          this.dateRange.push({\r\n            text: i,\r\n            date: new Date(nextMonth.year, nextMonth.month, i),\r\n            sclass: 'datepicker-item-gray'\r\n          })\r\n        }\r\n      }\r\n    }\r\n  },\r\n  mounted () {\r\n    let el = this.$el\r\n    this._blur = e => {\r\n      if (!el.contains(e.target))\r\n        this.close()\r\n    }\r\n    this.$emit('child-created', this)\r\n    this.currDate = this.parse(this.value) || this.parse(new Date())\r\n    window.addEventListener('click', this._blur);\r\n  },\r\n  beforeDestroy () {\r\n    window.removeEventListener('click', this._blur)\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.datepicker {\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\ninput.datepicker-input.with-reset-button {\r\n  padding-right: 25px;\r\n}\r\n.datepicker > button.close {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  outline: none;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.datepicker > button.close:focus {\r\n  opacity: .2;\r\n}\r\n.datepicker-popup {\r\n  position: absolute;\r\n  border: 1px solid #ccc;\r\n  border-radius: 5px;\r\n  background: #fff;\r\n  margin-top: 2px;\r\n  z-index: 1000;\r\n  box-shadow: 0 6px 12px rgba(0,0,0,0.175);\r\n}\r\n.datepicker-inner {\r\n  width: 218px;\r\n}\r\n.datepicker-body {\r\n  padding: 10px 10px;\r\n}\r\n.datepicker-ctrl p,\r\n.datepicker-ctrl span,\r\n.datepicker-body span {\r\n  display: inline-block;\r\n  width: 28px;\r\n  line-height: 28px;\r\n  height: 28px;\r\n  border-radius: 4px;\r\n}\r\n.datepicker-ctrl p {\r\n  width: 65%;\r\n}\r\n.datepicker-ctrl span {\r\n  position: absolute;\r\n}\r\n.datepicker-body span {\r\n  text-align: center;\r\n}\r\n.datepicker-monthRange span {\r\n  width: 48px;\r\n  height: 50px;\r\n  line-height: 45px;\r\n}\r\n.datepicker-item-disable {\r\n  background-color: white!important;\r\n  cursor: not-allowed!important;\r\n}\r\n.decadeRange span:first-child,\r\n.decadeRange span:last-child,\r\n.datepicker-item-disable,\r\n.datepicker-item-gray {\r\n  color: #999;\r\n}\r\n\r\n.datepicker-dateRange-item-active:hover,\r\n.datepicker-dateRange-item-active {\r\n  background: rgb(50, 118, 177)!important;\r\n  color: white!important;\r\n}\r\n.datepicker-monthRange {\r\n  margin-top: 10px\r\n}\r\n.datepicker-monthRange span,\r\n.datepicker-ctrl span,\r\n.datepicker-ctrl p,\r\n.datepicker-dateRange span {\r\n  cursor: pointer;\r\n}\r\n.datepicker-monthRange span:hover,\r\n.datepicker-ctrl p:hover,\r\n.datepicker-ctrl i:hover,\r\n.datepicker-dateRange span:hover,\r\n.datepicker-dateRange-item-hover {\r\n  background-color : #eeeeee;\r\n}\r\n.datepicker-weekRange span {\r\n  font-weight: bold;\r\n}\r\n.datepicker-label {\r\n  background-color: #f8f8f8;\r\n  font-weight: 700;\r\n  padding: 7px 0;\r\n  text-align: center;\r\n}\r\n.datepicker-ctrl {\r\n  position: relative;\r\n  height: 30px;\r\n  line-height: 30px;\r\n  font-weight: bold;\r\n  text-align: center;\r\n}\r\n.month-btn {\r\n  font-weight: bold;\r\n  -webkit-user-select:none;\r\n  -moz-user-select:none;\r\n  -ms-user-select:none;\r\n  user-select:none;\r\n}\r\n.datepicker-preBtn {\r\n  left: 2px;\r\n}\r\n.datepicker-nextBtn {\r\n  right: 2px;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.datepicker {\r\n  position: relative;\r\n  display: inline-block;\n}\ninput.datepicker-input.with-reset-button {\r\n  padding-right: 25px;\n}\n.datepicker > button.close {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  outline: none;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\n}\n.datepicker > button.close:focus {\r\n  opacity: .2;\n}\n.datepicker-popup {\r\n  position: absolute;\r\n  border: 1px solid #ccc;\r\n  border-radius: 5px;\r\n  background: #fff;\r\n  margin-top: 2px;\r\n  z-index: 1000;\r\n  box-shadow: 0 6px 12px rgba(0,0,0,0.175);\n}\n.datepicker-inner {\r\n  width: 218px;\n}\n.datepicker-body {\r\n  padding: 10px 10px;\n}\n.datepicker-ctrl p,\r\n.datepicker-ctrl span,\r\n.datepicker-body span {\r\n  display: inline-block;\r\n  width: 28px;\r\n  line-height: 28px;\r\n  height: 28px;\r\n  border-radius: 4px;\n}\n.datepicker-ctrl p {\r\n  width: 65%;\n}\n.datepicker-ctrl span {\r\n  position: absolute;\n}\n.datepicker-body span {\r\n  text-align: center;\n}\n.datepicker-monthRange span {\r\n  width: 48px;\r\n  height: 50px;\r\n  line-height: 45px;\n}\n.datepicker-item-disable {\r\n  background-color: white!important;\r\n  cursor: not-allowed!important;\n}\n.decadeRange span:first-child,\r\n.decadeRange span:last-child,\r\n.datepicker-item-disable,\r\n.datepicker-item-gray {\r\n  color: #999;\n}\n.datepicker-dateRange-item-active:hover,\r\n.datepicker-dateRange-item-active {\r\n  background: rgb(50, 118, 177)!important;\r\n  color: white!important;\n}\n.datepicker-monthRange {\r\n  margin-top: 10px\n}\n.datepicker-monthRange span,\r\n.datepicker-ctrl span,\r\n.datepicker-ctrl p,\r\n.datepicker-dateRange span {\r\n  cursor: pointer;\n}\n.datepicker-monthRange span:hover,\r\n.datepicker-ctrl p:hover,\r\n.datepicker-ctrl i:hover,\r\n.datepicker-dateRange span:hover,\r\n.datepicker-dateRange-item-hover {\r\n  background-color : #eeeeee;\n}\n.datepicker-weekRange span {\r\n  font-weight: bold;\n}\n.datepicker-label {\r\n  background-color: #f8f8f8;\r\n  font-weight: 700;\r\n  padding: 7px 0;\r\n  text-align: center;\n}\n.datepicker-ctrl {\r\n  position: relative;\r\n  height: 30px;\r\n  line-height: 30px;\r\n  font-weight: bold;\r\n  text-align: center;\n}\n.month-btn {\r\n  font-weight: bold;\r\n  -webkit-user-select:none;\r\n  -moz-user-select:none;\r\n  -ms-user-select:none;\r\n  user-select:none;\n}\n.datepicker-preBtn {\r\n  left: 2px;\n}\n.datepicker-nextBtn {\r\n  right: 2px;\n}\r\n", "", {"version":3,"sources":["/./src/Datepicker.vue?72d78c02"],"names":[],"mappings":";AAsVA;EACA,mBAAA;EACA,sBAAA;CACA;AACA;EACA,oBAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,cAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,YAAA;CACA;AACA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,iBAAA;EACA,gBAAA;EACA,cAAA;EACA,yCAAA;CACA;AACA;EACA,aAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;;;EAGA,sBAAA;EACA,YAAA;EACA,kBAAA;EACA,aAAA;EACA,mBAAA;CACA;AACA;EACA,WAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;CACA;AACA;EACA,kCAAA;EACA,8BAAA;CACA;AACA;;;;EAIA,YAAA;CACA;AAEA;;EAEA,wCAAA;EACA,uBAAA;CACA;AACA;EACA,gBAAA;CACA;AACA;;;;EAIA,gBAAA;CACA;AACA;;;;;EAKA,2BAAA;CACA;AACA;EACA,kBAAA;CACA;AACA;EACA,0BAAA;EACA,iBAAA;EACA,eAAA;EACA,mBAAA;CACA;AACA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,kBAAA;EACA,yBAAA;EACA,sBAAA;EACA,qBAAA;EACA,iBAAA;CACA;AACA;EACA,UAAA;CACA;AACA;EACA,WAAA;CACA","file":"Datepicker.vue","sourcesContent":["<template>\r\n  <div class=\"datepicker\">\r\n    <input class=\"form-control datepicker-input\" :class=\"{'with-reset-button': clearButton}\" type=\"text\" :placeholder=\"placeholder\"\r\n        :style=\"{width:width}\"\r\n        :value=\"value\"\r\n        @click=\"inputClick\"\r\n        @input=\"$emit('input',$event.target.value)\" />\r\n    <button v-if=\"clearButton && value\" type=\"button\" class=\"close\" @click=\"$emit('input', '')\">\r\n      <span>&times;</span>\r\n    </button>\r\n    <div class=\"datepicker-popup\" v-show=\"displayDayView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(0)\"></span>\r\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(1)\"></span>\r\n            <p @click=\"switchMonthView\">{{stringifyDayHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-weekRange\">\r\n            <span v-for=\"w in text.daysOfWeek\">{{w}}</span>\r\n          </div>\r\n          <div class=\"datepicker-dateRange\">\r\n            <span v-for=\"d in dateRange\" :class=\"d.sclass\" @click=\"daySelect(d)\">{{d.text}}</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayMonthView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(0)\"></span>\r\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(1)\"></span>\r\n            <p @click=\"switchDecadeView\">{{stringifyYearHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange\">\r\n            <template v-for=\"(m, index) in text.months\">\r\n              <span   :class=\"{'datepicker-dateRange-item-active':\r\n                  (text.months[parse(value).getMonth()]  === m) &&\r\n                  currDate.getFullYear() === parse(value).getFullYear()}\"\r\n                  @click=\"monthSelect(index)\"\r\n                >{{m.substr(0,3)}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayYearView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(0)\"></span>\r\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(1)\"></span>\r\n            <p>{{stringifyDecadeHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange decadeRange\">\r\n            <template v-for=\"decade in decadeRange\">\r\n              <span :class=\"{'datepicker-dateRange-item-active':parse(this.value).getFullYear() === decade.text}\"\r\n                @click.stop=\"yearSelect(decade.text)\"\r\n              >{{decade.text}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {translations} from './utils/utils.js'\r\n// import $ from './utils/NodeList.js'\r\n\r\nexport default {\r\n  props: {\r\n    value: {type: String},\r\n    format: {default: 'MM/dd/yyyy'},\r\n    disabledDaysOfWeek: {type: Array, default () { return [] }},\r\n    width: {type: String/*, default: '200px'*/},\r\n    clearButton: {type: Boolean, default: false},\r\n    lang: {type: String, default: navigator.language},\r\n    placeholder: {type: String},\r\n    iconsFont: {type: String, default: 'glyphicon'}\r\n  },\r\n  data () {\r\n    return {\r\n      currDate: new Date(),\r\n      dateRange: [],\r\n      decadeRange: [],\r\n      displayDayView: false,\r\n      displayMonthView: false,\r\n      displayYearView: false,\r\n    }\r\n  },\r\n  watch: {\r\n    currDate () {\r\n      this.getDateRange()\r\n    },\r\n    format () {\r\n      this.$emit('input', this.stringify(this.currDate))\r\n    }\r\n  },\r\n  computed: {\r\n    text () {\r\n      return translations(this.lang)\r\n    },\r\n    preBtnClasses () {\r\n      return `datepicker-preBtn ${this.iconsFont} ${this.iconsFont}-chevron-left`\r\n    },\r\n    nextBtnClasses () {\r\n      return `datepicker-nextBtn ${this.iconsFont} ${this.iconsFont}-chevron-right`\r\n    },\r\n    disabledDaysArray () {\r\n      return this.disabledDaysOfWeek.map(d => parseInt(d, 10))\r\n    }\r\n  },\r\n  methods: {\r\n    close () {\r\n      this.displayDayView = this.displayMonthView = this.displayYearView = false\r\n    },\r\n    inputClick () {\r\n      this.currDate = this.parse(this.value) || this.parse(new Date())\r\n      if (this.displayMonthView || this.displayYearView) {\r\n        this.displayDayView = false\r\n      } else {\r\n        this.displayDayView = !this.displayDayView\r\n      }\r\n    },\r\n    preNextDecadeClick (flag) {\r\n      const year = this.currDate.getFullYear()\r\n      const months = this.currDate.getMonth()\r\n      const date = this.currDate.getDate()\r\n\r\n      if (flag === 0) {\r\n        this.currDate = new Date(year - 10, months, date)\r\n      } else {\r\n        this.currDate = new Date(year + 10, months, date)\r\n      }\r\n    },\r\n    preNextMonthClick (flag) {\r\n      const year = this.currDate.getFullYear()\r\n      const month = this.currDate.getMonth()\r\n      const date = this.currDate.getDate()\r\n\r\n      if (flag === 0) {\r\n        const preMonth = this.getYearMonth(year, month - 1)\r\n        this.currDate = new Date(preMonth.year, preMonth.month, date)\r\n      } else {\r\n        const nextMonth = this.getYearMonth(year, month + 1)\r\n        this.currDate = new Date(nextMonth.year, nextMonth.month, date)\r\n      }\r\n    },\r\n    preNextYearClick (flag) {\r\n      const year = this.currDate.getFullYear()\r\n      const months = this.currDate.getMonth()\r\n      const date = this.currDate.getDate()\r\n\r\n      if (flag === 0) {\r\n        this.currDate = new Date(year - 1, months, date)\r\n      } else {\r\n        this.currDate = new Date(year + 1, months, date)\r\n      }\r\n    },\r\n    yearSelect (year) {\r\n      this.displayYearView = false\r\n      this.displayMonthView = true\r\n      this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())\r\n    },\r\n    daySelect (day) {\r\n      if (day.sclass === 'datepicker-item-disable') {\r\n        return false\r\n      } else {\r\n        this.currDate = day.date\r\n        this.$emit('input', this.stringify(this.currDate))\r\n        this.displayDayView = false\r\n      }\r\n    },\r\n    switchMonthView () {\r\n      this.displayDayView = false\r\n      this.displayMonthView = true\r\n    },\r\n    switchDecadeView () {\r\n      this.displayMonthView = false\r\n      this.displayYearView = true\r\n    },\r\n    monthSelect (index) {\r\n      this.displayMonthView = false\r\n      this.displayDayView = true\r\n      this.currDate = new Date(this.currDate.getFullYear(), index, this.currDate.getDate())\r\n    },\r\n    getYearMonth (year, month) {\r\n      if (month > 11) {\r\n        year++\r\n        month = 0\r\n      } else if (month < 0) {\r\n        year--\r\n        month = 11\r\n      }\r\n      return {year: year, month: month}\r\n    },\r\n    stringifyDecadeHeader (date) {\r\n      const yearStr = date.getFullYear().toString()\r\n      const firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0\r\n      const lastYearOfDecade = parseInt(firstYearOfDecade, 10) + 10\r\n      return firstYearOfDecade + '-' + lastYearOfDecade\r\n    },\r\n    stringifyDayHeader (date) {\r\n      return this.text.months[date.getMonth()] + ' ' + date.getFullYear()\r\n    },\r\n    parseMonth (date) {\r\n      return this.text.months[date.getMonth()]\r\n    },\r\n    stringifyYearHeader (date) {\r\n      return date.getFullYear()\r\n    },\r\n    stringify (date, format = this.format) {\r\n      if (!date) date = this.parse()\r\n      if (!date) return ''\r\n      const year = date.getFullYear()\r\n      const month = date.getMonth() + 1\r\n      const day = date.getDate()\r\n      const monthName = this.parseMonth(date)\r\n\r\n      return format\r\n      .replace(/yyyy/g, year)\r\n      .replace(/MMMM/g, monthName)\r\n      .replace(/MMM/g, monthName.substring(0, 3))\r\n      .replace(/MM/g, ('0' + month).slice(-2))\r\n      .replace(/dd/g, ('0' + day).slice(-2))\r\n      .replace(/yy/g, year)\r\n      .replace(/M(?!a)/g, month)\r\n      .replace(/d/g, day)\r\n    },\r\n    parse (str = this.value) {\r\n      let date\r\n      if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {\r\n        date = new Date(str.substring(6, 10), str.substring(3, 5), str.substring(0, 2))\r\n      } else {\r\n        date = new Date(str)\r\n      }\r\n      return isNaN(date.getFullYear()) ? new Date() : date\r\n    },\r\n    getDayCount (year, month) {\r\n      const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]\r\n      if (month === 1) {\r\n        if ((year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0)) {\r\n          return 29\r\n        }\r\n      }\r\n      return dict[month]\r\n    },\r\n    getDateRange () {\r\n      this.dateRange = []\r\n      this.decadeRange = []\r\n      const time = {\r\n        year: this.currDate.getFullYear(),\r\n        month: this.currDate.getMonth(),\r\n        day: this.currDate.getDate()\r\n      }\r\n      const yearStr = time.year.toString()\r\n      const firstYearOfDecade = (yearStr.substring(0, yearStr.length - 1) + 0) - 1\r\n      for (let i = 0; i < 12; i++) {\r\n        this.decadeRange.push({\r\n          text: firstYearOfDecade + i\r\n        })\r\n      }\r\n\r\n      const currMonthFirstDay = new Date(time.year, time.month, 1)\r\n      let firstDayWeek = currMonthFirstDay.getDay() + 1\r\n      if (firstDayWeek === 0) {\r\n        firstDayWeek = 7\r\n      }\r\n      const dayCount = this.getDayCount(time.year, time.month)\r\n      if (firstDayWeek > 1) {\r\n        const preMonth = this.getYearMonth(time.year, time.month - 1)\r\n        const prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month)\r\n        for (let i = 1; i < firstDayWeek; i++) {\r\n          const dayText = prevMonthDayCount - firstDayWeek + i + 1\r\n          const date = new Date(preMonth.year, preMonth.month, dayText)\r\n          let sclass = 'datepicker-item-gray'\r\n          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\r\n            sclass = 'datepicker-item-disable'\r\n          }\r\n          this.dateRange.push({\r\n            text: dayText,\r\n            date: date,\r\n            sclass: 'datepicker-item-gray'\r\n          })\r\n        }\r\n      }\r\n\r\n      for (let i = 1; i <= dayCount; i++) {\r\n        const date = new Date(time.year, time.month, i)\r\n        let sclass = ''\r\n        if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\r\n          sclass = 'datepicker-item-disable'\r\n        }\r\n        if (i == time.day && date.getFullYear() == time.year && date.getMonth() == time.month){\r\n          sclass = 'datepicker-dateRange-item-active'\r\n        }\r\n        this.dateRange.push({\r\n          text: i,\r\n          date: date,\r\n          sclass: sclass\r\n        })\r\n      }\r\n\r\n      if (this.dateRange.length < 42) {\r\n        const nextMonthNeed = 42 - this.dateRange.length\r\n        const nextMonth = this.getYearMonth(time.year, time.month + 1)\r\n\r\n        for (let i = 1; i <= nextMonthNeed; i++) {\r\n          const date = new Date(nextMonth.year, nextMonth.month, i)\r\n          let sclass = 'datepicker-item-gray'\r\n          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\r\n            sclass = 'datepicker-item-disable'\r\n          }\r\n          this.dateRange.push({\r\n            text: i,\r\n            date: date,\r\n            sclass: sclass\r\n          })\r\n        }\r\n      }\r\n    }\r\n  },\r\n  mounted () {\r\n    let el = this.$el\r\n    this._blur = e => {\r\n      if (!el.contains(e.target))\r\n        this.close()\r\n    }\r\n    this.$emit('child-created', this)\r\n    this.currDate = this.parse(this.value) || this.parse(new Date())\r\n    window.addEventListener('click', this._blur);\r\n  },\r\n  beforeDestroy () {\r\n    window.removeEventListener('click', this._blur)\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.datepicker {\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\ninput.datepicker-input.with-reset-button {\r\n  padding-right: 25px;\r\n}\r\n.datepicker > button.close {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  outline: none;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.datepicker > button.close:focus {\r\n  opacity: .2;\r\n}\r\n.datepicker-popup {\r\n  position: absolute;\r\n  border: 1px solid #ccc;\r\n  border-radius: 5px;\r\n  background: #fff;\r\n  margin-top: 2px;\r\n  z-index: 1000;\r\n  box-shadow: 0 6px 12px rgba(0,0,0,0.175);\r\n}\r\n.datepicker-inner {\r\n  width: 218px;\r\n}\r\n.datepicker-body {\r\n  padding: 10px 10px;\r\n}\r\n.datepicker-ctrl p,\r\n.datepicker-ctrl span,\r\n.datepicker-body span {\r\n  display: inline-block;\r\n  width: 28px;\r\n  line-height: 28px;\r\n  height: 28px;\r\n  border-radius: 4px;\r\n}\r\n.datepicker-ctrl p {\r\n  width: 65%;\r\n}\r\n.datepicker-ctrl span {\r\n  position: absolute;\r\n}\r\n.datepicker-body span {\r\n  text-align: center;\r\n}\r\n.datepicker-monthRange span {\r\n  width: 48px;\r\n  height: 50px;\r\n  line-height: 45px;\r\n}\r\n.datepicker-item-disable {\r\n  background-color: white!important;\r\n  cursor: not-allowed!important;\r\n}\r\n.decadeRange span:first-child,\r\n.decadeRange span:last-child,\r\n.datepicker-item-disable,\r\n.datepicker-item-gray {\r\n  color: #999;\r\n}\r\n\r\n.datepicker-dateRange-item-active:hover,\r\n.datepicker-dateRange-item-active {\r\n  background: rgb(50, 118, 177)!important;\r\n  color: white!important;\r\n}\r\n.datepicker-monthRange {\r\n  margin-top: 10px\r\n}\r\n.datepicker-monthRange span,\r\n.datepicker-ctrl span,\r\n.datepicker-ctrl p,\r\n.datepicker-dateRange span {\r\n  cursor: pointer;\r\n}\r\n.datepicker-monthRange span:hover,\r\n.datepicker-ctrl p:hover,\r\n.datepicker-ctrl i:hover,\r\n.datepicker-dateRange span:hover,\r\n.datepicker-dateRange-item-hover {\r\n  background-color : #eeeeee;\r\n}\r\n.datepicker-weekRange span {\r\n  font-weight: bold;\r\n}\r\n.datepicker-label {\r\n  background-color: #f8f8f8;\r\n  font-weight: 700;\r\n  padding: 7px 0;\r\n  text-align: center;\r\n}\r\n.datepicker-ctrl {\r\n  position: relative;\r\n  height: 30px;\r\n  line-height: 30px;\r\n  font-weight: bold;\r\n  text-align: center;\r\n}\r\n.month-btn {\r\n  font-weight: bold;\r\n  -webkit-user-select:none;\r\n  -moz-user-select:none;\r\n  -ms-user-select:none;\r\n  user-select:none;\r\n}\r\n.datepicker-preBtn {\r\n  left: 2px;\r\n}\r\n.datepicker-nextBtn {\r\n  right: 2px;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -4009,6 +3993,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  watch: {
 	    currDate: function currDate() {
 	      this.getDateRange();
+	    },
+	    format: function format() {
+	      this.$emit('input', this.stringify(this.currDate));
 	    }
 	  },
 	  computed: {
@@ -4020,6 +4007,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    nextBtnClasses: function nextBtnClasses() {
 	      return 'datepicker-nextBtn ' + this.iconsFont + ' ' + this.iconsFont + '-chevron-right';
+	    },
+	    disabledDaysArray: function disabledDaysArray() {
+	      return this.disabledDaysOfWeek.map(function (d) {
+	        return parseInt(d, 10);
+	      });
 	    }
 	  },
 	  methods: {
@@ -4074,11 +4066,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.displayMonthView = true;
 	      this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate());
 	    },
-	    daySelect: function daySelect(date, el) {
-	      if (this.$el.classList[0] === 'datepicker-item-disable') {
+	    daySelect: function daySelect(day) {
+	      if (day.sclass === 'datepicker-item-disable') {
 	        return false;
 	      } else {
-	        this.currDate = date;
+	        this.currDate = day.date;
 	        this.$emit('input', this.stringify(this.currDate));
 	        this.displayDayView = false;
 	      }
@@ -4154,8 +4146,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return dict[month];
 	    },
 	    getDateRange: function getDateRange() {
-	      var _this = this;
-	
 	      this.dateRange = [];
 	      this.decadeRange = [];
 	      var time = {
@@ -4182,40 +4172,33 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month);
 	        for (var _i = 1; _i < firstDayWeek; _i++) {
 	          var dayText = prevMonthDayCount - firstDayWeek + _i + 1;
+	          var date = new Date(preMonth.year, preMonth.month, dayText);
+	          var sclass = 'datepicker-item-gray';
+	          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
+	            sclass = 'datepicker-item-disable';
+	          }
 	          this.dateRange.push({
 	            text: dayText,
-	            date: new Date(preMonth.year, preMonth.month, dayText),
+	            date: date,
 	            sclass: 'datepicker-item-gray'
 	          });
 	        }
 	      }
 	
-	      var _loop = function _loop(_i2) {
-	        var date = new Date(time.year, time.month, _i2);
-	        var week = date.getDay();
-	        var sclass = '';
-	        _this.disabledDaysOfWeek.forEach(function (el) {
-	          if (week === parseInt(el, 10)) sclass = 'datepicker-item-disable';
-	        });
-	        if (_i2 === time.day) {
-	          if (_this.value) {
-	            var valueDate = _this.parse(_this.value);
-	            if (valueDate) {
-	              if (valueDate.getFullYear() === time.year && valueDate.getMonth() === time.month) {
-	                sclass = 'datepicker-dateRange-item-active';
-	              }
-	            }
-	          }
-	        }
-	        _this.dateRange.push({
-	          text: _i2,
-	          date: date,
-	          sclass: sclass
-	        });
-	      };
-	
 	      for (var _i2 = 1; _i2 <= dayCount; _i2++) {
-	        _loop(_i2);
+	        var _date = new Date(time.year, time.month, _i2);
+	        var _sclass = '';
+	        if (this.disabledDaysArray.indexOf(_date.getDay()) > -1) {
+	          _sclass = 'datepicker-item-disable';
+	        }
+	        if (_i2 == time.day && _date.getFullYear() == time.year && _date.getMonth() == time.month) {
+	          _sclass = 'datepicker-dateRange-item-active';
+	        }
+	        this.dateRange.push({
+	          text: _i2,
+	          date: _date,
+	          sclass: _sclass
+	        });
 	      }
 	
 	      if (this.dateRange.length < 42) {
@@ -4223,21 +4206,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var nextMonth = this.getYearMonth(time.year, time.month + 1);
 	
 	        for (var _i3 = 1; _i3 <= nextMonthNeed; _i3++) {
+	          var _date2 = new Date(nextMonth.year, nextMonth.month, _i3);
+	          var _sclass2 = 'datepicker-item-gray';
+	          if (this.disabledDaysArray.indexOf(_date2.getDay()) > -1) {
+	            _sclass2 = 'datepicker-item-disable';
+	          }
 	          this.dateRange.push({
 	            text: _i3,
-	            date: new Date(nextMonth.year, nextMonth.month, _i3),
-	            sclass: 'datepicker-item-gray'
+	            date: _date2,
+	            sclass: _sclass2
 	          });
 	        }
 	      }
 	    }
 	  },
 	  mounted: function mounted() {
-	    var _this2 = this;
+	    var _this = this;
 	
 	    var el = this.$el;
 	    this._blur = function (e) {
-	      if (!el.contains(e.target)) _this2.close();
+	      if (!el.contains(e.target)) _this.close();
 	    };
 	    this.$emit('child-created', this);
 	    this.currDate = this.parse(this.value) || this.parse(new Date());
@@ -4319,10 +4307,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    staticClass: "datepicker"
-	  }, [_vm._h('input', {
+	  }, [_vm._c('input', {
 	    staticClass: "form-control datepicker-input",
 	    class: {
 	      'with-reset-button': _vm.clearButton
@@ -4343,7 +4331,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.$emit('input', $event.target.value)
 	      }
 	    }
-	  }), " ", (_vm.clearButton && _vm.value) ? _vm._h('button', {
+	  }), _vm._v(" "), (_vm.clearButton && _vm.value) ? _vm._c('button', {
 	    staticClass: "close",
 	    attrs: {
 	      "type": "button"
@@ -4353,7 +4341,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.$emit('input', '')
 	      }
 	    }
-	  }, [_vm._h('span', ["×"])]) : _vm._e(), " ", _vm._h('div', {
+	  }, [_vm._c('span', [_vm._v("×")])]) : _vm._e(), _vm._v(" "), _vm._c('div', {
 	    directives: [{
 	      name: "show",
 	      rawName: "v-show",
@@ -4361,13 +4349,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      expression: "displayDayView"
 	    }],
 	    staticClass: "datepicker-popup"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "datepicker-inner"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "datepicker-body"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "datepicker-ctrl"
-	  }, [_vm._h('span', {
+	  }, [_vm._c('span', {
 	    class: _vm.preBtnClasses,
 	    attrs: {
 	      "aria-hidden": "true"
@@ -4377,7 +4365,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.preNextMonthClick(0)
 	      }
 	    }
-	  }), " ", _vm._h('span', {
+	  }), _vm._v(" "), _vm._c('span', {
 	    class: _vm.nextBtnClasses,
 	    attrs: {
 	      "aria-hidden": "true"
@@ -4387,26 +4375,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.preNextMonthClick(1)
 	      }
 	    }
-	  }), " ", _vm._h('p', {
+	  }), _vm._v(" "), _vm._c('p', {
 	    on: {
 	      "click": _vm.switchMonthView
 	    }
-	  }, [_vm._s(_vm.stringifyDayHeader(_vm.currDate))])]), " ", _vm._h('div', {
+	  }, [_vm._v(_vm._s(_vm.stringifyDayHeader(_vm.currDate)))])]), _vm._v(" "), _vm._c('div', {
 	    staticClass: "datepicker-weekRange"
-	  }, [_vm._l((_vm.text.daysOfWeek), function(w) {
-	    return _vm._h('span', [_vm._s(w)])
-	  })]), " ", _vm._h('div', {
+	  }, _vm._l((_vm.text.daysOfWeek), function(w) {
+	    return _vm._c('span', [_vm._v(_vm._s(w))])
+	  })), _vm._v(" "), _vm._c('div', {
 	    staticClass: "datepicker-dateRange"
-	  }, [_vm._l((_vm.dateRange), function(d) {
-	    return _vm._h('span', {
+	  }, _vm._l((_vm.dateRange), function(d) {
+	    return _vm._c('span', {
 	      class: d.sclass,
 	      on: {
 	        "click": function($event) {
-	          _vm.daySelect(d.date, this)
+	          _vm.daySelect(d)
 	        }
 	      }
-	    }, [_vm._s(d.text)])
-	  })])])])]), " ", _vm._h('div', {
+	    }, [_vm._v(_vm._s(d.text))])
+	  }))])])]), _vm._v(" "), _vm._c('div', {
 	    directives: [{
 	      name: "show",
 	      rawName: "v-show",
@@ -4414,13 +4402,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      expression: "displayMonthView"
 	    }],
 	    staticClass: "datepicker-popup"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "datepicker-inner"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "datepicker-body"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "datepicker-ctrl"
-	  }, [_vm._h('span', {
+	  }, [_vm._c('span', {
 	    class: _vm.preBtnClasses,
 	    attrs: {
 	      "aria-hidden": "true"
@@ -4430,7 +4418,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.preNextYearClick(0)
 	      }
 	    }
-	  }), " ", _vm._h('span', {
+	  }), _vm._v(" "), _vm._c('span', {
 	    class: _vm.nextBtnClasses,
 	    attrs: {
 	      "aria-hidden": "true"
@@ -4440,14 +4428,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.preNextYearClick(1)
 	      }
 	    }
-	  }), " ", _vm._h('p', {
+	  }), _vm._v(" "), _vm._c('p', {
 	    on: {
 	      "click": _vm.switchDecadeView
 	    }
-	  }, [_vm._s(_vm.stringifyYearHeader(_vm.currDate))])]), " ", _vm._h('div', {
+	  }, [_vm._v(_vm._s(_vm.stringifyYearHeader(_vm.currDate)))])]), _vm._v(" "), _vm._c('div', {
 	    staticClass: "datepicker-monthRange"
 	  }, [_vm._l((_vm.text.months), function(m, index) {
-	    return [_vm._h('span', {
+	    return [_vm._c('span', {
 	      class: {
 	        'datepicker-dateRange-item-active':
 	        (_vm.text.months[_vm.parse(_vm.value).getMonth()] === m) &&
@@ -4458,8 +4446,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _vm.monthSelect(index)
 	        }
 	      }
-	    }, [_vm._s(m.substr(0, 3))])]
-	  })])])])]), " ", _vm._h('div', {
+	    }, [_vm._v(_vm._s(m.substr(0, 3)))])]
+	  })], true)])])]), _vm._v(" "), _vm._c('div', {
 	    directives: [{
 	      name: "show",
 	      rawName: "v-show",
@@ -4467,13 +4455,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      expression: "displayYearView"
 	    }],
 	    staticClass: "datepicker-popup"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "datepicker-inner"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "datepicker-body"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "datepicker-ctrl"
-	  }, [_vm._h('span', {
+	  }, [_vm._c('span', {
 	    class: _vm.preBtnClasses,
 	    attrs: {
 	      "aria-hidden": "true"
@@ -4483,7 +4471,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.preNextDecadeClick(0)
 	      }
 	    }
-	  }), " ", _vm._h('span', {
+	  }), _vm._v(" "), _vm._c('span', {
 	    class: _vm.nextBtnClasses,
 	    attrs: {
 	      "aria-hidden": "true"
@@ -4493,10 +4481,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.preNextDecadeClick(1)
 	      }
 	    }
-	  }), " ", _vm._h('p', [_vm._s(_vm.stringifyDecadeHeader(_vm.currDate))])]), " ", _vm._h('div', {
+	  }), _vm._v(" "), _vm._c('p', [_vm._v(_vm._s(_vm.stringifyDecadeHeader(_vm.currDate)))])]), _vm._v(" "), _vm._c('div', {
 	    staticClass: "datepicker-monthRange decadeRange"
 	  }, [_vm._l((_vm.decadeRange), function(decade) {
-	    return [_vm._h('span', {
+	    return [_vm._c('span', {
 	      class: {
 	        'datepicker-dateRange-item-active': _vm.parse(this.value).getFullYear() === decade.text
 	      },
@@ -4506,8 +4494,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _vm.yearSelect(decade.text)
 	        }
 	      }
-	    }, [_vm._s(decade.text)])]
-	  })])])])])])
+	    }, [_vm._v(_vm._s(decade.text))])]
+	  })], true)])])])])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -4674,8 +4662,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h(_vm.isLi ? 'li' : 'div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c(_vm.isLi ? 'li' : 'div', {
 	    directives: [{
 	      name: "click-outside",
 	      rawName: "v-click-outside",
@@ -4690,7 +4678,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      'input-group-btn': _vm.inInput,
 	      'btn-group': !_vm.isLi && !_vm.inInput
 	    }]
-	  }, [_vm._t("before"), " ", _vm._t("button", [(_vm.isLi) ? _vm._h('a', {
+	  }, [_vm._t("before"), _vm._v(" "), _vm._t("button", [(_vm.isLi) ? _vm._c('a', {
 	    class: ['dropdown-toggle', _vm.buttonSize, {
 	      disabled: _vm.disabled
 	    }],
@@ -4699,13 +4687,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    on: {
 	      "keyup": function($event) {
-	        if ($event.keyCode !== 27) { return; }
+	        if (_vm._k($event.keyCode, "esc", 27)) { return; }
 	        _vm.show = false
 	      }
 	    }
-	  }, ["\n      " + _vm._s(_vm.text) + "\n      ", _vm._h('span', {
+	  }, [_vm._v("\n      " + _vm._s(_vm.text) + "\n      "), _vm._c('span', {
 	    staticClass: "caret"
-	  })]) : _vm._h('button', {
+	  })]) : _vm._c('button', {
 	    class: ['btn btn-' + _vm.type, _vm.buttonSize, 'dropdown-toggle'],
 	    attrs: {
 	      "type": "button",
@@ -4713,15 +4701,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    on: {
 	      "keyup": function($event) {
-	        if ($event.keyCode !== 27) { return; }
+	        if (_vm._k($event.keyCode, "esc", 27)) { return; }
 	        _vm.show = false
 	      }
 	    }
-	  }, ["\n      " + _vm._s(_vm.text) + "\n      ", _vm._h('span', {
+	  }, [_vm._v("\n      " + _vm._s(_vm.text) + "\n      "), _vm._c('span', {
 	    staticClass: "caret"
-	  })]), " "]), " ", _vm._t("dropdown-menu", [_vm._h('ul', {
+	  })]), _vm._v(" ")]), _vm._v(" "), _vm._t("dropdown-menu", [_vm._c('ul', {
 	    staticClass: "dropdown-menu"
-	  }, [_vm._t("default")])])])
+	  }, [_vm._t("default")], true)])], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -4864,8 +4852,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('span', [_vm._t("default")])
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('span', [_vm._t("default")], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -4993,8 +4981,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('span', [_vm._t("default")])
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('span', [_vm._t("default")], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -5086,7 +5074,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n.form-group[data-v-652ad7b9] {\r\n  position: relative;\n}\nlabel~.close[data-v-652ad7b9] {\r\n  top: 25px;\n}\n.input-group>.icon[data-v-652ad7b9] {\r\n  position: relative;\r\n  display: table-cell;\r\n  width:0;\r\n  z-index: 3;\n}\n.close[data-v-652ad7b9] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\n}\n.has-feedback .close[data-v-652ad7b9] {\r\n  right: 20px;\n}\r\n", "", {"version":3,"sources":["/./src/Input.vue?370c1817"],"names":[],"mappings":";AAoQA;EACA,mBAAA;CACA;AACA;EACA,UAAA;CACA;AACA;EACA,mBAAA;EACA,oBAAA;EACA,QAAA;EACA,WAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,YAAA;CACA","file":"Input.vue","sourcesContent":["<template>\r\n  <div class=\"form-group\" :class=\"{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}\">\r\n    <slot name=\"label\"><label v-if=\"label\" class=\"control-label\" @click=\"focus\">{{label}}</label></slot>\r\n    <div v-if=\"$slots.before||$slots.after\" class=\"input-group\">\r\n      <slot name=\"before\"></slot>\r\n      <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\r\n        :cols=\"cols\"\r\n        :disabled=\"disabled\"\r\n        :list=\"id_datalist\"\r\n        :max=\"attr(max)\"\r\n        :maxlength=\"maxlength\"\r\n        :min=\"attr(min)\"\r\n        :name=\"name\"\r\n        :placeholder=\"placeholder\"\r\n        :readonly=\"readonly\"\r\n        :required=\"required\"\r\n        :rows=\"rows\"\r\n        :step=\"step\"\r\n        :title=\"attr(title)\"\r\n        :type=\"type=='textarea'?null:type\"\r\n        v-model=\"val\"\r\n        @blur=\"emit\" @focus=\"emit\" @input=\"emit\"\r\n        @keyup.enter=\"type!='textarea'&&enterSubmit&&submit()\"\r\n      ></textarea>\r\n      <div v-if=\"clearButton && value\" :class=\"{icon:icon}\">\r\n        <span class=\"close\" @click=\"value = ''\">&times;</span>\r\n      </div>\r\n      <div v-if=\"icon\" class=\"icon\">\r\n        <span v-if=\"icon&&valid!==null\" :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\" aria-hidden=\"true\"></span>\r\n      </div>\r\n      <slot name=\"after\"></slot>\r\n    </div>\r\n    <template v-else>\r\n      <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\r\n        :cols=\"cols\"\r\n        :disabled=\"disabled\"\r\n        :list=\"id_datalist\"\r\n        :max=\"attr(max)\"\r\n        :maxlength=\"maxlength\"\r\n        :min=\"attr(min)\"\r\n        :name=\"name\"\r\n        :placeholder=\"placeholder\"\r\n        :readonly=\"readonly\"\r\n        :required=\"required\"\r\n        :rows=\"rows\"\r\n        :step=\"step\"\r\n        :title=\"attr(title)\"\r\n        :type=\"type=='textarea'?null:type\"\r\n        v-model=\"val\"\r\n        @blur=\"emit\" @focus=\"emit\" @input=\"emit\"\r\n        @keyup.enter=\"type!='textarea'&&enterSubmit&&submit()\"\r\n      ></textarea>\r\n      <span v-if=\"clearButton && val\" class=\"close\" @click=\"val = ''\">&times;</span>\r\n      <span v-if=\"icon&&valid!==null\" :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\" aria-hidden=\"true\"></span>\r\n    </template>\r\n    <datalist v-if=\"id_datalist\" :id=\"id_datalist\">\r\n      <option v-for=\"opc in options\" :value=\"opc\"></option>\r\n    </datalist>\r\n    <div v-if=\"showHelp\" class=\"help-block\" @click=\"focus\">{{help}}</div>\r\n    <div v-if=\"showError\" class=\"help-block with-errors\" @click=\"focus\">{{errorText}}</div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {coerce, delayer, translations} from './utils/utils.js'\r\nimport $ from './utils/NodeList.js'\r\n\r\nvar DELAY = 300\r\n\r\nexport default {\r\n  props: {\r\n    clearButton: {type: Boolean, default: false},\r\n    cols: {type: Number, default: null},\r\n    datalist: {type: Array, default: null},\r\n    disabled: {type: Boolean, default: false},\r\n    enterSubmit: {type: Boolean, default: false},\r\n    error: {type: String, default: null},\r\n    help: {type: String, default: null},\r\n    hideHelp: {type: Boolean, default: true},\r\n    icon: {type: Boolean, default: false},\r\n    label: {type: String, default: null},\r\n    lang: {type: String, default: navigator.language},\r\n    mask: null,\r\n    maskDelay: {type: Number, default: 100},\r\n    match: {type: String, default: null},\r\n    max: {type: String, default: null},\r\n    maxlength: {type: Number, default: null},\r\n    min: {type: String, default: null},\r\n    minlength: {type: Number, default: 0},\r\n    name: {type: String, default: null},\r\n    pattern: {default: null},\r\n    placeholder: {type: String, default: null},\r\n    readonly: {type: Boolean, default: false},\r\n    required: {type: Boolean, default: false},\r\n    rows: {type: Number, default: 3},\r\n    step: {type: Number, default: null},\r\n    type: {type: String, default: 'text'},\r\n    url: {type: String, default: null},\r\n    urlMap: {type: Function, default: null},\r\n    validationDelay: {type: Number, default: 250},\r\n    value: {default: null}\r\n  },\r\n  data () {\r\n    var val = this.value\r\n    return {\r\n      options: this.datalist,\r\n      val,\r\n      valid: null,\r\n      timeout: null\r\n    }\r\n  },\r\n  computed: {\r\n    canValidate () { return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null) },\r\n    errorText () {\r\n      let value = this.value\r\n      let error = [this.error]\r\n      if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')')\r\n      if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')\r\n      return error.join(' ')\r\n    },\r\n    id_datalist () {\r\n      if (this.type !== 'textarea' && this.datalist instanceof Array) {\r\n        if (!this._id_datalist) {\r\n          if (!this.$root.id_datalist) { this.$root.id_datalist = 0 }\r\n          this._id_datalist = 'input-datalist' + this.$root.id_datalist++\r\n        }\r\n        return this._id_datalist\r\n      }\r\n      return null\r\n    },\r\n    input () { return this.$refs.input },\r\n    nativeValidate () { return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max) },\r\n    regex () { return coerce.pattern(this.pattern) },\r\n    showError () { return this.error && this.valid === false },\r\n    showHelp () { return this.help && (!this.showError || !this.hideHelp) },\r\n    text () { return translations(this.lang) },\r\n    title () { return this.errorText || this.help || '' }\r\n  },\r\n  watch: {\r\n    datalist (val, old) {\r\n      if (val !== old && val instanceof Array) { this.options = val }\r\n    },\r\n    match (val) { this.eval() },\r\n    options (val, old) {\r\n      if (val !== old) this.$emit('options', val)\r\n    },\r\n    url (val) {\r\n      this._url()\r\n    },\r\n    val (val, old) {\r\n      this.$emit('input', val)\r\n      if (val !== old) {\r\n        if (this.mask instanceof Function) {\r\n          val = this.mask(val || '')\r\n          if (this.val !== val) {\r\n            if (this._timeout.mask) clearTimeout(this._timeout.mask)\r\n            this._timeout.mask = setTimeout(() => {\r\n              this.val = val\r\n            }, isNaN(this.maskDelay) ? 0 : this.maskDelay)\r\n          }\r\n        }\r\n        this.eval()\r\n      }\r\n    },\r\n    valid (val, old) {\r\n      this.$emit('isvalid', val)\r\n      this.$emit(!val ? 'invalid' : 'valid')\r\n      if (this._parent) this._parent.validate()\r\n    },\r\n    value (val) {\r\n      if (this.val !== val) { this.val = val }\r\n    }\r\n  },\r\n  methods: {\r\n    attr (value) {\r\n      return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value\r\n    },\r\n    emit (e) {\r\n      this.$emit(e.type, e.type == 'input' ? e.target.value : e)\r\n      if (e.type === 'blur' && this.canValidate) { this.valid = this.validate() }\r\n    },\r\n    eval () {\r\n      if (this._timeout.eval) clearTimeout(this._timeout.eval)\r\n      if (!this.canValidate) {\r\n        this.valid = true\r\n      } else {\r\n        this._timeout.eval = setTimeout(() => {\r\n          this.valid = this.validate()\r\n          this._timeout.eval = null\r\n        }, this.validationDelay)\r\n      }\r\n    },\r\n    focus () { this.input.focus() },\r\n    submit () {\r\n      if (this.$parent._formValidator) {\r\n        return this.$parent.validate()\r\n      }\r\n      if (this.input.form) {\r\n        const invalids = $('.form-group.validate:not(.has-success)', this.input.form)\r\n        if (invalids.length) {\r\n          invalids.find('input,textarea,select')[0].focus()\r\n        } else {\r\n          this.input.form.submit()\r\n        }\r\n      }\r\n    },\r\n    validate () {\r\n      if (!this.canValidate) { return true }\r\n      let value = (this.val || '').trim()\r\n      if (!value) { return !this.required }\r\n      if (this.match !== null) { return this.match === value }\r\n      if (value.length < this.minlength) { return false }\r\n      if (this.nativeValidate && !this.input.checkValidity()) { return false }\r\n      if (this.regex) {\r\n        if (!(this.regex instanceof Function ? this.regex(this.value) : this.regex.test(this.value))) { return false }\r\n      }\r\n      return true\r\n    }\r\n  },\r\n  created () {\r\n    this._input = true\r\n    this._timeout = {}\r\n    let parent = this.$parent\r\n    while (parent && !parent._formValidator) { parent = parent.$parent }\r\n    if (parent && parent._formValidator) {\r\n      this._parent = parent\r\n      this._parent && this._parent.children.push(this)\r\n    }\r\n    this._url = delayer(function () {\r\n      if (!this.url || !this.$http || this._loading) { return }\r\n      this._loading = true\r\n      this.$http.get(this.url).then(response => {\r\n        var data = response.data instanceof Array ? response.data : []\r\n        try { data = JSON.parse(data) } catch (e) {}\r\n        if (this.urlMap) { data = data.map(this.urlMap) }\r\n        this.options = data\r\n        this.loading = false\r\n      }, response => {\r\n        this.loading = false\r\n      })\r\n    }, DELAY)\r\n    if (this.url) this._url()\r\n  },\r\n  mounted () {\r\n    // $(this.input).on('focus', e => { this.$emit('focus', e) }).on('blur', e => {\r\n    //   if (this.canValidate) { this.valid = this.validate() }\r\n    //   this.$emit('blur', e)\r\n    // })\r\n  },\r\n  beforeDestroy () {\r\n    // $(this.input).off()\r\n    if (this._parent) {\r\n      var index = this._parent.children.indexOf(this)\r\n      this._parent.children.splice(index, 1)\r\n    }\r\n  }\r\n}\r\n</script>\r\n\r\n<style scoped>\r\n.form-group {\r\n  position: relative;\r\n}\r\nlabel~.close {\r\n  top: 25px;\r\n}\r\n.input-group>.icon {\r\n  position: relative;\r\n  display: table-cell;\r\n  width:0;\r\n  z-index: 3;\r\n}\r\n.close {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.has-feedback .close {\r\n  right: 20px;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.form-group[data-v-652ad7b9] {\r\n  position: relative;\n}\nlabel~.close[data-v-652ad7b9] {\r\n  top: 25px;\n}\n.input-group>.icon[data-v-652ad7b9] {\r\n  position: relative;\r\n  display: table-cell;\r\n  width:0;\r\n  z-index: 3;\n}\n.close[data-v-652ad7b9] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\n}\n.has-feedback .close[data-v-652ad7b9] {\r\n  right: 20px;\n}\r\n", "", {"version":3,"sources":["/./src/Input.vue?3749924b"],"names":[],"mappings":";AA0QA;EACA,mBAAA;CACA;AACA;EACA,UAAA;CACA;AACA;EACA,mBAAA;EACA,oBAAA;EACA,QAAA;EACA,WAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,YAAA;CACA","file":"Input.vue","sourcesContent":["<template>\r\n  <div class=\"form-group\" :class=\"{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}\">\r\n    <slot name=\"label\"><label v-if=\"label\" class=\"control-label\" @click=\"focus\">{{label}}</label></slot>\r\n    <div v-if=\"$slots.before||$slots.after\" class=\"input-group\">\r\n      <slot name=\"before\"></slot>\r\n      <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\r\n        :cols=\"cols\"\r\n        :disabled=\"disabled\"\r\n        :list=\"id_datalist\"\r\n        :max=\"attr(max)\"\r\n        :maxlength=\"maxlength\"\r\n        :min=\"attr(min)\"\r\n        :name=\"name\"\r\n        :placeholder=\"placeholder\"\r\n        :readonly=\"readonly\"\r\n        :required=\"required\"\r\n        :rows=\"rows\"\r\n        :step=\"step\"\r\n        :title=\"attr(title)\"\r\n        :type=\"type=='textarea'?null:type\"\r\n        v-model=\"val\"\r\n        @blur=\"emit\" @focus=\"emit\" @input=\"emit\"\r\n        @keyup.enter=\"type!='textarea'&&enterSubmit&&submit()\"\r\n      ></textarea>\r\n      <div v-if=\"clearButton && value\" :class=\"{icon:icon}\">\r\n        <span class=\"close\" @click=\"value = ''\">&times;</span>\r\n      </div>\r\n      <div v-if=\"icon\" class=\"icon\">\r\n        <span v-if=\"icon&&valid!==null\" :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\" aria-hidden=\"true\"></span>\r\n      </div>\r\n      <slot name=\"after\"></slot>\r\n    </div>\r\n    <template v-else>\r\n      <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\r\n        :cols=\"cols\"\r\n        :disabled=\"disabled\"\r\n        :list=\"id_datalist\"\r\n        :max=\"attr(max)\"\r\n        :maxlength=\"maxlength\"\r\n        :min=\"attr(min)\"\r\n        :name=\"name\"\r\n        :placeholder=\"placeholder\"\r\n        :readonly=\"readonly\"\r\n        :required=\"required\"\r\n        :rows=\"rows\"\r\n        :step=\"step\"\r\n        :title=\"attr(title)\"\r\n        :type=\"type=='textarea'?null:type\"\r\n        v-model=\"val\"\r\n        @blur=\"emit\" @focus=\"emit\" @input=\"emit\"\r\n        @keyup.enter=\"type!='textarea'&&enterSubmit&&submit()\"\r\n      ></textarea>\r\n      <span v-if=\"clearButton && val\" class=\"close\" @click=\"val = ''\">&times;</span>\r\n      <span v-if=\"icon&&valid!==null\" :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\" aria-hidden=\"true\"></span>\r\n    </template>\r\n    <datalist v-if=\"id_datalist\" :id=\"id_datalist\">\r\n      <option v-for=\"opc in options\" :value=\"opc\"></option>\r\n    </datalist>\r\n    <div v-if=\"showHelp\" class=\"help-block\" @click=\"focus\">{{help}}</div>\r\n    <div v-if=\"showError\" class=\"help-block with-errors\" @click=\"focus\">{{errorText}}</div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {coerce, delayer, translations} from './utils/utils.js'\r\nimport $ from './utils/NodeList.js'\r\n\r\nvar DELAY = 300\r\n\r\nexport default {\r\n  props: {\r\n    clearButton: {type: Boolean, default: false},\r\n    cols: {type: Number, default: null},\r\n    datalist: {type: Array, default: null},\r\n    disabled: {type: Boolean, default: false},\r\n    enterSubmit: {type: Boolean, default: false},\r\n    error: {type: String, default: null},\r\n    help: {type: String, default: null},\r\n    hideHelp: {type: Boolean, default: true},\r\n    icon: {type: Boolean, default: false},\r\n    label: {type: String, default: null},\r\n    lang: {type: String, default: navigator.language},\r\n    mask: null,\r\n    maskDelay: {type: Number, default: 100},\r\n    match: {type: String, default: null},\r\n    max: {type: String, default: null},\r\n    maxlength: {type: Number, default: null},\r\n    min: {type: String, default: null},\r\n    minlength: {type: Number, default: 0},\r\n    name: {type: String, default: null},\r\n    pattern: {default: null},\r\n    placeholder: {type: String, default: null},\r\n    readonly: {type: Boolean, default: false},\r\n    required: {type: Boolean, default: false},\r\n    rows: {type: Number, default: 3},\r\n    step: {type: Number, default: null},\r\n    type: {type: String, default: 'text'},\r\n    url: {type: String, default: null},\r\n    urlMap: {type: Function, default: null},\r\n    validationDelay: {type: Number, default: 250},\r\n    value: {default: null}\r\n  },\r\n  data () {\r\n    var val = this.value\r\n    return {\r\n      options: this.datalist,\r\n      val,\r\n      valid: null,\r\n      timeout: null\r\n    }\r\n  },\r\n  computed: {\r\n    canValidate () { return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null) },\r\n    errorText () {\r\n      let value = this.value\r\n      let error = [this.error]\r\n      if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')')\r\n      if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')\r\n      return error.join(' ')\r\n    },\r\n    id_datalist () {\r\n      if (this.type !== 'textarea' && this.datalist instanceof Array) {\r\n        if (!this._id_datalist) {\r\n          if (!this.$root.id_datalist) { this.$root.id_datalist = 0 }\r\n          this._id_datalist = 'input-datalist' + this.$root.id_datalist++\r\n        }\r\n        return this._id_datalist\r\n      }\r\n      return null\r\n    },\r\n    input () { return this.$refs.input },\r\n    nativeValidate () { return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max) },\r\n    regex () { return coerce.pattern(this.pattern) },\r\n    showError () { return this.error && this.valid === false },\r\n    showHelp () { return this.help && (!this.showError || !this.hideHelp) },\r\n    text () { return translations(this.lang) },\r\n    title () { return this.errorText || this.help || '' }\r\n  },\r\n  watch: {\r\n    datalist (val, old) {\r\n      if (val !== old && val instanceof Array) { this.options = val }\r\n    },\r\n    match (val) { this.eval() },\r\n    options (val, old) {\r\n      if (val !== old) this.$emit('options', val)\r\n    },\r\n    url (val) {\r\n      this._url()\r\n    },\r\n    val (val, old) {\r\n      this.$emit('input', val)\r\n      if (val !== old) {\r\n        if (this.mask instanceof Function) {\r\n          val = this.mask(val || '')\r\n          if (this.val !== val) {\r\n            if (this._timeout.mask) clearTimeout(this._timeout.mask)\r\n            this._timeout.mask = setTimeout(() => {\r\n              this.val = val\r\n            }, isNaN(this.maskDelay) ? 0 : this.maskDelay)\r\n          }\r\n        }\r\n        this.eval()\r\n      }\r\n    },\r\n    valid (val, old) {\r\n      this.$emit('isvalid', val)\r\n      this.$emit(!val ? 'invalid' : 'valid')\r\n      if (this._parent) this._parent.validate()\r\n    },\r\n    value (val) {\r\n      if (this.val !== val) { this.val = val }\r\n    }\r\n  },\r\n  methods: {\r\n    attr (value) {\r\n      return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value\r\n    },\r\n    emit (e) {\r\n      this.$emit(e.type, e.type == 'input' ? e.target.value : e)\r\n      if (e.type === 'blur' && this.canValidate) { this.valid = this.validate() }\r\n    },\r\n    eval () {\r\n      if (this._timeout.eval) clearTimeout(this._timeout.eval)\r\n      if (!this.canValidate) {\r\n        this.valid = true\r\n      } else {\r\n        this._timeout.eval = setTimeout(() => {\r\n          this.valid = this.validate()\r\n          this._timeout.eval = null\r\n        }, this.validationDelay)\r\n      }\r\n    },\r\n    focus () { this.input.focus() },\r\n    submit () {\r\n      if (this.$parent._formValidator) {\r\n        return this.$parent.validate()\r\n      }\r\n      if (this.input.form) {\r\n        const invalids = $('.form-group.validate:not(.has-success)', this.input.form)\r\n        if (invalids.length) {\r\n          invalids.find('input,textarea,select')[0].focus()\r\n        } else {\r\n          this.input.form.submit()\r\n        }\r\n      }\r\n    },\r\n    validate () {\r\n      if (!this.canValidate) { return true }\r\n      let value = (this.val || '').trim()\r\n      if (!value) { return !this.required }\r\n      if (this.match !== null) { return this.match === value }\r\n      if (value.length < this.minlength) { return false }\r\n      if (this.nativeValidate && !this.input.checkValidity()) { return false }\r\n      if (this.regex) {\r\n        if (!(this.regex instanceof Function ? this.regex(this.value) : this.regex.test(this.value))) { return false }\r\n      }\r\n      return true\r\n    },\r\n    reset() {\r\n      this.value = ''\r\n      this.valid = null\r\n      if (this._timeout.mask) clearTimeout(this._timeout.mask)\r\n      if (this._timeout.eval) clearTimeout(this._timeout.eval)\r\n    }\r\n  },\r\n  created () {\r\n    this._input = true\r\n    this._timeout = {}\r\n    let parent = this.$parent\r\n    while (parent && !parent._formValidator) { parent = parent.$parent }\r\n    if (parent && parent._formValidator) {\r\n      this._parent = parent\r\n      this._parent && this._parent.children.push(this)\r\n    }\r\n    this._url = delayer(function () {\r\n      if (!this.url || !this.$http || this._loading) { return }\r\n      this._loading = true\r\n      this.$http.get(this.url).then(response => {\r\n        var data = response.data instanceof Array ? response.data : []\r\n        try { data = JSON.parse(data) } catch (e) {}\r\n        if (this.urlMap) { data = data.map(this.urlMap) }\r\n        this.options = data\r\n        this.loading = false\r\n      }, response => {\r\n        this.loading = false\r\n      })\r\n    }, DELAY)\r\n    if (this.url) this._url()\r\n  },\r\n  mounted () {\r\n    // $(this.input).on('focus', e => { this.$emit('focus', e) }).on('blur', e => {\r\n    //   if (this.canValidate) { this.valid = this.validate() }\r\n    //   this.$emit('blur', e)\r\n    // })\r\n  },\r\n  beforeDestroy () {\r\n    // $(this.input).off()\r\n    if (this._parent) {\r\n      var index = this._parent.children.indexOf(this)\r\n      this._parent.children.splice(index, 1)\r\n    }\r\n  }\r\n}\r\n</script>\r\n\r\n<style scoped>\r\n.form-group {\r\n  position: relative;\r\n}\r\nlabel~.close {\r\n  top: 25px;\r\n}\r\n.input-group>.icon {\r\n  position: relative;\r\n  display: table-cell;\r\n  width:0;\r\n  z-index: 3;\r\n}\r\n.close {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.has-feedback .close {\r\n  right: 20px;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -5368,6 +5356,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      }
 	      return true;
+	    },
+	    reset: function reset() {
+	      this.value = '';
+	      this.valid = null;
+	      if (this._timeout.mask) clearTimeout(this._timeout.mask);
+	      if (this._timeout.eval) clearTimeout(this._timeout.eval);
 	    }
 	  },
 	  created: function created() {
@@ -5423,20 +5417,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    staticClass: "form-group",
 	    class: {
 	      validate: _vm.canValidate, 'has-feedback': _vm.icon, 'has-error': _vm.canValidate && _vm.valid === false, 'has-success': _vm.canValidate && _vm.valid
 	    }
-	  }, [_vm._t("label", [(_vm.label) ? _vm._h('label', {
+	  }, [_vm._t("label", [(_vm.label) ? _vm._c('label', {
 	    staticClass: "control-label",
 	    on: {
 	      "click": _vm.focus
 	    }
-	  }, [_vm._s(_vm.label)]) : _vm._e()]), " ", (_vm.$slots.before || _vm.$slots.after) ? _vm._h('div', {
+	  }, [_vm._v(_vm._s(_vm.label))]) : _vm._e()]), _vm._v(" "), (_vm.$slots.before || _vm.$slots.after) ? _vm._c('div', {
 	    staticClass: "input-group"
-	  }, [_vm._t("before"), " ", _vm._h(_vm.type == 'textarea' ? _vm.type : 'input', {
+	  }, [_vm._t("before"), _vm._v(" "), _vm._c(_vm.type == 'textarea' ? _vm.type : 'input', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -5473,29 +5467,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.val = $event.target.value
 	      }, _vm.emit],
 	      "keyup": function($event) {
-	        if ($event.keyCode !== 13) { return; }
+	        if (_vm._k($event.keyCode, "enter", 13)) { return; }
 	        _vm.type != 'textarea' && _vm.enterSubmit && _vm.submit()
 	      }
 	    }
-	  }), " ", (_vm.clearButton && _vm.value) ? _vm._h('div', {
+	  }), _vm._v(" "), (_vm.clearButton && _vm.value) ? _vm._c('div', {
 	    class: {
 	      icon: _vm.icon
 	    }
-	  }, [_vm._h('span', {
+	  }, [_vm._c('span', {
 	    staticClass: "close",
 	    on: {
 	      "click": function($event) {
 	        _vm.value = ''
 	      }
 	    }
-	  }, ["×"])]) : _vm._e(), " ", (_vm.icon) ? _vm._h('div', {
+	  }, [_vm._v("×")])]) : _vm._e(), _vm._v(" "), (_vm.icon) ? _vm._c('div', {
 	    staticClass: "icon"
-	  }, [(_vm.icon && _vm.valid !== null) ? _vm._h('span', {
+	  }, [(_vm.icon && _vm.valid !== null) ? _vm._c('span', {
 	    class: ['form-control-feedback glyphicon', 'glyphicon-' + (_vm.valid ? 'ok' : 'remove')],
 	    attrs: {
 	      "aria-hidden": "true"
 	    }
-	  }) : _vm._e()]) : _vm._e(), " ", _vm._t("after")]) : [_vm._h(_vm.type == 'textarea' ? _vm.type : 'input', {
+	  }) : _vm._e()]) : _vm._e(), _vm._v(" "), _vm._t("after")], true) : [_vm._c(_vm.type == 'textarea' ? _vm.type : 'input', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -5532,43 +5526,43 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.val = $event.target.value
 	      }, _vm.emit],
 	      "keyup": function($event) {
-	        if ($event.keyCode !== 13) { return; }
+	        if (_vm._k($event.keyCode, "enter", 13)) { return; }
 	        _vm.type != 'textarea' && _vm.enterSubmit && _vm.submit()
 	      }
 	    }
-	  }), " ", (_vm.clearButton && _vm.val) ? _vm._h('span', {
+	  }), _vm._v(" "), (_vm.clearButton && _vm.val) ? _vm._c('span', {
 	    staticClass: "close",
 	    on: {
 	      "click": function($event) {
 	        _vm.val = ''
 	      }
 	    }
-	  }, ["×"]) : _vm._e(), " ", (_vm.icon && _vm.valid !== null) ? _vm._h('span', {
+	  }, [_vm._v("×")]) : _vm._e(), _vm._v(" "), (_vm.icon && _vm.valid !== null) ? _vm._c('span', {
 	    class: ['form-control-feedback glyphicon', 'glyphicon-' + (_vm.valid ? 'ok' : 'remove')],
 	    attrs: {
 	      "aria-hidden": "true"
 	    }
-	  }) : _vm._e()], " ", " ", (_vm.id_datalist) ? _vm._h('datalist', {
+	  }) : _vm._e()], _vm._v(" "), _vm._v(" "), (_vm.id_datalist) ? _vm._c('datalist', {
 	    attrs: {
 	      "id": _vm.id_datalist
 	    }
-	  }, [_vm._l((_vm.options), function(opc) {
-	    return _vm._h('option', {
+	  }, _vm._l((_vm.options), function(opc) {
+	    return _vm._c('option', {
 	      domProps: {
 	        "value": opc
 	      }
 	    })
-	  })]) : _vm._e(), " ", (_vm.showHelp) ? _vm._h('div', {
+	  })) : _vm._e(), _vm._v(" "), (_vm.showHelp) ? _vm._c('div', {
 	    staticClass: "help-block",
 	    on: {
 	      "click": _vm.focus
 	    }
-	  }, [_vm._s(_vm.help)]) : _vm._e(), " ", (_vm.showError) ? _vm._h('div', {
+	  }, [_vm._v(_vm._s(_vm.help))]) : _vm._e(), _vm._v(" "), (_vm.showError) ? _vm._c('div', {
 	    staticClass: "help-block with-errors",
 	    on: {
 	      "click": _vm.focus
 	    }
-	  }, [_vm._s(_vm.errorText)]) : _vm._e()])
+	  }, [_vm._v(_vm._s(_vm.errorText))]) : _vm._e()], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -5811,8 +5805,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    class: ['modal', _vm.effect],
 	    attrs: {
 	      "role": "dialog"
@@ -5821,7 +5815,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      "click": _vm.backClose,
 	      "transitionend": _vm.transitionend
 	    }
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    class: {
 	      'modal-dialog': true, 'modal-lg': _vm.large, 'modal-sm': _vm.small
 	    },
@@ -5831,11 +5825,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    attrs: {
 	      "role": "document"
 	    }
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "modal-content"
-	  }, [_vm._t("modal-header", [_vm._h('div', {
+	  }, [_vm._t("modal-header", [_vm._c('div', {
 	    staticClass: "modal-header"
-	  }, [_vm._h('button', {
+	  }, [_vm._c('button', {
 	    staticClass: "close",
 	    attrs: {
 	      "type": "button"
@@ -5843,13 +5837,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "click": _vm.close
 	    }
-	  }, [_vm._h('span', ["×"])]), " ", _vm._h('h4', {
+	  }, [_vm._c('span', [_vm._v("×")])]), _vm._v(" "), _vm._c('h4', {
 	    staticClass: "modal-title"
-	  }, [_vm._t("title", [_vm._s(_vm.title)])])])]), " ", _vm._t("modal-body", [_vm._h('div', {
+	  }, [_vm._t("title", [_vm._v(_vm._s(_vm.title))])], true)])]), _vm._v(" "), _vm._t("modal-body", [_vm._c('div', {
 	    staticClass: "modal-body"
-	  }, [_vm._t("default")])]), " ", _vm._t("modal-footer", [_vm._h('div', {
+	  }, [_vm._t("default")], true)]), _vm._v(" "), _vm._t("modal-footer", [_vm._c('div', {
 	    staticClass: "modal-footer"
-	  }, [_vm._h('button', {
+	  }, [_vm._c('button', {
 	    staticClass: "btn btn-default",
 	    attrs: {
 	      "type": "button"
@@ -5857,7 +5851,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "click": _vm.close
 	    }
-	  }, [_vm._s(_vm.cancelText)]), " ", _vm._h('button', {
+	  }, [_vm._v(_vm._s(_vm.cancelText))]), _vm._v(" "), _vm._c('button', {
 	    staticClass: "btn btn-primary",
 	    attrs: {
 	      "type": "button"
@@ -5865,7 +5859,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "click": _vm.ok
 	    }
-	  }, [_vm._s(_vm.okText)])])])])])])
+	  }, [_vm._v(_vm._s(_vm.okText))])])])], true)])])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -6045,14 +6039,14 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('nav', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('nav', {
 	    class: ['navbar', 'navbar-' + _vm.type, _vm.placement === 'static' ? 'navbar-static-top' : 'navbar-fixed-' + _vm.placement]
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "container-fluid"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "navbar-header"
-	  }, [(!_vm.$slots.collapse) ? _vm._h('button', {
+	  }, [(!_vm.$slots.collapse) ? _vm._c('button', {
 	    staticClass: "navbar-toggle collapsed",
 	    attrs: {
 	      "type": "button",
@@ -6061,25 +6055,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "click": _vm.toggleCollapse
 	    }
-	  }, [_vm._h('span', {
+	  }, [_vm._c('span', {
 	    staticClass: "sr-only"
-	  }, ["Toggle navigation"]), " ", _vm._h('span', {
+	  }, [_vm._v("Toggle navigation")]), _vm._v(" "), _vm._c('span', {
 	    staticClass: "icon-bar"
-	  }), " ", _vm._h('span', {
+	  }), _vm._v(" "), _vm._c('span', {
 	    staticClass: "icon-bar"
-	  }), " ", _vm._h('span', {
+	  }), _vm._v(" "), _vm._c('span', {
 	    staticClass: "icon-bar"
-	  })]) : _vm._e(), " ", _vm._t("collapse"), " ", _vm._t("brand")]), " ", _vm._h('div', {
+	  })]) : _vm._e(), _vm._v(" "), _vm._t("collapse"), _vm._v(" "), _vm._t("brand")], true), _vm._v(" "), _vm._c('div', {
 	    class: ['navbar-collapse', {
 	      collapse: _vm.collapsed
 	    }]
-	  }, [_vm._h('ul', {
+	  }, [_vm._c('ul', {
 	    staticClass: "nav navbar-nav"
-	  }, [_vm._t("default")]), " ", (_vm.$slots.left) ? _vm._h('ul', {
+	  }, [_vm._t("default")], true), _vm._v(" "), (_vm.$slots.left) ? _vm._c('ul', {
 	    staticClass: "nav navbar-nav navbar-left"
-	  }, [_vm._t("left")]) : _vm._e(), " ", (_vm.$slots.right) ? _vm._h('ul', {
+	  }, [_vm._t("left")], true) : _vm._e(), _vm._v(" "), (_vm.$slots.right) ? _vm._c('ul', {
 	    staticClass: "nav navbar-nav navbar-right"
-	  }, [_vm._t("right")]) : _vm._e()])])])
+	  }, [_vm._t("right")], true) : _vm._e()])])])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -6168,8 +6162,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return (_vm.loading) ? _vm._h('li', [_vm._t("default")]) : _vm._e()
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return (_vm.loading) ? _vm._c('li', [_vm._t("default")], true) : _vm._e()
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -6354,10 +6348,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    class: ['panel', _vm.panelType]
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    class: ['panel-heading', {
 	      'accordion-toggle': _vm.inAccordion
 	    }],
@@ -6367,9 +6361,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.inAccordion && _vm.toggle()
 	      }
 	    }
-	  }, [_vm._t("header", [_vm._h('h4', {
+	  }, [_vm._t("header", [_vm._c('h4', {
 	    staticClass: "panel-title"
-	  }, [_vm._s(_vm.header)])])]), " ", _vm._h('transition', {
+	  }, [_vm._v(_vm._s(_vm.header))])])], true), _vm._v(" "), _vm._c('transition', {
 	    attrs: {
 	      "name": "collapse"
 	    },
@@ -6378,11 +6372,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      "after-enter": _vm.afterEnter,
 	      "before-leave": _vm.beforeLeave
 	    }
-	  }, [(_vm.open) ? _vm._h('div', {
+	  }, [(_vm.open) ? _vm._c('div', {
 	    staticClass: "panel-collapse"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "panel-body"
-	  }, [_vm._t("default")])]) : _vm._e()])])
+	  }, [_vm._t("default")], true)]) : _vm._e()])])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -6473,7 +6467,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n.popover.top,\r\n.popover.left,\r\n.popover.right,\r\n.popover.bottom {\r\n  display: block;\n}\n.scale-enter {\r\n  animation:scale-in 0.15s ease-in;\n}\n.scale-leave-active {\r\n  animation:scale-out 0.15s ease-out;\n}\n@keyframes scale-in {\n0% {\r\n    transform: scale(0);\r\n    opacity: 0;\n}\n100% {\r\n    transform: scale(1);\r\n    opacity: 1;\n}\n}\n@keyframes scale-out {\n0% {\r\n    transform: scale(1);\r\n    opacity: 1;\n}\n100% {\r\n    transform: scale(0);\r\n    opacity: 0;\n}\n}\r\n", "", {"version":3,"sources":["/./src/Popover.vue?6fe34cd4"],"names":[],"mappings":";AAuBA;;;;EAIA,eAAA;CACA;AACA;EACA,iCAAA;CACA;AACA;EACA,mCAAA;CACA;AACA;AACA;IACA,oBAAA;IACA,WAAA;CACA;AACA;IACA,oBAAA;IACA,WAAA;CACA;CACA;AACA;AACA;IACA,oBAAA;IACA,WAAA;CACA;AACA;IACA,oBAAA;IACA,WAAA;CACA;CACA","file":"Popover.vue","sourcesContent":["<template>\r\n  <span ref=\"trigger\">\r\n    <slot></slot>\r\n    <div ref=\"popover\" v-if=\"show\" :class=\"['popover',placement]\" :transition=\"effect\">\r\n      <div class=\"arrow\"></div>\r\n      <h3 class=\"popover-title\" v-if=\"title\"><slot name=\"title\">{{title}}</slot></h3>\r\n      <div class=\"popover-content\"><slot name=\"content\"><span v-html=\"content\"></span></slot></div>\r\n    </div>\r\n  </span>\r\n</template>\r\n\r\n<script>\r\nimport PopoverMixin from './utils/popoverMixins.js'\r\n\r\nexport default {\r\n  mixins: [PopoverMixin],\r\n  props: {\r\n    trigger: {type: String, default: 'click'}\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.popover.top,\r\n.popover.left,\r\n.popover.right,\r\n.popover.bottom {\r\n  display: block;\r\n}\r\n.scale-enter {\r\n  animation:scale-in 0.15s ease-in;\r\n}\r\n.scale-leave-active {\r\n  animation:scale-out 0.15s ease-out;\r\n}\r\n@keyframes scale-in {\r\n  0% {\r\n    transform: scale(0);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    transform: scale(1);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes scale-out {\r\n  0% {\r\n    transform: scale(1);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    transform: scale(0);\r\n    opacity: 0;\r\n  }\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.popover.top,\r\n.popover.left,\r\n.popover.right,\r\n.popover.bottom {\r\n  display: block;\n}\n.scale-enter {\r\n  animation:scale-in 0.15s ease-in;\n}\n.scale-leave-active {\r\n  animation:scale-out 0.15s ease-out;\n}\n@keyframes scale-in {\n0% {\r\n    transform: scale(0);\r\n    opacity: 0;\n}\n100% {\r\n    transform: scale(1);\r\n    opacity: 1;\n}\n}\n@keyframes scale-out {\n0% {\r\n    transform: scale(1);\r\n    opacity: 1;\n}\n100% {\r\n    transform: scale(0);\r\n    opacity: 0;\n}\n}\r\n", "", {"version":3,"sources":["/./src/Popover.vue?e616963a"],"names":[],"mappings":";AAyBA;;;;EAIA,eAAA;CACA;AACA;EACA,iCAAA;CACA;AACA;EACA,mCAAA;CACA;AACA;AACA;IACA,oBAAA;IACA,WAAA;CACA;AACA;IACA,oBAAA;IACA,WAAA;CACA;CACA;AACA;AACA;IACA,oBAAA;IACA,WAAA;CACA;AACA;IACA,oBAAA;IACA,WAAA;CACA;CACA","file":"Popover.vue","sourcesContent":["<template>\r\n  <span ref=\"trigger\">\r\n    <slot></slot>\r\n    <transition :name=\"effect\">\r\n      <div ref=\"popover\" v-if=\"show\" :class=\"['popover',placement]\">\r\n        <div class=\"arrow\"></div>\r\n        <h3 class=\"popover-title\" v-if=\"title\"><slot name=\"title\">{{title}}</slot></h3>\r\n        <div class=\"popover-content\"><slot name=\"content\"><span v-html=\"content\"></span></slot></div>\r\n      </div>\r\n    </transition>\r\n  </span>\r\n</template>\r\n\r\n<script>\r\nimport PopoverMixin from './utils/popoverMixins.js'\r\n\r\nexport default {\r\n  mixins: [PopoverMixin],\r\n  props: {\r\n    trigger: {type: String, default: 'click'}\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.popover.top,\r\n.popover.left,\r\n.popover.right,\r\n.popover.bottom {\r\n  display: block;\r\n}\r\n.scale-enter {\r\n  animation:scale-in 0.15s ease-in;\r\n}\r\n.scale-leave-active {\r\n  animation:scale-out 0.15s ease-out;\r\n}\r\n@keyframes scale-in {\r\n  0% {\r\n    transform: scale(0);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    transform: scale(1);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes scale-out {\r\n  0% {\r\n    transform: scale(1);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    transform: scale(0);\r\n    opacity: 0;\r\n  }\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -6500,6 +6494,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    trigger: { type: String, default: 'click' }
 	  }
 	}; //
+	//
+	//
 	//
 	//
 	//
@@ -6538,65 +6534,77 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  data: function data() {
 	    return {
-	      position: {
-	        top: 0,
-	        left: 0
-	      },
+	      top: 0,
+	      left: 0,
 	      show: false
 	    };
 	  },
 	
+	  computed: {
+	    events: function events() {
+	      return { contextmenu: ['contextmenu'], hover: ['mouseleave', 'mouseenter'], focus: ['blur', 'focus'] }[this.trigger] || ['click'];
+	    }
+	  },
 	  methods: {
-	    toggle: function toggle(e) {
+	    beforeEnter: function beforeEnter() {
 	      var _this = this;
 	
-	      if (e && this.trigger === 'contextmenu') e.preventDefault();
-	      if (!(this.show = !this.show)) {
-	        return;
-	      }
+	      this.position();
+	      setTimeout(function () {
+	        return _this.position();
+	      }, 30);
+	    },
+	    position: function position() {
+	      var _this2 = this;
+	
 	      this.$nextTick(function () {
-	        var popover = _this.$refs.popover;
-	        var trigger = _this.$refs.trigger.children[0];
-	        switch (_this.placement) {
+	        var popover = _this2.$refs.popover;
+	        var trigger = _this2.$refs.trigger.children[0];
+	        switch (_this2.placement) {
 	          case 'top':
-	            _this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
-	            _this.position.top = trigger.offsetTop - popover.offsetHeight;
+	            _this2.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
+	            _this2.top = trigger.offsetTop - popover.offsetHeight;
 	            break;
 	          case 'left':
-	            _this.position.left = trigger.offsetLeft - popover.offsetWidth;
-	            _this.position.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
+	            _this2.left = trigger.offsetLeft - popover.offsetWidth;
+	            _this2.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
 	            break;
 	          case 'right':
-	            _this.position.left = trigger.offsetLeft + trigger.offsetWidth;
-	            _this.position.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
+	            _this2.left = trigger.offsetLeft + trigger.offsetWidth;
+	            _this2.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
 	            break;
 	          case 'bottom':
-	            _this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
-	            _this.position.top = trigger.offsetTop + trigger.offsetHeight;
+	            _this2.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
+	            _this2.top = trigger.offsetTop + trigger.offsetHeight;
 	            break;
 	          default:
 	            console.warn('Wrong placement prop');
 	        }
-	        popover.style.top = _this.position.top + 'px';
-	        popover.style.left = _this.position.left + 'px';
+	        popover.style.top = _this2.top + 'px';
+	        popover.style.left = _this2.left + 'px';
 	      });
+	    },
+	    toggle: function toggle(e) {
+	      if (e && this.trigger === 'contextmenu') e.preventDefault();
+	      this.show = !this.show;
+	      if (this.show) this.beforeEnter();
 	    }
 	  },
 	  mounted: function mounted() {
+	    var _this3 = this;
+	
 	    var trigger = this.$refs.trigger.children[0];
 	    if (!trigger) return console.error('Could not find trigger v-el in your component that uses popoverMixin.');
 	
 	    if (this.trigger === 'focus' && !~trigger.tabIndex) {
 	      trigger = (0, _NodeList2.default)('a,input,select,textarea,button', trigger);
 	      if (!trigger.length) {
-	        trigger = null;
+	        return;
 	      }
 	    }
-	    if (trigger) {
-	      var events = { contextmenu: 'contextmenu', hover: 'mouseleave mouseenter', focus: 'blur focus' };
-	      (0, _NodeList2.default)(trigger).on(events[this.trigger] || 'click', this.toggle);
-	      this._trigger = trigger;
-	    }
+	    this.events.forEach(function (event) {
+	      (0, _NodeList2.default)(trigger).on(event, _this3.toggle);
+	    });
 	  },
 	  beforeDestroy: function beforeDestroy() {
 	    if (this._trigger) (0, _NodeList2.default)(this._trigger).off();
@@ -6607,26 +6615,27 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('span', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('span', {
 	    ref: "trigger"
-	  }, [_vm._t("default"), " ", (_vm.show) ? _vm._h('div', {
-	    ref: "popover",
-	    class: ['popover', _vm.placement],
+	  }, [_vm._t("default"), _vm._v(" "), _vm._c('transition', {
 	    attrs: {
-	      "transition": _vm.effect
+	      "name": _vm.effect
 	    }
-	  }, [_vm._h('div', {
+	  }, [(_vm.show) ? _vm._c('div', {
+	    ref: "popover",
+	    class: ['popover', _vm.placement]
+	  }, [_vm._c('div', {
 	    staticClass: "arrow"
-	  }), " ", (_vm.title) ? _vm._h('h3', {
+	  }), _vm._v(" "), (_vm.title) ? _vm._c('h3', {
 	    staticClass: "popover-title"
-	  }, [_vm._t("title", [_vm._s(_vm.title)])]) : _vm._e(), " ", _vm._h('div', {
+	  }, [_vm._t("title", [_vm._v(_vm._s(_vm.title))])], true) : _vm._e(), _vm._v(" "), _vm._c('div', {
 	    staticClass: "popover-content"
-	  }, [_vm._t("content", [_vm._h('span', {
+	  }, [_vm._t("content", [_vm._c('span', {
 	    domProps: {
 	      "innerHTML": _vm._s(_vm.content)
 	    }
-	  })])])]) : _vm._e()])
+	  })])], true)]) : _vm._e()])], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -6719,8 +6728,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    class: ['progress-bar', 'progress-bar-' + _vm.type, {
 	      active: _vm.animated,
 	      'progress-bar-striped': _vm.striped
@@ -6955,8 +6964,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h(_vm.buttonStyle ? 'label' : 'div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c(_vm.buttonStyle ? 'label' : 'div', {
 	    tag: "div",
 	    class: [(_vm.buttonStyle ? 'btn btn-' + _vm.typeColor : 'radio ' + _vm.typeColor), {
 	      active: _vm.active,
@@ -6969,7 +6978,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.toggle($event)
 	      }
 	    }
-	  }, [(_vm.buttonStyle) ? [_vm._h('input', {
+	  }, [(_vm.buttonStyle) ? [_vm._c('input', {
 	    directives: [{
 	      name: "show",
 	      rawName: "v-show",
@@ -6998,9 +7007,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.check = _vm.checkedValue
 	      }
 	    }
-	  }), " ", _vm._t("default")] : _vm._h('label', {
+	  }), _vm._v(" "), _vm._t("default")] : _vm._c('label', {
 	    staticClass: "open"
-	  }, [_vm._h('input', {
+	  }, [_vm._c('input', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -7024,14 +7033,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.check = _vm.checkedValue
 	      }
 	    }
-	  }), " ", _vm._h('span', {
+	  }), _vm._v(" "), _vm._c('span', {
 	    staticClass: "icon dropdown-toggle",
 	    class: [_vm.active ? 'btn-' + _vm.typeColor : '', {
 	      bg: _vm.typeColor === 'default'
 	    }]
-	  }), " ", (_vm.active && _vm.typeColor === 'default') ? _vm._h('span', {
+	  }), _vm._v(" "), (_vm.active && _vm.typeColor === 'default') ? _vm._c('span', {
 	    staticClass: "icon"
-	  }) : _vm._e(), " ", _vm._t("default")]), " "])
+	  }) : _vm._e(), _vm._v(" "), _vm._t("default")], true), _vm._v(" ")], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -7463,8 +7472,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    directives: [{
 	      name: "click-outside",
 	      rawName: "v-click-outside",
@@ -7473,7 +7482,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }],
 	    ref: "select",
 	    class: _vm.classes
-	  }, [_vm._h('button', {
+	  }, [_vm._c('button', {
 	    staticClass: "form-control dropdown-toggle",
 	    attrs: {
 	      "type": "button",
@@ -7485,23 +7494,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.toggle()
 	      },
 	      "keyup": function($event) {
-	        if ($event.keyCode !== 27) { return; }
+	        if (_vm._k($event.keyCode, "esc", 27)) { return; }
 	        _vm.show = false
 	      }
 	    }
-	  }, [_vm._h('span', {
+	  }, [_vm._c('span', {
 	    staticClass: "btn-content",
 	    domProps: {
 	      "innerHTML": _vm._s(_vm.loading ? _vm.text.loading : _vm.showPlaceholder || _vm.selected)
 	    }
-	  }), " ", (_vm.clearButton && _vm.values.length) ? _vm._h('span', {
+	  }), _vm._v(" "), (_vm.clearButton && _vm.values.length) ? _vm._c('span', {
 	    staticClass: "close",
 	    on: {
 	      "click": function($event) {
 	        _vm.clear()
 	      }
 	    }
-	  }, ["×"]) : _vm._e()]), " ", _vm._h('select', {
+	  }, [_vm._v("×")]) : _vm._e()]), _vm._v(" "), _vm._c('select', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -7532,21 +7541,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	        })[0]
 	      }
 	    }
-	  }, [(_vm.required) ? _vm._h('option', {
+	  }, [(_vm.required) ? _vm._c('option', {
 	    attrs: {
 	      "value": ""
 	    }
-	  }) : _vm._e(), " ", _vm._l((_vm.list), function(option) {
-	    return _vm._h('option', {
+	  }) : _vm._e(), _vm._v(" "), _vm._l((_vm.list), function(option) {
+	    return _vm._c('option', {
 	      domProps: {
 	        "value": option[_vm.optionsValue]
 	      }
-	    }, [_vm._s(option[_vm.optionsLabel])])
-	  })]), " ", _vm._h('ul', {
+	    }, [_vm._v(_vm._s(option[_vm.optionsLabel]))])
+	  })], true), _vm._v(" "), _vm._c('ul', {
 	    staticClass: "dropdown-menu"
-	  }, [(_vm.list.length) ? [(_vm.canSearch) ? _vm._h('li', {
+	  }, [(_vm.list.length) ? [(_vm.canSearch) ? _vm._c('li', {
 	    staticClass: "bs-searchbox"
-	  }, [_vm._h('input', {
+	  }, [_vm._c('input', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -7565,7 +7574,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    on: {
 	      "keyup": function($event) {
-	        if ($event.keyCode !== 27) { return; }
+	        if (_vm._k($event.keyCode, "esc", 27)) { return; }
 	        _vm.show = false
 	      },
 	      "input": function($event) {
@@ -7573,7 +7582,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.searchValue = $event.target.value
 	      }
 	    }
-	  }), " ", _vm._h('span', {
+	  }), _vm._v(" "), _vm._c('span', {
 	    directives: [{
 	      name: "show",
 	      rawName: "v-show",
@@ -7584,30 +7593,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "click": _vm.clearSearch
 	    }
-	  }, ["×"])]) : _vm._e(), " ", (_vm.required && !_vm.clearButton) ? _vm._h('li', [_vm._h('a', {
+	  }, [_vm._v("×")])]) : _vm._e(), _vm._v(" "), (_vm.required && !_vm.clearButton) ? _vm._c('li', [_vm._c('a', {
 	    on: {
 	      "mousedown": function($event) {
 	        $event.preventDefault();
 	        _vm.clear() && _vm.blur()
 	      }
 	    }
-	  }, [_vm._s(_vm.placeholder || _vm.text.notSelected)])]) : _vm._e(), " ", _vm._l((_vm.filteredOptions), function(option) {
-	    return _vm._h('li', {
+	  }, [_vm._v(_vm._s(_vm.placeholder || _vm.text.notSelected))])]) : _vm._e(), _vm._v(" "), _vm._l((_vm.filteredOptions), function(option) {
+	    return _vm._c('li', {
 	      attrs: {
 	        "id": option[_vm.optionsValue]
 	      }
-	    }, [_vm._h('a', {
+	    }, [_vm._c('a', {
 	      on: {
 	        "mousedown": function($event) {
 	          $event.preventDefault();
 	          _vm.select(option[_vm.optionsValue])
 	        }
 	      }
-	    }, [_vm._h('span', {
+	    }, [_vm._c('span', {
 	      domProps: {
 	        "innerHTML": _vm._s(option[_vm.optionsLabel])
 	      }
-	    }), " ", _vm._h('span', {
+	    }), _vm._v(" "), _vm._c('span', {
 	      directives: [{
 	        name: "show",
 	        rawName: "v-show",
@@ -7616,19 +7625,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }],
 	      staticClass: "glyphicon glyphicon-ok check-mark"
 	    })])])
-	  })] : _vm._e(), " ", _vm._t("default"), " ", (_vm.notify && !_vm.closeOnSelect) ? _vm._h('transition', {
+	  })] : _vm._e(), _vm._v(" "), _vm._t("default"), _vm._v(" "), (_vm.notify && !_vm.closeOnSelect) ? _vm._c('transition', {
 	    attrs: {
 	      "name": "fadein"
 	    }
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "notify in"
-	  }, [_vm._s(_vm.limitText)])]) : _vm._e()]), " ", (_vm.notify && _vm.closeOnSelect) ? _vm._h('transition', {
+	  }, [_vm._v(_vm._s(_vm.limitText))])]) : _vm._e()], true), _vm._v(" "), (_vm.notify && _vm.closeOnSelect) ? _vm._c('transition', {
 	    attrs: {
 	      "name": "fadein"
 	    }
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "notify out"
-	  }, [_vm._h('div', [_vm._s(_vm.limitText)])])]) : _vm._e(), " "])
+	  }, [_vm._c('div', [_vm._v(_vm._s(_vm.limitText))])])]) : _vm._e(), _vm._v(" ")])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -7726,10 +7735,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    staticClass: "item"
-	  }, [_vm._t("default")])
+	  }, [_vm._t("default")], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -7944,8 +7953,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    directives: [{
 	      name: "show",
 	      rawName: "v-show",
@@ -7955,13 +7964,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    class: ['spinner spinner-gritcode', _vm.spinnerSize, {
 	      'spinner-fixed': _vm.fixed
 	    }]
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "spinner-wrapper"
-	  }, [_vm._h('div', {
+	  }, [_vm._c('div', {
 	    staticClass: "spinner-circle"
-	  }), " ", _vm._h('div', {
+	  }), _vm._v(" "), _vm._c('div', {
 	    staticClass: "spinner-text"
-	  }, [_vm._s(_vm.text)])])])
+	  }, [_vm._v(_vm._s(_vm.text))])])])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -8109,8 +8118,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    ref: "panel",
 	    class: ['tab-pane', {
 	      'active fade': _vm.active,
@@ -8119,7 +8128,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    attrs: {
 	      "role": "tabpanel"
 	    }
-	  }, [_vm._t("default")])
+	  }, [_vm._t("default")], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -8267,8 +8276,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('span', [_vm._t("default")])
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('span', [_vm._t("default")], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -8454,18 +8463,18 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    attrs: {
 	      "tabs": ""
 	    }
-	  }, [_vm._h('ul', {
+	  }, [_vm._c('ul', {
 	    class: _vm.navStyleClass,
 	    attrs: {
 	      "role": "tablist"
 	    }
 	  }, [_vm._l((_vm.headers), function(header) {
-	    return [(header._isTab) ? _vm._h('li', {
+	    return [(header._isTab) ? _vm._c('li', {
 	      class: {
 	        active: header.active, disabled: header.disabled
 	      },
@@ -8475,14 +8484,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _vm.select(header)
 	        }
 	      }
-	    }, [_vm._t("header", [_vm._h('a', {
+	    }, [_vm._t("header", [_vm._c('a', {
 	      attrs: {
 	        "href": "#"
 	      },
 	      domProps: {
 	        "innerHTML": _vm._s(header.header)
 	      }
-	    })])]) : _vm._e(), " ", (header._isTabGroup) ? _vm._h('dropdown', {
+	    })])], true) : _vm._e(), _vm._v(" "), (header._isTabGroup) ? _vm._c('dropdown', {
 	      class: {
 	        active: header.active
 	      },
@@ -8490,12 +8499,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        "text": header.header,
 	        "disabled": header.disabled
 	      }
-	    }, [_vm._l((header.tabs), function(tab) {
-	      return _vm._h('li', {
+	    }, _vm._l((header.tabs), function(tab) {
+	      return _vm._c('li', {
 	        class: {
 	          disabled: tab.disabled
 	        }
-	      }, [_vm._h('a', {
+	      }, [_vm._c('a', {
 	        attrs: {
 	          "href": "#"
 	        },
@@ -8505,11 +8514,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _vm.select(tab)
 	          }
 	        }
-	      }, [_vm._s(tab.header)])])
-	    })]) : _vm._e()]
-	  })]), " ", _vm._h('div', {
+	      }, [_vm._v(_vm._s(tab.header))])])
+	    })) : _vm._e()]
+	  })], true), _vm._v(" "), _vm._c('div', {
 	    staticClass: "tab-content"
-	  }, [_vm._t("default")])])
+	  }, [_vm._t("default")], true)])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -8642,8 +8651,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('a', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('a', {
 	    class: ['btn', _vm.type, {
 	      readonly: _vm.boolReadonly
 	    }],
@@ -8654,9 +8663,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "click": _vm.toggle
 	    }
-	  }, [_vm._h('span', {
+	  }, [_vm._c('span', {
 	    class: ['glyphicon', 'glyphicon-' + (_vm.value ? 'ok' : 'remove')]
-	  }), " ", _vm._t("default"), " ", (_vm.name) ? _vm._h('input', {
+	  }), _vm._v(" "), _vm._t("default"), _vm._v(" "), (_vm.name) ? _vm._c('input', {
 	    attrs: {
 	      "type": "hidden",
 	      "name": _vm.name
@@ -8664,7 +8673,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    domProps: {
 	      "value": _vm.active ? 1 : 0
 	    }
-	  }) : _vm._e()])
+	  }) : _vm._e()], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -8755,7 +8764,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n.tooltip.top,\r\n.tooltip.left,\r\n.tooltip.right,\r\n.tooltip.bottom {\r\n  opacity: .9\n}\n.fadein-enter {\r\n  animation:fadein-in 0.3s ease-in;\n}\n.fadein-leave-active {\r\n  animation:fadein-out 0.3s ease-out;\n}\n@keyframes fadein-in {\n0% {\r\n    opacity: 0;\n}\n100% {\r\n    opacity: .9;\n}\n}\n@keyframes fadein-out {\n0% {\r\n    opacity: .9;\n}\n100% {\r\n    opacity: 0;\n}\n}\r\n", "", {"version":3,"sources":["/./src/Tooltip.vue?77a7fd0e"],"names":[],"mappings":";AA2BA;;;;EAIA,WAAA;CACA;AACA;EACA,iCAAA;CACA;AACA;EACA,mCAAA;CACA;AACA;AACA;IACA,WAAA;CACA;AACA;IACA,YAAA;CACA;CACA;AACA;AACA;IACA,YAAA;CACA;AACA;IACA,WAAA;CACA;CACA","file":"Tooltip.vue","sourcesContent":["<template>\r\n  <span ref=\"trigger\">\r\n    <slot></slot>\r\n    <transition :name=\"effect\">\r\n      <div ref=\"popover\" v-if=\"show\" style=\"display:block;\" :class=\"['tooltip',placement]\">\r\n        <div class=\"tooltip-arrow\"></div>\r\n        <div class=\"tooltip-inner\">\r\n          <slot name=\"content\"><div v-html=\"content\"></div></slot>\r\n        </div>\r\n      </div>\r\n    </transition>\r\n  </span>\r\n</template>\r\n\r\n<script>\r\nimport PopoverMixin from './utils/popoverMixins.js'\r\n\r\nexport default {\r\n  mixins: [PopoverMixin],\r\n  props: {\r\n    effect: {type: String, default: 'scale'},\r\n    trigger: {type: String, default: 'hover'}\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.tooltip.top,\r\n.tooltip.left,\r\n.tooltip.right,\r\n.tooltip.bottom {\r\n  opacity: .9\r\n}\r\n.fadein-enter {\r\n  animation:fadein-in 0.3s ease-in;\r\n}\r\n.fadein-leave-active {\r\n  animation:fadein-out 0.3s ease-out;\r\n}\r\n@keyframes fadein-in {\r\n  0% {\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    opacity: .9;\r\n  }\r\n}\r\n@keyframes fadein-out {\r\n  0% {\r\n    opacity: .9;\r\n  }\r\n  100% {\r\n    opacity: 0;\r\n  }\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.tooltip.top,\r\n.tooltip.left,\r\n.tooltip.right,\r\n.tooltip.bottom {\r\n  opacity: .9;\n}\n.fadein-enter {\r\n  animation:fadein-in 0.3s ease-in;\n}\n.fadein-leave-active {\r\n  animation:fadein-out 0.3s ease-out;\n}\n@keyframes fadein-in {\n0% {\r\n    opacity: 0;\n}\n100% {\r\n    opacity: .9;\n}\n}\n@keyframes fadein-out {\n0% {\r\n    opacity: .9;\n}\n100% {\r\n    opacity: 0;\n}\n}\r\n", "", {"version":3,"sources":["/./src/Tooltip.vue?37d183ec"],"names":[],"mappings":";AA2BA;;;;EAIA,YAAA;CACA;AACA;EACA,iCAAA;CACA;AACA;EACA,mCAAA;CACA;AACA;AACA;IACA,WAAA;CACA;AACA;IACA,YAAA;CACA;CACA;AACA;AACA;IACA,YAAA;CACA;AACA;IACA,WAAA;CACA;CACA","file":"Tooltip.vue","sourcesContent":["<template>\r\n  <span ref=\"trigger\">\r\n    <slot></slot>\r\n    <transition :name=\"effect\">\r\n      <div ref=\"popover\" v-if=\"show\" :class=\"['tooltip',placement]\">\r\n        <div class=\"tooltip-arrow\"></div>\r\n        <div class=\"tooltip-inner\">\r\n          <slot name=\"content\"><div v-html=\"content\"></div></slot>\r\n        </div>\r\n      </div>\r\n    </transition>\r\n  </span>\r\n</template>\r\n\r\n<script>\r\nimport PopoverMixin from './utils/popoverMixins.js'\r\n\r\nexport default {\r\n  mixins: [PopoverMixin],\r\n  props: {\r\n    effect: {type: String, default: 'scale'},\r\n    trigger: {type: String, default: 'hover'}\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.tooltip.top,\r\n.tooltip.left,\r\n.tooltip.right,\r\n.tooltip.bottom {\r\n  opacity: .9;\r\n}\r\n.fadein-enter {\r\n  animation:fadein-in 0.3s ease-in;\r\n}\r\n.fadein-leave-active {\r\n  animation:fadein-out 0.3s ease-out;\r\n}\r\n@keyframes fadein-in {\r\n  0% {\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    opacity: .9;\r\n  }\r\n}\r\n@keyframes fadein-out {\r\n  0% {\r\n    opacity: .9;\r\n  }\r\n  100% {\r\n    opacity: 0;\r\n  }\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -8801,28 +8810,25 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('span', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('span', {
 	    ref: "trigger"
-	  }, [_vm._t("default"), " ", _vm._h('transition', {
+	  }, [_vm._t("default"), _vm._v(" "), _vm._c('transition', {
 	    attrs: {
 	      "name": _vm.effect
 	    }
-	  }, [(_vm.show) ? _vm._h('div', {
+	  }, [(_vm.show) ? _vm._c('div', {
 	    ref: "popover",
-	    class: ['tooltip', _vm.placement],
-	    staticStyle: {
-	      "display": "block"
-	    }
-	  }, [_vm._h('div', {
+	    class: ['tooltip', _vm.placement]
+	  }, [_vm._c('div', {
 	    staticClass: "tooltip-arrow"
-	  }), " ", _vm._h('div', {
+	  }), _vm._v(" "), _vm._c('div', {
 	    staticClass: "tooltip-inner"
-	  }, [_vm._t("content", [_vm._h('div', {
+	  }, [_vm._t("content", [_vm._c('div', {
 	    domProps: {
 	      "innerHTML": _vm._s(_vm.content)
 	    }
-	  })])])]) : _vm._e()])])
+	  })])], true)]) : _vm._e()])], true)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -9530,15 +9536,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _vm._c('div', {
 	    class: {
 	      'open': _vm.showDropdown
 	    },
 	    staticStyle: {
 	      "position": "relative"
 	    }
-	  }, [_vm._h('input', {
+	  }, [_vm._c('input', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -9559,16 +9565,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.showDropdown = false
 	      },
 	      "keydown": [function($event) {
-	        if ($event.keyCode !== 40) { return; }
+	        if (_vm._k($event.keyCode, "down", 40)) { return; }
 	        _vm.down($event)
 	      }, function($event) {
-	        if ($event.keyCode !== 13) { return; }
+	        if (_vm._k($event.keyCode, "enter", 13)) { return; }
 	        _vm.hit($event)
 	      }, function($event) {
-	        if ($event.keyCode !== 27) { return; }
+	        if (_vm._k($event.keyCode, "esc", 27)) { return; }
 	        _vm.reset($event)
 	      }, function($event) {
-	        if ($event.keyCode !== 38) { return; }
+	        if (_vm._k($event.keyCode, "up", 38)) { return; }
 	        _vm.up($event)
 	      }],
 	      "input": function($event) {
@@ -9576,15 +9582,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.val = $event.target.value
 	      }
 	    }
-	  }), " ", _vm._h('ul', {
+	  }), _vm._v(" "), _vm._c('ul', {
 	    ref: "dropdown",
 	    staticClass: "dropdown-menu"
-	  }, [_vm._l((_vm.items), function(item, i) {
-	    return _vm._h('li', {
+	  }, _vm._l((_vm.items), function(item, i) {
+	    return _vm._c('li', {
 	      class: {
 	        'active': _vm.isActive(i)
 	      }
-	    }, [_vm._h('a', {
+	    }, [_vm._c('a', {
 	      on: {
 	        "mousedown": function($event) {
 	          $event.preventDefault();
@@ -9594,13 +9600,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _vm.setActive(i)
 	        }
 	      }
-	    }, [_vm._h(_vm.tmpl, {
+	    }, [_vm._c(_vm.tmpl, {
 	      tag: "component",
 	      attrs: {
 	        "item": item
 	      }
 	    })])])
-	  })])])
+	  }))])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
