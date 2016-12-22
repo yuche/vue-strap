@@ -1,6 +1,6 @@
 {
   "name": "vue-strap",
-  "version": "2.0.0-pre.4",
+  "version": "2.0.0-pre.5",
   "description": "Bootstrap components built with Vue.js",
   "main": "dist/vue-strap.js",
   "typings": "types/index.d.ts",
