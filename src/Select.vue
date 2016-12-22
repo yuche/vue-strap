@@ -1,6 +1,6 @@
 <template>
   <div v-el:select :class="classes">
-    <button type="button" class="form-control dropdown-toggle"
+    <div class="form-control dropdown-toggle"
       :disabled="disabled || !hasParent"
       :readonly="readonly"
       @click="toggle()"
@@ -8,7 +8,7 @@
     >
       <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selected"></span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
-    </button>
+    </div>
     <select v-el:sel v-model="value" v-show="show" name="{{name}}" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
       <option v-if="required" value=""></option>
       <option v-for="option in options" :value="option[optionsValue]||option">{{ option[optionsLabel]||option }}</option>
@@ -146,7 +146,7 @@ export default {
         if (~['number', 'string'].indexOf(typeof item)) {
           let option = null
           if (this.options.some(o => {
-            if (o instanceof Object ? o[this.optionsValue] === item : o === item ) {
+            if (o instanceof Object ? o[this.optionsValue] === item : o === item) {
               option = o
               return true
             }
@@ -156,7 +156,7 @@ export default {
       return foundItems.join(', ')
     },
     classes () {
-      return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn': 'btn-group']
+      return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group']
     },
     inInput () { return this.$parent._input },
     isLi () { return this.$parent._navbar || this.$parent.menu || this.$parent._tabset },
@@ -253,6 +253,7 @@ export default {
       return this.values.indexOf(v) > -1
     },
     select (v, alt) {
+      this.$els.search.blur()
       if (this.value instanceof Array) {
         if (~this.value.indexOf(v)) {
           this.value.$remove(v)
@@ -263,7 +264,9 @@ export default {
           this.toggle()
         }
       } else {
+        var tmp = this.value
         this.value = !~['', null, undefined].indexOf(v) ? v : alt
+        if (this.value === tmp) { this.value = null }
         this.toggle()
       }
     },
@@ -315,11 +318,12 @@ export default {
 </script>
 
 <style scoped>
-button.form-control.dropdown-toggle{
+div.form-control.dropdown-toggle{
   height: auto;
   padding-right: 24px;
+  cursor: pointer;
 }
-button.form-control.dropdown-toggle:after{
+div.form-control.dropdown-toggle:after{
   content: ' ';
   position: absolute;
   right: 13px;
@@ -361,7 +365,7 @@ button.form-control.dropdown-toggle:after{
   position: absolute;
   width: 1px;
 }
-button>.close { margin-left: 5px;}
+div>.close { margin-left: 5px; }
 .notify.out { position: relative; }
 .notify.in,
 .notify>div {
@@ -391,5 +395,19 @@ button>.close { margin-left: 5px;}
   text-overflow: ellipsis;
   margin-bottom: -4px;
 }
-.btn-group-justified .dropdown-menu { width: 100%; }
+.btn-group-justified .dropdown-menu {
+  width: 100%;
+}
+.open>.dropdown-menu {
+  overflow-y: auto;
+  max-height: 2.5rem;
+}
+.form-control.dropdown-toggle{
+  border-radius: 5px;
+}
+.form-control.dropdown-toggle>.close{
+  float: none;
+  font-size: 20px;
+  line-height: 20px;
+}
 </style>
