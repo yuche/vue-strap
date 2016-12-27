@@ -2,10 +2,7 @@
   <doc-section id="dropdown" name="Dropdown">
     <div class="bs-example">
       <dropdown>
-        <button slot="button" type="button" class="btn btn-default dropdown-toggle">
-          Action
-          <span class="caret"></span>
-        </button>
+        <strong slot="button">Action (bold)</strong>
         <ul slot="dropdown-menu" class="dropdown-menu">
           <li><a href="#dropdown">Action</a></li>
           <li><a href="#dropdown">Another action</a></li>
@@ -22,9 +19,7 @@
         <li><a href="#dropdown">Separated link</a></li>
       </dropdown>
       <dropdown>
-        <button slot="button" type="button" class="btn btn-success dropdown-toggle">
-          Action <span class="caret"></span>
-        </button>
+        <i slot="button">Action (italic)</i>
         <ul slot="dropdown-menu" class="dropdown-menu">
           <li><a href="#dropdown">Action</a></li>
           <li><a href="#dropdown">Another action</a></li>
@@ -43,9 +38,7 @@
       <div class="btn-group btn-group-justified">
         <a href="#dropdown" class="btn btn-default" role="button">Left</a>
         <dropdown>
-          <a slot="button" href="#dropdown" class="btn btn-default">
-            Dropdown <span class="caret"></span>
-          </a>
+          <u slot="button">Dropdown (underlined)</u>
           <ul slot="dropdown-menu" class="dropdown-menu">
             <li><a href="#dropdown">Action</a></li>
             <li><a href="#dropdown">Another action</a></li>
@@ -74,12 +67,10 @@
         &lt;dropdown>...&lt;/dropdown>
         &lt;a href="#dropdown" class="btn btn-default" role="button">Right&lt;/a>
       &lt;/div>
-      // With slots you can handle some elements as native bootstrap
+      // Use slots for some elements as native bootstrap
       &lt;dropdown>
-        &lt;button slot="button" type="button" class="btn btn-default dropdown-toggle">
-          Action
-          &lt;span class="caret">&lt;/span>
-        &lt;/button>
+        // main button limited only to html styling
+        &lt;u slot="button">Action (underlined)&lt;/u>
         &lt;ul slot="dropdown-menu" class="dropdown-menu">
           &lt;li>&lt;a href="#dropdown">Action&lt;/a>&lt;/li>
           &lt;li>&lt;a href="#dropdown">Another action&lt;/a>&lt;/li>

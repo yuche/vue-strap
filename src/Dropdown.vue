@@ -3,16 +3,20 @@
     :class="[{open:show,disabled:disabled,dropdown:isLi,'input-group-btn':inInput,'btn-group':!isLi&&!inInput}]"
   >
     <slot name="before"></slot>
-    <slot name="button">
-      <a v-if="isLi" role="button" :class="['dropdown-toggle',buttonSize,{disabled:disabled}]" @keyup.esc="show = false">
-        {{ text }}
-        <span class="caret"></span>
-      </a>
-      <button v-else type="button" :class="['btn btn-' + type,buttonSize,'dropdown-toggle']" @keyup.esc="show = false" :disabled="disabled">
-        {{ text }}
-        <span class="caret"></span>
-      </button>
-    </slot>
+    <a v-if="isLi" role="button" :class="['dropdown-toggle',buttonSize,{disabled:disabled}]"
+      @keyup.esc="show = false"
+      @click.prevent="toggle"
+    >
+      <slot name="button">{{ text }}</slot>
+      <span class="caret"></span>
+    </a>
+    <button v-else type="button" :class="['btn btn-' + type,buttonSize,'dropdown-toggle']" :disabled="disabled"
+      @keyup.esc="show = false"
+      @click.prevent="toggle"
+    >
+      <slot name="button">{{ text }}</slot>
+      <span class="caret"></span>
+    </button>
     <slot name="dropdown-menu">
       <ul class="dropdown-menu"><slot></slot></ul>
     </slot>
@@ -50,19 +54,16 @@ export default {
     submenu () { return this.$parent && (this.$parent.menu || this.$parent.submenu) }
   },
   methods: {
-    blur () { this.show = false }
+    blur () { this.show = false },
+    toggle () {
+      if (!this.disabled) { this.show = !this.show }
+    }
   },
   mounted () {
-    var $el = $(this.$el)
-    $el.findChildren('a,button.dropdown-toggle').on('click', e => {
-      e.preventDefault()
-      if (!this.disabled) { this.show = !this.show }
-      return false
-    })
-    $el.findChildren('ul').on('click', 'li>a', e => { this.show = false })
+    $('ul', this.$el).on('click', 'li>a', e => { this.show = false })
   },
   beforeDestroy () {
-    $(this.$el).findChildren('a,button,ul').off()
+    $('ul', this.$el).off()
   }
 }
 </script>
