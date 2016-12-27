@@ -1,15 +1,16 @@
 <template>
-  <div ref="select" :class="classes" v-click-outside="blur">
-    <button type="button" class="form-control dropdown-toggle"
-      :disabled="disabled || !hasParent"
-      :readonly="readonly"
+  <div ref="select" :class="classes" v-click-outside="close">
+    <div ref="btn" class="form-control dropdown-toggle" tabindex="1" :disabled="disabled || !hasParent" :readonly="readonly"
+      @blur="canSearch ? null : close()"
       @click="toggle()"
-      @keyup.esc="show = false"
+      @keydown.esc.stop.prevent="close"
+      @keydown.space.stop.prevent="toggle"
+      @keydown.enter.stop.prevent="toggle"
     >
       <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selected"></span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
-    </button>
-    <select ref="sel" v-model="val" v-show="show" :name="name" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
+    </div>
+    <select ref="sel" v-model="val" :name="name" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
       <option v-if="required" value=""></option>
       <option v-for="option in list" :value="option[optionsValue]">{{ option[optionsLabel] }}</option>
     </select>
@@ -18,11 +19,11 @@
         <li v-if="canSearch" class="bs-searchbox">
           <input type="text" :placeholder="searchText||text.search" class="form-control" autocomplete="off" ref="search"
             v-model="searchValue"
-            @keyup.esc="show = false"
+            @keyup.esc="close"
           />
           <span v-show="searchValue" class="close" @click="clearSearch">&times;</span>
         </li>
-        <li v-if="required&&!clearButton"><a @mousedown.prevent="clear() && blur()">{{ placeholder || text.notSelected }}</a></li>
+        <li v-if="required&&!clearButton"><a @mousedown.prevent="clear() && close()">{{ placeholder || text.notSelected }}</a></li>
         <li v-for="option in filteredOptions" :id="option[optionsValue]">
           <a @mousedown.prevent="select(option[optionsValue])">
             <span v-html="option[optionsLabel]"></span>
@@ -109,8 +110,7 @@ export default {
     },
     show (val) {
       if (val) {
-        this.$refs.sel.focus()
-        this.$refs.search && this.$refs.search.focus()
+        this.$refs.search ? this.$refs.search.focus() : this.$refs.btn.focus()
         // onBlur(this.$refs.select, e => { this.show = false })
       } else {
         // offBlur(this.$refs.select)
@@ -145,7 +145,7 @@ export default {
     }
   },
   methods: {
-    blur () {
+    close () {
       this.show = false
     },
     checkData () {
@@ -203,6 +203,7 @@ export default {
     },
     toggle () {
       this.show = !this.show
+      if (!this.show) this.$refs.btn.focus()
     },
     urlChanged () {
       if (!this.url || !this.$http) { return }
@@ -250,11 +251,11 @@ export default {
 </script>
 
 <style scoped>
-button.form-control.dropdown-toggle{
+.form-control.dropdown-toggle{
   height: auto;
   padding-right: 24px;
 }
-button.form-control.dropdown-toggle:after{
+.form-control.dropdown-toggle:after{
   content: ' ';
   position: absolute;
   right: 13px;
@@ -281,7 +282,7 @@ button.form-control.dropdown-toggle:after{
   text-align: center;
 }
 .bs-searchbox input:focus,
-.secret:focus + button {
+.form-control.dropdown-toggle:focus {
   outline: 0;
   border-color: #66afe9 !important;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
@@ -296,7 +297,7 @@ button.form-control.dropdown-toggle:after{
   position: absolute;
   width: 1px;
 }
-button>.close { margin-left: 5px;}
+.form-control.dropdown-toggle>.close { margin-left: 5px;}
 .notify.out { position: relative; }
 .notify.in,
 .notify>div {
