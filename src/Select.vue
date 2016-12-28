@@ -240,6 +240,9 @@ export default {
   },
   mounted () {
     if (this._parent) this._parent.children.push(this)
+    this.setOptions(this.options)
+    this.val = this.value
+    this.checkData()
   },
   beforeDestroy () {
     if (this._parent) {
