@@ -176,7 +176,7 @@ export default {
       return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value
     },
     emit (e) {
-      this.$emit(e.type, e)
+      this.$emit(e.type, e.type == 'input' ? e.target.value : e)
       if (e.type === 'blur' && this.canValidate) { this.valid = this.validate() }
     },
     eval () {
@@ -215,6 +215,12 @@ export default {
         if (!(this.regex instanceof Function ? this.regex(this.value) : this.regex.test(this.value))) { return false }
       }
       return true
+    },
+    reset() {
+      this.value = ''
+      this.valid = null
+      if (this._timeout.mask) clearTimeout(this._timeout.mask)
+      if (this._timeout.eval) clearTimeout(this._timeout.eval)
     }
   },
   created () {
@@ -223,8 +229,8 @@ export default {
     let parent = this.$parent
     while (parent && !parent._formValidator) { parent = parent.$parent }
     if (parent && parent._formValidator) {
+      parent.children.push(this)
       this._parent = parent
-      this._parent && this._parent.children.push(this)
     }
     this._url = delayer(function () {
       if (!this.url || !this.$http || this._loading) { return }

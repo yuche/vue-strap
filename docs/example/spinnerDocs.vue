@@ -2,7 +2,7 @@
   <doc-section id="spinner" name="Spinner">
     <div class="bs-example">
       <p><checkbox :checked="fixed" @checked="fixed = arguments[0]" type="info">fixed</checkbox></p>
-      <p><v-select :options="['sm','md','lg','xl']" v-model="size">size</v-select></p>
+      <p><v-select :options="['sm','md','lg','xl']" v-model="size"></v-select></p>
       <p>
         <button class="btn btn-info" @click="showRef">show spinner (using ref)</button>
         <button class="btn btn-info" @click="showGlobal">show spinner (global)</button>

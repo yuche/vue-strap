@@ -313,7 +313,7 @@ export default {
         required:true
       },
       event: null,
-      fruits: ['apple', 'banana', 'cherry', 'coconut', 'grapefruit', 'lime', 'orange', 'strawberry', 'watermelon'],
+      fruits: ['apple', 'avocado', 'banana', 'cherry', 'coconut', 'grapefruit', 'kiwi', 'lime', 'orange', 'quince', 'strawberry', 'watermelon'],
       input: null,
       match: null
     }

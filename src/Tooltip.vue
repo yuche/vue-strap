@@ -2,9 +2,11 @@
   <span ref="trigger">
     <slot></slot>
     <transition :name="effect">
-      <div ref="popover" v-if="show" style="display:block;" :class="['tooltip',placement]">
+      <div ref="popover" v-if="show" :class="['tooltip',placement]">
         <div class="tooltip-arrow"></div>
-        <div class="tooltip-inner"><slot name="content" v-html="content"></slot></div>
+        <div class="tooltip-inner">
+          <slot name="content"><div v-html="content"></div></slot>
+        </div>
       </div>
     </transition>
   </span>
@@ -27,7 +29,7 @@ export default {
 .tooltip.left,
 .tooltip.right,
 .tooltip.bottom {
-  opacity: .9
+  opacity: .9;
 }
 .fadein-enter {
   animation:fadein-in 0.3s ease-in;

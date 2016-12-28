@@ -4,23 +4,23 @@
         :style="{width:width}"
         :value="value"
         @click="inputClick"
-        @input="this.$emit('input',$event.target.value)" />
-    <button v-if="clearButton && value" type="button" class="close" @click="value = ''">
+        @input="$emit('input',$event.target.value)" />
+    <button v-if="clearButton && value" type="button" class="close" @click="$emit('input', '')">
       <span>&times;</span>
     </button>
     <div class="datepicker-popup" v-show="displayDayView">
       <div class="datepicker-inner">
         <div class="datepicker-body">
           <div class="datepicker-ctrl">
-            <span class="datepicker-preBtn glyphicon glyphicon-chevron-left" aria-hidden="true" @click="preNextMonthClick(0)"></span>
-            <span class="datepicker-nextBtn glyphicon glyphicon-chevron-right" aria-hidden="true" @click="preNextMonthClick(1)"></span>
+            <span :class="preBtnClasses" aria-hidden="true" @click="preNextMonthClick(0)"></span>
+            <span :class="nextBtnClasses" aria-hidden="true" @click="preNextMonthClick(1)"></span>
             <p @click="switchMonthView">{{stringifyDayHeader(currDate)}}</p>
           </div>
           <div class="datepicker-weekRange">
             <span v-for="w in text.daysOfWeek">{{w}}</span>
           </div>
           <div class="datepicker-dateRange">
-            <span v-for="d in dateRange" :class="d.sclass" @click="daySelect(d.date,this)">{{d.text}}</span>
+            <span v-for="d in dateRange" :class="d.sclass" @click="daySelect(d)">{{d.text}}</span>
           </div>
         </div>
       </div>
@@ -29,8 +29,8 @@
       <div class="datepicker-inner">
         <div class="datepicker-body">
           <div class="datepicker-ctrl">
-            <span class="datepicker-preBtn glyphicon glyphicon-chevron-left" aria-hidden="true" @click="preNextYearClick(0)"></span>
-            <span class="datepicker-nextBtn glyphicon glyphicon-chevron-right" aria-hidden="true" @click="preNextYearClick(1)"></span>
+            <span :class="preBtnClasses" aria-hidden="true" @click="preNextYearClick(0)"></span>
+            <span :class="nextBtnClasses" aria-hidden="true" @click="preNextYearClick(1)"></span>
             <p @click="switchDecadeView">{{stringifyYearHeader(currDate)}}</p>
           </div>
           <div class="datepicker-monthRange">
@@ -49,8 +49,8 @@
       <div class="datepicker-inner">
         <div class="datepicker-body">
           <div class="datepicker-ctrl">
-            <span class="datepicker-preBtn glyphicon glyphicon-chevron-left" aria-hidden="true" @click="preNextDecadeClick(0)"></span>
-            <span class="datepicker-nextBtn glyphicon glyphicon-chevron-right" aria-hidden="true" @click="preNextDecadeClick(1)"></span>
+            <span :class="preBtnClasses" aria-hidden="true" @click="preNextDecadeClick(0)"></span>
+            <span :class="nextBtnClasses" aria-hidden="true" @click="preNextDecadeClick(1)"></span>
             <p>{{stringifyDecadeHeader(currDate)}}</p>
           </div>
           <div class="datepicker-monthRange decadeRange">
@@ -75,10 +75,11 @@ export default {
     value: {type: String},
     format: {default: 'MM/dd/yyyy'},
     disabledDaysOfWeek: {type: Array, default () { return [] }},
-    width: {type: String, default: '200px'},
+    width: {type: String/*, default: '200px'*/},
     clearButton: {type: Boolean, default: false},
     lang: {type: String, default: navigator.language},
-    placeholder: {type: String}
+    placeholder: {type: String},
+    iconsFont: {type: String, default: 'glyphicon'}
   },
   data () {
     return {
@@ -87,20 +88,29 @@ export default {
       decadeRange: [],
       displayDayView: false,
       displayMonthView: false,
-      displayYearView: false
+      displayYearView: false,
     }
   },
   watch: {
-    value (val) {
-      this.$emit('input', val)
-    },
     currDate () {
       this.getDateRange()
+    },
+    format () {
+      this.$emit('input', this.stringify(this.currDate))
     }
   },
   computed: {
     text () {
       return translations(this.lang)
+    },
+    preBtnClasses () {
+      return `datepicker-preBtn ${this.iconsFont} ${this.iconsFont}-chevron-left`
+    },
+    nextBtnClasses () {
+      return `datepicker-nextBtn ${this.iconsFont} ${this.iconsFont}-chevron-right`
+    },
+    disabledDaysArray () {
+      return this.disabledDaysOfWeek.map(d => parseInt(d, 10))
     }
   },
   methods: {
@@ -155,12 +165,12 @@ export default {
       this.displayMonthView = true
       this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())
     },
-    daySelect (date, el) {
-      if (this.$el.classList[0] === 'datepicker-item-disable') {
+    daySelect (day) {
+      if (day.sclass === 'datepicker-item-disable') {
         return false
       } else {
-        this.currDate = date
-        this.value = this.stringify(this.currDate)
+        this.currDate = day.date
+        this.$emit('input', this.stringify(this.currDate))
         this.displayDayView = false
       }
     },
@@ -265,9 +275,14 @@ export default {
         const prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month)
         for (let i = 1; i < firstDayWeek; i++) {
           const dayText = prevMonthDayCount - firstDayWeek + i + 1
+          const date = new Date(preMonth.year, preMonth.month, dayText)
+          let sclass = 'datepicker-item-gray'
+          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
+            sclass = 'datepicker-item-disable'
+          }
           this.dateRange.push({
             text: dayText,
-            date: new Date(preMonth.year, preMonth.month, dayText),
+            date: date,
             sclass: 'datepicker-item-gray'
           })
         }
@@ -275,20 +290,12 @@ export default {
 
       for (let i = 1; i <= dayCount; i++) {
         const date = new Date(time.year, time.month, i)
-        const week = date.getDay()
         let sclass = ''
-        this.disabledDaysOfWeek.forEach((el) => {
-          if (week === parseInt(el, 10)) sclass = 'datepicker-item-disable'
-        })
-        if (i === time.day) {
-          if (this.value) {
-            const valueDate = this.parse(this.value)
-            if (valueDate) {
-              if (valueDate.getFullYear() === time.year && valueDate.getMonth() === time.month) {
-                sclass = 'datepicker-dateRange-item-active'
-              }
-            }
-          }
+        if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
+          sclass = 'datepicker-item-disable'
+        }
+        if (i == time.day && date.getFullYear() == time.year && date.getMonth() == time.month){
+          sclass = 'datepicker-dateRange-item-active'
         }
         this.dateRange.push({
           text: i,
@@ -302,10 +309,15 @@ export default {
         const nextMonth = this.getYearMonth(time.year, time.month + 1)
 
         for (let i = 1; i <= nextMonthNeed; i++) {
+          const date = new Date(nextMonth.year, nextMonth.month, i)
+          let sclass = 'datepicker-item-gray'
+          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
+            sclass = 'datepicker-item-disable'
+          }
           this.dateRange.push({
             text: i,
-            date: new Date(nextMonth.year, nextMonth.month, i),
-            sclass: 'datepicker-item-gray'
+            date: date,
+            sclass: sclass
           })
         }
       }
@@ -314,7 +326,7 @@ export default {
   mounted () {
     let el = this.$el
     this._blur = e => {
-      if (!el.contains(e.target)) 
+      if (!el.contains(e.target))
         this.close()
     }
     this.$emit('child-created', this)
@@ -322,7 +334,7 @@ export default {
     window.addEventListener('click', this._blur);
   },
   beforeDestroy () {
-    window.removeEventListner('click', this._blur)
+    window.removeEventListener('click', this._blur)
   }
 }
 </script>
