@@ -21,8 +21,8 @@ export default {
       }
     }
     //this.index = [...this.$el.parentNode.children].indexOf(this.$el)
-    if( this.$parent.indicator )
-      this.$parent.indicator.push(this.index)
+    if( this.$parent.indicator_list )
+      this.$parent.indicator_list.push(this.index)
       
     if (this.index === 0) {
       this.$el.classList.add('active')
