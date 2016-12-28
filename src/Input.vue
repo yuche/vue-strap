@@ -229,8 +229,8 @@ export default {
     let parent = this.$parent
     while (parent && !parent._formValidator) { parent = parent.$parent }
     if (parent && parent._formValidator) {
+      parent.children.push(this)
       this._parent = parent
-      this._parent && this._parent.children.push(this)
     }
     this._url = delayer(function () {
       if (!this.url || !this.$http || this._loading) { return }

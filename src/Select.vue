@@ -128,7 +128,7 @@ export default {
       if (val !== old) { this.val = val }
     },
     val (val, old) {
-      if (val === undefined) { val = null }
+      if (val === undefined) { this.val = val = null }
       if (val !== old) {
         this.$emit('change', val)
         this.$emit('input', val)
@@ -234,8 +234,9 @@ export default {
     this.checkData()
     if (this.url) this.urlChanged()
     let parent = this.$parent
-    while (parent && !parent._formGroup) { parent = parent.$parent }
-    if (parent && parent._formGroup) {
+    while (parent && !parent._formValidator) { parent = parent.$parent }
+    if (parent && parent._formValidator) {
+      parent.children.push(this)
       this._parent = parent
     }
   },
