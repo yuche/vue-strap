@@ -128,6 +128,7 @@ export default {
       if (val !== old) { this.val = val }
     },
     val (val, old) {
+      if (val === undefined) { val = null }
       if (val !== old) {
         this.$emit('change', val)
         this.$emit('input', val)
