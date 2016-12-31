@@ -178,12 +178,13 @@ export default {
     },
     select (v) {
       if (this.val instanceof Array) {
-        if (~this.val.indexOf(v)) {
-          var index = this.val.indexOf(v)
-          this.val.splice(index, 1)
+        var newVal = this.val.slice(0)
+        if (~newVal.indexOf(v)) {
+          newVal.splice(newVal.indexOf(v), 1)
         } else {
-          this.val.push(v)
+          newVal.push(v)
         }
+        this.val = newVal
         if (this.closeOnSelect) {
           this.toggle()
         }
