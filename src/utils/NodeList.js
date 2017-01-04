@@ -7,8 +7,8 @@ let Events = []
 function isNode (val) { return val instanceof window.Node }
 function isNodeList (val) { return val instanceof window.NodeList || val instanceof NodeList || val instanceof window.HTMLCollection || val instanceof Array }
 
-function splitString (val) { console.log(val); val = val.trim(); return val.length ? val.replace(/\s+/, ' ').split(' ') : [] }
-function joinArray (val) { return val.length ? val.join(' ') : '' }
+function splitWords (val) { val = val.trim(); return val.length ? val.replace(/\s+/, ' ').split(' ') : [] }
+function joinWords (val) { return val.length ? val.join(' ') : '' }
 
 class NodeList {
   constructor (args) {
@@ -144,16 +144,16 @@ class NodeList {
   toggleClass (classes, value) {
     var method = (value === undefined || value === null) ? 'toggle' : value ? 'add' : 'remove'
     if (typeof classes === 'string') {
-      classes = splitString(classes)
+      classes = splitWords(classes)
     }
     this.each(el => {
-      var list = splitString(el.className)
+      var list = splitWords(el.className)
       classes.forEach(c => {
         var hasClass = ~list.indexOf(c)
         if (!hasClass && method !== 'remove') list.push(c)
         if (hasClass && method !== 'add') { list = list.filter(el => (el !== c)) }
       })
-      list = joinArray(list)
+      list = joinWords(list)
       if (!list) el.removeAttribute('class')
       else el.className = list
     })
@@ -210,7 +210,7 @@ class NodeList {
 
   // event handlers
   on (events, selector, callback) {
-    if (typeof events === 'string') { events = splitString(events) }
+    if (typeof events === 'string') { events = splitWords(events) }
     if (!this || !this.length) return this
     if (callback === undefined) {
       callback = selector
@@ -248,7 +248,7 @@ class NodeList {
       callback = events
       events = null
     }
-    events = events instanceof Array ? events : typeof events === 'string' ? splitString(events) : null
+    events = events instanceof Array ? events : typeof events === 'string' ? splitWords(events) : null
     this.each(el => {
       Events = Events.filter(e => {
         if(e && e.el === el && (!callback || callback === e.callback) && (!events || ~events.indexOf(e.event))) {
