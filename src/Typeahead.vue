@@ -14,7 +14,7 @@
       @blur="showDropdown = false"
     />
     <ul class="dropdown-menu" v-el:dropdown>
-      <li v-for="item in items" v-bind:class="{'active': isActive(index)}">
+      <li v-for="(item, index) in items" v-bind:class="{'active': isActive(index)}">
         <a @mousedown.prevent="hit" @mousemove="setActive(index)">
           <partial :name="templateName"></partial>
         </a>

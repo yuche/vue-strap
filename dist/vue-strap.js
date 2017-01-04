@@ -8180,7 +8180,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//       @blur="showDropdown = false"
 	//     />
 	//     <ul class="dropdown-menu" v-el:dropdown>
-	//       <li v-for="item in items" v-bind:class="{'active': isActive(index)}">
+	//       <li v-for="(item, index) in items" v-bind:class="{'active': isActive(index)}">
 	//         <a @mousedown.prevent="hit" @mousemove="setActive(index)">
 	//           <partial :name="templateName"></partial>
 	//         </a>
@@ -8345,7 +8345,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 224 */
 /***/ function(module, exports) {
 
-	module.exports = "<div style=\"position: relative\"\n       v-bind:class=\"{'open':showDropdown}\"\n  >\n    <input type=\"text\" class=\"form-control\"\n      :placeholder=\"placeholder\"\n      autocomplete=\"off\"\n      v-model=\"value\"\n      @input=\"update\"\n      @keydown.up=\"up\"\n      @keydown.down=\"down\"\n      @keydown.enter= \"hit\"\n      @keydown.esc=\"reset\"\n      @blur=\"showDropdown = false\"\n    />\n    <ul class=\"dropdown-menu\" v-el:dropdown>\n      <li v-for=\"item in items\" v-bind:class=\"{'active': isActive(index)}\">\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive(index)\">\n          <partial :name=\"templateName\"></partial>\n        </a>\n      </li>\n    </ul>\n  </div>";
+	module.exports = "<div style=\"position: relative\"\n       v-bind:class=\"{'open':showDropdown}\"\n  >\n    <input type=\"text\" class=\"form-control\"\n      :placeholder=\"placeholder\"\n      autocomplete=\"off\"\n      v-model=\"value\"\n      @input=\"update\"\n      @keydown.up=\"up\"\n      @keydown.down=\"down\"\n      @keydown.enter= \"hit\"\n      @keydown.esc=\"reset\"\n      @blur=\"showDropdown = false\"\n    />\n    <ul class=\"dropdown-menu\" v-el:dropdown>\n      <li v-for=\"(item, index) in items\" v-bind:class=\"{'active': isActive(index)}\">\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive(index)\">\n          <partial :name=\"templateName\"></partial>\n        </a>\n      </li>\n    </ul>\n  </div>";
 
 /***/ }
 /******/ ])
