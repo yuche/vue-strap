@@ -7,6 +7,9 @@ let Events = []
 function isNode (val) { return val instanceof window.Node }
 function isNodeList (val) { return val instanceof window.NodeList || val instanceof NodeList || val instanceof window.HTMLCollection || val instanceof Array }
 
+function splitString (val) { console.log(val); val = val.trim(); return val.length ? val.replace(/\s+/, ' ').split(' ') : [] }
+function joinArray (val) { return val.length ? val.join(' ') : '' }
+
 class NodeList {
   constructor (args) {
     var nodes = args
@@ -141,16 +144,18 @@ class NodeList {
   toggleClass (classes, value) {
     var method = (value === undefined || value === null) ? 'toggle' : value ? 'add' : 'remove'
     if (typeof classes === 'string') {
-      classes = classes.trim().replace(/\s+/, ' ').split(' ')
+      classes = splitString(classes)
     }
     this.each(el => {
-      var list = el.className.trim().replace(/\s+/, ' ').split(' ')
+      var list = splitString(el.className)
       classes.forEach(c => {
         var hasClass = ~list.indexOf(c)
         if (!hasClass && method !== 'remove') list.push(c)
         if (hasClass && method !== 'add') { list = list.filter(el => (el !== c)) }
       })
-      el.className = list.join(' ')
+      list = joinArray(list)
+      if (!list) el.removeAttribute('class')
+      else el.className = list
     })
     return this
   }
@@ -205,7 +210,7 @@ class NodeList {
 
   // event handlers
   on (events, selector, callback) {
-    if (typeof events === 'string') { events = events.trim().replace(/\s+/, ' ').split(' ') }
+    if (typeof events === 'string') { events = splitString(events) }
     if (!this || !this.length) return this
     if (callback === undefined) {
       callback = selector
@@ -243,48 +248,16 @@ class NodeList {
       callback = events
       events = null
     }
-    if (typeof events === 'string' && callback instanceof Function) {
-      this.each(el => {
-        events.split(' ').forEach(event => {
-          Events.forEach((e, i) => {
-            if(Events[i] && Events[i].el === el && Events[i].event === event && Events[i].callback === callback) {
-              Events[i].el.removeEventListener(Events[i].event, Events[i].callback)
-              delete Events[i]
-            }
-          })
-        })
+    events = events instanceof Array ? events : typeof events === 'string' ? splitString(events) : null
+    this.each(el => {
+      Events = Events.filter(e => {
+        if(e && e.el === el && (!callback || callback === e.callback) && (!events || ~events.indexOf(e.event))) {
+          e.el.removeEventListener(e.event, e.callback)
+          return false
+        }
+        return true
       })
-    } else if (typeof events === 'string') {
-      this.each(el => {
-        events.split(' ').forEach(event => {
-          Events.forEach((e, i) => {
-            if (Events[i] && Events[i].el === el && Events[i].event === event) {
-              Events[i].el.removeEventListener(Events[i].event, Events[i].callback)
-              delete Events[i]
-            }
-          })
-        })
-      })
-    } else if (callback instanceof Function) {
-      this.each(el => {
-        Events.forEach(e => {
-          if (Events[e] && Events[e].el === el && Events[e].callback === callback) {
-            Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-            delete Events[e]
-          }
-        })
-      })
-    } else {
-      this.each(el => {
-        Events.forEach(e => {
-          if (Events[e] && Events[e].el === el) {
-            Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-            delete Events[e]
-          }
-        })
-      })
-    }
-    Events = Events.filter(el => (el !== undefined ))
+    })
     return this
   }
   onBlur (callback) {
