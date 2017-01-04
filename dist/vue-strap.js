@@ -269,10 +269,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return val instanceof window.NodeList || val instanceof NodeList || val instanceof window.HTMLCollection || val instanceof Array;
 	}
 	
-	function splitString(val) {
-	  console.log(val);val = val.trim();return val.length ? val.replace(/\s+/, ' ').split(' ') : [];
+	function splitWords(val) {
+	  val = val.trim();return val.length ? val.replace(/\s+/, ' ').split(' ') : [];
 	}
-	function joinArray(val) {
+	function joinWords(val) {
 	  return val.length ? val.join(' ') : '';
 	}
 	
@@ -513,10 +513,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function toggleClass(classes, value) {
 	      var method = value === undefined || value === null ? 'toggle' : value ? 'add' : 'remove';
 	      if (typeof classes === 'string') {
-	        classes = splitString(classes);
+	        classes = splitWords(classes);
 	      }
 	      this.each(function (el) {
-	        var list = splitString(el.className);
+	        var list = splitWords(el.className);
 	        classes.forEach(function (c) {
 	          var hasClass = ~list.indexOf(c);
 	          if (!hasClass && method !== 'remove') list.push(c);
@@ -526,7 +526,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            });
 	          }
 	        });
-	        list = joinArray(list);
+	        list = joinWords(list);
 	        if (!list) el.removeAttribute('class');else el.className = list;
 	      });
 	      return this;
@@ -600,7 +600,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // event handlers
 	    value: function on(events, selector, callback) {
 	      if (typeof events === 'string') {
-	        events = splitString(events);
+	        events = splitWords(events);
 	      }
 	      if (!this || !this.length) return this;
 	      if (callback === undefined) {
@@ -643,7 +643,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        callback = events;
 	        events = null;
 	      }
-	      events = events instanceof Array ? events : typeof events === 'string' ? splitString(events) : null;
+	      events = events instanceof Array ? events : typeof events === 'string' ? splitWords(events) : null;
 	      this.each(function (el) {
 	        Events = Events.filter(function (e) {
 	          if (e && e.el === el && (!callback || callback === e.callback) && (!events || ~events.indexOf(e.event))) {
