@@ -103,7 +103,7 @@ export default {
   },
   ready () {
     this._blur = (e) => {
-      if (!this.$el.contains(e.target)) this.close()
+      if (this.$el !== null && !this.$el.contains(e.target)) this.close()
     }
     this.$dispatch('child-created', this)
     this.currDate = this.parse(this.value) || this.parse(new Date())
