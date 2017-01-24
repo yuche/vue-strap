@@ -103,77 +103,88 @@
           &lt;button type="button" class="btn btn-success" @click="saveMethod">Custom Save&lt;/button>
         &lt;/div>
       &lt;/modal>
-  </doc-code>
-  <doc-table>
-    <div>
-      <p>backdrop</p>
-      <p><code>Boolean</code></p>
-      <p><code>true</code></p>
-      <p>Enables/disables closing the modal by clicking on the backdrop.</p>
-    </div>
-    <div>
-      <p>callback</p>
-      <p><code>Function</code></p>
-      <p></p>
-      <p>A callback Function when you click the modal primary button.</p>
-    </div>
-    <div>
-      <p>cancel-text</p>
-      <p><code>String</code></p>
-      <p>Close</p>
-      <p>Text for cancel button</p>
-    </div>
-    <div>
-      <p>effect</p>
-      <p><code>String</code></p>
-      <p></p>
-      <p>set the name of the effect to use on modal, like fade or zoom</p>
-    </div>
-    <div>
-      <p>large</p>
-      <p><code>Boolean</code></p>
-      <p><code>false</code></p>
-      <p>Large modal (see boostrap's documentation for .modal-lg)</p>
-    </div>
-    <div>
-      <p>ok-text</p>
-      <p><code>String</code></p>
-      <p>Save changes</p>
-      <p>Text for OK button</p>
-    </div>
-    <div>
-      <p>small</p>
-      <p><code>Boolean</code></p>
-      <p><code>false</code></p>
-      <p>Small modal (see boostrap's documentation for .modal-sm)</p>
-    </div>
-    <div>
-      <p>title</p>
-      <p><code>String</code></p>
-      <p></p>
-      <p>Title of the modal component.</p>
-    </div>
-    <div>
-      <p>value</p>
-      <p><code>Boolean</code></p>
-      <p></p>
-      <p>true if modal need to be shown, note the Modal has no intenal state</p>
-    </div>
-    <div>
-      <p>width</p>
-      <p><code>Number, String or null</code></p>
-      <p><code>null</code></p>
-      <p>Pass a Number in pixels or a String with relational sizes ( e.g. '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.</p>
-    </div>
-  </doc-table>
-  <h2>Usage</h2>
-  <p>
-    If you just need a simple modal, you can use the <code>title</code> prop and the default footer. However, if you
-    need to put custom HTML or a custom footer, you can override the header or footer block by using
-    <code>&lt;div slot="modal-title" class="modal-title"&gt;...&lt;/div&gt;</code> and
-    <code>&lt;div slot="modal-footer" class="modal-footer"&gt;...&lt;/div&gt;</code>.
-  </p>
-  </div>
+    </doc-code>
+    <doc-table>
+      <div>
+        <p>backdrop</p>
+        <p><code>Boolean</code></p>
+        <p><code>true</code></p>
+        <p>Enables/disables closing the modal by clicking on the backdrop.</p>
+      </div>
+      <div>
+        <p>callback</p>
+        <p><code>Function</code></p>
+        <p></p>
+        <p>A callback Function when you click the modal primary button.</p>
+      </div>
+      <div>
+        <p>cancel-text</p>
+        <p><code>String</code></p>
+        <p>Close</p>
+        <p>Text for cancel button</p>
+      </div>
+      <div>
+        <p>effect</p>
+        <p><code>String</code></p>
+        <p></p>
+        <p>set the name of the effect to use on modal, like fade or zoom</p>
+      </div>
+      <div>
+        <p>large</p>
+        <p><code>Boolean</code></p>
+        <p><code>false</code></p>
+        <p>Large modal (see boostrap's documentation for .modal-lg)</p>
+      </div>
+      <div>
+        <p>ok-text</p>
+        <p><code>String</code></p>
+        <p>Save changes</p>
+        <p>Text for OK button</p>
+      </div>
+      <div>
+        <p>small</p>
+        <p><code>Boolean</code></p>
+        <p><code>false</code></p>
+        <p>Small modal (see boostrap's documentation for .modal-sm)</p>
+      </div>
+      <div>
+        <p>title</p>
+        <p><code>String</code></p>
+        <p></p>
+        <p>Title of the modal component.</p>
+      </div>
+      <div>
+        <p>value</p>
+        <p><code>Boolean</code></p>
+        <p></p>
+        <p>true if modal need to be shown, note the Modal has no intenal state</p>
+      </div>
+      <div>
+        <p>width</p>
+        <p><code>Number, String or null</code></p>
+        <p><code>null</code></p>
+        <p>Pass a Number in pixels or a String with relational sizes ( e.g. '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.</p>
+      </div>
+    </doc-table>
+    <doc-table type="Events">
+      <div>
+        <p>input</p>
+        <p>(<code>Boolean</code>)</p>
+        <p>Return if the modal action is accepted / canceled (<code>true</code>/<code>false</code>) shown.</p>
+      </div>
+      <div>
+        <p>ok</p>
+        <p>(<code>null</code>)</p>
+        <p>Called if the modal was accepted.</p>
+      </div>
+      <div>
+        <p>cancel</p>
+        <p>(<code>null</code>)</p>
+        <p>Called if the modal was canceled.</p>
+      </div>
+    </doc-table>
+    <p><strong>Note:</strong> The default events are called if you use the default footer. Using a footer slot, you must implement your own events to the buttons.</p>
+  </doc-section>
 </template>
 
 <script>

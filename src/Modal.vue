@@ -62,6 +62,7 @@ export default {
     ok () {
       if (this.callback instanceof Function) this.callback()
       this.$emit('ok')
+      this.$emit('input', true)
     },
     transitionstart () {
       const el = this.$el
