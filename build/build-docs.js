@@ -632,7 +632,7 @@
 	    attrs: {
 	      "href": '#' + _vm.id
 	    }
-	  }, [_vm._v(_vm._s(_vm.name))])]), _vm._v(" "), _vm._t("default")], true)
+	  }, [_vm._v(_vm._s(_vm.name))])]), _vm._v(" "), _vm._t("default")], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -811,7 +811,7 @@
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
 	  return _vm._c('div', {
 	    staticClass: "panel-group"
-	  }, [_vm._t("default")], true)
+	  }, [_vm._t("default")], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -1330,7 +1330,7 @@
 	    }]
 	  }) : _vm._e(), _vm._v(" "), (!_vm.isButton && _vm.checked && _vm.typeColor === 'default') ? _vm._c('span', {
 	    staticClass: "icon"
-	  }) : _vm._e(), _vm._v(" "), _vm._t("default")], true)
+	  }) : _vm._e(), _vm._v(" "), _vm._t("default")], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -1530,7 +1530,7 @@
 	    }
 	  }, [_vm._t("header", [_vm._c('h4', {
 	    staticClass: "panel-title"
-	  }, [_vm._v(_vm._s(_vm.header))])])], true), _vm._v(" "), _vm._c('transition', {
+	  }, [_vm._v(_vm._s(_vm.header))])])], 2), _vm._v(" "), _vm._c('transition', {
 	    attrs: {
 	      "name": "collapse"
 	    },
@@ -1543,7 +1543,7 @@
 	    staticClass: "panel-collapse"
 	  }, [_vm._c('div', {
 	    staticClass: "panel-body"
-	  }, [_vm._t("default")], true)]) : _vm._e()])])
+	  }, [_vm._t("default")], 2)]) : _vm._e()])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -1635,7 +1635,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.form-control.dropdown-toggle[data-v-e514dbc6]{\r\n  height: auto;\r\n  padding-right: 24px;\n}\n.form-control.dropdown-toggle[data-v-e514dbc6]:after{\r\n  content: ' ';\r\n  position: absolute;\r\n  right: 13px;\r\n  top: 50%;\r\n  margin: -1px 0 0;\r\n  border-top: 4px dashed;\r\n  border-top: 4px solid \\9;\r\n  border-right: 4px solid transparent;\r\n  border-left: 4px solid transparent;\n}\n.bs-searchbox[data-v-e514dbc6] {\r\n  position: relative;\r\n  margin: 4px 8px;\n}\n.bs-searchbox .close[data-v-e514dbc6] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\n}\n.bs-searchbox input[data-v-e514dbc6]:focus,\r\n.form-control.dropdown-toggle[data-v-e514dbc6]:focus {\r\n  outline: 0;\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\n}\n.secret[data-v-e514dbc6] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\n}\n.form-control.dropdown-toggle>.close[data-v-e514dbc6] { margin-left: 5px;\n}\n.notify.out[data-v-e514dbc6] { position: relative;\n}\n.notify.in[data-v-e514dbc6],\r\n.notify>div[data-v-e514dbc6] {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\n}\n.notify>div[data-v-e514dbc6] {\r\n  top: 5px;\r\n  z-index: 1;\n}\n.notify.in[data-v-e514dbc6] {\r\n  opacity: .9;\r\n  bottom: 5px;\n}\n.btn-group-justified .dropdown-toggle>span[data-v-e514dbc6]:not(.close) {\r\n  width: calc(100% - 18px);\r\n  display: inline-block;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  text-overflow: ellipsis;\r\n  margin-bottom: -4px;\n}\n.btn-group-justified .dropdown-menu[data-v-e514dbc6] { width: 100%;\n}\r\n", "", {"version":3,"sources":["/./src/Select.vue?33e02656"],"names":[],"mappings":";AAkQA;EACA,aAAA;EACA,oBAAA;CACA;AACA;EACA,aAAA;EACA,mBAAA;EACA,YAAA;EACA,SAAA;EACA,iBAAA;EACA,uBAAA;EACA,yBAAA;EACA,oCAAA;EACA,mCAAA;CACA;AACA;EACA,mBAAA;EACA,gBAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;;EAEA,WAAA;EACA,iCAAA;EACA,0EAAA;CACA;AACA;EACA,UAAA;EACA,oBAAA;EACA,YAAA;EACA,aAAA;EACA,iBAAA;EACA,WAAA;EACA,mBAAA;EACA,WAAA;CACA;AACA,wDAAA,iBAAA;CAAA;AACA,+BAAA,mBAAA;CAAA;AACA;;EAEA,mBAAA;EACA,WAAA;EACA,aAAA;EACA,iBAAA;EACA,iBAAA;EACA,oBAAA;EACA,0BAAA;EACA,4CAAA;EACA,qBAAA;CACA;AACA;EACA,SAAA;EACA,WAAA;CACA;AACA;EACA,YAAA;EACA,YAAA;CACA;AACA;EACA,yBAAA;EACA,sBAAA;EACA,iBAAA;EACA,oBAAA;EACA,wBAAA;EACA,oBAAA;CACA;AACA,uDAAA,YAAA;CAAA","file":"Select.vue","sourcesContent":["<template>\r\n  <div ref=\"select\" :class=\"classes\" v-click-outside=\"close\">\r\n    <div ref=\"btn\" class=\"form-control dropdown-toggle\" tabindex=\"1\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\"\r\n      @blur=\"canSearch ? null : close()\"\r\n      @click=\"toggle()\"\r\n      @keydown.esc.stop.prevent=\"close\"\r\n      @keydown.space.stop.prevent=\"toggle\"\r\n      @keydown.enter.stop.prevent=\"toggle\"\r\n    >\r\n      <span class=\"btn-content\" v-html=\"loading ? text.loading : showPlaceholder || selected\"></span>\r\n      <span v-if=\"clearButton&&values.length\" class=\"close\" @click=\"clear()\">&times;</span>\r\n    </div>\r\n    <select ref=\"sel\" v-model=\"val\" :name=\"name\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" :disabled=\"disabled\">\r\n      <option v-if=\"required\" value=\"\"></option>\r\n      <option v-for=\"option in list\" :value=\"option[optionsValue]\">{{ option[optionsLabel] }}</option>\r\n    </select>\r\n    <ul class=\"dropdown-menu\">\r\n      <template v-if=\"list.length\">\r\n        <li v-if=\"canSearch\" class=\"bs-searchbox\">\r\n          <input type=\"text\" :placeholder=\"searchText||text.search\" class=\"form-control\" autocomplete=\"off\" ref=\"search\"\r\n            v-model=\"searchValue\"\r\n            @keyup.esc=\"close\"\r\n          />\r\n          <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\">&times;</span>\r\n        </li>\r\n        <li v-if=\"required&&!clearButton\"><a @mousedown.prevent=\"clear() && close()\">{{ placeholder || text.notSelected }}</a></li>\r\n        <li v-for=\"option in filteredOptions\" :id=\"option[optionsValue]\">\r\n          <a @mousedown.prevent=\"select(option[optionsValue])\">\r\n            <span v-html=\"option[optionsLabel]\"></span>\r\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option[optionsValue])\"></span>\r\n          </a>\r\n        </li>\r\n      </template>\r\n      <slot></slot>\r\n      <transition v-if=\"notify && !closeOnSelect\" name=\"fadein\"><div class=\"notify in\">{{limitText}}</div></transition>\r\n    </ul>\r\n    <transition v-if=\"notify && closeOnSelect\" name=\"fadein\"><div class=\"notify out\"><div>{{limitText}}</div></div></transition>\r\n    <!-- <pre>Options: {{list}}</pre> -->\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {translations} from './utils/utils.js'\r\nimport ClickOutside from './directives/ClickOutside.js'\r\n\r\nvar timeout = {}\r\nexport default {\r\n  directives: {\r\n    ClickOutside\r\n  },\r\n  props: {\r\n    clearButton: {type: Boolean, default: false},\r\n    closeOnSelect: {type: Boolean, default: false},\r\n    disabled: {type: Boolean, default: false},\r\n    lang: {type: String, default: navigator.language},\r\n    limit: {type: Number, default: 1024},\r\n    minSearch: {type: Number, default: 0},\r\n    multiple: {type: Boolean, default: false},\r\n    name: {type: String, default: null},\r\n    options: {type: Array, default () { return [] }},\r\n    optionsLabel: {type: String, default: 'label'},\r\n    optionsValue: {type: String, default: 'value'},\r\n    parent: {default: true},\r\n    placeholder: {type: String, default: null},\r\n    readonly: {type: Boolean, default: null},\r\n    required: {type: Boolean, default: null},\r\n    search: {type: Boolean, default: false},\r\n    searchText: {type: String, default: null},\r\n    url: {type: String, default: null},\r\n    value: null\r\n  },\r\n  data () {\r\n    return {\r\n      list: [],\r\n      loading: null,\r\n      searchValue: null,\r\n      show: false,\r\n      notify: false,\r\n      val: null,\r\n      valid: null\r\n    }\r\n  },\r\n  computed: {\r\n    canSearch () { return this.minSearch ? this.list.length >= this.minSearch : this.search },\r\n    classes () { return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'] },\r\n    filteredOptions () {\r\n      var search = (this.searchValue || '').toLowerCase()\r\n      return !search ? this.list : this.list.filter(el => {\r\n        return ~el[this.optionsLabel].toLowerCase().search(search)\r\n      })\r\n    },\r\n    hasParent () { return this.parent instanceof Array ? this.parent.length : this.parent },\r\n    inInput () { return this.$parent._input },\r\n    isLi () { return this.$parent._navbar || this.$parent.menu || this.$parent._tabset },\r\n    limitText () { return this.text.limit.replace('{{limit}}', this.limit) },\r\n    selected () {\r\n      if (this.list.length === 0) { return '' }\r\n      var sel = this.values.map(val => (this.list.find(o => o[this.optionsValue] === val) || {})[this.optionsLabel]).filter(val => val !== undefined)\r\n      this.$emit('selected', sel)\r\n      return sel.join(', ')\r\n    },\r\n    showPlaceholder () { return (this.values.length === 0 || !this.hasParent) ? (this.placeholder || this.text.notSelected) : null },\r\n    text () { return translations(this.lang) },\r\n    values () { return this.val instanceof Array ? this.val : ~[null, undefined].indexOf(this.val) ? [] : [this.val] },\r\n    valOptions () { return this.list.map(el => el[this.optionsValue]) }\r\n  },\r\n  watch: {\r\n    options (options) {\r\n      if (options instanceof Array) this.setOptions(options)\r\n    },\r\n    show (val) {\r\n      if (val) {\r\n        this.$refs.search ? this.$refs.search.focus() : this.$refs.btn.focus()\r\n        // onBlur(this.$refs.select, e => { this.show = false })\r\n      } else {\r\n        // offBlur(this.$refs.select)\r\n      }\r\n    },\r\n    url () {\r\n      this.urlChanged()\r\n    },\r\n    valid (val, old) {\r\n      this.$emit('isvalid', val)\r\n      this.$emit(!val ? 'invalid' : 'valid')\r\n      if (val !== old && this._parent) this._parent.validate()\r\n    },\r\n    value (val, old) {\r\n      if (val !== old) { this.val = val }\r\n    },\r\n    val (val, old) {\r\n      if (val === undefined) { this.val = val = null }\r\n      if (val !== old) {\r\n        this.$emit('change', val)\r\n        this.$emit('input', val)\r\n      }\r\n      if (val instanceof Array && val.length > this.limit) {\r\n        this.val = val.slice(0, this.limit)\r\n        this.notify = true\r\n        if (timeout.limit) clearTimeout(timeout.limit)\r\n        timeout.limit = setTimeout(() => {\r\n          timeout.limit = false\r\n          this.notify = false\r\n        }, 1500)\r\n      }\r\n      this.valid = this.validate()\r\n    }\r\n  },\r\n  methods: {\r\n    close () {\r\n      this.show = false\r\n    },\r\n    checkData () {\r\n      if (this.multiple) {\r\n        if (this.limit < 1) { this.limit = 1 }\r\n        if (!(this.val instanceof Array)) {\r\n          this.val = (this.val === null || this.val === undefined) ? [] : [this.val]\r\n        }\r\n        var values = this.valOptions\r\n        this.val = this.val.filter(el => ~values.indexOf(el))\r\n        if (this.values.length > this.limit) {\r\n          this.val = this.val.slice(0, this.limit)\r\n        }\r\n      } else {\r\n        if (!~this.valOptions.indexOf(this.val)) { this.val = null }\r\n      }\r\n    },\r\n    clear () {\r\n      if (this.disabled || this.readonly) { return }\r\n      this.val = this.val instanceof Array ? [] : null\r\n      this.toggle()\r\n    },\r\n    clearSearch () {\r\n      this.searchValue = ''\r\n      this.$refs.search.focus()\r\n    },\r\n    isSelected (v) {\r\n      return this.values.indexOf(v) > -1\r\n    },\r\n    select (v) {\r\n      if (this.val instanceof Array) {\r\n        if (~this.val.indexOf(v)) {\r\n          var index = this.val.indexOf(v)\r\n          this.val.splice(index, 1)\r\n        } else {\r\n          this.val.push(v)\r\n        }\r\n        if (this.closeOnSelect) {\r\n          this.toggle()\r\n        }\r\n      } else {\r\n        this.val = v\r\n        this.toggle()\r\n      }\r\n    },\r\n    setOptions (options) {\r\n      this.list = options.map(el => {\r\n        if (el instanceof Object) { return el }\r\n        let obj = {}\r\n        obj[this.optionsLabel] = el\r\n        obj[this.optionsValue] = el\r\n        return obj\r\n      })\r\n      this.$emit('options', this.list)\r\n    },\r\n    toggle () {\r\n      this.show = !this.show\r\n      if (!this.show) this.$refs.btn.focus()\r\n    },\r\n    urlChanged () {\r\n      if (!this.url || !this.$http) { return }\r\n      this.loading = true\r\n      this.$http.get(this.url).then(response => {\r\n        var data = response.data instanceof Array ? response.data : []\r\n        try { data = JSON.parse(data) } catch (e) {}\r\n        this.setOptions(data)\r\n        this.loading = false\r\n        this.checkData()\r\n      }, response => {\r\n        this.loading = false\r\n      })\r\n    },\r\n    validate () {\r\n      return !this.required ? true : this.val instanceof Array ? this.val.length > 0 : this.val !== null\r\n    }\r\n  },\r\n  created () {\r\n    this.setOptions(this.options)\r\n    this.val = this.value\r\n    this._select = true\r\n    if (this.val === undefined || !this.parent) { this.val = null }\r\n    if (!this.multiple && this.val instanceof Array) {\r\n      this.val = this.val[0]\r\n    }\r\n    this.checkData()\r\n    if (this.url) this.urlChanged()\r\n    let parent = this.$parent\r\n    while (parent && !parent._formValidator) { parent = parent.$parent }\r\n    if (parent && parent._formValidator) {\r\n      parent.children.push(this)\r\n      this._parent = parent\r\n    }\r\n  },\r\n  mounted () {\r\n    if (this._parent) this._parent.children.push(this)\r\n    this.setOptions(this.options)\r\n    this.val = this.value\r\n    this.checkData()\r\n  },\r\n  beforeDestroy () {\r\n    if (this._parent) {\r\n      var index = this._parent.children.indexOf(this)\r\n      this._parent.children.splice(index, 1)\r\n    }\r\n  }\r\n}\r\n</script>\r\n\r\n<style scoped>\r\n.form-control.dropdown-toggle{\r\n  height: auto;\r\n  padding-right: 24px;\r\n}\r\n.form-control.dropdown-toggle:after{\r\n  content: ' ';\r\n  position: absolute;\r\n  right: 13px;\r\n  top: 50%;\r\n  margin: -1px 0 0;\r\n  border-top: 4px dashed;\r\n  border-top: 4px solid \\9;\r\n  border-right: 4px solid transparent;\r\n  border-left: 4px solid transparent;\r\n}\r\n.bs-searchbox {\r\n  position: relative;\r\n  margin: 4px 8px;\r\n}\r\n.bs-searchbox .close {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.bs-searchbox input:focus,\r\n.form-control.dropdown-toggle:focus {\r\n  outline: 0;\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\n.secret {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}\r\n.form-control.dropdown-toggle>.close { margin-left: 5px;}\r\n.notify.out { position: relative; }\r\n.notify.in,\r\n.notify>div {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.notify>div {\r\n  top: 5px;\r\n  z-index: 1;\r\n}\r\n.notify.in {\r\n  opacity: .9;\r\n  bottom: 5px;\r\n}\r\n.btn-group-justified .dropdown-toggle>span:not(.close) {\r\n  width: calc(100% - 18px);\r\n  display: inline-block;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  text-overflow: ellipsis;\r\n  margin-bottom: -4px;\r\n}\r\n.btn-group-justified .dropdown-menu { width: 100%; }\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.form-control.dropdown-toggle[data-v-e514dbc6]{\r\n  height: auto;\r\n  padding-right: 24px;\n}\n.form-control.dropdown-toggle[data-v-e514dbc6]:after{\r\n  content: ' ';\r\n  position: absolute;\r\n  right: 13px;\r\n  top: 50%;\r\n  margin: -1px 0 0;\r\n  border-top: 4px dashed;\r\n  border-top: 4px solid \\9;\r\n  border-right: 4px solid transparent;\r\n  border-left: 4px solid transparent;\n}\n.bs-searchbox[data-v-e514dbc6] {\r\n  position: relative;\r\n  margin: 4px 8px;\n}\n.bs-searchbox .close[data-v-e514dbc6] {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\n}\n.bs-searchbox input[data-v-e514dbc6]:focus,\r\n.form-control.dropdown-toggle[data-v-e514dbc6]:focus {\r\n  outline: 0;\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\n}\n.secret[data-v-e514dbc6] {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\n}\n.form-control.dropdown-toggle>.close[data-v-e514dbc6] { margin-left: 5px;\n}\n.notify.out[data-v-e514dbc6] { position: relative;\n}\n.notify.in[data-v-e514dbc6],\r\n.notify>div[data-v-e514dbc6] {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\n}\n.notify>div[data-v-e514dbc6] {\r\n  top: 5px;\r\n  z-index: 1;\n}\n.notify.in[data-v-e514dbc6] {\r\n  opacity: .9;\r\n  bottom: 5px;\n}\n.btn-group-justified .dropdown-toggle>span[data-v-e514dbc6]:not(.close) {\r\n  width: calc(100% - 18px);\r\n  display: inline-block;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  text-overflow: ellipsis;\r\n  margin-bottom: -4px;\n}\n.btn-group-justified .dropdown-menu[data-v-e514dbc6] { width: 100%;\n}\r\n", "", {"version":3,"sources":["/./src/Select.vue?3ed5a422"],"names":[],"mappings":";AAmQA;EACA,aAAA;EACA,oBAAA;CACA;AACA;EACA,aAAA;EACA,mBAAA;EACA,YAAA;EACA,SAAA;EACA,iBAAA;EACA,uBAAA;EACA,yBAAA;EACA,oCAAA;EACA,mCAAA;CACA;AACA;EACA,mBAAA;EACA,gBAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;;EAEA,WAAA;EACA,iCAAA;EACA,0EAAA;CACA;AACA;EACA,UAAA;EACA,oBAAA;EACA,YAAA;EACA,aAAA;EACA,iBAAA;EACA,WAAA;EACA,mBAAA;EACA,WAAA;CACA;AACA,wDAAA,iBAAA;CAAA;AACA,+BAAA,mBAAA;CAAA;AACA;;EAEA,mBAAA;EACA,WAAA;EACA,aAAA;EACA,iBAAA;EACA,iBAAA;EACA,oBAAA;EACA,0BAAA;EACA,4CAAA;EACA,qBAAA;CACA;AACA;EACA,SAAA;EACA,WAAA;CACA;AACA;EACA,YAAA;EACA,YAAA;CACA;AACA;EACA,yBAAA;EACA,sBAAA;EACA,iBAAA;EACA,oBAAA;EACA,wBAAA;EACA,oBAAA;CACA;AACA,uDAAA,YAAA;CAAA","file":"Select.vue","sourcesContent":["<template>\r\n  <div ref=\"select\" :class=\"classes\" v-click-outside=\"close\">\r\n    <div ref=\"btn\" class=\"form-control dropdown-toggle\" tabindex=\"1\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\"\r\n      @blur=\"canSearch ? null : close()\"\r\n      @click=\"toggle()\"\r\n      @keydown.esc.stop.prevent=\"close\"\r\n      @keydown.space.stop.prevent=\"toggle\"\r\n      @keydown.enter.stop.prevent=\"toggle\"\r\n    >\r\n      <span class=\"btn-content\" v-html=\"loading ? text.loading : showPlaceholder || selected\"></span>\r\n      <span v-if=\"clearButton&&values.length\" class=\"close\" @click=\"clear()\">&times;</span>\r\n    </div>\r\n    <select ref=\"sel\" v-model=\"val\" :name=\"name\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" :disabled=\"disabled\">\r\n      <option v-if=\"required\" value=\"\"></option>\r\n      <option v-for=\"option in list\" :value=\"option[optionsValue]\">{{ option[optionsLabel] }}</option>\r\n    </select>\r\n    <ul class=\"dropdown-menu\">\r\n      <template v-if=\"list.length\">\r\n        <li v-if=\"canSearch\" class=\"bs-searchbox\">\r\n          <input type=\"text\" :placeholder=\"searchText||text.search\" class=\"form-control\" autocomplete=\"off\" ref=\"search\"\r\n            v-model=\"searchValue\"\r\n            @keyup.esc=\"close\"\r\n          />\r\n          <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\">&times;</span>\r\n        </li>\r\n        <li v-if=\"required&&!clearButton\"><a @mousedown.prevent=\"clear() && close()\">{{ placeholder || text.notSelected }}</a></li>\r\n        <li v-for=\"option in filteredOptions\" :id=\"option[optionsValue]\">\r\n          <a @mousedown.prevent=\"select(option[optionsValue])\">\r\n            <span v-html=\"option[optionsLabel]\"></span>\r\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option[optionsValue])\"></span>\r\n          </a>\r\n        </li>\r\n      </template>\r\n      <slot></slot>\r\n      <transition v-if=\"notify && !closeOnSelect\" name=\"fadein\"><div class=\"notify in\">{{limitText}}</div></transition>\r\n    </ul>\r\n    <transition v-if=\"notify && closeOnSelect\" name=\"fadein\"><div class=\"notify out\"><div>{{limitText}}</div></div></transition>\r\n    <!-- <pre>Options: {{list}}</pre> -->\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {translations} from './utils/utils.js'\r\nimport ClickOutside from './directives/ClickOutside.js'\r\n\r\nvar timeout = {}\r\nexport default {\r\n  directives: {\r\n    ClickOutside\r\n  },\r\n  props: {\r\n    clearButton: {type: Boolean, default: false},\r\n    closeOnSelect: {type: Boolean, default: false},\r\n    disabled: {type: Boolean, default: false},\r\n    lang: {type: String, default: navigator.language},\r\n    limit: {type: Number, default: 1024},\r\n    minSearch: {type: Number, default: 0},\r\n    multiple: {type: Boolean, default: false},\r\n    name: {type: String, default: null},\r\n    options: {type: Array, default () { return [] }},\r\n    optionsLabel: {type: String, default: 'label'},\r\n    optionsValue: {type: String, default: 'value'},\r\n    parent: {default: true},\r\n    placeholder: {type: String, default: null},\r\n    readonly: {type: Boolean, default: null},\r\n    required: {type: Boolean, default: null},\r\n    search: {type: Boolean, default: false},\r\n    searchText: {type: String, default: null},\r\n    url: {type: String, default: null},\r\n    value: null\r\n  },\r\n  data () {\r\n    return {\r\n      list: [],\r\n      loading: null,\r\n      searchValue: null,\r\n      show: false,\r\n      notify: false,\r\n      val: null,\r\n      valid: null\r\n    }\r\n  },\r\n  computed: {\r\n    canSearch () { return this.minSearch ? this.list.length >= this.minSearch : this.search },\r\n    classes () { return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'] },\r\n    filteredOptions () {\r\n      var search = (this.searchValue || '').toLowerCase()\r\n      return !search ? this.list : this.list.filter(el => {\r\n        return ~el[this.optionsLabel].toLowerCase().search(search)\r\n      })\r\n    },\r\n    hasParent () { return this.parent instanceof Array ? this.parent.length : this.parent },\r\n    inInput () { return this.$parent._input },\r\n    isLi () { return this.$parent._navbar || this.$parent.menu || this.$parent._tabset },\r\n    limitText () { return this.text.limit.replace('{{limit}}', this.limit) },\r\n    selected () {\r\n      if (this.list.length === 0) { return '' }\r\n      var sel = this.values.map(val => (this.list.find(o => o[this.optionsValue] === val) || {})[this.optionsLabel]).filter(val => val !== undefined)\r\n      this.$emit('selected', sel)\r\n      return sel.join(', ')\r\n    },\r\n    showPlaceholder () { return (this.values.length === 0 || !this.hasParent) ? (this.placeholder || this.text.notSelected) : null },\r\n    text () { return translations(this.lang) },\r\n    values () { return this.val instanceof Array ? this.val : ~[null, undefined].indexOf(this.val) ? [] : [this.val] },\r\n    valOptions () { return this.list.map(el => el[this.optionsValue]) }\r\n  },\r\n  watch: {\r\n    options (options) {\r\n      if (options instanceof Array) this.setOptions(options)\r\n    },\r\n    show (val) {\r\n      if (val) {\r\n        this.$refs.search ? this.$refs.search.focus() : this.$refs.btn.focus()\r\n        // onBlur(this.$refs.select, e => { this.show = false })\r\n      } else {\r\n        // offBlur(this.$refs.select)\r\n      }\r\n    },\r\n    url () {\r\n      this.urlChanged()\r\n    },\r\n    valid (val, old) {\r\n      this.$emit('isvalid', val)\r\n      this.$emit(!val ? 'invalid' : 'valid')\r\n      if (val !== old && this._parent) this._parent.validate()\r\n    },\r\n    value (val, old) {\r\n      if (val !== old) { this.val = val }\r\n    },\r\n    val (val, old) {\r\n      if (val === undefined) { this.val = val = null }\r\n      if (val !== old) {\r\n        this.$emit('change', val)\r\n        this.$emit('input', val)\r\n      }\r\n      if (val instanceof Array && val.length > this.limit) {\r\n        this.val = val.slice(0, this.limit)\r\n        this.notify = true\r\n        if (timeout.limit) clearTimeout(timeout.limit)\r\n        timeout.limit = setTimeout(() => {\r\n          timeout.limit = false\r\n          this.notify = false\r\n        }, 1500)\r\n      }\r\n      this.valid = this.validate()\r\n    }\r\n  },\r\n  methods: {\r\n    close () {\r\n      this.show = false\r\n    },\r\n    checkData () {\r\n      if (this.multiple) {\r\n        if (this.limit < 1) { this.limit = 1 }\r\n        if (!(this.val instanceof Array)) {\r\n          this.val = (this.val === null || this.val === undefined) ? [] : [this.val]\r\n        }\r\n        var values = this.valOptions\r\n        this.val = this.val.filter(el => ~values.indexOf(el))\r\n        if (this.values.length > this.limit) {\r\n          this.val = this.val.slice(0, this.limit)\r\n        }\r\n      } else {\r\n        if (!~this.valOptions.indexOf(this.val)) { this.val = null }\r\n      }\r\n    },\r\n    clear () {\r\n      if (this.disabled || this.readonly) { return }\r\n      this.val = this.val instanceof Array ? [] : null\r\n      this.toggle()\r\n    },\r\n    clearSearch () {\r\n      this.searchValue = ''\r\n      this.$refs.search.focus()\r\n    },\r\n    isSelected (v) {\r\n      return this.values.indexOf(v) > -1\r\n    },\r\n    select (v) {\r\n      if (this.val instanceof Array) {\r\n        var newVal = this.val.slice(0)\r\n        if (~newVal.indexOf(v)) {\r\n          newVal.splice(newVal.indexOf(v), 1)\r\n        } else {\r\n          newVal.push(v)\r\n        }\r\n        this.val = newVal\r\n        if (this.closeOnSelect) {\r\n          this.toggle()\r\n        }\r\n      } else {\r\n        this.val = v\r\n        this.toggle()\r\n      }\r\n    },\r\n    setOptions (options) {\r\n      this.list = options.map(el => {\r\n        if (el instanceof Object) { return el }\r\n        let obj = {}\r\n        obj[this.optionsLabel] = el\r\n        obj[this.optionsValue] = el\r\n        return obj\r\n      })\r\n      this.$emit('options', this.list)\r\n    },\r\n    toggle () {\r\n      this.show = !this.show\r\n      if (!this.show) this.$refs.btn.focus()\r\n    },\r\n    urlChanged () {\r\n      if (!this.url || !this.$http) { return }\r\n      this.loading = true\r\n      this.$http.get(this.url).then(response => {\r\n        var data = response.data instanceof Array ? response.data : []\r\n        try { data = JSON.parse(data) } catch (e) {}\r\n        this.setOptions(data)\r\n        this.loading = false\r\n        this.checkData()\r\n      }, response => {\r\n        this.loading = false\r\n      })\r\n    },\r\n    validate () {\r\n      return !this.required ? true : this.val instanceof Array ? this.val.length > 0 : this.val !== null\r\n    }\r\n  },\r\n  created () {\r\n    this.setOptions(this.options)\r\n    this.val = this.value\r\n    this._select = true\r\n    if (this.val === undefined || !this.parent) { this.val = null }\r\n    if (!this.multiple && this.val instanceof Array) {\r\n      this.val = this.val[0]\r\n    }\r\n    this.checkData()\r\n    if (this.url) this.urlChanged()\r\n    let parent = this.$parent\r\n    while (parent && !parent._formValidator) { parent = parent.$parent }\r\n    if (parent && parent._formValidator) {\r\n      parent.children.push(this)\r\n      this._parent = parent\r\n    }\r\n  },\r\n  mounted () {\r\n    if (this._parent) this._parent.children.push(this)\r\n    this.setOptions(this.options)\r\n    this.val = this.value\r\n    this.checkData()\r\n  },\r\n  beforeDestroy () {\r\n    if (this._parent) {\r\n      var index = this._parent.children.indexOf(this)\r\n      this._parent.children.splice(index, 1)\r\n    }\r\n  }\r\n}\r\n</script>\r\n\r\n<style scoped>\r\n.form-control.dropdown-toggle{\r\n  height: auto;\r\n  padding-right: 24px;\r\n}\r\n.form-control.dropdown-toggle:after{\r\n  content: ' ';\r\n  position: absolute;\r\n  right: 13px;\r\n  top: 50%;\r\n  margin: -1px 0 0;\r\n  border-top: 4px dashed;\r\n  border-top: 4px solid \\9;\r\n  border-right: 4px solid transparent;\r\n  border-left: 4px solid transparent;\r\n}\r\n.bs-searchbox {\r\n  position: relative;\r\n  margin: 4px 8px;\r\n}\r\n.bs-searchbox .close {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.bs-searchbox input:focus,\r\n.form-control.dropdown-toggle:focus {\r\n  outline: 0;\r\n  border-color: #66afe9 !important;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\r\n}\r\n.secret {\r\n  border: 0;\r\n  clip: rect(0 0 0 0);\r\n  height: 1px;\r\n  margin: -1px;\r\n  overflow: hidden;\r\n  padding: 0;\r\n  position: absolute;\r\n  width: 1px;\r\n}\r\n.form-control.dropdown-toggle>.close { margin-left: 5px;}\r\n.notify.out { position: relative; }\r\n.notify.in,\r\n.notify>div {\r\n  position: absolute;\r\n  width: 96%;\r\n  margin: 0 2%;\r\n  min-height: 26px;\r\n  padding: 3px 5px;\r\n  background: #f5f5f5;\r\n  border: 1px solid #e3e3e3;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\r\n  pointer-events: none;\r\n}\r\n.notify>div {\r\n  top: 5px;\r\n  z-index: 1;\r\n}\r\n.notify.in {\r\n  opacity: .9;\r\n  bottom: 5px;\r\n}\r\n.btn-group-justified .dropdown-toggle>span:not(.close) {\r\n  width: calc(100% - 18px);\r\n  display: inline-block;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  text-overflow: ellipsis;\r\n  margin-bottom: -4px;\r\n}\r\n.btn-group-justified .dropdown-menu { width: 100%; }\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -1889,12 +1889,13 @@
 	    },
 	    select: function select(v) {
 	      if (this.val instanceof Array) {
-	        if (~this.val.indexOf(v)) {
-	          var index = this.val.indexOf(v);
-	          this.val.splice(index, 1);
+	        var newVal = this.val.slice(0);
+	        if (~newVal.indexOf(v)) {
+	          newVal.splice(newVal.indexOf(v), 1);
 	        } else {
-	          this.val.push(v);
+	          newVal.push(v);
 	        }
+	        this.val = newVal;
 	        if (this.closeOnSelect) {
 	          this.toggle();
 	        }
@@ -2219,7 +2220,7 @@
 	
 	function removeListener(node, callback) {
 	  binded = binded.filter(function (el) {
-	    return el.node !== node ? true : !callback ? false : el.node.callback !== callback;
+	    return el.node !== node ? true : !callback ? false : el.callback !== callback;
 	  });
 	  if (!binded.length) document.removeEventListener('click', handler, false);
 	}
@@ -2242,7 +2243,7 @@
 	    }
 	  },
 	  unbind: function unbind(el, binding) {
-	    removeEventListener(el, binding.value);
+	    removeListener(el, binding.value);
 	  }
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31)))
@@ -2527,7 +2528,7 @@
 	        "value": option[_vm.optionsValue]
 	      }
 	    }, [_vm._v(_vm._s(option[_vm.optionsLabel]))])
-	  })], true), _vm._v(" "), _vm._c('ul', {
+	  })], 2), _vm._v(" "), _vm._c('ul', {
 	    staticClass: "dropdown-menu"
 	  }, [(_vm.list.length) ? [(_vm.canSearch) ? _vm._c('li', {
 	    staticClass: "bs-searchbox"
@@ -2607,13 +2608,13 @@
 	    }
 	  }, [_vm._c('div', {
 	    staticClass: "notify in"
-	  }, [_vm._v(_vm._s(_vm.limitText))])]) : _vm._e()], true), _vm._v(" "), (_vm.notify && _vm.closeOnSelect) ? _vm._c('transition', {
+	  }, [_vm._v(_vm._s(_vm.limitText))])]) : _vm._e()], 2), _vm._v(" "), (_vm.notify && _vm.closeOnSelect) ? _vm._c('transition', {
 	    attrs: {
 	      "name": "fadein"
 	    }
 	  }, [_vm._c('div', {
 	    staticClass: "notify out"
-	  }, [_vm._c('div', [_vm._v(_vm._s(_vm.limitText))])])]) : _vm._e(), _vm._v(" ")])
+	  }, [_vm._c('div', [_vm._v(_vm._s(_vm.limitText))])])]) : _vm._e()], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -2672,7 +2673,7 @@
 	        _vm.selected = $event
 	      }
 	    }
-	  })]), _vm._v(" "), _vm._c('p', [_vm._c('v-select', {
+	  })], 1), _vm._v(" "), _vm._c('p', [_vm._c('v-select', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -2692,7 +2693,7 @@
 	        _vm.first = $event
 	      }
 	    }
-	  })]), _vm._v(" "), _vm._c('accordion', {
+	  })], 1), _vm._v(" "), _vm._c('accordion', {
 	    attrs: {
 	      "one-at-atime": _vm.checked,
 	      "type": _vm.selected
@@ -2716,7 +2717,7 @@
 	    attrs: {
 	      "header": "Panel #4"
 	    }
-	  }, [_vm._v("\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n      ")])])]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._v("\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n      ")])], 1)], 1), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
@@ -2724,7 +2725,7 @@
 	    attrs: {
 	      "name": "Panel"
 	    }
-	  }, [_vm._c('div', [_vm._c('p', [_vm._v("header")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("The clickable text on the group's header. You need one to be able to click on the header for toggling.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("is-open")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether accordion group is open or closed.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("type")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Define the type of color for the tab (single).")])])]), _vm._v(" "), _vm._c('p', [_vm._v("If you want to personalice your header with some html you can use the slot instead of header attribute (panel #1 in the example).")])])
+	  }, [_vm._c('div', [_vm._c('p', [_vm._v("header")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("The clickable text on the group's header. You need one to be able to click on the header for toggling.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("is-open")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether accordion group is open or closed.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("type")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Define the type of color for the tab (single).")])])]), _vm._v(" "), _vm._c('p', [_vm._v("If you want to personalice your header with some html you can use the slot instead of header attribute (panel #1 in the example).")])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -4880,7 +4881,7 @@
 	    domProps: {
 	      "innerHTML": _vm._s(_vm.content)
 	    }
-	  })])], true)]) : _vm._e()])], true)
+	  })])], 2)]) : _vm._e()])], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -4912,11 +4913,11 @@
 	    }
 	  }, [_vm._c('span', {
 	    staticClass: "glyphicon glyphicon-hand-right pull-right animated shake hidden-xs hidden-sm"
-	  })])])]), _vm._v(" "), _vm._c('doc-code', {
+	  })])], 1)]), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, [_vm._v("\n    <affix offset=\"50\">\n      <ul>\n        <li>...</li>\n        <li>...</li>\n        <li>...</li>\n      </ul>\n      <a href=\"#\">...</a>\n    </affix>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("offset")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("0")])]), _vm._v(" "), _vm._c('p', [_vm._v("Pixels to offset from top of screen when calculating position of scroll.")])])])])
+	  }, [_vm._v("\n    <affix offset=\"50\">\n      <ul>\n        <li>...</li>\n        <li>...</li>\n        <li>...</li>\n      </ul>\n      <a href=\"#\">...</a>\n    </affix>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("offset")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("0")])]), _vm._v(" "), _vm._c('p', [_vm._v("Pixels to offset from top of screen when calculating position of scroll.")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -5332,7 +5333,7 @@
 	    style: ({
 	      marginTop: _vm.top
 	    })
-	  }, [_vm._t("default")], true)])
+	  }, [_vm._t("default")], 2)])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -5813,7 +5814,7 @@
 	        _vm.val = false
 	      }
 	    }
-	  }, [_vm._c('span', [_vm._v("×")])]), _vm._v(" "), _vm._t("default")], true)])
+	  }, [_vm._c('span', [_vm._v("×")])]), _vm._v(" "), _vm._t("default")], 2)])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -5914,11 +5915,11 @@
 	      "type": "warning",
 	      "dismissable": ""
 	    }
-	  }, [_vm._c('strong', [_vm._v("Warning!")]), _vm._v(" Better check yourself, you're not looking too good.\n    ")])]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._c('strong', [_vm._v("Warning!")]), _vm._v(" Better check yourself, you're not looking too good.\n    ")])], 1), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, [_vm._v("\n    <alert type=\"success/info/danger/warning\">\n      ...\n    </alert>\n\n    <alert v-model=\"showRight\" placement=\"top-right\" duration=\"3000\" type=\"success\" width=\"400px\" dismissable>\n      <span class=\"icon-ok-circled alert-icon-float-left\"></span>\n      <strong>Well Done!</strong>\n      <p>You successfully read this important alert message.</p>\n    </alert>\n\n    <alert v-models=\"showTop\" placement=\"top\" duration=\"3000\" type=\"danger\" width=\"400px\" dismissable>\n      <span class=\"icon-info-circled alert-icon-float-left\"></span>\n      <strong>Heads up!</strong>\n      <p>This alert needs your attention.</p>\n    </alert>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether show the component")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("dismissable")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether show close button")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("type")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of\n      "), _vm._c('code', [_vm._v("success")]), _vm._v(" "), _vm._c('code', [_vm._v("info")]), _vm._v(" "), _vm._c('code', [_vm._v("warning")]), _vm._v(" "), _vm._c('code', [_vm._v("danger")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("success")])]), _vm._v(" "), _vm._c('p', [_vm._v("Components styles")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("duration")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("0")])]), _vm._v(" "), _vm._c('p', [_vm._v("Auto close duration. Set "), _vm._c('code', [_vm._v("0")]), _vm._v(" or a negative number will NOT be auto-close.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("width")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("placement")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(". one of "), _vm._c('code', [_vm._v("top")]), _vm._v(", "), _vm._c('code', [_vm._v("top-right")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("how to position the component.")])])])])
+	  }, [_vm._v("\n    <alert type=\"success/info/danger/warning\">\n      ...\n    </alert>\n\n    <alert v-model=\"showRight\" placement=\"top-right\" duration=\"3000\" type=\"success\" width=\"400px\" dismissable>\n      <span class=\"icon-ok-circled alert-icon-float-left\"></span>\n      <strong>Well Done!</strong>\n      <p>You successfully read this important alert message.</p>\n    </alert>\n\n    <alert v-models=\"showTop\" placement=\"top\" duration=\"3000\" type=\"danger\" width=\"400px\" dismissable>\n      <span class=\"icon-info-circled alert-icon-float-left\"></span>\n      <strong>Heads up!</strong>\n      <p>This alert needs your attention.</p>\n    </alert>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether show the component")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("dismissable")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether show close button")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("type")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of\n      "), _vm._c('code', [_vm._v("success")]), _vm._v(" "), _vm._c('code', [_vm._v("info")]), _vm._v(" "), _vm._c('code', [_vm._v("warning")]), _vm._v(" "), _vm._c('code', [_vm._v("danger")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("success")])]), _vm._v(" "), _vm._c('p', [_vm._v("Components styles")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("duration")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("0")])]), _vm._v(" "), _vm._c('p', [_vm._v("Auto close duration. Set "), _vm._c('code', [_vm._v("0")]), _vm._v(" or a negative number will NOT be auto-close.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("width")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("placement")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(". one of "), _vm._c('code', [_vm._v("top")]), _vm._v(", "), _vm._c('code', [_vm._v("top-right")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("how to position the component.")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -6173,7 +6174,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.aside-open {\r\n  transition: transform 0.3s;\n}\n.aside-open.has-push-right {\r\n  transform: translateX(-300px);\n}\n.aside {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    z-index: 1049;\r\n    overflow: auto;\r\n    background: #fff;\n}\n.aside.left {\r\n  left: 0;\r\n  right: auto;\n}\n.aside.right {\r\n  left: auto;\r\n  right: 0;\n}\n.slideleft-enter-active {\r\n  animation:slideleft-in .3s;\n}\n.slideleft-leave-active {\r\n  animation:slideleft-out .3s;\n}\n@keyframes slideleft-in {\n0% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\n}\n100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n}\n@keyframes slideleft-out {\n0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n100% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\n}\n}\n.slideright-enter-active {\r\n  animation:slideright-in .3s;\n}\n.slideright-leave-active {\r\n  animation:slideright-out .3s;\n}\n@keyframes slideright-in {\n0% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\n}\n100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n}\n@keyframes slideright-out {\n0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n100% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\n}\n}\n.aside:focus {\r\n    outline: 0\n}\n@media (max-width: 991px) {\n.aside {\r\n    min-width:240px\n}\n}\n.aside .aside-dialog .aside-header {\r\n  border-bottom: 1px solid #e5e5e5;\r\n  min-height: 16.43px;\r\n  padding: 6px 15px;\r\n  background: #337ab7;\r\n  color: #fff\n}\n.aside .aside-dialog .aside-header .close {\r\n  margin-right: -8px;\r\n  padding: 4px 8px;\r\n  color: #fff;\r\n  font-size: 25px;\r\n  opacity: .8\n}\n.aside .aside-dialog .aside-body {\r\n  position: relative;\r\n  padding: 15px\n}\n.aside .aside-dialog .aside-footer {\r\n  padding: 15px;\r\n  text-align: right;\r\n  border-top: 1px solid #e5e5e5\n}\n.aside .aside-dialog .aside-footer .btn+.btn {\r\n  margin-left: 5px;\r\n  margin-bottom: 0\n}\n.aside .aside-dialog .aside-footer .btn-group .btn+.btn {\r\n  margin-left: -1px\n}\n.aside .aside-dialog .aside-footer .btn-block+.btn-block {\r\n  margin-left: 0\n}\n.aside-backdrop {\r\n  position: fixed;\r\n  top: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 1040;\r\n  opacity: 0;\r\n  transition: opacity .3s ease;\r\n  background-color: #000\n}\n.aside-backdrop.in {\r\n  opacity: .5;\r\n  filter: alpha(opacity=50)\n}\r\n", "", {"version":3,"sources":["/./src/Aside.vue?bfece130"],"names":[],"mappings":";AAsFA;EACA,2BAAA;CACA;AACA;EACA,8BAAA;CACA;AACA;IACA,gBAAA;IACA,OAAA;IACA,UAAA;IACA,cAAA;IACA,eAAA;IACA,iBAAA;CACA;AACA;EACA,QAAA;EACA,YAAA;CACA;AACA;EACA,WAAA;EACA,SAAA;CACA;AACA;EACA,2BAAA;CACA;AACA;EACA,4BAAA;CACA;AACA;AACA;IACA,6BAAA;IACA,WAAA;CACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;CACA;AACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;AACA;IACA,6BAAA;IACA,WAAA;CACA;CACA;AACA;EACA,4BAAA;CACA;AACA;EACA,6BAAA;CACA;AACA;AACA;IACA,4BAAA;IACA,WAAA;CACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;CACA;AACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;AACA;IACA,4BAAA;IACA,WAAA;CACA;CACA;AACA;IACA,UAAA;CACA;AACA;AACA;IACA,eAAA;CACA;CACA;AACA;EACA,iCAAA;EACA,oBAAA;EACA,kBAAA;EACA,oBAAA;EACA,WAAA;CACA;AACA;EACA,mBAAA;EACA,iBAAA;EACA,YAAA;EACA,gBAAA;EACA,WAAA;CACA;AACA;EACA,mBAAA;EACA,aAAA;CACA;AACA;EACA,cAAA;EACA,kBAAA;EACA,6BAAA;CACA;AACA;EACA,iBAAA;EACA,gBAAA;CACA;AACA;EACA,iBAAA;CACA;AACA;EACA,cAAA;CACA;AACA;EACA,gBAAA;EACA,OAAA;EACA,SAAA;EACA,UAAA;EACA,QAAA;EACA,cAAA;EACA,WAAA;EACA,6BAAA;EACA,sBAAA;CACA;AACA;EACA,YAAA;EACA,yBAAA;CACA","file":"Aside.vue","sourcesContent":["<template>\r\n  <transition :name=\"'slide' + placement\">\r\n    <div class=\"aside\" v-if=\"show\" :style=\"{width:width+'px'}\" :class=\"placement\">\r\n      <div class=\"aside-dialog\">\r\n        <div class=\"aside-content\">\r\n          <div class=\"aside-header\">\r\n            <button type=\"button\" class=\"close\" @click='trigger_close'><span>&times;</span></button>\r\n            <h4 class=\"aside-title\"><slot name=\"header\">{{ header }}</slot></h4>\r\n          </div>\r\n          <div class=\"aside-body\"><slot></slot></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </transition>\r\n</template>\r\n\r\n<script>\r\nimport {getScrollBarWidth} from './utils/utils.js'\r\nimport $ from './utils/NodeList.js'\r\n// let coerce = {\r\n//   value: 'boolean',\r\n//   width: 'number'\r\n// }\r\n\r\nexport default {\r\n  props: {\r\n    header: {type: String},\r\n    placement: {type: String, default: 'right'},\r\n    show: {type: Boolean, required: true},\r\n    width: {type: Number, default: 320}\r\n  },\r\n  watch: {\r\n    show (val, old) {\r\n      this.$emit('input', val)\r\n      this.$emit(this.show ? 'open' : 'close')\r\n      const body = document.body\r\n      const scrollBarWidth = getScrollBarWidth()\r\n      if (val) {\r\n        if (!this._backdrop) {\r\n          this._backdrop = document.createElement('div')\r\n        }\r\n        this._backdrop.className = 'aside-backdrop'\r\n        body.appendChild(this._backdrop)\r\n        body.classList.add('modal-open')\r\n        if (scrollBarWidth !== 0) {\r\n          body.style.paddingRight = scrollBarWidth + 'px'\r\n        }\r\n        // request property that requires layout to force a layout\r\n        var x = this._backdrop.clientHeight\r\n        this._backdrop.classList.add('in')\r\n        $(this._backdrop).on('click', () => this.trigger_close())\r\n      } else {\r\n        $(this._backdrop).on('transitionend', () => {\r\n          $(this._backdrop).off()\r\n          try {\r\n            body.classList.remove('modal-open')\r\n            body.style.paddingRight = '0'\r\n            body.removeChild(this._backdrop)\r\n            this._backdrop = null\r\n          } catch (e) {}\r\n        })\r\n        this._backdrop.className = 'aside-backdrop'\r\n      }\r\n    }\r\n  },\r\n  methods: {\r\n    trigger () {\r\n      return {\r\n        close: () => this.trigger_close(),\r\n        open: () => this.trigger_open()\r\n      }\r\n    },\r\n    trigger_close () {\r\n      this.$emit( 'close' )\r\n    },\r\n    trigger_open() {\r\n      this.$emit( 'open' )\r\n    }\r\n  },\r\n  mounted () {\r\n    this.$emit('trigger', () => this.trigger)\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.aside-open {\r\n  transition: transform 0.3s;\r\n}\r\n.aside-open.has-push-right {\r\n  transform: translateX(-300px);\r\n}\r\n.aside {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    z-index: 1049;\r\n    overflow: auto;\r\n    background: #fff;\r\n}\r\n.aside.left {\r\n  left: 0;\r\n  right: auto;\r\n}\r\n.aside.right {\r\n  left: auto;\r\n  right: 0;\r\n}\r\n.slideleft-enter-active {\r\n  animation:slideleft-in .3s;\r\n}\r\n.slideleft-leave-active {\r\n  animation:slideleft-out .3s;\r\n}\r\n@keyframes slideleft-in {\r\n  0% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes slideleft-out {\r\n  0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\r\n  }\r\n}\r\n.slideright-enter-active {\r\n  animation:slideright-in .3s;\r\n}\r\n.slideright-leave-active {\r\n  animation:slideright-out .3s;\r\n}\r\n@keyframes slideright-in {\r\n  0% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes slideright-out {\r\n  0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\r\n  }\r\n}\r\n.aside:focus {\r\n    outline: 0\r\n}\r\n@media (max-width: 991px) {\r\n  .aside {\r\n    min-width:240px\r\n  }\r\n}\r\n.aside .aside-dialog .aside-header {\r\n  border-bottom: 1px solid #e5e5e5;\r\n  min-height: 16.43px;\r\n  padding: 6px 15px;\r\n  background: #337ab7;\r\n  color: #fff\r\n}\r\n.aside .aside-dialog .aside-header .close {\r\n  margin-right: -8px;\r\n  padding: 4px 8px;\r\n  color: #fff;\r\n  font-size: 25px;\r\n  opacity: .8\r\n}\r\n.aside .aside-dialog .aside-body {\r\n  position: relative;\r\n  padding: 15px\r\n}\r\n.aside .aside-dialog .aside-footer {\r\n  padding: 15px;\r\n  text-align: right;\r\n  border-top: 1px solid #e5e5e5\r\n}\r\n.aside .aside-dialog .aside-footer .btn+.btn {\r\n  margin-left: 5px;\r\n  margin-bottom: 0\r\n}\r\n.aside .aside-dialog .aside-footer .btn-group .btn+.btn {\r\n  margin-left: -1px\r\n}\r\n.aside .aside-dialog .aside-footer .btn-block+.btn-block {\r\n  margin-left: 0\r\n}\r\n.aside-backdrop {\r\n  position: fixed;\r\n  top: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 1040;\r\n  opacity: 0;\r\n  transition: opacity .3s ease;\r\n  background-color: #000\r\n}\r\n.aside-backdrop.in {\r\n  opacity: .5;\r\n  filter: alpha(opacity=50)\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.aside-open {\r\n  transition: transform 0.3s;\n}\n.aside-open.has-push-right {\r\n  transform: translateX(-300px);\n}\n.aside {\r\n  position: fixed;\r\n  top: 0;\r\n  bottom: 0;\r\n  z-index: 1049;\r\n  overflow: auto;\r\n  background: #fff;\n}\n.aside.left {\r\n  left: 0;\r\n  right: auto;\n}\n.aside.right {\r\n  left: auto;\r\n  right: 0;\n}\n.slideleft-enter {\r\n  transform:translateX(-100%);\n}\n.slideleft-enter-active {\r\n  animation:slideleft-in .3s;\n}\n.slideleft-leave-active {\r\n  animation:slideleft-out .3s;\n}\n@keyframes slideleft-in {\n0% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\n}\n100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n}\n@keyframes slideleft-out {\n0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n100% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\n}\n}\n.slideright-enter-active {\r\n  animation:slideright-in .3s;\n}\n.slideright-leave-active {\r\n  animation:slideright-out .3s;\n}\n@keyframes slideright-in {\n0% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\n}\n100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n}\n@keyframes slideright-out {\n0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\n}\n100% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\n}\n}\n.aside:focus {\r\n    outline: 0;\n}\n@media (max-width: 991px) {\n.aside {\r\n    min-width: 240px;\n}\n}\n.aside .aside-dialog .aside-header {\r\n  border-bottom: 1px solid #e5e5e5;\r\n  min-height: 16.43px;\r\n  padding: 6px 15px;\r\n  background: #337ab7;\r\n  color: #fff;\n}\n.aside .aside-dialog .aside-header .close {\r\n  margin-right: -8px;\r\n  padding: 4px 8px;\r\n  color: #fff;\r\n  font-size: 25px;\r\n  opacity: .8;\n}\n.aside .aside-dialog .aside-body {\r\n  position: relative;\r\n  padding: 15px;\n}\n.aside .aside-dialog .aside-footer {\r\n  padding: 15px;\r\n  text-align: right;\r\n  border-top: 1px solid #e5e5e5;\n}\n.aside .aside-dialog .aside-footer .btn+.btn {\r\n  margin-left: 5px;\r\n  margin-bottom: 0;\n}\n.aside .aside-dialog .aside-footer .btn-group .btn+.btn {\r\n  margin-left: -1px;\n}\n.aside .aside-dialog .aside-footer .btn-block+.btn-block {\r\n  margin-left: 0;\n}\n.aside-backdrop {\r\n  position: fixed;\r\n  top: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 1040;\r\n  opacity: 0;\r\n  transition: opacity .3s ease;\r\n  background-color: #000;\n}\n.aside-backdrop.in {\r\n  opacity: .5;\r\n  filter: alpha(opacity=50);\n}\r\n", "", {"version":3,"sources":["/./src/Aside.vue?5739621f"],"names":[],"mappings":";AAkFA;EACA,2BAAA;CACA;AACA;EACA,8BAAA;CACA;AACA;EACA,gBAAA;EACA,OAAA;EACA,UAAA;EACA,cAAA;EACA,eAAA;EACA,iBAAA;CACA;AACA;EACA,QAAA;EACA,YAAA;CACA;AACA;EACA,WAAA;EACA,SAAA;CACA;AACA;EACA,4BAAA;CACA;AACA;EACA,2BAAA;CACA;AACA;EACA,4BAAA;CACA;AACA;AACA;IACA,6BAAA;IACA,WAAA;CACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;CACA;AACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;AACA;IACA,6BAAA;IACA,WAAA;CACA;CACA;AACA;EACA,4BAAA;CACA;AACA;EACA,6BAAA;CACA;AACA;AACA;IACA,4BAAA;IACA,WAAA;CACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;CACA;AACA;AACA;IACA,yBAAA;IACA,WAAA;CACA;AACA;IACA,4BAAA;IACA,WAAA;CACA;CACA;AACA;IACA,WAAA;CACA;AACA;AACA;IACA,iBAAA;CACA;CACA;AACA;EACA,iCAAA;EACA,oBAAA;EACA,kBAAA;EACA,oBAAA;EACA,YAAA;CACA;AACA;EACA,mBAAA;EACA,iBAAA;EACA,YAAA;EACA,gBAAA;EACA,YAAA;CACA;AACA;EACA,mBAAA;EACA,cAAA;CACA;AACA;EACA,cAAA;EACA,kBAAA;EACA,8BAAA;CACA;AACA;EACA,iBAAA;EACA,iBAAA;CACA;AACA;EACA,kBAAA;CACA;AACA;EACA,eAAA;CACA;AACA;EACA,gBAAA;EACA,OAAA;EACA,SAAA;EACA,UAAA;EACA,QAAA;EACA,cAAA;EACA,WAAA;EACA,6BAAA;EACA,uBAAA;CACA;AACA;EACA,YAAA;EACA,0BAAA;CACA","file":"Aside.vue","sourcesContent":["<template>\r\n  <transition :name=\"'slide' + placement\">\r\n    <div class=\"aside\" v-if=\"show\" :style=\"{width:width+'px'}\" :class=\"placement\">\r\n      <div class=\"aside-dialog\">\r\n        <div class=\"aside-content\">\r\n          <div class=\"aside-header\">\r\n            <button type=\"button\" class=\"close\" @click='trigger_close'><span>&times;</span></button>\r\n            <h4 class=\"aside-title\"><slot name=\"header\">{{ header }}</slot></h4>\r\n          </div>\r\n          <div class=\"aside-body\"><slot></slot></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </transition>\r\n</template>\r\n\r\n<script>\r\nimport {getScrollBarWidth} from './utils/utils.js'\r\nimport $ from './utils/NodeList.js'\r\n\r\nexport default {\r\n  props: {\r\n    header: {type: String},\r\n    placement: {type: String, default: 'right'},\r\n    show: {type: Boolean, required: true},\r\n    width: {type: Number, default: 320}\r\n  },\r\n  watch: {\r\n    show (val, old) {\r\n      this.$emit('input', val)\r\n      this.$emit(this.show ? 'open' : 'close')\r\n      const body = document.body\r\n      const scrollBarWidth = getScrollBarWidth()\r\n      if (val) {\r\n        if (!this._backdrop) {\r\n          this._backdrop = document.createElement('div')\r\n        }\r\n        this._backdrop.className = 'aside-backdrop'\r\n        body.appendChild(this._backdrop)\r\n        body.classList.add('modal-open')\r\n        if (scrollBarWidth !== 0) {\r\n          body.style.paddingRight = scrollBarWidth + 'px'\r\n        }\r\n        // request property that requires layout to force a layout\r\n        var x = this._backdrop.clientHeight\r\n        this._backdrop.classList.add('in')\r\n        $(this._backdrop).on('click', () => this.trigger_close())\r\n      } else {\r\n        $(this._backdrop).on('transitionend', () => {\r\n          $(this._backdrop).off()\r\n          try {\r\n            body.classList.remove('modal-open')\r\n            body.style.paddingRight = '0'\r\n            body.removeChild(this._backdrop)\r\n            this._backdrop = null\r\n          } catch (e) {}\r\n        })\r\n        this._backdrop.className = 'aside-backdrop'\r\n      }\r\n    }\r\n  },\r\n  methods: {\r\n    trigger () {\r\n      return {\r\n        close: () => this.trigger_close(),\r\n        open: () => this.trigger_open()\r\n      }\r\n    },\r\n    trigger_close () {\r\n      this.$emit( 'close' )\r\n    },\r\n    trigger_open() {\r\n      this.$emit( 'open' )\r\n    }\r\n  },\r\n  mounted () {\r\n    this.$emit('trigger', () => this.trigger)\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.aside-open {\r\n  transition: transform 0.3s;\r\n}\r\n.aside-open.has-push-right {\r\n  transform: translateX(-300px);\r\n}\r\n.aside {\r\n  position: fixed;\r\n  top: 0;\r\n  bottom: 0;\r\n  z-index: 1049;\r\n  overflow: auto;\r\n  background: #fff;\r\n}\r\n.aside.left {\r\n  left: 0;\r\n  right: auto;\r\n}\r\n.aside.right {\r\n  left: auto;\r\n  right: 0;\r\n}\r\n.slideleft-enter {\r\n  transform:translateX(-100%);\r\n}\r\n.slideleft-enter-active {\r\n  animation:slideleft-in .3s;\r\n}\r\n.slideleft-leave-active {\r\n  animation:slideleft-out .3s;\r\n}\r\n@keyframes slideleft-in {\r\n  0% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes slideleft-out {\r\n  0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    transform: translateX(-100%);\r\n    opacity: 0;\r\n  }\r\n}\r\n.slideright-enter-active {\r\n  animation:slideright-in .3s;\r\n}\r\n.slideright-leave-active {\r\n  animation:slideright-out .3s;\r\n}\r\n@keyframes slideright-in {\r\n  0% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n}\r\n@keyframes slideright-out {\r\n  0% {\r\n    transform: translateX(0);\r\n    opacity: 1;\r\n  }\r\n  100% {\r\n    transform: translateX(100%);\r\n    opacity: 0;\r\n  }\r\n}\r\n.aside:focus {\r\n    outline: 0;\r\n}\r\n@media (max-width: 991px) {\r\n  .aside {\r\n    min-width: 240px;\r\n  }\r\n}\r\n.aside .aside-dialog .aside-header {\r\n  border-bottom: 1px solid #e5e5e5;\r\n  min-height: 16.43px;\r\n  padding: 6px 15px;\r\n  background: #337ab7;\r\n  color: #fff;\r\n}\r\n.aside .aside-dialog .aside-header .close {\r\n  margin-right: -8px;\r\n  padding: 4px 8px;\r\n  color: #fff;\r\n  font-size: 25px;\r\n  opacity: .8;\r\n}\r\n.aside .aside-dialog .aside-body {\r\n  position: relative;\r\n  padding: 15px;\r\n}\r\n.aside .aside-dialog .aside-footer {\r\n  padding: 15px;\r\n  text-align: right;\r\n  border-top: 1px solid #e5e5e5;\r\n}\r\n.aside .aside-dialog .aside-footer .btn+.btn {\r\n  margin-left: 5px;\r\n  margin-bottom: 0;\r\n}\r\n.aside .aside-dialog .aside-footer .btn-group .btn+.btn {\r\n  margin-left: -1px;\r\n}\r\n.aside .aside-dialog .aside-footer .btn-block+.btn-block {\r\n  margin-left: 0;\r\n}\r\n.aside-backdrop {\r\n  position: fixed;\r\n  top: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 1040;\r\n  opacity: 0;\r\n  transition: opacity .3s ease;\r\n  background-color: #000;\r\n}\r\n.aside-backdrop.in {\r\n  opacity: .5;\r\n  filter: alpha(opacity=50);\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -6195,11 +6196,6 @@
 	var _NodeList2 = _interopRequireDefault(_NodeList);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// let coerce = {
-	//   value: 'boolean',
-	//   width: 'number'
-	// }
 	
 	//
 	//
@@ -6323,9 +6319,9 @@
 	    }
 	  }, [_vm._c('span', [_vm._v("×")])]), _vm._v(" "), _vm._c('h4', {
 	    staticClass: "aside-title"
-	  }, [_vm._t("header", [_vm._v(_vm._s(_vm.header))])], true)]), _vm._v(" "), _vm._c('div', {
+	  }, [_vm._t("header", [_vm._v(_vm._s(_vm.header))])], 2)]), _vm._v(" "), _vm._c('div', {
 	    staticClass: "aside-body"
-	  }, [_vm._t("default")], true)])])]) : _vm._e()])
+	  }, [_vm._t("default")], 2)])])]) : _vm._e()])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -6388,7 +6384,7 @@
 	        _vm.showLeft = false
 	      }
 	    }
-	  }, [_vm._v("Close")])])]), _vm._v(" "), _vm._c('sidebar', {
+	  }, [_vm._v("Close")])])], 1), _vm._v(" "), _vm._c('sidebar', {
 	    attrs: {
 	      "show": _vm.showRight,
 	      "placement": "right",
@@ -6416,11 +6412,11 @@
 	        _vm.showRight = false
 	      }
 	    }
-	  }, [_vm._v("Close")])])])]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._v("Close")])])], 1)], 1), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, [_vm._v("\n    <sidebar v-model=\"showRight\" placement=\"right\" header=\"Title\" width=\"350\">\n      ...\n    </sidebar>\n    <sidebar v-model=\"showLeft\" placement=\"left\" header=\"Title\" width=\"350\">\n      ...\n    </sidebar>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Whether show the component.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("placement")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("left")]), _vm._v(", "), _vm._c('code', [_vm._v("right")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("right")])]), _vm._v(" "), _vm._c('p', [_vm._v("how to position the component.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("header")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Header text of the aside component.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("width")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p')])])])
+	  }, [_vm._v("\n    <sidebar v-model=\"showRight\" placement=\"right\" header=\"Title\" width=\"350\">\n      ...\n    </sidebar>\n    <sidebar v-model=\"showLeft\" placement=\"left\" header=\"Title\" width=\"350\">\n      ...\n    </sidebar>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Whether show the component.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("placement")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("left")]), _vm._v(", "), _vm._c('code', [_vm._v("right")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("right")])]), _vm._v(" "), _vm._c('p', [_vm._v("how to position the component.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("header")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Header text of the aside component.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("width")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p')])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -6714,7 +6710,7 @@
 	    attrs: {
 	      "data-toggle": _vm.buttons && 'buttons'
 	    }
-	  }, [_vm._t("default")], true)
+	  }, [_vm._t("default")], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -6977,7 +6973,7 @@
 	      "checked": _vm._q(_vm.check, _vm.checkedValue)
 	    },
 	    on: {
-	      "change": function($event) {
+	      "click": function($event) {
 	        _vm.check = _vm.checkedValue
 	      }
 	    }
@@ -7003,7 +6999,7 @@
 	      "checked": _vm._q(_vm.check, _vm.checkedValue)
 	    },
 	    on: {
-	      "change": function($event) {
+	      "click": function($event) {
 	        _vm.check = _vm.checkedValue
 	      }
 	    }
@@ -7014,7 +7010,7 @@
 	    }]
 	  }), _vm._v(" "), (_vm.active && _vm.typeColor === 'default') ? _vm._c('span', {
 	    staticClass: "icon"
-	  }) : _vm._e(), _vm._v(" "), _vm._t("default")], true), _vm._v(" ")], true)
+	  }) : _vm._e(), _vm._v(" "), _vm._t("default")], 2)], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -7062,7 +7058,7 @@
 	    attrs: {
 	      "true-value": "right"
 	    }
-	  }, [_vm._v("Right")])]), _vm._v(" "), _vm._c('p', [_vm._c('pre', [_vm._v("Checkbox value: " + _vm._s(_vm.checkboxValue))])]), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('h4', [_vm._v("Radio")]), _vm._v(" "), _vm._c('p', [_vm._c('button-group', {
+	  }, [_vm._v("Right")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('pre', [_vm._v("Checkbox value: " + _vm._s(_vm.checkboxValue))])]), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('h4', [_vm._v("Radio")]), _vm._v(" "), _vm._c('p', [_vm._c('button-group', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -7092,7 +7088,7 @@
 	    attrs: {
 	      "true-value": "right"
 	    }
-	  }, [_vm._v("Right")])])]), _vm._v(" "), _vm._c('p', [_vm._c('button-group', {
+	  }, [_vm._v("Right")])], 1)], 1), _vm._v(" "), _vm._c('p', [_vm._c('button-group', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -7122,7 +7118,7 @@
 	    attrs: {
 	      "true-value": "right"
 	    }
-	  }, [_vm._v("Right")])])]), _vm._v(" "), _vm._c('p', [_vm._c('label', [_vm._v("Not buttons:")]), _vm._v(" "), _vm._c('button-group', {
+	  }, [_vm._v("Right")])], 1)], 1), _vm._v(" "), _vm._c('p', [_vm._c('label', [_vm._v("Not buttons:")]), _vm._v(" "), _vm._c('button-group', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -7153,11 +7149,11 @@
 	    attrs: {
 	      "true-value": "right"
 	    }
-	  }, [_vm._v("Right")])])]), _vm._v(" "), _vm._c('p', [_vm._c('pre', [_vm._v("Radio value: " + _vm._s(_vm.radioValue))])])]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._v("Right")])], 1)], 1), _vm._v(" "), _vm._c('p', [_vm._c('pre', [_vm._v("Radio value: " + _vm._s(_vm.radioValue))])])], 1), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, [_vm._v("\n    <button-group v-model=\"checkboxValue\">\n      <checkbox value=\"left\">Left</checkbox>\n      <checkbox value=\"middle\">Middle</checkbox>\n      <checkbox value=\"right\">Right</checkbox>\n    </button-group>\n\n    <button-group v-model=\"radioValue\" type=\"primary\">\n      <radio value=\"left\">Left</radio>\n      <radio value=\"middle\">Middle</radio>\n      <radio value=\"right\">Right</radio>\n    </button-group>\n\n    Not Buttons:\n    <button-group v-model=\"radioValue\" type=\"info\" buttons=\"false\">\n      <radio value=\"left\">Left</radio>\n      <radio value=\"middle\">Middle</radio>\n      <radio value=\"right\">Right</radio>\n    </button-group>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Array")]), _vm._v(" or "), _vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("If defined, then the defined values will be checked otherwise the elements with a checked attribute\n      will be checked.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("buttons")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p'), _vm._c('p', [_vm._v("Can enable/disable button style.")]), _vm._v(" "), _vm._c('p', [_vm._v("Group normal checks if you want to set the same type color for all.")]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("type")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("default")]), _vm._v(" "), _vm._c('code', [_vm._v("primary")]), _vm._v(" "), _vm._c('code', [_vm._v("danger")]), _vm._v(" "), _vm._c('code', [_vm._v("info")]), _vm._v(" "), _vm._c('code', [_vm._v("warning")]), _vm._v(" "), _vm._c('code', [_vm._v("success")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("default")])]), _vm._v(" "), _vm._c('p')])])])
+	  }, [_vm._v("\n    <button-group v-model=\"checkboxValue\">\n      <checkbox value=\"left\">Left</checkbox>\n      <checkbox value=\"middle\">Middle</checkbox>\n      <checkbox value=\"right\">Right</checkbox>\n    </button-group>\n\n    <button-group v-model=\"radioValue\" type=\"primary\">\n      <radio value=\"left\">Left</radio>\n      <radio value=\"middle\">Middle</radio>\n      <radio value=\"right\">Right</radio>\n    </button-group>\n\n    Not Buttons:\n    <button-group v-model=\"radioValue\" type=\"info\" buttons=\"false\">\n      <radio value=\"left\">Left</radio>\n      <radio value=\"middle\">Middle</radio>\n      <radio value=\"right\">Right</radio>\n    </button-group>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Array")]), _vm._v(" or "), _vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("If defined, then the defined values will be checked otherwise the elements with a checked attribute\n      will be checked.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("buttons")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p'), _vm._c('p', [_vm._v("Can enable/disable button style.")]), _vm._v(" "), _vm._c('p', [_vm._v("Group normal checks if you want to set the same type color for all.")]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("type")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("default")]), _vm._v(" "), _vm._c('code', [_vm._v("primary")]), _vm._v(" "), _vm._c('code', [_vm._v("danger")]), _vm._v(" "), _vm._c('code', [_vm._v("info")]), _vm._v(" "), _vm._c('code', [_vm._v("warning")]), _vm._v(" "), _vm._c('code', [_vm._v("success")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("default")])]), _vm._v(" "), _vm._c('p')])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -7402,7 +7398,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.carousel-control[data-v-322dee41] {\r\n  cursor: pointer;\n}\r\n", "", {"version":3,"sources":["/./src/Carousel.vue?18a01e4d"],"names":[],"mappings":";AA4GA;EACA,gBAAA;CACA","file":"Carousel.vue","sourcesContent":["<template>\r\n<div class=\"carousel slide\" data-ride=\"carousel\">\r\n  <!-- Indicators -->\r\n  <ol class=\"carousel-indicators\" v-show=\"indicators\">\r\n    <li v-for=\"(indicator,i) in indicator_list\" @click=\"indicatorClick(i)\" :class=\"{active:i === index}\"><span></span></li>\r\n  </ol>\r\n  <!-- Wrapper for slides -->\r\n  <div class=\"carousel-inner\" role=\"listbox\">\r\n    <slot></slot>\r\n  </div>\r\n  <!-- Controls -->\r\n  <div v-show=\"controls\" class=\"carousel-controls hidden-xs\">\r\n    <a class=\"left carousel-control\" role=\"button\" @click=\"prev\">\r\n      <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\r\n    </a>\r\n    <a class=\"right carousel-control\" role=\"button\" @click=\"next\">\r\n      <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\r\n    </a>\r\n  </div>\r\n</div>\r\n</template>\r\n\r\n<script>\r\nimport $ from './utils/NodeList.js'\r\n// let coerce = {\r\n//   interval: 'number'\r\n// }\r\n\r\nexport default {\r\n  props: {\r\n    indicators: {\r\n      type: Boolean,\r\n      default: true\r\n    },\r\n    controls: {\r\n      type: Boolean,\r\n      default: true\r\n    },\r\n    interval: {\r\n      type: Number,\r\n      default: 5000\r\n    }\r\n  },\r\n  data () {\r\n    return {\r\n      indicator_list: [],\r\n      index: 0,\r\n      isAnimating: false\r\n    }\r\n  },\r\n  watch: {\r\n    index(newVal, oldVal) {\r\n      this.slide(newVal > oldVal ? 'left' : 'right', newVal, oldVal)\r\n    }\r\n  },\r\n  methods: {\r\n    indicatorClick(index) {\r\n      if (this.isAnimating || this.index === index) return false\r\n      this.isAnimating = true\r\n      this.index = index\r\n    },\r\n    slide (direction, next, prev) {\r\n      if (!this.$el) { return }\r\n      const $slider = $('.item', this.$el)\r\n      if (!$slider.length) { return }\r\n      const selected = $slider[next] || $slider[0]\r\n      $(selected).addClass(direction === 'left' ? 'next' : 'prev')\r\n      // request property that requires layout to force a layout\r\n      var x = selected.clientHeight\r\n      $([$slider[prev], selected]).addClass(direction).on('transitionend', () => {\r\n        $slider.off('transitionend').className = 'item'\r\n        $(selected).addClass('active')\r\n        this.isAnimating = false\r\n      })\r\n    },\r\n    next() {\r\n      if (!this.$el || this.isAnimating) { return false }\r\n      this.isAnimating = true\r\n      this.index + 1 < $('.item', this.$el).length ? this.index += 1 : this.index = 0\r\n    },\r\n    prev() {\r\n      if (!this.$el || this.isAnimating) { return false }\r\n      this.isAnimating = true\r\n      this.index === 0 ? this.index = $('.item', this.$el).length - 1 : this.index -= 1\r\n    },\r\n    toggleInterval (val) {\r\n      if (val === undefined) { val = this._intervalID }\r\n      if(this._intervalID) {\r\n        clearInterval(this._intervalID)\r\n        delete this._intervalID\r\n      }\r\n      if(val && this.interval > 0) {\r\n        this._intervalID = setInterval(this.next, this.interval)\r\n      }\r\n    }\r\n  },\r\n  mounted () {\r\n    this.toggleInterval(true)\r\n    $(this.$el).on('mouseenter', () => this.toggleInterval(false)).on('mouseleave', () => this.toggleInterval(true))\r\n  },\r\n  beforeDestroy () {\r\n    this.toggleInterval(false)\r\n    $(this.$el).off('mouseenter mouseleave')\r\n  }\r\n}\r\n</script>\r\n\r\n<style scoped>\r\n.carousel-control {\r\n  cursor: pointer;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.carousel-control[data-v-322dee41] {\r\n  cursor: pointer;\n}\r\n", "", {"version":3,"sources":["/./src/Carousel.vue?2f446342"],"names":[],"mappings":";AA4GA;EACA,gBAAA;CACA","file":"Carousel.vue","sourcesContent":["<template>\r\n<div class=\"carousel slide\" data-ride=\"carousel\">\r\n  <!-- Indicators -->\r\n  <ol class=\"carousel-indicators\" v-show=\"indicators\">\r\n    <li v-for=\"(indicator,i) in indicator_list\" @click=\"indicatorClick(i)\" :class=\"{active:i === index}\"><span></span></li>\r\n  </ol>\r\n  <!-- Wrapper for slides -->\r\n  <div class=\"carousel-inner\" role=\"listbox\">\r\n    <slot></slot>\r\n  </div>\r\n  <!-- Controls -->\r\n  <div v-show=\"controls\" class=\"carousel-controls hidden-xs\">\r\n    <a class=\"left carousel-control\" role=\"button\" @click=\"prev\">\r\n      <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\r\n    </a>\r\n    <a class=\"right carousel-control\" role=\"button\" @click=\"next\">\r\n      <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\r\n    </a>\r\n  </div>\r\n</div>\r\n</template>\r\n\r\n<script>\r\nimport $ from './utils/NodeList.js'\r\n// let coerce = {\r\n//   interval: 'number'\r\n// }\r\n\r\nexport default {\r\n  props: {\r\n    indicators: {\r\n      type: Boolean,\r\n      default: true\r\n    },\r\n    controls: {\r\n      type: Boolean,\r\n      default: true\r\n    },\r\n    interval: {\r\n      type: Number,\r\n      default: 5000\r\n    }\r\n  },\r\n  data () {\r\n    return {\r\n      indicator_list: [],\r\n      index: 0,\r\n      isAnimating: false\r\n    }\r\n  },\r\n  watch: {\r\n    index (newVal, oldVal) {\r\n      this.slide(newVal > oldVal ? 'left' : 'right', newVal, oldVal)\r\n    }\r\n  },\r\n  methods: {\r\n    indicatorClick (index) {\r\n      if (this.isAnimating || this.index === index) return false\r\n      this.isAnimating = true\r\n      this.index = index\r\n    },\r\n    slide (direction, next, prev) {\r\n      if (!this.$el) { return }\r\n      const $slider = $('.item', this.$el)\r\n      if (!$slider.length) { return }\r\n      const selected = $slider[next] || $slider[0]\r\n      $(selected).addClass(direction === 'left' ? 'next' : 'prev')\r\n      // request property that requires layout to force a layout\r\n      var x = selected.clientHeight\r\n      $([$slider[prev], selected]).addClass(direction).on('transitionend', () => {\r\n        $slider.off('transitionend').className = 'item'\r\n        $(selected).addClass('active')\r\n        this.isAnimating = false\r\n      })\r\n    },\r\n    next () {\r\n      if (!this.$el || this.isAnimating) { return false }\r\n      this.isAnimating = true\r\n      this.index + 1 < $('.item', this.$el).length ? this.index += 1 : this.index = 0\r\n    },\r\n    prev () {\r\n      if (!this.$el || this.isAnimating) { return false }\r\n      this.isAnimating = true\r\n      this.index === 0 ? this.index = $('.item', this.$el).length - 1 : this.index -= 1\r\n    },\r\n    toggleInterval (val) {\r\n      if (val === undefined) { val = this._intervalID }\r\n      if(this._intervalID) {\r\n        clearInterval(this._intervalID)\r\n        delete this._intervalID\r\n      }\r\n      if(val && this.interval > 0) {\r\n        this._intervalID = setInterval(this.next, this.interval)\r\n      }\r\n    }\r\n  },\r\n  mounted () {\r\n    this.toggleInterval(true)\r\n    $(this.$el).on('mouseenter', () => this.toggleInterval(false)).on('mouseleave', () => this.toggleInterval(true))\r\n  },\r\n  beforeDestroy () {\r\n    this.toggleInterval(false)\r\n    $(this.$el).off('mouseenter mouseleave')\r\n  }\r\n}\r\n</script>\r\n\r\n<style scoped>\r\n.carousel-control {\r\n  cursor: pointer;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -7574,12 +7570,12 @@
 	        }
 	      }
 	    }, [_vm._c('span')])
-	  })), _vm._v(" "), _vm._v(" "), _vm._c('div', {
+	  })), _vm._v(" "), _vm._c('div', {
 	    staticClass: "carousel-inner",
 	    attrs: {
 	      "role": "listbox"
 	    }
-	  }, [_vm._t("default")], true), _vm._v(" "), _vm._v(" "), _vm._c('div', {
+	  }, [_vm._t("default")], 2), _vm._v(" "), _vm._c('div', {
 	    directives: [{
 	      name: "show",
 	      rawName: "v-show",
@@ -7679,27 +7675,18 @@
 	//
 	
 	exports.default = {
-	  data: function data() {
-	    return {
-	      index: 0,
-	      show: false
-	    };
-	  },
-	
 	  computed: {
+	    index: function index() {
+	      return this.$parent.$children.indexOf(this);
+	    },
 	    show: function show() {
 	      return this.$parent.index === this.index;
 	    }
 	  },
 	  mounted: function mounted() {
-	    for (var c in this.$parent.$children) {
-	      if (this.$parent.$children[c] === this) {
-	        this.index = parseInt(c, 10);
-	        break;
-	      }
+	    if (this.$parent.indicator_list) {
+	      this.$parent.indicator_list.push(this.index);
 	    }
-	    //this.index = [...this.$el.parentNode.children].indexOf(this.$el)
-	    if (this.$parent.indicator) this.$parent.indicator.push(this.index);
 	
 	    if (this.index === 0) {
 	      this.$el.classList.add('active');
@@ -7714,7 +7701,7 @@
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
 	  return _vm._c('div', {
 	    staticClass: "item"
-	  }, [_vm._t("default")], true)
+	  }, [_vm._t("default")], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -7753,11 +7740,11 @@
 	    }
 	  }), _vm._v(" "), _vm._c('div', {
 	    staticClass: "carousel-caption"
-	  }, [_vm._c('h3', [_vm._v("Slide #3")]), _vm._v(" "), _vm._c('p', [_vm._v("sunt in culpa qui officia deserunt mollit a.")])])])])]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._c('h3', [_vm._v("Slide #3")]), _vm._v(" "), _vm._c('p', [_vm._v("sunt in culpa qui officia deserunt mollit a.")])])])], 1)], 1), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, [_vm._v("\n    <carousel>\n      <slider>\n        <img src=\"https://placehold.it/1200x400?text=one\">\n        <div class=\"carousel-caption\">\n          ...\n        </div>\n      </slider>\n      <slider>\n        <img src=\"https://placehold.it/1200x400?text=two\">\n      </slider>\n      <slider>\n        <img src=\"https://placehold.it/1200x400?text=three\">\n      </slider>\n    </carousel>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("indicators")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether to show the indicators.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("controls")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether to show the direction controls.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("interval")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("5000")])]), _vm._v(" "), _vm._c('p', [_vm._v("The amount of time to delay between automatically cycling an item. If set to 0 or a negative number,\n        carousel will not automatically cycle.\n      ")])])])])
+	  }, [_vm._v("\n    <carousel>\n      <slider>\n        <img src=\"https://placehold.it/1200x400?text=one\">\n        <div class=\"carousel-caption\">\n          ...\n        </div>\n      </slider>\n      <slider>\n        <img src=\"https://placehold.it/1200x400?text=two\">\n      </slider>\n      <slider>\n        <img src=\"https://placehold.it/1200x400?text=three\">\n      </slider>\n    </carousel>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("indicators")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether to show the indicators.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("controls")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether to show the direction controls.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("interval")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("5000")])]), _vm._v(" "), _vm._c('p', [_vm._v("The amount of time to delay between automatically cycling an item. If set to 0 or a negative number,\n        carousel will not automatically cycle.\n      ")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -8091,7 +8078,7 @@
 	        _vm.checkboxValue.four = $event
 	      }
 	    }
-	  }, [_vm._v("Four")]), _vm._v(" "), _vm._c('p', [_vm._c('pre', [_vm._v("Checkbox values: " + _vm._s(_vm.checkboxValue))])])]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._v("Four")]), _vm._v(" "), _vm._c('p', [_vm._c('pre', [_vm._v("Checkbox values: " + _vm._s(_vm.checkboxValue))])])], 1), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
@@ -8099,7 +8086,7 @@
 	    attrs: {
 	      "href": "#button-group"
 	    }
-	  }, [_vm._v("Button Group")]), _vm._v(" for more options.")])])
+	  }, [_vm._v("Button Group")]), _vm._v(" for more options.")])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -8377,7 +8364,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.datepicker {\r\n  position: relative;\r\n  display: inline-block;\n}\ninput.datepicker-input.with-reset-button {\r\n  padding-right: 25px;\n}\n.datepicker > button.close {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  outline: none;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\n}\n.datepicker > button.close:focus {\r\n  opacity: .2;\n}\n.datepicker-popup {\r\n  position: absolute;\r\n  border: 1px solid #ccc;\r\n  border-radius: 5px;\r\n  background: #fff;\r\n  margin-top: 2px;\r\n  z-index: 1000;\r\n  box-shadow: 0 6px 12px rgba(0,0,0,0.175);\n}\n.datepicker-inner {\r\n  width: 218px;\n}\n.datepicker-body {\r\n  padding: 10px 10px;\n}\n.datepicker-ctrl p,\r\n.datepicker-ctrl span,\r\n.datepicker-body span {\r\n  display: inline-block;\r\n  width: 28px;\r\n  line-height: 28px;\r\n  height: 28px;\r\n  border-radius: 4px;\n}\n.datepicker-ctrl p {\r\n  width: 65%;\n}\n.datepicker-ctrl span {\r\n  position: absolute;\n}\n.datepicker-body span {\r\n  text-align: center;\n}\n.datepicker-monthRange span {\r\n  width: 48px;\r\n  height: 50px;\r\n  line-height: 45px;\n}\n.datepicker-item-disable {\r\n  background-color: white!important;\r\n  cursor: not-allowed!important;\n}\n.decadeRange span:first-child,\r\n.decadeRange span:last-child,\r\n.datepicker-item-disable,\r\n.datepicker-item-gray {\r\n  color: #999;\n}\n.datepicker-dateRange-item-active:hover,\r\n.datepicker-dateRange-item-active {\r\n  background: rgb(50, 118, 177)!important;\r\n  color: white!important;\n}\n.datepicker-monthRange {\r\n  margin-top: 10px\n}\n.datepicker-monthRange span,\r\n.datepicker-ctrl span,\r\n.datepicker-ctrl p,\r\n.datepicker-dateRange span {\r\n  cursor: pointer;\n}\n.datepicker-monthRange span:hover,\r\n.datepicker-ctrl p:hover,\r\n.datepicker-ctrl i:hover,\r\n.datepicker-dateRange span:hover,\r\n.datepicker-dateRange-item-hover {\r\n  background-color : #eeeeee;\n}\n.datepicker-weekRange span {\r\n  font-weight: bold;\n}\n.datepicker-label {\r\n  background-color: #f8f8f8;\r\n  font-weight: 700;\r\n  padding: 7px 0;\r\n  text-align: center;\n}\n.datepicker-ctrl {\r\n  position: relative;\r\n  height: 30px;\r\n  line-height: 30px;\r\n  font-weight: bold;\r\n  text-align: center;\n}\n.month-btn {\r\n  font-weight: bold;\r\n  -webkit-user-select:none;\r\n  -moz-user-select:none;\r\n  -ms-user-select:none;\r\n  user-select:none;\n}\n.datepicker-preBtn {\r\n  left: 2px;\n}\n.datepicker-nextBtn {\r\n  right: 2px;\n}\r\n", "", {"version":3,"sources":["/./src/Datepicker.vue?72d78c02"],"names":[],"mappings":";AAsVA;EACA,mBAAA;EACA,sBAAA;CACA;AACA;EACA,oBAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,cAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,YAAA;CACA;AACA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,iBAAA;EACA,gBAAA;EACA,cAAA;EACA,yCAAA;CACA;AACA;EACA,aAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;;;EAGA,sBAAA;EACA,YAAA;EACA,kBAAA;EACA,aAAA;EACA,mBAAA;CACA;AACA;EACA,WAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;CACA;AACA;EACA,kCAAA;EACA,8BAAA;CACA;AACA;;;;EAIA,YAAA;CACA;AAEA;;EAEA,wCAAA;EACA,uBAAA;CACA;AACA;EACA,gBAAA;CACA;AACA;;;;EAIA,gBAAA;CACA;AACA;;;;;EAKA,2BAAA;CACA;AACA;EACA,kBAAA;CACA;AACA;EACA,0BAAA;EACA,iBAAA;EACA,eAAA;EACA,mBAAA;CACA;AACA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,kBAAA;EACA,yBAAA;EACA,sBAAA;EACA,qBAAA;EACA,iBAAA;CACA;AACA;EACA,UAAA;CACA;AACA;EACA,WAAA;CACA","file":"Datepicker.vue","sourcesContent":["<template>\r\n  <div class=\"datepicker\">\r\n    <input class=\"form-control datepicker-input\" :class=\"{'with-reset-button': clearButton}\" type=\"text\" :placeholder=\"placeholder\"\r\n        :style=\"{width:width}\"\r\n        :value=\"value\"\r\n        @click=\"inputClick\"\r\n        @input=\"$emit('input',$event.target.value)\" />\r\n    <button v-if=\"clearButton && value\" type=\"button\" class=\"close\" @click=\"$emit('input', '')\">\r\n      <span>&times;</span>\r\n    </button>\r\n    <div class=\"datepicker-popup\" v-show=\"displayDayView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(0)\"></span>\r\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(1)\"></span>\r\n            <p @click=\"switchMonthView\">{{stringifyDayHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-weekRange\">\r\n            <span v-for=\"w in text.daysOfWeek\">{{w}}</span>\r\n          </div>\r\n          <div class=\"datepicker-dateRange\">\r\n            <span v-for=\"d in dateRange\" :class=\"d.sclass\" @click=\"daySelect(d)\">{{d.text}}</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayMonthView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(0)\"></span>\r\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(1)\"></span>\r\n            <p @click=\"switchDecadeView\">{{stringifyYearHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange\">\r\n            <template v-for=\"(m, index) in text.months\">\r\n              <span   :class=\"{'datepicker-dateRange-item-active':\r\n                  (text.months[parse(value).getMonth()]  === m) &&\r\n                  currDate.getFullYear() === parse(value).getFullYear()}\"\r\n                  @click=\"monthSelect(index)\"\r\n                >{{m.substr(0,3)}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayYearView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(0)\"></span>\r\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(1)\"></span>\r\n            <p>{{stringifyDecadeHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange decadeRange\">\r\n            <template v-for=\"decade in decadeRange\">\r\n              <span :class=\"{'datepicker-dateRange-item-active':parse(this.value).getFullYear() === decade.text}\"\r\n                @click.stop=\"yearSelect(decade.text)\"\r\n              >{{decade.text}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {translations} from './utils/utils.js'\r\n// import $ from './utils/NodeList.js'\r\n\r\nexport default {\r\n  props: {\r\n    value: {type: String},\r\n    format: {default: 'MM/dd/yyyy'},\r\n    disabledDaysOfWeek: {type: Array, default () { return [] }},\r\n    width: {type: String/*, default: '200px'*/},\r\n    clearButton: {type: Boolean, default: false},\r\n    lang: {type: String, default: navigator.language},\r\n    placeholder: {type: String},\r\n    iconsFont: {type: String, default: 'glyphicon'}\r\n  },\r\n  data () {\r\n    return {\r\n      currDate: new Date(),\r\n      dateRange: [],\r\n      decadeRange: [],\r\n      displayDayView: false,\r\n      displayMonthView: false,\r\n      displayYearView: false,\r\n    }\r\n  },\r\n  watch: {\r\n    currDate () {\r\n      this.getDateRange()\r\n    },\r\n    format () {\r\n      this.$emit('input', this.stringify(this.currDate))\r\n    }\r\n  },\r\n  computed: {\r\n    text () {\r\n      return translations(this.lang)\r\n    },\r\n    preBtnClasses () {\r\n      return `datepicker-preBtn ${this.iconsFont} ${this.iconsFont}-chevron-left`\r\n    },\r\n    nextBtnClasses () {\r\n      return `datepicker-nextBtn ${this.iconsFont} ${this.iconsFont}-chevron-right`\r\n    },\r\n    disabledDaysArray () {\r\n      return this.disabledDaysOfWeek.map(d => parseInt(d, 10))\r\n    }\r\n  },\r\n  methods: {\r\n    close () {\r\n      this.displayDayView = this.displayMonthView = this.displayYearView = false\r\n    },\r\n    inputClick () {\r\n      this.currDate = this.parse(this.value) || this.parse(new Date())\r\n      if (this.displayMonthView || this.displayYearView) {\r\n        this.displayDayView = false\r\n      } else {\r\n        this.displayDayView = !this.displayDayView\r\n      }\r\n    },\r\n    preNextDecadeClick (flag) {\r\n      const year = this.currDate.getFullYear()\r\n      const months = this.currDate.getMonth()\r\n      const date = this.currDate.getDate()\r\n\r\n      if (flag === 0) {\r\n        this.currDate = new Date(year - 10, months, date)\r\n      } else {\r\n        this.currDate = new Date(year + 10, months, date)\r\n      }\r\n    },\r\n    preNextMonthClick (flag) {\r\n      const year = this.currDate.getFullYear()\r\n      const month = this.currDate.getMonth()\r\n      const date = this.currDate.getDate()\r\n\r\n      if (flag === 0) {\r\n        const preMonth = this.getYearMonth(year, month - 1)\r\n        this.currDate = new Date(preMonth.year, preMonth.month, date)\r\n      } else {\r\n        const nextMonth = this.getYearMonth(year, month + 1)\r\n        this.currDate = new Date(nextMonth.year, nextMonth.month, date)\r\n      }\r\n    },\r\n    preNextYearClick (flag) {\r\n      const year = this.currDate.getFullYear()\r\n      const months = this.currDate.getMonth()\r\n      const date = this.currDate.getDate()\r\n\r\n      if (flag === 0) {\r\n        this.currDate = new Date(year - 1, months, date)\r\n      } else {\r\n        this.currDate = new Date(year + 1, months, date)\r\n      }\r\n    },\r\n    yearSelect (year) {\r\n      this.displayYearView = false\r\n      this.displayMonthView = true\r\n      this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())\r\n    },\r\n    daySelect (day) {\r\n      if (day.sclass === 'datepicker-item-disable') {\r\n        return false\r\n      } else {\r\n        this.currDate = day.date\r\n        this.$emit('input', this.stringify(this.currDate))\r\n        this.displayDayView = false\r\n      }\r\n    },\r\n    switchMonthView () {\r\n      this.displayDayView = false\r\n      this.displayMonthView = true\r\n    },\r\n    switchDecadeView () {\r\n      this.displayMonthView = false\r\n      this.displayYearView = true\r\n    },\r\n    monthSelect (index) {\r\n      this.displayMonthView = false\r\n      this.displayDayView = true\r\n      this.currDate = new Date(this.currDate.getFullYear(), index, this.currDate.getDate())\r\n    },\r\n    getYearMonth (year, month) {\r\n      if (month > 11) {\r\n        year++\r\n        month = 0\r\n      } else if (month < 0) {\r\n        year--\r\n        month = 11\r\n      }\r\n      return {year: year, month: month}\r\n    },\r\n    stringifyDecadeHeader (date) {\r\n      const yearStr = date.getFullYear().toString()\r\n      const firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0\r\n      const lastYearOfDecade = parseInt(firstYearOfDecade, 10) + 10\r\n      return firstYearOfDecade + '-' + lastYearOfDecade\r\n    },\r\n    stringifyDayHeader (date) {\r\n      return this.text.months[date.getMonth()] + ' ' + date.getFullYear()\r\n    },\r\n    parseMonth (date) {\r\n      return this.text.months[date.getMonth()]\r\n    },\r\n    stringifyYearHeader (date) {\r\n      return date.getFullYear()\r\n    },\r\n    stringify (date, format = this.format) {\r\n      if (!date) date = this.parse()\r\n      if (!date) return ''\r\n      const year = date.getFullYear()\r\n      const month = date.getMonth() + 1\r\n      const day = date.getDate()\r\n      const monthName = this.parseMonth(date)\r\n\r\n      return format\r\n      .replace(/yyyy/g, year)\r\n      .replace(/MMMM/g, monthName)\r\n      .replace(/MMM/g, monthName.substring(0, 3))\r\n      .replace(/MM/g, ('0' + month).slice(-2))\r\n      .replace(/dd/g, ('0' + day).slice(-2))\r\n      .replace(/yy/g, year)\r\n      .replace(/M(?!a)/g, month)\r\n      .replace(/d/g, day)\r\n    },\r\n    parse (str = this.value) {\r\n      let date\r\n      if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {\r\n        date = new Date(str.substring(6, 10), str.substring(3, 5), str.substring(0, 2))\r\n      } else {\r\n        date = new Date(str)\r\n      }\r\n      return isNaN(date.getFullYear()) ? new Date() : date\r\n    },\r\n    getDayCount (year, month) {\r\n      const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]\r\n      if (month === 1) {\r\n        if ((year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0)) {\r\n          return 29\r\n        }\r\n      }\r\n      return dict[month]\r\n    },\r\n    getDateRange () {\r\n      this.dateRange = []\r\n      this.decadeRange = []\r\n      const time = {\r\n        year: this.currDate.getFullYear(),\r\n        month: this.currDate.getMonth(),\r\n        day: this.currDate.getDate()\r\n      }\r\n      const yearStr = time.year.toString()\r\n      const firstYearOfDecade = (yearStr.substring(0, yearStr.length - 1) + 0) - 1\r\n      for (let i = 0; i < 12; i++) {\r\n        this.decadeRange.push({\r\n          text: firstYearOfDecade + i\r\n        })\r\n      }\r\n\r\n      const currMonthFirstDay = new Date(time.year, time.month, 1)\r\n      let firstDayWeek = currMonthFirstDay.getDay() + 1\r\n      if (firstDayWeek === 0) {\r\n        firstDayWeek = 7\r\n      }\r\n      const dayCount = this.getDayCount(time.year, time.month)\r\n      if (firstDayWeek > 1) {\r\n        const preMonth = this.getYearMonth(time.year, time.month - 1)\r\n        const prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month)\r\n        for (let i = 1; i < firstDayWeek; i++) {\r\n          const dayText = prevMonthDayCount - firstDayWeek + i + 1\r\n          const date = new Date(preMonth.year, preMonth.month, dayText)\r\n          let sclass = 'datepicker-item-gray'\r\n          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\r\n            sclass = 'datepicker-item-disable'\r\n          }\r\n          this.dateRange.push({\r\n            text: dayText,\r\n            date: date,\r\n            sclass: 'datepicker-item-gray'\r\n          })\r\n        }\r\n      }\r\n\r\n      for (let i = 1; i <= dayCount; i++) {\r\n        const date = new Date(time.year, time.month, i)\r\n        let sclass = ''\r\n        if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\r\n          sclass = 'datepicker-item-disable'\r\n        }\r\n        if (i == time.day && date.getFullYear() == time.year && date.getMonth() == time.month){\r\n          sclass = 'datepicker-dateRange-item-active'\r\n        }\r\n        this.dateRange.push({\r\n          text: i,\r\n          date: date,\r\n          sclass: sclass\r\n        })\r\n      }\r\n\r\n      if (this.dateRange.length < 42) {\r\n        const nextMonthNeed = 42 - this.dateRange.length\r\n        const nextMonth = this.getYearMonth(time.year, time.month + 1)\r\n\r\n        for (let i = 1; i <= nextMonthNeed; i++) {\r\n          const date = new Date(nextMonth.year, nextMonth.month, i)\r\n          let sclass = 'datepicker-item-gray'\r\n          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\r\n            sclass = 'datepicker-item-disable'\r\n          }\r\n          this.dateRange.push({\r\n            text: i,\r\n            date: date,\r\n            sclass: sclass\r\n          })\r\n        }\r\n      }\r\n    }\r\n  },\r\n  mounted () {\r\n    let el = this.$el\r\n    this._blur = e => {\r\n      if (!el.contains(e.target))\r\n        this.close()\r\n    }\r\n    this.$emit('child-created', this)\r\n    this.currDate = this.parse(this.value) || this.parse(new Date())\r\n    window.addEventListener('click', this._blur);\r\n  },\r\n  beforeDestroy () {\r\n    window.removeEventListener('click', this._blur)\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.datepicker {\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\ninput.datepicker-input.with-reset-button {\r\n  padding-right: 25px;\r\n}\r\n.datepicker > button.close {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  outline: none;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.datepicker > button.close:focus {\r\n  opacity: .2;\r\n}\r\n.datepicker-popup {\r\n  position: absolute;\r\n  border: 1px solid #ccc;\r\n  border-radius: 5px;\r\n  background: #fff;\r\n  margin-top: 2px;\r\n  z-index: 1000;\r\n  box-shadow: 0 6px 12px rgba(0,0,0,0.175);\r\n}\r\n.datepicker-inner {\r\n  width: 218px;\r\n}\r\n.datepicker-body {\r\n  padding: 10px 10px;\r\n}\r\n.datepicker-ctrl p,\r\n.datepicker-ctrl span,\r\n.datepicker-body span {\r\n  display: inline-block;\r\n  width: 28px;\r\n  line-height: 28px;\r\n  height: 28px;\r\n  border-radius: 4px;\r\n}\r\n.datepicker-ctrl p {\r\n  width: 65%;\r\n}\r\n.datepicker-ctrl span {\r\n  position: absolute;\r\n}\r\n.datepicker-body span {\r\n  text-align: center;\r\n}\r\n.datepicker-monthRange span {\r\n  width: 48px;\r\n  height: 50px;\r\n  line-height: 45px;\r\n}\r\n.datepicker-item-disable {\r\n  background-color: white!important;\r\n  cursor: not-allowed!important;\r\n}\r\n.decadeRange span:first-child,\r\n.decadeRange span:last-child,\r\n.datepicker-item-disable,\r\n.datepicker-item-gray {\r\n  color: #999;\r\n}\r\n\r\n.datepicker-dateRange-item-active:hover,\r\n.datepicker-dateRange-item-active {\r\n  background: rgb(50, 118, 177)!important;\r\n  color: white!important;\r\n}\r\n.datepicker-monthRange {\r\n  margin-top: 10px\r\n}\r\n.datepicker-monthRange span,\r\n.datepicker-ctrl span,\r\n.datepicker-ctrl p,\r\n.datepicker-dateRange span {\r\n  cursor: pointer;\r\n}\r\n.datepicker-monthRange span:hover,\r\n.datepicker-ctrl p:hover,\r\n.datepicker-ctrl i:hover,\r\n.datepicker-dateRange span:hover,\r\n.datepicker-dateRange-item-hover {\r\n  background-color : #eeeeee;\r\n}\r\n.datepicker-weekRange span {\r\n  font-weight: bold;\r\n}\r\n.datepicker-label {\r\n  background-color: #f8f8f8;\r\n  font-weight: 700;\r\n  padding: 7px 0;\r\n  text-align: center;\r\n}\r\n.datepicker-ctrl {\r\n  position: relative;\r\n  height: 30px;\r\n  line-height: 30px;\r\n  font-weight: bold;\r\n  text-align: center;\r\n}\r\n.month-btn {\r\n  font-weight: bold;\r\n  -webkit-user-select:none;\r\n  -moz-user-select:none;\r\n  -ms-user-select:none;\r\n  user-select:none;\r\n}\r\n.datepicker-preBtn {\r\n  left: 2px;\r\n}\r\n.datepicker-nextBtn {\r\n  right: 2px;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.datepicker {\r\n  position: relative;\r\n  display: inline-block;\n}\ninput.datepicker-input.with-reset-button {\r\n  padding-right: 25px;\n}\n.datepicker > button.close {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  outline: none;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\n}\n.datepicker > button.close:focus {\r\n  opacity: .2;\n}\n.datepicker-popup {\r\n  position: absolute;\r\n  border: 1px solid #ccc;\r\n  border-radius: 5px;\r\n  background: #fff;\r\n  margin-top: 2px;\r\n  z-index: 1000;\r\n  box-shadow: 0 6px 12px rgba(0,0,0,0.175);\n}\n.datepicker-inner {\r\n  width: 218px;\n}\n.datepicker-body {\r\n  padding: 10px 10px;\n}\n.datepicker-ctrl p,\r\n.datepicker-ctrl span,\r\n.datepicker-body span {\r\n  display: inline-block;\r\n  width: 28px;\r\n  line-height: 28px;\r\n  height: 28px;\r\n  border-radius: 4px;\n}\n.datepicker-ctrl p {\r\n  width: 65%;\n}\n.datepicker-ctrl span {\r\n  position: absolute;\n}\n.datepicker-body span {\r\n  text-align: center;\n}\n.datepicker-monthRange span {\r\n  width: 48px;\r\n  height: 50px;\r\n  line-height: 45px;\n}\n.datepicker-item-disable {\r\n  background-color: white!important;\r\n  cursor: not-allowed!important;\n}\n.decadeRange span:first-child,\r\n.decadeRange span:last-child,\r\n.datepicker-item-disable,\r\n.datepicker-item-gray {\r\n  color: #999;\n}\n.datepicker-dateRange-item-active:hover,\r\n.datepicker-dateRange-item-active {\r\n  background: rgb(50, 118, 177)!important;\r\n  color: white!important;\n}\n.datepicker-monthRange {\r\n  margin-top: 10px\n}\n.datepicker-monthRange span,\r\n.datepicker-ctrl span,\r\n.datepicker-ctrl p,\r\n.datepicker-dateRange span {\r\n  cursor: pointer;\n}\n.datepicker-monthRange span:hover,\r\n.datepicker-ctrl p:hover,\r\n.datepicker-ctrl i:hover,\r\n.datepicker-dateRange span:hover,\r\n.datepicker-dateRange-item-hover {\r\n  background-color : #eeeeee;\n}\n.datepicker-weekRange span {\r\n  font-weight: bold;\n}\n.datepicker-label {\r\n  background-color: #f8f8f8;\r\n  font-weight: 700;\r\n  padding: 7px 0;\r\n  text-align: center;\n}\n.datepicker-ctrl {\r\n  position: relative;\r\n  height: 30px;\r\n  line-height: 30px;\r\n  font-weight: bold;\r\n  text-align: center;\n}\n.month-btn {\r\n  font-weight: bold;\r\n  -webkit-user-select:none;\r\n  -moz-user-select:none;\r\n  -ms-user-select:none;\r\n  user-select:none;\n}\n.datepicker-preBtn {\r\n  left: 2px;\n}\n.datepicker-nextBtn {\r\n  right: 2px;\n}\r\n", "", {"version":3,"sources":["/./src/Datepicker.vue?2200e4ca"],"names":[],"mappings":";AAsVA;EACA,mBAAA;EACA,sBAAA;CACA;AACA;EACA,oBAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,cAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,YAAA;CACA;AACA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,iBAAA;EACA,gBAAA;EACA,cAAA;EACA,yCAAA;CACA;AACA;EACA,aAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;;;EAGA,sBAAA;EACA,YAAA;EACA,kBAAA;EACA,aAAA;EACA,mBAAA;CACA;AACA;EACA,WAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;CACA;AACA;EACA,kCAAA;EACA,8BAAA;CACA;AACA;;;;EAIA,YAAA;CACA;AAEA;;EAEA,wCAAA;EACA,uBAAA;CACA;AACA;EACA,gBAAA;CACA;AACA;;;;EAIA,gBAAA;CACA;AACA;;;;;EAKA,2BAAA;CACA;AACA;EACA,kBAAA;CACA;AACA;EACA,0BAAA;EACA,iBAAA;EACA,eAAA;EACA,mBAAA;CACA;AACA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,kBAAA;EACA,yBAAA;EACA,sBAAA;EACA,qBAAA;EACA,iBAAA;CACA;AACA;EACA,UAAA;CACA;AACA;EACA,WAAA;CACA","file":"Datepicker.vue","sourcesContent":["<template>\r\n  <div class=\"datepicker\">\r\n    <input class=\"form-control datepicker-input\" :class=\"{'with-reset-button': clearButton}\" type=\"text\" :placeholder=\"placeholder\"\r\n        :style=\"{width:width}\"\r\n        :value=\"value\"\r\n        @click=\"inputClick\"\r\n        @input=\"$emit('input',$event.target.value)\" />\r\n    <button v-if=\"clearButton && value\" type=\"button\" class=\"close\" @click=\"$emit('input', '')\">\r\n      <span>&times;</span>\r\n    </button>\r\n    <div class=\"datepicker-popup\" v-show=\"displayDayView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(0)\"></span>\r\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(1)\"></span>\r\n            <p @click=\"switchMonthView\">{{stringifyDayHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-weekRange\">\r\n            <span v-for=\"w in text.daysOfWeek\">{{w}}</span>\r\n          </div>\r\n          <div class=\"datepicker-dateRange\">\r\n            <span v-for=\"d in dateRange\" :class=\"d.sclass\" @click=\"daySelect(d)\">{{d.text}}</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayMonthView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(0)\"></span>\r\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(1)\"></span>\r\n            <p @click=\"switchDecadeView\">{{stringifyYearHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange\">\r\n            <template v-for=\"(m, index) in text.months\">\r\n              <span   :class=\"{'datepicker-dateRange-item-active':\r\n                  (text.months[parse(value).getMonth()]  === m) &&\r\n                  currDate.getFullYear() === parse(value).getFullYear()}\"\r\n                  @click=\"monthSelect(index)\"\r\n                >{{m.substr(0,3)}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"datepicker-popup\" v-show=\"displayYearView\">\r\n      <div class=\"datepicker-inner\">\r\n        <div class=\"datepicker-body\">\r\n          <div class=\"datepicker-ctrl\">\r\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(0)\"></span>\r\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(1)\"></span>\r\n            <p>{{stringifyDecadeHeader(currDate)}}</p>\r\n          </div>\r\n          <div class=\"datepicker-monthRange decadeRange\">\r\n            <template v-for=\"decade in decadeRange\">\r\n              <span :class=\"{'datepicker-dateRange-item-active':parse(this.value).getFullYear() === decade.text}\"\r\n                @click.stop=\"yearSelect(decade.text)\"\r\n              >{{decade.text}}</span>\r\n            </template>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {translations} from './utils/utils.js'\r\n// import $ from './utils/NodeList.js'\r\n\r\nexport default {\r\n  props: {\r\n    value: {type: String},\r\n    format: {default: 'MM/dd/yyyy'},\r\n    disabledDaysOfWeek: {type: Array, default () { return [] }},\r\n    width: {type: String/*, default: '200px'*/},\r\n    clearButton: {type: Boolean, default: false},\r\n    lang: {type: String, default: navigator.language},\r\n    placeholder: {type: String},\r\n    iconsFont: {type: String, default: 'glyphicon'}\r\n  },\r\n  data () {\r\n    return {\r\n      currDate: new Date(),\r\n      dateRange: [],\r\n      decadeRange: [],\r\n      displayDayView: false,\r\n      displayMonthView: false,\r\n      displayYearView: false,\r\n    }\r\n  },\r\n  watch: {\r\n    currDate () {\r\n      this.getDateRange()\r\n    },\r\n    format () {\r\n      this.$emit('input', this.stringify(this.currDate))\r\n    }\r\n  },\r\n  computed: {\r\n    text () {\r\n      return translations(this.lang)\r\n    },\r\n    preBtnClasses () {\r\n      return `datepicker-preBtn ${this.iconsFont} ${this.iconsFont}-chevron-left`\r\n    },\r\n    nextBtnClasses () {\r\n      return `datepicker-nextBtn ${this.iconsFont} ${this.iconsFont}-chevron-right`\r\n    },\r\n    disabledDaysArray () {\r\n      return this.disabledDaysOfWeek.map(d => parseInt(d, 10))\r\n    }\r\n  },\r\n  methods: {\r\n    close () {\r\n      this.displayDayView = this.displayMonthView = this.displayYearView = false\r\n    },\r\n    inputClick () {\r\n      this.currDate = this.parse(this.value) || this.parse(new Date())\r\n      if (this.displayMonthView || this.displayYearView) {\r\n        this.displayDayView = false\r\n      } else {\r\n        this.displayDayView = !this.displayDayView\r\n      }\r\n    },\r\n    preNextDecadeClick (flag) {\r\n      const year = this.currDate.getFullYear()\r\n      const months = this.currDate.getMonth()\r\n      const date = this.currDate.getDate()\r\n\r\n      if (flag === 0) {\r\n        this.currDate = new Date(year - 10, months, date)\r\n      } else {\r\n        this.currDate = new Date(year + 10, months, date)\r\n      }\r\n    },\r\n    preNextMonthClick (flag) {\r\n      const year = this.currDate.getFullYear()\r\n      const month = this.currDate.getMonth()\r\n      const date = this.currDate.getDate()\r\n\r\n      if (flag === 0) {\r\n        const preMonth = this.getYearMonth(year, month - 1)\r\n        this.currDate = new Date(preMonth.year, preMonth.month, date)\r\n      } else {\r\n        const nextMonth = this.getYearMonth(year, month + 1)\r\n        this.currDate = new Date(nextMonth.year, nextMonth.month, date)\r\n      }\r\n    },\r\n    preNextYearClick (flag) {\r\n      const year = this.currDate.getFullYear()\r\n      const months = this.currDate.getMonth()\r\n      const date = this.currDate.getDate()\r\n\r\n      if (flag === 0) {\r\n        this.currDate = new Date(year - 1, months, date)\r\n      } else {\r\n        this.currDate = new Date(year + 1, months, date)\r\n      }\r\n    },\r\n    yearSelect (year) {\r\n      this.displayYearView = false\r\n      this.displayMonthView = true\r\n      this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())\r\n    },\r\n    daySelect (day) {\r\n      if (day.sclass === 'datepicker-item-disable') {\r\n        return false\r\n      } else {\r\n        this.currDate = day.date\r\n        this.$emit('input', this.stringify(this.currDate))\r\n        this.displayDayView = false\r\n      }\r\n    },\r\n    switchMonthView () {\r\n      this.displayDayView = false\r\n      this.displayMonthView = true\r\n    },\r\n    switchDecadeView () {\r\n      this.displayMonthView = false\r\n      this.displayYearView = true\r\n    },\r\n    monthSelect (index) {\r\n      this.displayMonthView = false\r\n      this.displayDayView = true\r\n      this.currDate = new Date(this.currDate.getFullYear(), index, this.currDate.getDate())\r\n    },\r\n    getYearMonth (year, month) {\r\n      if (month > 11) {\r\n        year++\r\n        month = 0\r\n      } else if (month < 0) {\r\n        year--\r\n        month = 11\r\n      }\r\n      return {year: year, month: month}\r\n    },\r\n    stringifyDecadeHeader (date) {\r\n      const yearStr = date.getFullYear().toString()\r\n      const firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0\r\n      const lastYearOfDecade = parseInt(firstYearOfDecade, 10) + 10\r\n      return firstYearOfDecade + '-' + lastYearOfDecade\r\n    },\r\n    stringifyDayHeader (date) {\r\n      return this.text.months[date.getMonth()] + ' ' + date.getFullYear()\r\n    },\r\n    parseMonth (date) {\r\n      return this.text.months[date.getMonth()]\r\n    },\r\n    stringifyYearHeader (date) {\r\n      return date.getFullYear()\r\n    },\r\n    stringify (date, format = this.format) {\r\n      if (!date) date = this.parse()\r\n      if (!date) return ''\r\n      const year = date.getFullYear()\r\n      const month = date.getMonth() + 1\r\n      const day = date.getDate()\r\n      const monthName = this.parseMonth(date)\r\n\r\n      return format\r\n      .replace(/yyyy/g, year)\r\n      .replace(/MMMM/g, monthName)\r\n      .replace(/MMM/g, monthName.substring(0, 3))\r\n      .replace(/MM/g, ('0' + month).slice(-2))\r\n      .replace(/dd/g, ('0' + day).slice(-2))\r\n      .replace(/yy/g, year)\r\n      .replace(/M(?!a)/g, month)\r\n      .replace(/d/g, day)\r\n    },\r\n    parse (str = this.value) {\r\n      let date\r\n      if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {\r\n        date = new Date(str.substring(6, 10), str.substring(3, 5)-1, str.substring(0, 2))\r\n      } else {\r\n        date = new Date(str)\r\n      }\r\n      return isNaN(date.getFullYear()) ? new Date() : date\r\n    },\r\n    getDayCount (year, month) {\r\n      const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]\r\n      if (month === 1) {\r\n        if ((year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0)) {\r\n          return 29\r\n        }\r\n      }\r\n      return dict[month]\r\n    },\r\n    getDateRange () {\r\n      this.dateRange = []\r\n      this.decadeRange = []\r\n      const time = {\r\n        year: this.currDate.getFullYear(),\r\n        month: this.currDate.getMonth(),\r\n        day: this.currDate.getDate()\r\n      }\r\n      const yearStr = time.year.toString()\r\n      const firstYearOfDecade = (yearStr.substring(0, yearStr.length - 1) + 0) - 1\r\n      for (let i = 0; i < 12; i++) {\r\n        this.decadeRange.push({\r\n          text: firstYearOfDecade + i\r\n        })\r\n      }\r\n\r\n      const currMonthFirstDay = new Date(time.year, time.month, 1)\r\n      let firstDayWeek = currMonthFirstDay.getDay() + 1\r\n      if (firstDayWeek === 0) {\r\n        firstDayWeek = 7\r\n      }\r\n      const dayCount = this.getDayCount(time.year, time.month)\r\n      if (firstDayWeek > 1) {\r\n        const preMonth = this.getYearMonth(time.year, time.month - 1)\r\n        const prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month)\r\n        for (let i = 1; i < firstDayWeek; i++) {\r\n          const dayText = prevMonthDayCount - firstDayWeek + i + 1\r\n          const date = new Date(preMonth.year, preMonth.month, dayText)\r\n          let sclass = 'datepicker-item-gray'\r\n          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\r\n            sclass = 'datepicker-item-disable'\r\n          }\r\n          this.dateRange.push({\r\n            text: dayText,\r\n            date: date,\r\n            sclass: 'datepicker-item-gray'\r\n          })\r\n        }\r\n      }\r\n\r\n      for (let i = 1; i <= dayCount; i++) {\r\n        const date = new Date(time.year, time.month, i)\r\n        let sclass = ''\r\n        if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\r\n          sclass = 'datepicker-item-disable'\r\n        }\r\n        if (i == time.day && date.getFullYear() == time.year && date.getMonth() == time.month){\r\n          sclass = 'datepicker-dateRange-item-active'\r\n        }\r\n        this.dateRange.push({\r\n          text: i,\r\n          date: date,\r\n          sclass: sclass\r\n        })\r\n      }\r\n\r\n      if (this.dateRange.length < 42) {\r\n        const nextMonthNeed = 42 - this.dateRange.length\r\n        const nextMonth = this.getYearMonth(time.year, time.month + 1)\r\n\r\n        for (let i = 1; i <= nextMonthNeed; i++) {\r\n          const date = new Date(nextMonth.year, nextMonth.month, i)\r\n          let sclass = 'datepicker-item-gray'\r\n          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\r\n            sclass = 'datepicker-item-disable'\r\n          }\r\n          this.dateRange.push({\r\n            text: i,\r\n            date: date,\r\n            sclass: sclass\r\n          })\r\n        }\r\n      }\r\n    }\r\n  },\r\n  mounted () {\r\n    let el = this.$el\r\n    this._blur = e => {\r\n      if (!el.contains(e.target))\r\n        this.close()\r\n    }\r\n    this.$emit('child-created', this)\r\n    this.currDate = this.parse(this.value) || this.parse(new Date())\r\n    window.addEventListener('click', this._blur);\r\n  },\r\n  beforeDestroy () {\r\n    window.removeEventListener('click', this._blur)\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.datepicker {\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\ninput.datepicker-input.with-reset-button {\r\n  padding-right: 25px;\r\n}\r\n.datepicker > button.close {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  outline: none;\r\n  z-index: 2;\r\n  display: block;\r\n  width: 34px;\r\n  height: 34px;\r\n  line-height: 34px;\r\n  text-align: center;\r\n}\r\n.datepicker > button.close:focus {\r\n  opacity: .2;\r\n}\r\n.datepicker-popup {\r\n  position: absolute;\r\n  border: 1px solid #ccc;\r\n  border-radius: 5px;\r\n  background: #fff;\r\n  margin-top: 2px;\r\n  z-index: 1000;\r\n  box-shadow: 0 6px 12px rgba(0,0,0,0.175);\r\n}\r\n.datepicker-inner {\r\n  width: 218px;\r\n}\r\n.datepicker-body {\r\n  padding: 10px 10px;\r\n}\r\n.datepicker-ctrl p,\r\n.datepicker-ctrl span,\r\n.datepicker-body span {\r\n  display: inline-block;\r\n  width: 28px;\r\n  line-height: 28px;\r\n  height: 28px;\r\n  border-radius: 4px;\r\n}\r\n.datepicker-ctrl p {\r\n  width: 65%;\r\n}\r\n.datepicker-ctrl span {\r\n  position: absolute;\r\n}\r\n.datepicker-body span {\r\n  text-align: center;\r\n}\r\n.datepicker-monthRange span {\r\n  width: 48px;\r\n  height: 50px;\r\n  line-height: 45px;\r\n}\r\n.datepicker-item-disable {\r\n  background-color: white!important;\r\n  cursor: not-allowed!important;\r\n}\r\n.decadeRange span:first-child,\r\n.decadeRange span:last-child,\r\n.datepicker-item-disable,\r\n.datepicker-item-gray {\r\n  color: #999;\r\n}\r\n\r\n.datepicker-dateRange-item-active:hover,\r\n.datepicker-dateRange-item-active {\r\n  background: rgb(50, 118, 177)!important;\r\n  color: white!important;\r\n}\r\n.datepicker-monthRange {\r\n  margin-top: 10px\r\n}\r\n.datepicker-monthRange span,\r\n.datepicker-ctrl span,\r\n.datepicker-ctrl p,\r\n.datepicker-dateRange span {\r\n  cursor: pointer;\r\n}\r\n.datepicker-monthRange span:hover,\r\n.datepicker-ctrl p:hover,\r\n.datepicker-ctrl i:hover,\r\n.datepicker-dateRange span:hover,\r\n.datepicker-dateRange-item-hover {\r\n  background-color : #eeeeee;\r\n}\r\n.datepicker-weekRange span {\r\n  font-weight: bold;\r\n}\r\n.datepicker-label {\r\n  background-color: #f8f8f8;\r\n  font-weight: 700;\r\n  padding: 7px 0;\r\n  text-align: center;\r\n}\r\n.datepicker-ctrl {\r\n  position: relative;\r\n  height: 30px;\r\n  line-height: 30px;\r\n  font-weight: bold;\r\n  text-align: center;\r\n}\r\n.month-btn {\r\n  font-weight: bold;\r\n  -webkit-user-select:none;\r\n  -moz-user-select:none;\r\n  -ms-user-select:none;\r\n  user-select:none;\r\n}\r\n.datepicker-preBtn {\r\n  left: 2px;\r\n}\r\n.datepicker-nextBtn {\r\n  right: 2px;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -8561,7 +8548,7 @@
 	
 	      var date = void 0;
 	      if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {
-	        date = new Date(str.substring(6, 10), str.substring(3, 5), str.substring(0, 2));
+	        date = new Date(str.substring(6, 10), str.substring(3, 5) - 1, str.substring(0, 2));
 	      } else {
 	        date = new Date(str);
 	      }
@@ -8878,7 +8865,7 @@
 	        }
 	      }
 	    }, [_vm._v(_vm._s(m.substr(0, 3)))])]
-	  })], true)])])]), _vm._v(" "), _vm._c('div', {
+	  })], 2)])])]), _vm._v(" "), _vm._c('div', {
 	    directives: [{
 	      name: "show",
 	      rawName: "v-show",
@@ -8926,7 +8913,7 @@
 	        }
 	      }
 	    }, [_vm._v(_vm._s(decade.text))])]
-	  })], true)])])])])
+	  })], 2)])])])])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -9016,7 +9003,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
-	  return (_vm.loading) ? _vm._c('li', [_vm._t("default")], true) : _vm._e()
+	  return (_vm.loading) ? _vm._c('li', [_vm._t("default")], 2) : _vm._e()
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -9107,11 +9094,11 @@
 	        _vm.clear = arguments[0]
 	      }
 	    }
-	  }, [_vm._v("toggle clear button")])]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._v("toggle clear button")])], 1), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, [_vm._v("\n    <datepicker v-model=\"value\" :disabled-days-of-Week=\"disabled\" :format=\"format\" :clear-button=\"clear\" :placeholder=\"placeholder\"></datepicker>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("clear-button")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._v("false")]), _vm._v(" "), _vm._c('p', [_vm._v("If "), _vm._c('strong', [_vm._v("true")]), _vm._v(" shows an × shaped button to clear the selected date.\n        Usefull in forms where date entry is optional.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("disabled-days-of-week")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Array")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Days of the week that should be disabled. Values are 0 (Sunday) to 6 (Saturday).\n         Multiple values should be comma-separated.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("format")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("MMMM/dd/yyyy")])]), _vm._v(" "), _vm._c('p', [_vm._v("The date format, combination of d, dd, M, MM, MMM, MMMM, yyyy.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("placeholder")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Placeholder to put on the input field when no date (null or empty) is set")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Value of the input DOM")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("width")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Width of the input DOM")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("icons-font")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("glyphicon")])]), _vm._v(" "), _vm._c('p', [_vm._v("The icon font used for arrows. Can be 'glyphicon' or 'fa' (Font Awesome)")])])]), _vm._v(" "), _vm._v(" "), _vm._c('div')])
+	  }, [_vm._v("\n    <datepicker v-model=\"value\" :disabled-days-of-Week=\"disabled\" :format=\"format\" :clear-button=\"clear\" :placeholder=\"placeholder\"></datepicker>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("clear-button")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._v("false")]), _vm._v(" "), _vm._c('p', [_vm._v("If "), _vm._c('strong', [_vm._v("true")]), _vm._v(" shows an × shaped button to clear the selected date.\n        Usefull in forms where date entry is optional.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("disabled-days-of-week")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Array")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Days of the week that should be disabled. Values are 0 (Sunday) to 6 (Saturday).\n         Multiple values should be comma-separated.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("format")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("MMMM/dd/yyyy")])]), _vm._v(" "), _vm._c('p', [_vm._v("The date format, combination of d, dd, M, MM, MMM, MMMM, yyyy.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("placeholder")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Placeholder to put on the input field when no date (null or empty) is set")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Value of the input DOM")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("width")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Width of the input DOM")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("icons-font")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("glyphicon")])]), _vm._v(" "), _vm._c('p', [_vm._v("The icon font used for arrows. Can be 'glyphicon' or 'fa' (Font Awesome)")])])]), _vm._v(" "), _vm._c('div')], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -9524,7 +9511,7 @@
 	    }
 	  }, [_vm._t("button", [_vm._v(_vm._s(_vm.text))]), _vm._v(" "), _vm._c('span', {
 	    staticClass: "caret"
-	  })], true) : _vm._c('button', {
+	  })], 2) : _vm._c('button', {
 	    class: ['btn btn-' + _vm.type, _vm.buttonSize, 'dropdown-toggle'],
 	    attrs: {
 	      "type": "button",
@@ -9542,9 +9529,9 @@
 	    }
 	  }, [_vm._t("button", [_vm._v(_vm._s(_vm.text))]), _vm._v(" "), _vm._c('span', {
 	    staticClass: "caret"
-	  })], true), _vm._v(" "), _vm._v(" "), _vm._t("dropdown-menu", [_vm._c('ul', {
+	  })], 2), _vm._v(" "), _vm._t("dropdown-menu", [_vm._c('ul', {
 	    staticClass: "dropdown-menu"
-	  }, [_vm._t("default")], true)])], true)
+	  }, [_vm._t("default")], 2)])], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -9707,7 +9694,7 @@
 	      "href": "#dropdown",
 	      "role": "button"
 	    }
-	  }, [_vm._v("Right")])])]), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n    <dropdown text=\"Action\" type=\"primary\">\n      <li><a href=\"#dropdown\">Action</a></li>\n      <li role=\"separator\" class=\"divider\"></li>\n      <li><a href=\"#dropdown\">Separated link</a></li>\n    </dropdown>\n    // For segmented dropdown, ignore text and add a \"before\" slot\n    <dropdown type=\"info\">\n      <button slot=\"before\" type=\"button\" class=\"btn btn-info\">Segmented</button>\n      <li><a href=\"#dropdown\">...</a></li>\n    </dropdown>\n    // In a button group\n    <div class=\"btn-group btn-group-justified\">\n      <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Left</a>\n      <dropdown>...</dropdown>\n      <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Right</a>\n    </div>\n    // Use slots for some elements as native bootstrap\n    <dropdown>\n      // main button limited only to html styling\n      <u slot=\"button\">Action (underlined)</u>\n      <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\n        <li><a href=\"#dropdown\">Action</a></li>\n        <li><a href=\"#dropdown\">Another action</a></li>\n        <li><a href=\"#dropdown\">Something else here</a></li>\n        <li role=\"separator\" class=\"divider\"></li>\n        <li><a href=\"#dropdown\">Separated link</a></li>\n      </ul>\n    </dropdown>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value (v-model)")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._v("false")]), _vm._v(" "), _vm._c('p', [_vm._v("Whether show the component.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("disabled")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("text")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Dropdown button text.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("type")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of\n        "), _vm._c('code', [_vm._v("default")]), _vm._v(" "), _vm._c('code', [_vm._v("primary")]), _vm._v(" "), _vm._c('code', [_vm._v("danger")]), _vm._v(" "), _vm._c('code', [_vm._v("info")]), _vm._v(" "), _vm._c('code', [_vm._v("warning")]), _vm._v(" "), _vm._c('code', [_vm._v("success")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("default")])]), _vm._v(" "), _vm._c('p')])]), _vm._v(" "), _vm._c('doc-table', {
+	  }, [_vm._v("Right")])], 1)], 1), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n    <dropdown text=\"Action\" type=\"primary\">\n      <li><a href=\"#dropdown\">Action</a></li>\n      <li role=\"separator\" class=\"divider\"></li>\n      <li><a href=\"#dropdown\">Separated link</a></li>\n    </dropdown>\n    // For segmented dropdown, ignore text and add a \"before\" slot\n    <dropdown type=\"info\">\n      <button slot=\"before\" type=\"button\" class=\"btn btn-info\">Segmented</button>\n      <li><a href=\"#dropdown\">...</a></li>\n    </dropdown>\n    // In a button group\n    <div class=\"btn-group btn-group-justified\">\n      <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Left</a>\n      <dropdown>...</dropdown>\n      <a href=\"#dropdown\" class=\"btn btn-default\" role=\"button\">Right</a>\n    </div>\n    // Use slots for some elements as native bootstrap\n    <dropdown>\n      // main button limited only to html styling\n      <u slot=\"button\">Action (underlined)</u>\n      <ul slot=\"dropdown-menu\" class=\"dropdown-menu\">\n        <li><a href=\"#dropdown\">Action</a></li>\n        <li><a href=\"#dropdown\">Another action</a></li>\n        <li><a href=\"#dropdown\">Something else here</a></li>\n        <li role=\"separator\" class=\"divider\"></li>\n        <li><a href=\"#dropdown\">Separated link</a></li>\n      </ul>\n    </dropdown>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value (v-model)")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._v("false")]), _vm._v(" "), _vm._c('p', [_vm._v("Whether show the component.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("disabled")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("text")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Dropdown button text.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("type")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of\n        "), _vm._c('code', [_vm._v("default")]), _vm._v(" "), _vm._c('code', [_vm._v("primary")]), _vm._v(" "), _vm._c('code', [_vm._v("danger")]), _vm._v(" "), _vm._c('code', [_vm._v("info")]), _vm._v(" "), _vm._c('code', [_vm._v("warning")]), _vm._v(" "), _vm._c('code', [_vm._v("success")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("default")])]), _vm._v(" "), _vm._c('p')])]), _vm._v(" "), _vm._c('doc-table', {
 	    attrs: {
 	      "type": "Events"
 	    }
@@ -9716,7 +9703,7 @@
 	      "target": "_blank",
 	      "href": "http://getbootstrap.com/javascript/#dropdowns"
 	    }
-	  }, [_vm._v("original Bootstrap way")]), _vm._v(".")])])
+	  }, [_vm._v("original Bootstrap way")]), _vm._v(".")])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -10096,7 +10083,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
-	  return _vm._c('span', [_vm._t("default")], true)
+	  return _vm._c('span', [_vm._t("default")], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -10603,7 +10590,7 @@
 	    attrs: {
 	      "aria-hidden": "true"
 	    }
-	  }) : _vm._e()]) : _vm._e(), _vm._v(" "), _vm._t("after")], true) : [_vm._c(_vm.type == 'textarea' ? _vm.type : 'input', {
+	  }) : _vm._e()]) : _vm._e(), _vm._v(" "), _vm._t("after")], 2) : [_vm._c(_vm.type == 'textarea' ? _vm.type : 'input', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -10656,7 +10643,7 @@
 	    attrs: {
 	      "aria-hidden": "true"
 	    }
-	  }) : _vm._e()], _vm._v(" "), _vm._v(" "), (_vm.id_datalist) ? _vm._c('datalist', {
+	  }) : _vm._e()], _vm._v(" "), (_vm.id_datalist) ? _vm._c('datalist', {
 	    attrs: {
 	      "id": _vm.id_datalist
 	    }
@@ -10676,7 +10663,7 @@
 	    on: {
 	      "click": _vm.focus
 	    }
-	  }, [_vm._v(_vm._s(_vm.errorText))]) : _vm._e()], true)
+	  }, [_vm._v(_vm._s(_vm.errorText))]) : _vm._e()], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -10834,7 +10821,7 @@
 	    attrs: {
 	      "role": "tabpanel"
 	    }
-	  }, [_vm._t("default")], true)
+	  }, [_vm._t("default")], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -11048,7 +11035,7 @@
 	      domProps: {
 	        "innerHTML": _vm._s(header.header)
 	      }
-	    })])], true) : _vm._e(), _vm._v(" "), (header._isTabGroup) ? _vm._c('dropdown', {
+	    })])], 2) : _vm._e(), _vm._v(" "), (header._isTabGroup) ? _vm._c('dropdown', {
 	      class: {
 	        active: header.active
 	      },
@@ -11073,9 +11060,9 @@
 	        }
 	      }, [_vm._v(_vm._s(tab.header))])])
 	    })) : _vm._e()]
-	  })], true), _vm._v(" "), _vm._c('div', {
+	  })], 2), _vm._v(" "), _vm._c('div', {
 	    staticClass: "tab-content"
-	  }, [_vm._t("default")], true)])
+	  }, [_vm._t("default")], 2)])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -11145,7 +11132,7 @@
 	      "type": "email",
 	      "required": ""
 	    }
-	  })]), _vm._v(" "), _vm._c('button', {
+	  })], 1), _vm._v(" "), _vm._c('button', {
 	    staticClass: "btn btn-primary",
 	    attrs: {
 	      "type": "button",
@@ -11156,7 +11143,7 @@
 	        _vm.active = 1
 	      }
 	    }
-	  }, [_vm._v("Continue")])]), _vm._v(" "), _vm._c('tab', {
+	  }, [_vm._v("Continue")])], 1), _vm._v(" "), _vm._c('tab', {
 	    attrs: {
 	      "header": "Direction",
 	      "disabled": !_vm.valid.user
@@ -11181,23 +11168,23 @@
 	      "options": ['America', 'Europe'],
 	      "clear-button": ""
 	    }
-	  })]), _vm._v(" "), _vm._c('bs-input', {
+	  })], 1), _vm._v(" "), _vm._c('bs-input', {
 	    attrs: {
 	      "label": "City",
 	      "type": "text",
 	      "required": ""
 	    }
-	  })]), _vm._v(" "), _vm._c('button', {
+	  })], 1), _vm._v(" "), _vm._c('button', {
 	    staticClass: "btn btn-primary",
 	    attrs: {
 	      "type": "button",
 	      "disabled": !_vm.valid.all
 	    }
-	  }, [_vm._v("Done!!")])])])])])])]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._v("Done!!")])], 1)], 1)], 1)])], 1)]), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, [_vm._v("\n      <form-group @valid=\"valid.all = true\" @invalid=\"valid.all = false\">\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">\n          <tabs :active=\"active\">\n            <tab header=\"User\">\n              <form-group @valid=\"valid.user = true\" @invalid=\"valid.user = false\">\n                <bs-input label=\"User Name\" required></bs-input>\n                <bs-input label=\"Email\" type=\"email\" required></bs-input>\n              </form-group>\n              <button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.user\" @click=\"active = 1\">Continue</button>\n            </tab>\n            <tab header=\"Direction\" :disabled=\"!valid.user\">\n              <form-group @valid=\"valid.direction = true\" @invalid=\"valid.direction = false\">\n                <div class=\"form-group\">\n                  <label class=\"control-label\">Continent</label>\n                  <v-select required justified :options=\"['America','Europe']\" clear-button></v-select>\n                </div>\n                <bs-input label=\"City\" type=\"text\" required></bs-input>\n              </form-group>\n              <button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.all\">Done!!</button>\n            </tab>\n          </tabs>\n        </div>\n      </form-group>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("valid")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Return if all the internal form elements ("), _vm._c('code', [_vm._v("select")]), _vm._v(", "), _vm._c('code', [_vm._v("input")]), _vm._v(") are valids.")])])])])
+	  }, [_vm._v("\n      <form-group @valid=\"valid.all = true\" @invalid=\"valid.all = false\">\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">\n          <tabs :active=\"active\">\n            <tab header=\"User\">\n              <form-group @valid=\"valid.user = true\" @invalid=\"valid.user = false\">\n                <bs-input label=\"User Name\" required></bs-input>\n                <bs-input label=\"Email\" type=\"email\" required></bs-input>\n              </form-group>\n              <button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.user\" @click=\"active = 1\">Continue</button>\n            </tab>\n            <tab header=\"Direction\" :disabled=\"!valid.user\">\n              <form-group @valid=\"valid.direction = true\" @invalid=\"valid.direction = false\">\n                <div class=\"form-group\">\n                  <label class=\"control-label\">Continent</label>\n                  <v-select required justified :options=\"['America','Europe']\" clear-button></v-select>\n                </div>\n                <bs-input label=\"City\" type=\"text\" required></bs-input>\n              </form-group>\n              <button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.all\">Done!!</button>\n            </tab>\n          </tabs>\n        </div>\n      </form-group>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("valid")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Return if all the internal form elements ("), _vm._c('code', [_vm._v("select")]), _vm._v(", "), _vm._c('code', [_vm._v("input")]), _vm._v(") are valids.")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -11584,7 +11571,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
-	  return _vm._c('span', [_vm._t("default")], true)
+	  return _vm._c('span', [_vm._t("default")], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -11677,7 +11664,7 @@
 	      "type": "email",
 	      "required": ""
 	    }
-	  })]), _vm._v(" "), _vm._c('button', {
+	  })], 1), _vm._v(" "), _vm._c('button', {
 	    staticClass: "btn btn-primary",
 	    attrs: {
 	      "type": "button",
@@ -11688,7 +11675,7 @@
 	        _vm.active = 1
 	      }
 	    }
-	  }, [_vm._v("Continue")])]), _vm._v(" "), _vm._c('tab', {
+	  }, [_vm._v("Continue")])], 1), _vm._v(" "), _vm._c('tab', {
 	    attrs: {
 	      "header": "Direction",
 	      "disabled": !_vm.valid.user
@@ -11719,23 +11706,23 @@
 	      "options": ['America', 'Europe'],
 	      "clear-button": ""
 	    }
-	  })]), _vm._v(" "), _vm._c('bs-input', {
+	  })], 1), _vm._v(" "), _vm._c('bs-input', {
 	    attrs: {
 	      "label": "City",
 	      "type": "text",
 	      "required": ""
 	    }
-	  })]), _vm._v(" "), _vm._c('button', {
+	  })], 1), _vm._v(" "), _vm._c('button', {
 	    staticClass: "btn btn-primary",
 	    attrs: {
 	      "type": "button",
 	      "disabled": !_vm.valid.all
 	    }
-	  }, [_vm._v("Done!!")])])])])])])]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._v("Done!!")])], 1)], 1)], 1)])], 1)], 1), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, [_vm._v("\n      <form-validator v-model=\"valid.all\">\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">\n          <tabs v-model=\"active\">\n            <tab header=\"User\">\n              <form-validator @valid=\"valid.user = true\" @invalid=\"valid.user = false\">\n                <bs-input label=\"User Name\" required></bs-input>\n                <bs-input label=\"Email\" type=\"email\" required></bs-input>\n              </form-validator>\n              <button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.user\" @click=\"active = 1\">Continue</button>\n            </tab>\n            <tab header=\"Direction\" :disabled=\"!valid.user\">\n              <form-validator @isvalid=\"valid.direction = arguments[0]\">\n                <div class=\"form-validator\">\n                  <label class=\"control-label\">Continent</label>\n                  <v-select required justified :options=\"['America','Europe']\" clear-button></v-select>\n                </div>\n                <bs-input label=\"City\" type=\"text\" required></bs-input>\n              </form-validator>\n              <button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.all\">Done!!</button>\n            </tab>\n          </tabs>\n        </div>\n      </form-validator>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("valid")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Return if all the internal form elements ("), _vm._c('code', [_vm._v("select")]), _vm._v(", "), _vm._c('code', [_vm._v("input")]), _vm._v(") are valids.")])])])])
+	  }, [_vm._v("\n      <form-validator v-model=\"valid.all\">\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\">\n          <tabs v-model=\"active\">\n            <tab header=\"User\">\n              <form-validator @valid=\"valid.user = true\" @invalid=\"valid.user = false\">\n                <bs-input label=\"User Name\" required></bs-input>\n                <bs-input label=\"Email\" type=\"email\" required></bs-input>\n              </form-validator>\n              <button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.user\" @click=\"active = 1\">Continue</button>\n            </tab>\n            <tab header=\"Direction\" :disabled=\"!valid.user\">\n              <form-validator @isvalid=\"valid.direction = arguments[0]\">\n                <div class=\"form-validator\">\n                  <label class=\"control-label\">Continent</label>\n                  <v-select required justified :options=\"['America','Europe']\" clear-button></v-select>\n                </div>\n                <bs-input label=\"City\" type=\"text\" required></bs-input>\n              </form-validator>\n              <button type=\"button\" class=\"btn btn-primary\" :disabled=\"!valid.all\">Done!!</button>\n            </tab>\n          </tabs>\n        </div>\n      </form-validator>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("valid")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Return if all the internal form elements ("), _vm._c('code', [_vm._v("select")]), _vm._v(", "), _vm._c('code', [_vm._v("input")]), _vm._v(") are valids.")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -12020,7 +12007,7 @@
 	    attrs: {
 	      "href": "http://detectmobilebrowsers.com/"
 	    }
-	  }, [_vm._v("Detect Mobile Browsers")]), _vm._v(".")])]), _vm._v(" "), _vm._c('doc-section', {
+	  }, [_vm._v("Detect Mobile Browsers")]), _vm._v(".")])], 1), _vm._v(" "), _vm._c('doc-section', {
 	    attrs: {
 	      "id": "handle-events",
 	      "name": "Event Handling"
@@ -12029,12 +12016,12 @@
 	    attrs: {
 	      "language": "javascript"
 	    }
-	  }, [_vm._v("\r\n      methods: {\r\n        callable: function (arg0, arg1, ...) {\r\n          // defined arguments\r\n          this.arg0 = arg0\r\n          // or global arguments array\r\n          this.arg0 = arguments[0]\r\n        }\r\n      }\r\n    ")]), _vm._v(" "), _vm._c('p', [_vm._v("The number of arguments depend on the event.")])]), _vm._v(" "), _vm._c('doc-section', {
+	  }, [_vm._v("\r\n      methods: {\r\n        callable: function (arg0, arg1, ...) {\r\n          // defined arguments\r\n          this.arg0 = arg0\r\n          // or global arguments array\r\n          this.arg0 = arguments[0]\r\n        }\r\n      }\r\n    ")]), _vm._v(" "), _vm._c('p', [_vm._v("The number of arguments depend on the event.")])], 1), _vm._v(" "), _vm._c('doc-section', {
 	    attrs: {
 	      "id": "v-model",
 	      "name": "v-model"
 	    }
-	  }, [_vm._c('p', [_vm._v("According to the vue2 specifications, "), _vm._c('code', [_vm._v("twoWay")]), _vm._v(" binding is not supported anymore, except for "), _vm._c('code', [_vm._v("v-model")]), _vm._v(".")]), _vm._v(" "), _vm._c('p', [_vm._v("The "), _vm._c('code', [_vm._v("v-model")]), _vm._v(" directive in a component always link to "), _vm._c('code', [_vm._v("value")]), _vm._v(" attribute.")]), _vm._v(" "), _vm._c('p', [_vm._v("Keep in mind that in vue2:")]), _vm._v(" "), _vm._c('doc-code', [_vm._v("\r\n      <!-- using v-model like this: -->\r\n      <component v-model=\"element\"></component>\r\n      <!-- is the same that: -->\r\n      <component :value=\"element\" @input=\"element = argument[0]\"></component>\r\n    ")])])])
+	  }, [_vm._c('p', [_vm._v("According to the vue2 specifications, "), _vm._c('code', [_vm._v("twoWay")]), _vm._v(" binding is not supported anymore, except for "), _vm._c('code', [_vm._v("v-model")]), _vm._v(".")]), _vm._v(" "), _vm._c('p', [_vm._v("The "), _vm._c('code', [_vm._v("v-model")]), _vm._v(" directive in a component always link to "), _vm._c('code', [_vm._v("value")]), _vm._v(" attribute.")]), _vm._v(" "), _vm._c('p', [_vm._v("Keep in mind that in vue2:")]), _vm._v(" "), _vm._c('doc-code', [_vm._v("\r\n      <!-- using v-model like this: -->\r\n      <component v-model=\"element\"></component>\r\n      <!-- is the same that: -->\r\n      <component :value=\"element\" @input=\"element = argument[0]\"></component>\r\n    ")])], 1)], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -12499,7 +12486,7 @@
 	        _vm.input = $event
 	      }
 	    }
-	  })]), _vm._v(" "), _vm._c('div', {
+	  })], 1), _vm._v(" "), _vm._c('div', {
 	    staticClass: "col-xs-12 col-sm-6 col-md-6 col-lg-6"
 	  }, [_vm._c('bs-input', {
 	    attrs: {
@@ -12513,7 +12500,7 @@
 	    }
 	  }, [_vm._c('label', {
 	    slot: "label"
-	  }, [_vm._v("Match value")])])])]), _vm._v(" "), _vm._c('div', {
+	  }, [_vm._v("Match value")])])], 1)]), _vm._v(" "), _vm._c('div', {
 	    staticClass: "row"
 	  }, [_vm._c('button-group', {
 	    attrs: {
@@ -12537,7 +12524,7 @@
 	        _vm.check.label = $event
 	      }
 	    }
-	  }, [_vm._v("Label")])]), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
+	  }, [_vm._v("Label")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -12552,7 +12539,7 @@
 	        _vm.check.placeholder = $event
 	      }
 	    }
-	  }, [_vm._v("placeholder")])]), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
+	  }, [_vm._v("placeholder")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -12567,7 +12554,7 @@
 	        _vm.check.hideHelp = $event
 	      }
 	    }
-	  }, [_vm._v("hide help")])]), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
+	  }, [_vm._v("hide help")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -12582,7 +12569,7 @@
 	        _vm.check.disabled = $event
 	      }
 	    }
-	  }, [_vm._v("disabled")])]), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
+	  }, [_vm._v("disabled")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -12597,7 +12584,7 @@
 	        _vm.check.error = $event
 	      }
 	    }
-	  }, [_vm._v("error")])]), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
+	  }, [_vm._v("error")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -12612,7 +12599,7 @@
 	        _vm.check.icon = $event
 	      }
 	    }
-	  }, [_vm._v("icon")])])]), _vm._v(" "), _vm._c('div', {
+	  }, [_vm._v("icon")])], 1)]), _vm._v(" "), _vm._c('div', {
 	    staticClass: "col-xs-12 col-sm-6 col-md-6 col-lg-6"
 	  }, [_vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
@@ -12629,7 +12616,7 @@
 	        _vm.check.mask = $event
 	      }
 	    }
-	  }, [_vm._v("mask")])]), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
+	  }, [_vm._v("mask")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -12644,7 +12631,7 @@
 	        _vm.check.minlength = $event
 	      }
 	    }
-	  }, [_vm._v("minlength=5")])]), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
+	  }, [_vm._v("minlength=5")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -12659,7 +12646,7 @@
 	        _vm.check.readonly = $event
 	      }
 	    }
-	  }, [_vm._v("readonly")])]), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
+	  }, [_vm._v("readonly")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -12674,7 +12661,7 @@
 	        _vm.check.required = $event
 	      }
 	    }
-	  }, [_vm._v("required")])]), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
+	  }, [_vm._v("required")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -12689,7 +12676,7 @@
 	        _vm.check.clearButton = $event
 	      }
 	    }
-	  }, [_vm._v("clear button")])]), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
+	  }, [_vm._v("clear button")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -12704,7 +12691,7 @@
 	        _vm.check.enterSubmit = $event
 	      }
 	    }
-	  }, [_vm._v("enter submit")])])])])]), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('bs-input', {
+	  }, [_vm._v("enter submit")])], 1)])])], 1), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('bs-input', {
 	    attrs: {
 	      "label": "Input with slots",
 	      "type": "text",
@@ -12738,7 +12725,7 @@
 	        _vm.event = 'blured'
 	      }
 	    }
-	  }), _vm._v(" "), _vm._c('pre', [_vm._v(" Test event on textarea: " + _vm._s(_vm.event))])]), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n      <bs-input v-model=\"input\"\n        label=\"Username\"\n        help=\"Only allows lowercase letters and numbers.\"\n        error=\"Insert username\"\n        placeholder=\"Username can't start with a number.\"\n        pattern=\"^[a-z][a-z0-9]+$\"\n        :mask=\"mask\"\n        minlength=\"5\"\n        readonly\n        required\n        icon\n      ></bs-input>\n      <bs-input required label=\"Match value\" type=\"password\"\n        :match=\"input\"\n      ></bs-input>\n      <bs-input label=\"Textarea\" type=\"textarea\"\n        @focus=\"event = 'focused'\"\n        @blur=\"event = 'blured'\"\n      ></bs-input>\n    ")]), _vm._v(" "), _vm._c('doc-code', {
+	  }), _vm._v(" "), _vm._c('pre', [_vm._v(" Test event on textarea: " + _vm._s(_vm.event))])], 1), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n      <bs-input v-model=\"input\"\n        label=\"Username\"\n        help=\"Only allows lowercase letters and numbers.\"\n        error=\"Insert username\"\n        placeholder=\"Username can't start with a number.\"\n        pattern=\"^[a-z][a-z0-9]+$\"\n        :mask=\"mask\"\n        minlength=\"5\"\n        readonly\n        required\n        icon\n      ></bs-input>\n      <bs-input required label=\"Match value\" type=\"password\"\n        :match=\"input\"\n      ></bs-input>\n      <bs-input label=\"Textarea\" type=\"textarea\"\n        @focus=\"event = 'focused'\"\n        @blur=\"event = 'blured'\"\n      ></bs-input>\n    ")]), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "javascript"
 	    }
@@ -12768,7 +12755,7 @@
 	    attrs: {
 	      "type": "button"
 	    }
-	  }, [_vm._v("Go!")])])]), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n      <bs-input label=\"With dropdown and button\" type=\"text\">\n        <dropdown slot=\"before\" text=\"dropdown\">\n          <li><a href=\"#\">option</a></li>\n        </dropdown>\n        <span slot=\"after\" class=\"input-group-btn\">\n          <button type=\"button\" class=\"btn btn-primary\">Go!</button>\n        </span>\n      </bs-input>\n    ")]), _vm._v(" "), _vm._c('bs-input', {
+	  }, [_vm._v("Go!")])])], 1), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n      <bs-input label=\"With dropdown and button\" type=\"text\">\n        <dropdown slot=\"before\" text=\"dropdown\">\n          <li><a href=\"#\">option</a></li>\n        </dropdown>\n        <span slot=\"after\" class=\"input-group-btn\">\n          <button type=\"button\" class=\"btn btn-primary\">Go!</button>\n        </span>\n      </bs-input>\n    ")]), _vm._v(" "), _vm._c('bs-input', {
 	    attrs: {
 	      "label": "With icon and text",
 	      "type": "number",
@@ -12789,7 +12776,7 @@
 	      "placeholder": "Insert a fruit",
 	      "datalist": _vm.fruits
 	    }
-	  }), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n      <bs-input label=\"With datalist\" type=\"text\" placeholder=\"Insert a fruit\" :datalist=\"fruits\">\n      </bs-input>\n    ")])]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("''")])]), _vm._v(" "), _vm._c('p', [_vm._v("Input value. Use "), _vm._c('code', [_vm._v("v-model=\"value\"")])])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("datalist")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Array")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("\n        A list of predefined values that you can select. Work closer to an autocomplete. The items must be "), _vm._c('code', [_vm._v("String")]), _vm._v(" values.\n      ")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("disabled")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("enterSubmit")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Submit when you press "), _vm._c('code', [_vm._v("Enter")]), _vm._v(". Not supported on type "), _vm._c('code', [_vm._v("textarea")]), _vm._v(".")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("error")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Error message.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("help")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Help text behind the input")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("hide-help")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Only work with help and error."), _vm._c('br'), _vm._v("Hide the help if have to show any error message.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("icon")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("label")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Enable input label (name).")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("lang")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._v("Browser language")]), _vm._v(" "), _vm._c('p', [_vm._c('abbr', {
+	  }), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n      <bs-input label=\"With datalist\" type=\"text\" placeholder=\"Insert a fruit\" :datalist=\"fruits\">\n      </bs-input>\n    ")])], 1), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("''")])]), _vm._v(" "), _vm._c('p', [_vm._v("Input value. Use "), _vm._c('code', [_vm._v("v-model=\"value\"")])])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("datalist")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Array")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("\n        A list of predefined values that you can select. Work closer to an autocomplete. The items must be "), _vm._c('code', [_vm._v("String")]), _vm._v(" values.\n      ")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("disabled")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("enterSubmit")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Submit when you press "), _vm._c('code', [_vm._v("Enter")]), _vm._v(". Not supported on type "), _vm._c('code', [_vm._v("textarea")]), _vm._v(".")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("error")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Error message.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("help")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Help text behind the input")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("hide-help")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Only work with help and error."), _vm._c('br'), _vm._v("Hide the help if have to show any error message.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("icon")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("label")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Enable input label (name).")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("lang")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._v("Browser language")]), _vm._v(" "), _vm._c('p', [_vm._c('abbr', {
 	    attrs: {
 	      "title": "ISO 639-1 code"
 	    }
@@ -12812,7 +12799,7 @@
 	      "href": "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Data_form_validation",
 	      "target": "_blank"
 	    }
-	  }, [_vm._v("HTML5 form validations (all modern browsers support it).")])])
+	  }, [_vm._v("HTML5 form validations (all modern browsers support it).")])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -12893,6 +12880,17 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 	//
 	//
 	//
@@ -13173,7 +13171,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.modal {\r\n  transition: all 0.3s ease;\n}\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\r\n  -webkit-transform: scale(0.1);\r\n  -moz-transform: scale(0.1);\r\n  -ms-transform: scale(0.1);\r\n  transform: scale(0.1);\r\n  top: 300px;\r\n  opacity: 0;\r\n  -webkit-transition: all 0.3s;\r\n  -moz-transition: all 0.3s;\r\n  transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\r\n  -webkit-transform: scale(1);\r\n  -moz-transform: scale(1);\r\n  -ms-transform: scale(1);\r\n  transform: scale(1);\r\n  -webkit-transform: translate3d(0, -300px, 0);\r\n  transform: translate3d(0, -300px, 0);\r\n  opacity: 1;\n}\r\n", "", {"version":3,"sources":["/./src/Modal.vue?0f454b08"],"names":[],"mappings":";AA6FA;EACA,0BAAA;CACA;AACA;EACA,kCAAA;CACA;AACA;EACA,8BAAA;EACA,2BAAA;EACA,0BAAA;EACA,sBAAA;EACA,WAAA;EACA,WAAA;EACA,6BAAA;EACA,0BAAA;EACA,qBAAA;CACA;AACA;EACA,4BAAA;EACA,yBAAA;EACA,wBAAA;EACA,oBAAA;EACA,6CAAA;EACA,qCAAA;EACA,WAAA;CACA","file":"Modal.vue","sourcesContent":["<template>\r\n  <div role=\"dialog\" :class=\"['modal',effect]\" @click=\"backClose\" @transitionend=\"transitionend\">\r\n    <div :class=\"{'modal-dialog':true,'modal-lg':large,'modal-sm':small}\" role=\"document\" :style=\"{width: optionalWidth}\">\r\n      <div class=\"modal-content\">\r\n        <slot name=\"modal-header\">\r\n          <div class=\"modal-header\">\r\n            <button type=\"button\" class=\"close\" @click=\"close\"><span>&times;</span></button>\r\n            <h4 class=\"modal-title\"><slot name=\"title\">{{title}}</slot></h4>\r\n          </div>\r\n        </slot>\r\n        <slot name=\"modal-body\"><div class=\"modal-body\"><slot></slot></div></slot>\r\n        <slot name=\"modal-footer\">\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" @click=\"close\">{{ cancelText }}</button>\r\n            <button type=\"button\" class=\"btn btn-primary\" @click=\"ok\">{{ okText }}</button>\r\n          </div>\r\n        </slot>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {getScrollBarWidth} from './utils/utils.js'\r\n\r\nexport default {\r\n  props: {\r\n    backdrop: {type: Boolean, default: true},\r\n    callback: {type: Function, default: null},\r\n    cancelText: {type: String, default: 'Close'},\r\n    effect: {type: String, default: null},\r\n    large: {type: Boolean, default: false},\r\n    okText: {type: String, default: 'Save changes'},\r\n    small: {type: Boolean, default: false},\r\n    title: {type: String, default: ''},\r\n    value: {type: Boolean, required: true},\r\n    width: {default: null}\r\n  },\r\n  computed: {\r\n    optionalWidth () {\r\n      if (this.width === null) {\r\n        return null\r\n      } else if (Number.isInteger(this.width)) {\r\n        return this.width + 'px'\r\n      }\r\n      return this.width\r\n    }\r\n  },\r\n  watch: {\r\n    value (val) {\r\n      this.transitionstart()\r\n    }\r\n  },\r\n  methods: {\r\n    backClose (e) {\r\n      if (this.backdrop && e.target === this.$el) { this.close() }\r\n    },\r\n    close () {\r\n      this.$emit('cancel')\r\n      this.$emit('input', false)\r\n    },\r\n    ok () {\r\n      if (this.callback instanceof Function) this.callback()\r\n      this.$emit('ok')\r\n    },\r\n    transitionstart () {\r\n      const el = this.$el\r\n      const body = document.body\r\n      const scrollBarWidth = getScrollBarWidth()\r\n      if (this.value) {\r\n        el.querySelector('.modal-content').focus()\r\n        el.style.display = 'block'\r\n        setTimeout(() => el.classList.add('in'), 0)\r\n        body.classList.add('modal-open')\r\n        if (scrollBarWidth !== 0) {\r\n          body.style.paddingRight = scrollBarWidth + 'px'\r\n        }\r\n      } else {\r\n        el.classList.remove('in')\r\n      }\r\n    },\r\n    transitionend () {\r\n      if (!this.value) {\r\n        this.$el.style.display = 'none'\r\n        const body = document.body\r\n        body.style.paddingRight = null\r\n        body.classList.remove('modal-open')\r\n      }\r\n    }\r\n  }\r\n}\r\n</script>\r\n<style>\r\n.modal {\r\n  transition: all 0.3s ease;\r\n}\r\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\r\n}\r\n.modal.zoom .modal-dialog {\r\n  -webkit-transform: scale(0.1);\r\n  -moz-transform: scale(0.1);\r\n  -ms-transform: scale(0.1);\r\n  transform: scale(0.1);\r\n  top: 300px;\r\n  opacity: 0;\r\n  -webkit-transition: all 0.3s;\r\n  -moz-transition: all 0.3s;\r\n  transition: all 0.3s;\r\n}\r\n.modal.zoom.in .modal-dialog {\r\n  -webkit-transform: scale(1);\r\n  -moz-transform: scale(1);\r\n  -ms-transform: scale(1);\r\n  transform: scale(1);\r\n  -webkit-transform: translate3d(0, -300px, 0);\r\n  transform: translate3d(0, -300px, 0);\r\n  opacity: 1;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.modal {\r\n  transition: all 0.3s ease;\n}\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\r\n  -webkit-transform: scale(0.1);\r\n  -moz-transform: scale(0.1);\r\n  -ms-transform: scale(0.1);\r\n  transform: scale(0.1);\r\n  top: 300px;\r\n  opacity: 0;\r\n  -webkit-transition: all 0.3s;\r\n  -moz-transition: all 0.3s;\r\n  transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\r\n  -webkit-transform: scale(1);\r\n  -moz-transform: scale(1);\r\n  -ms-transform: scale(1);\r\n  transform: scale(1);\r\n  -webkit-transform: translate3d(0, -300px, 0);\r\n  transform: translate3d(0, -300px, 0);\r\n  opacity: 1;\n}\r\n", "", {"version":3,"sources":["/./src/Modal.vue?458fb69a"],"names":[],"mappings":";AA8FA;EACA,0BAAA;CACA;AACA;EACA,kCAAA;CACA;AACA;EACA,8BAAA;EACA,2BAAA;EACA,0BAAA;EACA,sBAAA;EACA,WAAA;EACA,WAAA;EACA,6BAAA;EACA,0BAAA;EACA,qBAAA;CACA;AACA;EACA,4BAAA;EACA,yBAAA;EACA,wBAAA;EACA,oBAAA;EACA,6CAAA;EACA,qCAAA;EACA,WAAA;CACA","file":"Modal.vue","sourcesContent":["<template>\r\n  <div role=\"dialog\" :class=\"['modal',effect]\" @click=\"backClose\" @transitionend=\"transitionend\">\r\n    <div :class=\"{'modal-dialog':true,'modal-lg':large,'modal-sm':small}\" role=\"document\" :style=\"{width: optionalWidth}\">\r\n      <div class=\"modal-content\">\r\n        <slot name=\"modal-header\">\r\n          <div class=\"modal-header\">\r\n            <button type=\"button\" class=\"close\" @click=\"close\"><span>&times;</span></button>\r\n            <h4 class=\"modal-title\"><slot name=\"title\">{{title}}</slot></h4>\r\n          </div>\r\n        </slot>\r\n        <slot name=\"modal-body\"><div class=\"modal-body\"><slot></slot></div></slot>\r\n        <slot name=\"modal-footer\">\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" @click=\"close\">{{ cancelText }}</button>\r\n            <button type=\"button\" class=\"btn btn-primary\" @click=\"ok\">{{ okText }}</button>\r\n          </div>\r\n        </slot>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {getScrollBarWidth} from './utils/utils.js'\r\n\r\nexport default {\r\n  props: {\r\n    backdrop: {type: Boolean, default: true},\r\n    callback: {type: Function, default: null},\r\n    cancelText: {type: String, default: 'Close'},\r\n    effect: {type: String, default: null},\r\n    large: {type: Boolean, default: false},\r\n    okText: {type: String, default: 'Save changes'},\r\n    small: {type: Boolean, default: false},\r\n    title: {type: String, default: ''},\r\n    value: {type: Boolean, required: true},\r\n    width: {default: null}\r\n  },\r\n  computed: {\r\n    optionalWidth () {\r\n      if (this.width === null) {\r\n        return null\r\n      } else if (Number.isInteger(this.width)) {\r\n        return this.width + 'px'\r\n      }\r\n      return this.width\r\n    }\r\n  },\r\n  watch: {\r\n    value (val) {\r\n      this.transitionstart()\r\n    }\r\n  },\r\n  methods: {\r\n    backClose (e) {\r\n      if (this.backdrop && e.target === this.$el) { this.close() }\r\n    },\r\n    close () {\r\n      this.$emit('cancel')\r\n      this.$emit('input', false)\r\n    },\r\n    ok () {\r\n      if (this.callback instanceof Function) this.callback()\r\n      this.$emit('ok')\r\n      this.$emit('input', true)\r\n    },\r\n    transitionstart () {\r\n      const el = this.$el\r\n      const body = document.body\r\n      const scrollBarWidth = getScrollBarWidth()\r\n      if (this.value) {\r\n        el.querySelector('.modal-content').focus()\r\n        el.style.display = 'block'\r\n        setTimeout(() => el.classList.add('in'), 0)\r\n        body.classList.add('modal-open')\r\n        if (scrollBarWidth !== 0) {\r\n          body.style.paddingRight = scrollBarWidth + 'px'\r\n        }\r\n      } else {\r\n        el.classList.remove('in')\r\n      }\r\n    },\r\n    transitionend () {\r\n      if (!this.value) {\r\n        this.$el.style.display = 'none'\r\n        const body = document.body\r\n        body.style.paddingRight = null\r\n        body.classList.remove('modal-open')\r\n      }\r\n    }\r\n  }\r\n}\r\n</script>\r\n<style>\r\n.modal {\r\n  transition: all 0.3s ease;\r\n}\r\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\r\n}\r\n.modal.zoom .modal-dialog {\r\n  -webkit-transform: scale(0.1);\r\n  -moz-transform: scale(0.1);\r\n  -ms-transform: scale(0.1);\r\n  transform: scale(0.1);\r\n  top: 300px;\r\n  opacity: 0;\r\n  -webkit-transition: all 0.3s;\r\n  -moz-transition: all 0.3s;\r\n  transition: all 0.3s;\r\n}\r\n.modal.zoom.in .modal-dialog {\r\n  -webkit-transform: scale(1);\r\n  -moz-transform: scale(1);\r\n  -ms-transform: scale(1);\r\n  transform: scale(1);\r\n  -webkit-transform: translate3d(0, -300px, 0);\r\n  transform: translate3d(0, -300px, 0);\r\n  opacity: 1;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -13237,6 +13235,7 @@
 	    ok: function ok() {
 	      if (this.callback instanceof Function) this.callback();
 	      this.$emit('ok');
+	      this.$emit('input', true);
 	    },
 	    transitionstart: function transitionstart() {
 	      var el = this.$el;
@@ -13359,9 +13358,9 @@
 	    }
 	  }, [_vm._c('span', [_vm._v("×")])]), _vm._v(" "), _vm._c('h4', {
 	    staticClass: "modal-title"
-	  }, [_vm._t("title", [_vm._v(_vm._s(_vm.title))])], true)])]), _vm._v(" "), _vm._t("modal-body", [_vm._c('div', {
+	  }, [_vm._t("title", [_vm._v(_vm._s(_vm.title))])], 2)])]), _vm._v(" "), _vm._t("modal-body", [_vm._c('div', {
 	    staticClass: "modal-body"
-	  }, [_vm._t("default")], true)]), _vm._v(" "), _vm._t("modal-footer", [_vm._c('div', {
+	  }, [_vm._t("default")], 2)]), _vm._v(" "), _vm._t("modal-footer", [_vm._c('div', {
 	    staticClass: "modal-footer"
 	  }, [_vm._c('button', {
 	    staticClass: "btn btn-default",
@@ -13379,7 +13378,7 @@
 	    on: {
 	      "click": _vm.ok
 	    }
-	  }, [_vm._v(_vm._s(_vm.okText))])])])], true)])])
+	  }, [_vm._v(_vm._s(_vm.okText))])])])], 2)])])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -13550,11 +13549,15 @@
 	        _vm.smallModal = false
 	      }
 	    }
-	  }, [_vm._v("\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat.\n    ")])]), _vm._v(" "), _vm._c('hr'), _vm._v("\n  Have different ways to use it:\n  "), _vm._c('doc-code', {
+	  }, [_vm._v("\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat.\n    ")])], 1), _vm._v(" "), _vm._c('hr'), _vm._v("\n  Have different ways to use it:\n  "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "html"
 	    }
-	  }, [_vm._v("\n    <!-- with v-model -->\n    <modal v-model=\"show\" @ok=\"okMethod\">\n      ...\n    </modal>\n    <!-- handling events -->\n    <modal title=\"Fade/Zoom Modal\" effect=\"fade/zoom\"\n      :value=\"show\" @ok=\"doSomething\" @cancel=\"show = false\"\n    >\n      ...\n    </modal>\n    <modal v-model=\"show\" effect=\"fade\">\n      <!-- custom header -->\n      <div slot=\"modal-header\" class=\"modal-header\">\n        <h4 class=\"modal-title\">\n          <i>Custom</i> <code>Modal</code> <b>Title</b>\n        </h4>\n      </div>\n      ...\n      <!-- custom buttons -->\n      <div slot=\"modal-footer\" class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" @click=\"showCustomModal = false\">Exit</button>\n        <button type=\"button\" class=\"btn btn-success\" @click=\"saveMethod\">Custom Save</button>\n      </div>\n    </modal>\n")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("backdrop")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Enables/disables closing the modal by clicking on the backdrop.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("callback")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Function")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("A callback Function when you click the modal primary button.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("cancel-text")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._v("Close")]), _vm._v(" "), _vm._c('p', [_vm._v("Text for cancel button")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("effect")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("set the name of the effect to use on modal, like fade or zoom")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("large")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Large modal (see boostrap's documentation for .modal-lg)")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("ok-text")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._v("Save changes")]), _vm._v(" "), _vm._c('p', [_vm._v("Text for OK button")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("small")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Small modal (see boostrap's documentation for .modal-sm)")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("title")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Title of the modal component.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("true if modal need to be shown, note the Modal has no intenal state")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("width")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number, String or null")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Pass a Number in pixels or a String with relational sizes ( e.g. '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.")])])]), _vm._v(" "), _vm._c('h2', [_vm._v("Usage")]), _vm._v(" "), _vm._c('p', [_vm._v("\n  If you just need a simple modal, you can use the "), _vm._c('code', [_vm._v("title")]), _vm._v(" prop and the default footer. However, if you\n  need to put custom HTML or a custom footer, you can override the header or footer block by using\n  "), _vm._c('code', [_vm._v("<div slot=\"modal-title\" class=\"modal-title\">...</div>")]), _vm._v(" and\n  "), _vm._c('code', [_vm._v("<div slot=\"modal-footer\" class=\"modal-footer\">...</div>")]), _vm._v(".\n")])])
+	  }, [_vm._v("\n    <!-- with v-model -->\n    <modal v-model=\"show\" @ok=\"okMethod\">\n      ...\n    </modal>\n    <!-- handling events -->\n    <modal title=\"Fade/Zoom Modal\" effect=\"fade/zoom\"\n      :value=\"show\" @ok=\"doSomething\" @cancel=\"show = false\"\n    >\n      ...\n    </modal>\n    <modal v-model=\"show\" effect=\"fade\">\n      <!-- custom header -->\n      <div slot=\"modal-header\" class=\"modal-header\">\n        <h4 class=\"modal-title\">\n          <i>Custom</i> <code>Modal</code> <b>Title</b>\n        </h4>\n      </div>\n      ...\n      <!-- custom buttons -->\n      <div slot=\"modal-footer\" class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" @click=\"showCustomModal = false\">Exit</button>\n        <button type=\"button\" class=\"btn btn-success\" @click=\"saveMethod\">Custom Save</button>\n      </div>\n    </modal>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("backdrop")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Enables/disables closing the modal by clicking on the backdrop.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("callback")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Function")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("A callback Function when you click the modal primary button.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("cancel-text")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._v("Close")]), _vm._v(" "), _vm._c('p', [_vm._v("Text for cancel button")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("effect")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("set the name of the effect to use on modal, like fade or zoom")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("large")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Large modal (see boostrap's documentation for .modal-lg)")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("ok-text")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._v("Save changes")]), _vm._v(" "), _vm._c('p', [_vm._v("Text for OK button")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("small")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Small modal (see boostrap's documentation for .modal-sm)")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("title")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Title of the modal component.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("true if modal need to be shown, note the Modal has no intenal state")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("width")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number, String or null")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Pass a Number in pixels or a String with relational sizes ( e.g. '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.")])])]), _vm._v(" "), _vm._c('doc-table', {
+	    attrs: {
+	      "type": "Events"
+	    }
+	  }, [_vm._c('div', [_vm._c('p', [_vm._v("input")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("Boolean")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return if the modal action is accepted / canceled ("), _vm._c('code', [_vm._v("true")]), _vm._v("/"), _vm._c('code', [_vm._v("false")]), _vm._v(") shown.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("ok")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("null")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Called if the modal was accepted.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("cancel")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("null")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Called if the modal was canceled.")])])]), _vm._v(" "), _vm._c('p', [_vm._c('strong', [_vm._v("Note:")]), _vm._v(" The default events are called if you use the default footer. Using a footer slot, you must implement your own events to the buttons.")])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -13927,17 +13930,17 @@
 	    staticClass: "icon-bar"
 	  }), _vm._v(" "), _vm._c('span', {
 	    staticClass: "icon-bar"
-	  })]) : _vm._e(), _vm._v(" "), _vm._t("collapse"), _vm._v(" "), _vm._t("brand")], true), _vm._v(" "), _vm._c('div', {
+	  })]) : _vm._e(), _vm._v(" "), _vm._t("collapse"), _vm._v(" "), _vm._t("brand")], 2), _vm._v(" "), _vm._c('div', {
 	    class: ['navbar-collapse', {
 	      collapse: _vm.collapsed
 	    }]
 	  }, [_vm._c('ul', {
 	    staticClass: "nav navbar-nav"
-	  }, [_vm._t("default")], true), _vm._v(" "), (_vm.$slots.left) ? _vm._c('ul', {
+	  }, [_vm._t("default")], 2), _vm._v(" "), (_vm.$slots.left) ? _vm._c('ul', {
 	    staticClass: "nav navbar-nav navbar-left"
-	  }, [_vm._t("left")], true) : _vm._e(), _vm._v(" "), (_vm.$slots.right) ? _vm._c('ul', {
+	  }, [_vm._t("left")], 2) : _vm._e(), _vm._v(" "), (_vm.$slots.right) ? _vm._c('ul', {
 	    staticClass: "nav navbar-nav navbar-right"
-	  }, [_vm._t("right")], true) : _vm._e()])])])
+	  }, [_vm._t("right")], 2) : _vm._e()])])])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -14002,7 +14005,7 @@
 	    attrs: {
 	      "d": "M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
 	    }
-	  })])])])]), _vm._v(" "), _vm._c('div', {
+	  })])])])], 1), _vm._v(" "), _vm._c('div', {
 	    staticClass: "form-group"
 	  }, [_vm._c('label', [_vm._v("Placement")]), _vm._v(" "), _vm._c('v-select', {
 	    directives: [{
@@ -14023,7 +14026,7 @@
 	        _vm.placement = $event
 	      }
 	    }
-	  })]), _vm._v(" "), _vm._c('div', {
+	  })], 1), _vm._v(" "), _vm._c('div', {
 	    staticClass: "form-group"
 	  }, [_vm._c('label', [_vm._v("Type")]), _vm._v(" "), _vm._c('v-select', {
 	    directives: [{
@@ -14043,11 +14046,11 @@
 	        _vm.type = $event
 	      }
 	    }
-	  })])]), _vm._v(" "), _vm._c('doc-code', {
+	  })], 1)], 1), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, [_vm._v("\n    <navbar placement=\"top\" type=\"default\">\n      <!-- Brand as slot -->\n      <a slot=\"brand\" href=\"/\" title=\"Home\" class=\"navbar-brand\">VueStrap</a>\n      <!-- You can use dropdown component -->\n      <dropdown text=\"Dropdown\">\n        <li><a href=\"link\">Option</a></li>\n      </dropdown>\n      <!-- Or normal bootstrap style -->\n      <li class=\"dropdown\">\n        <a href=\"#\" class=\"dropdown-toggle\">Dropdown</a>\n        <ul class=\"dropdown-menu\">\n          <li><a href=\"link\">Option</a></li>\n        </ul>\n      </li>\n      <!-- For positioning use slot=\"left\" or slot=\"right\" -->\n      <li slot=\"right\">\n        <a href=\"https://github.com/wffranco/vue-strap\" target=\"_blank\">Fork...</a>\n      </li>\n    </navbar>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("placement")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("top")]), _vm._v(", "), _vm._c('code', [_vm._v("bottom")]), _vm._v(", "), _vm._c('code', [_vm._v("static")]), _vm._v(", or empty for normal.")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("''")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("type")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("inverse")]), _vm._v(", "), _vm._c('code', [_vm._v("default")]), _vm._v(".")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("default")])]), _vm._v(" "), _vm._c('p')])])])
+	  }, [_vm._v("\n    <navbar placement=\"top\" type=\"default\">\n      <!-- Brand as slot -->\n      <a slot=\"brand\" href=\"/\" title=\"Home\" class=\"navbar-brand\">VueStrap</a>\n      <!-- You can use dropdown component -->\n      <dropdown text=\"Dropdown\">\n        <li><a href=\"link\">Option</a></li>\n      </dropdown>\n      <!-- Or normal bootstrap style -->\n      <li class=\"dropdown\">\n        <a href=\"#\" class=\"dropdown-toggle\">Dropdown</a>\n        <ul class=\"dropdown-menu\">\n          <li><a href=\"link\">Option</a></li>\n        </ul>\n      </li>\n      <!-- For positioning use slot=\"left\" or slot=\"right\" -->\n      <li slot=\"right\">\n        <a href=\"https://github.com/wffranco/vue-strap\" target=\"_blank\">Fork...</a>\n      </li>\n    </navbar>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("placement")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("top")]), _vm._v(", "), _vm._c('code', [_vm._v("bottom")]), _vm._v(", "), _vm._c('code', [_vm._v("static")]), _vm._v(", or empty for normal.")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("''")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("type")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("inverse")]), _vm._v(", "), _vm._c('code', [_vm._v("default")]), _vm._v(".")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("default")])]), _vm._v(" "), _vm._c('p')])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -14362,13 +14365,13 @@
 	    staticClass: "arrow"
 	  }), _vm._v(" "), (_vm.title) ? _vm._c('h3', {
 	    staticClass: "popover-title"
-	  }, [_vm._t("title", [_vm._v(_vm._s(_vm.title))])], true) : _vm._e(), _vm._v(" "), _vm._c('div', {
+	  }, [_vm._t("title", [_vm._v(_vm._s(_vm.title))])], 2) : _vm._e(), _vm._v(" "), _vm._c('div', {
 	    staticClass: "popover-content"
 	  }, [_vm._t("content", [_vm._c('span', {
 	    domProps: {
 	      "innerHTML": _vm._s(_vm.content)
 	    }
-	  })])], true)]) : _vm._e()])], true)
+	  })])], 2)]) : _vm._e()])], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -14431,7 +14434,7 @@
 	    }
 	  }, [_vm._c('button', {
 	    staticClass: "btn btn-default"
-	  }, [_vm._v("Contextmenu (right click)")])])]), _vm._v(" "), _vm._c('popover', {
+	  }, [_vm._v("Contextmenu (right click)")])])], 1), _vm._v(" "), _vm._c('popover', {
 	    attrs: {
 	      "effect": "scale",
 	      "title": "Title",
@@ -14444,11 +14447,11 @@
 	      "type": "text",
 	      "placeholder": "Focus"
 	    }
-	  })])], true), _vm._v(" "), _vm._c('doc-code', {
+	  })], 1)], 2), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, [_vm._v("\n    <popover effect=\"fade\" placement=\"bottom\" title=\"Title\" content=\"content\">\n      <button class=\"btn btn-default\">Popover on bottom</button>\n    </popover>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("trigger")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("click")]), _vm._v(" "), _vm._c('code', [_vm._v("focus")]), _vm._v(" "), _vm._c('code', [_vm._v("hover")]), _vm._v(" "), _vm._c('code', [_vm._v("contextmenu")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("click")])]), _vm._v(" "), _vm._c('p', [_vm._v("How the popover is triggered.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("effect")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("scale")]), _vm._v(" "), _vm._c('code', [_vm._v("fade")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("fade")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("title")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("content")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("header")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether to show the header.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("placement")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("top")]), _vm._v(" "), _vm._c('code', [_vm._v("left")]), _vm._v(" "), _vm._c('code', [_vm._v("right")]), _vm._v(" "), _vm._c('code', [_vm._v("bottom")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("How to position the popover.")])])])])
+	  }, [_vm._v("\n    <popover effect=\"fade\" placement=\"bottom\" title=\"Title\" content=\"content\">\n      <button class=\"btn btn-default\">Popover on bottom</button>\n    </popover>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("trigger")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("click")]), _vm._v(" "), _vm._c('code', [_vm._v("focus")]), _vm._v(" "), _vm._c('code', [_vm._v("hover")]), _vm._v(" "), _vm._c('code', [_vm._v("contextmenu")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("click")])]), _vm._v(" "), _vm._c('p', [_vm._v("How the popover is triggered.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("effect")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("scale")]), _vm._v(" "), _vm._c('code', [_vm._v("fade")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("fade")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("title")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("content")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("header")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether to show the header.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("placement")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("top")]), _vm._v(" "), _vm._c('code', [_vm._v("left")]), _vm._v(" "), _vm._c('code', [_vm._v("right")]), _vm._v(" "), _vm._c('code', [_vm._v("bottom")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("How to position the popover.")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -14779,7 +14782,7 @@
 	      "now": "20",
 	      "type": "success"
 	    }
-	  })])]), _vm._v(" "), _vm._c('div', {
+	  })], 1)]), _vm._v(" "), _vm._c('div', {
 	    staticClass: "col-md-4"
 	  }, [_vm._c('div', {
 	    staticClass: "progress"
@@ -14788,7 +14791,7 @@
 	      "now": "40",
 	      "type": "info"
 	    }
-	  })])]), _vm._v(" "), _vm._c('div', {
+	  })], 1)]), _vm._v(" "), _vm._c('div', {
 	    staticClass: "col-md-4"
 	  }, [_vm._c('div', {
 	    staticClass: "progress"
@@ -14797,7 +14800,7 @@
 	      "now": "60",
 	      "type": "primary"
 	    }
-	  })])])]), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('h4', [_vm._v("Dynamic "), _vm._c('button', {
+	  })], 1)])]), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('h4', [_vm._v("Dynamic "), _vm._c('button', {
 	    staticClass: "btn btn-default",
 	    attrs: {
 	      "type": "button"
@@ -14812,21 +14815,21 @@
 	      "now": _vm.dynamicData[0],
 	      "type": "info"
 	    }
-	  })]), _vm._v(" "), _vm._c('div', {
+	  })], 1), _vm._v(" "), _vm._c('div', {
 	    staticClass: "progress"
 	  }, [_vm._c('progressbar', {
 	    attrs: {
 	      "now": _vm.dynamicData[1],
 	      "type": "warning"
 	    }
-	  })]), _vm._v(" "), _vm._c('div', {
+	  })], 1), _vm._v(" "), _vm._c('div', {
 	    staticClass: "progress"
 	  }, [_vm._c('progressbar', {
 	    attrs: {
 	      "now": _vm.dynamicData[2],
 	      "type": "danger"
 	    }
-	  })]), _vm._v(" "), _vm._c('div', {
+	  })], 1), _vm._v(" "), _vm._c('div', {
 	    staticClass: "progress"
 	  }, [_vm._c('progressbar', {
 	    attrs: {
@@ -14834,7 +14837,7 @@
 	      "type": "success",
 	      "striped": ""
 	    }
-	  })]), _vm._v(" "), _vm._c('div', {
+	  })], 1), _vm._v(" "), _vm._c('div', {
 	    staticClass: "progress"
 	  }, [_vm._c('progressbar', {
 	    attrs: {
@@ -14843,7 +14846,7 @@
 	      "striped": "",
 	      "animated": ""
 	    }
-	  })]), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('h4', [_vm._v("Stacked "), _vm._c('button', {
+	  })], 1), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('h4', [_vm._v("Stacked "), _vm._c('button', {
 	    staticClass: "btn btn-default",
 	    attrs: {
 	      "type": "button"
@@ -14880,11 +14883,11 @@
 	      "striped": "",
 	      "animated": ""
 	    }
-	  })])]), _vm._v(" "), _vm._c('doc-code', {
+	  })], 1)]), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, [_vm._v("\n    <!-- Single -->\n    <div class=\"progress\">\n      <progressbar now=\"\" label type=\"warning\" striped></progressbar>\n    </div>\n    <!-- Stacked -->\n    <div class=\"progress\">\n      <progressbar now=\"...\" label type=\"warning\" striped></progressbar>\n      <progressbar now=\"...\" label type=\"success\"></progressbar>\n      <progressbar now=\"...\" label type=\"danger\"></progressbar>\n      <progressbar now=\"...\" label type=\"primary\" striped animated></progressbar>\n    </div>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("now")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("The current value of progress completed. Required.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("type")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Style type. Possible values are 'success', 'warning' etc.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("label")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._v("false")]), _vm._v(" "), _vm._c('p', [_vm._v("Whether to show the label.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("striped")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether the progressbar has striped effect or not.")])])])])
+	  }, [_vm._v("\n    <!-- Single -->\n    <div class=\"progress\">\n      <progressbar now=\"\" label type=\"warning\" striped></progressbar>\n    </div>\n    <!-- Stacked -->\n    <div class=\"progress\">\n      <progressbar now=\"...\" label type=\"warning\" striped></progressbar>\n      <progressbar now=\"...\" label type=\"success\"></progressbar>\n      <progressbar now=\"...\" label type=\"danger\"></progressbar>\n      <progressbar now=\"...\" label type=\"primary\" striped animated></progressbar>\n    </div>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("now")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("The current value of progress completed. Required.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("type")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Style type. Possible values are 'success', 'warning' etc.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("label")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._v("false")]), _vm._v(" "), _vm._c('p', [_vm._v("Whether to show the label.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("striped")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Whether the progressbar has striped effect or not.")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -15208,7 +15211,7 @@
 	        _vm.radioValue = $event
 	      }
 	    }
-	  }, [_vm._v("Four")]), _vm._v(" "), _vm._c('p', [_vm._c('pre', [_vm._v("Radio value: " + _vm._s(_vm.radioValue))])])]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._v("Four")]), _vm._v(" "), _vm._c('p', [_vm._c('pre', [_vm._v("Radio value: " + _vm._s(_vm.radioValue))])])], 1), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
@@ -15216,7 +15219,7 @@
 	    attrs: {
 	      "href": "#button-group"
 	    }
-	  }, [_vm._v("Button Group")]), _vm._v(" for more options.")])])
+	  }, [_vm._v("Button Group")]), _vm._v(" for more options.")])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -15627,7 +15630,7 @@
 	    attrs: {
 	      "type": "submit"
 	    }
-	  }, [_vm._v("Submit")])])]), _vm._v(" "), _vm._c('div', {
+	  }, [_vm._v("Submit")])], 1)]), _vm._v(" "), _vm._c('div', {
 	    staticClass: "col-xs-12 col-sm-12 col-md-6 col-lg-6"
 	  }, [_vm._c('p', [_vm._c('pre', [_vm._v("Multiple select data : " + _vm._s(_vm.select.multiple.join(',')))])]), _vm._v(" "), _vm._c('form', {
 	    attrs: {
@@ -15667,7 +15670,7 @@
 	    attrs: {
 	      "type": "submit"
 	    }
-	  }, [_vm._v("Submit")])])])]), _vm._v(" "), _vm._c('br'), _vm._v(" "), _vm._c('button-group', {
+	  }, [_vm._v("Submit")])], 1)])]), _vm._v(" "), _vm._c('br'), _vm._v(" "), _vm._c('button-group', {
 	    attrs: {
 	      "type": "primary",
 	      "buttons": false
@@ -15691,7 +15694,7 @@
 	        _vm.select.disabled = $event
 	      }
 	    }
-	  }, [_vm._v("Disabled")])]), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
+	  }, [_vm._v("Disabled")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -15706,7 +15709,7 @@
 	        _vm.select.placeholder = $event
 	      }
 	    }
-	  }, [_vm._v("Placeholder")])]), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
+	  }, [_vm._v("Placeholder")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -15721,7 +15724,7 @@
 	        _vm.select.search = $event
 	      }
 	    }
-	  }, [_vm._v("Search")])]), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
+	  }, [_vm._v("Search")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -15736,7 +15739,7 @@
 	        _vm.select.clearButton = $event
 	      }
 	    }
-	  }, [_vm._v("Clear Button")])])]), _vm._v(" "), _vm._c('div', {
+	  }, [_vm._v("Clear Button")])], 1)]), _vm._v(" "), _vm._c('div', {
 	    staticClass: "col-xs-12 col-sm-12 col-md-6 col-lg-6"
 	  }, [_vm._c('p', [_vm._c('checkbox', {
 	    directives: [{
@@ -15753,7 +15756,7 @@
 	        _vm.select.required = $event
 	      }
 	    }
-	  }, [_vm._v("Required (empty value if noting selected)")])]), _vm._v(" "), _vm._c('p', [_vm._v("\n            Multiple:\n            "), (_vm.select.multiple) ? _vm._c('checkbox', {
+	  }, [_vm._v("Required (empty value if noting selected)")])], 1), _vm._v(" "), _vm._c('p', [_vm._v("\n            Multiple:\n            "), (_vm.select.multiple) ? _vm._c('checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -15783,7 +15786,7 @@
 	        _vm.select.closeOnSelect = $event
 	      }
 	    }
-	  }, [_vm._v("Close on Select")]) : _vm._e()])])])]), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n      <form action=\"./#select\" method=\"get\">\n        <v-select v-model=\"select.value\" :options=\"select.options\" options-value=\"val\"\n          multiple name=\"animals[]\" limit=\"3\"\n          placeholder=\"Using placeholder\"\n          search justified required disabled\n          clear-button close-on-select\n        ></v-select>\n        <button type=\"submit\" class=\"btn btn-default\">Submit form</button>\n      </form>\n    ")]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._v("Close on Select")]) : _vm._e()], 1)])])]), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n      <form action=\"./#select\" method=\"get\">\n        <v-select v-model=\"select.value\" :options=\"select.options\" options-value=\"val\"\n          multiple name=\"animals[]\" limit=\"3\"\n          placeholder=\"Using placeholder\"\n          search justified required disabled\n          clear-button close-on-select\n        ></v-select>\n        <button type=\"submit\" class=\"btn btn-default\">Submit form</button>\n      </form>\n    ")]), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "javascript"
 	    }
@@ -15822,7 +15825,7 @@
 	    attrs: {
 	      "value": "grape"
 	    }
-	  }, [_vm._v("Grape")])]), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n      <v-select>\n        <v-option value=\"apple\">Apple</v-option>\n        <v-option value=\"banana\">Banana</v-option>\n        <v-option value=\"cherry\">Cherry</v-option>\n        <v-option value=\"orange\">Orange</v-option>\n        <v-option value=\"grape\">Grape</v-option>\n      </v-select>\n    ")]), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('h4', [_vm._v("Use button-group (component or "), _vm._c('a', {
+	  }, [_vm._v("Grape")])], 1), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n      <v-select>\n        <v-option value=\"apple\">Apple</v-option>\n        <v-option value=\"banana\">Banana</v-option>\n        <v-option value=\"cherry\">Cherry</v-option>\n        <v-option value=\"orange\">Orange</v-option>\n        <v-option value=\"grape\">Grape</v-option>\n      </v-select>\n    ")]), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('h4', [_vm._v("Use button-group (component or "), _vm._c('a', {
 	    attrs: {
 	      "href": "http://getbootstrap.com/components/#btn-groups-justified"
 	    }
@@ -15907,7 +15910,7 @@
 	    attrs: {
 	      "value": "s"
 	    }
-	  }, [_vm._v("Strawberry")])])]), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n      <button-group justified><select>...</select></button-group>\n      // or\n      <div class=\"btn-group btn-group-justified\"><select>...</select></div>\n    ")]), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('h4', [_vm._v("Ajax data and parent dependency:")]), _vm._v(" "), _vm._c('p', [_vm._v("Depend on "), _vm._c('a', {
+	  }, [_vm._v("Strawberry")])], 1)], 1), _vm._v(" "), _vm._c('doc-code', [_vm._v("\n      <button-group justified><select>...</select></button-group>\n      // or\n      <div class=\"btn-group btn-group-justified\"><select>...</select></div>\n    ")]), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('h4', [_vm._v("Ajax data and parent dependency:")]), _vm._v(" "), _vm._c('p', [_vm._v("Depend on "), _vm._c('a', {
 	    attrs: {
 	      "href": "https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
 	    }
@@ -15945,7 +15948,7 @@
 	    domProps: {
 	      "innerHTML": _vm._s(_vm.ajax.options)
 	    }
-	  })]), _vm._v(" "), _vm._c('doc-table', {
+	  })], 1), _vm._v(" "), _vm._c('doc-table', {
 	    attrs: {
 	      "name": "Other"
 	    }
@@ -15961,7 +15964,7 @@
 	    attrs: {
 	      "type": "Events"
 	    }
-	  }, [_vm._c('div', [_vm._c('p', [_vm._v("change")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("value")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return the selected value(s).")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("options")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("options:Array")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return the options array. Helpfull for dinamic/url options.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("selected")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("labels:String")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return a string with the label(s) of the selected item(s).")])])])])
+	  }, [_vm._c('div', [_vm._c('p', [_vm._v("change")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("value")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return the selected value(s).")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("options")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("options:Array")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return the options array. Helpfull for dinamic/url options.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("selected")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("labels:String")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return a string with the label(s) of the selected item(s).")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -16399,7 +16402,7 @@
 	        _vm.fixed = arguments[0]
 	      }
 	    }
-	  }, [_vm._v("fixed")])]), _vm._v(" "), _vm._c('p', [_vm._c('v-select', {
+	  }, [_vm._v("fixed")])], 1), _vm._v(" "), _vm._c('p', [_vm._c('v-select', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -16417,7 +16420,7 @@
 	        _vm.size = $event
 	      }
 	    }
-	  })]), _vm._v(" "), _vm._c('p', [_vm._c('button', {
+	  })], 1), _vm._v(" "), _vm._c('p', [_vm._c('button', {
 	    staticClass: "btn btn-info",
 	    on: {
 	      "click": _vm.showRef
@@ -16454,7 +16457,7 @@
 	        _vm.spinner = $event
 	      }
 	    }
-	  })])]), _vm._v(" "), _vm._c('doc-code', {
+	  })], 1)]), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
@@ -16462,7 +16465,7 @@
 	    attrs: {
 	      "language": "javascript"
 	    }
-	  }, [_vm._v("\n    // using ref\n    this.$refs.spinner.show()\n    this.$refs.spinner.hide()\n    // using global events\n    this.$root.$emit('spinner::show')\n    this.$root.$emit('spinner::hide')\n    // using v-model\n    this.spinner = true //show\n    this.spinner = false //hide\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("fixed")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Set to true if you want the spinner to occupy the entire window space.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("global")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("When is true, set global events for that spinner. Will be ignored if was set another global spinner.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("size")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("sm")]), _vm._v(", "), _vm._c('code', [_vm._v("md")]), _vm._v(", "), _vm._c('code', [_vm._v("lg")]), _vm._v(", "), _vm._c('code', [_vm._v("xl")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("md")])]), _vm._v(" "), _vm._c('p', [_vm._v("The size of the spinner.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("text")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("''")])]), _vm._v(" "), _vm._c('p', [_vm._v("The text to show under the spinner.")])])])])
+	  }, [_vm._v("\n    // using ref\n    this.$refs.spinner.show()\n    this.$refs.spinner.hide()\n    // using global events\n    this.$root.$emit('spinner::show')\n    this.$root.$emit('spinner::hide')\n    // using v-model\n    this.spinner = true //show\n    this.spinner = false //hide\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("fixed")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Set to true if you want the spinner to occupy the entire window space.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("global")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("When is true, set global events for that spinner. Will be ignored if was set another global spinner.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("size")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("sm")]), _vm._v(", "), _vm._c('code', [_vm._v("md")]), _vm._v(", "), _vm._c('code', [_vm._v("lg")]), _vm._v(", "), _vm._c('code', [_vm._v("xl")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("md")])]), _vm._v(" "), _vm._c('p', [_vm._v("The size of the spinner.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("text")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("''")])]), _vm._v(" "), _vm._c('p', [_vm._v("The text to show under the spinner.")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -16844,7 +16847,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
-	  return _vm._c('span', [_vm._t("default")], true)
+	  return _vm._c('span', [_vm._t("default")], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -16883,7 +16886,7 @@
 	        _vm.navStyle = $event
 	      }
 	    }
-	  })]), _vm._v(" "), (_vm.navStyle != 'stacked') ? _vm._c('p', [_vm._v("Justified: "), _vm._c('v-select', {
+	  })], 1), _vm._v(" "), (_vm.navStyle != 'stacked') ? _vm._c('p', [_vm._v("Justified: "), _vm._c('v-select', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -16901,7 +16904,7 @@
 	        _vm.justified = $event
 	      }
 	    }
-	  })]) : _vm._e(), _vm._v(" "), _vm._v(" "), _vm._c('tabs', {
+	  })], 1) : _vm._e(), _vm._v(" "), _vm._c('tabs', {
 	    attrs: {
 	      "nav-style": _vm.navStyle,
 	      "justified": _vm.justified
@@ -16932,7 +16935,7 @@
 	      "header": "four",
 	      "disabled": ""
 	    }
-	  }, [_vm._v("\n          ...\n        ")])]), _vm._v(" "), _vm._c('tab-group', {
+	  }, [_vm._v("\n          ...\n        ")])], 1), _vm._v(" "), _vm._c('tab-group', {
 	    attrs: {
 	      "header": "group2",
 	      "disabled": ""
@@ -16941,7 +16944,7 @@
 	    attrs: {
 	      "header": "five"
 	    }
-	  }, [_vm._v("\n          ...\n        ")])])])]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._v("\n          ...\n        ")])], 1)], 1)], 1), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
@@ -16958,7 +16961,7 @@
 	    attrs: {
 	      "name": "TabGroup & Tab"
 	    }
-	  }, [_vm._c('div', [_vm._c('p', [_vm._v("disabled")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Option can't be selected.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("header")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Title")])])])])
+	  }, [_vm._c('div', [_vm._c('p', [_vm._v("disabled")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Option can't be selected.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("header")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Title")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -17292,7 +17295,7 @@
 	    domProps: {
 	      "value": _vm.active ? 1 : 0
 	    }
-	  }) : _vm._e()], true)
+	  }) : _vm._e()], 2)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -17402,7 +17405,7 @@
 	        _vm.three = $event
 	      }
 	    }
-	  }, [_vm._v("Three")])]), _vm._v(" "), _vm._c('div', {
+	  }, [_vm._v("Three")])], 1), _vm._v(" "), _vm._c('div', {
 	    staticClass: "form-group"
 	  }, [_vm._c('bs-input', {
 	    directives: [{
@@ -17444,7 +17447,7 @@
 	        _vm.input = $event
 	      }
 	    }
-	  }, [_vm._v("Toggle Input:")])])])]), _vm._v(" "), _vm._c('p', [_vm._c('pre', [_vm._v("Toggle values: " + _vm._s(_vm.$data))])])]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._v("Toggle Input:")])], 1)])], 1), _vm._v(" "), _vm._c('p', [_vm._c('pre', [_vm._v("Toggle values: " + _vm._s(_vm.$data))])])]), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
@@ -17452,7 +17455,7 @@
 	    attrs: {
 	      "type": "Events"
 	    }
-	  }, [_vm._c('div', [_vm._c('p', [_vm._v("changed")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("boolean:value")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("If changed, return the actual state.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("disabled")]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Call this event if the button was disabled.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("enabled")]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Call this event if the button was enabled.")])])])])
+	  }, [_vm._c('div', [_vm._c('p', [_vm._v("changed")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("boolean:value")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("If changed, return the actual state.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("disabled")]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Call this event if the button was disabled.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("enabled")]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Call this event if the button was enabled.")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -17648,7 +17651,7 @@
 	    }
 	  }, [_vm._c('button', {
 	    staticClass: "btn btn-default"
-	  }, [_vm._v("Contextmenu (right click)")])])]), _vm._v(" "), _vm._c('tooltip', {
+	  }, [_vm._v("Contextmenu (right click)")])])], 1), _vm._v(" "), _vm._c('tooltip', {
 	    attrs: {
 	      "effect": "scale",
 	      "content": "Lorem ipsum dolor sit amet",
@@ -17660,11 +17663,11 @@
 	      "type": "text",
 	      "placeholder": "Focus"
 	    }
-	  })])], true), _vm._v(" "), _vm._c('doc-code', {
+	  })], 1)], 2), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, [_vm._v("\n    <tooltip effect=\"scale\" placement=\"bottom\" content=\"Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod\">\n      <button class=\"btn btn-default\">tooltip on bottom</button>\n    </tooltip>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("trigger")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("click")]), _vm._v(" "), _vm._c('code', [_vm._v("focus")]), _vm._v(" "), _vm._c('code', [_vm._v("hover")]), _vm._v(" "), _vm._c('code', [_vm._v("contextmenu")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("click")])]), _vm._v(" "), _vm._c('p', [_vm._v("How the tooltip is triggered.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("effect")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("scale")]), _vm._v(" "), _vm._c('code', [_vm._v("fadein")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("scale")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("content")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("placement")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("top")]), _vm._v(" "), _vm._c('code', [_vm._v("left")]), _vm._v(" "), _vm._c('code', [_vm._v("right")]), _vm._v(" "), _vm._c('code', [_vm._v("bottom")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("How to position the tooltip.")])])])])])
+	  }, [_vm._v("\n    <tooltip effect=\"scale\" placement=\"bottom\" content=\"Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod\">\n      <button class=\"btn btn-default\">tooltip on bottom</button>\n    </tooltip>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("trigger")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("click")]), _vm._v(" "), _vm._c('code', [_vm._v("focus")]), _vm._v(" "), _vm._c('code', [_vm._v("hover")]), _vm._v(" "), _vm._c('code', [_vm._v("contextmenu")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("click")])]), _vm._v(" "), _vm._c('p', [_vm._v("How the tooltip is triggered.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("effect")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("scale")]), _vm._v(" "), _vm._c('code', [_vm._v("fadein")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("scale")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("content")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("placement")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")]), _vm._v(", one of "), _vm._c('code', [_vm._v("top")]), _vm._v(" "), _vm._c('code', [_vm._v("left")]), _vm._v(" "), _vm._c('code', [_vm._v("right")]), _vm._v(" "), _vm._c('code', [_vm._v("bottom")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("How to position the tooltip.")])])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -18685,7 +18688,7 @@
 	      attrs: {
 	        "item": item
 	      }
-	    })])])
+	    })], 1)])
 	  }))])
 	},staticRenderFns: []}
 	if (false) {
@@ -18715,7 +18718,7 @@
 	    attrs: {
 	      "language": "javascript"
 	    }
-	  }, [_vm._v("\n    new Vue {\n      components: {\n        typeahead\n      },\n      data() {\n        return {\n          USstate: ['Alabama', 'Alaska', 'Arizona',...],\n          asynchronous: '" + _vm._s('{{') + "item.formatted_address}}',\n          customTemplate: '<img width=\"18px\" height=\"18px\" :src=\"avatar_url\"/><span>" + _vm._s('{{') + "item.login}}</span>'\n        }\n      },\n      methods: {\n        googleCallback(items, targetVM) {\n          const that = targetVM;\n          that.reset()\n          that.value = items.formatted_address\n        },\n        githubCallback(items) {\n          window.open(items.html_url, '_blank')\n        }\n      }\n    }\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("''")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("data")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Array")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("The local data source for suggestions. Expected to be a primitive array.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("async")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("An HTTP URL for asynchronous suggestions. Expected to return a JSON object.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("async-key")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("limit")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("8")])]), _vm._v(" "), _vm._c('p', [_vm._v("The max number of suggestions to be displayed.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("match-case")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Case sensitive for suggestions.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("match-start")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Match only against start of suggestions. E.g. if true, \"a\" matches \"ab\" but not \"ba\".")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("on-hit")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Function")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("A callback function when you click or hit return on an item.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("template")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("<span v-html=\"item\"></span>")])]), _vm._v(" "), _vm._c('p', [_vm._v("Used to render every suggestion. Handler:"), _vm._c('code', [_vm._v("item")]), _vm._v(". The item can be whatever (e.g. "), _vm._c('code', [_vm._v("string")]), _vm._v("/"), _vm._c('code', [_vm._v("array")]), _vm._v("/"), _vm._c('code', [_vm._v("object")]), _vm._v(")")])])])])
+	  }, [_vm._v("\n    new Vue {\n      components: {\n        typeahead\n      },\n      data() {\n        return {\n          USstate: ['Alabama', 'Alaska', 'Arizona',...],\n          asynchronous: '" + _vm._s('{{') + "item.formatted_address}}',\n          customTemplate: '<img width=\"18px\" height=\"18px\" :src=\"avatar_url\"/><span>" + _vm._s('{{') + "item.login}}</span>'\n        }\n      },\n      methods: {\n        googleCallback(items, targetVM) {\n          const that = targetVM;\n          that.reset()\n          that.value = items.formatted_address\n        },\n        githubCallback(items) {\n          window.open(items.html_url, '_blank')\n        }\n      }\n    }\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("''")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("data")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Array")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("The local data source for suggestions. Expected to be a primitive array.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("async")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("An HTTP URL for asynchronous suggestions. Expected to return a JSON object.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("async-key")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("limit")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("8")])]), _vm._v(" "), _vm._c('p', [_vm._v("The max number of suggestions to be displayed.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("match-case")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Case sensitive for suggestions.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("match-start")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Match only against start of suggestions. E.g. if true, \"a\" matches \"ab\" but not \"ba\".")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("on-hit")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Function")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("A callback function when you click or hit return on an item.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("template")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("<span v-html=\"item\"></span>")])]), _vm._v(" "), _vm._c('p', [_vm._v("Used to render every suggestion. Handler:"), _vm._c('code', [_vm._v("item")]), _vm._v(". The item can be whatever (e.g. "), _vm._c('code', [_vm._v("string")]), _vm._v("/"), _vm._c('code', [_vm._v("array")]), _vm._v("/"), _vm._c('code', [_vm._v("object")]), _vm._v(")")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -18742,7 +18745,7 @@
 	      "integrity": "sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==",
 	      "crossorigin": "anonymous"
 	    }
-	  }), _vm._v(" "), _vm._v(" "), _vm._c('div', {
+	  }), _vm._v(" "), _vm._c('div', {
 	    attrs: {
 	      "id": "wrapper"
 	    }
@@ -18752,9 +18755,9 @@
 	    staticClass: "row"
 	  }, [_vm._c('div', {
 	    staticClass: "col-md-9"
-	  }, [_vm._c('getting-started'), _vm._v(" "), _vm._c('accordion-docs'), _vm._v(" "), _vm._c('affix-docs'), _vm._v(" "), _vm._c('alert-docs'), _vm._v(" "), _vm._c('aside-docs'), _vm._v(" "), _vm._c('button-group-docs'), _vm._v(" "), _vm._c('carousel-docs'), _vm._v(" "), _vm._c('checkbox-docs'), _vm._v(" "), _vm._c('datepicker-docs'), _vm._v(" "), _vm._c('dropdown-docs'), _vm._v(" "), _vm._c('form-validator-docs'), _vm._v(" "), _vm._c('input-docs'), _vm._v(" "), _vm._c('modal-docs'), _vm._v(" "), _vm._c('navbar-docs'), _vm._v(" "), _vm._c('popover-docs'), _vm._v(" "), _vm._c('progressbar-docs'), _vm._v(" "), _vm._c('radio-docs'), _vm._v(" "), _vm._c('select-docs'), _vm._v(" "), _vm._c('spinner-docs'), _vm._v(" "), _vm._c('tabs-docs'), _vm._v(" "), _vm._c('toggle-button-docs'), _vm._v(" "), _vm._c('tooltip-docs'), _vm._v(" "), _vm._c('typeahead-docs'), _vm._v(" ")]), _vm._v(" "), _vm._c('div', {
+	  }, [_vm._c('getting-started'), _vm._v(" "), _vm._c('accordion-docs'), _vm._v(" "), _vm._c('affix-docs'), _vm._v(" "), _vm._c('alert-docs'), _vm._v(" "), _vm._c('aside-docs'), _vm._v(" "), _vm._c('button-group-docs'), _vm._v(" "), _vm._c('carousel-docs'), _vm._v(" "), _vm._c('checkbox-docs'), _vm._v(" "), _vm._c('datepicker-docs'), _vm._v(" "), _vm._c('dropdown-docs'), _vm._v(" "), _vm._c('form-validator-docs'), _vm._v(" "), _vm._c('input-docs'), _vm._v(" "), _vm._c('modal-docs'), _vm._v(" "), _vm._c('navbar-docs'), _vm._v(" "), _vm._c('popover-docs'), _vm._v(" "), _vm._c('progressbar-docs'), _vm._v(" "), _vm._c('radio-docs'), _vm._v(" "), _vm._c('select-docs'), _vm._v(" "), _vm._c('spinner-docs'), _vm._v(" "), _vm._c('tabs-docs'), _vm._v(" "), _vm._c('toggle-button-docs'), _vm._v(" "), _vm._c('tooltip-docs'), _vm._v(" "), _vm._c('typeahead-docs')], 1), _vm._v(" "), _vm._c('div', {
 	    staticClass: "col-md-3"
-	  }, [_vm._c('affix-sidebar')])])])]), _vm._v(" "), _vm._m(1)])
+	  }, [_vm._c('affix-sidebar')], 1)])])]), _vm._v(" "), _vm._m(1)])
 	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;
 	  return _vm._c('div', {
 	    staticClass: "bs-docs-header"
@@ -19985,8 +19988,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*!
-	 * Vue.js v2.1.6
-	 * (c) 2014-2016 Evan You
+	 * Vue.js v2.1.10
+	 * (c) 2014-2017 Evan You
 	 * Released under the MIT License.
 	 */
 	(function (global, factory) {
@@ -20013,8 +20016,8 @@
 	 * If the conversion fails, return original string.
 	 */
 	function toNumber (val) {
-	  var n = parseFloat(val, 10);
-	  return (n || n === 0) ? n : val
+	  var n = parseFloat(val);
+	  return isNaN(n) ? val : n
 	}
 	
 	/**
@@ -20072,14 +20075,14 @@
 	 */
 	function cached (fn) {
 	  var cache = Object.create(null);
-	  return function cachedFn (str) {
+	  return (function cachedFn (str) {
 	    var hit = cache[str];
 	    return hit || (cache[str] = fn(str))
-	  }
+	  })
 	}
 	
 	/**
-	 * Camelize a hyphen-delmited string.
+	 * Camelize a hyphen-delimited string.
 	 */
 	var camelizeRE = /-(\w)/g;
 	var camelize = cached(function (str) {
@@ -20205,13 +20208,15 @@
 	 * if they are plain objects, do they have the same shape?
 	 */
 	function looseEqual (a, b) {
-	  /* eslint-disable eqeqeq */
-	  return a == b || (
-	    isObject(a) && isObject(b)
-	      ? JSON.stringify(a) === JSON.stringify(b)
-	      : false
-	  )
-	  /* eslint-enable eqeqeq */
+	  var isObjectA = isObject(a);
+	  var isObjectB = isObject(b);
+	  if (isObjectA && isObjectB) {
+	    return JSON.stringify(a) === JSON.stringify(b)
+	  } else if (!isObjectA && !isObjectB) {
+	    return String(a) === String(b)
+	  } else {
+	    return false
+	  }
 	}
 	
 	function looseIndexOf (arr, val) {
@@ -20247,7 +20252,7 @@
 	  /**
 	   * Ignore certain custom elements
 	   */
-	  ignoredElements: null,
+	  ignoredElements: [],
 	
 	  /**
 	   * Custom user key aliases for v-on
@@ -20720,7 +20725,7 @@
 	 * returns the new observer if successfully observed,
 	 * or the existing observer if the value already has one.
 	 */
-	function observe (value) {
+	function observe (value, asRootData) {
 	  if (!isObject(value)) {
 	    return
 	  }
@@ -20735,6 +20740,9 @@
 	    !value._isVue
 	  ) {
 	    ob = new Observer(value);
+	  }
+	  if (asRootData && ob) {
+	    ob.vmCount++;
 	  }
 	  return ob
 	}
@@ -21202,10 +21210,10 @@
 	  var absent = !hasOwn(propsData, key);
 	  var value = propsData[key];
 	  // handle boolean props
-	  if (isBooleanType(prop.type)) {
+	  if (isType(Boolean, prop.type)) {
 	    if (absent && !hasOwn(prop, 'default')) {
 	      value = false;
-	    } else if (value === '' || value === hyphenate(key)) {
+	    } else if (!isType(String, prop.type) && (value === '' || value === hyphenate(key))) {
 	      value = true;
 	    }
 	  }
@@ -21285,7 +21293,7 @@
 	    }
 	    for (var i = 0; i < type.length && !valid; i++) {
 	      var assertedType = assertType(value, type[i]);
-	      expectedTypes.push(assertedType.expectedType);
+	      expectedTypes.push(assertedType.expectedType || '');
 	      valid = assertedType.valid;
 	    }
 	  }
@@ -21346,12 +21354,12 @@
 	  return match && match[1]
 	}
 	
-	function isBooleanType (fn) {
+	function isType (type, fn) {
 	  if (!Array.isArray(fn)) {
-	    return getType(fn) === 'Boolean'
+	    return getType(fn) === getType(type)
 	  }
 	  for (var i = 0, len = fn.length; i < len; i++) {
-	    if (getType(fn[i]) === 'Boolean') {
+	    if (getType(fn[i]) === getType(type)) {
 	      return true
 	    }
 	  }
@@ -21484,570 +21492,6 @@
 	
 	/*  */
 	
-	
-	var queue = [];
-	var has$1 = {};
-	var circular = {};
-	var waiting = false;
-	var flushing = false;
-	var index = 0;
-	
-	/**
-	 * Reset the scheduler's state.
-	 */
-	function resetSchedulerState () {
-	  queue.length = 0;
-	  has$1 = {};
-	  {
-	    circular = {};
-	  }
-	  waiting = flushing = false;
-	}
-	
-	/**
-	 * Flush both queues and run the watchers.
-	 */
-	function flushSchedulerQueue () {
-	  flushing = true;
-	
-	  // Sort queue before flush.
-	  // This ensures that:
-	  // 1. Components are updated from parent to child. (because parent is always
-	  //    created before the child)
-	  // 2. A component's user watchers are run before its render watcher (because
-	  //    user watchers are created before the render watcher)
-	  // 3. If a component is destroyed during a parent component's watcher run,
-	  //    its watchers can be skipped.
-	  queue.sort(function (a, b) { return a.id - b.id; });
-	
-	  // do not cache length because more watchers might be pushed
-	  // as we run existing watchers
-	  for (index = 0; index < queue.length; index++) {
-	    var watcher = queue[index];
-	    var id = watcher.id;
-	    has$1[id] = null;
-	    watcher.run();
-	    // in dev build, check and stop circular updates.
-	    if ("development" !== 'production' && has$1[id] != null) {
-	      circular[id] = (circular[id] || 0) + 1;
-	      if (circular[id] > config._maxUpdateCount) {
-	        warn(
-	          'You may have an infinite update loop ' + (
-	            watcher.user
-	              ? ("in watcher with expression \"" + (watcher.expression) + "\"")
-	              : "in a component render function."
-	          ),
-	          watcher.vm
-	        );
-	        break
-	      }
-	    }
-	  }
-	
-	  // devtool hook
-	  /* istanbul ignore if */
-	  if (devtools && config.devtools) {
-	    devtools.emit('flush');
-	  }
-	
-	  resetSchedulerState();
-	}
-	
-	/**
-	 * Push a watcher into the watcher queue.
-	 * Jobs with duplicate IDs will be skipped unless it's
-	 * pushed when the queue is being flushed.
-	 */
-	function queueWatcher (watcher) {
-	  var id = watcher.id;
-	  if (has$1[id] == null) {
-	    has$1[id] = true;
-	    if (!flushing) {
-	      queue.push(watcher);
-	    } else {
-	      // if already flushing, splice the watcher based on its id
-	      // if already past its id, it will be run next immediately.
-	      var i = queue.length - 1;
-	      while (i >= 0 && queue[i].id > watcher.id) {
-	        i--;
-	      }
-	      queue.splice(Math.max(i, index) + 1, 0, watcher);
-	    }
-	    // queue the flush
-	    if (!waiting) {
-	      waiting = true;
-	      nextTick(flushSchedulerQueue);
-	    }
-	  }
-	}
-	
-	/*  */
-	
-	var uid$2 = 0;
-	
-	/**
-	 * A watcher parses an expression, collects dependencies,
-	 * and fires callback when the expression value changes.
-	 * This is used for both the $watch() api and directives.
-	 */
-	var Watcher = function Watcher (
-	  vm,
-	  expOrFn,
-	  cb,
-	  options
-	) {
-	  if ( options === void 0 ) options = {};
-	
-	  this.vm = vm;
-	  vm._watchers.push(this);
-	  // options
-	  this.deep = !!options.deep;
-	  this.user = !!options.user;
-	  this.lazy = !!options.lazy;
-	  this.sync = !!options.sync;
-	  this.expression = expOrFn.toString();
-	  this.cb = cb;
-	  this.id = ++uid$2; // uid for batching
-	  this.active = true;
-	  this.dirty = this.lazy; // for lazy watchers
-	  this.deps = [];
-	  this.newDeps = [];
-	  this.depIds = new _Set();
-	  this.newDepIds = new _Set();
-	  // parse expression for getter
-	  if (typeof expOrFn === 'function') {
-	    this.getter = expOrFn;
-	  } else {
-	    this.getter = parsePath(expOrFn);
-	    if (!this.getter) {
-	      this.getter = function () {};
-	      "development" !== 'production' && warn(
-	        "Failed watching path: \"" + expOrFn + "\" " +
-	        'Watcher only accepts simple dot-delimited paths. ' +
-	        'For full control, use a function instead.',
-	        vm
-	      );
-	    }
-	  }
-	  this.value = this.lazy
-	    ? undefined
-	    : this.get();
-	};
-	
-	/**
-	 * Evaluate the getter, and re-collect dependencies.
-	 */
-	Watcher.prototype.get = function get () {
-	  pushTarget(this);
-	  var value = this.getter.call(this.vm, this.vm);
-	  // "touch" every property so they are all tracked as
-	  // dependencies for deep watching
-	  if (this.deep) {
-	    traverse(value);
-	  }
-	  popTarget();
-	  this.cleanupDeps();
-	  return value
-	};
-	
-	/**
-	 * Add a dependency to this directive.
-	 */
-	Watcher.prototype.addDep = function addDep (dep) {
-	  var id = dep.id;
-	  if (!this.newDepIds.has(id)) {
-	    this.newDepIds.add(id);
-	    this.newDeps.push(dep);
-	    if (!this.depIds.has(id)) {
-	      dep.addSub(this);
-	    }
-	  }
-	};
-	
-	/**
-	 * Clean up for dependency collection.
-	 */
-	Watcher.prototype.cleanupDeps = function cleanupDeps () {
-	    var this$1 = this;
-	
-	  var i = this.deps.length;
-	  while (i--) {
-	    var dep = this$1.deps[i];
-	    if (!this$1.newDepIds.has(dep.id)) {
-	      dep.removeSub(this$1);
-	    }
-	  }
-	  var tmp = this.depIds;
-	  this.depIds = this.newDepIds;
-	  this.newDepIds = tmp;
-	  this.newDepIds.clear();
-	  tmp = this.deps;
-	  this.deps = this.newDeps;
-	  this.newDeps = tmp;
-	  this.newDeps.length = 0;
-	};
-	
-	/**
-	 * Subscriber interface.
-	 * Will be called when a dependency changes.
-	 */
-	Watcher.prototype.update = function update () {
-	  /* istanbul ignore else */
-	  if (this.lazy) {
-	    this.dirty = true;
-	  } else if (this.sync) {
-	    this.run();
-	  } else {
-	    queueWatcher(this);
-	  }
-	};
-	
-	/**
-	 * Scheduler job interface.
-	 * Will be called by the scheduler.
-	 */
-	Watcher.prototype.run = function run () {
-	  if (this.active) {
-	    var value = this.get();
-	      if (
-	        value !== this.value ||
-	      // Deep watchers and watchers on Object/Arrays should fire even
-	      // when the value is the same, because the value may
-	      // have mutated.
-	      isObject(value) ||
-	      this.deep
-	    ) {
-	      // set new value
-	      var oldValue = this.value;
-	      this.value = value;
-	      if (this.user) {
-	        try {
-	          this.cb.call(this.vm, value, oldValue);
-	        } catch (e) {
-	          /* istanbul ignore else */
-	          if (config.errorHandler) {
-	            config.errorHandler.call(null, e, this.vm);
-	          } else {
-	            "development" !== 'production' && warn(
-	              ("Error in watcher \"" + (this.expression) + "\""),
-	              this.vm
-	            );
-	            throw e
-	          }
-	        }
-	      } else {
-	        this.cb.call(this.vm, value, oldValue);
-	      }
-	    }
-	  }
-	};
-	
-	/**
-	 * Evaluate the value of the watcher.
-	 * This only gets called for lazy watchers.
-	 */
-	Watcher.prototype.evaluate = function evaluate () {
-	  this.value = this.get();
-	  this.dirty = false;
-	};
-	
-	/**
-	 * Depend on all deps collected by this watcher.
-	 */
-	Watcher.prototype.depend = function depend () {
-	    var this$1 = this;
-	
-	  var i = this.deps.length;
-	  while (i--) {
-	    this$1.deps[i].depend();
-	  }
-	};
-	
-	/**
-	 * Remove self from all dependencies' subscriber list.
-	 */
-	Watcher.prototype.teardown = function teardown () {
-	    var this$1 = this;
-	
-	  if (this.active) {
-	    // remove self from vm's watcher list
-	    // this is a somewhat expensive operation so we skip it
-	    // if the vm is being destroyed or is performing a v-for
-	    // re-render (the watcher list is then filtered by v-for).
-	    if (!this.vm._isBeingDestroyed && !this.vm._vForRemoving) {
-	      remove$1(this.vm._watchers, this);
-	    }
-	    var i = this.deps.length;
-	    while (i--) {
-	      this$1.deps[i].removeSub(this$1);
-	    }
-	    this.active = false;
-	  }
-	};
-	
-	/**
-	 * Recursively traverse an object to evoke all converted
-	 * getters, so that every nested property inside the object
-	 * is collected as a "deep" dependency.
-	 */
-	var seenObjects = new _Set();
-	function traverse (val) {
-	  seenObjects.clear();
-	  _traverse(val, seenObjects);
-	}
-	
-	function _traverse (val, seen) {
-	  var i, keys;
-	  var isA = Array.isArray(val);
-	  if ((!isA && !isObject(val)) || !Object.isExtensible(val)) {
-	    return
-	  }
-	  if (val.__ob__) {
-	    var depId = val.__ob__.dep.id;
-	    if (seen.has(depId)) {
-	      return
-	    }
-	    seen.add(depId);
-	  }
-	  if (isA) {
-	    i = val.length;
-	    while (i--) { _traverse(val[i], seen); }
-	  } else {
-	    keys = Object.keys(val);
-	    i = keys.length;
-	    while (i--) { _traverse(val[keys[i]], seen); }
-	  }
-	}
-	
-	/*  */
-	
-	function initState (vm) {
-	  vm._watchers = [];
-	  initProps(vm);
-	  initMethods(vm);
-	  initData(vm);
-	  initComputed(vm);
-	  initWatch(vm);
-	}
-	
-	var isReservedProp = { key: 1, ref: 1, slot: 1 };
-	
-	function initProps (vm) {
-	  var props = vm.$options.props;
-	  if (props) {
-	    var propsData = vm.$options.propsData || {};
-	    var keys = vm.$options._propKeys = Object.keys(props);
-	    var isRoot = !vm.$parent;
-	    // root instance props should be converted
-	    observerState.shouldConvert = isRoot;
-	    var loop = function ( i ) {
-	      var key = keys[i];
-	      /* istanbul ignore else */
-	      {
-	        if (isReservedProp[key]) {
-	          warn(
-	            ("\"" + key + "\" is a reserved attribute and cannot be used as component prop."),
-	            vm
-	          );
-	        }
-	        defineReactive$$1(vm, key, validateProp(key, props, propsData, vm), function () {
-	          if (vm.$parent && !observerState.isSettingProps) {
-	            warn(
-	              "Avoid mutating a prop directly since the value will be " +
-	              "overwritten whenever the parent component re-renders. " +
-	              "Instead, use a data or computed property based on the prop's " +
-	              "value. Prop being mutated: \"" + key + "\"",
-	              vm
-	            );
-	          }
-	        });
-	      }
-	    };
-	
-	    for (var i = 0; i < keys.length; i++) loop( i );
-	    observerState.shouldConvert = true;
-	  }
-	}
-	
-	function initData (vm) {
-	  var data = vm.$options.data;
-	  data = vm._data = typeof data === 'function'
-	    ? data.call(vm)
-	    : data || {};
-	  if (!isPlainObject(data)) {
-	    data = {};
-	    "development" !== 'production' && warn(
-	      'data functions should return an object:\n' +
-	      'https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function',
-	      vm
-	    );
-	  }
-	  // proxy data on instance
-	  var keys = Object.keys(data);
-	  var props = vm.$options.props;
-	  var i = keys.length;
-	  while (i--) {
-	    if (props && hasOwn(props, keys[i])) {
-	      "development" !== 'production' && warn(
-	        "The data property \"" + (keys[i]) + "\" is already declared as a prop. " +
-	        "Use prop default value instead.",
-	        vm
-	      );
-	    } else {
-	      proxy(vm, keys[i]);
-	    }
-	  }
-	  // observe data
-	  observe(data);
-	  data.__ob__ && data.__ob__.vmCount++;
-	}
-	
-	var computedSharedDefinition = {
-	  enumerable: true,
-	  configurable: true,
-	  get: noop,
-	  set: noop
-	};
-	
-	function initComputed (vm) {
-	  var computed = vm.$options.computed;
-	  if (computed) {
-	    for (var key in computed) {
-	      var userDef = computed[key];
-	      if (typeof userDef === 'function') {
-	        computedSharedDefinition.get = makeComputedGetter(userDef, vm);
-	        computedSharedDefinition.set = noop;
-	      } else {
-	        computedSharedDefinition.get = userDef.get
-	          ? userDef.cache !== false
-	            ? makeComputedGetter(userDef.get, vm)
-	            : bind$1(userDef.get, vm)
-	          : noop;
-	        computedSharedDefinition.set = userDef.set
-	          ? bind$1(userDef.set, vm)
-	          : noop;
-	      }
-	      Object.defineProperty(vm, key, computedSharedDefinition);
-	    }
-	  }
-	}
-	
-	function makeComputedGetter (getter, owner) {
-	  var watcher = new Watcher(owner, getter, noop, {
-	    lazy: true
-	  });
-	  return function computedGetter () {
-	    if (watcher.dirty) {
-	      watcher.evaluate();
-	    }
-	    if (Dep.target) {
-	      watcher.depend();
-	    }
-	    return watcher.value
-	  }
-	}
-	
-	function initMethods (vm) {
-	  var methods = vm.$options.methods;
-	  if (methods) {
-	    for (var key in methods) {
-	      vm[key] = methods[key] == null ? noop : bind$1(methods[key], vm);
-	      if ("development" !== 'production' && methods[key] == null) {
-	        warn(
-	          "method \"" + key + "\" has an undefined value in the component definition. " +
-	          "Did you reference the function correctly?",
-	          vm
-	        );
-	      }
-	    }
-	  }
-	}
-	
-	function initWatch (vm) {
-	  var watch = vm.$options.watch;
-	  if (watch) {
-	    for (var key in watch) {
-	      var handler = watch[key];
-	      if (Array.isArray(handler)) {
-	        for (var i = 0; i < handler.length; i++) {
-	          createWatcher(vm, key, handler[i]);
-	        }
-	      } else {
-	        createWatcher(vm, key, handler);
-	      }
-	    }
-	  }
-	}
-	
-	function createWatcher (vm, key, handler) {
-	  var options;
-	  if (isPlainObject(handler)) {
-	    options = handler;
-	    handler = handler.handler;
-	  }
-	  if (typeof handler === 'string') {
-	    handler = vm[handler];
-	  }
-	  vm.$watch(key, handler, options);
-	}
-	
-	function stateMixin (Vue) {
-	  // flow somehow has problems with directly declared definition object
-	  // when using Object.defineProperty, so we have to procedurally build up
-	  // the object here.
-	  var dataDef = {};
-	  dataDef.get = function () {
-	    return this._data
-	  };
-	  {
-	    dataDef.set = function (newData) {
-	      warn(
-	        'Avoid replacing instance root $data. ' +
-	        'Use nested data properties instead.',
-	        this
-	      );
-	    };
-	  }
-	  Object.defineProperty(Vue.prototype, '$data', dataDef);
-	
-	  Vue.prototype.$set = set$1;
-	  Vue.prototype.$delete = del;
-	
-	  Vue.prototype.$watch = function (
-	    expOrFn,
-	    cb,
-	    options
-	  ) {
-	    var vm = this;
-	    options = options || {};
-	    options.user = true;
-	    var watcher = new Watcher(vm, expOrFn, cb, options);
-	    if (options.immediate) {
-	      cb.call(vm, watcher.value);
-	    }
-	    return function unwatchFn () {
-	      watcher.teardown();
-	    }
-	  };
-	}
-	
-	function proxy (vm, key) {
-	  if (!isReserved(key)) {
-	    Object.defineProperty(vm, key, {
-	      configurable: true,
-	      enumerable: true,
-	      get: function proxyGetter () {
-	        return vm._data[key]
-	      },
-	      set: function proxySetter (val) {
-	        vm._data[key] = val;
-	      }
-	    });
-	  }
-	}
-	
-	/*  */
-	
 	var VNode = function VNode (
 	  tag,
 	  data,
@@ -22067,7 +21511,7 @@
 	  this.functionalContext = undefined;
 	  this.key = data && data.key;
 	  this.componentOptions = componentOptions;
-	  this.child = undefined;
+	  this.componentInstance = undefined;
 	  this.parent = undefined;
 	  this.raw = false;
 	  this.isStatic = false;
@@ -22076,6 +21520,16 @@
 	  this.isCloned = false;
 	  this.isOnce = false;
 	};
+	
+	var prototypeAccessors = { child: {} };
+	
+	// DEPRECATED: alias for componentInstance for backwards compat.
+	/* istanbul ignore next */
+	prototypeAccessors.child.get = function () {
+	  return this.componentInstance
+	};
+	
+	Object.defineProperties( VNode.prototype, prototypeAccessors );
 	
 	var createEmptyVNode = function () {
 	  var node = new VNode();
@@ -22115,215 +21569,6 @@
 	    res[i] = cloneVNode(vnodes[i]);
 	  }
 	  return res
-	}
-	
-	/*  */
-	
-	var activeInstance = null;
-	
-	function initLifecycle (vm) {
-	  var options = vm.$options;
-	
-	  // locate first non-abstract parent
-	  var parent = options.parent;
-	  if (parent && !options.abstract) {
-	    while (parent.$options.abstract && parent.$parent) {
-	      parent = parent.$parent;
-	    }
-	    parent.$children.push(vm);
-	  }
-	
-	  vm.$parent = parent;
-	  vm.$root = parent ? parent.$root : vm;
-	
-	  vm.$children = [];
-	  vm.$refs = {};
-	
-	  vm._watcher = null;
-	  vm._inactive = false;
-	  vm._isMounted = false;
-	  vm._isDestroyed = false;
-	  vm._isBeingDestroyed = false;
-	}
-	
-	function lifecycleMixin (Vue) {
-	  Vue.prototype._mount = function (
-	    el,
-	    hydrating
-	  ) {
-	    var vm = this;
-	    vm.$el = el;
-	    if (!vm.$options.render) {
-	      vm.$options.render = createEmptyVNode;
-	      {
-	        /* istanbul ignore if */
-	        if (vm.$options.template && vm.$options.template.charAt(0) !== '#') {
-	          warn(
-	            'You are using the runtime-only build of Vue where the template ' +
-	            'option is not available. Either pre-compile the templates into ' +
-	            'render functions, or use the compiler-included build.',
-	            vm
-	          );
-	        } else {
-	          warn(
-	            'Failed to mount component: template or render function not defined.',
-	            vm
-	          );
-	        }
-	      }
-	    }
-	    callHook(vm, 'beforeMount');
-	    vm._watcher = new Watcher(vm, function () {
-	      vm._update(vm._render(), hydrating);
-	    }, noop);
-	    hydrating = false;
-	    // manually mounted instance, call mounted on self
-	    // mounted is called for render-created child components in its inserted hook
-	    if (vm.$vnode == null) {
-	      vm._isMounted = true;
-	      callHook(vm, 'mounted');
-	    }
-	    return vm
-	  };
-	
-	  Vue.prototype._update = function (vnode, hydrating) {
-	    var vm = this;
-	    if (vm._isMounted) {
-	      callHook(vm, 'beforeUpdate');
-	    }
-	    var prevEl = vm.$el;
-	    var prevVnode = vm._vnode;
-	    var prevActiveInstance = activeInstance;
-	    activeInstance = vm;
-	    vm._vnode = vnode;
-	    // Vue.prototype.__patch__ is injected in entry points
-	    // based on the rendering backend used.
-	    if (!prevVnode) {
-	      // initial render
-	      vm.$el = vm.__patch__(
-	        vm.$el, vnode, hydrating, false /* removeOnly */,
-	        vm.$options._parentElm,
-	        vm.$options._refElm
-	      );
-	    } else {
-	      // updates
-	      vm.$el = vm.__patch__(prevVnode, vnode);
-	    }
-	    activeInstance = prevActiveInstance;
-	    // update __vue__ reference
-	    if (prevEl) {
-	      prevEl.__vue__ = null;
-	    }
-	    if (vm.$el) {
-	      vm.$el.__vue__ = vm;
-	    }
-	    // if parent is an HOC, update its $el as well
-	    if (vm.$vnode && vm.$parent && vm.$vnode === vm.$parent._vnode) {
-	      vm.$parent.$el = vm.$el;
-	    }
-	    if (vm._isMounted) {
-	      callHook(vm, 'updated');
-	    }
-	  };
-	
-	  Vue.prototype._updateFromParent = function (
-	    propsData,
-	    listeners,
-	    parentVnode,
-	    renderChildren
-	  ) {
-	    var vm = this;
-	    var hasChildren = !!(vm.$options._renderChildren || renderChildren);
-	    vm.$options._parentVnode = parentVnode;
-	    vm.$vnode = parentVnode; // update vm's placeholder node without re-render
-	    if (vm._vnode) { // update child tree's parent
-	      vm._vnode.parent = parentVnode;
-	    }
-	    vm.$options._renderChildren = renderChildren;
-	    // update props
-	    if (propsData && vm.$options.props) {
-	      observerState.shouldConvert = false;
-	      {
-	        observerState.isSettingProps = true;
-	      }
-	      var propKeys = vm.$options._propKeys || [];
-	      for (var i = 0; i < propKeys.length; i++) {
-	        var key = propKeys[i];
-	        vm[key] = validateProp(key, vm.$options.props, propsData, vm);
-	      }
-	      observerState.shouldConvert = true;
-	      {
-	        observerState.isSettingProps = false;
-	      }
-	      vm.$options.propsData = propsData;
-	    }
-	    // update listeners
-	    if (listeners) {
-	      var oldListeners = vm.$options._parentListeners;
-	      vm.$options._parentListeners = listeners;
-	      vm._updateListeners(listeners, oldListeners);
-	    }
-	    // resolve slots + force update if has children
-	    if (hasChildren) {
-	      vm.$slots = resolveSlots(renderChildren, parentVnode.context);
-	      vm.$forceUpdate();
-	    }
-	  };
-	
-	  Vue.prototype.$forceUpdate = function () {
-	    var vm = this;
-	    if (vm._watcher) {
-	      vm._watcher.update();
-	    }
-	  };
-	
-	  Vue.prototype.$destroy = function () {
-	    var vm = this;
-	    if (vm._isBeingDestroyed) {
-	      return
-	    }
-	    callHook(vm, 'beforeDestroy');
-	    vm._isBeingDestroyed = true;
-	    // remove self from parent
-	    var parent = vm.$parent;
-	    if (parent && !parent._isBeingDestroyed && !vm.$options.abstract) {
-	      remove$1(parent.$children, vm);
-	    }
-	    // teardown watchers
-	    if (vm._watcher) {
-	      vm._watcher.teardown();
-	    }
-	    var i = vm._watchers.length;
-	    while (i--) {
-	      vm._watchers[i].teardown();
-	    }
-	    // remove reference from data ob
-	    // frozen object may not have observer.
-	    if (vm._data.__ob__) {
-	      vm._data.__ob__.vmCount--;
-	    }
-	    // call the last hook...
-	    vm._isDestroyed = true;
-	    callHook(vm, 'destroyed');
-	    // turn off all instance listeners.
-	    vm.$off();
-	    // remove __vue__ reference
-	    if (vm.$el) {
-	      vm.$el.__vue__ = null;
-	    }
-	    // invoke destroy hooks on current rendered tree
-	    vm.__patch__(vm._vnode, null);
-	  };
-	}
-	
-	function callHook (vm, hook) {
-	  var handlers = vm.$options[hook];
-	  if (handlers) {
-	    for (var i = 0, j = handlers.length; i < j; i++) {
-	      handlers[i].call(vm);
-	    }
-	  }
-	  vm.$emit('hook:' + hook);
 	}
 	
 	/*  */
@@ -22478,8 +21723,8 @@
 	  parentElm,
 	  refElm
 	) {
-	  if (!vnode.child || vnode.child._isDestroyed) {
-	    var child = vnode.child = createComponentInstanceForVnode(
+	  if (!vnode.componentInstance || vnode.componentInstance._isDestroyed) {
+	    var child = vnode.componentInstance = createComponentInstanceForVnode(
 	      vnode,
 	      activeInstance,
 	      parentElm,
@@ -22498,7 +21743,7 @@
 	  vnode
 	) {
 	  var options = vnode.componentOptions;
-	  var child = vnode.child = oldVnode.child;
+	  var child = vnode.componentInstance = oldVnode.componentInstance;
 	  child._updateFromParent(
 	    options.propsData, // updated props
 	    options.listeners, // updated listeners
@@ -22508,23 +21753,23 @@
 	}
 	
 	function insert (vnode) {
-	  if (!vnode.child._isMounted) {
-	    vnode.child._isMounted = true;
-	    callHook(vnode.child, 'mounted');
+	  if (!vnode.componentInstance._isMounted) {
+	    vnode.componentInstance._isMounted = true;
+	    callHook(vnode.componentInstance, 'mounted');
 	  }
 	  if (vnode.data.keepAlive) {
-	    vnode.child._inactive = false;
-	    callHook(vnode.child, 'activated');
+	    vnode.componentInstance._inactive = false;
+	    callHook(vnode.componentInstance, 'activated');
 	  }
 	}
 	
 	function destroy$1 (vnode) {
-	  if (!vnode.child._isDestroyed) {
+	  if (!vnode.componentInstance._isDestroyed) {
 	    if (!vnode.data.keepAlive) {
-	      vnode.child.$destroy();
+	      vnode.componentInstance.$destroy();
 	    } else {
-	      vnode.child._inactive = true;
-	      callHook(vnode.child, 'deactivated');
+	      vnode.componentInstance._inactive = true;
+	      callHook(vnode.componentInstance, 'deactivated');
 	    }
 	  }
 	}
@@ -22665,6 +21910,37 @@
 	
 	/*  */
 	
+	var normalizeEvent = cached(function (name) {
+	  var once = name.charAt(0) === '~'; // Prefixed last, checked first
+	  name = once ? name.slice(1) : name;
+	  var capture = name.charAt(0) === '!';
+	  name = capture ? name.slice(1) : name;
+	  return {
+	    name: name,
+	    once: once,
+	    capture: capture
+	  }
+	});
+	
+	function createEventHandle (fn) {
+	  var handle = {
+	    fn: fn,
+	    invoker: function () {
+	      var arguments$1 = arguments;
+	
+	      var fn = handle.fn;
+	      if (Array.isArray(fn)) {
+	        for (var i = 0; i < fn.length; i++) {
+	          fn[i].apply(null, arguments$1);
+	        }
+	      } else {
+	        fn.apply(null, arguments);
+	      }
+	    }
+	  };
+	  return handle
+	}
+	
 	function updateListeners (
 	  on,
 	  oldOn,
@@ -22672,73 +21948,61 @@
 	  remove$$1,
 	  vm
 	) {
-	  var name, cur, old, fn, event, capture, once;
+	  var name, cur, old, event;
 	  for (name in on) {
 	    cur = on[name];
 	    old = oldOn[name];
+	    event = normalizeEvent(name);
 	    if (!cur) {
 	      "development" !== 'production' && warn(
-	        "Invalid handler for event \"" + name + "\": got " + String(cur),
+	        "Invalid handler for event \"" + (event.name) + "\": got " + String(cur),
 	        vm
 	      );
 	    } else if (!old) {
-	      once = name.charAt(0) === '~'; // Prefixed last, checked first
-	      event = once ? name.slice(1) : name;
-	      capture = event.charAt(0) === '!';
-	      event = capture ? event.slice(1) : event;
-	      if (Array.isArray(cur)) {
-	        add(event, (cur.invoker = arrInvoker(cur)), once, capture);
-	      } else {
-	        if (!cur.invoker) {
-	          fn = cur;
-	          cur = on[name] = {};
-	          cur.fn = fn;
-	          cur.invoker = fnInvoker(cur);
-	        }
-	        add(event, cur.invoker, once, capture);
+	      if (!cur.invoker) {
+	        cur = on[name] = createEventHandle(cur);
 	      }
+	      add(event.name, cur.invoker, event.once, event.capture);
 	    } else if (cur !== old) {
-	      if (Array.isArray(old)) {
-	        old.length = cur.length;
-	        for (var i = 0; i < old.length; i++) { old[i] = cur[i]; }
-	        on[name] = old;
-	      } else {
-	        old.fn = cur;
-	        on[name] = old;
-	      }
+	      old.fn = cur;
+	      on[name] = old;
 	    }
 	  }
 	  for (name in oldOn) {
 	    if (!on[name]) {
-	      once = name.charAt(0) === '~'; // Prefixed last, checked first
-	      event = once ? name.slice(1) : name;
-	      capture = event.charAt(0) === '!';
-	      event = capture ? event.slice(1) : event;
-	      remove$$1(event, oldOn[name].invoker, capture);
+	      event = normalizeEvent(name);
+	      remove$$1(event.name, oldOn[name].invoker, event.capture);
 	    }
-	  }
-	}
-	
-	function arrInvoker (arr) {
-	  return function (ev) {
-	    var arguments$1 = arguments;
-	
-	    var single = arguments.length === 1;
-	    for (var i = 0; i < arr.length; i++) {
-	      single ? arr[i](ev) : arr[i].apply(null, arguments$1);
-	    }
-	  }
-	}
-	
-	function fnInvoker (o) {
-	  return function (ev) {
-	    var single = arguments.length === 1;
-	    single ? o.fn(ev) : o.fn.apply(null, arguments);
 	  }
 	}
 	
 	/*  */
 	
+	// The template compiler attempts to minimize the need for normalization by
+	// statically analyzing the template at compile time.
+	//
+	// For plain HTML markup, normalization can be completely skipped because the
+	// generated render function is guaranteed to return Array<VNode>. There are
+	// two cases where extra normalization is needed:
+	
+	// 1. When the children contains components - because a functional component
+	// may return an Array instead of a single root. In this case, just a simple
+	// nomralization is needed - if any child is an Array, we flatten the whole
+	// thing with Array.prototype.concat. It is guaranteed to be only 1-level deep
+	// because functional components already normalize their own children.
+	function simpleNormalizeChildren (children) {
+	  for (var i = 0; i < children.length; i++) {
+	    if (Array.isArray(children[i])) {
+	      return Array.prototype.concat.apply([], children)
+	    }
+	  }
+	  return children
+	}
+	
+	// 2. When the children contains constrcuts that always generated nested Arrays,
+	// e.g. <template>, <slot>, v-for, or when the children is provided by user
+	// with hand-written render functions / JSX. In such cases a full normalization
+	// is needed to cater to all possible types of children values.
 	function normalizeChildren (children) {
 	  return isPrimitive(children)
 	    ? [createTextVNode(children)]
@@ -22787,6 +22051,9 @@
 	
 	/*  */
 	
+	var SIMPLE_NORMALIZE = 1;
+	var ALWAYS_NORMALIZE = 2;
+	
 	// wrapper function for providing a more flexible interface
 	// without getting yelled at by flow
 	function createElement (
@@ -22794,16 +22061,16 @@
 	  tag,
 	  data,
 	  children,
-	  needNormalization,
+	  normalizationType,
 	  alwaysNormalize
 	) {
 	  if (Array.isArray(data) || isPrimitive(data)) {
-	    needNormalization = children;
+	    normalizationType = children;
 	    children = data;
 	    data = undefined;
 	  }
-	  if (alwaysNormalize) { needNormalization = true; }
-	  return _createElement(context, tag, data, children, needNormalization)
+	  if (alwaysNormalize) { normalizationType = ALWAYS_NORMALIZE; }
+	  return _createElement(context, tag, data, children, normalizationType)
 	}
 	
 	function _createElement (
@@ -22811,7 +22078,7 @@
 	  tag,
 	  data,
 	  children,
-	  needNormalization
+	  normalizationType
 	) {
 	  if (data && data.__ob__) {
 	    "development" !== 'production' && warn(
@@ -22832,8 +22099,10 @@
 	    data.scopedSlots = { default: children[0] };
 	    children.length = 0;
 	  }
-	  if (needNormalization) {
+	  if (normalizationType === ALWAYS_NORMALIZE) {
 	    children = normalizeChildren(children);
+	  } else if (normalizationType === SIMPLE_NORMALIZE) {
+	    children = simpleNormalizeChildren(children);
 	  }
 	  var vnode, ns;
 	  if (typeof tag === 'string') {
@@ -22852,7 +22121,6 @@
 	      // unknown or unlisted namespaced elements
 	      // check at runtime because it may get assigned a namespace when its
 	      // parent normalizes children
-	      ns = tag === 'foreignObject' ? 'xhtml' : ns;
 	      vnode = new VNode(
 	        tag, data, children,
 	        undefined, undefined, context
@@ -22872,6 +22140,10 @@
 	
 	function applyNS (vnode, ns) {
 	  vnode.ns = ns;
+	  if (vnode.tag === 'foreignObject') {
+	    // use default namespace inside foreignObject
+	    return
+	  }
 	  if (vnode.children) {
 	    for (var i = 0, l = vnode.children.length; i < l; i++) {
 	      var child = vnode.children[i];
@@ -22894,15 +22166,12 @@
 	  vm.$scopedSlots = {};
 	  // bind the createElement fn to this instance
 	  // so that we get proper render context inside it.
-	  // args order: tag, data, children, needNormalization, alwaysNormalize
+	  // args order: tag, data, children, normalizationType, alwaysNormalize
 	  // internal version is used by render functions compiled from templates
 	  vm._c = function (a, b, c, d) { return createElement(vm, a, b, c, d, false); };
 	  // normalization is always applied for the public version, used in
 	  // user-written render functions.
 	  vm.$createElement = function (a, b, c, d) { return createElement(vm, a, b, c, d, true); };
-	  if (vm.$options.el) {
-	    vm.$mount(vm.$options.el);
-	  }
 	}
 	
 	function renderMixin (Vue) {
@@ -23038,7 +22307,7 @@
 	    render
 	  ) {
 	    var ret, i, l, keys, key;
-	    if (Array.isArray(val)) {
+	    if (Array.isArray(val) || typeof val === 'string') {
 	      ret = new Array(val.length);
 	      for (i = 0, l = val.length; i < l; i++) {
 	        ret[i] = render(val[i], i);
@@ -23063,11 +22332,16 @@
 	  Vue.prototype._t = function (
 	    name,
 	    fallback,
-	    props
+	    props,
+	    bindObject
 	  ) {
 	    var scopedSlotFn = this.$scopedSlots[name];
 	    if (scopedSlotFn) { // scoped slot
-	      return scopedSlotFn(props || {}) || fallback
+	      props = props || {};
+	      if (bindObject) {
+	        extend(props, bindObject);
+	      }
+	      return scopedSlotFn(props) || fallback
 	    } else {
 	      var slotNodes = this.$slots[name];
 	      // warn duplicate slot usage
@@ -23104,7 +22378,8 @@
 	          if (key === 'class' || key === 'style') {
 	            data[key] = value[key];
 	          } else {
-	            var hash = asProp || config.mustUseProp(tag, key)
+	            var type = data.attrs && data.attrs.type;
+	            var hash = asProp || config.mustUseProp(tag, type, key)
 	              ? data.domProps || (data.domProps = {})
 	              : data.attrs || (data.attrs = {});
 	            hash[key] = value[key];
@@ -23170,23 +22445,46 @@
 	
 	function initEvents (vm) {
 	  vm._events = Object.create(null);
+	  vm._hasHookEvent = false;
 	  // init parent attached events
 	  var listeners = vm.$options._parentListeners;
-	  var add = function (event, fn, once) {
-	    once ? vm.$once(event, fn) : vm.$on(event, fn);
-	  };
-	  var remove$$1 = bind$1(vm.$off, vm);
-	  vm._updateListeners = function (listeners, oldListeners) {
-	    updateListeners(listeners, oldListeners || {}, add, remove$$1, vm);
-	  };
 	  if (listeners) {
-	    vm._updateListeners(listeners);
+	    updateComponentListeners(vm, listeners);
 	  }
 	}
 	
+	var target;
+	
+	function add$1 (event, fn, once) {
+	  if (once) {
+	    target.$once(event, fn);
+	  } else {
+	    target.$on(event, fn);
+	  }
+	}
+	
+	function remove$2 (event, fn) {
+	  target.$off(event, fn);
+	}
+	
+	function updateComponentListeners (
+	  vm,
+	  listeners,
+	  oldListeners
+	) {
+	  target = vm;
+	  updateListeners(listeners, oldListeners || {}, add$1, remove$2, vm);
+	}
+	
 	function eventsMixin (Vue) {
+	  var hookRE = /^hook:/;
 	  Vue.prototype.$on = function (event, fn) {
 	    var vm = this;(vm._events[event] || (vm._events[event] = [])).push(fn);
+	    // optimize hook:event cost by using a boolean flag marked at registration
+	    // instead of a hash lookup
+	    if (hookRE.test(event)) {
+	      vm._hasHookEvent = true;
+	    }
 	    return vm
 	  };
 	
@@ -23246,6 +22544,792 @@
 	
 	/*  */
 	
+	var activeInstance = null;
+	
+	function initLifecycle (vm) {
+	  var options = vm.$options;
+	
+	  // locate first non-abstract parent
+	  var parent = options.parent;
+	  if (parent && !options.abstract) {
+	    while (parent.$options.abstract && parent.$parent) {
+	      parent = parent.$parent;
+	    }
+	    parent.$children.push(vm);
+	  }
+	
+	  vm.$parent = parent;
+	  vm.$root = parent ? parent.$root : vm;
+	
+	  vm.$children = [];
+	  vm.$refs = {};
+	
+	  vm._watcher = null;
+	  vm._inactive = false;
+	  vm._isMounted = false;
+	  vm._isDestroyed = false;
+	  vm._isBeingDestroyed = false;
+	}
+	
+	function lifecycleMixin (Vue) {
+	  Vue.prototype._mount = function (
+	    el,
+	    hydrating
+	  ) {
+	    var vm = this;
+	    vm.$el = el;
+	    if (!vm.$options.render) {
+	      vm.$options.render = createEmptyVNode;
+	      {
+	        /* istanbul ignore if */
+	        if (vm.$options.template && vm.$options.template.charAt(0) !== '#') {
+	          warn(
+	            'You are using the runtime-only build of Vue where the template ' +
+	            'option is not available. Either pre-compile the templates into ' +
+	            'render functions, or use the compiler-included build.',
+	            vm
+	          );
+	        } else {
+	          warn(
+	            'Failed to mount component: template or render function not defined.',
+	            vm
+	          );
+	        }
+	      }
+	    }
+	    callHook(vm, 'beforeMount');
+	    vm._watcher = new Watcher(vm, function updateComponent () {
+	      vm._update(vm._render(), hydrating);
+	    }, noop);
+	    hydrating = false;
+	    // manually mounted instance, call mounted on self
+	    // mounted is called for render-created child components in its inserted hook
+	    if (vm.$vnode == null) {
+	      vm._isMounted = true;
+	      callHook(vm, 'mounted');
+	    }
+	    return vm
+	  };
+	
+	  Vue.prototype._update = function (vnode, hydrating) {
+	    var vm = this;
+	    if (vm._isMounted) {
+	      callHook(vm, 'beforeUpdate');
+	    }
+	    var prevEl = vm.$el;
+	    var prevVnode = vm._vnode;
+	    var prevActiveInstance = activeInstance;
+	    activeInstance = vm;
+	    vm._vnode = vnode;
+	    // Vue.prototype.__patch__ is injected in entry points
+	    // based on the rendering backend used.
+	    if (!prevVnode) {
+	      // initial render
+	      vm.$el = vm.__patch__(
+	        vm.$el, vnode, hydrating, false /* removeOnly */,
+	        vm.$options._parentElm,
+	        vm.$options._refElm
+	      );
+	    } else {
+	      // updates
+	      vm.$el = vm.__patch__(prevVnode, vnode);
+	    }
+	    activeInstance = prevActiveInstance;
+	    // update __vue__ reference
+	    if (prevEl) {
+	      prevEl.__vue__ = null;
+	    }
+	    if (vm.$el) {
+	      vm.$el.__vue__ = vm;
+	    }
+	    // if parent is an HOC, update its $el as well
+	    if (vm.$vnode && vm.$parent && vm.$vnode === vm.$parent._vnode) {
+	      vm.$parent.$el = vm.$el;
+	    }
+	    // updated hook is called by the scheduler to ensure that children are
+	    // updated in a parent's updated hook.
+	  };
+	
+	  Vue.prototype._updateFromParent = function (
+	    propsData,
+	    listeners,
+	    parentVnode,
+	    renderChildren
+	  ) {
+	    var vm = this;
+	    var hasChildren = !!(vm.$options._renderChildren || renderChildren);
+	    vm.$options._parentVnode = parentVnode;
+	    vm.$vnode = parentVnode; // update vm's placeholder node without re-render
+	    if (vm._vnode) { // update child tree's parent
+	      vm._vnode.parent = parentVnode;
+	    }
+	    vm.$options._renderChildren = renderChildren;
+	    // update props
+	    if (propsData && vm.$options.props) {
+	      observerState.shouldConvert = false;
+	      {
+	        observerState.isSettingProps = true;
+	      }
+	      var propKeys = vm.$options._propKeys || [];
+	      for (var i = 0; i < propKeys.length; i++) {
+	        var key = propKeys[i];
+	        vm[key] = validateProp(key, vm.$options.props, propsData, vm);
+	      }
+	      observerState.shouldConvert = true;
+	      {
+	        observerState.isSettingProps = false;
+	      }
+	      vm.$options.propsData = propsData;
+	    }
+	    // update listeners
+	    if (listeners) {
+	      var oldListeners = vm.$options._parentListeners;
+	      vm.$options._parentListeners = listeners;
+	      updateComponentListeners(vm, listeners, oldListeners);
+	    }
+	    // resolve slots + force update if has children
+	    if (hasChildren) {
+	      vm.$slots = resolveSlots(renderChildren, parentVnode.context);
+	      vm.$forceUpdate();
+	    }
+	  };
+	
+	  Vue.prototype.$forceUpdate = function () {
+	    var vm = this;
+	    if (vm._watcher) {
+	      vm._watcher.update();
+	    }
+	  };
+	
+	  Vue.prototype.$destroy = function () {
+	    var vm = this;
+	    if (vm._isBeingDestroyed) {
+	      return
+	    }
+	    callHook(vm, 'beforeDestroy');
+	    vm._isBeingDestroyed = true;
+	    // remove self from parent
+	    var parent = vm.$parent;
+	    if (parent && !parent._isBeingDestroyed && !vm.$options.abstract) {
+	      remove$1(parent.$children, vm);
+	    }
+	    // teardown watchers
+	    if (vm._watcher) {
+	      vm._watcher.teardown();
+	    }
+	    var i = vm._watchers.length;
+	    while (i--) {
+	      vm._watchers[i].teardown();
+	    }
+	    // remove reference from data ob
+	    // frozen object may not have observer.
+	    if (vm._data.__ob__) {
+	      vm._data.__ob__.vmCount--;
+	    }
+	    // call the last hook...
+	    vm._isDestroyed = true;
+	    callHook(vm, 'destroyed');
+	    // turn off all instance listeners.
+	    vm.$off();
+	    // remove __vue__ reference
+	    if (vm.$el) {
+	      vm.$el.__vue__ = null;
+	    }
+	    // invoke destroy hooks on current rendered tree
+	    vm.__patch__(vm._vnode, null);
+	  };
+	}
+	
+	function callHook (vm, hook) {
+	  var handlers = vm.$options[hook];
+	  if (handlers) {
+	    for (var i = 0, j = handlers.length; i < j; i++) {
+	      handlers[i].call(vm);
+	    }
+	  }
+	  if (vm._hasHookEvent) {
+	    vm.$emit('hook:' + hook);
+	  }
+	}
+	
+	/*  */
+	
+	
+	var queue = [];
+	var has$1 = {};
+	var circular = {};
+	var waiting = false;
+	var flushing = false;
+	var index = 0;
+	
+	/**
+	 * Reset the scheduler's state.
+	 */
+	function resetSchedulerState () {
+	  queue.length = 0;
+	  has$1 = {};
+	  {
+	    circular = {};
+	  }
+	  waiting = flushing = false;
+	}
+	
+	/**
+	 * Flush both queues and run the watchers.
+	 */
+	function flushSchedulerQueue () {
+	  flushing = true;
+	  var watcher, id, vm;
+	
+	  // Sort queue before flush.
+	  // This ensures that:
+	  // 1. Components are updated from parent to child. (because parent is always
+	  //    created before the child)
+	  // 2. A component's user watchers are run before its render watcher (because
+	  //    user watchers are created before the render watcher)
+	  // 3. If a component is destroyed during a parent component's watcher run,
+	  //    its watchers can be skipped.
+	  queue.sort(function (a, b) { return a.id - b.id; });
+	
+	  // do not cache length because more watchers might be pushed
+	  // as we run existing watchers
+	  for (index = 0; index < queue.length; index++) {
+	    watcher = queue[index];
+	    id = watcher.id;
+	    has$1[id] = null;
+	    watcher.run();
+	    // in dev build, check and stop circular updates.
+	    if ("development" !== 'production' && has$1[id] != null) {
+	      circular[id] = (circular[id] || 0) + 1;
+	      if (circular[id] > config._maxUpdateCount) {
+	        warn(
+	          'You may have an infinite update loop ' + (
+	            watcher.user
+	              ? ("in watcher with expression \"" + (watcher.expression) + "\"")
+	              : "in a component render function."
+	          ),
+	          watcher.vm
+	        );
+	        break
+	      }
+	    }
+	  }
+	
+	  // call updated hooks
+	  index = queue.length;
+	  while (index--) {
+	    watcher = queue[index];
+	    vm = watcher.vm;
+	    if (vm._watcher === watcher && vm._isMounted) {
+	      callHook(vm, 'updated');
+	    }
+	  }
+	
+	  // devtool hook
+	  /* istanbul ignore if */
+	  if (devtools && config.devtools) {
+	    devtools.emit('flush');
+	  }
+	
+	  resetSchedulerState();
+	}
+	
+	/**
+	 * Push a watcher into the watcher queue.
+	 * Jobs with duplicate IDs will be skipped unless it's
+	 * pushed when the queue is being flushed.
+	 */
+	function queueWatcher (watcher) {
+	  var id = watcher.id;
+	  if (has$1[id] == null) {
+	    has$1[id] = true;
+	    if (!flushing) {
+	      queue.push(watcher);
+	    } else {
+	      // if already flushing, splice the watcher based on its id
+	      // if already past its id, it will be run next immediately.
+	      var i = queue.length - 1;
+	      while (i >= 0 && queue[i].id > watcher.id) {
+	        i--;
+	      }
+	      queue.splice(Math.max(i, index) + 1, 0, watcher);
+	    }
+	    // queue the flush
+	    if (!waiting) {
+	      waiting = true;
+	      nextTick(flushSchedulerQueue);
+	    }
+	  }
+	}
+	
+	/*  */
+	
+	var uid$2 = 0;
+	
+	/**
+	 * A watcher parses an expression, collects dependencies,
+	 * and fires callback when the expression value changes.
+	 * This is used for both the $watch() api and directives.
+	 */
+	var Watcher = function Watcher (
+	  vm,
+	  expOrFn,
+	  cb,
+	  options
+	) {
+	  this.vm = vm;
+	  vm._watchers.push(this);
+	  // options
+	  if (options) {
+	    this.deep = !!options.deep;
+	    this.user = !!options.user;
+	    this.lazy = !!options.lazy;
+	    this.sync = !!options.sync;
+	  } else {
+	    this.deep = this.user = this.lazy = this.sync = false;
+	  }
+	  this.cb = cb;
+	  this.id = ++uid$2; // uid for batching
+	  this.active = true;
+	  this.dirty = this.lazy; // for lazy watchers
+	  this.deps = [];
+	  this.newDeps = [];
+	  this.depIds = new _Set();
+	  this.newDepIds = new _Set();
+	  this.expression = expOrFn.toString();
+	  // parse expression for getter
+	  if (typeof expOrFn === 'function') {
+	    this.getter = expOrFn;
+	  } else {
+	    this.getter = parsePath(expOrFn);
+	    if (!this.getter) {
+	      this.getter = function () {};
+	      "development" !== 'production' && warn(
+	        "Failed watching path: \"" + expOrFn + "\" " +
+	        'Watcher only accepts simple dot-delimited paths. ' +
+	        'For full control, use a function instead.',
+	        vm
+	      );
+	    }
+	  }
+	  this.value = this.lazy
+	    ? undefined
+	    : this.get();
+	};
+	
+	/**
+	 * Evaluate the getter, and re-collect dependencies.
+	 */
+	Watcher.prototype.get = function get () {
+	  pushTarget(this);
+	  var value = this.getter.call(this.vm, this.vm);
+	  // "touch" every property so they are all tracked as
+	  // dependencies for deep watching
+	  if (this.deep) {
+	    traverse(value);
+	  }
+	  popTarget();
+	  this.cleanupDeps();
+	  return value
+	};
+	
+	/**
+	 * Add a dependency to this directive.
+	 */
+	Watcher.prototype.addDep = function addDep (dep) {
+	  var id = dep.id;
+	  if (!this.newDepIds.has(id)) {
+	    this.newDepIds.add(id);
+	    this.newDeps.push(dep);
+	    if (!this.depIds.has(id)) {
+	      dep.addSub(this);
+	    }
+	  }
+	};
+	
+	/**
+	 * Clean up for dependency collection.
+	 */
+	Watcher.prototype.cleanupDeps = function cleanupDeps () {
+	    var this$1 = this;
+	
+	  var i = this.deps.length;
+	  while (i--) {
+	    var dep = this$1.deps[i];
+	    if (!this$1.newDepIds.has(dep.id)) {
+	      dep.removeSub(this$1);
+	    }
+	  }
+	  var tmp = this.depIds;
+	  this.depIds = this.newDepIds;
+	  this.newDepIds = tmp;
+	  this.newDepIds.clear();
+	  tmp = this.deps;
+	  this.deps = this.newDeps;
+	  this.newDeps = tmp;
+	  this.newDeps.length = 0;
+	};
+	
+	/**
+	 * Subscriber interface.
+	 * Will be called when a dependency changes.
+	 */
+	Watcher.prototype.update = function update () {
+	  /* istanbul ignore else */
+	  if (this.lazy) {
+	    this.dirty = true;
+	  } else if (this.sync) {
+	    this.run();
+	  } else {
+	    queueWatcher(this);
+	  }
+	};
+	
+	/**
+	 * Scheduler job interface.
+	 * Will be called by the scheduler.
+	 */
+	Watcher.prototype.run = function run () {
+	  if (this.active) {
+	    var value = this.get();
+	    if (
+	      value !== this.value ||
+	      // Deep watchers and watchers on Object/Arrays should fire even
+	      // when the value is the same, because the value may
+	      // have mutated.
+	      isObject(value) ||
+	      this.deep
+	    ) {
+	      // set new value
+	      var oldValue = this.value;
+	      this.value = value;
+	      if (this.user) {
+	        try {
+	          this.cb.call(this.vm, value, oldValue);
+	        } catch (e) {
+	          /* istanbul ignore else */
+	          if (config.errorHandler) {
+	            config.errorHandler.call(null, e, this.vm);
+	          } else {
+	            "development" !== 'production' && warn(
+	              ("Error in watcher \"" + (this.expression) + "\""),
+	              this.vm
+	            );
+	            throw e
+	          }
+	        }
+	      } else {
+	        this.cb.call(this.vm, value, oldValue);
+	      }
+	    }
+	  }
+	};
+	
+	/**
+	 * Evaluate the value of the watcher.
+	 * This only gets called for lazy watchers.
+	 */
+	Watcher.prototype.evaluate = function evaluate () {
+	  this.value = this.get();
+	  this.dirty = false;
+	};
+	
+	/**
+	 * Depend on all deps collected by this watcher.
+	 */
+	Watcher.prototype.depend = function depend () {
+	    var this$1 = this;
+	
+	  var i = this.deps.length;
+	  while (i--) {
+	    this$1.deps[i].depend();
+	  }
+	};
+	
+	/**
+	 * Remove self from all dependencies' subscriber list.
+	 */
+	Watcher.prototype.teardown = function teardown () {
+	    var this$1 = this;
+	
+	  if (this.active) {
+	    // remove self from vm's watcher list
+	    // this is a somewhat expensive operation so we skip it
+	    // if the vm is being destroyed.
+	    if (!this.vm._isBeingDestroyed) {
+	      remove$1(this.vm._watchers, this);
+	    }
+	    var i = this.deps.length;
+	    while (i--) {
+	      this$1.deps[i].removeSub(this$1);
+	    }
+	    this.active = false;
+	  }
+	};
+	
+	/**
+	 * Recursively traverse an object to evoke all converted
+	 * getters, so that every nested property inside the object
+	 * is collected as a "deep" dependency.
+	 */
+	var seenObjects = new _Set();
+	function traverse (val) {
+	  seenObjects.clear();
+	  _traverse(val, seenObjects);
+	}
+	
+	function _traverse (val, seen) {
+	  var i, keys;
+	  var isA = Array.isArray(val);
+	  if ((!isA && !isObject(val)) || !Object.isExtensible(val)) {
+	    return
+	  }
+	  if (val.__ob__) {
+	    var depId = val.__ob__.dep.id;
+	    if (seen.has(depId)) {
+	      return
+	    }
+	    seen.add(depId);
+	  }
+	  if (isA) {
+	    i = val.length;
+	    while (i--) { _traverse(val[i], seen); }
+	  } else {
+	    keys = Object.keys(val);
+	    i = keys.length;
+	    while (i--) { _traverse(val[keys[i]], seen); }
+	  }
+	}
+	
+	/*  */
+	
+	function initState (vm) {
+	  vm._watchers = [];
+	  var opts = vm.$options;
+	  if (opts.props) { initProps(vm, opts.props); }
+	  if (opts.methods) { initMethods(vm, opts.methods); }
+	  if (opts.data) {
+	    initData(vm);
+	  } else {
+	    observe(vm._data = {}, true /* asRootData */);
+	  }
+	  if (opts.computed) { initComputed(vm, opts.computed); }
+	  if (opts.watch) { initWatch(vm, opts.watch); }
+	}
+	
+	var isReservedProp = { key: 1, ref: 1, slot: 1 };
+	
+	function initProps (vm, props) {
+	  var propsData = vm.$options.propsData || {};
+	  var keys = vm.$options._propKeys = Object.keys(props);
+	  var isRoot = !vm.$parent;
+	  // root instance props should be converted
+	  observerState.shouldConvert = isRoot;
+	  var loop = function ( i ) {
+	    var key = keys[i];
+	    /* istanbul ignore else */
+	    {
+	      if (isReservedProp[key]) {
+	        warn(
+	          ("\"" + key + "\" is a reserved attribute and cannot be used as component prop."),
+	          vm
+	        );
+	      }
+	      defineReactive$$1(vm, key, validateProp(key, props, propsData, vm), function () {
+	        if (vm.$parent && !observerState.isSettingProps) {
+	          warn(
+	            "Avoid mutating a prop directly since the value will be " +
+	            "overwritten whenever the parent component re-renders. " +
+	            "Instead, use a data or computed property based on the prop's " +
+	            "value. Prop being mutated: \"" + key + "\"",
+	            vm
+	          );
+	        }
+	      });
+	    }
+	  };
+	
+	  for (var i = 0; i < keys.length; i++) loop( i );
+	  observerState.shouldConvert = true;
+	}
+	
+	function initData (vm) {
+	  var data = vm.$options.data;
+	  data = vm._data = typeof data === 'function'
+	    ? data.call(vm)
+	    : data || {};
+	  if (!isPlainObject(data)) {
+	    data = {};
+	    "development" !== 'production' && warn(
+	      'data functions should return an object:\n' +
+	      'https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function',
+	      vm
+	    );
+	  }
+	  // proxy data on instance
+	  var keys = Object.keys(data);
+	  var props = vm.$options.props;
+	  var i = keys.length;
+	  while (i--) {
+	    if (props && hasOwn(props, keys[i])) {
+	      "development" !== 'production' && warn(
+	        "The data property \"" + (keys[i]) + "\" is already declared as a prop. " +
+	        "Use prop default value instead.",
+	        vm
+	      );
+	    } else {
+	      proxy(vm, keys[i]);
+	    }
+	  }
+	  // observe data
+	  observe(data, true /* asRootData */);
+	}
+	
+	var computedSharedDefinition = {
+	  enumerable: true,
+	  configurable: true,
+	  get: noop,
+	  set: noop
+	};
+	
+	function initComputed (vm, computed) {
+	  for (var key in computed) {
+	    /* istanbul ignore if */
+	    if ("development" !== 'production' && key in vm) {
+	      warn(
+	        "existing instance property \"" + key + "\" will be " +
+	        "overwritten by a computed property with the same name.",
+	        vm
+	      );
+	    }
+	    var userDef = computed[key];
+	    if (typeof userDef === 'function') {
+	      computedSharedDefinition.get = makeComputedGetter(userDef, vm);
+	      computedSharedDefinition.set = noop;
+	    } else {
+	      computedSharedDefinition.get = userDef.get
+	        ? userDef.cache !== false
+	          ? makeComputedGetter(userDef.get, vm)
+	          : bind$1(userDef.get, vm)
+	        : noop;
+	      computedSharedDefinition.set = userDef.set
+	        ? bind$1(userDef.set, vm)
+	        : noop;
+	    }
+	    Object.defineProperty(vm, key, computedSharedDefinition);
+	  }
+	}
+	
+	function makeComputedGetter (getter, owner) {
+	  var watcher = new Watcher(owner, getter, noop, {
+	    lazy: true
+	  });
+	  return function computedGetter () {
+	    if (watcher.dirty) {
+	      watcher.evaluate();
+	    }
+	    if (Dep.target) {
+	      watcher.depend();
+	    }
+	    return watcher.value
+	  }
+	}
+	
+	function initMethods (vm, methods) {
+	  for (var key in methods) {
+	    vm[key] = methods[key] == null ? noop : bind$1(methods[key], vm);
+	    if ("development" !== 'production' && methods[key] == null) {
+	      warn(
+	        "method \"" + key + "\" has an undefined value in the component definition. " +
+	        "Did you reference the function correctly?",
+	        vm
+	      );
+	    }
+	  }
+	}
+	
+	function initWatch (vm, watch) {
+	  for (var key in watch) {
+	    var handler = watch[key];
+	    if (Array.isArray(handler)) {
+	      for (var i = 0; i < handler.length; i++) {
+	        createWatcher(vm, key, handler[i]);
+	      }
+	    } else {
+	      createWatcher(vm, key, handler);
+	    }
+	  }
+	}
+	
+	function createWatcher (vm, key, handler) {
+	  var options;
+	  if (isPlainObject(handler)) {
+	    options = handler;
+	    handler = handler.handler;
+	  }
+	  if (typeof handler === 'string') {
+	    handler = vm[handler];
+	  }
+	  vm.$watch(key, handler, options);
+	}
+	
+	function stateMixin (Vue) {
+	  // flow somehow has problems with directly declared definition object
+	  // when using Object.defineProperty, so we have to procedurally build up
+	  // the object here.
+	  var dataDef = {};
+	  dataDef.get = function () {
+	    return this._data
+	  };
+	  {
+	    dataDef.set = function (newData) {
+	      warn(
+	        'Avoid replacing instance root $data. ' +
+	        'Use nested data properties instead.',
+	        this
+	      );
+	    };
+	  }
+	  Object.defineProperty(Vue.prototype, '$data', dataDef);
+	
+	  Vue.prototype.$set = set$1;
+	  Vue.prototype.$delete = del;
+	
+	  Vue.prototype.$watch = function (
+	    expOrFn,
+	    cb,
+	    options
+	  ) {
+	    var vm = this;
+	    options = options || {};
+	    options.user = true;
+	    var watcher = new Watcher(vm, expOrFn, cb, options);
+	    if (options.immediate) {
+	      cb.call(vm, watcher.value);
+	    }
+	    return function unwatchFn () {
+	      watcher.teardown();
+	    }
+	  };
+	}
+	
+	function proxy (vm, key) {
+	  if (!isReserved(key)) {
+	    Object.defineProperty(vm, key, {
+	      configurable: true,
+	      enumerable: true,
+	      get: function proxyGetter () {
+	        return vm._data[key]
+	      },
+	      set: function proxySetter (val) {
+	        vm._data[key] = val;
+	      }
+	    });
+	  }
+	}
+	
+	/*  */
+	
 	var uid = 0;
 	
 	function initMixin (Vue) {
@@ -23276,10 +23360,13 @@
 	    vm._self = vm;
 	    initLifecycle(vm);
 	    initEvents(vm);
+	    initRender(vm);
 	    callHook(vm, 'beforeCreate');
 	    initState(vm);
 	    callHook(vm, 'created');
-	    initRender(vm);
+	    if (vm.$options.el) {
+	      vm.$mount(vm.$options.el);
+	    }
 	  };
 	}
 	
@@ -23472,6 +23559,10 @@
 	
 	var patternTypes = [String, RegExp];
 	
+	function getComponentName (opts) {
+	  return opts && (opts.Ctor.options.name || opts.tag)
+	}
+	
 	function matches (pattern, name) {
 	  if (typeof pattern === 'string') {
 	    return pattern.split(',').indexOf(name) > -1
@@ -23480,22 +23571,64 @@
 	  }
 	}
 	
+	function pruneCache (cache, filter) {
+	  for (var key in cache) {
+	    var cachedNode = cache[key];
+	    if (cachedNode) {
+	      var name = getComponentName(cachedNode.componentOptions);
+	      if (name && !filter(name)) {
+	        pruneCacheEntry(cachedNode);
+	        cache[key] = null;
+	      }
+	    }
+	  }
+	}
+	
+	function pruneCacheEntry (vnode) {
+	  if (vnode) {
+	    if (!vnode.componentInstance._inactive) {
+	      callHook(vnode.componentInstance, 'deactivated');
+	    }
+	    vnode.componentInstance.$destroy();
+	  }
+	}
+	
 	var KeepAlive = {
 	  name: 'keep-alive',
 	  abstract: true,
+	
 	  props: {
 	    include: patternTypes,
 	    exclude: patternTypes
 	  },
+	
 	  created: function created () {
 	    this.cache = Object.create(null);
 	  },
+	
+	  destroyed: function destroyed () {
+	    var this$1 = this;
+	
+	    for (var key in this.cache) {
+	      pruneCacheEntry(this$1.cache[key]);
+	    }
+	  },
+	
+	  watch: {
+	    include: function include (val) {
+	      pruneCache(this.cache, function (name) { return matches(val, name); });
+	    },
+	    exclude: function exclude (val) {
+	      pruneCache(this.cache, function (name) { return !matches(val, name); });
+	    }
+	  },
+	
 	  render: function render () {
 	    var vnode = getFirstComponentChild(this.$slots.default);
-	    if (vnode && vnode.componentOptions) {
-	      var opts = vnode.componentOptions;
+	    var componentOptions = vnode && vnode.componentOptions;
+	    if (componentOptions) {
 	      // check pattern
-	      var name = opts.Ctor.options.name || opts.tag;
+	      var name = getComponentName(componentOptions);
 	      if (name && (
 	        (this.include && !matches(this.include, name)) ||
 	        (this.exclude && matches(this.exclude, name))
@@ -23505,25 +23638,16 @@
 	      var key = vnode.key == null
 	        // same constructor may get registered as different local components
 	        // so cid alone is not enough (#3269)
-	        ? opts.Ctor.cid + (opts.tag ? ("::" + (opts.tag)) : '')
+	        ? componentOptions.Ctor.cid + (componentOptions.tag ? ("::" + (componentOptions.tag)) : '')
 	        : vnode.key;
 	      if (this.cache[key]) {
-	        vnode.child = this.cache[key].child;
+	        vnode.componentInstance = this.cache[key].componentInstance;
 	      } else {
 	        this.cache[key] = vnode;
 	      }
 	      vnode.data.keepAlive = true;
 	    }
 	    return vnode
-	  },
-	  destroyed: function destroyed () {
-	    var this$1 = this;
-	
-	    for (var key in this.cache) {
-	      var vnode = this$1.cache[key];
-	      callHook(vnode.child, 'deactivated');
-	      vnode.child.$destroy();
-	    }
 	  }
 	};
 	
@@ -23573,15 +23697,15 @@
 	  get: isServerRendering
 	});
 	
-	Vue$3.version = '2.1.6';
+	Vue$3.version = '2.1.10';
 	
 	/*  */
 	
 	// attributes that should be using props for binding
 	var acceptValue = makeMap('input,textarea,option,select');
-	var mustUseProp = function (tag, attr) {
+	var mustUseProp = function (tag, type, attr) {
 	  return (
-	    (attr === 'value' && acceptValue(tag)) ||
+	    (attr === 'value' && acceptValue(tag)) && type !== 'button' ||
 	    (attr === 'selected' && tag === 'option') ||
 	    (attr === 'checked' && tag === 'input') ||
 	    (attr === 'muted' && tag === 'video')
@@ -23619,8 +23743,8 @@
 	  var data = vnode.data;
 	  var parentNode = vnode;
 	  var childNode = vnode;
-	  while (childNode.child) {
-	    childNode = childNode.child._vnode;
+	  while (childNode.componentInstance) {
+	    childNode = childNode.componentInstance._vnode;
 	    if (childNode.data) {
 	      data = mergeClassData(childNode.data, data);
 	    }
@@ -23689,8 +23813,7 @@
 	
 	var namespaceMap = {
 	  svg: 'http://www.w3.org/2000/svg',
-	  math: 'http://www.w3.org/1998/Math/MathML',
-	  xhtml: 'http://www.w3.org/1999/xhtml'
+	  math: 'http://www.w3.org/1998/Math/MathML'
 	};
 	
 	var isHTMLTag = makeMap(
@@ -23873,7 +23996,7 @@
 	  if (!key) { return }
 	
 	  var vm = vnode.context;
-	  var ref = vnode.child || vnode.elm;
+	  var ref = vnode.componentInstance || vnode.elm;
 	  var refs = vm.$refs;
 	  if (isRemoval) {
 	    if (Array.isArray(refs[key])) {
@@ -23960,16 +24083,16 @@
 	  function createRmCb (childElm, listeners) {
 	    function remove$$1 () {
 	      if (--remove$$1.listeners === 0) {
-	        removeElement(childElm);
+	        removeNode(childElm);
 	      }
 	    }
 	    remove$$1.listeners = listeners;
 	    return remove$$1
 	  }
 	
-	  function removeElement (el) {
+	  function removeNode (el) {
 	    var parent = nodeOps.parentNode(el);
-	    // element may have already been removed due to v-html
+	    // element may have already been removed due to v-html / v-text
 	    if (parent) {
 	      nodeOps.removeChild(parent, el);
 	    }
@@ -23993,7 +24116,7 @@
 	        if (
 	          !inPre &&
 	          !vnode.ns &&
-	          !(config.ignoredElements && config.ignoredElements.indexOf(tag) > -1) &&
+	          !(config.ignoredElements.length && config.ignoredElements.indexOf(tag) > -1) &&
 	          config.isUnknownElement(tag)
 	        ) {
 	          warn(
@@ -24033,7 +24156,7 @@
 	  function createComponent (vnode, insertedVnodeQueue, parentElm, refElm) {
 	    var i = vnode.data;
 	    if (isDef(i)) {
-	      var isReactivated = isDef(vnode.child) && i.keepAlive;
+	      var isReactivated = isDef(vnode.componentInstance) && i.keepAlive;
 	      if (isDef(i = i.hook) && isDef(i = i.init)) {
 	        i(vnode, false /* hydrating */, parentElm, refElm);
 	      }
@@ -24041,13 +24164,30 @@
 	      // it should've created a child instance and mounted it. the child
 	      // component also has set the placeholder vnode's elm.
 	      // in that case we can just return the element and be done.
-	      if (isDef(vnode.child)) {
+	      if (isDef(vnode.componentInstance)) {
 	        initComponent(vnode, insertedVnodeQueue);
 	        if (isReactivated) {
 	          reactivateComponent(vnode, insertedVnodeQueue, parentElm, refElm);
 	        }
 	        return true
 	      }
+	    }
+	  }
+	
+	  function initComponent (vnode, insertedVnodeQueue) {
+	    if (vnode.data.pendingInsert) {
+	      insertedVnodeQueue.push.apply(insertedVnodeQueue, vnode.data.pendingInsert);
+	    }
+	    vnode.elm = vnode.componentInstance.$el;
+	    if (isPatchable(vnode)) {
+	      invokeCreateHooks(vnode, insertedVnodeQueue);
+	      setScope(vnode);
+	    } else {
+	      // empty component root.
+	      // skip all element-related modules except for ref (#3455)
+	      registerRef(vnode);
+	      // make sure to invoke the insert hook
+	      insertedVnodeQueue.push(vnode);
 	    }
 	  }
 	
@@ -24058,8 +24198,8 @@
 	    // again. It's not ideal to involve module-specific logic in here but
 	    // there doesn't seem to be a better way to do it.
 	    var innerNode = vnode;
-	    while (innerNode.child) {
-	      innerNode = innerNode.child._vnode;
+	    while (innerNode.componentInstance) {
+	      innerNode = innerNode.componentInstance._vnode;
 	      if (isDef(i = innerNode.data) && isDef(i = i.transition)) {
 	        for (i = 0; i < cbs.activate.length; ++i) {
 	          cbs.activate[i](emptyNode, innerNode);
@@ -24094,8 +24234,8 @@
 	  }
 	
 	  function isPatchable (vnode) {
-	    while (vnode.child) {
-	      vnode = vnode.child._vnode;
+	    while (vnode.componentInstance) {
+	      vnode = vnode.componentInstance._vnode;
 	    }
 	    return isDef(vnode.tag)
 	  }
@@ -24108,23 +24248,6 @@
 	    if (isDef(i)) {
 	      if (i.create) { i.create(emptyNode, vnode); }
 	      if (i.insert) { insertedVnodeQueue.push(vnode); }
-	    }
-	  }
-	
-	  function initComponent (vnode, insertedVnodeQueue) {
-	    if (vnode.data.pendingInsert) {
-	      insertedVnodeQueue.push.apply(insertedVnodeQueue, vnode.data.pendingInsert);
-	    }
-	    vnode.elm = vnode.child.$el;
-	    if (isPatchable(vnode)) {
-	      invokeCreateHooks(vnode, insertedVnodeQueue);
-	      setScope(vnode);
-	    } else {
-	      // empty component root.
-	      // skip all element-related modules except for ref (#3455)
-	      registerRef(vnode);
-	      // make sure to invoke the insert hook
-	      insertedVnodeQueue.push(vnode);
 	    }
 	  }
 	
@@ -24171,7 +24294,7 @@
 	          removeAndInvokeRemoveHook(ch);
 	          invokeDestroyHook(ch);
 	        } else { // Text node
-	          nodeOps.removeChild(parentElm, ch.elm);
+	          removeNode(ch.elm);
 	        }
 	      }
 	    }
@@ -24189,7 +24312,7 @@
 	        rm.listeners += listeners;
 	      }
 	      // recursively invoke hooks on child component root node
-	      if (isDef(i = vnode.child) && isDef(i = i._vnode) && isDef(i.data)) {
+	      if (isDef(i = vnode.componentInstance) && isDef(i = i._vnode) && isDef(i.data)) {
 	        removeAndInvokeRemoveHook(i, rm);
 	      }
 	      for (i = 0; i < cbs.remove.length; ++i) {
@@ -24201,7 +24324,7 @@
 	        rm();
 	      }
 	    } else {
-	      removeElement(vnode.elm);
+	      removeNode(vnode.elm);
 	    }
 	  }
 	
@@ -24293,7 +24416,7 @@
 	        vnode.key === oldVnode.key &&
 	        (vnode.isCloned || vnode.isOnce)) {
 	      vnode.elm = oldVnode.elm;
-	      vnode.child = oldVnode.child;
+	      vnode.componentInstance = oldVnode.componentInstance;
 	      return
 	    }
 	    var i;
@@ -24358,7 +24481,7 @@
 	    var children = vnode.children;
 	    if (isDef(data)) {
 	      if (isDef(i = data.hook) && isDef(i = i.init)) { i(vnode, true /* hydrating */); }
-	      if (isDef(i = vnode.child)) {
+	      if (isDef(i = vnode.componentInstance)) {
 	        // child component. it should have hydrated its own tree.
 	        initComponent(vnode, insertedVnodeQueue);
 	        return true
@@ -24401,6 +24524,8 @@
 	          }
 	        }
 	      }
+	    } else if (elm.data !== vnode.text) {
+	      elm.data = vnode.text;
 	    }
 	    return true
 	  }
@@ -24412,7 +24537,7 @@
 	        vnode.tag.toLowerCase() === (node.tagName && node.tagName.toLowerCase())
 	      )
 	    } else {
-	      return _toString(vnode.text) === node.data
+	      return node.nodeType === (vnode.isComment ? 8 : 3)
 	    }
 	  }
 	
@@ -24422,7 +24547,6 @@
 	      return
 	    }
 	
-	    var elm, parent;
 	    var isInitialPatch = false;
 	    var insertedVnodeQueue = [];
 	
@@ -24462,11 +24586,18 @@
 	          // create an empty node and replace it
 	          oldVnode = emptyNodeAt(oldVnode);
 	        }
-	
 	        // replacing existing element
-	        elm = oldVnode.elm;
-	        parent = nodeOps.parentNode(elm);
-	        createElm(vnode, insertedVnodeQueue, parent, nodeOps.nextSibling(elm));
+	        var oldElm = oldVnode.elm;
+	        var parentElm$1 = nodeOps.parentNode(oldElm);
+	        createElm(
+	          vnode,
+	          insertedVnodeQueue,
+	          // extremely rare edge case: do not insert if old element is in a
+	          // leaving transition. Only happens when combining transition +
+	          // keep-alive + HOCs. (#4590)
+	          oldElm._leaveCb ? null : parentElm$1,
+	          nodeOps.nextSibling(oldElm)
+	        );
 	
 	        if (vnode.parent) {
 	          // component root element replaced.
@@ -24483,8 +24614,8 @@
 	          }
 	        }
 	
-	        if (parent !== null) {
-	          removeVnodes(parent, [oldVnode], 0, 0);
+	        if (parentElm$1 !== null) {
+	          removeVnodes(parentElm$1, [oldVnode], 0, 0);
 	        } else if (isDef(oldVnode.tag)) {
 	          invokeDestroyHook(oldVnode);
 	        }
@@ -24514,6 +24645,7 @@
 	
 	function _update (oldVnode, vnode) {
 	  var isCreate = oldVnode === emptyNode;
+	  var isDestroy = vnode === emptyNode;
 	  var oldDirs = normalizeDirectives$1(oldVnode.data.directives, oldVnode.context);
 	  var newDirs = normalizeDirectives$1(vnode.data.directives, vnode.context);
 	
@@ -24565,7 +24697,7 @@
 	    for (key in oldDirs) {
 	      if (!newDirs[key]) {
 	        // no longer present, unbind
-	        callHook$1(oldDirs[key], 'unbind', oldVnode);
+	        callHook$1(oldDirs[key], 'unbind', oldVnode, oldVnode, isDestroy);
 	      }
 	    }
 	  }
@@ -24597,10 +24729,10 @@
 	  return dir.rawName || ((dir.name) + "." + (Object.keys(dir.modifiers || {}).join('.')))
 	}
 	
-	function callHook$1 (dir, hook, vnode, oldVnode) {
+	function callHook$1 (dir, hook, vnode, oldVnode, isDestroy) {
 	  var fn = dir.def && dir.def[hook];
 	  if (fn) {
-	    fn(vnode.elm, dir, vnode, oldVnode);
+	    fn(vnode.elm, dir, vnode, oldVnode, isDestroy);
 	  }
 	}
 	
@@ -24711,23 +24843,34 @@
 	
 	/*  */
 	
-	var target;
+	var target$1;
 	
-	function add$1 (event, handler, once, capture) {
+	function add$2 (
+	  event,
+	  handler,
+	  once,
+	  capture
+	) {
 	  if (once) {
 	    var oldHandler = handler;
+	    var _target = target$1; // save current target element in closure
 	    handler = function (ev) {
-	      remove$2(event, handler, capture);
+	      remove$3(event, handler, capture, _target);
 	      arguments.length === 1
 	        ? oldHandler(ev)
 	        : oldHandler.apply(null, arguments);
 	    };
 	  }
-	  target.addEventListener(event, handler, capture);
+	  target$1.addEventListener(event, handler, capture);
 	}
 	
-	function remove$2 (event, handler, capture) {
-	  target.removeEventListener(event, handler, capture);
+	function remove$3 (
+	  event,
+	  handler,
+	  capture,
+	  _target
+	) {
+	  (_target || target$1).removeEventListener(event, handler, capture);
 	}
 	
 	function updateDOMListeners (oldVnode, vnode) {
@@ -24736,8 +24879,8 @@
 	  }
 	  var on = vnode.data.on || {};
 	  var oldOn = oldVnode.data.on || {};
-	  target = vnode.elm;
-	  updateListeners(on, oldOn, add$1, remove$2, vnode.context);
+	  target$1 = vnode.elm;
+	  updateListeners(on, oldOn, add$2, remove$3, vnode.context);
 	}
 	
 	var events = {
@@ -24774,16 +24917,14 @@
 	      if (vnode.children) { vnode.children.length = 0; }
 	      if (cur === oldProps[key]) { continue }
 	    }
+	
 	    if (key === 'value') {
 	      // store value as _value as well since
 	      // non-string values will be stringified
 	      elm._value = cur;
 	      // avoid resetting cursor position when value is the same
 	      var strCur = cur == null ? '' : String(cur);
-	      if (!elm.composing && (
-	        (document.activeElement !== elm && elm.value !== strCur) ||
-	        isValueChanged(vnode, strCur)
-	      )) {
+	      if (shouldUpdateValue(elm, vnode, strCur)) {
 	        elm.value = strCur;
 	      }
 	    } else {
@@ -24792,7 +24933,27 @@
 	  }
 	}
 	
-	function isValueChanged (vnode, newVal) {
+	// check platforms/web/util/attrs.js acceptValue
+	
+	
+	function shouldUpdateValue (
+	  elm,
+	  vnode,
+	  checkVal
+	) {
+	  return (!elm.composing && (
+	    vnode.tag === 'option' ||
+	    isDirty(elm, checkVal) ||
+	    isInputChanged(vnode, checkVal)
+	  ))
+	}
+	
+	function isDirty (elm, checkVal) {
+	  // return true when textbox (.number and .trim) loses focus and its value is not equal to the updated value
+	  return document.activeElement !== elm && elm.value !== checkVal
+	}
+	
+	function isInputChanged (vnode, newVal) {
 	  var value = vnode.elm.value;
 	  var modifiers = vnode.elm._vModifiers; // injected by v-model runtime
 	  if ((modifiers && modifiers.number) || vnode.elm.type === 'number') {
@@ -24855,8 +25016,8 @@
 	
 	  if (checkChild) {
 	    var childNode = vnode;
-	    while (childNode.child) {
-	      childNode = childNode.child._vnode;
+	    while (childNode.componentInstance) {
+	      childNode = childNode.componentInstance._vnode;
 	      if (childNode.data && (styleData = normalizeStyleData(childNode.data))) {
 	        extend(res, styleData);
 	      }
@@ -25030,7 +25191,11 @@
 	  }
 	}
 	
-	var raf = (inBrowser && window.requestAnimationFrame) || setTimeout;
+	// binding to window is necessary to make hot reload work in IE in strict mode
+	var raf = inBrowser && window.requestAnimationFrame
+	  ? window.requestAnimationFrame.bind(window)
+	  : setTimeout;
+	
 	function nextFrame (fn) {
 	  raf(function () {
 	    raf(fn);
@@ -25170,8 +25335,10 @@
 	  var css = data.css;
 	  var type = data.type;
 	  var enterClass = data.enterClass;
+	  var enterToClass = data.enterToClass;
 	  var enterActiveClass = data.enterActiveClass;
 	  var appearClass = data.appearClass;
+	  var appearToClass = data.appearToClass;
 	  var appearActiveClass = data.appearActiveClass;
 	  var beforeEnter = data.beforeEnter;
 	  var enter = data.enter;
@@ -25201,6 +25368,7 @@
 	
 	  var startClass = isAppear ? appearClass : enterClass;
 	  var activeClass = isAppear ? appearActiveClass : enterActiveClass;
+	  var toClass = isAppear ? appearToClass : enterToClass;
 	  var beforeEnterHook = isAppear ? (beforeAppear || beforeEnter) : beforeEnter;
 	  var enterHook = isAppear ? (typeof appear === 'function' ? appear : enter) : enter;
 	  var afterEnterHook = isAppear ? (afterAppear || afterEnter) : afterEnter;
@@ -25215,6 +25383,7 @@
 	
 	  var cb = el._enterCb = once(function () {
 	    if (expectsCSS) {
+	      removeTransitionClass(el, toClass);
 	      removeTransitionClass(el, activeClass);
 	    }
 	    if (cb.cancelled) {
@@ -25234,7 +25403,6 @@
 	      var parent = el.parentNode;
 	      var pendingNode = parent && parent._pending && parent._pending[vnode.key];
 	      if (pendingNode &&
-	          pendingNode.context === vnode.context &&
 	          pendingNode.tag === vnode.tag &&
 	          pendingNode.elm._leaveCb) {
 	        pendingNode.elm._leaveCb();
@@ -25249,6 +25417,7 @@
 	    addTransitionClass(el, startClass);
 	    addTransitionClass(el, activeClass);
 	    nextFrame(function () {
+	      addTransitionClass(el, toClass);
 	      removeTransitionClass(el, startClass);
 	      if (!cb.cancelled && !userWantsControl) {
 	        whenTransitionEnds(el, type, cb);
@@ -25288,6 +25457,7 @@
 	  var css = data.css;
 	  var type = data.type;
 	  var leaveClass = data.leaveClass;
+	  var leaveToClass = data.leaveToClass;
 	  var leaveActiveClass = data.leaveActiveClass;
 	  var beforeLeave = data.beforeLeave;
 	  var leave = data.leave;
@@ -25307,6 +25477,7 @@
 	      el.parentNode._pending[vnode.key] = null;
 	    }
 	    if (expectsCSS) {
+	      removeTransitionClass(el, leaveToClass);
 	      removeTransitionClass(el, leaveActiveClass);
 	    }
 	    if (cb.cancelled) {
@@ -25341,6 +25512,7 @@
 	      addTransitionClass(el, leaveClass);
 	      addTransitionClass(el, leaveActiveClass);
 	      nextFrame(function () {
+	        addTransitionClass(el, leaveToClass);
 	        removeTransitionClass(el, leaveClass);
 	        if (!cb.cancelled && !userWantsControl) {
 	          whenTransitionEnds(el, type, cb);
@@ -25376,6 +25548,9 @@
 	    enterClass: (name + "-enter"),
 	    leaveClass: (name + "-leave"),
 	    appearClass: (name + "-enter"),
+	    enterToClass: (name + "-enter-to"),
+	    leaveToClass: (name + "-leave-to"),
+	    appearToClass: (name + "-enter-to"),
 	    enterActiveClass: (name + "-enter-active"),
 	    leaveActiveClass: (name + "-leave-active"),
 	    appearActiveClass: (name + "-enter-active")
@@ -25565,8 +25740,8 @@
 	
 	// recursively search for possible transition defined inside the component root
 	function locateNode (vnode) {
-	  return vnode.child && (!vnode.data || !vnode.data.transition)
-	    ? locateNode(vnode.child._vnode)
+	  return vnode.componentInstance && (!vnode.data || !vnode.data.transition)
+	    ? locateNode(vnode.componentInstance._vnode)
 	    : vnode
 	}
 	
@@ -25587,6 +25762,7 @@
 	      el.style.display = value ? originalDisplay : 'none';
 	    }
 	  },
+	
 	  update: function update (el, ref, vnode) {
 	    var value = ref.value;
 	    var oldValue = ref.oldValue;
@@ -25609,6 +25785,18 @@
 	    } else {
 	      el.style.display = value ? el.__vOriginalDisplay : 'none';
 	    }
+	  },
+	
+	  unbind: function unbind (
+	    el,
+	    binding,
+	    vnode,
+	    oldVnode,
+	    isDestroy
+	  ) {
+	    if (!isDestroy) {
+	      el.style.display = el.__vOriginalDisplay;
+	    }
 	  }
 	};
 	
@@ -25630,10 +25818,13 @@
 	  type: String,
 	  enterClass: String,
 	  leaveClass: String,
+	  enterToClass: String,
+	  leaveToClass: String,
 	  enterActiveClass: String,
 	  leaveActiveClass: String,
 	  appearClass: String,
-	  appearActiveClass: String
+	  appearActiveClass: String,
+	  appearToClass: String
 	};
 	
 	// in case the child is also an abstract component, e.g. <keep-alive>
@@ -25677,10 +25868,15 @@
 	  }
 	}
 	
+	function isSameChild (child, oldChild) {
+	  return oldChild.key === child.key && oldChild.tag === child.tag
+	}
+	
 	var Transition = {
 	  name: 'transition',
 	  props: transitionProps,
 	  abstract: true,
+	
 	  render: function render (h) {
 	    var this$1 = this;
 	
@@ -25736,9 +25932,15 @@
 	      return placeholder(h, rawChild)
 	    }
 	
-	    var key = child.key = child.key == null || child.isStatic
-	      ? ("__v" + (child.tag + this._uid) + "__")
-	      : child.key;
+	    // ensure a key that is unique to the vnode type and to this transition
+	    // component instance. This key will be used to remove pending leaving nodes
+	    // during entering.
+	    var id = "__transition-" + (this._uid) + "-";
+	    var key = child.key = child.key == null
+	      ? id + child.tag
+	      : isPrimitive(child.key)
+	        ? (String(child.key).indexOf(id) === 0 ? child.key : id + child.key)
+	        : child.key;
 	    var data = (child.data || (child.data = {})).transition = extractTransitionData(this);
 	    var oldRawChild = this._vnode;
 	    var oldChild = getRealChild(oldRawChild);
@@ -25749,11 +25951,10 @@
 	      child.data.show = true;
 	    }
 	
-	    if (oldChild && oldChild.data && oldChild.key !== key) {
+	    if (oldChild && oldChild.data && !isSameChild(child, oldChild)) {
 	      // replace old child transition data with fresh one
 	      // important for dynamic transitions!
-	      var oldData = oldChild.data.transition = extend({}, data);
-	
+	      var oldData = oldChild && (oldChild.data.transition = extend({}, data));
 	      // handle transition mode
 	      if (mode === 'out-in') {
 	        // return placeholder node and queue update when leave finishes
@@ -25964,6 +26165,15 @@
 	  return this._mount(el, hydrating)
 	};
 	
+	if ("development" !== 'production' &&
+	    inBrowser && typeof console !== 'undefined') {
+	  console[console.info ? 'info' : 'log'](
+	    "You are running Vue in development mode.\n" +
+	    "Make sure to turn on production mode when deploying for production.\n" +
+	    "See more tips at https://vuejs.org/guide/deployment.html"
+	  );
+	}
+	
 	// devtools global hook
 	/* istanbul ignore next */
 	setTimeout(function () {
@@ -25974,8 +26184,8 @@
 	      "development" !== 'production' &&
 	      inBrowser && !isEdge && /Chrome\/\d+/.test(window.navigator.userAgent)
 	    ) {
-	      console.log(
-	        'Download the Vue Devtools for a better development experience:\n' +
+	      console[console.info ? 'info' : 'log'](
+	        'Download the Vue Devtools extension for a better development experience:\n' +
 	        'https://github.com/vuejs/vue-devtools'
 	      );
 	    }
@@ -26077,22 +26287,6 @@
 	
 	// Special Elements (can contain anything)
 	var isScriptOrStyle = makeMap('script,style', true);
-	var hasLang = function (attr) { return attr.name === 'lang' && attr.value !== 'html'; };
-	var isSpecialTag = function (tag, isSFC, stack) {
-	  if (isScriptOrStyle(tag)) {
-	    return true
-	  }
-	  if (isSFC && stack.length === 1) {
-	    // top-level template that has no pre-processor
-	    if (tag === 'template' && !stack[0].attrs.some(hasLang)) {
-	      return false
-	    } else {
-	      return true
-	    }
-	  }
-	  return false
-	};
-	
 	var reCache = {};
 	
 	var ltRE = /&lt;/g;
@@ -26121,7 +26315,7 @@
 	  while (html) {
 	    last = html;
 	    // Make sure we're not in a script or style element
-	    if (!lastTag || !isSpecialTag(lastTag, options.sfc, stack)) {
+	    if (!lastTag || !isScriptOrStyle(lastTag)) {
 	      var textEnd = html.indexOf('<');
 	      if (textEnd === 0) {
 	        // Comment:
@@ -26156,7 +26350,7 @@
 	        if (endTagMatch) {
 	          var curIndex = index;
 	          advance(endTagMatch[0].length);
-	          parseEndTag(endTagMatch[0], endTagMatch[1], curIndex, index);
+	          parseEndTag(endTagMatch[1], curIndex, index);
 	          continue
 	        }
 	
@@ -26213,7 +26407,7 @@
 	      });
 	      index += html.length - rest.length;
 	      html = rest;
-	      parseEndTag('</' + stackedTag + '>', stackedTag, index - endTagLength, index);
+	      parseEndTag(stackedTag, index - endTagLength, index);
 	    }
 	
 	    if (html === last && options.chars) {
@@ -26259,10 +26453,10 @@
 	
 	    if (expectHTML) {
 	      if (lastTag === 'p' && isNonPhrasingTag(tagName)) {
-	        parseEndTag('', lastTag);
+	        parseEndTag(lastTag);
 	      }
 	      if (canBeLeftOpenTag(tagName) && lastTag === tagName) {
-	        parseEndTag('', tagName);
+	        parseEndTag(tagName);
 	      }
 	    }
 	
@@ -26289,7 +26483,7 @@
 	    }
 	
 	    if (!unary) {
-	      stack.push({ tag: tagName, attrs: attrs });
+	      stack.push({ tag: tagName, lowerCasedTag: tagName.toLowerCase(), attrs: attrs });
 	      lastTag = tagName;
 	      unarySlash = '';
 	    }
@@ -26299,16 +26493,19 @@
 	    }
 	  }
 	
-	  function parseEndTag (tag, tagName, start, end) {
-	    var pos;
+	  function parseEndTag (tagName, start, end) {
+	    var pos, lowerCasedTagName;
 	    if (start == null) { start = index; }
 	    if (end == null) { end = index; }
 	
+	    if (tagName) {
+	      lowerCasedTagName = tagName.toLowerCase();
+	    }
+	
 	    // Find the closest opened tag of the same type
 	    if (tagName) {
-	      var needle = tagName.toLowerCase();
 	      for (pos = stack.length - 1; pos >= 0; pos--) {
-	        if (stack[pos].tag.toLowerCase() === needle) {
+	        if (stack[pos].lowerCasedTag === lowerCasedTagName) {
 	          break
 	        }
 	      }
@@ -26328,11 +26525,11 @@
 	      // Remove the open elements from the stack
 	      stack.length = pos;
 	      lastTag = pos && stack[pos - 1].tag;
-	    } else if (tagName.toLowerCase() === 'br') {
+	    } else if (lowerCasedTagName === 'br') {
 	      if (options.start) {
 	        options.start(tagName, [], true, start, end);
 	      }
-	    } else if (tagName.toLowerCase() === 'p') {
+	    } else if (lowerCasedTagName === 'p') {
 	      if (options.start) {
 	        options.start(tagName, [], false, start, end);
 	      }
@@ -26442,7 +26639,7 @@
 	/*  */
 	
 	var defaultTagRE = /\{\{((?:.|\n)+?)\}\}/g;
-	var regexEscapeRE = /[-.*+?^${}()|[\]/\\]/g;
+	var regexEscapeRE = /[-.*+?^${}()|[\]\/\\]/g;
 	
 	var buildRegex = cached(function (delimiters) {
 	  var open = delimiters[0].replace(regexEscapeRE, '\\$&');
@@ -26744,7 +26941,7 @@
 	        "development" !== 'production' && warn$1(
 	          'Templates should only be responsible for mapping the state to the ' +
 	          'UI. Avoid placing tags with side-effects in your templates, such as ' +
-	          "<" + tag + ">."
+	          "<" + tag + ">" + ', as they will not be parsed.'
 	        );
 	      }
 	
@@ -26881,19 +27078,20 @@
 	          currentParent.attrsMap.placeholder === text) {
 	        return
 	      }
+	      var children = currentParent.children;
 	      text = inPre || text.trim()
 	        ? decodeHTMLCached(text)
 	        // only preserve whitespace if its not right after a starting tag
-	        : preserveWhitespace && currentParent.children.length ? ' ' : '';
+	        : preserveWhitespace && children.length ? ' ' : '';
 	      if (text) {
 	        var expression;
 	        if (!inVPre && text !== ' ' && (expression = parseText(text, delimiters))) {
-	          currentParent.children.push({
+	          children.push({
 	            type: 2,
 	            expression: expression,
 	            text: text
 	          });
-	        } else {
+	        } else if (text !== ' ' || children[children.length - 1].text !== ' ') {
 	          currentParent.children.push({
 	            type: 3,
 	            text: text
@@ -27004,6 +27202,23 @@
 	  }
 	}
 	
+	function findPrevElement (children) {
+	  var i = children.length;
+	  while (i--) {
+	    if (children[i].type === 1) {
+	      return children[i]
+	    } else {
+	      if ("development" !== 'production' && children[i].text !== ' ') {
+	        warn$1(
+	          "text \"" + (children[i].text.trim()) + "\" between v-if and v-else(-if) " +
+	          "will be ignored."
+	        );
+	      }
+	      children.pop();
+	    }
+	  }
+	}
+	
 	function addIfCondition (el, condition) {
 	  if (!el.ifConditions) {
 	    el.ifConditions = [];
@@ -27077,7 +27292,7 @@
 	            name = camelize(name);
 	          }
 	        }
-	        if (isProp || platformMustUseProp(el.tag, name)) {
+	        if (isProp || platformMustUseProp(el.tag, el.attrsMap.type, name)) {
 	          addProp(el, name, value);
 	        } else {
 	          addAttr(el, name, value);
@@ -27144,13 +27359,6 @@
 	    map[attrs[i].name] = attrs[i].value;
 	  }
 	  return map
-	}
-	
-	function findPrevElement (children) {
-	  var i = children.length;
-	  while (i--) {
-	    if (children[i].tag) { return children[i] }
-	  }
 	}
 	
 	function isForbiddenTag (el) {
@@ -27406,6 +27614,8 @@
 	  };
 	}
 	
+	/*  */
+	
 	var baseDirectives = {
 	  bind: bind$2,
 	  cloak: noop
@@ -27418,6 +27628,7 @@
 	var transforms$1;
 	var dataGenFns;
 	var platformDirectives$1;
+	var isPlatformReservedTag$1;
 	var staticRenderFns;
 	var onceCount;
 	var currentOptions;
@@ -27436,6 +27647,7 @@
 	  transforms$1 = pluckModuleFunction(options.modules, 'transformCode');
 	  dataGenFns = pluckModuleFunction(options.modules, 'genData');
 	  platformDirectives$1 = options.directives || {};
+	  isPlatformReservedTag$1 = options.isReservedTag || no;
 	  var code = ast ? genElement(ast) : '_c("div")';
 	  staticRenderFns = prevStaticRenderFns;
 	  onceCount = prevOnceCount;
@@ -27675,25 +27887,43 @@
 	        el$1.tag !== 'slot') {
 	      return genElement(el$1)
 	    }
+	    var normalizationType = getNormalizationType(children);
 	    return ("[" + (children.map(genNode).join(',')) + "]" + (checkSkip
-	        ? canSkipNormalization(children) ? '' : ',true'
+	        ? normalizationType ? ("," + normalizationType) : ''
 	        : ''))
 	  }
 	}
 	
-	function canSkipNormalization (children) {
+	// determine the normalization needed for the children array.
+	// 0: no normalization needed
+	// 1: simple normalization needed (possible 1-level deep nested array)
+	// 2: full normalization needed
+	function getNormalizationType (children) {
+	  var res = 0;
 	  for (var i = 0; i < children.length; i++) {
 	    var el = children[i];
+	    if (el.type !== 1) {
+	      continue
+	    }
 	    if (needsNormalization(el) ||
-	        (el.if && el.ifConditions.some(function (c) { return needsNormalization(c.block); }))) {
-	      return false
+	        (el.ifConditions && el.ifConditions.some(function (c) { return needsNormalization(c.block); }))) {
+	      res = 2;
+	      break
+	    }
+	    if (maybeComponent(el) ||
+	        (el.ifConditions && el.ifConditions.some(function (c) { return maybeComponent(c.block); }))) {
+	      res = 1;
 	    }
 	  }
-	  return true
+	  return res
 	}
 	
 	function needsNormalization (el) {
-	  return el.for || el.tag === 'template' || el.tag === 'slot'
+	  return el.for !== undefined || el.tag === 'template' || el.tag === 'slot'
+	}
+	
+	function maybeComponent (el) {
+	  return !isPlatformReservedTag$1(el.tag)
 	}
 	
 	function genNode (node) {
@@ -27713,7 +27943,19 @@
 	function genSlot (el) {
 	  var slotName = el.slotName || '"default"';
 	  var children = genChildren(el);
-	  return ("_t(" + slotName + (children ? ("," + children) : '') + (el.attrs ? ((children ? '' : ',null') + ",{" + (el.attrs.map(function (a) { return ((camelize(a.name)) + ":" + (a.value)); }).join(',')) + "}") : '') + ")")
+	  var res = "_t(" + slotName + (children ? ("," + children) : '');
+	  var attrs = el.attrs && ("{" + (el.attrs.map(function (a) { return ((camelize(a.name)) + ":" + (a.value)); }).join(',')) + "}");
+	  var bind$$1 = el.attrsMap['v-bind'];
+	  if ((attrs || bind$$1) && !children) {
+	    res += ",null";
+	  }
+	  if (attrs) {
+	    res += "," + attrs;
+	  }
+	  if (bind$$1) {
+	    res += (attrs ? '' : ',null') + "," + bind$$1;
+	  }
+	  return res + ')'
 	}
 	
 	// componentName is el.component, take it as argument to shun flow's pessimistic refinement
@@ -27978,10 +28220,13 @@
 	  var falseValueBinding = getBindingAttr(el, 'false-value') || 'false';
 	  addProp(el, 'checked',
 	    "Array.isArray(" + value + ")" +
-	      "?_i(" + value + "," + valueBinding + ")>-1" +
-	      ":_q(" + value + "," + trueValueBinding + ")"
+	      "?_i(" + value + "," + valueBinding + ")>-1" + (
+	        trueValueBinding === 'true'
+	          ? (":(" + value + ")")
+	          : (":_q(" + value + "," + trueValueBinding + ")")
+	      )
 	  );
-	  addHandler(el, 'change',
+	  addHandler(el, 'click',
 	    "var $$a=" + value + "," +
 	        '$$el=$event.target,' +
 	        "$$c=$$el.checked?(" + trueValueBinding + "):(" + falseValueBinding + ");" +
@@ -28012,7 +28257,7 @@
 	  var valueBinding = getBindingAttr(el, 'value') || 'null';
 	  valueBinding = number ? ("_n(" + valueBinding + ")") : valueBinding;
 	  addProp(el, 'checked', ("_q(" + value + "," + valueBinding + ")"));
-	  addHandler(el, 'change', genAssignmentCode(value, valueBinding), null, true);
+	  addHandler(el, 'click', genAssignmentCode(value, valueBinding), null, true);
 	}
 	
 	function genDefaultModel (
