@@ -69,8 +69,21 @@ de: {
   notSelected: 'Nichts ausgewählt',
   required: 'Benötigt',
   search: 'Suche'
-}
+},
 
+ru: {
+  daysOfWeek: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+  limit: 'Достигнут максимальный лимит ({{limit}}).',
+  loading: 'Загрузка...',
+  minLength: 'Минимальная длина',
+  months: [
+    'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+    'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+  ],
+  notSelected: 'Ничего не выбрано',
+  required: 'Обязательное поле',
+  search: 'Поиск'
+}
 
 };
 
@@ -82,7 +95,8 @@ de: {
 var aliases = {
   es: /^es-[A-Z]{2}$/i,
   en: /^en-[A-Z]{2}$/i,
-  de: /^de-[A-Z]{2}$/i
+  de: /^de-[A-Z]{2}$/i,
+  ru: /^ru-[A-Z]{2}$/i,
 };
 
 return function (lang) {
