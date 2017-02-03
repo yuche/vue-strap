@@ -2,7 +2,7 @@
   <doc-section id="modal" name="Modal">
     <div class="bs-example">
       <button class="btn btn-default" @click="showModal = true">Show modal</button>
-      <modal title="Modal title" v-model="showModal">
+      <modal title="Modal title" v-model="showModal" @ok="showModal = false">
         <div slot="modal-header" class="modal-header">
           <h4 class="modal-title">Modal <b>Title</b></h4>
         </div>
@@ -14,7 +14,7 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </modal>
       <button class="btn btn-success" @click="fadeModal = true">Fade modal</button>
-      <modal title="Fade Modal" :value="fadeModal" @cancel="fadeModal = false" effect="fade" width="800">
+      <modal title="Fade Modal" :value="fadeModal" @ok="fadeModal = false" @cancel="fadeModal = false" effect="fade" width="800">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -23,7 +23,7 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </modal>
       <button class="btn btn-primary" @click="zoomModal = true">Zoom modal</button>
-      <modal title="Zoom Modal" :value="zoomModal" @ok="zoomModal = false" effect="zoom" width="400">
+      <modal title="Zoom Modal" :value="zoomModal" @ok="zoomModal = false" @cancel="zoomModal = false" effect="zoom" width="400">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -32,7 +32,7 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </modal>
       <button class="btn btn-default" @click="showCustomModal = true">Show custom modal</button>
-      <modal :value="showCustomModal" @cancel="showCustomModel = false" effect="fade" width="50%">
+      <modal :value="showCustomModal" @ok="showCustomModel = false" @cancel="showCustomModel = false" effect="fade" width="50%">
         <div slot="modal-header" class="modal-header">
           <h4 class="modal-title"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>
         </div>
@@ -48,7 +48,7 @@
         </div>
       </modal>
       <button class="btn btn-warning" @click="largeModal = true">Large modal</button>
-      <modal title="Large Modal" :value="largeModal" @cancel="largeModal = false" large>
+      <modal title="Large Modal" :value="largeModal" @ok="largeModal = false" @cancel="largeModal = false" large>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -69,7 +69,7 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </modal>
       <button class="btn btn-danger" @click="smallModal = true">Small modal</button>
-      <modal title="Small Modal" :value="smallModal" @cancel="smallModal = false" small>
+      <modal title="Small Modal" :value="smallModal" @ok="smallModal = false" @cancel="smallModal = false" small>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
