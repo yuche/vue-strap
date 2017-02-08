@@ -90,6 +90,12 @@
         <p><code>null</code></p>
         <p>Define the type of color for the tab (single).</p>
       </div>
+      <div>
+        <p>collapse</p>
+        <p><code>Boolean</code></p>
+        <p><code>null</code></p>
+        <p>Define whether this panel can be collapsed. This will default to true if in an accordion.</p>
+      </div>
     </doc-table>
     <p>If you want to personalice your header with some html you can use the slot instead of header attribute (panel&nbsp;#1 in the example).</p>
   </doc-section>
