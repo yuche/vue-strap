@@ -36,6 +36,11 @@ export default {
     value: {type: Boolean, required: true},
     width: {default: null}
   },
+  data () {
+    return {
+      trans: false
+    }
+  },
   computed: {
     optionalWidth () {
       if (this.width === null) {
@@ -47,8 +52,13 @@ export default {
     }
   },
   watch: {
-    value (val) {
-      this.transitionstart()
+    trans (val, old) {
+      if (!val && val !== old) {
+        this.$emit(this.value ? 'opened' : 'closed')
+      }
+    },
+    value (val, old) {
+      if (val !== old) this.transitionstart()
     }
   },
   methods: {
@@ -68,6 +78,7 @@ export default {
       const el = this.$el
       const body = document.body
       const scrollBarWidth = getScrollBarWidth()
+      this.trans = true
       if (this.value) {
         el.querySelector('.modal-content').focus()
         el.style.display = 'block'
@@ -81,6 +92,7 @@ export default {
       }
     },
     transitionend () {
+      this.trans = false
       if (!this.value) {
         this.$el.style.display = 'none'
         const body = document.body

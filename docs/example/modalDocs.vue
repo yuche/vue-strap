@@ -182,6 +182,16 @@
         <p>(<code>null</code>)</p>
         <p>Called if the modal was canceled.</p>
       </div>
+      <div>
+        <p>opened</p>
+        <p>(<code>null</code>)</p>
+        <p>Called when the modal is opened.</p>
+      </div>
+      <div>
+        <p>closed</p>
+        <p>(<code>null</code>)</p>
+        <p>Called when the modal is closed.</p>
+      </div>
     </doc-table>
     <p><strong>Note:</strong> The default events are called if you use the default footer. Using a footer slot, you must implement your own events to the buttons.</p>
   </doc-section>
