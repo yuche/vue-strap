@@ -13069,6 +13069,16 @@
 	//
 	//
 	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 	
 	exports.default = {
 	  components: {
@@ -13171,7 +13181,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.modal {\r\n  transition: all 0.3s ease;\n}\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\r\n  -webkit-transform: scale(0.1);\r\n  -moz-transform: scale(0.1);\r\n  -ms-transform: scale(0.1);\r\n  transform: scale(0.1);\r\n  top: 300px;\r\n  opacity: 0;\r\n  -webkit-transition: all 0.3s;\r\n  -moz-transition: all 0.3s;\r\n  transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\r\n  -webkit-transform: scale(1);\r\n  -moz-transform: scale(1);\r\n  -ms-transform: scale(1);\r\n  transform: scale(1);\r\n  -webkit-transform: translate3d(0, -300px, 0);\r\n  transform: translate3d(0, -300px, 0);\r\n  opacity: 1;\n}\r\n", "", {"version":3,"sources":["/./src/Modal.vue?458fb69a"],"names":[],"mappings":";AA8FA;EACA,0BAAA;CACA;AACA;EACA,kCAAA;CACA;AACA;EACA,8BAAA;EACA,2BAAA;EACA,0BAAA;EACA,sBAAA;EACA,WAAA;EACA,WAAA;EACA,6BAAA;EACA,0BAAA;EACA,qBAAA;CACA;AACA;EACA,4BAAA;EACA,yBAAA;EACA,wBAAA;EACA,oBAAA;EACA,6CAAA;EACA,qCAAA;EACA,WAAA;CACA","file":"Modal.vue","sourcesContent":["<template>\r\n  <div role=\"dialog\" :class=\"['modal',effect]\" @click=\"backClose\" @transitionend=\"transitionend\">\r\n    <div :class=\"{'modal-dialog':true,'modal-lg':large,'modal-sm':small}\" role=\"document\" :style=\"{width: optionalWidth}\">\r\n      <div class=\"modal-content\">\r\n        <slot name=\"modal-header\">\r\n          <div class=\"modal-header\">\r\n            <button type=\"button\" class=\"close\" @click=\"close\"><span>&times;</span></button>\r\n            <h4 class=\"modal-title\"><slot name=\"title\">{{title}}</slot></h4>\r\n          </div>\r\n        </slot>\r\n        <slot name=\"modal-body\"><div class=\"modal-body\"><slot></slot></div></slot>\r\n        <slot name=\"modal-footer\">\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" @click=\"close\">{{ cancelText }}</button>\r\n            <button type=\"button\" class=\"btn btn-primary\" @click=\"ok\">{{ okText }}</button>\r\n          </div>\r\n        </slot>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {getScrollBarWidth} from './utils/utils.js'\r\n\r\nexport default {\r\n  props: {\r\n    backdrop: {type: Boolean, default: true},\r\n    callback: {type: Function, default: null},\r\n    cancelText: {type: String, default: 'Close'},\r\n    effect: {type: String, default: null},\r\n    large: {type: Boolean, default: false},\r\n    okText: {type: String, default: 'Save changes'},\r\n    small: {type: Boolean, default: false},\r\n    title: {type: String, default: ''},\r\n    value: {type: Boolean, required: true},\r\n    width: {default: null}\r\n  },\r\n  computed: {\r\n    optionalWidth () {\r\n      if (this.width === null) {\r\n        return null\r\n      } else if (Number.isInteger(this.width)) {\r\n        return this.width + 'px'\r\n      }\r\n      return this.width\r\n    }\r\n  },\r\n  watch: {\r\n    value (val) {\r\n      this.transitionstart()\r\n    }\r\n  },\r\n  methods: {\r\n    backClose (e) {\r\n      if (this.backdrop && e.target === this.$el) { this.close() }\r\n    },\r\n    close () {\r\n      this.$emit('cancel')\r\n      this.$emit('input', false)\r\n    },\r\n    ok () {\r\n      if (this.callback instanceof Function) this.callback()\r\n      this.$emit('ok')\r\n      this.$emit('input', true)\r\n    },\r\n    transitionstart () {\r\n      const el = this.$el\r\n      const body = document.body\r\n      const scrollBarWidth = getScrollBarWidth()\r\n      if (this.value) {\r\n        el.querySelector('.modal-content').focus()\r\n        el.style.display = 'block'\r\n        setTimeout(() => el.classList.add('in'), 0)\r\n        body.classList.add('modal-open')\r\n        if (scrollBarWidth !== 0) {\r\n          body.style.paddingRight = scrollBarWidth + 'px'\r\n        }\r\n      } else {\r\n        el.classList.remove('in')\r\n      }\r\n    },\r\n    transitionend () {\r\n      if (!this.value) {\r\n        this.$el.style.display = 'none'\r\n        const body = document.body\r\n        body.style.paddingRight = null\r\n        body.classList.remove('modal-open')\r\n      }\r\n    }\r\n  }\r\n}\r\n</script>\r\n<style>\r\n.modal {\r\n  transition: all 0.3s ease;\r\n}\r\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\r\n}\r\n.modal.zoom .modal-dialog {\r\n  -webkit-transform: scale(0.1);\r\n  -moz-transform: scale(0.1);\r\n  -ms-transform: scale(0.1);\r\n  transform: scale(0.1);\r\n  top: 300px;\r\n  opacity: 0;\r\n  -webkit-transition: all 0.3s;\r\n  -moz-transition: all 0.3s;\r\n  transition: all 0.3s;\r\n}\r\n.modal.zoom.in .modal-dialog {\r\n  -webkit-transform: scale(1);\r\n  -moz-transform: scale(1);\r\n  -ms-transform: scale(1);\r\n  transform: scale(1);\r\n  -webkit-transform: translate3d(0, -300px, 0);\r\n  transform: translate3d(0, -300px, 0);\r\n  opacity: 1;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.modal {\r\n  transition: all 0.3s ease;\n}\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\r\n  -webkit-transform: scale(0.1);\r\n  -moz-transform: scale(0.1);\r\n  -ms-transform: scale(0.1);\r\n  transform: scale(0.1);\r\n  top: 300px;\r\n  opacity: 0;\r\n  -webkit-transition: all 0.3s;\r\n  -moz-transition: all 0.3s;\r\n  transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\r\n  -webkit-transform: scale(1);\r\n  -moz-transform: scale(1);\r\n  -ms-transform: scale(1);\r\n  transform: scale(1);\r\n  -webkit-transform: translate3d(0, -300px, 0);\r\n  transform: translate3d(0, -300px, 0);\r\n  opacity: 1;\n}\r\n", "", {"version":3,"sources":["/./src/Modal.vue?a20d668e"],"names":[],"mappings":";AA0GA;EACA,0BAAA;CACA;AACA;EACA,kCAAA;CACA;AACA;EACA,8BAAA;EACA,2BAAA;EACA,0BAAA;EACA,sBAAA;EACA,WAAA;EACA,WAAA;EACA,6BAAA;EACA,0BAAA;EACA,qBAAA;CACA;AACA;EACA,4BAAA;EACA,yBAAA;EACA,wBAAA;EACA,oBAAA;EACA,6CAAA;EACA,qCAAA;EACA,WAAA;CACA","file":"Modal.vue","sourcesContent":["<template>\r\n  <div role=\"dialog\" :class=\"['modal',effect]\" @click=\"backClose\" @transitionend=\"transitionend\">\r\n    <div :class=\"{'modal-dialog':true,'modal-lg':large,'modal-sm':small}\" role=\"document\" :style=\"{width: optionalWidth}\">\r\n      <div class=\"modal-content\">\r\n        <slot name=\"modal-header\">\r\n          <div class=\"modal-header\">\r\n            <button type=\"button\" class=\"close\" @click=\"close\"><span>&times;</span></button>\r\n            <h4 class=\"modal-title\"><slot name=\"title\">{{title}}</slot></h4>\r\n          </div>\r\n        </slot>\r\n        <slot name=\"modal-body\"><div class=\"modal-body\"><slot></slot></div></slot>\r\n        <slot name=\"modal-footer\">\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" @click=\"close\">{{ cancelText }}</button>\r\n            <button type=\"button\" class=\"btn btn-primary\" @click=\"ok\">{{ okText }}</button>\r\n          </div>\r\n        </slot>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {getScrollBarWidth} from './utils/utils.js'\r\n\r\nexport default {\r\n  props: {\r\n    backdrop: {type: Boolean, default: true},\r\n    callback: {type: Function, default: null},\r\n    cancelText: {type: String, default: 'Close'},\r\n    effect: {type: String, default: null},\r\n    large: {type: Boolean, default: false},\r\n    okText: {type: String, default: 'Save changes'},\r\n    small: {type: Boolean, default: false},\r\n    title: {type: String, default: ''},\r\n    value: {type: Boolean, required: true},\r\n    width: {default: null}\r\n  },\r\n  data () {\r\n    return {\r\n      trans: false\r\n    }\r\n  },\r\n  computed: {\r\n    optionalWidth () {\r\n      if (this.width === null) {\r\n        return null\r\n      } else if (Number.isInteger(this.width)) {\r\n        return this.width + 'px'\r\n      }\r\n      return this.width\r\n    }\r\n  },\r\n  watch: {\r\n    trans (val, old) {\r\n      if (!val && val !== old) {\r\n        this.$emit(this.value ? 'opened' : 'closed')\r\n      }\r\n    },\r\n    value (val, old) {\r\n      if (val !== old) this.transitionstart()\r\n    }\r\n  },\r\n  methods: {\r\n    backClose (e) {\r\n      if (this.backdrop && e.target === this.$el) { this.close() }\r\n    },\r\n    close () {\r\n      this.$emit('cancel')\r\n      this.$emit('input', false)\r\n    },\r\n    ok () {\r\n      if (this.callback instanceof Function) this.callback()\r\n      this.$emit('ok')\r\n      this.$emit('input', true)\r\n    },\r\n    transitionstart () {\r\n      const el = this.$el\r\n      const body = document.body\r\n      const scrollBarWidth = getScrollBarWidth()\r\n      this.trans = true\r\n      if (this.value) {\r\n        el.querySelector('.modal-content').focus()\r\n        el.style.display = 'block'\r\n        setTimeout(() => el.classList.add('in'), 0)\r\n        body.classList.add('modal-open')\r\n        if (scrollBarWidth !== 0) {\r\n          body.style.paddingRight = scrollBarWidth + 'px'\r\n        }\r\n      } else {\r\n        el.classList.remove('in')\r\n      }\r\n    },\r\n    transitionend () {\r\n      this.trans = false\r\n      if (!this.value) {\r\n        this.$el.style.display = 'none'\r\n        const body = document.body\r\n        body.style.paddingRight = null\r\n        body.classList.remove('modal-open')\r\n      }\r\n    }\r\n  }\r\n}\r\n</script>\r\n<style>\r\n.modal {\r\n  transition: all 0.3s ease;\r\n}\r\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\r\n}\r\n.modal.zoom .modal-dialog {\r\n  -webkit-transform: scale(0.1);\r\n  -moz-transform: scale(0.1);\r\n  -ms-transform: scale(0.1);\r\n  transform: scale(0.1);\r\n  top: 300px;\r\n  opacity: 0;\r\n  -webkit-transition: all 0.3s;\r\n  -moz-transition: all 0.3s;\r\n  transition: all 0.3s;\r\n}\r\n.modal.zoom.in .modal-dialog {\r\n  -webkit-transform: scale(1);\r\n  -moz-transform: scale(1);\r\n  -ms-transform: scale(1);\r\n  transform: scale(1);\r\n  -webkit-transform: translate3d(0, -300px, 0);\r\n  transform: translate3d(0, -300px, 0);\r\n  opacity: 1;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -13207,6 +13217,12 @@
 	    value: { type: Boolean, required: true },
 	    width: { default: null }
 	  },
+	  data: function data() {
+	    return {
+	      trans: false
+	    };
+	  },
+	
 	  computed: {
 	    optionalWidth: function optionalWidth() {
 	      if (this.width === null) {
@@ -13218,8 +13234,13 @@
 	    }
 	  },
 	  watch: {
-	    value: function value(val) {
-	      this.transitionstart();
+	    trans: function trans(val, old) {
+	      if (!val && val !== old) {
+	        this.$emit(this.value ? 'opened' : 'closed');
+	      }
+	    },
+	    value: function value(val, old) {
+	      if (val !== old) this.transitionstart();
 	    }
 	  },
 	  methods: {
@@ -13241,6 +13262,7 @@
 	      var el = this.$el;
 	      var body = document.body;
 	      var scrollBarWidth = (0, _utils.getScrollBarWidth)();
+	      this.trans = true;
 	      if (this.value) {
 	        el.querySelector('.modal-content').focus();
 	        el.style.display = 'block';
@@ -13256,6 +13278,7 @@
 	      }
 	    },
 	    transitionend: function transitionend() {
+	      this.trans = false;
 	      if (!this.value) {
 	        this.$el.style.display = 'none';
 	        var body = document.body;
@@ -13557,7 +13580,7 @@
 	    attrs: {
 	      "type": "Events"
 	    }
-	  }, [_vm._c('div', [_vm._c('p', [_vm._v("input")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("Boolean")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return if the modal action is accepted / canceled ("), _vm._c('code', [_vm._v("true")]), _vm._v("/"), _vm._c('code', [_vm._v("false")]), _vm._v(") shown.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("ok")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("null")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Called if the modal was accepted.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("cancel")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("null")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Called if the modal was canceled.")])])]), _vm._v(" "), _vm._c('p', [_vm._c('strong', [_vm._v("Note:")]), _vm._v(" The default events are called if you use the default footer. Using a footer slot, you must implement your own events to the buttons.")])], 1)
+	  }, [_vm._c('div', [_vm._c('p', [_vm._v("input")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("Boolean")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return if the modal action is accepted / canceled ("), _vm._c('code', [_vm._v("true")]), _vm._v("/"), _vm._c('code', [_vm._v("false")]), _vm._v(") shown.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("ok")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("null")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Called if the modal was accepted.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("cancel")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("null")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Called if the modal was canceled.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("opened")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("null")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Called when the modal is opened.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("closed")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("null")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Called when the modal is closed.")])])]), _vm._v(" "), _vm._c('p', [_vm._c('strong', [_vm._v("Note:")]), _vm._v(" The default events are called if you use the default footer. Using a footer slot, you must implement your own events to the buttons.")])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -17769,15 +17792,18 @@
 	  },
 	
 	  methods: {
-	    googleCallback: function googleCallback(items, targetVM) {
-	      targetVM.reset();
-	      targetVM.value = items.formatted_address;
+	    googleCallback: function googleCallback(item) {
+	      return item.formatted_address;
 	    },
-	    githubCallback: function githubCallback(items) {
-	      window.open(items.html_url, '_blank');
+	    githubCallback: function githubCallback(item) {
+	      window.open(item.html_url, '_blank');
+	      return item.login;
 	    }
 	  }
 	}; //
+	//
+	//
+	//
 	//
 	//
 	//
@@ -18002,7 +18028,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.dropdown-menu > li > a {\r\n  cursor: pointer;\n}\r\n", "", {"version":3,"sources":["/./src/Typeahead.vue?6a03997f"],"names":[],"mappings":";AAoIA;EACA,gBAAA;CACA","file":"Typeahead.vue","sourcesContent":["<template>\r\n  <div style=\"position: relative\" :class=\"{'open':showDropdown}\">\r\n    <input type=\"text\" class=\"form-control\" autocomplete=\"off\"\r\n      v-model=\"val\"\r\n      :placeholder=\"placeholder\"\r\n      @blur=\"showDropdown = false\"\r\n      @keydown.down=\"down\"\r\n      @keydown.enter= \"hit\"\r\n      @keydown.esc=\"reset\"\r\n      @keydown.up=\"up\"\r\n    />\r\n    <ul class=\"dropdown-menu\" ref=\"dropdown\">\r\n      <li v-for=\"(item, i) in items\" :class=\"{'active': isActive(i)}\">\r\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive(i)\">\r\n          <component :is=\"tmpl\" :item=\"item\"></component>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {delayer, getJSON} from './utils/utils.js'\r\nvar DELAY = 300\r\n\r\nexport default {\r\n  props: {\r\n    async: {type: String},\r\n    data: {type: Array},\r\n    delay: {type: Number, default: DELAY},\r\n    asyncKey: {type: String, default: null},\r\n    limit: {type: Number, default: 8},\r\n    matchCase: {type: Boolean, default: false},\r\n    matchStart: {type: Boolean, default: false},\r\n    onHit: {\r\n      type: Function,\r\n      default (item) {\r\n        this.reset()\r\n        this.value = item\r\n      }\r\n    },\r\n    placeholder: {type: String},\r\n    template: {type: String},\r\n    value: {type: String, default: ''}\r\n  },\r\n  data () {\r\n    return {\r\n      showDropdown: false,\r\n      noResults: true,\r\n      current: 0,\r\n      items: [],\r\n      val: ''\r\n    }\r\n  },\r\n  computed: {\r\n    templateHtml () { return typeof this.template === 'string' ? '<span>' + this.template + '</span>' : null },\r\n    tmpl () { return this._tmpl}\r\n  },\r\n  watch: {\r\n    val (val, old) {\r\n      this.$emit('input', val)\r\n      if (val !== old) this._update()\r\n    },\r\n    value (val) {\r\n      if (this.val !== val) { this.val = val }\r\n    }\r\n  },\r\n  methods: {\r\n    setItems (data) {\r\n      if (this.async) {\r\n        this.items = this.asyncKey ? data[this.asyncKey] : data\r\n        this.items = this.items.slice(0, this.limit)\r\n      } else {\r\n        this.items = (data || []).filter(value => {\r\n          if (typeof value === 'object') { return true }\r\n          value = this.matchCase ? value : value.toLowerCase()\r\n          var query = this.matchCase ? this.val : this.val.toLowerCase()\r\n          return this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1\r\n        }).slice(0, this.limit)\r\n      }\r\n      this.showDropdown = this.items.length > 0\r\n    },\r\n    reset () {\r\n      this.items = []\r\n      this.val = ''\r\n      this.loading = false\r\n      this.showDropdown = false\r\n    },\r\n    setActive (index) {\r\n      this.current = index\r\n    },\r\n    isActive (index) {\r\n      return this.current === index\r\n    },\r\n    hit (e) {\r\n      e.preventDefault()\r\n      this.onHit(this.items[this.current], this)\r\n    },\r\n    up () {\r\n      if (this.current > 0) this.current--\r\n    },\r\n    down () {\r\n      if (this.current < this.items.length - 1) this.current++\r\n    }\r\n  },\r\n  created () {\r\n    this.val = this.value\r\n    this._tmpl = {\r\n      template: this.templateHtml || '<strong v-html=\"item\"></strong>',\r\n      props: {\r\n        item: {default: null}\r\n      }\r\n    }\r\n    this._update = delayer(function () {\r\n      if (!this.val) {\r\n        this.reset()\r\n        return false\r\n      }\r\n      if (this.async) {\r\n        getJSON(this.async + this.val).then(data => {\r\n          this.setItems(data)\r\n        })\r\n      } else if (this.data) {\r\n        this.setItems(this.data)\r\n      }\r\n    }, 'delay', DELAY)\r\n    this._update()\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.dropdown-menu > li > a {\r\n  cursor: pointer;\r\n}\r\n</style>"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.dropdown-menu > li > a {\r\n  cursor: pointer;\n}\r\n", "", {"version":3,"sources":["/./src/Typeahead.vue?73fcd4be"],"names":[],"mappings":";AAkIA;EACA,gBAAA;CACA","file":"Typeahead.vue","sourcesContent":["<template>\r\n  <div style=\"position: relative\" :class=\"{open:showDropdown}\">\r\n    <input class=\"form-control\" autocomplete=\"off\"\r\n      v-model=\"val\"\r\n      :placeholder=\"placeholder\"\r\n      :type.once=\"type\"\r\n      @blur=\"showDropdown = false\"\r\n      @keydown.down.prevent=\"down\"\r\n      @keydown.enter=\"hit\"\r\n      @keydown.esc=\"reset\"\r\n      @keydown.up.prevent=\"up\"\r\n    />\r\n    <ul class=\"dropdown-menu\" ref=\"dropdown\">\r\n      <li v-for=\"(item, i) in items\" :class=\"{active: isActive(i)}\">\r\n        <a @mousedown.prevent=\"hit\" @mousemove=\"setActive(i)\">\r\n          <component :is=\"templateComp\" :item=\"item\"></component>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {delayer, getJSON} from './utils/utils.js'\r\nvar DELAY = 300\r\n\r\nexport default {\r\n  props: {\r\n    async: {type: String},\r\n    data: {type: Array},\r\n    delay: {type: Number, default: DELAY},\r\n    asyncKey: {type: String, default: null},\r\n    limit: {type: Number, default: 8},\r\n    matchCase: {type: Boolean, default: false},\r\n    matchStart: {type: Boolean, default: false},\r\n    onHit: {\r\n      type: Function,\r\n      default (item) { return item }\r\n    },\r\n    placeholder: {type: String},\r\n    template: {type: String},\r\n    type: {type: String, default: 'text'},\r\n    value: {type: String, default: ''}\r\n  },\r\n  data () {\r\n    return {\r\n      asign: '',\r\n      showDropdown: false,\r\n      noResults: true,\r\n      current: 0,\r\n      items: [],\r\n      val: this.value\r\n    }\r\n  },\r\n  computed: {\r\n    templateComp () {\r\n      return {\r\n        template: typeof this.template === 'string' ? '<span>' + this.template + '</span>' : '<strong v-html=\"item\"></strong>',\r\n        props: { item: {default: null} }\r\n      }\r\n    }\r\n  },\r\n  watch: {\r\n    val (val, old) {\r\n      this.$emit('input', val)\r\n      if (val !== old && val !== this.asign) this.__update()\r\n    },\r\n    value (val) {\r\n      if (this.val !== val) { this.val = val }\r\n    }\r\n  },\r\n  methods: {\r\n    setItems (data) {\r\n      if (this.async) {\r\n        this.items = this.asyncKey ? data[this.asyncKey] : data\r\n        this.items = this.items.slice(0, this.limit)\r\n      } else {\r\n        this.items = (data || []).filter(value => {\r\n          if (typeof value === 'object') { return true }\r\n          value = this.matchCase ? value : value.toLowerCase()\r\n          var query = this.matchCase ? this.val : this.val.toLowerCase()\r\n          return this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1\r\n        }).slice(0, this.limit)\r\n      }\r\n      this.showDropdown = this.items.length > 0\r\n    },\r\n    setValue (value) {\r\n      this.asign = value\r\n      this.val = value\r\n      this.items = []\r\n      this.loading = false\r\n      this.showDropdown = false\r\n    },\r\n    reset () { this.setValue(null) },\r\n    setActive (index) { this.current = index },\r\n    isActive (index) { return this.current === index },\r\n    hit (e) {\r\n      e.preventDefault()\r\n      this.setValue(this.onHit(this.items[this.current], this))\r\n    },\r\n    up () {\r\n      if (this.current > 0) { this.current-- }\r\n      else { this.current = this.items.length - 1 }\r\n    },\r\n    down () {\r\n      if (this.current < this.items.length - 1) { this.current++ }\r\n      else { this.current = 0 }\r\n    }\r\n  },\r\n  created () {\r\n    this.__update = delayer(function () {\r\n      if (!this.val) {\r\n        this.reset()\r\n        return\r\n      }\r\n      this.asign = ''\r\n      if (this.async) {\r\n        getJSON(this.async + this.val).then(data => {\r\n          this.setItems(data)\r\n        })\r\n      } else if (this.data) {\r\n        this.setItems(this.data)\r\n      }\r\n    }, 'delay', DELAY)\r\n    this.__update()\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n.dropdown-menu > li > a {\r\n  cursor: pointer;\r\n}\r\n</style>"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -18046,6 +18072,7 @@
 	//
 	//
 	//
+	//
 	
 	exports.default = {
 	  props: {
@@ -18059,36 +18086,37 @@
 	    onHit: {
 	      type: Function,
 	      default: function _default(item) {
-	        this.reset();
-	        this.value = item;
+	        return item;
 	      }
 	    },
 	    placeholder: { type: String },
 	    template: { type: String },
+	    type: { type: String, default: 'text' },
 	    value: { type: String, default: '' }
 	  },
 	  data: function data() {
 	    return {
+	      asign: '',
 	      showDropdown: false,
 	      noResults: true,
 	      current: 0,
 	      items: [],
-	      val: ''
+	      val: this.value
 	    };
 	  },
 	
 	  computed: {
-	    templateHtml: function templateHtml() {
-	      return typeof this.template === 'string' ? '<span>' + this.template + '</span>' : null;
-	    },
-	    tmpl: function tmpl() {
-	      return this._tmpl;
+	    templateComp: function templateComp() {
+	      return {
+	        template: typeof this.template === 'string' ? '<span>' + this.template + '</span>' : '<strong v-html="item"></strong>',
+	        props: { item: { default: null } }
+	      };
 	    }
 	  },
 	  watch: {
 	    val: function val(_val, old) {
 	      this.$emit('input', _val);
-	      if (_val !== old) this._update();
+	      if (_val !== old && _val !== this.asign) this.__update();
 	    },
 	    value: function value(val) {
 	      if (this.val !== val) {
@@ -18115,11 +18143,15 @@
 	      }
 	      this.showDropdown = this.items.length > 0;
 	    },
-	    reset: function reset() {
+	    setValue: function setValue(value) {
+	      this.asign = value;
+	      this.val = value;
 	      this.items = [];
-	      this.val = '';
 	      this.loading = false;
 	      this.showDropdown = false;
+	    },
+	    reset: function reset() {
+	      this.setValue(null);
 	    },
 	    setActive: function setActive(index) {
 	      this.current = index;
@@ -18129,30 +18161,32 @@
 	    },
 	    hit: function hit(e) {
 	      e.preventDefault();
-	      this.onHit(this.items[this.current], this);
+	      this.setValue(this.onHit(this.items[this.current], this));
 	    },
 	    up: function up() {
-	      if (this.current > 0) this.current--;
+	      if (this.current > 0) {
+	        this.current--;
+	      } else {
+	        this.current = this.items.length - 1;
+	      }
 	    },
 	    down: function down() {
-	      if (this.current < this.items.length - 1) this.current++;
+	      if (this.current < this.items.length - 1) {
+	        this.current++;
+	      } else {
+	        this.current = 0;
+	      }
 	    }
 	  },
 	  created: function created() {
-	    this.val = this.value;
-	    this._tmpl = {
-	      template: this.templateHtml || '<strong v-html="item"></strong>',
-	      props: {
-	        item: { default: null }
-	      }
-	    };
-	    this._update = (0, _utils.delayer)(function () {
+	    this.__update = (0, _utils.delayer)(function () {
 	      var _this2 = this;
 	
 	      if (!this.val) {
 	        this.reset();
-	        return false;
+	        return;
 	      }
+	      this.asign = '';
 	      if (this.async) {
 	        (0, _utils.getJSON)(this.async + this.val).then(function (data) {
 	          _this2.setItems(data);
@@ -18161,7 +18195,7 @@
 	        this.setItems(this.data);
 	      }
 	    }, 'delay', DELAY);
-	    this._update();
+	    this.__update();
 	  }
 	};
 
@@ -18622,7 +18656,7 @@
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
 	  return _vm._c('div', {
 	    class: {
-	      'open': _vm.showDropdown
+	      open: _vm.showDropdown
 	    },
 	    staticStyle: {
 	      "position": "relative"
@@ -18636,9 +18670,9 @@
 	    }],
 	    staticClass: "form-control",
 	    attrs: {
-	      "type": "text",
 	      "autocomplete": "off",
-	      "placeholder": _vm.placeholder
+	      "placeholder": _vm.placeholder,
+	      "type": _vm.type
 	    },
 	    domProps: {
 	      "value": _vm._s(_vm.val)
@@ -18649,6 +18683,7 @@
 	      },
 	      "keydown": [function($event) {
 	        if (_vm._k($event.keyCode, "down", 40)) { return; }
+	        $event.preventDefault();
 	        _vm.down($event)
 	      }, function($event) {
 	        if (_vm._k($event.keyCode, "enter", 13)) { return; }
@@ -18658,6 +18693,7 @@
 	        _vm.reset($event)
 	      }, function($event) {
 	        if (_vm._k($event.keyCode, "up", 38)) { return; }
+	        $event.preventDefault();
 	        _vm.up($event)
 	      }],
 	      "input": function($event) {
@@ -18671,7 +18707,7 @@
 	  }, _vm._l((_vm.items), function(item, i) {
 	    return _vm._c('li', {
 	      class: {
-	        'active': _vm.isActive(i)
+	        active: _vm.isActive(i)
 	      }
 	    }, [_vm._c('a', {
 	      on: {
@@ -18683,7 +18719,7 @@
 	          _vm.setActive(i)
 	        }
 	      }
-	    }, [_vm._c(_vm.tmpl, {
+	    }, [_vm._c(_vm.templateComp, {
 	      tag: "component",
 	      attrs: {
 	        "item": item
@@ -18706,11 +18742,42 @@
 	  return _vm._c('doc-section', {
 	    attrs: {
 	      "id": "typeahead",
-	      "name": "***Typeahead"
+	      "name": "Typeahead"
 	    }
 	  }, [_vm._c('div', {
 	    staticClass: "bs-example"
-	  }, [_vm._v("\n    Typeahead failing.\n    ")]), _vm._v(" "), _vm._c('doc-code', {
+	  }, [_vm._v("\n    Typeahead failing.\n    "), _vm._c('h4', [_vm._v("Static arrays")]), _vm._v(" "), _vm._c('typeahead', {
+	    attrs: {
+	      "data": _vm.USstate,
+	      "placeholder": "USA states"
+	    }
+	  }), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('h4', [_vm._v("\n    Asynchronous results\n    "), _vm._c('tooltip', {
+	    attrs: {
+	      "trigger": "click",
+	      "content": "The suggestions via a Google Map API, are you behind a FireWall?",
+	      "placement": "top"
+	    }
+	  }, [_vm._c('small', {
+	    staticStyle: {
+	      "cursor": "pointer"
+	    }
+	  }, [_vm._v("(not working?)")])])], 1), _vm._v(" "), _vm._c('typeahead', {
+	    attrs: {
+	      "placeholder": "CCCAddress, async via maps.googleapis.com",
+	      "async-key": "results",
+	      "async": "https://maps.googleapis.com/maps/api/geocode/json?address=",
+	      "template": _vm.asyncTemplate,
+	      "on-hit": _vm.googleCallback
+	    }
+	  }), _vm._v(" "), _vm._c('hr'), _vm._v(" "), _vm._c('h4', [_vm._v("\n    Custom templates for results\n    ")]), _vm._v(" "), _vm._c('typeahead', {
+	    attrs: {
+	      "placeholder": "Github users, async via api.github.com",
+	      "async-key": "items",
+	      "async": "https://api.github.com/search/users?q=",
+	      "template": _vm.githubTemplate,
+	      "on-hit": _vm.githubCallback
+	    }
+	  })], 1), _vm._v(" "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
@@ -18718,7 +18785,7 @@
 	    attrs: {
 	      "language": "javascript"
 	    }
-	  }, [_vm._v("\n    new Vue {\n      components: {\n        typeahead\n      },\n      data() {\n        return {\n          USstate: ['Alabama', 'Alaska', 'Arizona',...],\n          asynchronous: '" + _vm._s('{{') + "item.formatted_address}}',\n          customTemplate: '<img width=\"18px\" height=\"18px\" :src=\"avatar_url\"/><span>" + _vm._s('{{') + "item.login}}</span>'\n        }\n      },\n      methods: {\n        googleCallback(items, targetVM) {\n          const that = targetVM;\n          that.reset()\n          that.value = items.formatted_address\n        },\n        githubCallback(items) {\n          window.open(items.html_url, '_blank')\n        }\n      }\n    }\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("''")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("data")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Array")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("The local data source for suggestions. Expected to be a primitive array.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("async")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("An HTTP URL for asynchronous suggestions. Expected to return a JSON object.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("async-key")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("limit")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("8")])]), _vm._v(" "), _vm._c('p', [_vm._v("The max number of suggestions to be displayed.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("match-case")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Case sensitive for suggestions.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("match-start")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Match only against start of suggestions. E.g. if true, \"a\" matches \"ab\" but not \"ba\".")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("on-hit")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Function")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("A callback function when you click or hit return on an item.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("template")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("<span v-html=\"item\"></span>")])]), _vm._v(" "), _vm._c('p', [_vm._v("Used to render every suggestion. Handler:"), _vm._c('code', [_vm._v("item")]), _vm._v(". The item can be whatever (e.g. "), _vm._c('code', [_vm._v("string")]), _vm._v("/"), _vm._c('code', [_vm._v("array")]), _vm._v("/"), _vm._c('code', [_vm._v("object")]), _vm._v(")")])])])], 1)
+	  }, [_vm._v("\n    new Vue {\n      components: {\n        typeahead\n      },\n      data() {\n        return {\n          USstate: ['Alabama', 'Alaska', 'Arizona',...],\n          asynchronous: '" + _vm._s('{{') + "item.formatted_address}}',\n          customTemplate: '<img width=\"18px\" height=\"18px\" :src=\"item.avatar_url\"/><span>" + _vm._s('{{') + "item.login}}</span>'\n        }\n      },\n      methods: {\n        googleCallback(items) {\n          return items.formatted_address\n        },\n        githubCallback(items) {\n          window.open(items.html_url, '_blank')\n          return item.login\n        }\n      }\n    }\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("''")])]), _vm._v(" "), _vm._c('p')]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("data")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Array")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("The local data source for suggestions. Expected to be a primitive array.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("async")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("An HTTP URL for asynchronous suggestions. Expected to return a JSON object.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("async-key")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("The remote JSON key you want to render. if null, render directly using the remote JSON(should be Array).")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("limit")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("8")])]), _vm._v(" "), _vm._c('p', [_vm._v("The max number of suggestions to be displayed.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("match-case")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Case sensitive for suggestions.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("match-start")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Match only against start of suggestions. E.g. if true, \"a\" matches \"ab\" but not \"ba\".")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("on-hit")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Function")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("function(item){ return item }")])]), _vm._v(" "), _vm._c('p', [_vm._v("A callback function when you hit on an item. Must return the value to asign to the input after selecting.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("type")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("text")])]), _vm._v(" "), _vm._c('p', [_vm._v("Input type. Not dinamic (is set once, can't be changed later).")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("template")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("<span v-html=\"item\"></span>")])]), _vm._v(" "), _vm._c('p', [_vm._v("Used to render every suggestion. Handler:"), _vm._c('code', [_vm._v("item")]), _vm._v(". The item can be whatever (e.g. "), _vm._c('code', [_vm._v("string")]), _vm._v("/"), _vm._c('code', [_vm._v("array")]), _vm._v("/"), _vm._c('code', [_vm._v("object")]), _vm._v(")")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -30143,6 +30210,17 @@
 	      notSelected: 'Nichts ausgewählt',
 	      required: 'Benötigt',
 	      search: 'Suche'
+	    },
+	
+	    ru: {
+	      daysOfWeek: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+	      limit: 'Достигнут максимальный лимит ({{limit}}).',
+	      loading: 'Загрузка...',
+	      minLength: 'Минимальная длина',
+	      months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+	      notSelected: 'Ничего не выбрано',
+	      required: 'Обязательное поле',
+	      search: 'Поиск'
 	    }
 	
 	  };
@@ -30155,7 +30233,8 @@
 	  var aliases = {
 	    es: /^es-[A-Z]{2}$/i,
 	    en: /^en-[A-Z]{2}$/i,
-	    de: /^de-[A-Z]{2}$/i
+	    de: /^de-[A-Z]{2}$/i,
+	    ru: /^ru-[A-Z]{2}$/i
 	  };
 	
 	  return function (lang) {
