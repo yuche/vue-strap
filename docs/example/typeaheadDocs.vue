@@ -1,8 +1,7 @@
 <template>
-  <doc-section id="typeahead" name="***Typeahead">
+  <doc-section id="typeahead" name="Typeahead">
     <div class="bs-example">
       Typeahead failing.
-      <!--
       <h4>Static arrays</h4>
       <typeahead :data="USstate" placeholder="USA states"></typeahead>
       <hr>
@@ -30,7 +29,6 @@
         :template="githubTemplate"
         :on-hit="githubCallback"
       ></typeahead>
-      -->
     </div>
     <doc-code language="markup">
       &lt;h4>Static arrays&lt;/h4>
@@ -66,17 +64,16 @@
           return {
             USstate: ['Alabama', 'Alaska', 'Arizona',...],
             asynchronous: '{{'{{'}}item.formatted_address}}',
-            customTemplate: '&lt;img width="18px" height="18px" :src="avatar_url"/>&lt;span>{{'{{'}}item.login}}&lt;/span>'
+            customTemplate: '&lt;img width="18px" height="18px" :src="item.avatar_url"/>&lt;span>{{'{{'}}item.login}}&lt;/span>'
           }
         },
         methods: {
-          googleCallback(items, targetVM) {
-            const that = targetVM;
-            that.reset()
-            that.value = items.formatted_address
+          googleCallback(items) {
+            return items.formatted_address
           },
           githubCallback(items) {
             window.open(items.html_url, '_blank')
+            return item.login
           }
         }
       }
@@ -127,8 +124,14 @@
       <div>
         <p>on-hit</p>
         <p><code>Function</code></p>
-        <p></p>
-        <p>A callback function when you click or hit return on an item.</p>
+        <p><code>function(item){ return item }</code></p>
+        <p>A callback function when you hit on an item. Must return the value to asign to the input after selecting.</p>
+      </div>
+      <div>
+        <p>type</p>
+        <p><code>String</code></p>
+        <p><code>text</code></p>
+        <p>Input type. Not dinamic (is set once, can't be changed later).</p>
       </div>
       <div>
         <p>template</p>
@@ -163,12 +166,12 @@ export default {
     }
   },
   methods: {
-    googleCallback (items, targetVM) {
-      targetVM.reset()
-      targetVM.value = items.formatted_address
+    googleCallback (item) {
+      return item.formatted_address
     },
-    githubCallback (items) {
-      window.open(items.html_url, '_blank')
+    githubCallback (item) {
+      window.open(item.html_url, '_blank')
+      return item.login
     }
   }
 }
