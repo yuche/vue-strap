@@ -1,5 +1,5 @@
 <template>
-  <doc-section id="datepicker" name="***Datepicker">
+  <doc-section id="datepicker" name="Datepicker">
     <div class="bs-example">
       <p>
         <pre>Selected date is: {{dateString}}</pre>
@@ -62,6 +62,13 @@
         <p><code>String</code></p>
         <p><code>glyphicon</code></p>
         <p>The icon font used for arrows. Can be 'glyphicon' or 'fa' (Font Awesome)</p>
+      </div>
+    </doc-table>
+    <doc-table type="Events">
+      <div>
+        <p>input</p>
+        <p>(<code>value</code>)</p>
+        <p>Return the selected value.</p>
       </div>
     </doc-table>
   </div>

@@ -1,11 +1,13 @@
 <template>
   <div class="datepicker">
-    <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text" :placeholder="placeholder"
-        :style="{width:width}"
-        :value="value"
-        @click="inputClick"
-        @input="$emit('input',$event.target.value)" />
-    <button v-if="clearButton && value" type="button" class="close" @click="$emit('input', '')">
+    <input class="form-control datepicker-input" type="text"
+      v-model="val"
+      :class="{'with-reset-button': clearButton}"
+      :placeholder="placeholder"
+      :style="{width:width}"
+      @click="inputClick"
+    />
+    <button v-if="clearButton&&val" type="button" class="close" @click="val = ''">
       <span>&times;</span>
     </button>
     <div class="datepicker-popup" v-show="displayDayView">
@@ -35,11 +37,12 @@
           </div>
           <div class="datepicker-monthRange">
             <template v-for="(m, index) in text.months">
-              <span   :class="{'datepicker-dateRange-item-active':
-                  (text.months[parse(value).getMonth()]  === m) &&
-                  currDate.getFullYear() === parse(value).getFullYear()}"
-                  @click="monthSelect(index)"
-                >{{m.substr(0,3)}}</span>
+              <span v-text="m.substr(0,3)"
+                :class="{'datepicker-dateRange-item-active':
+                  (text.months[parse(val).getMonth()] === m) &&
+                  currDate.getFullYear() === parse(val).getFullYear()}"
+                @click="monthSelect(index)"
+              ></span>
             </template>
           </div>
         </div>
@@ -55,9 +58,10 @@
           </div>
           <div class="datepicker-monthRange decadeRange">
             <template v-for="decade in decadeRange">
-              <span :class="{'datepicker-dateRange-item-active':parse(this.value).getFullYear() === decade.text}"
+              <span :class="{'datepicker-dateRange-item-active':parse(val).getFullYear() === decade.text}"
+                v-text="decade.text"
                 @click.stop="yearSelect(decade.text)"
-              >{{decade.text}}</span>
+              ></span>
             </template>
           </div>
         </div>
@@ -75,7 +79,7 @@ export default {
     value: {type: String},
     format: {default: 'MM/dd/yyyy'},
     disabledDaysOfWeek: {type: Array, default () { return [] }},
-    width: {type: String/*, default: '200px'*/},
+    width: {type: String},
     clearButton: {type: Boolean, default: false},
     lang: {type: String, default: navigator.language},
     placeholder: {type: String},
@@ -89,6 +93,7 @@ export default {
       displayDayView: false,
       displayMonthView: false,
       displayYearView: false,
+      val: this.value
     }
   },
   watch: {
@@ -96,7 +101,13 @@ export default {
       this.getDateRange()
     },
     format () {
-      this.$emit('input', this.stringify(this.currDate))
+      this.val = this.stringify(this.currDate)
+    },
+    val (val, old) {
+      this.$emit('input', val)
+    },
+    value (val) {
+      if (this.val !== val) { this.val = val }
     }
   },
   computed: {
@@ -118,7 +129,7 @@ export default {
       this.displayDayView = this.displayMonthView = this.displayYearView = false
     },
     inputClick () {
-      this.currDate = this.parse(this.value) || this.parse(new Date())
+      this.currDate = this.parse(this.val) || this.parse(new Date())
       if (this.displayMonthView || this.displayYearView) {
         this.displayDayView = false
       } else {
@@ -170,7 +181,7 @@ export default {
         return false
       } else {
         this.currDate = day.date
-        this.$emit('input', this.stringify(this.currDate))
+        this.val = this.stringify(this.currDate)
         this.displayDayView = false
       }
     },
@@ -219,24 +230,21 @@ export default {
       const month = date.getMonth() + 1
       const day = date.getDate()
       const monthName = this.parseMonth(date)
-
       return format
-      .replace(/yyyy/g, year)
-      .replace(/MMMM/g, monthName)
-      .replace(/MMM/g, monthName.substring(0, 3))
-      .replace(/MM/g, ('0' + month).slice(-2))
-      .replace(/dd/g, ('0' + day).slice(-2))
-      .replace(/yy/g, year)
-      .replace(/M(?!a)/g, month)
-      .replace(/d/g, day)
+        .replace(/yyyy/g, year)
+        .replace(/yy/g, year)
+        .replace(/MMMM/g, monthName)
+        .replace(/MMM/g, monthName.substring(0, 3))
+        .replace(/MM/g, ('0' + month).slice(-2))
+        .replace(/M(?!a)/g, month)
+        .replace(/dd/g, ('0' + day).slice(-2))
+        .replace(/d/g, day)
     },
-    parse (str = this.value) {
-      let date
-      if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {
-        date = new Date(str.substring(6, 10), str.substring(3, 5)-1, str.substring(0, 2))
-      } else {
-        date = new Date(str)
-      }
+    parse (str) {
+      if (str === undefined || str === null) { str = this.val }
+      let date = str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy') ?
+        new Date(str.substring(6, 10), str.substring(3, 5)-1, str.substring(0, 2)) :
+        new Date(str)
       return isNaN(date.getFullYear()) ? new Date() : date
     },
     getDayCount (year, month) {
@@ -280,11 +288,7 @@ export default {
           if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
             sclass = 'datepicker-item-disable'
           }
-          this.dateRange.push({
-            text: dayText,
-            date: date,
-            sclass: 'datepicker-item-gray'
-          })
+          this.dateRange.push({text: dayText, date, sclass })
         }
       }
 
@@ -297,11 +301,7 @@ export default {
         if (i == time.day && date.getFullYear() == time.year && date.getMonth() == time.month){
           sclass = 'datepicker-dateRange-item-active'
         }
-        this.dateRange.push({
-          text: i,
-          date: date,
-          sclass: sclass
-        })
+        this.dateRange.push({text: i, date, sclass})
       }
 
       if (this.dateRange.length < 42) {
@@ -314,23 +314,18 @@ export default {
           if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
             sclass = 'datepicker-item-disable'
           }
-          this.dateRange.push({
-            text: i,
-            date: date,
-            sclass: sclass
-          })
+          this.dateRange.push({text: i, date, sclass})
         }
       }
     }
   },
   mounted () {
-    let el = this.$el
+    this.$emit('child-created', this)
+    this.currDate = this.parse(this.val) || this.parse(new Date())
     this._blur = e => {
-      if (!el.contains(e.target))
+      if (!this.$el.contains(e.target))
         this.close()
     }
-    this.$emit('child-created', this)
-    this.currDate = this.parse(this.value) || this.parse(new Date())
     window.addEventListener('click', this._blur);
   },
   beforeDestroy () {
