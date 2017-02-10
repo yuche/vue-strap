@@ -66,7 +66,7 @@
     <doc-table type="Events">
       <div>
         <p>changed</p>
-        <p>(<code>boolean:value</code>)</p>
+        <p>(<code>value:boolean</code>)</p>
         <p>If changed, return the actual state.</p>
       </div>
       <div>

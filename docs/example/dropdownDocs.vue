@@ -117,7 +117,7 @@
     <doc-table type="Events">
       <div>
         <p>input</p>
-        <p>(<code>Boolean</code>)</p>
+        <p>(<code>show:boolean</code>)</p>
         <p>Return if the dropdown is shown.</p>
       </div>
     </doc-table>

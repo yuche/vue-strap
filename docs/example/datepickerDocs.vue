@@ -67,7 +67,7 @@
     <doc-table type="Events">
       <div>
         <p>input</p>
-        <p>(<code>value</code>)</p>
+        <p>(<code>value:string</code>)</p>
         <p>Return the selected value.</p>
       </div>
     </doc-table>
