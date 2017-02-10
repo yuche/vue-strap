@@ -13110,7 +13110,7 @@
 	  },
 	  data: function data() {
 	    return {
-	      showModal: true,
+	      showModal: false,
 	      fadeModal: false,
 	      zoomModal: false,
 	      showCustomModal: false,

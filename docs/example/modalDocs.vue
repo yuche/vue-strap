@@ -214,7 +214,7 @@ export default {
   },
   data () {
     return {
-      showModal: true,
+      showModal: false,
       fadeModal: false,
       zoomModal: false,
       showCustomModal: false,
