@@ -9117,7 +9117,7 @@
 	    attrs: {
 	      "type": "Events"
 	    }
-	  }, [_vm._c('div', [_vm._c('p', [_vm._v("input")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("value")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return the selected value.")])])]), _vm._v(" "), _vm._c('div')], 1)
+	  }, [_vm._c('div', [_vm._c('p', [_vm._v("input")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("value:string")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return the selected value.")])])]), _vm._v(" "), _vm._c('div')], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -9717,7 +9717,7 @@
 	    attrs: {
 	      "type": "Events"
 	    }
-	  }, [_vm._c('div', [_vm._c('p', [_vm._v("input")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("Boolean")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return if the dropdown is shown.")])])]), _vm._v(" "), _vm._c('h2', [_vm._v("Usage")]), _vm._v(" "), _vm._c('p', [_vm._v("Just like the examples. With slots you can use it as the "), _vm._c('a', {
+	  }, [_vm._c('div', [_vm._c('p', [_vm._v("input")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("show:boolean")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return if the dropdown is shown.")])])]), _vm._v(" "), _vm._c('h2', [_vm._v("Usage")]), _vm._v(" "), _vm._c('p', [_vm._v("Just like the examples. With slots you can use it as the "), _vm._c('a', {
 	    attrs: {
 	      "target": "_blank",
 	      "href": "http://getbootstrap.com/javascript/#dropdowns"
@@ -13098,6 +13098,8 @@
 	//
 	//
 	//
+	//
+	//
 	
 	exports.default = {
 	  components: {
@@ -13108,13 +13110,33 @@
 	  },
 	  data: function data() {
 	    return {
-	      showModal: false,
+	      showModal: true,
 	      fadeModal: false,
 	      zoomModal: false,
 	      showCustomModal: false,
 	      largeModal: false,
 	      smallModal: false
 	    };
+	  },
+	
+	  methods: {
+	    ok: function ok() {
+	      return !confirm("Ok event.\nClose Modal?");
+	    },
+	    alert: function (_alert) {
+	      function alert() {
+	        return _alert.apply(this, arguments);
+	      }
+	
+	      alert.toString = function () {
+	        return _alert.toString();
+	      };
+	
+	      return alert;
+	    }(function () {
+	      alert('Another Action.\nClose the modal...');
+	      this.showCustomModal = false;
+	    })
 	  }
 	};
 
@@ -13200,7 +13222,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.modal {\r\n  transition: all 0.3s ease;\n}\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\r\n  -webkit-transform: scale(0.1);\r\n  -moz-transform: scale(0.1);\r\n  -ms-transform: scale(0.1);\r\n  transform: scale(0.1);\r\n  top: 300px;\r\n  opacity: 0;\r\n  -webkit-transition: all 0.3s;\r\n  -moz-transition: all 0.3s;\r\n  transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\r\n  -webkit-transform: scale(1);\r\n  -moz-transform: scale(1);\r\n  -ms-transform: scale(1);\r\n  transform: scale(1);\r\n  -webkit-transform: translate3d(0, -300px, 0);\r\n  transform: translate3d(0, -300px, 0);\r\n  opacity: 1;\n}\r\n", "", {"version":3,"sources":["/./src/Modal.vue?a20d668e"],"names":[],"mappings":";AA0GA;EACA,0BAAA;CACA;AACA;EACA,kCAAA;CACA;AACA;EACA,8BAAA;EACA,2BAAA;EACA,0BAAA;EACA,sBAAA;EACA,WAAA;EACA,WAAA;EACA,6BAAA;EACA,0BAAA;EACA,qBAAA;CACA;AACA;EACA,4BAAA;EACA,yBAAA;EACA,wBAAA;EACA,oBAAA;EACA,6CAAA;EACA,qCAAA;EACA,WAAA;CACA","file":"Modal.vue","sourcesContent":["<template>\r\n  <div role=\"dialog\" :class=\"['modal',effect]\" @click=\"backClose\" @transitionend=\"transitionend\">\r\n    <div :class=\"{'modal-dialog':true,'modal-lg':large,'modal-sm':small}\" role=\"document\" :style=\"{width: optionalWidth}\">\r\n      <div class=\"modal-content\">\r\n        <slot name=\"modal-header\">\r\n          <div class=\"modal-header\">\r\n            <button type=\"button\" class=\"close\" @click=\"close\"><span>&times;</span></button>\r\n            <h4 class=\"modal-title\"><slot name=\"title\">{{title}}</slot></h4>\r\n          </div>\r\n        </slot>\r\n        <slot name=\"modal-body\"><div class=\"modal-body\"><slot></slot></div></slot>\r\n        <slot name=\"modal-footer\">\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" @click=\"close\">{{ cancelText }}</button>\r\n            <button type=\"button\" class=\"btn btn-primary\" @click=\"ok\">{{ okText }}</button>\r\n          </div>\r\n        </slot>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {getScrollBarWidth} from './utils/utils.js'\r\n\r\nexport default {\r\n  props: {\r\n    backdrop: {type: Boolean, default: true},\r\n    callback: {type: Function, default: null},\r\n    cancelText: {type: String, default: 'Close'},\r\n    effect: {type: String, default: null},\r\n    large: {type: Boolean, default: false},\r\n    okText: {type: String, default: 'Save changes'},\r\n    small: {type: Boolean, default: false},\r\n    title: {type: String, default: ''},\r\n    value: {type: Boolean, required: true},\r\n    width: {default: null}\r\n  },\r\n  data () {\r\n    return {\r\n      trans: false\r\n    }\r\n  },\r\n  computed: {\r\n    optionalWidth () {\r\n      if (this.width === null) {\r\n        return null\r\n      } else if (Number.isInteger(this.width)) {\r\n        return this.width + 'px'\r\n      }\r\n      return this.width\r\n    }\r\n  },\r\n  watch: {\r\n    trans (val, old) {\r\n      if (!val && val !== old) {\r\n        this.$emit(this.value ? 'opened' : 'closed')\r\n      }\r\n    },\r\n    value (val, old) {\r\n      if (val !== old) this.transitionstart()\r\n    }\r\n  },\r\n  methods: {\r\n    backClose (e) {\r\n      if (this.backdrop && e.target === this.$el) { this.close() }\r\n    },\r\n    close () {\r\n      this.$emit('cancel')\r\n      this.$emit('input', false)\r\n    },\r\n    ok () {\r\n      if (this.callback instanceof Function) this.callback()\r\n      this.$emit('ok')\r\n      this.$emit('input', true)\r\n    },\r\n    transitionstart () {\r\n      const el = this.$el\r\n      const body = document.body\r\n      const scrollBarWidth = getScrollBarWidth()\r\n      this.trans = true\r\n      if (this.value) {\r\n        el.querySelector('.modal-content').focus()\r\n        el.style.display = 'block'\r\n        setTimeout(() => el.classList.add('in'), 0)\r\n        body.classList.add('modal-open')\r\n        if (scrollBarWidth !== 0) {\r\n          body.style.paddingRight = scrollBarWidth + 'px'\r\n        }\r\n      } else {\r\n        el.classList.remove('in')\r\n      }\r\n    },\r\n    transitionend () {\r\n      this.trans = false\r\n      if (!this.value) {\r\n        this.$el.style.display = 'none'\r\n        const body = document.body\r\n        body.style.paddingRight = null\r\n        body.classList.remove('modal-open')\r\n      }\r\n    }\r\n  }\r\n}\r\n</script>\r\n<style>\r\n.modal {\r\n  transition: all 0.3s ease;\r\n}\r\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\r\n}\r\n.modal.zoom .modal-dialog {\r\n  -webkit-transform: scale(0.1);\r\n  -moz-transform: scale(0.1);\r\n  -ms-transform: scale(0.1);\r\n  transform: scale(0.1);\r\n  top: 300px;\r\n  opacity: 0;\r\n  -webkit-transition: all 0.3s;\r\n  -moz-transition: all 0.3s;\r\n  transition: all 0.3s;\r\n}\r\n.modal.zoom.in .modal-dialog {\r\n  -webkit-transform: scale(1);\r\n  -moz-transform: scale(1);\r\n  -ms-transform: scale(1);\r\n  transform: scale(1);\r\n  -webkit-transform: translate3d(0, -300px, 0);\r\n  transform: translate3d(0, -300px, 0);\r\n  opacity: 1;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.modal {\r\n  transition: all 0.3s ease;\n}\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\n}\n.modal.zoom .modal-dialog {\r\n  -webkit-transform: scale(0.1);\r\n  -moz-transform: scale(0.1);\r\n  -ms-transform: scale(0.1);\r\n  transform: scale(0.1);\r\n  top: 300px;\r\n  opacity: 0;\r\n  -webkit-transition: all 0.3s;\r\n  -moz-transition: all 0.3s;\r\n  transition: all 0.3s;\n}\n.modal.zoom.in .modal-dialog {\r\n  -webkit-transform: scale(1);\r\n  -moz-transform: scale(1);\r\n  -ms-transform: scale(1);\r\n  transform: scale(1);\r\n  -webkit-transform: translate3d(0, -300px, 0);\r\n  transform: translate3d(0, -300px, 0);\r\n  opacity: 1;\n}\r\n", "", {"version":3,"sources":["/./src/Modal.vue?1fdd6260"],"names":[],"mappings":";AAsGA;EACA,0BAAA;CACA;AACA;EACA,kCAAA;CACA;AACA;EACA,8BAAA;EACA,2BAAA;EACA,0BAAA;EACA,sBAAA;EACA,WAAA;EACA,WAAA;EACA,6BAAA;EACA,0BAAA;EACA,qBAAA;CACA;AACA;EACA,4BAAA;EACA,yBAAA;EACA,wBAAA;EACA,oBAAA;EACA,6CAAA;EACA,qCAAA;EACA,WAAA;CACA","file":"Modal.vue","sourcesContent":["<template>\r\n  <div role=\"dialog\" :class=\"['modal',effect]\" @click=\"backdrop&&action(false,1)\" @transitionend=\"transition = false\">\r\n    <div :class=\"['modal-dialog',{'modal-lg':large,'modal-sm':small}]\" role=\"document\" :style=\"{width: optionalWidth}\" @click.stop=\"action(null)\">\r\n      <div class=\"modal-content\">\r\n        <slot name=\"modal-header\">\r\n          <div class=\"modal-header\">\r\n            <button type=\"button\" class=\"close\" @click=\"action(false,2)\"><span>&times;</span></button>\r\n            <h4 class=\"modal-title\"><slot name=\"title\">{{title}}</slot></h4>\r\n          </div>\r\n        </slot>\r\n        <slot name=\"modal-body\"><div class=\"modal-body\"><slot></slot></div></slot>\r\n        <slot name=\"modal-footer\">\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" @click=\"action(false,3)\">{{ cancelText }}</button>\r\n            <button type=\"button\" class=\"btn btn-primary\" @click=\"action(true,4)\">{{ okText }}</button>\r\n          </div>\r\n        </slot>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport {getScrollBarWidth} from './utils/utils.js'\r\n\r\nexport default {\r\n  props: {\r\n    backdrop: {type: Boolean, default: true},\r\n    callback: {type: Function, default: null},\r\n    cancelText: {type: String, default: 'Close'},\r\n    effect: {type: String, default: null},\r\n    large: {type: Boolean, default: false},\r\n    okText: {type: String, default: 'Save changes'},\r\n    small: {type: Boolean, default: false},\r\n    title: {type: String, default: ''},\r\n    value: {type: Boolean, required: true},\r\n    width: {default: null}\r\n  },\r\n  data () {\r\n    return {\r\n      transition: false,\r\n      val: null\r\n    }\r\n  },\r\n  computed: {\r\n    optionalWidth () {\r\n      if (this.width === null) {\r\n        return null\r\n      } else if (Number.isInteger(this.width)) {\r\n        return this.width + 'px'\r\n      }\r\n      return this.width\r\n    }\r\n  },\r\n  watch: {\r\n    transition (val, old) {\r\n      if (val === old) { return }\r\n      const el = this.$el\r\n      const body = document.body\r\n      if (val) {//starting\r\n        if (this.val) {\r\n          el.querySelector('.modal-content').focus()\r\n          el.style.display = 'block'\r\n          setTimeout(() => el.classList.add('in'), 0)\r\n          body.classList.add('modal-open')\r\n          if (getScrollBarWidth() !== 0) {\r\n            body.style.paddingRight = getScrollBarWidth() + 'px'\r\n          }\r\n        } else {\r\n          el.classList.remove('in')\r\n        }\r\n      } else {//ending\r\n        this.$emit(this.val ? 'opened' : 'closed')\r\n        if (!this.val) {\r\n          el.style.display = 'none'\r\n          body.style.paddingRight = null\r\n          body.classList.remove('modal-open')\r\n        }\r\n      }\r\n    },\r\n    val (val, old) {\r\n      this.$emit('input', val)\r\n      if (old === null ? val === true : val !== old) this.transition = true\r\n    },\r\n    value (val, old) {\r\n      if (val !== old) this.val = val\r\n    }\r\n  },\r\n  methods: {\r\n    action (val,p) {\r\n      if (val === null) { return }\r\n      if (val && this.callback instanceof Function) this.callback()\r\n      this.$emit(val ? 'ok' : 'cancel',p)\r\n      this.val = val || false\r\n    }\r\n  },\r\n  mounted () {\r\n    this.val = this.value\r\n  }\r\n}\r\n</script>\r\n<style>\r\n.modal {\r\n  transition: all 0.3s ease;\r\n}\r\n.modal.in {\r\n  background-color: rgba(0,0,0,0.5);\r\n}\r\n.modal.zoom .modal-dialog {\r\n  -webkit-transform: scale(0.1);\r\n  -moz-transform: scale(0.1);\r\n  -ms-transform: scale(0.1);\r\n  transform: scale(0.1);\r\n  top: 300px;\r\n  opacity: 0;\r\n  -webkit-transition: all 0.3s;\r\n  -moz-transition: all 0.3s;\r\n  transition: all 0.3s;\r\n}\r\n.modal.zoom.in .modal-dialog {\r\n  -webkit-transform: scale(1);\r\n  -moz-transform: scale(1);\r\n  -ms-transform: scale(1);\r\n  transform: scale(1);\r\n  -webkit-transform: translate3d(0, -300px, 0);\r\n  transform: translate3d(0, -300px, 0);\r\n  opacity: 1;\r\n}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -13238,7 +13260,8 @@
 	  },
 	  data: function data() {
 	    return {
-	      trans: false
+	      transition: false,
+	      val: null
 	    };
 	  },
 	
@@ -13253,58 +13276,57 @@
 	    }
 	  },
 	  watch: {
-	    trans: function trans(val, old) {
-	      if (!val && val !== old) {
-	        this.$emit(this.value ? 'opened' : 'closed');
+	    transition: function transition(val, old) {
+	      if (val === old) {
+	        return;
+	      }
+	      var el = this.$el;
+	      var body = document.body;
+	      if (val) {
+	        //starting
+	        if (this.val) {
+	          el.querySelector('.modal-content').focus();
+	          el.style.display = 'block';
+	          setTimeout(function () {
+	            return el.classList.add('in');
+	          }, 0);
+	          body.classList.add('modal-open');
+	          if ((0, _utils.getScrollBarWidth)() !== 0) {
+	            body.style.paddingRight = (0, _utils.getScrollBarWidth)() + 'px';
+	          }
+	        } else {
+	          el.classList.remove('in');
+	        }
+	      } else {
+	        //ending
+	        this.$emit(this.val ? 'opened' : 'closed');
+	        if (!this.val) {
+	          el.style.display = 'none';
+	          body.style.paddingRight = null;
+	          body.classList.remove('modal-open');
+	        }
 	      }
 	    },
+	    val: function val(_val, old) {
+	      this.$emit('input', _val);
+	      if (old === null ? _val === true : _val !== old) this.transition = true;
+	    },
 	    value: function value(val, old) {
-	      if (val !== old) this.transitionstart();
+	      if (val !== old) this.val = val;
 	    }
 	  },
 	  methods: {
-	    backClose: function backClose(e) {
-	      if (this.backdrop && e.target === this.$el) {
-	        this.close();
+	    action: function action(val, p) {
+	      if (val === null) {
+	        return;
 	      }
-	    },
-	    close: function close() {
-	      this.$emit('cancel');
-	      this.$emit('input', false);
-	    },
-	    ok: function ok() {
-	      if (this.callback instanceof Function) this.callback();
-	      this.$emit('ok');
-	      this.$emit('input', true);
-	    },
-	    transitionstart: function transitionstart() {
-	      var el = this.$el;
-	      var body = document.body;
-	      var scrollBarWidth = (0, _utils.getScrollBarWidth)();
-	      this.trans = true;
-	      if (this.value) {
-	        el.querySelector('.modal-content').focus();
-	        el.style.display = 'block';
-	        setTimeout(function () {
-	          return el.classList.add('in');
-	        }, 0);
-	        body.classList.add('modal-open');
-	        if (scrollBarWidth !== 0) {
-	          body.style.paddingRight = scrollBarWidth + 'px';
-	        }
-	      } else {
-	        el.classList.remove('in');
-	      }
-	    },
-	    transitionend: function transitionend() {
-	      this.trans = false;
-	      if (!this.value) {
-	        this.$el.style.display = 'none';
-	        var body = document.body;
-	        body.style.paddingRight = null;
-	        body.classList.remove('modal-open');
-	      }
+	      if (val && this.callback instanceof Function) this.callback();
+	      this.$emit(val ? 'ok' : 'cancel', p);
+	      this.val = val || false;
 	    }
+	  },
+	  mounted: function mounted() {
+	    this.val = this.value;
 	  }
 	}; //
 	//
@@ -13373,18 +13395,29 @@
 	      "role": "dialog"
 	    },
 	    on: {
-	      "click": _vm.backClose,
-	      "transitionend": _vm.transitionend
+	      "click": function($event) {
+	        _vm.backdrop && _vm.action(false, 1)
+	      },
+	      "transitionend": function($event) {
+	        _vm.transition = false
+	      }
 	    }
 	  }, [_vm._c('div', {
-	    class: {
-	      'modal-dialog': true, 'modal-lg': _vm.large, 'modal-sm': _vm.small
-	    },
+	    class: ['modal-dialog', {
+	      'modal-lg': _vm.large,
+	      'modal-sm': _vm.small
+	    }],
 	    style: ({
 	      width: _vm.optionalWidth
 	    }),
 	    attrs: {
 	      "role": "document"
+	    },
+	    on: {
+	      "click": function($event) {
+	        $event.stopPropagation();
+	        _vm.action(null)
+	      }
 	    }
 	  }, [_vm._c('div', {
 	    staticClass: "modal-content"
@@ -13396,7 +13429,9 @@
 	      "type": "button"
 	    },
 	    on: {
-	      "click": _vm.close
+	      "click": function($event) {
+	        _vm.action(false, 2)
+	      }
 	    }
 	  }, [_vm._c('span', [_vm._v("×")])]), _vm._v(" "), _vm._c('h4', {
 	    staticClass: "modal-title"
@@ -13410,7 +13445,9 @@
 	      "type": "button"
 	    },
 	    on: {
-	      "click": _vm.close
+	      "click": function($event) {
+	        _vm.action(false, 3)
+	      }
 	    }
 	  }, [_vm._v(_vm._s(_vm.cancelText))]), _vm._v(" "), _vm._c('button', {
 	    staticClass: "btn btn-primary",
@@ -13418,7 +13455,9 @@
 	      "type": "button"
 	    },
 	    on: {
-	      "click": _vm.ok
+	      "click": function($event) {
+	        _vm.action(true, 4)
+	      }
 	    }
 	  }, [_vm._v(_vm._s(_vm.okText))])])])], 2)])])
 	},staticRenderFns: []}
@@ -13462,6 +13501,9 @@
 	      "value": (_vm.showModal)
 	    },
 	    on: {
+	      "ok": function($event) {
+	        _vm.showModal = false
+	      },
 	      "input": function($event) {
 	        _vm.showModal = $event
 	      }
@@ -13479,34 +13521,26 @@
 	      }
 	    }
 	  }, [_vm._v("Fade modal")]), _vm._v(" "), _vm._c('modal', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.fadeModal),
+	      expression: "fadeModal"
+	    }],
 	    attrs: {
 	      "title": "Fade Modal",
-	      "value": _vm.fadeModal,
 	      "effect": "fade",
 	      "width": "800"
 	    },
-	    on: {
-	      "cancel": function($event) {
-	        _vm.fadeModal = false
-	      }
-	    }
-	  }, [_vm._v("\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n    ")]), _vm._v(" "), _vm._c('button', {
-	    staticClass: "btn btn-primary",
-	    on: {
-	      "click": function($event) {
-	        _vm.zoomModal = true
-	      }
-	    }
-	  }, [_vm._v("Zoom modal")]), _vm._v(" "), _vm._c('modal', {
-	    attrs: {
-	      "title": "Zoom Modal",
-	      "value": _vm.zoomModal,
-	      "effect": "zoom",
-	      "width": "400"
+	    domProps: {
+	      "value": (_vm.fadeModal)
 	    },
 	    on: {
 	      "ok": function($event) {
-	        _vm.zoomModal = false
+	        _vm.fadeModal = _vm.ok()
+	      },
+	      "input": function($event) {
+	        _vm.fadeModal = $event
 	      }
 	    }
 	  }, [_vm._v("\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n    ")]), _vm._v(" "), _vm._c('button', {
@@ -13517,14 +13551,25 @@
 	      }
 	    }
 	  }, [_vm._v("Show custom modal")]), _vm._v(" "), _vm._c('modal', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.showCustomModal),
+	      expression: "showCustomModal"
+	    }],
 	    attrs: {
-	      "value": _vm.showCustomModal,
 	      "effect": "fade",
 	      "width": "50%"
 	    },
+	    domProps: {
+	      "value": (_vm.showCustomModal)
+	    },
 	    on: {
-	      "cancel": function($event) {
-	        _vm.showCustomModel = false
+	      "ok": function($event) {
+	        _vm.showCustomModal = _vm.ok()
+	      },
+	      "input": function($event) {
+	        _vm.showCustomModal = $event
 	      }
 	    }
 	  }, [_vm._c('div', {
@@ -13552,10 +13597,48 @@
 	    },
 	    on: {
 	      "click": function($event) {
-	        _vm.showCustomModal = false
+	        _vm.showCustomModal = _vm.ok()
 	      }
 	    }
-	  }, [_vm._v("Custom Save")])])]), _vm._v(" "), _vm._c('button', {
+	  }, [_vm._v("Custom Save")]), _vm._v(" "), _vm._c('button', {
+	    staticClass: "btn btn-success",
+	    attrs: {
+	      "type": "button"
+	    },
+	    on: {
+	      "click": _vm.alert
+	    }
+	  }, [_vm._v("Another Action")])])]), _vm._v(" "), _vm._c('button', {
+	    staticClass: "btn btn-primary",
+	    on: {
+	      "click": function($event) {
+	        _vm.zoomModal = true
+	      }
+	    }
+	  }, [_vm._v("Zoom modal")]), _vm._v(" "), _vm._c('modal', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.zoomModal),
+	      expression: "zoomModal"
+	    }],
+	    attrs: {
+	      "title": "Zoom Modal",
+	      "effect": "zoom",
+	      "width": "400"
+	    },
+	    domProps: {
+	      "value": (_vm.zoomModal)
+	    },
+	    on: {
+	      "ok": function($event) {
+	        _vm.zoomModal = _vm.ok()
+	      },
+	      "input": function($event) {
+	        _vm.zoomModal = $event
+	      }
+	    }
+	  }, [_vm._v("\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n    ")]), _vm._v(" "), _vm._c('button', {
 	    staticClass: "btn btn-warning",
 	    on: {
 	      "click": function($event) {
@@ -13563,14 +13646,25 @@
 	      }
 	    }
 	  }, [_vm._v("Large modal")]), _vm._v(" "), _vm._c('modal', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.largeModal),
+	      expression: "largeModal"
+	    }],
 	    attrs: {
 	      "title": "Large Modal",
-	      "value": _vm.largeModal,
 	      "large": ""
 	    },
+	    domProps: {
+	      "value": (_vm.largeModal)
+	    },
 	    on: {
-	      "cancel": function($event) {
-	        _vm.largeModal = false
+	      "ok": function($event) {
+	        _vm.largeModal = _vm.ok()
+	      },
+	      "input": function($event) {
+	        _vm.largeModal = $event
 	      }
 	    }
 	  }, [_vm._c('p', [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")]), _vm._v(" "), _vm._c('p', [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")]), _vm._v(" "), _vm._c('p', [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")])]), _vm._v(" "), _vm._c('button', {
@@ -13581,25 +13675,36 @@
 	      }
 	    }
 	  }, [_vm._v("Small modal")]), _vm._v(" "), _vm._c('modal', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.smallModal),
+	      expression: "smallModal"
+	    }],
 	    attrs: {
 	      "title": "Small Modal",
-	      "value": _vm.smallModal,
 	      "small": ""
 	    },
+	    domProps: {
+	      "value": (_vm.smallModal)
+	    },
 	    on: {
-	      "cancel": function($event) {
-	        _vm.smallModal = false
+	      "ok": function($event) {
+	        _vm.smallModal = _vm.ok()
+	      },
+	      "input": function($event) {
+	        _vm.smallModal = $event
 	      }
 	    }
 	  }, [_vm._v("\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat.\n    ")])], 1), _vm._v(" "), _vm._c('hr'), _vm._v("\n  Have different ways to use it:\n  "), _vm._c('doc-code', {
 	    attrs: {
 	      "language": "html"
 	    }
-	  }, [_vm._v("\n    <!-- with v-model -->\n    <modal v-model=\"show\" @ok=\"okMethod\">\n      ...\n    </modal>\n    <!-- handling events -->\n    <modal title=\"Fade/Zoom Modal\" effect=\"fade/zoom\"\n      :value=\"show\" @ok=\"doSomething\" @cancel=\"show = false\"\n    >\n      ...\n    </modal>\n    <modal v-model=\"show\" effect=\"fade\">\n      <!-- custom header -->\n      <div slot=\"modal-header\" class=\"modal-header\">\n        <h4 class=\"modal-title\">\n          <i>Custom</i> <code>Modal</code> <b>Title</b>\n        </h4>\n      </div>\n      ...\n      <!-- custom buttons -->\n      <div slot=\"modal-footer\" class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" @click=\"showCustomModal = false\">Exit</button>\n        <button type=\"button\" class=\"btn btn-success\" @click=\"saveMethod\">Custom Save</button>\n      </div>\n    </modal>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("backdrop")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Enables/disables closing the modal by clicking on the backdrop.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("callback")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Function")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("A callback Function when you click the modal primary button.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("cancel-text")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._v("Close")]), _vm._v(" "), _vm._c('p', [_vm._v("Text for cancel button")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("effect")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("set the name of the effect to use on modal, like fade or zoom")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("large")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Large modal (see boostrap's documentation for .modal-lg)")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("ok-text")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._v("Save changes")]), _vm._v(" "), _vm._c('p', [_vm._v("Text for OK button")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("small")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Small modal (see boostrap's documentation for .modal-sm)")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("title")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Title of the modal component.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("true if modal need to be shown, note the Modal has no intenal state")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("width")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number, String or null")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Pass a Number in pixels or a String with relational sizes ( e.g. '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.")])])]), _vm._v(" "), _vm._c('doc-table', {
+	  }, [_vm._v("\n    <!-- with v-model (\"cancel\" event close the modal, \"ok\" don't, so you have to do it manual) -->\n    <modal v-model=\"show\" @ok=\"show = false\">\n      ...\n    </modal>\n    <!-- handling ok & cancel events -->\n    <modal title=\"Fade/Zoom Modal\" effect=\"fade/zoom\"\n      :value=\"show\" @ok=\"okAction\" @cancel=\"cancelAction\"\n    >\n      ...\n    </modal>\n    <modal v-model=\"show\" effect=\"fade\">\n      <!-- custom header -->\n      <div slot=\"modal-header\" class=\"modal-header\">\n        <h4 class=\"modal-title\">\n          <i>Custom</i> <code>Modal</code> <b>Title</b>\n        </h4>\n      </div>\n      ...\n      <!-- custom buttons -->\n      <div slot=\"modal-footer\" class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" @click=\"show = false\">Exit</button>\n        <button type=\"button\" class=\"btn btn-success\" @click=\"saveMethod\">Custom Save</button>\n        <button type=\"button\" class=\"btn btn-success\" @click=\"otherMethod\">Another Action</button>\n      </div>\n    </modal>\n  ")]), _vm._v(" "), _vm._c('doc-table', [_vm._c('div', [_vm._c('p', [_vm._v("backdrop")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("true")])]), _vm._v(" "), _vm._c('p', [_vm._v("Enables/disables closing the modal by clicking on the backdrop.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("callback")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Function")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("A callback Function when you click the modal primary button.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("cancel-text")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._v("Close")]), _vm._v(" "), _vm._c('p', [_vm._v("Text for cancel button")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("effect")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("set the name of the effect to use on modal, like fade or zoom")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("large")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Large modal (see boostrap's documentation for .modal-lg)")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("ok-text")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p', [_vm._v("Save changes")]), _vm._v(" "), _vm._c('p', [_vm._v("Text for OK button")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("small")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("false")])]), _vm._v(" "), _vm._c('p', [_vm._v("Small modal (see boostrap's documentation for .modal-sm)")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("title")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("String")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Title of the modal component.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("value")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Boolean")])]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("true if modal need to be shown, note the Modal has no intenal state")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("width")]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("Number, String or null")])]), _vm._v(" "), _vm._c('p', [_vm._c('code', [_vm._v("null")])]), _vm._v(" "), _vm._c('p', [_vm._v("Pass a Number in pixels or a String with relational sizes ( e.g. '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.")])])]), _vm._v(" "), _vm._c('doc-table', {
 	    attrs: {
 	      "type": "Events"
 	    }
-	  }, [_vm._c('div', [_vm._c('p', [_vm._v("input")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("Boolean")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return if the modal action is accepted / canceled ("), _vm._c('code', [_vm._v("true")]), _vm._v("/"), _vm._c('code', [_vm._v("false")]), _vm._v(") shown.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("ok")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("null")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Called if the modal was accepted.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("cancel")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("null")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Called if the modal was canceled.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("opened")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("null")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Called when the modal is opened.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("closed")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("null")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Called when the modal is closed.")])])]), _vm._v(" "), _vm._c('p', [_vm._c('strong', [_vm._v("Note:")]), _vm._v(" The default events are called if you use the default footer. Using a footer slot, you must implement your own events to the buttons.")])], 1)
+	  }, [_vm._c('div', [_vm._c('p', [_vm._v("input")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("show:boolean")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return if the modal is shown.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("ok")]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Called if the modal was accepted.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("cancel")]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Called if the modal was canceled.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("opened")]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Called when the modal is opened.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("closed")]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Called when the modal is closed.")])])]), _vm._v(" "), _vm._c('p', [_vm._c('strong', [_vm._v("Note:")]), _vm._v(" The default events are called if you use the default footer. Using a footer slot, you must implement your own events to the buttons.")])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -16999,7 +17104,7 @@
 	      "name": "Tabs",
 	      "type": "Events"
 	    }
-	  }, [_vm._c('div', [_vm._c('p', [_vm._v("active / input")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("Number")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return the Active tab index (0 based).")])])]), _vm._v(" "), _vm._c('doc-table', {
+	  }, [_vm._c('div', [_vm._c('p', [_vm._v("active / input")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("index:number")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("Return the Active tab index (0 based).")])])]), _vm._v(" "), _vm._c('doc-table', {
 	    attrs: {
 	      "name": "TabGroup & Tab"
 	    }
@@ -17497,7 +17602,7 @@
 	    attrs: {
 	      "type": "Events"
 	    }
-	  }, [_vm._c('div', [_vm._c('p', [_vm._v("changed")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("boolean:value")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("If changed, return the actual state.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("disabled")]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Call this event if the button was disabled.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("enabled")]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Call this event if the button was enabled.")])])])], 1)
+	  }, [_vm._c('div', [_vm._c('p', [_vm._v("changed")]), _vm._v(" "), _vm._c('p', [_vm._v("("), _vm._c('code', [_vm._v("value:boolean")]), _vm._v(")")]), _vm._v(" "), _vm._c('p', [_vm._v("If changed, return the actual state.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("disabled")]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Call this event if the button was disabled.")])]), _vm._v(" "), _vm._c('div', [_vm._c('p', [_vm._v("enabled")]), _vm._v(" "), _vm._c('p'), _vm._v(" "), _vm._c('p', [_vm._v("Call this event if the button was enabled.")])])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
