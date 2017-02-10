@@ -1,18 +1,18 @@
 <template>
-  <div role="dialog" :class="['modal',effect]" @click="backClose" @transitionend="transitionend">
-    <div :class="{'modal-dialog':true,'modal-lg':large,'modal-sm':small}" role="document" :style="{width: optionalWidth}">
+  <div role="dialog" :class="['modal',effect]" @click="backdrop&&action(false,1)" @transitionend="transition = false">
+    <div :class="['modal-dialog',{'modal-lg':large,'modal-sm':small}]" role="document" :style="{width: optionalWidth}" @click.stop="action(null)">
       <div class="modal-content">
         <slot name="modal-header">
           <div class="modal-header">
-            <button type="button" class="close" @click="close"><span>&times;</span></button>
+            <button type="button" class="close" @click="action(false,2)"><span>&times;</span></button>
             <h4 class="modal-title"><slot name="title">{{title}}</slot></h4>
           </div>
         </slot>
         <slot name="modal-body"><div class="modal-body"><slot></slot></div></slot>
         <slot name="modal-footer">
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" @click="close">{{ cancelText }}</button>
-            <button type="button" class="btn btn-primary" @click="ok">{{ okText }}</button>
+            <button type="button" class="btn btn-default" @click="action(false,3)">{{ cancelText }}</button>
+            <button type="button" class="btn btn-primary" @click="action(true,4)">{{ okText }}</button>
           </div>
         </slot>
       </div>
@@ -36,6 +36,12 @@ export default {
     value: {type: Boolean, required: true},
     width: {default: null}
   },
+  data () {
+    return {
+      transition: false,
+      val: null
+    }
+  },
   computed: {
     optionalWidth () {
       if (this.width === null) {
@@ -47,46 +53,49 @@ export default {
     }
   },
   watch: {
-    value (val) {
-      this.transitionstart()
+    transition (val, old) {
+      if (val === old) { return }
+      const el = this.$el
+      const body = document.body
+      if (val) {//starting
+        if (this.val) {
+          el.querySelector('.modal-content').focus()
+          el.style.display = 'block'
+          setTimeout(() => el.classList.add('in'), 0)
+          body.classList.add('modal-open')
+          if (getScrollBarWidth() !== 0) {
+            body.style.paddingRight = getScrollBarWidth() + 'px'
+          }
+        } else {
+          el.classList.remove('in')
+        }
+      } else {//ending
+        this.$emit(this.val ? 'opened' : 'closed')
+        if (!this.val) {
+          el.style.display = 'none'
+          body.style.paddingRight = null
+          body.classList.remove('modal-open')
+        }
+      }
+    },
+    val (val, old) {
+      this.$emit('input', val)
+      if (old === null ? val === true : val !== old) this.transition = true
+    },
+    value (val, old) {
+      if (val !== old) this.val = val
     }
   },
   methods: {
-    backClose (e) {
-      if (this.backdrop && e.target === this.$el) { this.close() }
-    },
-    close () {
-      this.$emit('cancel')
-      this.$emit('input', false)
-    },
-    ok () {
-      if (this.callback instanceof Function) this.callback()
-      this.$emit('ok')
-    },
-    transitionstart () {
-      const el = this.$el
-      const body = document.body
-      const scrollBarWidth = getScrollBarWidth()
-      if (this.value) {
-        el.querySelector('.modal-content').focus()
-        el.style.display = 'block'
-        setTimeout(() => el.classList.add('in'), 0)
-        body.classList.add('modal-open')
-        if (scrollBarWidth !== 0) {
-          body.style.paddingRight = scrollBarWidth + 'px'
-        }
-      } else {
-        el.classList.remove('in')
-      }
-    },
-    transitionend () {
-      if (!this.value) {
-        this.$el.style.display = 'none'
-        const body = document.body
-        body.style.paddingRight = null
-        body.classList.remove('modal-open')
-      }
+    action (val,p) {
+      if (val === null) { return }
+      if (val && this.callback instanceof Function) this.callback()
+      this.$emit(val ? 'ok' : 'cancel',p)
+      this.val = val || false
     }
+  },
+  mounted () {
+    this.val = this.value
   }
 }
 </script>

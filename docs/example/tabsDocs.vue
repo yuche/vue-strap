@@ -94,7 +94,7 @@
     <doc-table name="Tabs" type="Events">
       <div>
         <p>active / input</p>
-        <p>(<code>Number</code>)</p>
+        <p>(<code>index:number</code>)</p>
         <p>Return the Active tab index (0 based).</p>
       </div>
     </doc-table>

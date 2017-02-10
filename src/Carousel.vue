@@ -49,12 +49,12 @@ export default {
     }
   },
   watch: {
-    index(newVal, oldVal) {
+    index (newVal, oldVal) {
       this.slide(newVal > oldVal ? 'left' : 'right', newVal, oldVal)
     }
   },
   methods: {
-    indicatorClick(index) {
+    indicatorClick (index) {
       if (this.isAnimating || this.index === index) return false
       this.isAnimating = true
       this.index = index
@@ -73,12 +73,12 @@ export default {
         this.isAnimating = false
       })
     },
-    next() {
+    next () {
       if (!this.$el || this.isAnimating) { return false }
       this.isAnimating = true
       this.index + 1 < $('.item', this.$el).length ? this.index += 1 : this.index = 0
     },
-    prev() {
+    prev () {
       if (!this.$el || this.isAnimating) { return false }
       this.isAnimating = true
       this.index === 0 ? this.index = $('.item', this.$el).length - 1 : this.index -= 1

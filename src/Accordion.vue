@@ -1,9 +1,10 @@
-<template><div class="panel-group"><slot></slot></div></template>
+<template>
+  <div class="panel-group">
+    <slot></slot>
+  </div>
+</template>
 
 <script>
-// let coerce = {
-//   oneAtAtime: 'boolean'
-// }
 
 export default {
   props: {
@@ -16,17 +17,19 @@ export default {
       default: false
     }
   },
-  created () {
-    this._isAccordion = true
-    this.$on('isOpenEvent', child => {
+  methods: {
+    openChild (child) {
       if (this.oneAtAtime) {
         this.$children.forEach(item => {
           if (child !== item) {
-            item.isOpen = false
+            item.open = false
           }
         })
       }
-    })
+    }
+  },
+  created () {
+    this._isAccordion = true
   }
 }
 </script>

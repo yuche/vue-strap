@@ -11,7 +11,7 @@ function addListener (node, callback) {
 }
 
 function removeListener (node, callback) {
-  binded = binded.filter(el => el.node !== node ? true : !callback ? false : el.node.callback !== callback)
+  binded = binded.filter(el => el.node !== node ? true : !callback ? false : el.callback !== callback)
   if (!binded.length) document.removeEventListener('click', handler, false)
 }
 
@@ -33,6 +33,6 @@ export default {
     }
   },
   unbind (el, binding) {
-    removeEventListener(el, binding.value)
+    removeListener(el, binding.value)
   }
 }

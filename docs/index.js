@@ -23,7 +23,8 @@ new Vue({
     sections : []
   },
   mounted () {
-    document.querySelectorAll('.bs-docs-section').forEach(el => {
+    var sections = document.querySelectorAll('.bs-docs-section')
+    Array.prototype.forEach.call(sections, el => {
       var id = el.id
       var name = el.querySelector('.anchor', el).innerText
       if (id && name) this.sections.push({el, id, name})

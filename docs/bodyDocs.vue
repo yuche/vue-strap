@@ -9,7 +9,7 @@
           <p>Bootstrap components built with <a target="_blank" href="http://vuejs.org/">Vue.js</a>.</p>
           <p>No jQuery, bootstrap.js, or any 3rd party plugins required.</p>
           <br>
-          <p><a class="btn btn-outline-inverse btn-lg" href="https://github.com/yuche/vue-strap">Code on GitHub</a></p>
+          <p><a class="btn btn-outline-inverse btn-lg" href="https://github.com/wffranco/vue-strap">Code on GitHub</a></p>
         </div>
       </div>
       <div class="container bs-docs-container">
@@ -25,6 +25,7 @@
             <checkbox-docs></checkbox-docs>
             <datepicker-docs></datepicker-docs>
             <dropdown-docs></dropdown-docs>
+            <form-validator-docs></form-validator-docs>
             <input-docs></input-docs>
             <modal-docs></modal-docs>
             <navbar-docs></navbar-docs>
@@ -34,10 +35,10 @@
             <select-docs></select-docs>
             <spinner-docs></spinner-docs>
             <tabs-docs></tabs-docs>
+            <toggle-button-docs></toggle-button-docs>
             <tooltip-docs></tooltip-docs>
             <typeahead-docs></typeahead-docs>
-            <form-group-docs></form-group-docs>
-            <form-validator-docs></form-validator-docs>
+            <!--<form-group-docs></form-group-docs>-->
           </div>
           <div class="col-md-3">
             <affix-sidebar></affix-sidebar>
@@ -48,6 +49,7 @@
     <footer class="bs-docs-footer">
       <div class="container">
         <p>Designed and built by <a href="https://github.com/yuche/">yuche</a>.</p>
+        <p>Vue 2 version built by <a href="https://github.com/wffranco/">wffranco</a>.</p>
         <p>
           Using <a href="http://twitter.github.com/bootstrap" target="_blank">Twitter Bootstrap</a>
           and the <a href="css/docs.css" target="_blank">Bootstrap's docs styles</a> designed and built by <a href="http://twitter.com/mdo" target="_blank">@mdo</a>
@@ -85,6 +87,7 @@ import radioDocs from './example/radioDocs.vue'
 import selectDocs from './example/selectDocs.vue'
 import spinnerDocs from './example/spinnerDocs.vue'
 import tabsDocs from './example/tabsDocs.vue'
+import toggleButtonDocs from './example/toggleButtonDocs.vue'
 import tooltipDocs from './example/tooltipDocs.vue'
 import typeaheadDocs from './example/typeaheadDocs.vue'
 
@@ -112,6 +115,7 @@ export default {
     selectDocs,
     spinnerDocs,
     tabsDocs,
+    toggleButtonDocs,
     tooltipDocs,
     typeaheadDocs
   },
