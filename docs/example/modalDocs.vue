@@ -2,7 +2,7 @@
   <doc-section id="modal" name="Modal">
     <div class="bs-example">
       <button class="btn btn-default" @click="showModal = true">Show modal</button>
-      <modal title="Modal title" v-model="showModal">
+      <modal title="Modal title" v-model="showModal" @ok="showModal = false">
         <div slot="modal-header" class="modal-header">
           <h4 class="modal-title">Modal <b>Title</b></h4>
         </div>
@@ -14,16 +14,7 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </modal>
       <button class="btn btn-success" @click="fadeModal = true">Fade modal</button>
-      <modal title="Fade Modal" :value="fadeModal" @cancel="fadeModal = false" effect="fade" width="800">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </modal>
-      <button class="btn btn-primary" @click="zoomModal = true">Zoom modal</button>
-      <modal title="Zoom Modal" :value="zoomModal" @ok="zoomModal = false" effect="zoom" width="400">
+      <modal title="Fade Modal" effect="fade" width="800" v-model="fadeModal" @ok="fadeModal = ok()">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -32,7 +23,7 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </modal>
       <button class="btn btn-default" @click="showCustomModal = true">Show custom modal</button>
-      <modal :value="showCustomModal" @cancel="showCustomModel = false" effect="fade" width="50%">
+      <modal effect="fade" width="50%" v-model="showCustomModal" @ok="showCustomModal = ok()">
         <div slot="modal-header" class="modal-header">
           <h4 class="modal-title"><i>Custom</i> <code>Modal</code> <b>Title</b></h4>
         </div>
@@ -44,11 +35,21 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         <div slot="modal-footer" class="modal-footer">
           <button type="button" class="btn btn-default" @click="showCustomModal = false">Exit</button>
-          <button type="button" class="btn btn-success" @click="showCustomModal = false">Custom Save</button>
+          <button type="button" class="btn btn-success" @click="showCustomModal = ok()">Custom Save</button>
+          <button type="button" class="btn btn-success" @click="alert">Another Action</button>
         </div>
       </modal>
+      <button class="btn btn-primary" @click="zoomModal = true">Zoom modal</button>
+      <modal title="Zoom Modal" effect="zoom" width="400" v-model="zoomModal" @ok="zoomModal = ok()">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </modal>
       <button class="btn btn-warning" @click="largeModal = true">Large modal</button>
-      <modal title="Large Modal" :value="largeModal" @cancel="largeModal = false" large>
+      <modal title="Large Modal" large v-model="largeModal" @ok="largeModal = ok()">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -69,7 +70,7 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </modal>
       <button class="btn btn-danger" @click="smallModal = true">Small modal</button>
-      <modal title="Small Modal" :value="smallModal" @cancel="smallModal = false" small>
+      <modal title="Small Modal" small v-model="smallModal" @ok="smallModal = ok()">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -79,13 +80,13 @@
     <hr/>
     Have different ways to use it:
     <doc-code language="html">
-      &lt;!-- with v-model -->
-      &lt;modal v-model="show" @ok="okMethod">
+      &lt;!-- with v-model ("cancel" event close the modal, "ok" don't, so you have to do it manual) -->
+      &lt;modal v-model="show" @ok="show = false">
         ...
       &lt;/modal>
-      &lt;!-- handling events -->
+      &lt;!-- handling ok &amp; cancel events -->
       &lt;modal title="Fade/Zoom Modal" effect="fade/zoom"
-        :value="show" @ok="doSomething" @cancel="show = false"
+        :value="show" @ok="okAction" @cancel="cancelAction"
       >
         ...
       &lt;/modal>
@@ -99,8 +100,9 @@
         ...
         &lt;!-- custom buttons -->
         &lt;div slot="modal-footer" class="modal-footer">
-          &lt;button type="button" class="btn btn-default" @click="showCustomModal = false">Exit&lt;/button>
+          &lt;button type="button" class="btn btn-default" @click="show = false">Exit&lt;/button>
           &lt;button type="button" class="btn btn-success" @click="saveMethod">Custom Save&lt;/button>
+          &lt;button type="button" class="btn btn-success" @click="otherMethod">Another Action&lt;/button>
         &lt;/div>
       &lt;/modal>
     </doc-code>
@@ -169,27 +171,27 @@
     <doc-table type="Events">
       <div>
         <p>input</p>
-        <p>(<code>Boolean</code>)</p>
-        <p>Return if the modal action is accepted / canceled (<code>true</code>/<code>false</code>) shown.</p>
+        <p>(<code>show:boolean</code>)</p>
+        <p>Return if the modal is shown.</p>
       </div>
       <div>
         <p>ok</p>
-        <p>(<code>null</code>)</p>
+        <p></p>
         <p>Called if the modal was accepted.</p>
       </div>
       <div>
         <p>cancel</p>
-        <p>(<code>null</code>)</p>
+        <p></p>
         <p>Called if the modal was canceled.</p>
       </div>
       <div>
         <p>opened</p>
-        <p>(<code>null</code>)</p>
+        <p></p>
         <p>Called when the modal is opened.</p>
       </div>
       <div>
         <p>closed</p>
-        <p>(<code>null</code>)</p>
+        <p></p>
         <p>Called when the modal is closed.</p>
       </div>
     </doc-table>
@@ -212,12 +214,21 @@ export default {
   },
   data () {
     return {
-      showModal: false,
+      showModal: true,
       fadeModal: false,
       zoomModal: false,
       showCustomModal: false,
       largeModal: false,
       smallModal: false
+    }
+  },
+  methods: {
+    ok () {
+      return !confirm("Ok event.\nClose Modal?")
+    },
+    alert () {
+      alert('Another Action.\nClose the modal...')
+      this.showCustomModal = false
     }
   }
 }
