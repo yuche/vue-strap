@@ -7,6 +7,7 @@
       autocomplete="off"
       v-model="value"
       @input="update"
+      @compositionend="update"
       @keydown.up="up"
       @keydown.down="down"
       @keydown.enter= "hit"
