@@ -1,7 +1,7 @@
 [
-  {"value":"Apple", "label":"Apple"},
-  {"value":"Banana", "label":"Banana"},
-  {"value":"Cherry", "label":"Cherry"},
-  {"value":"Orange", "label":"Orange"},
-  {"value":"Grape", "label":"Grape"}
+  {"value":"Apple", "text":"Apple"},
+  {"value":"Banana", "text":"Banana"},
+  {"value":"Cherry", "text":"Cherry"},
+  {"value":"Orange", "text":"Orange"},
+  {"value":"Grape", "text":"Grape"}
 ]

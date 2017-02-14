@@ -57,7 +57,7 @@
         </panel>
       </accordion>
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>type</p>
         <p><code>String</code></p>
@@ -70,8 +70,8 @@
         <p><code>false</code></p>
         <p>Control whether expanding an item will cause the other items to close.</p>
       </div>
-    </doc-options>
-    <doc-options name="Panel">
+    </doc-table>
+    <doc-table name="Panel">
       <div>
         <p>header</p>
         <p><code>String</code></p>
@@ -90,14 +90,14 @@
         <p><code>null</code></p>
         <p>Define the type of color for the tab (single).</p>
       </div>
-    </doc-options>
+    </doc-table>
     <p>If you want to personalice your header with some html you can use the slot instead of header attribute (panel&nbsp;#1 in the example).</p>
   </doc-section>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import accordion from 'src/Accordion.vue'
 import checkbox from 'src/Checkbox.vue'
@@ -107,7 +107,7 @@ import vSelect from 'src/Select.vue'
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     accordion,
     checkbox,

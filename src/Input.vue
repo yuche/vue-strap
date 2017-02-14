@@ -1,50 +1,76 @@
 <template>
-  <div class="form-group" @click="focus()" :class="{'has-feedback':icon,'has-error':valid===false,'has-success':valid===true,validate:!noValidate}">
-    <slot name="label"><label v-if="label" class="control-label">{{label}}</label></slot>
-    <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
-      :cols="cols"
-      :rows="rows"
-      :name="name"
-      :readonly="readonly"
-      :required="required"
-      :disabled="disabled"
-      :maxlength="maxlength"
-      :placeholder="placeholder"
-    ></textarea>
-    <template v-else>
-      <div v-if="slots.before||slots.after" class="input-group">
-        <slot name="before"></slot>
-        <input class="form-control" v-el:input v-model="value"
-          :name="name"
-          :type="type"
-          :pattern="textPattern"
-          :title="title"
-          :readonly="readonly"
-          :required="required"
-          :disabled="disabled"
-          :maxlength="maxlength"
-          :placeholder="placeholder"
-          @keyup.enter="enterSubmit&&submit()"
-        />
-        <slot name="after"></slot>
-      </div>
+  <div class="form-group" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
+    <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
+    <div v-if="slots.before||slots.after" class="input-group">
+      <slot name="before"></slot>
+      <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
+        :cols="cols"
+        :rows="rows"
+        :name="name"
+        :title="attr(title)"
+        :readonly="readonly"
+        :required="required"
+        :disabled="disabled"
+        :maxlength="maxlength"
+        :placeholder="placeholder"
+        @blur="onblur" @focus="onfocus"
+      ></textarea>
       <input v-else class="form-control" v-el:input v-model="value"
         :name="name"
+        :max="attr(max)"
+        :min="attr(min)"
+        :step="step"
         :type="type"
-        :pattern="textPattern"
-        :title="title"
+        :title="attr(title)"
         :readonly="readonly"
         :required="required"
         :disabled="disabled"
         :maxlength="maxlength"
         :placeholder="placeholder"
         @keyup.enter="enterSubmit&&submit()"
+        @blur="onblur" @focus="onfocus"
       />
+      <div v-if="showClear && value" :class="{icon:icon}">
+        <span class="close" @click="value = ''">&times;</span>
+      </div>
+      <div v-if="icon" class="icon">
+        <span v-if="icon&&valid!==null" :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]" aria-hidden="true"></span>
+      </div>
+      <slot name="after"></slot>
+    </div>
+    <template v-else>
+      <textarea v-if="type=='textarea'" class="form-control" v-el:input v-model="value"
+        :cols="cols"
+        :rows="rows"
+        :name="name"
+        :title="attr(title)"
+        :readonly="readonly"
+        :required="required"
+        :disabled="disabled"
+        :maxlength="maxlength"
+        :placeholder="placeholder"
+        @blur="onblur" @focus="onfocus"
+      ></textarea>
+      <input v-else class="form-control" v-el:input v-model="value"
+        :name="name"
+        :max="attr(max)"
+        :min="attr(min)"
+        :step="step"
+        :type="type"
+        :title="attr(title)"
+        :readonly="readonly"
+        :required="required"
+        :disabled="disabled"
+        :maxlength="maxlength"
+        :placeholder="placeholder"
+        @keyup.enter="enterSubmit&&submit()"
+        @blur="onblur" @focus="onfocus"
+      />
+      <span v-if="showClear && value" class="close" @click="value = ''">&times;</span>
+      <span v-if="icon&&valid!==null" :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]" aria-hidden="true"></span>
     </template>
-    <span v-if="clearButton && value" class="close" @click="value = ''">&times;</span>
-    <span v-if="icon&&valid!==null" class="glyphicon glyphicon-{{valid?'ok':'remove'}} form-control-feedback" aria-hidden="true"></span>
-    <div v-if="showHelp" class="help-block">{{help}}</div>
-    <div v-if="showError" class="help-block with-errors">{{errorText}}</div>
+    <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
+    <div v-if="showError" class="help-block with-errors" @click="focus">{{errorText}}</div>
   </div>
 </template>
 
@@ -104,9 +130,24 @@ export default {
       default: navigator.language
     },
     mask: null,
+    maskDelay: {
+      type: Number,
+      coerce: coerce.number,
+      default: 100
+    },
+    max: {
+      type: String,
+      coerce: coerce.string,
+      default: null
+    },
     maxlength: {
       type: Number,
       coerce: coerce.number,
+      default: null
+    },
+    min: {
+      type: String,
+      coerce: coerce.string,
       default: null
     },
     minlength: {
@@ -118,13 +159,10 @@ export default {
       type: String,
       default: null
     },
-    noValidate: {
-      type: Boolean,
-      coerce: coerce.boolean,
-      default: false
+    pattern: {
+      coerce: coerce.pattern,
+      default: null
     },
-    onfocus: null,
-    pattern: null,
     placeholder: {
       type: String,
       default: null
@@ -144,6 +182,11 @@ export default {
       coerce: coerce.number,
       default: 3
     },
+    step: {
+      type: Number,
+      coerce: coerce.number,
+      default: null
+    },
     type: {
       type: String,
       default: 'text'
@@ -161,24 +204,7 @@ export default {
     }
   },
   computed: {
-    slots () {
-      return this._slotContents || {}
-    },
-    bsForm () {
-      return true
-    },
-    input () {
-      return true
-    },
-    text () {
-      return translations(this.lang)
-    },
-    showHelp () {
-      return this.help && (!this.showError || !this.hideHelp)
-    },
-    showError () {
-      return this.error && this.valid===false
-    },
+    canValidate () { return !this.disabled && !this.readonly && (this.required || this.pattern || this.nativeValidate || this.match !== null) },
     errorText () {
       let value = this.value
       let error = [this.error]
@@ -186,99 +212,109 @@ export default {
       if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')
       return error.join(' ')
     },
-    textPattern () {
-      return typeof this.pattern === 'string' ? this.pattern : null
+    input () { return this.$els.input },
+    nativeValidate () { return (this.input||{}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max) },
+    showClear () {
+      // Disable the clear-button on Edge if is enabled. Edge has a native clear button.
+      return /\bEdge\//.test(window.navigator.userAgent) ? false : this.clearButton
     },
-    title () {
-      return this.errorText || this.help || ''
-    }
+    showError () { return this.error && this.valid===false },
+    showHelp () { return this.help && (!this.showError || !this.hideHelp) },
+    slots () { return this._slotContents || {} },
+    text () { return translations(this.lang) },
+    title () { return this.errorText || this.help || '' }
   },
   watch: {
     match (val) {
       this.eval()
     },
-    noValidate: {
-      immediate: true,
-      handler (val) {
-        if (this.$parent._formGroup) {
-          if (val && !~this.$parent.children.indexOf(this)) {
-            this.$parent.children.push(this)
-          }
-          if (!val && ~this.$parent.children.indexOf(this)) {
-            this.$parent.children.$remove(this)
-          }
-        }
+    valid (val, old) {
+      if (val !== old) {
+        this._parent && this._parent.validate()
       }
     },
-    valid (val, old) {
-      if (val === old) { return }
-      this._parent && this._parent.validate()
+    value (val, old) {
+      if (val !== old) {
+        if (this.mask instanceof Function) {
+          val = this.mask(val || '')
+          if (this.value !== val) {
+            if (this._timeout.mask) clearTimeout(this._timeout.mask)
+            this._timeout.mask = setTimeout(() => {
+              this.value = val
+              this.$els.input.value = val
+            }, this.maskDelay)
+          }
+        }
+        this.eval()
+      }
     }
   },
   methods: {
-    focus () {
-      this.$els.input.focus()
+    attr (value) {
+      return ~['', null, undefined].indexOf(value) || value instanceof Function ? undefined : value
     },
+    focus () { this.input.focus() },
     eval () {
-      let value = this.value || ''
-      if (this.mask instanceof Function) value = this.mask(value)
-      if (this.value !== value) this.value = value
-      if (this.timeout) clearTimeout(this.timeout)
-      if (this.noValidate) {
-        if (this.valid !== null) { this.valid = null }
+      if (this._timeout.eval) clearTimeout(this._timeout.eval)
+      if (!this.canValidate) {
+        this.valid = true
       } else {
-        this.timeout = setTimeout(() => {
+        this._timeout.eval = setTimeout(() => {
           this.valid = this.validate()
-          this.timeout = null
+          this._timeout.eval = null
         }, this.validationDelay)
       }
+    },
+    onblur (e) {
+      if (this.canValidate) { this.valid = this.validate() }
+      this.$emit('blur', e)
+    },
+    onfocus (e) {
+      this.$emit('focus', e)
     },
     submit () {
       if (this.$parent._formGroup) {
         return this.$parent.validate()
       }
-      if (this.$els.input.form) {
-        const invalids = $('.form-group.validate:not(.has-success)',this.$els.input.form)
+      if (this.input.form) {
+        const invalids = $('.form-group.validate:not(.has-success)',this.input.form)
         if (invalids.length) {
           invalids.find('input,textarea,select')[0].focus()
         } else {
-          this.$els.input.form.submit()
+          this.input.form.submit()
         }
       }
     },
     validate () {
+      if (!this.canValidate) { return true }
       let value = (this.value || '').trim()
       if (!value) { return !this.required }
-      if (this.match!==null && this.match !== value) { return false }
+      if (this.match!==null) { return this.match === value }
       if (value.length < this.minlength) { return false }
-      let valid = true
-      if (this.$els.input.checkValidity && !this.$els.input.checkValidity()){ return false }
-      if (this.pattern instanceof Function) valid = this.pattern(this.value)
-      if (typeof this.pattern === 'string') {
-        let regex = new RegExp(this.pattern)
-        valid = regex.test(this.value)
+      if (this.nativeValidate && !this.input.checkValidity()){ return false }
+      if (this.pattern) {
+        return this.pattern instanceof Function ? this.pattern(this.value) : this.pattern.test(this.value)
       }
-      return valid
+      return true
     }
   },
   created () {
+    this._input = true
+    this._timeout = {}
     let parent = this.$parent
     while (parent && !parent._formGroup) { parent = parent.$parent }
-    if (parent && parent._formGroup) {
-      parent.children.push(this)
-      this._parent = parent
-    }
+    if (parent && parent._formGroup) { this._parent = parent }
   },
   ready () {
-    $(this.$els.input).on('change keypress keydown keyup', () => this.eval()).on('blur', () => {
-      if (!this.noValidate) { this.valid = this.validate() }
-    }).on('focus', e => {
-      if (this.onfocus instanceof Function) this.onfocus.call(this, e)
+    this._parent && this._parent.children.push(this)
+    $(this.input).on('focus', e => this.$emit('focus', e)).on('blur', e => {
+      if (this.canValidate) { this.valid = this.validate() }
+      this.$emit('blur', e)
     })
   },
   beforeDestroy () {
-    if (this._parent) this._parent.children.$remove(this)
-    $(this.$els.input).off()
+    this._parent && this._parent.children.$remove(this)
+    $(this.input).off()
   }
 }
 </script>
@@ -289,6 +325,12 @@ export default {
 }
 label~.close {
   top: 25px;
+}
+.input-group>.icon {
+  position: relative;
+  display: table-cell;
+  width:0;
+  z-index: 3;
 }
 .close {
   position: absolute;
@@ -301,8 +343,7 @@ label~.close {
   line-height: 34px;
   text-align: center;
 }
-.has-feedback.has-success button.close,
-.has-feedback.has-error button.close {
-  right:20px;
+.has-feedback .close {
+  right: 20px;
 }
 </style>

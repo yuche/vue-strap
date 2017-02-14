@@ -103,7 +103,7 @@ export default {
   },
   ready () {
     this._blur = (e) => {
-      if (!this.$el.contains(e.target)) this.close()
+      if (this.$el !== null && !this.$el.contains(e.target)) this.close()
     }
     this.$dispatch('child-created', this)
     this.currDate = this.parse(this.value) || this.parse(new Date())
@@ -252,11 +252,11 @@ export default {
     parse (str = this.value) {
       let date
       if (str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {
-        date = new Date(str.substring(6, 10), str.substring(3, 5), str.substring(0, 2))
+        date = new Date(str.substring(6, 10), str.substring(3, 5)-1, str.substring(0, 2))
       } else {
         date = new Date(str)
       }
-      return isNaN(date.getFullYear()) ? new Date(null) : date
+      return isNaN(date.getFullYear()) ? new Date() : date
     },
     getDayCount (year, month) {
       const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]

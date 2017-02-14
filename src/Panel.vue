@@ -1,5 +1,5 @@
 <template>
-  <div class="panel {{panelType}}">
+  <div :class="panelType">
     <div :class="['panel-heading',{'accordion-toggle':inAccordion}]" @click.prevent="inAccordion&&toggle()">
       <slot name="header">
         <h4 class="panel-title">{{ header }}</h4>
@@ -40,7 +40,7 @@ export default {
       return this.$parent && this.$parent._isAccordion
     },
     panelType () {
-      return 'panel-' + (this.type || (this.$parent && this.$parent.type) || 'default')
+      return 'panel panel-' + (this.type || (this.$parent && this.$parent.type) || 'default')
     }
   },
   methods: {

@@ -4,20 +4,26 @@ let blurEvent
 let blurList = []
 let Events = []
 
+function isNode (val) { return val instanceof window.Node }
+function isNodeList (val) { return val instanceof window.NodeList || val instanceof NodeList || val instanceof window.HTMLCollection || val instanceof Array }
+
+function splitWords (val) { val = val.trim(); return val.length ? val.replace(/\s+/, ' ').split(' ') : [] }
+function joinWords (val) { return val.length ? val.join(' ') : '' }
+
 class NodeList {
   constructor (args) {
-    var i = 0, l, nodes = args;
+    var nodes = args
     if (args[0] === window) {
       nodes = [window]
     } else if (typeof args[0] === 'string') {
       nodes = (args[1] || document).querySelectorAll(args[0])
       if (args[1]) { this.owner = args[1] }
-    } else if (0 in args && !(args[0] instanceof Node) && args[0] && 'length' in args[0]) {
-      nodes = args[0];
+    } else if (0 in args && !isNode(args[0]) && args[0] && 'length' in args[0]) {
+      nodes = args[0]
       if (args[1]) { this.owner = args[1] }
     }
     if (nodes) {
-      for(let i in nodes) {
+      for (let i in nodes) {
         this[i] = nodes[i]
       }
       this.length = nodes.length
@@ -26,112 +32,106 @@ class NodeList {
     }
   }
 
-  concat () {
+  concat (...args) {
     let nodes = ArrayProto.slice.call(this)
-    function flatten(arr) {
-      for (let el of arr) {
-        if (el instanceof Node) {
+    function flatten (arr) {
+      ArrayProto.forEach.call(arr, el => {
+        if (isNode(el)) {
           if (!~nodes.indexOf(el)) nodes.push(el)
-        } else if (el) {
+        } else if (isNodeList(el)) {
           flatten(el)
         }
-      }
+      })
     }
-    for (let arg of arguments) {
-      if (arg instanceof Node) {
+    ArrayProto.forEach.call(args, arg => {
+      if (isNode(arg)) {
         if (!~nodes.indexOf(arg)) nodes.push(arg)
-      } else if (arg instanceof window.NodeList || arg instanceof NodeList || arg instanceof HTMLCollection || arg instanceof Array) {
+      } else if (isNodeList(arg)) {
         flatten(arg)
       } else {
         throw Error('Concat arguments must be of a Node, NodeList, HTMLCollection, or Array of (Node, NodeList, HTMLCollection, Array)')
       }
-    }
-    return new NodeList([nodes, this])
+    })
+    return NodeListJS(nodes, this)
   }
-  each () {
-    ArrayProto.forEach.apply(this, arguments)
+  delete () {
+    var notRemoved = flatten(this).filter(el => {
+      if (el.remove) {
+        el.remove()
+      } else if (el.parentNode) {
+        el.parentNode.removeChild(el)
+      }
+      return document.body.contains(el)
+    })
+    if (notRemoved.length) console.warn('NodeList: Some nodes could not be deleted.')
+    return notRemoved
+  }
+  each (...args) {
+    ArrayProto.forEach.apply(this, args)
     return this
   }
-  parent () {
-    return this.map((el) => { return el.parentNode })
-  }
-  filter () {
-    return new NodeList([ArrayProto.filter.apply(this, arguments), this])
+  filter (...args) {
+    return NodeListJS(ArrayProto.filter.apply(this, args), this)
   }
   find (element) {
     let nodes = []
-    for (let el of flatten(this)) {
-      let node = el.querySelectorAll(element)
-      if (node && node.length) nodes.push(node)
-    }
+    flatten(this).forEach(node => { ArrayProto.push.apply(nodes, node.querySelectorAll(element)) })
     return flatten(nodes, this.owner)
   }
   findChildren (element) {
-    return this.find(element).filter((el) => {
-      return this.includes(el.parentElement)
-    })
+    if (element) return this.find(element).filter(el => this.includes(el.parentElement))
+    return flatten(this.map(el => el.children))
   }
-  forEach () {
-    ArrayProto.forEach.apply(this, arguments)
+  forEach (...args) {
+    ArrayProto.forEach.apply(this, args)
     return this
   }
   includes (element, index) {
     return ~this.indexOf(element, index)
   }
   map (...args) {
-    return flatten(ArrayProto.map.apply(this, args), this)
+    var mapped = ArrayProto.map.apply(this, args)
+    return mapped.some(el => (isNode(el) || isNodeList(el))) ? flatten(mapped, this) : mapped
+  }
+  parent () {
+    return flatten(this.map(el => el.parentNode), this)
   }
   pop (amount) {
     if (typeof amount !== 'number') { amount = 1 }
     let nodes = []
     let pop = ArrayProto.pop.bind(this)
     while (amount--) nodes.push(pop())
-    return new NodeList([nodes, this])
+    return NodeListJS(nodes, this)
   }
-  push () {
-    for (let arg of arguments) {
-      if (!(arg instanceof Node)) throw nodeError
+  push (...args) {
+    ArrayProto.forEach.call(args, arg => {
+      if (!isNode(arg)) throw nodeError
       if (!~this.indexOf(arg)) ArrayProto.push.call(this, arg)
-    }
-    return this
-  }
-  delete () {
-    let list = new NodeList([[],this.owner])
-    let splice = (index) => ArrayProto.splice.apply()
-    let i = this.length - 1
-    for(let el = this[i]; el; el = this[--i]) {
-      if (el.remove) {
-        el.remove()
-        ArrayProto.splice.call(this, i, 1)
-      } else if (el.parentNode) {
-        el.parentNode.removeChild(el)
-        ArrayProto.splice.call(this, i, 1)
-      }
-    }
+    })
     return this
   }
   shift (amount) {
     if (typeof amount !== 'number') { amount = 1 }
     let nodes = []
-    let shift = ArrayProto.shift.bind(this)
-    while (amount--) nodes.push(shift())
-    return new NodeList([nodes, this])
+    while (amount--) nodes.push(ArrayProto.shift.call(this))
+    return nodes.length == 1 ? nodes[0] : NodeListJS(nodes, this)
   }
-  slice () {
-    return new NodeList([ArrayProto.slice.apply(this, arguments), this])
+  slice (...args) {
+    return NodeListJS(ArrayProto.slice.apply(this, args), this)
   }
-  splice () {
-    for(let i = 2, l = arguments.length; i < l; i++) {
-      if (!(arguments[i] instanceof Node)) throw nodeError
+  splice (...args) {
+    for (let i = 2, l = args.length; i < l; i++) {
+      if (!isNode(args[i])) throw nodeError
     }
-    return new NodeList([ArrayProto.splice.apply(this, arguments), this])
+    ArrayProto.splice.apply(this, args)
+    return this
   }
-  unshift () {
+  unshift (...args) {
     let unshift = ArrayProto.unshift.bind(this)
-    for (let arg of arguments) {
-      if (!(arg instanceof Node)) throw nodeError
+    ArrayProto.forEach.call(args, arg => {
+      if (!isNode(arg)) throw nodeError
       if (!~this.indexOf(arg)) unshift(arg)
-    }
+    })
     return this
   }
 
@@ -142,41 +142,45 @@ class NodeList {
     return this.toggleClass(classes, false)
   }
   toggleClass (classes, value) {
-    const method = (value === undefined || value === null) ? 'toggle' : value ? 'add' : 'remove'
+    var method = (value === undefined || value === null) ? 'toggle' : value ? 'add' : 'remove'
     if (typeof classes === 'string') {
-      classes = classes.trim().replace(/\s+/,' ').split(' ')
+      classes = splitWords(classes)
     }
-    classes.forEach((c) => this.each((el) => el.classList[method](c)))
+    this.each(el => {
+      var list = splitWords(el.className)
+      classes.forEach(c => {
+        var hasClass = ~list.indexOf(c)
+        if (!hasClass && method !== 'remove') list.push(c)
+        if (hasClass && method !== 'add') { list = list.filter(el => (el !== c)) }
+      })
+      list = joinWords(list)
+      if (!list) el.removeAttribute('class')
+      else el.className = list
+    })
     return this
   }
 
   get (prop) {
     let arr = []
-    for (let el of this) {
-      if (el !== null) {
-        el = el[prop]
-      }
+    this.each(el => {
+      if (el !== null) { el = el[prop] }
       arr.push(el)
-    }
+    })
     return flatten(arr, this)
   }
   set (prop, value) {
     if (prop.constructor === Object) {
-      for (let el of this) {
+      this.each(el => {
         if (el) {
-          for (key in prop) {
-            if (key in el) {
-              el[key] = prop[key]
-            }
+          for (let key in prop) {
+            if (key in el) { el[key] = prop[key] }
           }
         }
-      }
+      })
     } else {
-      for (let el of this) {
-        if (prop in el) {
-          el[prop] = value
-        }
-      }
+      this.each(el => {
+        if (prop in el) { el[prop] = value }
+      })
     }
     return this
   }
@@ -184,7 +188,7 @@ class NodeList {
     const method = ArrayProto.shift.call(args)
     let arr = []
     let returnThis = true
-    for (let el of this) {
+    this.each(el => {
       if (el && el[method] instanceof Function) {
         el = el[method].apply(el, args)
         arr.push(el)
@@ -194,11 +198,11 @@ class NodeList {
       } else {
         arr.push(undefined)
       }
-    }
+    })
     return returnThis ? this : flatten(arr, this)
   }
   item (index) {
-    return new NodeList([[this[index]], this])
+    return NodeListJS([this[index]], this)
   }
   get asArray () {
     return ArrayProto.slice.call(this)
@@ -206,7 +210,7 @@ class NodeList {
 
   // event handlers
   on (events, selector, callback) {
-    if (typeof events === 'string') { events = events.trim().replace(/\s+/,' ').split(' ') }
+    if (typeof events === 'string') { events = splitWords(events) }
     if (!this || !this.length) return this
     if (callback === undefined) {
       callback = selector
@@ -215,26 +219,28 @@ class NodeList {
     if (!callback) return this
     const fn = callback
     callback = selector ? function (e) {
-      let els = new NodeList([selector,this])
+      let els = NodeListJS(selector, this)
       if (!els.length) { return }
-      els.some((el) => {
+      els.some(el => {
         let target = el.contains(e.target)
         if (target) fn.call(el, e, el)
-        return target;
+        return target
       })
     } : function (e) {
       fn.apply(this, [e, this])
     }
-    for (let event of events) {
-      for (let el of this) {
-        el.addEventListener(event, callback, false)
-        Events.push({
-          el: el,
-          event: event,
-          callback: callback
-        })
-      }
-    }
+    this.each(el => {
+      events.forEach(event => {
+        if (el === window || isNode(el)) {
+          el.addEventListener(event, callback, false)
+          Events.push({
+            el: el,
+            event: event,
+            callback: callback
+          })
+        }
+      })
+    })
     return this
   }
   off (events, callback) {
@@ -242,65 +248,28 @@ class NodeList {
       callback = events
       events = null
     }
-    if (typeof events === 'string' && callback instanceof Function) {
-      for (let el of this) {
-        for(let e in Events) {
-          for (let event of events.split(' ')) {
-            if(Events[e] && Events[e].el === el && Events[e].event === event && Events[e].callback === callback) {
-              Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-              delete Events[e]
-            }
-          }
+    events = events instanceof Array ? events : typeof events === 'string' ? splitWords(events) : null
+    this.each(el => {
+      Events = Events.filter(e => {
+        if(e && e.el === el && (!callback || callback === e.callback) && (!events || ~events.indexOf(e.event))) {
+          e.el.removeEventListener(e.event, e.callback)
+          return false
         }
-      }
-    } else if (typeof events === 'string') {
-      for (let el of this) {
-        for (let e in Events) {
-          for (let event of events.split(' ')) {
-            if (Events[e] && Events[e].el === el && Events[e].event === event) {
-              Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-              delete Events[e]
-            }
-          }
-        }
-      }
-    } else if (callback instanceof Function) {
-      for (let el of this) {
-        for (let e in Events) {
-          if (Events[e] && Events[e].el === el && Events[e].callback === callback) {
-            Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-            delete Events[e]
-          }
-        }
-      }
-    } else {
-      for (let el of this) {
-        for (let e in Events) {
-          if (Events[e] && Events[e].el === el) {
-            Events[e].el.removeEventListener(Events[e].event, Events[e].callback)
-            delete Events[e]
-          }
-        }
-      }
-    }
-    Events = Events.filter((el) => { return el !== undefined })
+        return true
+      })
+    })
     return this
   }
   onBlur (callback) {
     if (!this || !this.length) return this
     if (!callback) return this
-    this.each((el) => {
-      blurList.push({
-        el: el,
-        callback: callback
-      })
-    })
+    this.each(el => { blurList.push({el, callback}) })
     if (!blurEvent) {
-      blurEvent = (e) => {
-        for (let item of blurList) {
+      blurEvent = e => {
+        blurList.forEach(item => {
           let target = item.el.contains(e.target) || item.el === e.target
           if (!target) item.callback.call(item.el, e, item.el)
-        }
+        })
       }
       document.addEventListener('click', blurEvent, false)
       document.addEventListener('touchstart', blurEvent, false)
@@ -308,14 +277,14 @@ class NodeList {
     return this
   }
   offBlur (callback) {
-    this.each((el) => {
-      for (let e in blurList) {
-        if (blurList[e] && blurList[e].el === el && (!callback || blurList[e].callback === callback)) {
-          delete blurList[e]
+    this.each(el => {
+      blurList = blurList.filter(blur => {
+        if (blur && blur.el === el && (!callback || blur.callback === callback)) {
+          return false
         }
-      }
+        return el
+      })
     })
-    blurList = blurList.filter((el) => { return el !== undefined })
     return this
   }
 }
@@ -324,23 +293,23 @@ let NL = NodeList.prototype
 
 function flatten (arr, owner) {
   let list = []
-  for (let el of arr) {
-    if (el instanceof Node || el === null) {
+  ArrayProto.forEach.call(arr, el => {
+    if (isNode(el)) {
       if (!~list.indexOf(el)) list.push(el)
-    } else if (el instanceof window.NodeList || el instanceof NodeList || el instanceof HTMLCollection || el instanceof Array) {
-      for(let el2 of el) list.push(el2)
-    } else {
+    } else if (isNodeList(el)) {
+      for (let id in el) list.push(el[id])
+    } else if (el !== null) {
       arr.get = NL.get
       arr.set = NL.set
       arr.call = NL.call
       arr.owner = owner
       return arr
     }
-  }
-  return new NodeList([list, owner])
+  })
+  return NodeListJS(list, owner)
 }
 
-Object.getOwnPropertyNames(ArrayProto).forEach((key) => {
+Object.getOwnPropertyNames(ArrayProto).forEach(key => {
   if (key !== 'join' && key !== 'copyWithin' && key !== 'fill' && NL[key] === undefined) {
     NL[key] = ArrayProto[key]
   }
@@ -350,13 +319,15 @@ if (window.Symbol && Symbol.iterator) {
 }
 const div = document.createElement('div')
 function setterGetter (prop) {
+  if (NL[prop]) return
   if (div[prop] instanceof Function) {
-    NL[prop] = () => {
+    NL[prop] = (...args) => {
       let arr = []
       let returnThis = true
-      for (let el of NL) {
+      for (let i in NL) {
+        let el = NL[i]
         if (el && el[prop] instanceof Function) {
-          el = el[prop].apply(el, arguments)
+          el = el[prop].apply(el, args)
           arr.push(el)
           if (returnThis && el !== undefined) {
             returnThis = false
@@ -369,31 +340,25 @@ function setterGetter (prop) {
     }
   } else {
     Object.defineProperty(NL, prop, {
-      get: function () {
+      get () {
         let arr = []
-        for (let el of this) {
-          if (el !== null) {
-            el = el[prop]
-          }
+        this.each(el => {
+          if (el !== null) { el = el[prop] }
           arr.push(el)
-        }
+        })
         return flatten(arr, this)
       },
-      set: function (value) {
-        for (let el of this) {
-          if (el && prop in el) {
-            el[prop] = value
-          }
-        }
+      set (value) {
+        this.each(el => {
+          if (el && prop in el) { el[prop] = value }
+        })
       }
     })
   }
 }
 for (let prop in div) setterGetter(prop)
 
-function NodeListJS () {
-  return new NodeList(arguments)
-}
+function NodeListJS (...args) { return new NodeList(args) }
 window.NL = NodeListJS
 
 export default NodeListJS

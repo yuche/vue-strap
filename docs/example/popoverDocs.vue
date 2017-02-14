@@ -20,7 +20,7 @@
         </popover>
       </p>
       <popover effect="scale" title="Title" :content="text" placement="bottom" trigger="focus">
-        <input type="text" class="form-control" placeholder="Focus">
+        <bs-input type="text" placeholder="Focus"></bs-input>
       </popover>
     </div>
     <doc-code language="markup">
@@ -28,7 +28,7 @@
         <button class="btn btn-default">Popover on bottom</button>
       </popover>
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>trigger</p>
         <p><code>String</code>, one of <code>click</code> <code>focus</code> <code>hover</code> <code>contextmenu</code></p>
@@ -68,21 +68,23 @@
         <p></p>
         <p>How to position the popover.</p>
       </div>
-    </doc-options>
+    </doc-table>
   </doc-section>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import popover from 'src/Popover.vue'
+import bsInput from 'src/Input.vue'
 
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
+    bsInput,
     popover
   },
   data () {

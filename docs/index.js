@@ -6,6 +6,7 @@ require('./js/showLanguage')
 import $ from 'src/utils/NodeList.js'
 import bodyDocs from './bodyDocs.vue'
 
+Vue.config.devtools = true
 Vue.config.debug = true
 
 new Vue({
@@ -21,10 +22,10 @@ new Vue({
   ready () {
     var list = this.$root.sections
     while(list.length) list.pop()
-    $('.bs-docs-section', this.$els.sections).each((el) => {
+    $('.bs-docs-section', this.$els.sections).each(el => {
       list.push({
         id: el.id,
-        name: $('.anchor', el).textContent,
+        name: el.querySelector('.anchor').innerText,
         el: el
       })
     })

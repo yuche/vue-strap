@@ -41,7 +41,7 @@
         </slider>
       </carousel>
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>indicators</p>
         <p><code>Boolean</code></p>
@@ -62,13 +62,13 @@
           carousel will not automatically cycle.
         </p>
       </div>
-    </doc-options>
+    </doc-table>
   </div>
 </template>
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import carousel from 'src/Carousel.vue'
 import slider from 'src/Slider.vue'
@@ -76,7 +76,7 @@ import slider from 'src/Slider.vue'
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     carousel,
     slider

@@ -2,7 +2,7 @@
   <span v-el:trigger>
     <slot></slot>
   </span>
-  <div v-el:popover v-show="show"
+  <div v-el:popover v-if="show"
     :class="['popover',placement]"
     :transition="effect"
   >
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import PopoverMixin from './popoverMixins.js'
+import PopoverMixin from './utils/popoverMixins.js'
 
 export default {
   mixins: [PopoverMixin],
@@ -31,8 +31,10 @@ export default {
 </script>
 
 <style>
-.scale-transition,
-.fade-transition {
+.popover.top,
+.popover.left,
+.popover.right,
+.popover.bottom {
   display: block;
 }
 .scale-enter {

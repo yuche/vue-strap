@@ -36,7 +36,11 @@
       <dropdown text="Disabled" type="warning" disabled>
         <li><a href="#dropdown">Action</a></li>
       </dropdown>
-      <div class="btn-group btn-group-justified" role="group">
+      <dropdown type="info">
+        <button slot="before" type="button" class="btn btn-info">Segmented</button>
+        <li><a href="#dropdown">Action</a></li>
+      </dropdown>
+      <div class="btn-group btn-group-justified">
         <a href="#dropdown" class="btn btn-default" role="button">Left</a>
         <dropdown>
           <a slot="button" href="#dropdown" class="btn btn-default">
@@ -53,10 +57,26 @@
         <a href="#dropdown" class="btn btn-default" role="button">Right</a>
       </div>
     </div>
-    <doc-code language="markup">
-      Boostrap style:
+    <doc-code>
+      <dropdown text="Action" type="primary">
+        <li><a href="#dropdown">Action</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#dropdown">Separated link</a></li>
+      </dropdown>
+      // For segmented dropdown, ignore text and add a "before" slot
+      <dropdown type="info">
+        <button slot="before" type="button" class="btn btn-info">Segmented</button>
+        <li><a href="#dropdown">...</a></li>
+      </dropdown>
+      // In a button group
+      <div class="btn-group btn-group-justified">
+        <a href="#dropdown" class="btn btn-default" role="button">Left</a>
+        <dropdown>...</dropdown>
+        <a href="#dropdown" class="btn btn-default" role="button">Right</a>
+      </div>
+      // With slots you can handle some elements as native bootstrap
       <dropdown>
-        <button type="button" class="btn btn-default">
+        <button slot="button" type="button" class="btn btn-default dropdown-toggle">
           Action
           <span class="caret"></span>
         </button>
@@ -68,20 +88,8 @@
           <li><a href="#dropdown">Separated link</a></li>
         </ul>
       </dropdown>
-
-      Component style:
-      <dropdown text="Action" type="primary">
-        <li><a href="#dropdown">Action</a></li>
-        <li><a href="#dropdown">Another action</a></li>
-        <li><a href="#dropdown">Something else here</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="#dropdown">Separated link</a></li>
-      </dropdown>
-      <dropdown text="Disabled" type="warning" disabled>
-        <li><a href="#dropdown">Action</a></li>
-      </dropdown>
     </doc-code>
-    <doc-options>
+    <doc-table>
       <div>
         <p>show</p>
         <p><code>Boolean</code></p>
@@ -117,7 +125,7 @@
         <p><code>default</code></p>
         <p></p>
       </div>
-    </doc-options>
+    </doc-table>
     <h2>Usage</h2>
     <p>Just like the examples. Can use it as the <a target="_blank" href="http://getbootstrap.com/javascript/#dropdowns">original Bootstrap way</a>.</p>
   </doc-section>
@@ -125,14 +133,14 @@
 
 <script>
 import docSection from './docSection.vue'
-import docOptions from './docOptions.vue'
+import docTable from './docTable.vue'
 import docCode from './docCode.vue'
 import dropdown from 'src/Dropdown.vue'
 
 export default {
   components: {
     docSection,
-    docOptions,
+    docTable,
     docCode,
     dropdown
   }
