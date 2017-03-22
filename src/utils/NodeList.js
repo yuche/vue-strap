@@ -355,4 +355,5 @@ var NodeListJS = function(){
     return NodeListJS;
   }
 }
+
 export default NodeListJS()
