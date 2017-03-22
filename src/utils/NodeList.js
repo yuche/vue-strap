@@ -5,7 +5,7 @@ var nodeError = new Error('Passed arguments must be of Node')
 var blurEvent
 var blurList = []
 var Events = []
-var NodeListJSF = function(){
+var NodeListJS = function(){
   if(typeof 'window' !== 'undefined'){
     function isNode (val) { return val instanceof window.Node }
     function isNodeList (val) { return val instanceof window.NodeList || val instanceof NodeList || val instanceof window.HTMLCollection || val instanceof Array }
