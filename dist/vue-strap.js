@@ -270,7 +270,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var blurList = [];
 	var Events = [];
 	var NodeListJS = function NodeListJS() {
-	  if (true) {
+	  if (typeof window !== 'undefined') {
 	    var isNode = function isNode(val) {
 	      return val instanceof window.Node;
 	    };
@@ -777,7 +777,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        NL[key] = ArrayProto[key];
 	      }
 	    });
-	    if (window.Symbol && _iterator2.default) {
+	    if (typeof window !== 'undefined' && window.Symbol && _iterator2.default) {
 	      NL[_iterator2.default] = NL.values = ArrayProto[_iterator2.default];
 	    }
 	    var div = document.createElement('div');

@@ -6,7 +6,7 @@ var blurEvent
 var blurList = []
 var Events = []
 var NodeListJS = function(){
-  if(typeof 'window' !== 'undefined'){
+  if(typeof window !== 'undefined'){
     function isNode (val) { return val instanceof window.Node }
     function isNodeList (val) { return val instanceof window.NodeList || val instanceof NodeList || val instanceof window.HTMLCollection || val instanceof Array }
 
@@ -306,7 +306,7 @@ var NodeListJS = function(){
         NL[key] = ArrayProto[key]
       }
     })
-    if (window.Symbol && Symbol.iterator) {
+    if (typeof window !== 'undefined' && window.Symbol && Symbol.iterator) {
       NL[Symbol.iterator] = NL.values = ArrayProto[Symbol.iterator]
     }
     var div = document.createElement('div')
