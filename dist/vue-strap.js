@@ -269,7 +269,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var blurEvent;
 	var blurList = [];
 	var Events = [];
-	var NodeListJSF = function NodeListJSF() {
+	var NodeListJS = function NodeListJS() {
 	  if (true) {
 	    var isNode = function isNode(val) {
 	      return val instanceof window.Node;
@@ -789,6 +789,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return _NodeListJS;
 	  }
 	};
+	
 	exports.default = NodeListJS();
 
 /***/ },
