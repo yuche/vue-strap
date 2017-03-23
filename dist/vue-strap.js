@@ -7043,7 +7043,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 160 */
 /***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -7064,10 +7064,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (this.$parent.indicator_list) {
 	      this.$parent.indicator_list.push(this.index);
 	    }
-	
-	    if (this.index === 0) {
-	      this.$el.classList.add('active');
-	    }
 	  }
 	};
 
@@ -7077,7 +7073,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {
-	    staticClass: "item"
+	    staticClass: "item",
+	    class: {
+	      active: _vm.show
+	    }
 	  }, [_vm._t("default")], 2)
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
