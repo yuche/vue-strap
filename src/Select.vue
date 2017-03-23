@@ -52,7 +52,7 @@ export default {
     clearButton: {type: Boolean, default: false},
     closeOnSelect: {type: Boolean, default: false},
     disabled: {type: Boolean, default: false},
-    lang: {type: String, default: navigator.language},
+    lang: {type: String, default: typeof navigator !== 'undefined'?navigator.language:"zh-CN"},
     limit: {type: Number, default: 1024},
     minSearch: {type: Number, default: 0},
     multiple: {type: Boolean, default: false},

@@ -4570,7 +4570,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    lang: {
 	      type: String,
-	      default: navigator.language
+	      default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN"
 	    }
 	  },
 	  data: function data() {
@@ -4692,7 +4692,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  props: {
 	    enterSubmit: { type: Boolean, default: false },
 	    icon: { type: Boolean, default: false },
-	    lang: { type: String, default: navigator.language },
+	    lang: { type: String, default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN" },
 	    value: null
 	  },
 	  data: function data() {
@@ -4898,7 +4898,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    hideHelp: { type: Boolean, default: true },
 	    icon: { type: Boolean, default: false },
 	    label: { type: String, default: null },
-	    lang: { type: String, default: navigator.language },
+	    lang: { type: String, default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN" },
 	    mask: null,
 	    maskDelay: { type: Number, default: 100 },
 	    match: { type: String, default: null },
@@ -6720,7 +6720,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    clearButton: { type: Boolean, default: false },
 	    closeOnSelect: { type: Boolean, default: false },
 	    disabled: { type: Boolean, default: false },
-	    lang: { type: String, default: navigator.language },
+	    lang: { type: String, default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN" },
 	    limit: { type: Number, default: 1024 },
 	    minSearch: { type: Number, default: 0 },
 	    multiple: { type: Boolean, default: false },

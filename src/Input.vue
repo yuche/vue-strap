@@ -79,7 +79,7 @@ export default {
     hideHelp: {type: Boolean, default: true},
     icon: {type: Boolean, default: false},
     label: {type: String, default: null},
-    lang: {type: String, default: navigator.language},
+    lang: {type: String, default: typeof navigator !== 'undefined'?navigator.language:"zh-CN"},
     mask: null,
     maskDelay: {type: Number, default: 100},
     match: {type: String, default: null},

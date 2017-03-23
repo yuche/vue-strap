@@ -7,7 +7,7 @@ export default {
   props: {
     enterSubmit: {type: Boolean, default: false},
     icon: {type: Boolean, default: false},
-    lang: {type: String, default: navigator.language},
+    lang: {type: String, default: typeof navigator !== 'undefined'?navigator.language:"zh-CN"},
     value: null
   },
   data () {
