@@ -4103,7 +4103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var _this = this;
 	
 	    this._blur = function (e) {
-	      if (!_this.$el.contains(e.target)) _this.close();
+	      if (_this.$el !== null && !_this.$el.contains(e.target)) _this.close();
 	    };
 	    this.$dispatch('child-created', this);
 	    this.currDate = this.parse(this.value) || this.parse(new Date());
@@ -6267,7 +6267,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return this.$parent && this.$parent._isAccordion;
 	    },
 	    panelType: function panelType() {
-	      return 'panel-' + (this.type || this.$parent && this.$parent.type || 'default');
+	      return 'panel panel-' + (this.type || this.$parent && this.$parent.type || 'default');
 	    }
 	  },
 	  methods: {
@@ -6322,7 +6322,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// </style>
 	// <template>
 	
-	//   <div class="panel {{panelType}}">
+	//   <div :class="panelType">
 	
 	//     <div :class="['panel-heading',{'accordion-toggle':inAccordion}]" @click.prevent="inAccordion&&toggle()">
 	
@@ -6363,7 +6363,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 159 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel {{panelType}}\">\r\n    <div :class=\"['panel-heading',{'accordion-toggle':inAccordion}]\" @click.prevent=\"inAccordion&&toggle()\">\r\n      <slot name=\"header\">\r\n        <h4 class=\"panel-title\">{{ header }}</h4>\r\n      </slot>\r\n    </div>\r\n    <div class=\"panel-collapse\"\r\n      v-el:panel\r\n      v-show=\"isOpen\"\r\n      transition=\"collapse\"\r\n    >\r\n      <div class=\"panel-body\">\r\n        <slot></slot>\r\n      </div>\r\n    </div>\r\n  </div>";
+	module.exports = "<div :class=\"panelType\">\r\n    <div :class=\"['panel-heading',{'accordion-toggle':inAccordion}]\" @click.prevent=\"inAccordion&&toggle()\">\r\n      <slot name=\"header\">\r\n        <h4 class=\"panel-title\">{{ header }}</h4>\r\n      </slot>\r\n    </div>\r\n    <div class=\"panel-collapse\"\r\n      v-el:panel\r\n      v-show=\"isOpen\"\r\n      transition=\"collapse\"\r\n    >\r\n      <div class=\"panel-body\">\r\n        <slot></slot>\r\n      </div>\r\n    </div>\r\n  </div>";
 
 /***/ },
 /* 160 */
@@ -6531,31 +6531,31 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//     <slot></slot>
 	
-	//   </span>
+	//     <div v-el:popover v-if="show"
 	
-	//   <div v-el:popover v-if="show"
+	//       :class="['popover',placement]"
 	
-	//     :class="['popover',placement]"
+	//       :transition="effect"
 	
-	//     :transition="effect"
+	//     >
 	
-	//   >
+	//       <div class="arrow"></div>
 	
-	//     <div class="arrow"></div>
+	//       <h3 class="popover-title" v-if="title">
 	
-	//     <h3 class="popover-title" v-if="title">
+	//         <slot name="title">{{title}}</slot>
 	
-	//       <slot name="title">{{title}}</slot>
+	//       </h3>
 	
-	//     </h3>
+	//       <div class="popover-content">
 	
-	//     <div class="popover-content">
+	//         <slot name="content">{{{content}}}</slot>
 	
-	//       <slot name="content">{{{content}}}</slot>
+	//       </div>
 	
 	//     </div>
 	
-	//   </div>
+	//   </span>
 	
 	// </template>
 	
@@ -6676,7 +6676,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 165 */
 /***/ function(module, exports) {
 
-	module.exports = "<span v-el:trigger>\r\n    <slot></slot>\r\n  </span>\r\n  <div v-el:popover v-if=\"show\"\r\n    :class=\"['popover',placement]\"\r\n    :transition=\"effect\"\r\n  >\r\n    <div class=\"arrow\"></div>\r\n    <h3 class=\"popover-title\" v-if=\"title\">\r\n      <slot name=\"title\">{{title}}</slot>\r\n    </h3>\r\n    <div class=\"popover-content\">\r\n      <slot name=\"content\">{{{content}}}</slot>\r\n    </div>\r\n  </div>";
+	module.exports = "<span v-el:trigger>\r\n    <slot></slot>\r\n    <div v-el:popover v-if=\"show\"\r\n      :class=\"['popover',placement]\"\r\n      :transition=\"effect\"\r\n    >\r\n      <div class=\"arrow\"></div>\r\n      <h3 class=\"popover-title\" v-if=\"title\">\r\n        <slot name=\"title\">{{title}}</slot>\r\n      </h3>\r\n      <div class=\"popover-content\">\r\n        <slot name=\"content\">{{{content}}}</slot>\r\n      </div>\r\n    </div>\r\n  </span>";
 
 /***/ },
 /* 166 */
@@ -8986,31 +8986,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// <template>
 	
-	//   <!-- Nav tabs -->
+	//   <div>
 	
-	//   <ul class="nav nav-{{navStyle}}" role="tablist">
+	//     <!-- Nav tabs -->
 	
-	//     <template v-for="t in headers">
+	//     <ul class="nav nav-{{navStyle}}" role="tablist">
 	
-	//       <li v-if="!t._tabgroup" :class="{active:t.active, disabled:t.disabled}" @click.prevent="select(t)">
+	//       <template v-for="t in headers">
 	
-	//         <a href="#"><slot name="header">{{{t.header}}}</slot></a>
+	//         <li v-if="!t._tabgroup" :class="{active:t.active, disabled:t.disabled}" @click.prevent="select(t)">
 	
-	//       </li>
+	//           <a href="#"><slot name="header">{{{t.header}}}</slot></a>
 	
-	//       <dropdown v-else :text="t.header" :class="{active:t.active}" :disabled="t.disabled">
+	//         </li>
 	
-	//         <li v-for="tab in t.tabs" :class="{disabled:tab.disabled}"><a href="#" @click.prevent="select(tab)">{{tab.header}}</a></li>
+	//         <dropdown v-else :text="t.header" :class="{active:t.active}" :disabled="t.disabled">
 	
-	//       </dropdown>
+	//           <li v-for="tab in t.tabs" :class="{disabled:tab.disabled}"><a href="#" @click.prevent="select(tab)">{{tab.header}}</a></li>
 	
-	//     </template>
+	//         </dropdown>
 	
-	//   </ul>
+	//       </template>
 	
-	//   <div class="tab-content" v-el:tab-content>
+	//     </ul>
 	
-	//     <slot></slot>
+	//     <div class="tab-content" v-el:tab-content>
+	
+	//       <slot></slot>
+	
+	//     </div>
 	
 	//   </div>
 	
@@ -9083,7 +9087,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 214 */
 /***/ function(module, exports) {
 
-	module.exports = "<!-- Nav tabs -->\n  <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-e8aecb90=\"\">\n    <template v-for=\"t in headers\" _v-e8aecb90=\"\">\n      <li v-if=\"!t._tabgroup\" :class=\"{active:t.active, disabled:t.disabled}\" @click.prevent=\"select(t)\" _v-e8aecb90=\"\">\n        <a href=\"#\" _v-e8aecb90=\"\"><slot name=\"header\" _v-e8aecb90=\"\">{{{t.header}}}</slot></a>\n      </li>\n      <dropdown v-else=\"\" :text=\"t.header\" :class=\"{active:t.active}\" :disabled=\"t.disabled\" _v-e8aecb90=\"\">\n        <li v-for=\"tab in t.tabs\" :class=\"{disabled:tab.disabled}\" _v-e8aecb90=\"\"><a href=\"#\" @click.prevent=\"select(tab)\" _v-e8aecb90=\"\">{{tab.header}}</a></li>\n      </dropdown>\n    </template>\n  </ul>\n  <div class=\"tab-content\" v-el:tab-content=\"\" _v-e8aecb90=\"\">\n    <slot _v-e8aecb90=\"\"></slot>\n  </div>";
+	module.exports = "<div _v-e8aecb90=\"\">\n    <!-- Nav tabs -->\n    <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-e8aecb90=\"\">\n      <template v-for=\"t in headers\" _v-e8aecb90=\"\">\n        <li v-if=\"!t._tabgroup\" :class=\"{active:t.active, disabled:t.disabled}\" @click.prevent=\"select(t)\" _v-e8aecb90=\"\">\n          <a href=\"#\" _v-e8aecb90=\"\"><slot name=\"header\" _v-e8aecb90=\"\">{{{t.header}}}</slot></a>\n        </li>\n        <dropdown v-else=\"\" :text=\"t.header\" :class=\"{active:t.active}\" :disabled=\"t.disabled\" _v-e8aecb90=\"\">\n          <li v-for=\"tab in t.tabs\" :class=\"{disabled:tab.disabled}\" _v-e8aecb90=\"\"><a href=\"#\" @click.prevent=\"select(tab)\" _v-e8aecb90=\"\">{{tab.header}}</a></li>\n        </dropdown>\n      </template>\n    </ul>\n    <div class=\"tab-content\" v-el:tab-content=\"\" _v-e8aecb90=\"\">\n      <slot _v-e8aecb90=\"\"></slot>\n    </div>\n  </div>";
 
 /***/ },
 /* 215 */
@@ -9247,25 +9251,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	//     <slot></slot>
 	
+	//     <div v-el:popover v-if="show" style="display:block;"
+	
+	//       :class="['tooltip',placement]"
+	
+	//       :transition="effect"
+	
+	//     >
+	
+	//       <div class="tooltip-arrow"></div>
+	
+	//       <div class="tooltip-inner">
+	
+	//         <slot name="content">{{{content}}}</slot>
+	
+	//     </div>
+	
+	//     </div>
+	
 	//   </span>
-	
-	//   <div v-el:popover v-if="show" style="display:block;"
-	
-	//     :class="['tooltip',placement]"
-	
-	//     :transition="effect"
-	
-	//   >
-	
-	//     <div class="tooltip-arrow"></div>
-	
-	//     <div class="tooltip-inner">
-	
-	//       <slot name="content">{{{content}}}</slot>
-	
-	//    </div>
-	
-	//   </div>
 	
 	// </template>
 	
@@ -9276,7 +9280,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 219 */
 /***/ function(module, exports) {
 
-	module.exports = "<span v-el:trigger>\r\n    <slot></slot>\r\n  </span>\r\n  <div v-el:popover v-if=\"show\" style=\"display:block;\"\r\n    :class=\"['tooltip',placement]\"\r\n    :transition=\"effect\"\r\n  >\r\n    <div class=\"tooltip-arrow\"></div>\r\n    <div class=\"tooltip-inner\">\r\n      <slot name=\"content\">{{{content}}}</slot>\r\n   </div>\r\n  </div>";
+	module.exports = "<span v-el:trigger>\r\n    <slot></slot>\r\n    <div v-el:popover v-if=\"show\" style=\"display:block;\"\r\n      :class=\"['tooltip',placement]\"\r\n      :transition=\"effect\"\r\n    >\r\n      <div class=\"tooltip-arrow\"></div>\r\n      <div class=\"tooltip-inner\">\r\n        <slot name=\"content\">{{{content}}}</slot>\r\n    </div>\r\n    </div>\r\n  </span>";
 
 /***/ },
 /* 220 */
