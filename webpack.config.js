@@ -38,7 +38,7 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins:[
-    new ExtractTextPlugin('dist/styles.[hash].css')
+    new ExtractTextPlugin('dist/styles.[hash:4].css')
   ]
 };
 
