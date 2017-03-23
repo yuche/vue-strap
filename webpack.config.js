@@ -27,18 +27,18 @@ module.exports = {
       {test: /\.less$/, loader: "style-loader!css-loader!less-loader"},
     ]
   },
-  vue: {
-    loaders: {
-      css: ExtractTextPlugin.extract('css')
-    },
-  },
+  // vue: {
+  //   loaders: {
+  //     css: ExtractTextPlugin.extract('css')
+  //   },
+  // },
   babel: {
     presets: ['es2015'],
     plugins: ['transform-runtime']
   },
   devtool: 'source-map',
   plugins:[
-    new ExtractTextPlugin('dist/styles.[hash:4].css')
+    // new ExtractTextPlugin('dist/styles.[hash:4].css')
   ]
 };
 
