@@ -47,7 +47,7 @@
     "sass-loader": "^3.2.3",
     "style-loader": "^0.13.1",
     "vue-hot-reload-api": "^2.0.0",
-    "vue-html-loader": "^1.2.3",
+    "vue-html-loader": "^1.2.4",
     "vue-loader": "^11.2.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.0"
