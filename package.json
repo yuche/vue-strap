@@ -15,8 +15,9 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "vue": "^2.1.0",
-    "vue-template-compiler": "^2.1.0",
-    "vue-resource": "^1.0.3"
+    "vue-loader": "^11.3.1",
+    "vue-resource": "^1.0.3",
+    "vue-template-compiler": "^2.1.0"
   },
   "files": [
     "LICENSE",
@@ -40,6 +41,7 @@
     "babel-runtime": "^6.0.0",
     "css-loader": "^0.21.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "json-loader": "^0.5.4",
     "less": "^2.7.0",
     "less-loader": "^2.2.3",
     "marked": "^0.3.6",
@@ -49,7 +51,6 @@
     "style-loader": "^0.13.1",
     "vue-hot-reload-api": "^2.0.0",
     "vue-html-loader": "^1.2.4",
-    "vue-loader": "git://github.com/shaoxiong789/vue-loader.git#shaoxiong-pr",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.0"
   },
@@ -70,8 +71,8 @@
   },
   "scripts": {
     "docs": "webpack-dev-server --inline --hot --quiet",
-    "builddocs": "rm -rf docs && webpack --progress --hide-modules && set NODE_ENV=production webpack --progress --hide-modules",
-    "build": "rm -rf dist && webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js",
+    "builddocs": "webpack --progress --hide-modules && set NODE_ENV=production webpack --progress --hide-modules",
+    "build": "webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js",
     "version": "npm run build && git add -A dist",
     "postversion": "git push && git push --tags"
   },
