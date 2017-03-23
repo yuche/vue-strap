@@ -1,16 +1,16 @@
 <template>
   <span v-el:trigger>
     <slot></slot>
+    <div v-el:popover v-if="show" style="display:block;"
+      :class="['tooltip',placement]"
+      :transition="effect"
+    >
+      <div class="tooltip-arrow"></div>
+      <div class="tooltip-inner">
+        <slot name="content">{{{content}}}</slot>
+    </div>
+    </div>
   </span>
-  <div v-el:popover v-if="show" style="display:block;"
-    :class="['tooltip',placement]"
-    :transition="effect"
-  >
-    <div class="tooltip-arrow"></div>
-    <div class="tooltip-inner">
-      <slot name="content">{{{content}}}</slot>
-   </div>
-  </div>
 </template>
 
 <script>
