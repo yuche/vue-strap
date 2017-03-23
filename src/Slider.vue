@@ -1,4 +1,4 @@
-<template><div class="item" v-bind:class="{active:show}"><slot></slot></div></template>
+<template><div class="item active"><slot></slot></div></template>
 
 <script>
 export default {
@@ -9,6 +9,10 @@ export default {
   mounted () {
     if (this.$parent.indicator_list) {
       this.$parent.indicator_list.push(this.index)
+    }
+
+    if (this.index === 0) {
+      this.$el.classList.add('active')
     }
   }
 }
