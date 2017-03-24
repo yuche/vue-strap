@@ -111,13 +111,6 @@ export default {
   },
   computed: {
     canValidate () { return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null) },
-    errorText () {
-      let value = this.value
-      let error = [this.error]
-      if (!value && this.required) error.push('(' + this.text().required.toLowerCase() + ')')
-      if (value && (value.length < this.minlength)) error.push('(' + this.text().minLength.toLowerCase() + ': ' + this.minlength + ')')
-      return error.join(' ')
-    },
     id_datalist () {
       if (this.type !== 'textarea' && this.datalist instanceof Array) {
         if (!this._id_datalist) {
@@ -171,6 +164,14 @@ export default {
     }
   },
   methods: {
+    title () { return this.errorText() || this.help || '' },
+    errorText () {
+      let value = this.value
+      let error = [this.error]
+      if (!value && this.required) error.push('(' + this.text().required.toLowerCase() + ')')
+      if (value && (value.length < this.minlength)) error.push('(' + this.text().minLength.toLowerCase() + ': ' + this.minlength + ')')
+      return error.join(' ')
+    },
     text () { return translations(this.lang) },
     attr (value) {
       return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value
