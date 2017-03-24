@@ -133,7 +133,7 @@ export default {
     regex () { return coerce.pattern(this.pattern) },
     showError () { return this.error && this.valid === false },
     showHelp () { return this.help && (!this.showError || !this.hideHelp) },
-    text () { if(typeof window !== 'undefined')return translations(this.lang) },
+    text () { return translations(this.lang) },
     title () { return this.errorText || this.help || '' }
   },
   watch: {
