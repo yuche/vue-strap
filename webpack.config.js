@@ -1,6 +1,6 @@
 var webpack = require('webpack')
 var path = require('path')
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
   entry: './docs/index.js',
   output: {
@@ -33,9 +33,7 @@ module.exports = {
     plugins: ['transform-runtime']
   },
   devtool: 'source-map',
-  plugins:[
-    // new ExtractTextPlugin('dist/styles.[hash:4].css')
-  ]
+  plugins:[]
 };
 
 
