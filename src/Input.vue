@@ -114,8 +114,8 @@ export default {
     errorText () {
       let value = this.value
       let error = [this.error]
-      if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')')
-      if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')
+      if (!value && this.required) error.push('(' + this.text().required.toLowerCase() + ')')
+      if (value && (value.length < this.minlength)) error.push('(' + this.text().minLength.toLowerCase() + ': ' + this.minlength + ')')
       return error.join(' ')
     },
     id_datalist () {
@@ -133,7 +133,6 @@ export default {
     regex () { return coerce.pattern(this.pattern) },
     showError () { return this.error && this.valid === false },
     showHelp () { return this.help && (!this.showError || !this.hideHelp) },
-    text () { return translations(this.lang) },
     title () { return this.errorText || this.help || '' }
   },
   watch: {
@@ -172,6 +171,7 @@ export default {
     }
   },
   methods: {
+    text () { return translations(this.lang) },
     attr (value) {
       return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value
     },
