@@ -23,6 +23,7 @@
 
       var alert = require('vue-strap/src/alert');
       // or
+      require('vue-strap/dist/vue-strap.css');
       var alert = require('vue-strap').alert;
 
       new Vue({
@@ -37,6 +38,7 @@
 
       import alert from 'vue-strap/src/alert'
       // or
+      from 'vue-strap/dist/vue-strap.css'
       import { alert } from 'vue-strap'
 
       new Vue({
@@ -62,6 +64,7 @@
       &lt;v-select :options="options">&lt;/v-select>
 
       &lt;script src="path/to/vue.js">&lt;/script>
+      &lt;link href="dist/vue-strap.css" rel="stylesheet">&lt;/head>
       &lt;script src="path/to/vue-strap.js">&lt;/script>
       &lt;script>
         new Vue({

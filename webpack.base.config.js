@@ -39,7 +39,7 @@ module.exports = {
     }
   },
   plugins:[
-    new ExtractTextPlugin('dist/css/style.css', {
+    new ExtractTextPlugin('dist/vue-strap.css', {
       allChunks: true,
     })
   ]
