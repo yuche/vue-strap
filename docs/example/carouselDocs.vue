@@ -63,7 +63,7 @@
         </p>
       </div>
     </doc-table>
-  </div>
+  </doc-section>
 </template>
 
 <script>

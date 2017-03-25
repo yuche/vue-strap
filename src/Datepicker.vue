@@ -81,7 +81,7 @@ export default {
     disabledDaysOfWeek: {type: Array, default () { return [] }},
     width: {type: String},
     clearButton: {type: Boolean, default: false},
-    lang: {type: String, default: navigator.language},
+    lang: {type: String, default: typeof navigator !== 'undefined'?navigator.language:"zh-CN"},
     placeholder: {type: String},
     iconsFont: {type: String, default: 'glyphicon'}
   },

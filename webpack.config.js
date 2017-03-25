@@ -16,7 +16,8 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.vue$/, loader: 'vue' },
+      {test: /\.json$/, loader: 'json-loader' },
+      {test: /\.vue$/, loader: 'vue-loader' },
       {
       	test: /\.js$/,
         exclude: /node_modules|vue\/src|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
@@ -31,7 +32,8 @@ module.exports = {
     presets: ['es2015'],
     plugins: ['transform-runtime']
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
+  plugins:[]
 };
 
 

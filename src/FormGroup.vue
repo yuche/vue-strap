@@ -19,7 +19,7 @@ export default {
     },
     lang: {
       type: String,
-      default: navigator.language
+      default: typeof navigator !== 'undefined'?navigator.language:"zh-CN"
     },
   },
   data () {

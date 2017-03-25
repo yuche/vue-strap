@@ -92,7 +92,7 @@ export function translations (lang = 'en') {
     required: 'Required',
     search: 'Search'
   }
-  return window.VueStrapLang ? window.VueStrapLang(lang) : text
+  return typeof window !== 'undefined'&&window.VueStrapLang ? window.VueStrapLang(lang) : text
 }
 
 // delayer: set a function that execute after a delay

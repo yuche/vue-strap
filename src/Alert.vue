@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div v-show="val" :class="['alert', 'alert-'+type, placement]" :style="{width:width}" role="alert">
+    <div v-show="val" v-bind:class="['alert', 'alert-'+type, placement]" v-bind:style="{width:width}" role="alert">
       <button v-show="dismissable" type="button" class="close" @click="val = false">
         <span>&times;</span>
       </button>

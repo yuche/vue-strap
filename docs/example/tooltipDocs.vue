@@ -4,7 +4,7 @@
       <tooltip v-for="place in ['top','left','right','bottom']" header content="Lorem ipsum dolor sit amet" :placement="place">
         <button class="btn btn-default">Popover on {{place}}</button>
       </tooltip>
-      <hr>
+      <hr />
       <h4>Trigger</h4>
       <p>
         <tooltip effect="scale" content="Lorem ipsum dolor sit amet" placement="top" trigger="click">
@@ -21,7 +21,7 @@
     <doc-code language="markup">
       &lt;tooltip effect="scale" placement="bottom" content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
         &lt;button class="btn btn-default">tooltip on bottom&lt;/button>
-      &lt;/tooltip>
+      &lt;/tooltip
     </doc-code>
     <doc-table>
       <div>
@@ -35,6 +35,7 @@
         <p><code>String</code>, one of <code>scale</code> <code>fadein</code></p>
         <p><code>scale</code></p>
         <p></p>
+      </div>
       <div>
         <p>content</p>
         <p><code>String</code></p>
@@ -51,7 +52,7 @@
         <p>How to position the tooltip.</p>
       </div>
     </doc-table>
-  </div>
+  </doc-section>
 </template>
 
 <script>
