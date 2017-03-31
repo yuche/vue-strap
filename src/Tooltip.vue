@@ -7,7 +7,7 @@
     >
       <div class="tooltip-arrow"></div>
       <div class="tooltip-inner">
-        <slot name="content">{{content}}</slot>
+        <slot name="content" v-html="content"></slot>
     </div>
     </div>
   </span>
