@@ -38,7 +38,7 @@ export default {
       return this.size ? 'spinner-' + this.size : 'spinner-sm'
     }
   },
-  ready () {
+  created() {
     this._body = document.querySelector('body')
     this._bodyOverflow = this._body.style.overflowY || ''
   },
