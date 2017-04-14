@@ -1,17 +1,8 @@
 .DS_Store
 node_modules
-<<<<<<< HEAD
-<<<<<<< HEAD
 =======
 build/
->>>>>>> master
-=======
->>>>>>> master
 npm-debug.log
 static
 build
 .idea
-
-vue-strap.sublime-project
-
-vue-strap.sublime-workspace
