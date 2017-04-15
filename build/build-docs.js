@@ -9408,7 +9408,7 @@
 	//     <ul class="nav nav-{{navStyle}}" role="tablist">
 	//       <template v-for="t in headers">
 	//         <li v-if="!t._tabgroup" :class="{active:t.active, disabled:t.disabled}" @click.prevent="select(t)">
-	//           <a href="#"><slot name="header">{{{t.header}}}</slot></a>
+	//           <a href="#"><slot name="header" v-html="t.header"></slot></a>
 	//         </li>
 	//         <dropdown v-else :text="t.header" :class="{active:t.active}" :disabled="t.disabled">
 	//           <li v-for="tab in t.tabs" :class="{disabled:tab.disabled}"><a href="#" @click.prevent="select(tab)">{{tab.header}}</a></li>
@@ -9482,7 +9482,7 @@
 /* 271 */
 /***/ function(module, exports) {
 
-	module.exports = "<div _v-365a3e60=\"\">\n    <!-- Nav tabs -->\n    <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-365a3e60=\"\">\n      <template v-for=\"t in headers\" _v-365a3e60=\"\">\n        <li v-if=\"!t._tabgroup\" :class=\"{active:t.active, disabled:t.disabled}\" @click.prevent=\"select(t)\" _v-365a3e60=\"\">\n          <a href=\"#\" _v-365a3e60=\"\"><slot name=\"header\" _v-365a3e60=\"\">{{{t.header}}}</slot></a>\n        </li>\n        <dropdown v-else=\"\" :text=\"t.header\" :class=\"{active:t.active}\" :disabled=\"t.disabled\" _v-365a3e60=\"\">\n          <li v-for=\"tab in t.tabs\" :class=\"{disabled:tab.disabled}\" _v-365a3e60=\"\"><a href=\"#\" @click.prevent=\"select(tab)\" _v-365a3e60=\"\">{{tab.header}}</a></li>\n        </dropdown>\n      </template>\n    </ul>\n    <div class=\"tab-content\" v-el:tab-content=\"\" _v-365a3e60=\"\">\n      <slot _v-365a3e60=\"\"></slot>\n    </div>\n  </div>";
+	module.exports = "<div _v-365a3e60=\"\">\n    <!-- Nav tabs -->\n    <ul class=\"nav nav-{{navStyle}}\" role=\"tablist\" _v-365a3e60=\"\">\n      <template v-for=\"t in headers\" _v-365a3e60=\"\">\n        <li v-if=\"!t._tabgroup\" :class=\"{active:t.active, disabled:t.disabled}\" @click.prevent=\"select(t)\" _v-365a3e60=\"\">\n          <a href=\"#\" _v-365a3e60=\"\"><slot name=\"header\" v-html=\"t.header\" _v-365a3e60=\"\"></slot></a>\n        </li>\n        <dropdown v-else=\"\" :text=\"t.header\" :class=\"{active:t.active}\" :disabled=\"t.disabled\" _v-365a3e60=\"\">\n          <li v-for=\"tab in t.tabs\" :class=\"{disabled:tab.disabled}\" _v-365a3e60=\"\"><a href=\"#\" @click.prevent=\"select(tab)\" _v-365a3e60=\"\">{{tab.header}}</a></li>\n        </dropdown>\n      </template>\n    </ul>\n    <div class=\"tab-content\" v-el:tab-content=\"\" _v-365a3e60=\"\">\n      <slot _v-365a3e60=\"\"></slot>\n    </div>\n  </div>";
 
 /***/ },
 /* 272 */
@@ -11002,7 +11002,7 @@
 	//         <slot name="title">{{title}}</slot>
 	//       </h3>
 	//       <div class="popover-content">
-	//         <slot name="content">{{{content}}}</slot>
+	//         <slot name="content" v-html="content"></slot>
 	//       </div>
 	//     </div>
 	//   </span>
@@ -11014,7 +11014,7 @@
 /* 300 */
 /***/ function(module, exports) {
 
-	module.exports = "<span v-el:trigger>\n    <slot></slot>\n    <div v-el:popover v-if=\"show\"\n      :class=\"['popover',placement]\"\n      :transition=\"effect\"\n    >\n      <div class=\"arrow\"></div>\n      <h3 class=\"popover-title\" v-if=\"title\">\n        <slot name=\"title\">{{title}}</slot>\n      </h3>\n      <div class=\"popover-content\">\n        <slot name=\"content\">{{{content}}}</slot>\n      </div>\n    </div>\n  </span>";
+	module.exports = "<span v-el:trigger>\n    <slot></slot>\n    <div v-el:popover v-if=\"show\"\n      :class=\"['popover',placement]\"\n      :transition=\"effect\"\n    >\n      <div class=\"arrow\"></div>\n      <h3 class=\"popover-title\" v-if=\"title\">\n        <slot name=\"title\">{{title}}</slot>\n      </h3>\n      <div class=\"popover-content\">\n        <slot name=\"content\" v-html=\"content\"></slot>\n      </div>\n    </div>\n  </span>";
 
 /***/ },
 /* 301 */

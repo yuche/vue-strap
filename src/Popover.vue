@@ -10,7 +10,7 @@
         <slot name="title">{{title}}</slot>
       </h3>
       <div class="popover-content">
-        <slot name="content">{{{content}}}</slot>
+        <slot name="content" v-html="content"></slot>
       </div>
     </div>
   </span>
