@@ -48,21 +48,6 @@
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.0"
   },
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015"
-          ]
-        }
-      ],
-      [
-        "vueify"
-      ]
-    ]
-  },
   "scripts": {
     "build": "webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js",
     "builddocs": "webpack --progress --hide-modules && set NODE_ENV=production webpack --progress --hide-modules",
