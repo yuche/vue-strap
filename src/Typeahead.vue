@@ -4,6 +4,8 @@
       v-model="val"
       :placeholder="placeholder"
       :type.once="type"
+      :id.once="id"
+      :name.once="name"
       @blur="showDropdown = false"
       @keydown.down.prevent="down"
       @keydown.enter="hit"
@@ -30,9 +32,11 @@ export default {
     data: {type: Array},
     delay: {type: Number, default: DELAY},
     asyncKey: {type: String, default: null},
+    id: {type: String},
     limit: {type: Number, default: 8},
     matchCase: {type: Boolean, default: false},
     matchStart: {type: Boolean, default: false},
+    name: {type: String},
     onHit: {
       type: Function,
       default (item) { return item }
