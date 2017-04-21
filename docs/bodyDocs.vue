@@ -35,6 +35,7 @@
             <select-docs></select-docs>
             <spinner-docs></spinner-docs>
             <tabs-docs></tabs-docs>
+            <tagsinput-docs></tagsinput-docs>
             <toggle-button-docs></toggle-button-docs>
             <tooltip-docs></tooltip-docs>
             <typeahead-docs></typeahead-docs>
@@ -87,6 +88,7 @@ import radioDocs from './example/radioDocs.vue'
 import selectDocs from './example/selectDocs.vue'
 import spinnerDocs from './example/spinnerDocs.vue'
 import tabsDocs from './example/tabsDocs.vue'
+import tagsinputDocs from './example/tagsinputDocs.vue'
 import toggleButtonDocs from './example/toggleButtonDocs.vue'
 import tooltipDocs from './example/tooltipDocs.vue'
 import typeaheadDocs from './example/typeaheadDocs.vue'
@@ -115,6 +117,7 @@ export default {
     selectDocs,
     spinnerDocs,
     tabsDocs,
+    tagsinputDocs,
     toggleButtonDocs,
     tooltipDocs,
     typeaheadDocs

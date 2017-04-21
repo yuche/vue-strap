@@ -182,12 +182,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _Typeahead2 = _interopRequireDefault(_Typeahead);
 	
+	var _Tagsinput = __webpack_require__(209);
+	
+	var _Tagsinput2 = _interopRequireDefault(_Tagsinput);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// Components
-	
-	// Directives
-	// Utils
 	var VueStrap = {
 	  directives: {
 	    ClickOutside: _ClickOutside2.default,
@@ -225,8 +225,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  tabs: _Tabs2.default,
 	  toggleButton: _ToggleButton2.default,
 	  tooltip: _Tooltip2.default,
-	  typeahead: _Typeahead2.default
+	  typeahead: _Typeahead2.default,
+	  tagsinput: _Tagsinput2.default
 	};
+	// Components
+	
+	// Directives
+	// Utils
+	
 	
 	module.exports = VueStrap;
 
@@ -9771,6 +9777,500 @@ return /******/ (function(modules) { // webpackBootstrap
 	  module.hot.accept()
 	  if (module.hot.data) {
 	     require("vue-hot-reload-api").rerender("data-v-7962fcb0", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 209 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	
+	/* styles */
+	__webpack_require__(210)
+	
+	var Component = __webpack_require__(70)(
+	  /* script */
+	  __webpack_require__(212),
+	  /* template */
+	  __webpack_require__(214),
+	  /* scopeId */
+	  null,
+	  /* cssModules */
+	  null
+	)
+	Component.options.__file = "Z:\\WWWROOT\\vue-strap\\src\\Tagsinput.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] Tagsinput.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-b61b459c", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-b61b459c", Component.options)
+	  }
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 210 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(211);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	if(content.locals) module.exports = content.locals;
+	// add the styles to the DOM
+	var update = __webpack_require__(80)("2ceaff6d", content, false);
+	// Hot Module Replacement
+	if(false) {
+	 // When the styles change, update the <style> tags
+	 if(!content.locals) {
+	   module.hot.accept("!!../node_modules/css-loader/index.js?sourceMap!../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-b61b459c\",\"scoped\":false,\"hasInlineConfig\":false}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Tagsinput.vue", function() {
+	     var newContent = require("!!../node_modules/css-loader/index.js?sourceMap!../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-b61b459c\",\"scoped\":false,\"hasInlineConfig\":false}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Tagsinput.vue");
+	     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+	     update(newContent);
+	   });
+	 }
+	 // When the module is disposed, remove the <style> tags
+	 module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 211 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(79)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* tagsinput */\n.tagsinput {\n\tmin-height:37px;\n\theight:auto !important;\n\tpadding:3px 12px;\n}\n.tagsinput input {\n\tposition:relative;\n\ttop:2px;\n\tborder:none;\n\tbackground-color:transparent;\n}\n.tagsinput input:focus {\n\toutline:none;\n}\n.tagsinput.active {\n\tborder-color:#66afe9;\n\tbox-shadow:0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,.6);\n}\n/* tag-labels */\n.tagsinput .tag.label {\n\tmargin: 2px 5px 2px 0px;\n\tdisplay:inline-block;\n\tpadding:7px 5px 3px;\n}\n.tagsinput .tag.label .dismissable {\n\tdisplay:inline-block;\n\twidth:15px;\n\theight:15px;\n\tcolor:black;\n\tmargin-left:5px;\n\tcursor:pointer;\n}\n.tagsinput .tag.label .dismissable:after {\n\tcontent: \"x\";\n}\n/* dropdown menu */\n.tagsinput .dropdown-menu > li > a {\n  cursor: pointer;\n}\n", "", {"version":3,"sources":["/./src/Tagsinput.vue?09c5dd38"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAyPA,eAAA;AACA;CACA,gBAAA;CACA,uBAAA;CACA,iBAAA;CACA;AACA;CACA,kBAAA;CACA,QAAA;CACA,YAAA;CACA,6BAAA;CACA;AACA;CACA,aAAA;CACA;AACA;CACA,qBAAA;CACA,qEAAA;CACA;AACA,gBAAA;AACA;CACA,wBAAA;CACA,qBAAA;CACA,oBAAA;CACA;AACA;CACA,qBAAA;CACA,WAAA;CACA,YAAA;CACA,YAAA;CACA,gBAAA;CACA,eAAA;CACA;AACA;CACA,aAAA;CACA;AACA,mBAAA;AACA;EACA,gBAAA;CACA","file":"Tagsinput.vue","sourcesContent":["<template>\r\n\t<div class=\"tagsinput form-control\" @click=\"focus\" :class=\"{ active : active, open : showDropdown }\" style=\"position:relative;\">\r\n\t\t<span v-for=\"(tag, i) in tags\" class=\"tag label label-info\">\r\n\t\t\t<component :is=\"tagscomponent\" :tag=\"tag\" @remove=\"removeTag(i)\"></component>\r\n\t\t</span>\r\n\t\t<input  type=\"text\"\r\n\t\t\tref=\"taginput\"\r\n\t\t\tv-model=\"tagvalue\" \r\n\t\t\t:id.once=\"id\"\r\n\t\t\t:placeholder=\"placeholder\" \r\n\t\t\t:size=\"size\" \r\n\t\t\t@keydown=\"keyTag\" \r\n\t\t\t@blur=\"blur\"\r\n\t\t\t@keydown.enter.prevent=\"hit\"\r\n\t\t\t@keydown.down.prevent=\"down\"\r\n\t\t\t@keydown.esc=\"reset\"\r\n\t\t\t@keydown.up.prevent=\"up\"\r\n\t\t/>\r\n\t\t<ul v-if=\"typeahead\" class=\"typeahead dropdown-menu\" ref=\"dropdown\">\r\n\t\t\t<li v-for=\"(item, i) in items\" :class=\"{active: isActive(i)}\">\r\n\t\t\t\t<a @mousedown.prevent=\"hit\" @mousemove=\"setActive(i)\">\r\n\t\t\t\t\t<component :is=\"typeaheadcomponent\" :item=\"item\"></component>\r\n\t\t\t\t</a>\r\n\t\t\t</li>\r\n\t\t</ul>\r\n\t\t<textarea style=\"display:none;\" \r\n\t\t    v-text=\"val\"\r\n\t\t\t:name.once=\"name\"\r\n\t\t></textarea>\r\n\t</div>\r\n</template>\r\n\r\n<script>\r\n\r\n\timport {delayer, getJSON} from './utils/utils.js'\r\n\r\n\tconst SIZE = 7;\r\n\tconst DELAY = 300;\r\n\tconst LIMIT = 8;\r\n\r\n\texport default {\r\n\r\n\t\tmounted : function() {\r\n\t\t\t// preset tags\r\n\t\t\tif (this.val) {\r\n\t\t\t\tif (this.quote) {\r\n\t\t\t\t\tthis.tags = this.val.substr(1,this.val.length-2).split(\"','\");\r\n\t\t\t\t} else {\r\n            \t\tthis.tags = this.val.split(',');\r\n            \t}\r\n            }\r\n            // is typeahead\r\n            if (this.data || this.async) {\r\n            \tthis.typeahead = true;\r\n            }\r\n        },\r\n\r\n\t\tprops : {\r\n\t\t\tdata: { type : Array },\r\n\t\t\tid: { type : String },\r\n\t\t\tname : { type : String },\r\n\t\t\tplaceholder : {type: String },\r\n\t\t\tvalue :  { type : String, default : '' },\r\n\t\t\tquote : { type : Boolean, default : false },\r\n\t\t\t// typeahead\r\n\t\t\tonHit: {\r\n\t\t\t\ttype: Function,\r\n\t\t\t\tdefault (item) { return item }\r\n\t\t\t},\r\n\t\t\tasync : { type : String },\r\n\t\t\tdata : { type : Array },\r\n\t\t\tdelay : { type : Number, default : DELAY },\r\n\t\t\tasyncKey : { type : String, default : null },\r\n\t\t\ttemplate: {type: String},\r\n\t\t\tlimit : { type : Number, default : LIMIT},\r\n\t\t\tmatchCase : { type : Boolean, default : false },\r\n\t\t\tmatchStart : { type : Boolean, default : false }\r\n\t\t},\r\n\r\n\t\tdata : function() {\r\n\t\t\treturn {\r\n\t\t\t\tactive : false,\r\n\t\t\t\tval : this.value,\r\n\t\t\t\ttags : [],\r\n\t\t\t\tsize : SIZE,\r\n\t\t\t\ttagvalue : '',\r\n\t\t\t\t// typeahead\r\n\t\t\t\ttypeahead : false,\r\n\t\t\t\titems : [],\r\n\t\t\t\tasign : '',\r\n\t\t\t\tshowDropdown : false,\r\n\t\t\t\tnoResults : true,\r\n\t\t\t\tcurrent : 0\r\n\t\t\t}\r\n\t\t},\r\n\r\n\t\twatch : {\r\n\t\t\ttags : function() {\r\n\t\t\t\tif (this.quote) {\r\n\t\t\t\t\tthis.val = \"'\" + this.tags.join(\"','\") + \"'\";\r\n\t\t\t\t} else {\r\n\t\t\t\t\tthis.val = this.tags.toString();\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\ttagvalue : function(val, old) {\r\n\t\t\t\tif (val !== old && val !== this.asign) this.__update();\r\n\t\t\t}\r\n\t\t},\r\n\r\n\t\tcomputed : {\r\n\t\t\ttagscomponent : function() {\r\n\t\t\t\treturn {\r\n\t\t\t\t\ttemplate : '<span>{{ tag }}<span class=\"dismissable\" @click=\"$emit(\\'remove\\')\"></span></span>',\r\n\t\t\t\t\tprops : { tag : { type: String, default: 'Washington' } }\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\ttypeaheadcomponent : function() {\r\n\t\t\t\treturn {\r\n\t\t\t\t\ttemplate: typeof this.template === 'string' ? '<span>' + this.template + '</span>' : '<strong v-html=\"item\"></strong>',\r\n\t\t\t\t\tprops: { item: {default: null} }\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t},\r\n\r\n\t\tmethods : {\r\n\t\t\tgetDelay : function() {\r\n\t\t\t\treturn this.delay;\r\n\t\t\t},\r\n\t\t\tfocus : function(e) {\r\n\t\t\t\tthis.$refs.taginput.focus();\r\n\t\t\t\tthis.active = true;\r\n\t\t\t},\r\n\t\t\tblur : function() {\r\n\t\t\t\tthis.addTag();\r\n\t\t\t\tthis.active = false;\r\n\t\t\t\t// typeahead\r\n\t\t\t\tthis.showDropdown = false;\r\n\t\t\t},\r\n\t\t\thit : function() {\r\n\t\t\t\t// typeahead\r\n\t\t\t\tif (this.showDropdown) {\r\n\t\t\t\t\tthis.setValue(this.onHit(this.items[this.current], this));\r\n\t\t\t\t} else {\r\n\t\t\t\t\tthis.addTag();\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\tremoveTag : function(tagindex) {\r\n\t\t\t\tif (this.tags[tagindex]) {\r\n\t\t\t\t\tthis.tags.splice(tagindex,1);\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\tkeyTag : function(e) {\r\n\t\t\t\t// filter (up/down/left/right)\r\n\t\t\t\tif (e.keyCode >= 37 && e.keyCode <= 40) {\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\t// backspace\r\n\t\t\t\tif (e.keyCode == 8) {\r\n\t\t\t\t\tif (this.size > SIZE) {\r\n\t\t\t\t\t\tthis.size--;\r\n\t\t\t\t\t} else if (this.tags.length > 0) {\r\n\t\t\t\t\t\tthis.removeTag(this.tags.length-1);\r\n\t\t\t\t\t\tthis.showDropdown = false;\r\n\t\t\t\t\t}\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\t// comma\r\n\t\t\t\tif (e.keyCode == 188) {\r\n\t\t\t\t\te.preventDefault();\r\n\t\t\t\t\tthis.addTag();\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\t// default\r\n\t\t\t\tthis.size++;\r\n\t\t\t},\r\n\t\t\taddTag : function() {\r\n\t\t\t\tif ( ! this.tagvalue) {\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\tthis.tags.push(this.tagvalue);\r\n\t\t\t\tthis.tagvalue = '';\r\n\t\t\t\tthis.size = SIZE;\r\n\t\t\t\tthis.showDropdown = false;\r\n\t\t\t},\r\n\t\t\t// typeahead\r\n\t\t\treset : function() { this.setValue(null); },\r\n\t\t\tsetActive : function(index) { this.current = index; },\r\n\t\t\tisActive : function(index) { return this.current === index; },\r\n\t\t\tsetValue : function(value) {\r\n\t\t\t\tthis.asign = value;\r\n\t\t\t\tthis.tagvalue = value;\r\n\t\t\t\tthis.addTag();\r\n\t\t\t\tthis.items = [];\r\n\t\t\t\tthis.showDropdown = false;\r\n\t\t\t},\r\n\t\t\tup : function() {\r\n\t\t\t\tif (this.current > 0) { \r\n\t\t\t\t\tthis.current--;\r\n\t\t\t\t} else { \r\n\t\t\t\t\tthis.current = this.items.length - 1;\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\tdown : function() {\r\n\t\t\t\tif (this.current < this.items.length - 1) {\r\n\t\t\t\t\tthis.current++;\r\n\t\t\t\t} else { \r\n\t\t\t\t\tthis.current = 0;\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\tsetItems : function(data) {\r\n\t\t\t\tif (this.async) {\r\n\t\t\t\t\tthis.items = this.asyncKey ? data[this.asyncKey] : data;\r\n\t\t\t\t\tthis.items = this.items.slice(0, this.limit);\r\n\t\t\t\t} else {\r\n\t\t\t\t\tthis.items = (data || []).filter(value => {\r\n\t\t\t\t\t\tif (typeof value === 'object') { return true }\r\n\t\t\t\t\t\tvalue = this.matchCase ? value : value.toLowerCase();\r\n\t\t\t\t\t\tvar query = this.matchCase ? this.tagvalue : this.tagvalue.toLowerCase();\r\n\t\t\t\t\t\treturn this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1;\r\n\t\t\t\t\t}).slice(0, this.limit)\r\n\t\t\t\t}\r\n\t\t\t\t// show dropdown on right position\r\n\t\t\t\tif (this.showDropdown = this.items.length > 0) {\r\n\t\t\t\t\tvar vm = this;\r\n\t\t\t\t\tVue.nextTick(function () {\r\n\t\t\t\t\t\tvm.$refs.dropdown.style.left = vm.$refs.taginput.offsetLeft + 'px';\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t__update : delayer(function () {\r\n\t\t\t\tif (!this.tagvalue) {\r\n\t\t\t\t\tthis.reset();\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\tthis.asign = ''\r\n\t\t\t\tif (this.async) {\r\n\t\t\t\t\tgetJSON(this.async + this.tagvalue).then(data => {\r\n\t\t\t\t\t\tthis.setItems(data)\r\n\t\t\t\t\t})\r\n\t\t\t\t} else if (this.data) {\r\n\t\t\t\t\tthis.setItems(this.data);\r\n\t\t\t\t}\r\n\t\t\t}, 'delay', DELAY)\r\n\t\t}\r\n\t}\r\n\r\n</script>\r\n\r\n<style>\r\n\t/* tagsinput */\r\n\t.tagsinput {\r\n\t\tmin-height:37px;\r\n\t\theight:auto !important;\r\n\t\tpadding:3px 12px;\r\n\t}\r\n\t.tagsinput input {\r\n\t\tposition:relative;\r\n\t\ttop:2px;\r\n\t\tborder:none;\r\n\t\tbackground-color:transparent;\r\n\t}\r\n\t.tagsinput input:focus {\r\n\t\toutline:none;\r\n\t}\r\n\t.tagsinput.active {\r\n\t\tborder-color:#66afe9;\r\n\t\tbox-shadow:0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,.6);\r\n\t}\r\n\t/* tag-labels */\r\n\t.tagsinput .tag.label {\r\n\t\tmargin: 2px 5px 2px 0px;\r\n\t\tdisplay:inline-block;\r\n\t\tpadding:7px 5px 3px;\r\n\t}\r\n\t.tagsinput .tag.label .dismissable {\r\n\t\tdisplay:inline-block;\r\n\t\twidth:15px;\r\n\t\theight:15px;\r\n\t\tcolor:black;\r\n\t\tmargin-left:5px;\r\n\t\tcursor:pointer;\r\n\t}\r\n\t.tagsinput .tag.label .dismissable:after {\r\n\t\tcontent: \"x\";\r\n\t}\r\n\t/* dropdown menu */\r\n\t.tagsinput .dropdown-menu > li > a {\r\n\t  cursor: pointer;\r\n\t}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ }),
+/* 212 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _typeof2 = __webpack_require__(193);
+	
+	var _typeof3 = _interopRequireDefault(_typeof2);
+	
+	var _defineProperty2 = __webpack_require__(213);
+	
+	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+	
+	var _props; //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	
+	
+	var _utils = __webpack_require__(65);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var SIZE = 7;
+	var DELAY = 300;
+	var LIMIT = 8;
+	
+	exports.default = {
+	
+		mounted: function mounted() {
+			// preset tags
+			if (this.val) {
+				if (this.quote) {
+					this.tags = this.val.substr(1, this.val.length - 2).split("','");
+				} else {
+					this.tags = this.val.split(',');
+				}
+			}
+			// is typeahead
+			if (this.data || this.async) {
+				this.typeahead = true;
+			}
+		},
+	
+		props: (_props = {
+			data: { type: Array },
+			id: { type: String },
+			name: { type: String },
+			placeholder: { type: String },
+			value: { type: String, default: '' },
+			quote: { type: Boolean, default: false },
+			// typeahead
+			onHit: {
+				type: Function,
+				default: function _default(item) {
+					return item;
+				}
+			},
+			async: { type: String }
+		}, (0, _defineProperty3.default)(_props, 'data', { type: Array }), (0, _defineProperty3.default)(_props, 'delay', { type: Number, default: DELAY }), (0, _defineProperty3.default)(_props, 'asyncKey', { type: String, default: null }), (0, _defineProperty3.default)(_props, 'template', { type: String }), (0, _defineProperty3.default)(_props, 'limit', { type: Number, default: LIMIT }), (0, _defineProperty3.default)(_props, 'matchCase', { type: Boolean, default: false }), (0, _defineProperty3.default)(_props, 'matchStart', { type: Boolean, default: false }), _props),
+	
+		data: function data() {
+			return {
+				active: false,
+				val: this.value,
+				tags: [],
+				size: SIZE,
+				tagvalue: '',
+				// typeahead
+				typeahead: false,
+				items: [],
+				asign: '',
+				showDropdown: false,
+				noResults: true,
+				current: 0
+			};
+		},
+	
+		watch: {
+			tags: function tags() {
+				if (this.quote) {
+					this.val = "'" + this.tags.join("','") + "'";
+				} else {
+					this.val = this.tags.toString();
+				}
+			},
+			tagvalue: function tagvalue(val, old) {
+				if (val !== old && val !== this.asign) this.__update();
+			}
+		},
+	
+		computed: {
+			tagscomponent: function tagscomponent() {
+				return {
+					template: '<span>{{ tag }}<span class="dismissable" @click="$emit(\'remove\')"></span></span>',
+					props: { tag: { type: String, default: 'Washington' } }
+				};
+			},
+			typeaheadcomponent: function typeaheadcomponent() {
+				return {
+					template: typeof this.template === 'string' ? '<span>' + this.template + '</span>' : '<strong v-html="item"></strong>',
+					props: { item: { default: null } }
+				};
+			}
+		},
+	
+		methods: {
+			getDelay: function getDelay() {
+				return this.delay;
+			},
+			focus: function focus(e) {
+				this.$refs.taginput.focus();
+				this.active = true;
+			},
+			blur: function blur() {
+				this.addTag();
+				this.active = false;
+				// typeahead
+				this.showDropdown = false;
+			},
+			hit: function hit() {
+				// typeahead
+				if (this.showDropdown) {
+					this.setValue(this.onHit(this.items[this.current], this));
+				} else {
+					this.addTag();
+				}
+			},
+			removeTag: function removeTag(tagindex) {
+				if (this.tags[tagindex]) {
+					this.tags.splice(tagindex, 1);
+				}
+			},
+			keyTag: function keyTag(e) {
+				// filter (up/down/left/right)
+				if (e.keyCode >= 37 && e.keyCode <= 40) {
+					return;
+				}
+				// backspace
+				if (e.keyCode == 8) {
+					if (this.size > SIZE) {
+						this.size--;
+					} else if (this.tags.length > 0) {
+						this.removeTag(this.tags.length - 1);
+						this.showDropdown = false;
+					}
+					return;
+				}
+				// comma
+				if (e.keyCode == 188) {
+					e.preventDefault();
+					this.addTag();
+					return;
+				}
+				// default
+				this.size++;
+			},
+			addTag: function addTag() {
+				if (!this.tagvalue) {
+					return;
+				}
+				this.tags.push(this.tagvalue);
+				this.tagvalue = '';
+				this.size = SIZE;
+				this.showDropdown = false;
+			},
+			// typeahead
+			reset: function reset() {
+				this.setValue(null);
+			},
+			setActive: function setActive(index) {
+				this.current = index;
+			},
+			isActive: function isActive(index) {
+				return this.current === index;
+			},
+			setValue: function setValue(value) {
+				this.asign = value;
+				this.tagvalue = value;
+				this.addTag();
+				this.items = [];
+				this.showDropdown = false;
+			},
+			up: function up() {
+				if (this.current > 0) {
+					this.current--;
+				} else {
+					this.current = this.items.length - 1;
+				}
+			},
+			down: function down() {
+				if (this.current < this.items.length - 1) {
+					this.current++;
+				} else {
+					this.current = 0;
+				}
+			},
+			setItems: function setItems(data) {
+				var _this = this;
+	
+				if (this.async) {
+					this.items = this.asyncKey ? data[this.asyncKey] : data;
+					this.items = this.items.slice(0, this.limit);
+				} else {
+					this.items = (data || []).filter(function (value) {
+						if ((typeof value === 'undefined' ? 'undefined' : (0, _typeof3.default)(value)) === 'object') {
+							return true;
+						}
+						value = _this.matchCase ? value : value.toLowerCase();
+						var query = _this.matchCase ? _this.tagvalue : _this.tagvalue.toLowerCase();
+						return _this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1;
+					}).slice(0, this.limit);
+				}
+				// show dropdown on right position
+				if (this.showDropdown = this.items.length > 0) {
+					var vm = this;
+					Vue.nextTick(function () {
+						vm.$refs.dropdown.style.left = vm.$refs.taginput.offsetLeft + 'px';
+					});
+				}
+			},
+			__update: (0, _utils.delayer)(function () {
+				var _this2 = this;
+	
+				if (!this.tagvalue) {
+					this.reset();
+					return;
+				}
+				this.asign = '';
+				if (this.async) {
+					(0, _utils.getJSON)(this.async + this.tagvalue).then(function (data) {
+						_this2.setItems(data);
+					});
+				} else if (this.data) {
+					this.setItems(this.data);
+				}
+			}, 'delay', DELAY)
+		}
+	};
+
+/***/ }),
+/* 213 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	exports.__esModule = true;
+	
+	var _defineProperty = __webpack_require__(2);
+	
+	var _defineProperty2 = _interopRequireDefault(_defineProperty);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (obj, key, value) {
+	  if (key in obj) {
+	    (0, _defineProperty2.default)(obj, key, {
+	      value: value,
+	      enumerable: true,
+	      configurable: true,
+	      writable: true
+	    });
+	  } else {
+	    obj[key] = value;
+	  }
+	
+	  return obj;
+	};
+
+/***/ }),
+/* 214 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    staticClass: "tagsinput form-control",
+	    class: {
+	      active: _vm.active, open: _vm.showDropdown
+	    },
+	    staticStyle: {
+	      "position": "relative"
+	    },
+	    on: {
+	      "click": _vm.focus
+	    }
+	  }, [_vm._l((_vm.tags), function(tag, i) {
+	    return _c('span', {
+	      staticClass: "tag label label-info"
+	    }, [_c(_vm.tagscomponent, {
+	      tag: "component",
+	      attrs: {
+	        "tag": tag
+	      },
+	      on: {
+	        "remove": function($event) {
+	          _vm.removeTag(i)
+	        }
+	      }
+	    })], 1)
+	  }), _vm._v(" "), _c('input', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.tagvalue),
+	      expression: "tagvalue"
+	    }],
+	    ref: "taginput",
+	    attrs: {
+	      "type": "text",
+	      "id": _vm.id,
+	      "placeholder": _vm.placeholder,
+	      "size": _vm.size
+	    },
+	    domProps: {
+	      "value": (_vm.tagvalue)
+	    },
+	    on: {
+	      "keydown": [_vm.keyTag, function($event) {
+	        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
+	        $event.preventDefault();
+	        _vm.hit($event)
+	      }, function($event) {
+	        if (!('button' in $event) && _vm._k($event.keyCode, "down", 40)) { return null; }
+	        $event.preventDefault();
+	        _vm.down($event)
+	      }, function($event) {
+	        if (!('button' in $event) && _vm._k($event.keyCode, "esc", 27)) { return null; }
+	        _vm.reset($event)
+	      }, function($event) {
+	        if (!('button' in $event) && _vm._k($event.keyCode, "up", 38)) { return null; }
+	        $event.preventDefault();
+	        _vm.up($event)
+	      }],
+	      "blur": _vm.blur,
+	      "input": function($event) {
+	        if ($event.target.composing) { return; }
+	        _vm.tagvalue = $event.target.value
+	      }
+	    }
+	  }), _vm._v(" "), (_vm.typeahead) ? _c('ul', {
+	    ref: "dropdown",
+	    staticClass: "typeahead dropdown-menu"
+	  }, _vm._l((_vm.items), function(item, i) {
+	    return _c('li', {
+	      class: {
+	        active: _vm.isActive(i)
+	      }
+	    }, [_c('a', {
+	      on: {
+	        "mousedown": function($event) {
+	          $event.preventDefault();
+	          _vm.hit($event)
+	        },
+	        "mousemove": function($event) {
+	          _vm.setActive(i)
+	        }
+	      }
+	    }, [_c(_vm.typeaheadcomponent, {
+	      tag: "component",
+	      attrs: {
+	        "item": item
+	      }
+	    })], 1)])
+	  })) : _vm._e(), _vm._v(" "), _c('textarea', {
+	    staticStyle: {
+	      "display": "none"
+	    },
+	    attrs: {
+	      "name": _vm.name
+	    },
+	    domProps: {
+	      "textContent": _vm._s(_vm.val)
+	    }
+	  })], 2)
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-b61b459c", module.exports)
 	  }
 	}
 
