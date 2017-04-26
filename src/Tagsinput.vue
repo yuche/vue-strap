@@ -8,7 +8,8 @@
 			v-model="tagvalue" 
 			:placeholder="placeholder" 
 			:size="size" 
-			@keydown="keyTag" 
+			@keypress="separate" 
+			@keydown="keyTag"
 			@blur="blur"
 			@keydown.enter.prevent="hit"
 			@keydown.down.prevent="down"
@@ -22,11 +23,11 @@
 				</a>
 			</li>
 		</ul>
-		<textarea style="display:none;" 
+		<input type="hidden"
 			:id.once="id"
 			:name.once="name"
 		    v-model="val"
-		></textarea>
+		/>
 	</div>
 </template>
 
@@ -37,6 +38,7 @@
 	const SIZE = 7;
 	const DELAY = 300;
 	const LIMIT = 8;
+	const SEPARATOR = ',';
 
 	export default {
 
@@ -44,9 +46,10 @@
 			// preset tags
 			if (this.val) {
 				if (this.quote) {
-					this.tags = this.val.substr(1,this.val.length-2).split("','");
+					var sep = '"' + this.separator + '"';
+					this.tags = this.val.substr(1,this.val.length-2).split(sep);
 				} else {
-            		this.tags = this.val.split(',');
+            		this.tags = this.val.split(this.separator);
             	}
             }
             // is typeahead
@@ -61,6 +64,7 @@
 			name : { type : String },
 			placeholder : {type: String },
 			value :  { type : String, default : '' },
+			separator : { type : String, default : SEPARATOR },
 			quote : { type : Boolean, default : false },
 			// typeahead
 			onHit: {
@@ -80,7 +84,7 @@
 		data : function() {
 			return {
 				active : false,
-				val : '',
+				val : this.value,
 				tags : [],
 				size : SIZE,
 				tagvalue : '',
@@ -97,9 +101,9 @@
 		watch : {
 			tags : function() {
 				if (this.quote) {
-					this.val = "'" + this.tags.join("','") + "'";
+					this.val = '"' + this.tags.join('"' + this.separator + '"') + '"';
 				} else {
-					this.val = this.tags.toString();
+					this.val = this.tags.join(this.separator);
 				}
 			},
 			tagvalue : function(val, old) {
@@ -164,14 +168,16 @@
 					}
 					return;
 				}
-				// comma
-				if (e.keyCode == 188) {
+				// default
+				this.size++;
+			},
+			// separator (e. g. ',')
+			separate : function (e) {
+				if (e.charCode == this.separator.charCodeAt(0)) {
 					e.preventDefault();
 					this.addTag();
 					return;
 				}
-				// default
-				this.size++;
 			},
 			addTag : function() {
 				if ( ! this.tagvalue) {
@@ -228,13 +234,14 @@
 				}
 			},
 			__update : delayer(function () {
-				if (!this.tagvalue) {
+				var search = this.tagvalue.trim();
+				if ( ! search) {
 					this.reset();
 					return;
 				}
 				this.asign = ''
 				if (this.async) {
-					getJSON(this.async + this.tagvalue).then(data => {
+					getJSON(this.async + search).then(data => {
 						this.setItems(data)
 					})
 				} else if (this.data) {

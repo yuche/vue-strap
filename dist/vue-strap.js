@@ -9853,7 +9853,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* tagsinput */\n.tagsinput {\n\tmin-height:37px;\n\theight:auto !important;\n\tpadding:3px 12px;\n}\n.tagsinput input {\n\tposition:relative;\n\ttop:2px;\n\tborder:none;\n\tbackground-color:transparent;\n}\n.tagsinput input:focus {\n\toutline:none;\n}\n.tagsinput.active {\n\tborder-color:#66afe9;\n\tbox-shadow:0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,.6);\n}\n/* tag-labels */\n.tagsinput .tag.label {\n\tmargin: 2px 5px 2px 0px;\n\tdisplay:inline-block;\n\tpadding:7px 5px 3px;\n}\n.tagsinput .tag.label .dismissable {\n\tdisplay:inline-block;\n\twidth:15px;\n\theight:15px;\n\tcolor:black;\n\tmargin-left:5px;\n\tcursor:pointer;\n}\n.tagsinput .tag.label .dismissable:after {\n\tcontent: \"x\";\n}\n/* dropdown menu */\n.tagsinput .dropdown-menu > li > a {\n  cursor: pointer;\n}\n", "", {"version":3,"sources":["/./src/Tagsinput.vue?09c5dd38"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAyPA,eAAA;AACA;CACA,gBAAA;CACA,uBAAA;CACA,iBAAA;CACA;AACA;CACA,kBAAA;CACA,QAAA;CACA,YAAA;CACA,6BAAA;CACA;AACA;CACA,aAAA;CACA;AACA;CACA,qBAAA;CACA,qEAAA;CACA;AACA,gBAAA;AACA;CACA,wBAAA;CACA,qBAAA;CACA,oBAAA;CACA;AACA;CACA,qBAAA;CACA,WAAA;CACA,YAAA;CACA,YAAA;CACA,gBAAA;CACA,eAAA;CACA;AACA;CACA,aAAA;CACA;AACA,mBAAA;AACA;EACA,gBAAA;CACA","file":"Tagsinput.vue","sourcesContent":["<template>\r\n\t<div class=\"tagsinput form-control\" @click=\"focus\" :class=\"{ active : active, open : showDropdown }\" style=\"position:relative;\">\r\n\t\t<span v-for=\"(tag, i) in tags\" class=\"tag label label-info\">\r\n\t\t\t<component :is=\"tagscomponent\" :tag=\"tag\" @remove=\"removeTag(i)\"></component>\r\n\t\t</span>\r\n\t\t<input  type=\"text\"\r\n\t\t\tref=\"taginput\"\r\n\t\t\tv-model=\"tagvalue\" \r\n\t\t\t:id.once=\"id\"\r\n\t\t\t:placeholder=\"placeholder\" \r\n\t\t\t:size=\"size\" \r\n\t\t\t@keydown=\"keyTag\" \r\n\t\t\t@blur=\"blur\"\r\n\t\t\t@keydown.enter.prevent=\"hit\"\r\n\t\t\t@keydown.down.prevent=\"down\"\r\n\t\t\t@keydown.esc=\"reset\"\r\n\t\t\t@keydown.up.prevent=\"up\"\r\n\t\t/>\r\n\t\t<ul v-if=\"typeahead\" class=\"typeahead dropdown-menu\" ref=\"dropdown\">\r\n\t\t\t<li v-for=\"(item, i) in items\" :class=\"{active: isActive(i)}\">\r\n\t\t\t\t<a @mousedown.prevent=\"hit\" @mousemove=\"setActive(i)\">\r\n\t\t\t\t\t<component :is=\"typeaheadcomponent\" :item=\"item\"></component>\r\n\t\t\t\t</a>\r\n\t\t\t</li>\r\n\t\t</ul>\r\n\t\t<textarea style=\"display:none;\" \r\n\t\t    v-text=\"val\"\r\n\t\t\t:name.once=\"name\"\r\n\t\t></textarea>\r\n\t</div>\r\n</template>\r\n\r\n<script>\r\n\r\n\timport {delayer, getJSON} from './utils/utils.js'\r\n\r\n\tconst SIZE = 7;\r\n\tconst DELAY = 300;\r\n\tconst LIMIT = 8;\r\n\r\n\texport default {\r\n\r\n\t\tmounted : function() {\r\n\t\t\t// preset tags\r\n\t\t\tif (this.val) {\r\n\t\t\t\tif (this.quote) {\r\n\t\t\t\t\tthis.tags = this.val.substr(1,this.val.length-2).split(\"','\");\r\n\t\t\t\t} else {\r\n            \t\tthis.tags = this.val.split(',');\r\n            \t}\r\n            }\r\n            // is typeahead\r\n            if (this.data || this.async) {\r\n            \tthis.typeahead = true;\r\n            }\r\n        },\r\n\r\n\t\tprops : {\r\n\t\t\tdata: { type : Array },\r\n\t\t\tid: { type : String },\r\n\t\t\tname : { type : String },\r\n\t\t\tplaceholder : {type: String },\r\n\t\t\tvalue :  { type : String, default : '' },\r\n\t\t\tquote : { type : Boolean, default : false },\r\n\t\t\t// typeahead\r\n\t\t\tonHit: {\r\n\t\t\t\ttype: Function,\r\n\t\t\t\tdefault (item) { return item }\r\n\t\t\t},\r\n\t\t\tasync : { type : String },\r\n\t\t\tdata : { type : Array },\r\n\t\t\tdelay : { type : Number, default : DELAY },\r\n\t\t\tasyncKey : { type : String, default : null },\r\n\t\t\ttemplate: {type: String},\r\n\t\t\tlimit : { type : Number, default : LIMIT},\r\n\t\t\tmatchCase : { type : Boolean, default : false },\r\n\t\t\tmatchStart : { type : Boolean, default : false }\r\n\t\t},\r\n\r\n\t\tdata : function() {\r\n\t\t\treturn {\r\n\t\t\t\tactive : false,\r\n\t\t\t\tval : this.value,\r\n\t\t\t\ttags : [],\r\n\t\t\t\tsize : SIZE,\r\n\t\t\t\ttagvalue : '',\r\n\t\t\t\t// typeahead\r\n\t\t\t\ttypeahead : false,\r\n\t\t\t\titems : [],\r\n\t\t\t\tasign : '',\r\n\t\t\t\tshowDropdown : false,\r\n\t\t\t\tnoResults : true,\r\n\t\t\t\tcurrent : 0\r\n\t\t\t}\r\n\t\t},\r\n\r\n\t\twatch : {\r\n\t\t\ttags : function() {\r\n\t\t\t\tif (this.quote) {\r\n\t\t\t\t\tthis.val = \"'\" + this.tags.join(\"','\") + \"'\";\r\n\t\t\t\t} else {\r\n\t\t\t\t\tthis.val = this.tags.toString();\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\ttagvalue : function(val, old) {\r\n\t\t\t\tif (val !== old && val !== this.asign) this.__update();\r\n\t\t\t}\r\n\t\t},\r\n\r\n\t\tcomputed : {\r\n\t\t\ttagscomponent : function() {\r\n\t\t\t\treturn {\r\n\t\t\t\t\ttemplate : '<span>{{ tag }}<span class=\"dismissable\" @click=\"$emit(\\'remove\\')\"></span></span>',\r\n\t\t\t\t\tprops : { tag : { type: String, default: 'Washington' } }\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\ttypeaheadcomponent : function() {\r\n\t\t\t\treturn {\r\n\t\t\t\t\ttemplate: typeof this.template === 'string' ? '<span>' + this.template + '</span>' : '<strong v-html=\"item\"></strong>',\r\n\t\t\t\t\tprops: { item: {default: null} }\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t},\r\n\r\n\t\tmethods : {\r\n\t\t\tgetDelay : function() {\r\n\t\t\t\treturn this.delay;\r\n\t\t\t},\r\n\t\t\tfocus : function(e) {\r\n\t\t\t\tthis.$refs.taginput.focus();\r\n\t\t\t\tthis.active = true;\r\n\t\t\t},\r\n\t\t\tblur : function() {\r\n\t\t\t\tthis.addTag();\r\n\t\t\t\tthis.active = false;\r\n\t\t\t\t// typeahead\r\n\t\t\t\tthis.showDropdown = false;\r\n\t\t\t},\r\n\t\t\thit : function() {\r\n\t\t\t\t// typeahead\r\n\t\t\t\tif (this.showDropdown) {\r\n\t\t\t\t\tthis.setValue(this.onHit(this.items[this.current], this));\r\n\t\t\t\t} else {\r\n\t\t\t\t\tthis.addTag();\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\tremoveTag : function(tagindex) {\r\n\t\t\t\tif (this.tags[tagindex]) {\r\n\t\t\t\t\tthis.tags.splice(tagindex,1);\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\tkeyTag : function(e) {\r\n\t\t\t\t// filter (up/down/left/right)\r\n\t\t\t\tif (e.keyCode >= 37 && e.keyCode <= 40) {\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\t// backspace\r\n\t\t\t\tif (e.keyCode == 8) {\r\n\t\t\t\t\tif (this.size > SIZE) {\r\n\t\t\t\t\t\tthis.size--;\r\n\t\t\t\t\t} else if (this.tags.length > 0) {\r\n\t\t\t\t\t\tthis.removeTag(this.tags.length-1);\r\n\t\t\t\t\t\tthis.showDropdown = false;\r\n\t\t\t\t\t}\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\t// comma\r\n\t\t\t\tif (e.keyCode == 188) {\r\n\t\t\t\t\te.preventDefault();\r\n\t\t\t\t\tthis.addTag();\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\t// default\r\n\t\t\t\tthis.size++;\r\n\t\t\t},\r\n\t\t\taddTag : function() {\r\n\t\t\t\tif ( ! this.tagvalue) {\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\tthis.tags.push(this.tagvalue);\r\n\t\t\t\tthis.tagvalue = '';\r\n\t\t\t\tthis.size = SIZE;\r\n\t\t\t\tthis.showDropdown = false;\r\n\t\t\t},\r\n\t\t\t// typeahead\r\n\t\t\treset : function() { this.setValue(null); },\r\n\t\t\tsetActive : function(index) { this.current = index; },\r\n\t\t\tisActive : function(index) { return this.current === index; },\r\n\t\t\tsetValue : function(value) {\r\n\t\t\t\tthis.asign = value;\r\n\t\t\t\tthis.tagvalue = value;\r\n\t\t\t\tthis.addTag();\r\n\t\t\t\tthis.items = [];\r\n\t\t\t\tthis.showDropdown = false;\r\n\t\t\t},\r\n\t\t\tup : function() {\r\n\t\t\t\tif (this.current > 0) { \r\n\t\t\t\t\tthis.current--;\r\n\t\t\t\t} else { \r\n\t\t\t\t\tthis.current = this.items.length - 1;\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\tdown : function() {\r\n\t\t\t\tif (this.current < this.items.length - 1) {\r\n\t\t\t\t\tthis.current++;\r\n\t\t\t\t} else { \r\n\t\t\t\t\tthis.current = 0;\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\tsetItems : function(data) {\r\n\t\t\t\tif (this.async) {\r\n\t\t\t\t\tthis.items = this.asyncKey ? data[this.asyncKey] : data;\r\n\t\t\t\t\tthis.items = this.items.slice(0, this.limit);\r\n\t\t\t\t} else {\r\n\t\t\t\t\tthis.items = (data || []).filter(value => {\r\n\t\t\t\t\t\tif (typeof value === 'object') { return true }\r\n\t\t\t\t\t\tvalue = this.matchCase ? value : value.toLowerCase();\r\n\t\t\t\t\t\tvar query = this.matchCase ? this.tagvalue : this.tagvalue.toLowerCase();\r\n\t\t\t\t\t\treturn this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1;\r\n\t\t\t\t\t}).slice(0, this.limit)\r\n\t\t\t\t}\r\n\t\t\t\t// show dropdown on right position\r\n\t\t\t\tif (this.showDropdown = this.items.length > 0) {\r\n\t\t\t\t\tvar vm = this;\r\n\t\t\t\t\tVue.nextTick(function () {\r\n\t\t\t\t\t\tvm.$refs.dropdown.style.left = vm.$refs.taginput.offsetLeft + 'px';\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t__update : delayer(function () {\r\n\t\t\t\tif (!this.tagvalue) {\r\n\t\t\t\t\tthis.reset();\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\tthis.asign = ''\r\n\t\t\t\tif (this.async) {\r\n\t\t\t\t\tgetJSON(this.async + this.tagvalue).then(data => {\r\n\t\t\t\t\t\tthis.setItems(data)\r\n\t\t\t\t\t})\r\n\t\t\t\t} else if (this.data) {\r\n\t\t\t\t\tthis.setItems(this.data);\r\n\t\t\t\t}\r\n\t\t\t}, 'delay', DELAY)\r\n\t\t}\r\n\t}\r\n\r\n</script>\r\n\r\n<style>\r\n\t/* tagsinput */\r\n\t.tagsinput {\r\n\t\tmin-height:37px;\r\n\t\theight:auto !important;\r\n\t\tpadding:3px 12px;\r\n\t}\r\n\t.tagsinput input {\r\n\t\tposition:relative;\r\n\t\ttop:2px;\r\n\t\tborder:none;\r\n\t\tbackground-color:transparent;\r\n\t}\r\n\t.tagsinput input:focus {\r\n\t\toutline:none;\r\n\t}\r\n\t.tagsinput.active {\r\n\t\tborder-color:#66afe9;\r\n\t\tbox-shadow:0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,.6);\r\n\t}\r\n\t/* tag-labels */\r\n\t.tagsinput .tag.label {\r\n\t\tmargin: 2px 5px 2px 0px;\r\n\t\tdisplay:inline-block;\r\n\t\tpadding:7px 5px 3px;\r\n\t}\r\n\t.tagsinput .tag.label .dismissable {\r\n\t\tdisplay:inline-block;\r\n\t\twidth:15px;\r\n\t\theight:15px;\r\n\t\tcolor:black;\r\n\t\tmargin-left:5px;\r\n\t\tcursor:pointer;\r\n\t}\r\n\t.tagsinput .tag.label .dismissable:after {\r\n\t\tcontent: \"x\";\r\n\t}\r\n\t/* dropdown menu */\r\n\t.tagsinput .dropdown-menu > li > a {\r\n\t  cursor: pointer;\r\n\t}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* tagsinput */\n.tagsinput {\n\tmin-height:37px;\n\theight:auto !important;\n\tpadding:3px 12px;\n}\n.tagsinput input {\n\tposition:relative;\n\ttop:2px;\n\tborder:none;\n\tbackground-color:transparent;\n}\n.tagsinput input:focus {\n\toutline:none;\n}\n.tagsinput.active {\n\tborder-color:#66afe9;\n\tbox-shadow:0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,.6);\n}\n/* tag-labels */\n.tagsinput .tag.label {\n\tmargin: 2px 5px 2px 0px;\n\tdisplay:inline-block;\n\tpadding:7px 5px 3px;\n}\n.tagsinput .tag.label .dismissable {\n\tdisplay:inline-block;\n\twidth:15px;\n\theight:15px;\n\tcolor:black;\n\tmargin-left:5px;\n\tcursor:pointer;\n}\n.tagsinput .tag.label .dismissable:after {\n\tcontent: \"x\";\n}\n/* dropdown menu */\n.tagsinput .dropdown-menu > li > a {\n  cursor: pointer;\n}\n", "", {"version":3,"sources":["/./src/Tagsinput.vue?3dc5dc74"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAgQA,eAAA;AACA;CACA,gBAAA;CACA,uBAAA;CACA,iBAAA;CACA;AACA;CACA,kBAAA;CACA,QAAA;CACA,YAAA;CACA,6BAAA;CACA;AACA;CACA,aAAA;CACA;AACA;CACA,qBAAA;CACA,qEAAA;CACA;AACA,gBAAA;AACA;CACA,wBAAA;CACA,qBAAA;CACA,oBAAA;CACA;AACA;CACA,qBAAA;CACA,WAAA;CACA,YAAA;CACA,YAAA;CACA,gBAAA;CACA,eAAA;CACA;AACA;CACA,aAAA;CACA;AACA,mBAAA;AACA;EACA,gBAAA;CACA","file":"Tagsinput.vue","sourcesContent":["<template>\r\n\t<div class=\"tagsinput form-control\" @click=\"focus\" :class=\"{ active : active, open : showDropdown }\" style=\"position:relative;\">\r\n\t\t<span v-for=\"(tag, i) in tags\" class=\"tag label label-info\">\r\n\t\t\t<component :is=\"tagscomponent\" :tag=\"tag\" @remove=\"removeTag(i)\"></component>\r\n\t\t</span>\r\n\t\t<input  type=\"text\"\r\n\t\t\tref=\"taginput\"\r\n\t\t\tv-model=\"tagvalue\" \r\n\t\t\t:placeholder=\"placeholder\" \r\n\t\t\t:size=\"size\" \r\n\t\t\t@keypress=\"separate\" \r\n\t\t\t@keydown=\"keyTag\"\r\n\t\t\t@blur=\"blur\"\r\n\t\t\t@keydown.enter.prevent=\"hit\"\r\n\t\t\t@keydown.down.prevent=\"down\"\r\n\t\t\t@keydown.esc=\"reset\"\r\n\t\t\t@keydown.up.prevent=\"up\"\r\n\t\t/>\r\n\t\t<ul v-if=\"typeahead\" class=\"typeahead dropdown-menu\" ref=\"dropdown\">\r\n\t\t\t<li v-for=\"(item, i) in items\" :class=\"{active: isActive(i)}\">\r\n\t\t\t\t<a @mousedown.prevent=\"hit\" @mousemove=\"setActive(i)\">\r\n\t\t\t\t\t<component :is=\"typeaheadcomponent\" :item=\"item\"></component>\r\n\t\t\t\t</a>\r\n\t\t\t</li>\r\n\t\t</ul>\r\n\t\t<input type=\"hidden\"\r\n\t\t\t:id.once=\"id\"\r\n\t\t\t:name.once=\"name\"\r\n\t\t    v-model=\"val\"\r\n\t\t/>\r\n\t</div>\r\n</template>\r\n\r\n<script>\r\n\r\n\timport {delayer, getJSON} from './utils/utils.js'\r\n\r\n\tconst SIZE = 7;\r\n\tconst DELAY = 300;\r\n\tconst LIMIT = 8;\r\n\tconst SEPARATOR = ',';\r\n\r\n\texport default {\r\n\r\n\t\tmounted : function() {\r\n\t\t\t// preset tags\r\n\t\t\tif (this.val) {\r\n\t\t\t\tif (this.quote) {\r\n\t\t\t\t\tvar sep = '\"' + this.separator + '\"';\r\n\t\t\t\t\tthis.tags = this.val.substr(1,this.val.length-2).split(sep);\r\n\t\t\t\t} else {\r\n            \t\tthis.tags = this.val.split(this.separator);\r\n            \t}\r\n            }\r\n            // is typeahead\r\n            if (this.data || this.async) {\r\n            \tthis.typeahead = true;\r\n            }\r\n        },\r\n\r\n\t\tprops : {\r\n\t\t\tdata: { type : Array },\r\n\t\t\tid: { type : String },\r\n\t\t\tname : { type : String },\r\n\t\t\tplaceholder : {type: String },\r\n\t\t\tvalue :  { type : String, default : '' },\r\n\t\t\tseparator : { type : String, default : SEPARATOR },\r\n\t\t\tquote : { type : Boolean, default : false },\r\n\t\t\t// typeahead\r\n\t\t\tonHit: {\r\n\t\t\t\ttype: Function,\r\n\t\t\t\tdefault (item) { return item }\r\n\t\t\t},\r\n\t\t\tasync : { type : String },\r\n\t\t\tdata : { type : Array },\r\n\t\t\tdelay : { type : Number, default : DELAY },\r\n\t\t\tasyncKey : { type : String, default : null },\r\n\t\t\ttemplate: {type: String},\r\n\t\t\tlimit : { type : Number, default : LIMIT},\r\n\t\t\tmatchCase : { type : Boolean, default : false },\r\n\t\t\tmatchStart : { type : Boolean, default : false }\r\n\t\t},\r\n\r\n\t\tdata : function() {\r\n\t\t\treturn {\r\n\t\t\t\tactive : false,\r\n\t\t\t\tval : this.value,\r\n\t\t\t\ttags : [],\r\n\t\t\t\tsize : SIZE,\r\n\t\t\t\ttagvalue : '',\r\n\t\t\t\t// typeahead\r\n\t\t\t\ttypeahead : false,\r\n\t\t\t\titems : [],\r\n\t\t\t\tasign : '',\r\n\t\t\t\tshowDropdown : false,\r\n\t\t\t\tnoResults : true,\r\n\t\t\t\tcurrent : 0\r\n\t\t\t}\r\n\t\t},\r\n\r\n\t\twatch : {\r\n\t\t\ttags : function() {\r\n\t\t\t\tif (this.quote) {\r\n\t\t\t\t\tthis.val = '\"' + this.tags.join('\"' + this.separator + '\"') + '\"';\r\n\t\t\t\t} else {\r\n\t\t\t\t\tthis.val = this.tags.join(this.separator);\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\ttagvalue : function(val, old) {\r\n\t\t\t\tif (val !== old && val !== this.asign) this.__update();\r\n\t\t\t}\r\n\t\t},\r\n\r\n\t\tcomputed : {\r\n\t\t\ttagscomponent : function() {\r\n\t\t\t\treturn {\r\n\t\t\t\t\ttemplate : '<span>{{ tag }}<span class=\"dismissable\" @click=\"$emit(\\'remove\\')\"></span></span>',\r\n\t\t\t\t\tprops : { tag : { type: String, default: 'Washington' } }\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\ttypeaheadcomponent : function() {\r\n\t\t\t\treturn {\r\n\t\t\t\t\ttemplate: typeof this.template === 'string' ? '<span>' + this.template + '</span>' : '<strong v-html=\"item\"></strong>',\r\n\t\t\t\t\tprops: { item: {default: null} }\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t},\r\n\r\n\t\tmethods : {\r\n\t\t\tgetDelay : function() {\r\n\t\t\t\treturn this.delay;\r\n\t\t\t},\r\n\t\t\tfocus : function(e) {\r\n\t\t\t\tthis.$refs.taginput.focus();\r\n\t\t\t\tthis.active = true;\r\n\t\t\t},\r\n\t\t\tblur : function() {\r\n\t\t\t\tthis.addTag();\r\n\t\t\t\tthis.active = false;\r\n\t\t\t\t// typeahead\r\n\t\t\t\tthis.showDropdown = false;\r\n\t\t\t},\r\n\t\t\thit : function() {\r\n\t\t\t\t// typeahead\r\n\t\t\t\tif (this.showDropdown) {\r\n\t\t\t\t\tthis.setValue(this.onHit(this.items[this.current], this));\r\n\t\t\t\t} else {\r\n\t\t\t\t\tthis.addTag();\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\tremoveTag : function(tagindex) {\r\n\t\t\t\tif (this.tags[tagindex]) {\r\n\t\t\t\t\tthis.tags.splice(tagindex,1);\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\tkeyTag : function(e) {\r\n\t\t\t\t// filter (up/down/left/right)\r\n\t\t\t\tif (e.keyCode >= 37 && e.keyCode <= 40) {\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\t// backspace\r\n\t\t\t\tif (e.keyCode == 8) {\r\n\t\t\t\t\tif (this.size > SIZE) {\r\n\t\t\t\t\t\tthis.size--;\r\n\t\t\t\t\t} else if (this.tags.length > 0) {\r\n\t\t\t\t\t\tthis.removeTag(this.tags.length-1);\r\n\t\t\t\t\t\tthis.showDropdown = false;\r\n\t\t\t\t\t}\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\t// default\r\n\t\t\t\tthis.size++;\r\n\t\t\t},\r\n\t\t\t// separator (e. g. ',')\r\n\t\t\tseparate : function (e) {\r\n\t\t\t\tif (e.charCode == this.separator.charCodeAt(0)) {\r\n\t\t\t\t\te.preventDefault();\r\n\t\t\t\t\tthis.addTag();\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\taddTag : function() {\r\n\t\t\t\tif ( ! this.tagvalue) {\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\tthis.tags.push(this.tagvalue);\r\n\t\t\t\tthis.tagvalue = '';\r\n\t\t\t\tthis.size = SIZE;\r\n\t\t\t\tthis.showDropdown = false;\r\n\t\t\t},\r\n\t\t\t// typeahead\r\n\t\t\treset : function() { this.setValue(null); },\r\n\t\t\tsetActive : function(index) { this.current = index; },\r\n\t\t\tisActive : function(index) { return this.current === index; },\r\n\t\t\tsetValue : function(value) {\r\n\t\t\t\tthis.asign = value;\r\n\t\t\t\tthis.tagvalue = value;\r\n\t\t\t\tthis.addTag();\r\n\t\t\t\tthis.items = [];\r\n\t\t\t\tthis.showDropdown = false;\r\n\t\t\t},\r\n\t\t\tup : function() {\r\n\t\t\t\tif (this.current > 0) { \r\n\t\t\t\t\tthis.current--;\r\n\t\t\t\t} else { \r\n\t\t\t\t\tthis.current = this.items.length - 1;\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\tdown : function() {\r\n\t\t\t\tif (this.current < this.items.length - 1) {\r\n\t\t\t\t\tthis.current++;\r\n\t\t\t\t} else { \r\n\t\t\t\t\tthis.current = 0;\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\tsetItems : function(data) {\r\n\t\t\t\tif (this.async) {\r\n\t\t\t\t\tthis.items = this.asyncKey ? data[this.asyncKey] : data;\r\n\t\t\t\t\tthis.items = this.items.slice(0, this.limit);\r\n\t\t\t\t} else {\r\n\t\t\t\t\tthis.items = (data || []).filter(value => {\r\n\t\t\t\t\t\tif (typeof value === 'object') { return true }\r\n\t\t\t\t\t\tvalue = this.matchCase ? value : value.toLowerCase();\r\n\t\t\t\t\t\tvar query = this.matchCase ? this.tagvalue : this.tagvalue.toLowerCase();\r\n\t\t\t\t\t\treturn this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1;\r\n\t\t\t\t\t}).slice(0, this.limit)\r\n\t\t\t\t}\r\n\t\t\t\t// show dropdown on right position\r\n\t\t\t\tif (this.showDropdown = this.items.length > 0) {\r\n\t\t\t\t\tvar vm = this;\r\n\t\t\t\t\tVue.nextTick(function () {\r\n\t\t\t\t\t\tvm.$refs.dropdown.style.left = vm.$refs.taginput.offsetLeft + 'px';\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t__update : delayer(function () {\r\n\t\t\t\tvar search = this.tagvalue.trim();\r\n\t\t\t\tif ( ! search) {\r\n\t\t\t\t\tthis.reset();\r\n\t\t\t\t\treturn;\r\n\t\t\t\t}\r\n\t\t\t\tthis.asign = ''\r\n\t\t\t\tif (this.async) {\r\n\t\t\t\t\tgetJSON(this.async + search).then(data => {\r\n\t\t\t\t\t\tthis.setItems(data)\r\n\t\t\t\t\t})\r\n\t\t\t\t} else if (this.data) {\r\n\t\t\t\t\tthis.setItems(this.data);\r\n\t\t\t\t}\r\n\t\t\t}, 'delay', DELAY)\r\n\t\t}\r\n\t}\r\n\r\n</script>\r\n\r\n<style>\r\n\t/* tagsinput */\r\n\t.tagsinput {\r\n\t\tmin-height:37px;\r\n\t\theight:auto !important;\r\n\t\tpadding:3px 12px;\r\n\t}\r\n\t.tagsinput input {\r\n\t\tposition:relative;\r\n\t\ttop:2px;\r\n\t\tborder:none;\r\n\t\tbackground-color:transparent;\r\n\t}\r\n\t.tagsinput input:focus {\r\n\t\toutline:none;\r\n\t}\r\n\t.tagsinput.active {\r\n\t\tborder-color:#66afe9;\r\n\t\tbox-shadow:0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,.6);\r\n\t}\r\n\t/* tag-labels */\r\n\t.tagsinput .tag.label {\r\n\t\tmargin: 2px 5px 2px 0px;\r\n\t\tdisplay:inline-block;\r\n\t\tpadding:7px 5px 3px;\r\n\t}\r\n\t.tagsinput .tag.label .dismissable {\r\n\t\tdisplay:inline-block;\r\n\t\twidth:15px;\r\n\t\theight:15px;\r\n\t\tcolor:black;\r\n\t\tmargin-left:5px;\r\n\t\tcursor:pointer;\r\n\t}\r\n\t.tagsinput .tag.label .dismissable:after {\r\n\t\tcontent: \"x\";\r\n\t}\r\n\t/* dropdown menu */\r\n\t.tagsinput .dropdown-menu > li > a {\r\n\t  cursor: pointer;\r\n\t}\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -9908,6 +9908,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 	//
 	//
+	//
 	
 	
 	var _utils = __webpack_require__(65);
@@ -9917,6 +9918,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var SIZE = 7;
 	var DELAY = 300;
 	var LIMIT = 8;
+	var SEPARATOR = ',';
 	
 	exports.default = {
 	
@@ -9924,9 +9926,10 @@ return /******/ (function(modules) { // webpackBootstrap
 			// preset tags
 			if (this.val) {
 				if (this.quote) {
-					this.tags = this.val.substr(1, this.val.length - 2).split("','");
+					var sep = '"' + this.separator + '"';
+					this.tags = this.val.substr(1, this.val.length - 2).split(sep);
 				} else {
-					this.tags = this.val.split(',');
+					this.tags = this.val.split(this.separator);
 				}
 			}
 			// is typeahead
@@ -9941,6 +9944,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			name: { type: String },
 			placeholder: { type: String },
 			value: { type: String, default: '' },
+			separator: { type: String, default: SEPARATOR },
 			quote: { type: Boolean, default: false },
 			// typeahead
 			onHit: {
@@ -9972,9 +9976,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		watch: {
 			tags: function tags() {
 				if (this.quote) {
-					this.val = "'" + this.tags.join("','") + "'";
+					this.val = '"' + this.tags.join('"' + this.separator + '"') + '"';
 				} else {
-					this.val = this.tags.toString();
+					this.val = this.tags.join(this.separator);
 				}
 			},
 			tagvalue: function tagvalue(val, old) {
@@ -10039,14 +10043,16 @@ return /******/ (function(modules) { // webpackBootstrap
 					}
 					return;
 				}
-				// comma
-				if (e.keyCode == 188) {
+				// default
+				this.size++;
+			},
+			// separator (e. g. ',')
+			separate: function separate(e) {
+				if (e.charCode == this.separator.charCodeAt(0)) {
 					e.preventDefault();
 					this.addTag();
 					return;
 				}
-				// default
-				this.size++;
 			},
 			addTag: function addTag() {
 				if (!this.tagvalue) {
@@ -10115,13 +10121,14 @@ return /******/ (function(modules) { // webpackBootstrap
 			__update: (0, _utils.delayer)(function () {
 				var _this2 = this;
 	
-				if (!this.tagvalue) {
+				var search = this.tagvalue.trim();
+				if (!search) {
 					this.reset();
 					return;
 				}
 				this.asign = '';
 				if (this.async) {
-					(0, _utils.getJSON)(this.async + this.tagvalue).then(function (data) {
+					(0, _utils.getJSON)(this.async + search).then(function (data) {
 						_this2.setItems(data);
 					});
 				} else if (this.data) {
@@ -10200,7 +10207,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ref: "taginput",
 	    attrs: {
 	      "type": "text",
-	      "id": _vm.id,
 	      "placeholder": _vm.placeholder,
 	      "size": _vm.size
 	    },
@@ -10208,6 +10214,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      "value": (_vm.tagvalue)
 	    },
 	    on: {
+	      "keypress": _vm.separate,
 	      "keydown": [_vm.keyTag, function($event) {
 	        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
 	        $event.preventDefault();
@@ -10254,15 +10261,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	        "item": item
 	      }
 	    })], 1)])
-	  })) : _vm._e(), _vm._v(" "), _c('textarea', {
-	    staticStyle: {
-	      "display": "none"
-	    },
+	  })) : _vm._e(), _vm._v(" "), _c('input', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.val),
+	      expression: "val"
+	    }],
 	    attrs: {
+	      "type": "hidden",
+	      "id": _vm.id,
 	      "name": _vm.name
 	    },
 	    domProps: {
-	      "textContent": _vm._s(_vm.val)
+	      "value": (_vm.val)
+	    },
+	    on: {
+	      "input": function($event) {
+	        if ($event.target.composing) { return; }
+	        _vm.val = $event.target.value
+	      }
 	    }
 	  })], 2)
 	},staticRenderFns: []}

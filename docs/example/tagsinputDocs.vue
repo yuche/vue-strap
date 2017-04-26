@@ -1,7 +1,10 @@
 <template>
   <doc-section id="tagsinput" name="Tagsinput">
     <div class="bs-example">
-      <h4>Typeahead with static arrays</h4>
+      <h4>Simple Tagsinput</h4>
+      <tagsinput name="usstates" placeholder="Your tags here ..."></tagsinput>
+      <hr>
+     <h4>Typeahead with static arrays</h4>
       <tagsinput name="usstates" :data="USstate" placeholder="USA states"></tagsinput>
       <hr>
       <h4>
@@ -18,9 +21,14 @@
         async="https://maps.googleapis.com/maps/api/geocode/json?address="
         :template="asyncTemplate"
         :on-hit="googleCallback"
-      >'eins','zwei','drei'</tagsinput>
+      ></tagsinput>
      </div>
     <doc-code language="markup">
+      &lt;h4>Simple Tagsinput&lt;/h4>
+      &lt;tagsinput
+        placeholder="Your tags here ...">
+      &lt;/tagsinput>
+
       &lt;h4>Typeahead with static arrays&lt;/h4>
       &lt;tagsinput
         :data="USstate"
@@ -28,14 +36,14 @@
       &lt;/tagsinput>
 
       &lt;h4>Typeahead with asynchronous results&lt;/h4>
-        &lt;tagsinput
+      &lt;tagsinput
           placeholder="Address, async via maps.googleapis.com"
+          :quote="true"
           async-key="results"
           async="https://maps.googleapis.com/maps/api/geocode/json?address="
           :template="asyncTemplate"
           :on-hit="googleCallback">
       &lt;/tagsinput>
-
     </doc-code>
     <doc-code language="javascript">
       new Vue {
@@ -44,11 +52,14 @@
         },
         data() {
           return {
+            // example #1
             USstate: ['Alabama', 'Alaska', 'Arizona',...],
+            // example #2
             asyncTemplate: '{{'{{'}}item.formatted_address}}'
           }
         },
         methods: {
+          // example #2
           googleCallback(items) {
             return items.formatted_address
           }
@@ -75,22 +86,28 @@
         <p></p>
       </div>
       <div>
-        <p>data</p>
-        <p><code>Array</code></p>
-        <p></p>
-        <p>The local data source for suggestions. Expected to be a primitive array.</p>
+        <p>separator</p>
+        <p><code>String</code></p>
+        <p><code>,</code></p>
+        <p>The tag-separator character.</p>
       </div>
       <div>
         <p>quote</p>
         <p><code>Boolean</code></p>
         <p><code>false</code></p>
-        <p>Puts the value to submit in comma separated single quotes.</p>
+        <p>Puts the value to submit in comma separated double quotes.</p>
       </div>
       <div>
         <p>delay</p>
         <p><code>Number</code></p>
         <p><code>300</code></p>
         <p>The throttling-value in milliseconds.</p>
+      </div>
+      <div>
+        <p>data</p>
+        <p><code>Array</code></p>
+        <p></p>
+        <p>The local data source for suggestions. Expected to be a primitive array.</p>
       </div>
       <div>
         <p>async</p>
