@@ -1,4 +1,4 @@
-<template><li v-el:v v-if="loading"><slot></slot></li></template>
+<template><li ref="v" v-if="loading"><slot></slot></li></template>
 <script>
 export default {
   props: {value: null},

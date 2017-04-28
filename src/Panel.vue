@@ -6,7 +6,7 @@
       </slot>
     </div>
     <div class="panel-collapse"
-      v-el:panel
+      ref="panel"
       v-show="isOpen"
       transition="collapse"
     >

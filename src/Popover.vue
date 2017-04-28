@@ -1,7 +1,7 @@
 <template>
-  <span v-el:trigger>
+  <span ref="trigger">
     <slot></slot>
-    <div v-el:popover v-if="show"
+    <div ref="popover" v-if="show"
       :class="['popover',placement]"
       :transition="effect"
     >

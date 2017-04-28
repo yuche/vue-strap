@@ -1,7 +1,7 @@
 <template>
   <label :class="[isButton?'btn btn-'+typeColor:'open checkbox '+typeColor,{active:checked,disabled:disabled,readonly:readonly}]" @click.prevent="toggle">
     <input type="checkbox" autocomplete="off"
-      v-el:input
+      ref="input"
       :checked="active"
       :value="value"
       :name="name"

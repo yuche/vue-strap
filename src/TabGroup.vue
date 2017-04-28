@@ -1,4 +1,8 @@
-<template><slot></slot></template>
+<template>
+    <div>
+        <slot></slot>
+    </div>
+</template>
 
 <script>
 import {coerce} from './utils/utils.js'

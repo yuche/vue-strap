@@ -13,7 +13,7 @@
       @keydown.esc="reset"
       @blur="showDropdown = false"
     />
-    <ul class="dropdown-menu" v-el:dropdown>
+    <ul class="dropdown-menu" ref="dropdown">
       <li v-for="item in items" v-bind:class="{'active': isActive($index)}">
         <a @mousedown.prevent="hit" @mousemove="setActive($index)">
           <partial :name="templateName"></partial>
