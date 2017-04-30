@@ -1,7 +1,7 @@
 <template>
   <label :class="[isButton?'btn btn-'+typeColor:'open checkbox '+typeColor,{active:checked,disabled:disabled,readonly:readonly}]" @click.prevent="toggle">
     <input type="checkbox" autocomplete="off"
-      v-el:input
+      ref="input"
       :checked="active"
       :value="value"
       :name="name"
@@ -79,7 +79,7 @@ export default {
       if (!(parent.value instanceof Array)) { parent.value = [] }
     }
   },
-  ready () {
+  mounted () {
     if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') { return }
     if (this.$parent.value.length) {
       this.checked = ~this.$parent.value.indexOf(this.value)

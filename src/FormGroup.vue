@@ -1,5 +1,7 @@
 <template>
-  <slot></slot>
+  <div>
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -78,7 +80,7 @@ export default {
       this._parent = parent
     }
   },
-  ready () {
+  mounted () {
     this.validate()
   },
   beforeDestroy () {

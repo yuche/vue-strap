@@ -95,7 +95,7 @@ import $ from './utils/NodeList.js'
         }
       }
     },
-    ready () {
+    mounted () {
       this.toggleInterval(true)
       $(this.$el).on('mouseenter', () => this.toggleInterval(false)).on('mouseleave', () => this.toggleInterval(true))
     },
