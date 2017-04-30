@@ -80,7 +80,7 @@ export default {
       this._parent = parent
     }
   },
-  ready () {
+  mounted () {
     this.validate()
   },
   beforeDestroy () {

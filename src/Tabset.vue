@@ -1,17 +1,17 @@
 <template>
     <div>
-        <!-- Nav tabs -->
-        <ul class="nav" :class="'nav-'+navStyle" role="tablist">
-            <template v-for="t in headers">
-                <li v-if="!t._tabgroup" :class="{active:t.active, disabled:t.disabled}" @click.prevent="select(t)">
-                    <a href="#">
-                        <slot name="header" v-html="t.header"></slot>
-                    </a>
-                </li>
-                <dropdown v-else :text="t.header" :class="{active:t.active}" :disabled="t.disabled">
-                    <li v-for="tab in t.tabs" :class="{disabled:tab.disabled}"><a href="#" @click.prevent="select(tab)">{{tab.header}}</a>
+        <ul class="nav" :class="[{'nav-justified':isJustified}, navigationStyle]" role="tablist">
+            <template v-for="tabHeader in headers">
+                <dropdown v-if="tabHeader._tabgroup" :text="tabHeader.header" :class="{active:tabHeader.active}" :disabled="tabHeader.disabled">
+                    <li v-for="tab in tabHeader.tabs" :class="{disabled:tab.disabled}">
+                        <a href="#" @click.prevent="select(tab)">{{tab.header}}</a>
                     </li>
                 </dropdown>
+                <li v-else  :class="{active:tabHeader.active, disabled:tabHeader.disabled}" @click.prevent="select(tabHeader)">
+                    <a href="#">
+                        <slot name="header">{{tabHeader.header}}</slot>
+                    </a>
+                </li>
             </template>
         </ul>
         <div class="tab-content" ref="tab-content">
@@ -25,6 +25,15 @@
     import dropdown from './Dropdown.vue'
 
     export default {
+        data () {
+            return {
+                show: null,
+                headers: [],
+                tabs: [],
+                navigationStyle: 'nav-'+this.navStyle,
+                activeTab: 0
+            }
+        },
         components: {
             dropdown
         },
@@ -42,30 +51,27 @@
                 type: Number,
                 coerce: coerce.number,
                 default: 0
-            }
-        },
-        data () {
-            return {
-                show: null,
-                headers: [],
-                tabs: []
+            },
+            isJustified: {
+                type: Boolean,
+                default: false
             }
         },
         created () {
             this._tabset = true
         },
         watch: {
-            active (val) {
+            activeTab (val) {
                 this.show = this.tabs[val]
             }
         },
-        ready () {
+        mounted () {
             this.show = this.tabs[this.active]
         },
         methods: {
             select (tab) {
                 if (!tab.disabled) {
-                    this.active = tab.index
+                    this.activeTab = tab.index
                 }
             }
         }

@@ -211,9 +211,9 @@
                 return !this.disabled && !this.readonly && (this.required || this.pattern || this.nativeValidate || this.match !== null)
             },
             errorText () {
-                let value = this.value
-                let error = [this.error]
-                if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')')
+                let value = this.value;
+                let error = [this.error];
+                if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')');
                 if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')
                 return error.join(' ')
             },
@@ -255,11 +255,11 @@
             value (val, old) {
                 if (val !== old) {
                     if (this.mask instanceof Function) {
-                        val = this.mask(val || '')
+                        val = this.mask(val || '');
                         if (this.value !== val) {
-                            if (this._timeout.mask) clearTimeout(this._timeout.mask)
+                            if (this._timeout.mask) clearTimeout(this._timeout.mask);
                             this._timeout.mask = setTimeout(() => {
-                                this.value = val
+                                this.value = val;
                                 this.$els.input.value = val
                             }, this.maskDelay)
                         }
@@ -276,12 +276,12 @@
                 this.input.focus()
             },
             eval () {
-                if (this._timeout.eval) clearTimeout(this._timeout.eval)
+                if (this._timeout.eval) clearTimeout(this._timeout.eval);
                 if (!this.canValidate) {
                     this.valid = true
                 } else {
                     this._timeout.eval = setTimeout(() => {
-                        this.valid = this.validate()
+                        this.valid = this.validate();
                         this._timeout.eval = null
                     }, this.validationDelay)
                 }
@@ -312,7 +312,7 @@
                 if (!this.canValidate) {
                     return true
                 }
-                let value = (this.value || '').trim()
+                let value = (this.value || '').trim();
                 if (!value) {
                     return !this.required
                 }
@@ -332,9 +332,9 @@
             }
         },
         created () {
-            this._input = true
-            this._timeout = {}
-            let parent = this.$parent
+            this._input = true;
+            this._timeout = {};
+            let parent = this.$parent;
             while (parent && !parent._formGroup) {
                 parent = parent.$parent
             }
@@ -342,8 +342,8 @@
                 this._parent = parent
             }
         },
-        ready () {
-            this._parent && this._parent.children.push(this)
+        mounted () {
+            this._parent && this._parent.children.push(this);
             $(this.input).on('focus', e => this.$emit('focus', e)).on('blur', e => {
                 if (this.canValidate) {
                     this.valid = this.validate()
@@ -352,7 +352,7 @@
             })
         },
         beforeDestroy () {
-            this._parent && this._parent.children.$remove(this)
+            this._parent && this._parent.children.$remove(this);
             $(this.input).off()
         }
     }

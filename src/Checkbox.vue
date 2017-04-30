@@ -79,7 +79,7 @@ export default {
       if (!(parent.value instanceof Array)) { parent.value = [] }
     }
   },
-  ready () {
+  mounted () {
     if (!this.$parent._checkboxGroup || typeof this.value === 'boolean') { return }
     if (this.$parent.value.length) {
       this.checked = ~this.$parent.value.indexOf(this.value)

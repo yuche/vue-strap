@@ -93,7 +93,7 @@
                 }
             }
         },
-        ready () {
+        mounted () {
             const $el = $(this.$els.dropdown)
             $el.onBlur((e) => {
                 this.show = false

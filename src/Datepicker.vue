@@ -101,7 +101,7 @@ export default {
       type: String
     }
   },
-  ready () {
+  mounted () {
     this._blur = (e) => {
       if (this.$el !== null && !this.$el.contains(e.target)) this.close()
     }

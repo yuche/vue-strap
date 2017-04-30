@@ -80,18 +80,18 @@
             }
         },
         created () {
-            const parent = this.$parent
-            if (!parent) return
+            const parent = this.$parent;
+            if (!parent) return;
             if (parent._btnGroup && !parent._checkboxGroup) {
                 parent._radioGroup = true
             }
         },
-        ready () {
-            if (!this.$parent._radioGroup) return
+        mounted () {
+            if (!this.$parent._radioGroup) return;
             if (this.$parent.value) {
                 this.checked = (this.$parent.value === this.value)
             } else if (this.checked) {
-                this.$parent.value = this.value
+                this.$parent.value = this.value;
             }
         },
         methods: {
@@ -102,11 +102,11 @@
                 if (this.disabled) {
                     return
                 }
-                this.focus()
+                this.focus();
                 if (this.readonly) {
                     return
                 }
-                this.checked = this.value
+                this.checked = this.value;
                 if (this.group) {
                     this.$parent.value = this.value
                 }

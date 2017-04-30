@@ -57,7 +57,7 @@ export default {
       if (this.affixed !== fix) { this.affixed = fix }
     }
   },
-  ready () {
+  mounted () {
     $(window).on('scroll resize', () => this.checkScroll())
     setTimeout(() => this.checkScroll(), 0)
   },

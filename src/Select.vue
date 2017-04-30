@@ -45,7 +45,7 @@
     import {getJSON, coerce, translations} from './utils/utils.js'
     import $ from './utils/NodeList.js'
 
-    var timeout = {}
+    var timeout = {};
     export default {
         props: {
             value: {
@@ -148,13 +148,13 @@
                 if (this.options.length === 0) {
                     return ''
                 }
-                let foundItems = []
+                let foundItems = [];
                 this.values.forEach(item => {
                     if (~['number', 'string'].indexOf(typeof item)) {
-                        let option = null
+                        let option = null;
                         if (this.options.some(o => {
                                     if (o instanceof Object ? o[this.optionsValue] === item : o === item) {
-                                        option = o
+                                        option = o;
                                         return true
                                     }
                                 })) {
@@ -203,14 +203,14 @@
         },
         watch: {
             options (options) {
-                let changed = false
+                let changed = false;
                 if (options instanceof Array && options.length) {
                     options.map(el => {
                         if (!(el instanceof Object)) {
-                            let obj = {}
-                            obj[this.optionsLabel] = el
-                            obj[this.optionsValue] = el
-                            changed = true
+                            let obj = {};
+                            obj[this.optionsLabel] = el;
+                            obj[this.optionsValue] = el;
+                            changed = true;
                             return obj
                         }
                         return el
@@ -222,7 +222,7 @@
             },
             show (val) {
                 if (val) {
-                    this.$els.sel.focus()
+                    this.$els.sel.focus();
                     this.$els.search && this.$els.search.focus()
                 }
             },
@@ -230,17 +230,17 @@
                 this.update()
             },
             value (val) {
-                this.$emit('change', val)
-                this.$emit('selected', this.selected)
+                this.$emit('change', val);
+                this.$emit('selected', this.selected);
                 if (this.value instanceof Array && val.length > this.limit) {
-                    this.showNotify = true
-                    if (timeout.limit) clearTimeout(timeout.limit)
+                    this.showNotify = true;
+                    if (timeout.limit) clearTimeout(timeout.limit);
                     timeout.limit = setTimeout(() => {
-                        timeout.limit = false
+                        timeout.limit = false;
                         this.showNotify = false
                     }, 1500)
                 }
-                this.checkValue()
+                this.checkValue();
                 this.valid = this.validate()
             },
             valid (val, old) {
@@ -258,12 +258,12 @@
                 if (this.disabled || this.readonly) {
                     return
                 }
-                this.value = this.value instanceof Array ? [] : null
+                this.value = this.value instanceof Array ? [] : null;
                 this.toggle()
             },
             clearSearch () {
-                this.searchValue = ''
-                this.$els.search.focus()
+                this.searchValue = '';
+                this.$els.search.focus();
             },
             checkValue () {
                 if (this.multiple && !(this.value instanceof Array)) {
@@ -283,7 +283,7 @@
                 return this.values.indexOf(v) > -1
             },
             select (v, alt) {
-                this.$els.search.blur()
+                this.$els.search.blur();
                 if (this.value instanceof Array) {
                     if (~this.value.indexOf(v)) {
                         this.value.$remove(v)
@@ -294,7 +294,7 @@
                         this.toggle()
                     }
                 } else {
-                    var tmp = this.value
+                    var tmp = this.value;
                     this.value = !~['', null, undefined].indexOf(v) ? v : alt
                     if (this.value === tmp) {
                         this.value = null
@@ -306,19 +306,19 @@
                 this.show = !this.show
             },
             update () {
-                if (!this.url) return
-                this.loading = true
+                if (!this.url) return;
+                this.loading = true;
                 getJSON(this.url).then(data => {
-                    let options = []
+                    let options = [];
                     data.forEach(opc => {
                         if (opc[this.optionsValue] !== undefined && opc[this.optionsLabel] !== undefined) options.push(opc)
-                    })
-                    this.options = options
+                    });
+                    this.options = options;
                     if (!options.length) {
                         this.value = this.value instanceof Array ? [] : null
                     }
                 }).always(() => {
-                    this.loading = false
+                    this.loading = false;
                     this.checkValue()
                 })
             },
@@ -327,31 +327,31 @@
             }
         },
         created () {
-            this._select = true
+            this._select = true;
             if (this.value === undefined || !this.parent) {
                 this.value = null
             }
             if (!this.multiple && this.value instanceof Array) {
                 this.value = this.value.shift()
             }
-            this.checkValue()
-            if (this.url) this.update()
-            let parent = this.$parent
+            this.checkValue();
+            if (this.url) this.update();
+            let parent = this.$parent;
             while (parent && !parent._formGroup) {
                 parent = parent.$parent
             }
             if (parent && parent._formGroup) {
-                parent.children.push(this)
+                parent.children.push(this);
                 this._parent = parent
             }
         },
-        ready () {
+        mounted () {
             $(this.$els.select).onBlur(e => {
                 this.show = false
             })
         },
         beforeDestroy () {
-            if (this._parent) this._parent.children.$remove(this)
+            if (this._parent) this._parent.children.$remove(this);
             $(this.$els.select).offBlur()
         }
     }

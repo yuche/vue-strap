@@ -17,15 +17,14 @@ export default {
       return this.$parent.index === this.index
     }
   },
-  ready() {
+  mounted () {
     for (var c in this.$parent.$children) {
       if (this.$parent.$children[c] === this) {
           this.index = parseInt(c,10);
           break;
       }
     }
-    //this.index = [...this.$el.parentNode.children].indexOf(this.$el)
-    this.$parent.indicator.push(this.index)
+    this.$parent.indicator.push(this.index);
     if (this.index === 0) {
       this.$el.classList.add('active')
     }
