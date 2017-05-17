@@ -1,12 +1,13 @@
 <template>
   <div style="position: relative" :class="{open:showDropdown}">
     <input class="form-control" autocomplete="off"
+      ref="tinput"
       v-model="val"
       :placeholder="placeholder"
       :type.once="type"
       :id.once="id"
       :name.once="name"
-      @blur="showDropdown = false"
+      @blur="out"
       @keydown.down.prevent="down"
       @keydown.enter="hit"
       @keydown.esc="reset"
@@ -66,7 +67,7 @@ export default {
   },
   watch: {
     val (val, old) {
-      this.$emit('input', val)
+      //this.$emit('input', val)
       if (val !== old && val !== this.asign) this.__update()
     },
     value (val) {
@@ -109,6 +110,13 @@ export default {
     down () {
       if (this.current < this.items.length - 1) { this.current++ }
       else { this.current = 0 }
+    },
+    focus() {
+      this.$refs.tinput.focus();
+    },
+    out() {
+      console.log('out')
+      this.showDropdown = false
     }
   },
   created () {
