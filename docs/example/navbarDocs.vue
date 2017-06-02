@@ -56,6 +56,12 @@
         <p><code>default</code></p>
         <p></p>
       </div>
+      <div>
+        <p>fluid</p>
+        <p><code>Boolean</code></p>
+        <p><code>default</code></p>
+        <p>If true, use <code>container-fluid</code> class. Otherwise, <code>container</code> will be used</p>
+      </div>
     </doc-table>
   </doc-section>
 </template>
@@ -83,6 +89,7 @@ export default {
     return {
       placement : 'top',
       type : 'default',
+      fluid : false,
       sections: []
     }
   },

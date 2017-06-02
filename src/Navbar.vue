@@ -6,7 +6,7 @@
     'navbar-fixed-bottom':(placement === 'bottom'),
     'navbar-static-top':(placement === 'static')
   }]">
-    <div class="container-fluid">
+    <div v-bind:class="fluid ? 'container-fluid' : 'container'">
       <div class="navbar-header">
         <button v-if="!slots.collapse" type="button" class="navbar-toggle collapsed"  aria-expanded="false" @click="toggleCollapse">
           <span class="sr-only">Toggle navigation</span>
@@ -41,6 +41,10 @@ export default {
     placement: {
       type: String,
       default: ''
+    },
+    fluid: {
+        type: Boolean,
+        default: false
     }
   },
   data () {
