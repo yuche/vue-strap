@@ -38,7 +38,7 @@ export default {
       return this.size ? 'spinner-' + this.size : 'spinner-sm'
     }
   },
-  ready () {
+  created() {
     this._body = document.querySelector('body')
     this._bodyOverflow = this._body.style.overflowY || ''
   },
@@ -64,14 +64,12 @@ export default {
       // activate spinner
       this._started = new Date()
       this.active = true
-      this.$root.$broadcast('shown::spinner')
     },
     hide () {
       const delay = 0
       this._spinnerAnimation = setTimeout(() => {
         this.active = false
         this._body.style.overflowY = this._bodyOverflow
-        this.$root.$broadcast('hidden::spinner')
       }, this.getMinWait(delay))
     }
   },
