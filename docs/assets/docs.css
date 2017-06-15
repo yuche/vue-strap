@@ -909,8 +909,8 @@ h1[id] {
   }
 }
 
-/* Undo width of container */
-.bs-example .container {
+/* Undo width of container except for navbar example */
+.bs-example :not(.navbar) .container {
   width: auto;
 }
 
