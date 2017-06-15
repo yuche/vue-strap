@@ -1,6 +1,6 @@
 <template>
   <nav :class="['navbar', 'navbar-'+type, placement === 'static'?'navbar-static-top':'navbar-fixed-'+placement]">
-    <div class="container-fluid">
+    <div :class="'container'+(container === 'fluid' ? '-fluid' : '')">
       <div class="navbar-header">
         <button v-if="!$slots.collapse" type="button" class="navbar-toggle collapsed" aria-expanded="false" @click="toggleCollapse">
           <span class="sr-only">Toggle navigation</span>
@@ -32,7 +32,8 @@ import $ from './utils/NodeList.js'
 export default {
   props: {
     type: {type: String, default: 'default'},
-    placement: {type: String, default: ''}
+    placement: {type: String, default: ''},
+    container: {type: String, default: 'fluid'},
   },
   data () {
     return {
