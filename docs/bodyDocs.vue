@@ -29,6 +29,7 @@
             <input-docs></input-docs>
             <modal-docs></modal-docs>
             <navbar-docs></navbar-docs>
+            <panel-docs></panel-docs>
             <popover-docs></popover-docs>
             <progressbar-docs></progressbar-docs>
             <radio-docs></radio-docs>
@@ -81,6 +82,7 @@ import gettingStarted from './example/gettingStarted.vue'
 import inputDocs from './example/inputDocs.vue'
 import modalDocs from './example/modalDocs.vue'
 import navbarDocs from './example/navbarDocs.vue'
+import panelDocs from './example/panelDocs.vue'
 import popoverDocs from './example/popoverDocs.vue'
 import progressbarDocs from './example/progressbarDocs.vue'
 import radioDocs from './example/radioDocs.vue'
@@ -109,6 +111,7 @@ export default {
     inputDocs,
     modalDocs,
     navbarDocs,
+    panelDocs,
     popoverDocs,
     progressbarDocs,
     radioDocs,
