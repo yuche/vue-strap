@@ -83,9 +83,21 @@ window.VueStrapLang = (function(){
             notSelected: 'Nichts ausgewählt',
             required: 'Benötigt',
             search: 'Suche'
+        },
+
+        it: {
+            daysOfWeek: ['Do', 'Lu', 'Ma', 'Me', 'Gi', 'Ve', 'Sa'],
+            limit: 'Limite raggiunto (max {{limit}}).',
+            loading: 'Caricamento...',
+            minLength: 'Lunghezza min.',
+            months: [
+                'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
+                'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'
+            ],
+            notSelected: 'Nessuna selezione',
+            required: 'Richiesto',
+            search: 'Cerca'
         }
-
-
     };
 
     /**
@@ -97,7 +109,8 @@ window.VueStrapLang = (function(){
         es: /^es-[A-Z]{2}$/i,
         en: /^en-[A-Z]{2}$/i,
         de: /^de-[A-Z]{2}$/i,
-        ru: /^ru-[A-Z]{2}$/i
+        ru: /^ru-[A-Z]{2}$/i,
+        it: /^it-[A-Z]{2}$/i,
     };
 
     return function (lang) {
