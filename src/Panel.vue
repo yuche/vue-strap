@@ -42,6 +42,13 @@ export default {
   methods: {
     toggle () {
       this.open = !this.open
+      
+      if (this.open) {
+          this.$emit('PanelOpened', this);
+      } else {
+          this.$emit('PanelClosed', this);
+      }
+
       if (this.inAccordion) {
         this.$parent.openChild(this)
       }
