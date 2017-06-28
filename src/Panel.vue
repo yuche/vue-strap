@@ -13,6 +13,7 @@
         <div class="panel-body">
           <slot></slot>
         </div>
+        <slot name="footer"></slot>
       </div>
     </transition>
   </div>
