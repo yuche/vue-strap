@@ -72,10 +72,13 @@ export default {
   methods: {
     eval () {
       if (this._inGroup) {
-        var value = this.checked ? this.isTrue : this.isFalse
-        var index = this.$parent.val.indexOf(value)
-        if (this.checked && !~index) this.$parent.val.push(value)
-        if (!this.checked && ~index) this.$parent.val.splice(index, 1)
+        var index = this.$parent.val.indexOf(this.trueValue)
+        if (this.checked && index === -1) {
+          this.$parent.val.push(this.trueValue)
+        }
+        if (!this.checked && index !== -1) {
+          this.$parent.val.splice(index, 1)
+        }
       }
     },
     toggle () {
