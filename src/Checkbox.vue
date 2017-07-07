@@ -73,10 +73,10 @@ export default {
     eval () {
       if (this._inGroup) {
         var index = this.$parent.val.indexOf(this.trueValue)
-        if (this.checked && index === -1) {
+        if (this.checked && !~index) {
           this.$parent.val.push(this.trueValue)
         }
-        if (!this.checked && index !== -1) {
+        if (!this.checked && ~index) {
           this.$parent.val.splice(index, 1)
         }
       }
