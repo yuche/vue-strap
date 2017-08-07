@@ -19,7 +19,7 @@
             <span v-for="w in text.daysOfWeek">{{w}}</span>
           </div>
           <div class="datepicker-dateRange">
-            <span v-for="d in dateRange" :class="d.sclass" @click="daySelect(d.date,this)">{{d.text}}</span>
+            <span v-for="d in dateRange" :class="d.sclass" @click="daySelect(d.date,$event)">{{d.text}}</span>
           </div>
         </div>
       </div>
@@ -184,8 +184,8 @@ export default {
       this.displayMonthView = true
       this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())
     },
-    daySelect (date, el) {
-      if (el.$el.classList[0] === 'datepicker-item-disable') {
+    daySelect (date, event) {
+      if (event.target.classList[0] === 'datepicker-item-disable') {
         return false
       } else {
         this.currDate = date
