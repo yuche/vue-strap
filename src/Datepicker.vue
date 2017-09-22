@@ -5,7 +5,7 @@
       :class="{'with-reset-button': clearButton}"
       :placeholder="placeholder"
       :style="{width:width}"
-      @click="inputClick"
+      @focus="inputClick"
     />
     <button v-if="clearButton&&val" type="button" class="close" @click="val = ''">
       <span>&times;</span>
