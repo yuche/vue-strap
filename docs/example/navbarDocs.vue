@@ -1,7 +1,7 @@
 <template>
   <doc-section id="navbar" name="Navbar">
     <div class="bs-example">
-      <navbar :placement="placement" :type="type">
+      <navbar :placement="placement" :type="type" :container="container">
         <a href="/" title="Home" slot="brand" class="navbar-brand">VueStrap</a>
         <dropdown text="Component List" type="primary">
           <li v-for="s in sections"><a :href="'#'+s.id" v-text="s.name"></a></li>
@@ -21,9 +21,13 @@
         <label>Type</label>
         <v-select v-model="type" :options="['default','inverse']"></v-select>
       </div>
+      <div class="form-group">
+        <label>Container</label>
+        <v-select v-model="container" clear-button :options="['fixed','fluid']"></v-select>
+      </div>
     </div>
     <doc-code language="markup">
-      &lt;navbar placement="top" type="default">
+      &lt;navbar placement="top" type="default" container="fluid">
         &lt;!-- Brand as slot -->
         &lt;a slot="brand" href="/" title="Home" class="navbar-brand">VueStrap&lt;/a>
         &lt;!-- You can use dropdown component -->
@@ -56,6 +60,12 @@
         <p><code>default</code></p>
         <p></p>
       </div>
+      <div>
+        <p>container</p>
+        <p><code>String</code>, one of <code>fixed</code>, <code>fluid</code>.</p>
+        <p><code>fluid</code></p>
+        <p></p>
+      </div>
     </doc-table>
   </doc-section>
 </template>
@@ -82,7 +92,8 @@ export default {
   data () {
     return {
       placement : 'top',
-      type : 'default'
+      type : 'default',
+      container : 'fluid',
     }
   },
   computed: {
