@@ -21,8 +21,9 @@ export default {
     openChild (child) {
       if (this.oneAtAtime) {
         this.$children.forEach(item => {
-          if (child !== item) {
-            item.open = false
+          if (child !== item && item.open) {
+            item.open = false;
+            this.$emit('panel-closed', this);
           }
         })
       }

@@ -13,6 +13,7 @@
         <div class="panel-body">
           <slot></slot>
         </div>
+        <slot name="footer"></slot>
       </div>
     </transition>
   </div>
@@ -42,7 +43,14 @@ export default {
   methods: {
     toggle () {
       this.open = !this.open
+
       if (this.inAccordion) {
+        if (this.open) {
+          this.$parent.$emit('panel-opened', this);
+        } else {
+          this.$parent.$emit('panel-closed', this);
+        }
+
         this.$parent.openChild(this)
       }
     },
