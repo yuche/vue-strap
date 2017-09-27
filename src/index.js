@@ -33,6 +33,7 @@ import tabs from './Tabs.vue'
 import toggleButton from './ToggleButton.vue'
 import tooltip from './Tooltip.vue'
 import typeahead from './Typeahead.vue'
+import tagsinput from './Tagsinput.vue'
 
 const VueStrap = {
   directives: {
@@ -71,7 +72,8 @@ const VueStrap = {
   tabs,
   toggleButton,
   tooltip,
-  typeahead
+  typeahead,
+  tagsinput
 }
 
 module.exports = VueStrap

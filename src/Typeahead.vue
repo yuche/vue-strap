@@ -1,10 +1,13 @@
 <template>
   <div style="position: relative" :class="{open:showDropdown}">
     <input class="form-control" autocomplete="off"
+      ref="tinput"
       v-model="val"
       :placeholder="placeholder"
       :type.once="type"
-      @blur="showDropdown = false"
+      :id.once="id"
+      :name.once="name"
+      @blur="out"
       @keydown.down.prevent="down"
       @keydown.enter="hit"
       @keydown.esc="reset"
@@ -30,9 +33,11 @@ export default {
     data: {type: Array},
     delay: {type: Number, default: DELAY},
     asyncKey: {type: String, default: null},
+    id: {type: String},
     limit: {type: Number, default: 8},
     matchCase: {type: Boolean, default: false},
     matchStart: {type: Boolean, default: false},
+    name: {type: String},
     onHit: {
       type: Function,
       default (item) { return item }
@@ -62,7 +67,7 @@ export default {
   },
   watch: {
     val (val, old) {
-      this.$emit('input', val)
+      //this.$emit('input', val)
       if (val !== old && val !== this.asign) this.__update()
     },
     value (val) {
@@ -105,6 +110,13 @@ export default {
     down () {
       if (this.current < this.items.length - 1) { this.current++ }
       else { this.current = 0 }
+    },
+    focus() {
+      this.$refs.tinput.focus();
+    },
+    out() {
+      console.log('out')
+      this.showDropdown = false
     }
   },
   created () {
@@ -122,7 +134,7 @@ export default {
         this.setItems(this.data)
       }
     }, 'delay', DELAY)
-    this.__update()
+    //this.__update()
   }
 }
 </script>
