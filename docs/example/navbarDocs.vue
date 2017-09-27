@@ -57,6 +57,13 @@
         <p></p>
       </div>
     </doc-table>
+    <doc-table type="Events">
+      <div>
+        <p>collapse</p>
+        <p></p>
+        <p>Return if the menu was collapsed, e.g. on click of menu pick or click outside of menu.</p>
+      </div>
+    </doc-table>
   </doc-section>
 </template>
 
