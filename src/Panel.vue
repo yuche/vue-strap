@@ -1,6 +1,6 @@
 <template>
   <div :class="['panel',panelType]">
-    <div :class="['panel-heading',{'accordion-toggle':inAccordion}]" @click.prevent="inAccordion&&toggle()">
+    <div :class="['panel-heading',{'accordion-toggle':inAccordion}]" @click.prevent="inAccordion&&toggle()" v-if="showHeader">
       <slot name="header"><h4 class="panel-title">{{ header }}</h4></slot>
     </div>
     <transition
@@ -37,6 +37,7 @@ export default {
   },
   computed: {
     inAccordion () { return this.$parent && this.$parent._isAccordion },
+    showHeader () { return this.inAccordion || this.header || this.$slots.header},
     panelType () { return 'panel-' + (this.type || (this.$parent && this.$parent.type) || 'default') }
   },
   methods: {
