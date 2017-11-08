@@ -5170,7 +5170,7 @@
 	      if (!(this.show = !this.show)) {
 	        return;
 	      }
-	      setTimeout(function () {
+	      Vue.nextTick(function () {
 	        var popover = _this.$els.popover;
 	        var trigger = _this.$els.trigger.children[0];
 	        switch (_this.placement) {
