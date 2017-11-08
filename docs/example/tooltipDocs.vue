@@ -27,7 +27,7 @@
       <div>
         <p>trigger</p>
         <p><code>String</code>, one of <code>click</code> <code>focus</code> <code>hover</code> <code>contextmenu</code></p>
-        <p><code>click</code></p>
+        <p><code>hover</code></p>
         <p>How the tooltip is triggered.</p>
       </div>
       <div>
