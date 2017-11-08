@@ -39,7 +39,7 @@ export default {
     toggle (e) {
       if (e && this.trigger === 'contextmenu') e.preventDefault()
       if (!(this.show = !this.show)) { return }
-      setTimeout(() => {
+      Vue.nextTick(() => {
         const popover = this.$els.popover
         const trigger = this.$els.trigger.children[0]
         switch (this.placement) {
