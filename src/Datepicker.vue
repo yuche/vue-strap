@@ -1,7 +1,7 @@
 <template>
   <div class="vue-datepicker">
     <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text" :placeholder="placeholder"
-        :style="{width:width}"
+        :style="{width:width,height:height}"
         @click="inputClick"
         v-model="value"/>
     <button v-if="clearButton && value" type="button" class="close" @click="value = ''">
@@ -88,6 +88,9 @@ export default {
     width: {
       type: String,
       default: '200px'
+    },
+    height: {
+      type: String
     },
     clearButton: {
       type: Boolean,
