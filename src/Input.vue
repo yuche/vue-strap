@@ -19,6 +19,7 @@
         :title="attr(title)"
         :type="type=='textarea'?null:type"
         v-model="val"
+        :value="value"
         @blur="emit" @focus="emit" @input="emit"
         @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
       ></textarea>
@@ -47,6 +48,7 @@
         :title="attr(title)"
         :type="type=='textarea'?null:type"
         v-model="val"
+        :value="value"
         @blur="emit" @focus="emit" @input="emit"
         @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
       ></textarea>
