@@ -71,6 +71,20 @@ de: {
   search: 'Suche'
 },
 
+pl: {
+    daysOfWeek: ['Nd', 'Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So'],
+    limit: 'Limit osiągnięty (maks. {{limit}}).',
+    loading: 'Ładuję…',
+    minLength: 'Min. długość',
+    months: [
+        'Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec',
+        'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'
+    ],
+    notSelected: 'Nie wybrano',
+    required: 'Wymagane',
+    search: 'Szukaj'
+},
+
 ru: {
   daysOfWeek: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
   limit: 'Достигнут максимальный лимит ({{limit}}).',
@@ -97,6 +111,7 @@ var aliases = {
   en: /^en-[A-Z]{2}$/i,
   de: /^de-[A-Z]{2}$/i,
   ru: /^ru-[A-Z]{2}$/i,
+  pl: /^pl-[A-Z]{2}$/i,
 };
 
 return function (lang) {
