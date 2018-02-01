@@ -77,7 +77,7 @@ export default {
       searchValue: null,
       show: false,
       notify: false,
-      val: null,
+      val,
       valid: null
     }
   },
