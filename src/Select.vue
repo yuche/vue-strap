@@ -10,7 +10,7 @@
       <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selected"></span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
     </div>
-    <select ref="sel" v-model="val" :name="name" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
+    <select ref="sel" :value="value" v-model="val" :name="name" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
       <option v-if="required" value=""></option>
       <option v-for="option in list" :value="option[optionsValue]">{{ option[optionsLabel] }}</option>
     </select>
@@ -18,6 +18,7 @@
       <template v-if="list.length">
         <li v-if="canSearch" class="bs-searchbox">
           <input type="text" :placeholder="searchText||text.search" class="form-control" autocomplete="off" ref="search"
+                 :vakue="value"
             v-model="searchValue"
             @keyup.esc="close"
           />
