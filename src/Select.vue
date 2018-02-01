@@ -18,7 +18,7 @@
       <template v-if="list.length">
         <li v-if="canSearch" class="bs-searchbox">
           <input type="text" :placeholder="searchText||text.search" class="form-control" autocomplete="off" ref="search"
-                 :vakue="value"
+                 :value="value"
             v-model="searchValue"
             @keyup.esc="close"
           />
@@ -68,9 +68,10 @@ export default {
     search: {type: Boolean, default: false},
     searchText: {type: String, default: null},
     url: {type: String, default: null},
-    value: null
+    value: {default: null}
   },
   data () {
+      var val = this.value
     return {
       list: [],
       loading: null,
