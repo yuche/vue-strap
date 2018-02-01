@@ -67,16 +67,17 @@ export default {
     search: {type: Boolean, default: false},
     searchText: {type: String, default: null},
     url: {type: String, default: null},
-    value: null
+    value: {default: null}
   },
   data () {
+      var val = this.value
     return {
       list: [],
       loading: null,
       searchValue: null,
       show: false,
       notify: false,
-      val: null,
+      val,
       valid: null
     }
   },
