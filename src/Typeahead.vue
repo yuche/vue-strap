@@ -59,7 +59,7 @@ export default {
       type: String,
       default: 'default'
     },
-    key: {
+    keyStrap: {
       type: String,
       default: null
     },
@@ -128,7 +128,7 @@ export default {
     },
     query: delayer(function () {
       getJSON(this.async + this.value).then(data => {
-        this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
+        this.items = (this.keyStrap ? data[this.keyStrap] : data).slice(0, this.limit)
         this.showDropdown = this.items.length
       })
     }, 'delay', _DELAY_),
