@@ -1,7 +1,8 @@
 <template>
-  <div
-    v-show="show"
-    v-bind:class="{
+  <transition name="fade">
+    <div
+      v-show="show_"
+      v-bind:class="{
       'alert':		true,
       'alert-success':(type == 'success'),
       'alert-warning':(type == 'warning'),
@@ -9,22 +10,27 @@
       'alert-danger':	(type == 'danger'),
       'top': 			(placement === 'top'),
       'top-right': 	(placement === 'top-right')
-    }"
-    transition="fade"
-    v-bind:style="{width:width}"
-    role="alert">
-    <button v-show="dismissable" type="button" class="close"
-      @click="show = false">
-      <span>&times;</span>
-    </button>
-    <slot></slot>
-  </div>
+      }"
+      v-bind:style="{width:width}"
+      role="alert">
+      <button v-show="dismissable" type="button" class="close"
+        @click="show_ = false">
+        <span>&times;</span>
+      </button>
+      <slot></slot>
+    </div>
+  </transition>
 </template>
 
 <script>
 import {coerce} from './utils/utils.js'
 
 export default {
+  data() {
+    return {
+      show_: this.show
+    }
+  },
   props: {
     type: {
       type: String
@@ -54,22 +60,28 @@ export default {
   },
   watch: {
     show (val) {
+      this.show_ = val
       if (this._timeout) clearTimeout(this._timeout)
       if (val && Boolean(this.duration)) {
-        this._timeout = setTimeout(() => { this.show = false }, this.duration)
+        this._timeout = setTimeout(() => {
+          this.show_ = false
+        }, this.duration)
       }
+    },
+    show_ (val) {
+      this.$emit('update:show', val);
     }
   }
 }
 </script>
 
-<style>
-.fade-transition {
-  transition: opacity .3s ease;
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .3s;
 }
 .fade-enter,
-.fade-leave {
-  height: 0;
+.fade-leave-to {
   opacity: 0;
 }
 .alert.top {
