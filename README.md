@@ -1,3 +1,12 @@
+# deprecated
+
+SORRY, THIS PROJECT IS NO LONGER MAINTAINED.
+
+There are two great alternatives:
+
+* [bootstrap-vue](https://github.com/bootstrap-vue/bootstrap-vue): BootstrapVue provides one of the most comprehensive implementations of Bootstrap 4 components and grid system for Vue.js and with extensive and automated WAI-ARIA accessibility markup.
+* [uiv](https://github.com/wxsms/uiv): Bootstrap 3 components implemented by Vue 2.
+
 # vue-strap
 Bootstrap components built with Vue.js.
 
