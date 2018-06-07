@@ -24,9 +24,16 @@ $ npm install vue-strap
 ```
 
 ### CommonJS
+package.json
+```json
+{
+  "browser": {
+    "vue-strap": "vue-strap/dist/vue-strap.min.js",
+  }
+}
+```
+in your app
 ```js
-var alert = require('vue-strap/src/alert');
-// or
 var alert = require('vue-strap').alert;
 
 new Vue({
