@@ -1,7 +1,7 @@
 <template>
-  <div class="datepicker">
+  <div class="vue-datepicker">
     <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text" :placeholder="placeholder"
-        :style="{width:width}"
+        :style="{width:width,height:height}"
         @click="inputClick"
         v-model="value"/>
     <button v-if="clearButton && value" type="button" class="close" @click="value = ''">
@@ -88,6 +88,9 @@ export default {
     width: {
       type: String,
       default: '200px'
+    },
+    height: {
+      type: String
     },
     clearButton: {
       type: Boolean,
@@ -344,14 +347,14 @@ export default {
 </script>
 
 <style>
-.datepicker{
+.vue-datepicker{
   position: relative;
   display: inline-block;
 }
 input.datepicker-input.with-reset-button {
   padding-right: 25px;
 }
-.datepicker > button.close {
+.vue-datepicker > button.close {
   position: absolute;
   top: 0;
   right: 0;
@@ -363,7 +366,7 @@ input.datepicker-input.with-reset-button {
   line-height: 34px;
   text-align: center;
 }
-.datepicker > button.close:focus {
+.vue-datepicker > button.close:focus {
   opacity: .2;
 }
 .datepicker-popup{
