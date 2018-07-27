@@ -1,5 +1,6 @@
 <template>
   <div class="datepicker">
+    <slot name="label"><label v-if="label" class="control-label">{{label}}</label></slot>
     <input class="form-control datepicker-input" :class="{'with-reset-button': clearButton}" type="text" :placeholder="placeholder"
         :style="{width:width}"
         @click="inputClick"
@@ -99,6 +100,10 @@ export default {
     },
     placeholder: {
       type: String
+    },
+    label: {
+      type: String,
+      default: null
     }
   },
   ready () {
