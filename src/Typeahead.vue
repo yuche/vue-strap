@@ -158,7 +158,9 @@ export default {
   },
   filters: {
     highlight (value, phrase) {
-      return value.replace(new RegExp('(' + phrase + ')', 'gi'), '<strong>$1</strong>')
+      const p = phrase.replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
+
+      return value.replace(new RegExp('(' + p + ')', 'gi'), '<strong>$1</strong>')
     }
   }
 }
