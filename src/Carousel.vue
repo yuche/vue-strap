@@ -1,5 +1,5 @@
 <template>
-<div class="carousel slide" data-ride="carousel">
+<div class="carousel slide" data-ride="carousel" :data-interval="interval">
   <!-- Indicators -->
   <ol class="carousel-indicators" v-show="indicators">
     <li v-for="i in indicator" @click="indicatorClick($index)" v-bind:class="{active:$index === index}"><span></span></li>
