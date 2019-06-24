@@ -10,13 +10,15 @@
 <script>
 import {coerce} from './utils/utils.js'
 
-const MIN_WAIT = 500 // in ms
-
 export default {
   props: {
     size: {
       type: String,
       default: 'md'
+    },
+    minWait: {
+      type: Number,
+      default: 500
     },
     text: {
       type: String,
@@ -45,7 +47,7 @@ export default {
   methods: {
     getMinWait (delay) {
       delay = delay || 0
-      return new Date().getTime() - this._started.getTime() < MIN_WAIT ? MIN_WAIT - parseInt(new Date().getTime() - this._started.getTime(), 10) + delay : 0 + delay
+      return new Date().getTime() - this._started.getTime() < this.minWait ? this.minWait - parseInt(new Date().getTime() - this._started.getTime(), 10) + delay : 0 + delay
     },
     show (options) {
       if (options && options.text) {
