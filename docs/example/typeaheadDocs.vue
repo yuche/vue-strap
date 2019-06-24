@@ -53,15 +53,17 @@
           :on-hit="googleCallback">
       </typeahead>
 
-      <h4>Custom templates for results</h4>
+      <h4>Custom templates for results and delay</h4>
         <typeahead
           placeholder="Github users, async via api.github.com"
           key="items"
           async="https://api.github.com/search/users?q="
           template-name="typeahead-github-template"
+          delay="500"
           :template="githubTemplate"
           :on-hit="githubCallback">
       </typeahead>
+
     </doc-code>
     <doc-code language="javascript">
       new Vue {
